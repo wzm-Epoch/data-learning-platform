@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1.0",
+  "id": "p28-v4-source-7",
+  "title": "原单元20—25保存输出",
+  "kind": "text",
+  "columns": [],
+  "rows": [],
+  "text": "原单元23\n({0: 'high', 1: 'low', 2: 'medium'},\n {0: 'IT',\n  1: 'RandD',\n  2: 'accounting',\n  3: 'hr',\n  4: 'management',\n  5: 'marketing',\n  6: 'product_mng',\n  7: 'sales',\n  8: 'support',\n  9: 'technical'})\n\n原单元25\n   satisfaction_level  last_evaluation  number_project  average_montly_hours  \\\n0                0.38             0.53               2                   157   \n1                0.80             0.86               5                   262   \n2                0.11             0.88               7                   272   \n3                0.72             0.87               5                   223   \n4                0.37             0.52               2                   159   \n\n   time_spend_company  work_accident  left  promotion  department  salary  \n0                   3              0     1          0           7       1  \n1                   6              0     1          0           7       2  \n2                   4              0     1          0           7       2  \n3                   5              0     1          0           7       1  \n4                   3              0     1          0           7       1  ",
+  "context": {
+    "identity": "original-saved",
+    "buildId": "phase4-v1",
+    "createdAt": "2026-11-16T12:58:37.389041+00:00",
+    "inputs": [
+      {
+        "path": "职场-分析员工过早离职原因-约300行（相关性分析、变量分析、plotly可视化）/分析员工过早离职原因.ipynb",
+        "sha256": "9bf9cfcf11d11ed4dae94f8309a2d06aed0000ed3002fff5333d64d2de0e0184"
+      },
+      {
+        "path": "职场-分析员工过早离职原因-约300行（相关性分析、变量分析、plotly可视化）/分析员工过早离职原因.py",
+        "sha256": "3de51cc2b00d540e2634ea337ea0cb6c53f9973a549afcc820a0724de78e431d"
+      },
+      {
+        "path": "职场-分析员工过早离职原因-约300行（相关性分析、变量分析、plotly可视化）/HR_comma_sep.csv",
+        "sha256": "2510e274a90547f34c7b0db5a4ab70282c2710eb54252f14921bf980b81a928c"
+      }
+    ],
+    "note": "逐单元只读提取原文本；原运行时间未知，本次时间仅为提取时间。",
+    "unit": "原字段单位；未核实单位不补填",
+    "sample": null,
+    "modelRerun": false
+  }
+}

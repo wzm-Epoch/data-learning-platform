@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "1.0",
+  "id": "p29-v4-skills-text",
+  "title": "职位描述中预定义技能词的文本频次",
+  "kind": "table",
+  "columns": [
+    "文本词",
+    "不区分大小写子串次数"
+  ],
+  "rows": [
+    [
+      "python",
+      235
+    ],
+    [
+      "sql",
+      306
+    ],
+    [
+      "excel",
+      121
+    ],
+    [
+      "tableau",
+      37
+    ],
+    [
+      "spss",
+      52
+    ],
+    [
+      "hadoop",
+      98
+    ],
+    [
+      "spark",
+      105
+    ],
+    [
+      "r语言",
+      10
+    ]
+  ],
+  "text": null,
+  "context": {
+    "identity": "new-precomputed",
+    "buildId": "phase4-v1",
+    "createdAt": "2026-11-16T12:58:37.389041+00:00",
+    "inputs": [
+      {
+        "path": "职场-数据分析师职位分析-约300行（数据探索分析、matplotlib可视化）/数据分析师岗位分析.ipynb",
+        "sha256": "612486c97729fe72863ed3f52b813320854acf96710711d4c7d1f67f9cd42e1c"
+      },
+      {
+        "path": "职场-数据分析师职位分析-约300行（数据探索分析、matplotlib可视化）/数据分析师岗位分析.py",
+        "sha256": "9dcdd68cdfd7ed8a3edd4d8b8e9af03b23f49f7edf8b9746af20bd1cd0afea01"
+      },
+      {
+        "path": "职场-数据分析师职位分析-约300行（数据探索分析、matplotlib可视化）/lagou.csv",
+        "sha256": "6b1daf9e5c5f2af353fa517917889ec4dd482e1c9623e4c141843ffdfd742fda"
+      }
+    ],
+    "note": "教学词表子串计数，不是Jieba重跑；文本提及SQL不等于本项目代码使用SQL",
+    "unit": "子串次数",
+    "sample": null,
+    "modelRerun": false
+  },
+  "chart": {
+    "type": "bar",
+    "x": 0,
+    "ys": [
+      1
+    ],
+    "question": "职位描述中预定义技能词的文本频次",
+    "xLabel": "文本词",
+    "yLabel": "子串次数",
+    "denominator": "不涉及比率；展示原量或统计量",
+    "range": "当前输入已说明范围的全量聚合",
+    "filters": "教学词表子串计数，不是Jieba重跑；文本提及SQL不等于本项目代码使用SQL",
+    "nullPolicy": "缺失为null，保留0；不连接缺失点",
+    "interpretation": "对照同源表读取差异；关联不能推出因果或样本外结论。"
+  }
+}

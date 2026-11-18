@@ -1,0 +1,44 @@
+{
+  "schemaVersion": "1.0",
+  "id": "p21-b-quality",
+  "title": "原报表输入的质量变化",
+  "kind": "table",
+  "columns": [
+    "阶段",
+    "行数"
+  ],
+  "rows": [
+    [
+      "物理行",
+      3744
+    ],
+    [
+      "七列全空",
+      266
+    ],
+    [
+      "仅剔除全空行后",
+      3478
+    ],
+    [
+      "其余记录仍需独立核查",
+      3478
+    ]
+  ],
+  "text": null,
+  "context": {
+    "identity": "teaching-adaptation",
+    "buildId": "phase3-v1",
+    "createdAt": "2026-11-16T11:41:51.304867+00:00",
+    "inputs": [
+      {
+        "path": "电商-超市销售数据分析与报表-约200行（数据透视分析）/order-14.1.csv",
+        "sha256": "ad338a62062f41470ae982c94e1bf5c8ab1c4c23aba88537f78563d0af8fe3b8"
+      }
+    ],
+    "note": "教学适配仅去除全空行，不更改原文件，不将全空行删除误说成原代码已有处理。",
+    "unit": "行",
+    "sample": null,
+    "modelRerun": false
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "schemaVersion": "1.0",
+  "id": "p11-anomaly",
+  "title": "调查原异常记录",
+  "kind": "table",
+  "columns": [
+    "Unnamed: 0",
+    "area",
+    "hourseType",
+    "hourseSize",
+    "total_price",
+    "unit_price"
+  ],
+  "rows": [
+    [
+      12546,
+      "宝安区",
+      "3室2厅",
+      10871.0,
+      550.0,
+      506.0
+    ]
+  ],
+  "text": null,
+  "context": {
+    "identity": "new-precomputed",
+    "buildId": "phase3-v1",
+    "createdAt": "2026-11-16T11:41:51.304867+00:00",
+    "inputs": [
+      {
+        "path": "房地产-二手房数据分析-约400行（数据探索分析、matplotlib可视化）/shenzhen.csv",
+        "sha256": "607ca9622c8f38317738c7c401e81b88533137862db0cb50455b0a818da85a22"
+      }
+    ],
+    "note": "原行ID12546，面积10871触发原代码>10000规则；不能推定真实面积为108.71。",
+    "unit": "未知 / 原数据单位待核实",
+    "sample": null,
+    "modelRerun": false
+  }
+}

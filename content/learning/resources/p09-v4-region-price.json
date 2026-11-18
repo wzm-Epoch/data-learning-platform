@@ -1,0 +1,84 @@
+{
+  "schemaVersion": "1.0",
+  "id": "p09-v4-region-price",
+  "title": "原地区标签下的挂牌单价均值",
+  "kind": "table",
+  "columns": [
+    "area",
+    "原单价均值"
+  ],
+  "rows": [
+    [
+      "南山区",
+      92239.79366666666
+    ],
+    [
+      "坪山区",
+      35425.41513292433
+    ],
+    [
+      "宝安区",
+      67798.99509403107
+    ],
+    [
+      "盐田区",
+      49925.4607754734
+    ],
+    [
+      "福田区",
+      77030.07433333334
+    ],
+    [
+      "罗湖区",
+      57632.523
+    ],
+    [
+      "龙华区",
+      60516.62975899406
+    ],
+    [
+      "龙岗区",
+      44816.28766666666
+    ]
+  ],
+  "text": null,
+  "context": {
+    "identity": "new-precomputed",
+    "buildId": "phase4-v1",
+    "createdAt": "2026-11-16T12:58:37.389041+00:00",
+    "inputs": [
+      {
+        "path": "房地产-二手房+可视化-约300行（爬虫+pyecharts可视化）/链家房源信息抓取+可视化.ipynb",
+        "sha256": "d3e01d5238a9e6cce1ea838100c7e068bf50acf793ff19463efef283a71bfd29"
+      },
+      {
+        "path": "房地产-二手房+可视化-约300行（爬虫+pyecharts可视化）/链家房源信息抓取+可视化.py",
+        "sha256": "dfcbce69d878829b69b369564f8ada8f8027da3cf4d7d3a3d6c93c77ab0693a2"
+      },
+      {
+        "path": "房地产-二手房+可视化-约300行（爬虫+pyecharts可视化）/shenzhen.csv",
+        "sha256": "fcf600064559278beeedb0b5e70d1de42d60ad64347ad2f485da5b167308bcc7"
+      }
+    ],
+    "note": "当前附带历史CSV；不发网络请求，未核实货币单位时不换算",
+    "unit": "原单价单位",
+    "sample": null,
+    "modelRerun": false
+  },
+  "chart": {
+    "type": "map",
+    "x": 0,
+    "ys": [
+      1
+    ],
+    "question": "原地区标签下的挂牌单价均值",
+    "xLabel": "area",
+    "yLabel": "原单价单位",
+    "denominator": "不涉及比率；展示原量或统计量",
+    "range": "当前输入已说明范围的全量聚合",
+    "filters": "当前附带历史CSV；不发网络请求，未核实货币单位时不换算",
+    "nullPolicy": "缺失为null，保留0；不连接缺失点",
+    "interpretation": "对照同源表读取差异；关联不能推出因果或样本外结论。",
+    "fallback": "bar"
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "schemaVersion": "1.0",
+  "id": "p06-v4-source-11",
+  "title": "原单元27—27保存输出",
+  "kind": "text",
+  "columns": [],
+  "rows": [],
+  "text": "原单元27\n        ID           Name Sex   Age  Height  Weight   Team  NOC        Games  \\\n0        1      A Dijiang   M  24.0   180.0    80.0  China  CHN  1992 Summer   \n1        2       A Lamusi   M  23.0   170.0    60.0  China  CHN  2012 Summer   \n1072   602  Abudoureheman   M  22.0   182.0    75.0  China  CHN  2000 Summer   \n2611  1463      Ai Linuer   M  25.0   160.0    62.0  China  CHN  2004 Summer   \n2612  1464      Ai Yanhan   F  14.0   168.0    54.0  China  CHN  2016 Summer   \n\n      Year  Season            City       Sport  \\\n0     1992  Summer       Barcelona  Basketball   \n1     2012  Summer          London        Judo   \n1072  2000  Summer          Sydney      Boxing   \n2611  2004  Summer          Athina   Wrestling   \n2612  2016  Summer  Rio de Janeiro    Swimming   \n\n                                         Event Medal region notes  \n0                  Basketball Men's Basketball   NaN  China   NaN  \n1                 Judo Men's Extra-Lightweight   NaN  China   NaN  \n1072                 Boxing Men's Middleweight   NaN  China   NaN  \n2611  Wrestling Men's Lightweight, Greco-Roman   NaN  China   NaN  \n2612     Swimming Women's 200 metres Freestyle   NaN  China   NaN  ",
+  "context": {
+    "identity": "original-saved",
+    "buildId": "phase4-v1",
+    "createdAt": "2026-11-16T12:58:37.389041+00:00",
+    "inputs": [
+      {
+        "path": "体育-数据可视化-约1300行（Pyecharts可视化）/120年奥运会数据可视化.ipynb",
+        "sha256": "a243bf8b64b54f72c20d9460defd492205efc3ed3d8fed718b6741e4ff752bdf"
+      },
+      {
+        "path": "体育-数据可视化-约1300行（Pyecharts可视化）/120年奥运会数据可视化.py",
+        "sha256": "73609f83edc275407ef08d11fec0cf717b59f3ba2435593f703ba2c608d2ebe2"
+      },
+      {
+        "path": "体育-数据可视化-约1300行（Pyecharts可视化）/athlete_events.csv",
+        "sha256": "e9f6b1fa97f40e0f071a6de640acb42dd7a100cad67e5e69cab630192fabb089"
+      },
+      {
+        "path": "体育-数据可视化-约1300行（Pyecharts可视化）/noc_regions.csv",
+        "sha256": "ce7f3c272a3d81d07acf5e5eba4cbba77501f9db25d820d862c60aaccf281906"
+      }
+    ],
+    "note": "逐单元只读提取原文本；原运行时间未知，本次时间仅为提取时间。",
+    "unit": "原字段单位；未核实单位不补填",
+    "sample": null,
+    "modelRerun": false
+  }
+}

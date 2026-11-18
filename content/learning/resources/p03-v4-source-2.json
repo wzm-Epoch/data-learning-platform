@@ -1,0 +1,48 @@
+{
+  "schemaVersion": "1.0",
+  "id": "p03-v4-source-2",
+  "title": "原单元8—9保存输出",
+  "kind": "text",
+  "columns": [],
+  "rows": [],
+  "text": "原单元8\n   MEMBER_NO    FFP_DATE FIRST_FLIGHT_DATE GENDER  FFP_TIER    WORK_CITY  \\\n0      54993  2006/11/02        2008/12/24      男         6            .   \n1      28065  2007/02/19        2007/08/03      男         6          NaN   \n2      55106  2007/02/01        2007/08/30      男         6            .   \n3      21189  2008/08/22        2008/08/23      男         5  Los Angeles   \n4      39546  2009/04/10        2009/04/15      男         6           贵阳   \n\n  WORK_PROVINCE WORK_COUNTRY   AGE   LOAD_TIME  ...  ADD_Point_SUM  \\\n0            北京           CN  31.0  2014/03/31  ...          39992   \n1            北京           CN  42.0  2014/03/31  ...          12000   \n2            北京           CN  40.0  2014/03/31  ...          15491   \n3            CA           US  64.0  2014/03/31  ...              0   \n4            贵州           CN  48.0  2014/03/31  ...          22704   \n\n   Eli_Add_Point_Sum  L1Y_ELi_Add_Points  Points_Sum  L1Y_Points_Sum  \\\n0             114452              111100      619760          370211   \n1              53288               53288      415768          238410   \n2              55202               51711      406361          233798   \n3              34890               34890      372204          186100   \n4              64969               64969      338813          210365   \n\n   Ration_L1Y_Flight_Count  Ration_P1Y_Flight_Count  Ration_P1Y_BPS  \\\n0                 0.509524                 0.490476        0.487221   \n1                 0.514286                 0.485714        0.489289   \n2                 0.518519                 0.481481        0.481467   \n3                 0.434783                 0.565217        0.551722   \n4                 0.532895                 0.467105        0.469054   \n\n  Ration_L1Y_BPS  Point_NotFlight  \n0       0.512777               50  \n1       0.510708               33  \n2       0.518530               26  \n3       0.448275               12  \n4       0.530943               39  \n\n[5 rows x 44 columns]",
+  "context": {
+    "identity": "original-saved",
+    "buildId": "phase4-v1",
+    "createdAt": "2026-11-16T12:58:37.389041+00:00",
+    "inputs": [
+      {
+        "path": "交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/航空公司客户价值分析.ipynb",
+        "sha256": "bd72cf9fd918950642968c14f6021b77caeef58df86b4df65564c546279bbbb8"
+      },
+      {
+        "path": "交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/data/air_data.csv",
+        "sha256": "afcba77fc852376966a1026c4d991323b0e7cd7f26bdc975582080a93b6161eb"
+      },
+      {
+        "path": "交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/tmp/data_cleaned.csv",
+        "sha256": "e3455c8ebab78f5bf4e3972761783fd0e6fe33a47d9344d94a62f017deda8fe3"
+      },
+      {
+        "path": "交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/tmp/data_stand.csv",
+        "sha256": "6cf52be39fe13b24ffe49abbfe090f5240e98023adb5947c0f7d5c20364736f8"
+      },
+      {
+        "path": "交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/tmp/data_stipu.csv",
+        "sha256": "e7089dd0578664aca02f40184d60800992be2bcab0c7d2e38856f3221cb26c4b"
+      },
+      {
+        "path": "交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/tmp/explore.xlsx",
+        "sha256": "9876e3b4f6b70179ef76b7b402179263defc91e32b1f96e80a700cdb2a4d3dd2"
+      },
+      {
+        "path": "交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/客户信息属性说明.xls",
+        "sha256": "dd4a690ed7d91b0f1a92903c936df53a86534038b02245b55f84a8dd4e2cee8c"
+      }
+    ],
+    "note": "逐单元只读提取原文本；原运行时间未知，本次时间仅为提取时间。",
+    "unit": "原字段单位；未核实单位不补填",
+    "sample": null,
+    "modelRerun": false
+  }
+}

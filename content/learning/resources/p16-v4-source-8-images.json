@@ -1,0 +1,31 @@
+{
+  "schemaVersion": "1.0",
+  "id": "p16-v4-source-8-images",
+  "title": "原单元26—26保存输出 · 原保存图",
+  "kind": "image",
+  "columns": [],
+  "rows": [],
+  "text": null,
+  "context": {
+    "identity": "original-saved",
+    "buildId": "phase4-v1",
+    "createdAt": "2026-11-16T12:58:37.389041+00:00",
+    "inputs": [
+      {
+        "path": "生活日常-时令蔬菜时间序列分析-约600行（matplotlib、seaborn可视化、多元回归）/时令蔬菜有哪些.ipynb",
+        "sha256": "470915ad6aeefbf6ccbbbbdab0004971fd91f7f9ccc628a7b42ed7e01a0c724a"
+      },
+      {
+        "path": "生活日常-时令蔬菜时间序列分析-约600行（matplotlib、seaborn可视化、多元回归）/wholesale_price_of_agricultural_products.csv",
+        "sha256": "f297941e77606fd53c6fa644e5b53ccd5fe005e09e86aca33c103cc2ca29eacd"
+      }
+    ],
+    "note": "原图未经本次重跑；必须结合本步局限阅读，图片中的旧标注不代表本次认可。",
+    "unit": "原字段单位；未核实单位不补填",
+    "sample": null,
+    "modelRerun": false
+  },
+  "images": [
+    "learning/assets/p16-cell26-0.png"
+  ]
+}

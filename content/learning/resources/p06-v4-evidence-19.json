@@ -1,0 +1,36 @@
+{
+  "schemaVersion": "1.0",
+  "id": "p06-v4-evidence-19",
+  "title": "原单元43—43的执行证据边界",
+  "kind": "text",
+  "columns": [],
+  "rows": [],
+  "text": "这些单元没有可安全独立提取的数值或PNG输出。原HTML/Plotly对象不会当脚本执行；原变量或预测数组未另存时，不能补造ROC、残差或错分样本。可在本课数据实验步骤查看已实际导出的同源数据。",
+  "context": {
+    "identity": "teaching-adaptation",
+    "buildId": "phase4-v1",
+    "createdAt": "2026-11-16T12:58:37.389041+00:00",
+    "inputs": [
+      {
+        "path": "体育-数据可视化-约1300行（Pyecharts可视化）/120年奥运会数据可视化.ipynb",
+        "sha256": "a243bf8b64b54f72c20d9460defd492205efc3ed3d8fed718b6741e4ff752bdf"
+      },
+      {
+        "path": "体育-数据可视化-约1300行（Pyecharts可视化）/120年奥运会数据可视化.py",
+        "sha256": "73609f83edc275407ef08d11fec0cf717b59f3ba2435593f703ba2c608d2ebe2"
+      },
+      {
+        "path": "体育-数据可视化-约1300行（Pyecharts可视化）/athlete_events.csv",
+        "sha256": "e9f6b1fa97f40e0f071a6de640acb42dd7a100cad67e5e69cab630192fabb089"
+      },
+      {
+        "path": "体育-数据可视化-约1300行（Pyecharts可视化）/noc_regions.csv",
+        "sha256": "ce7f3c272a3d81d07acf5e5eba4cbba77501f9db25d820d862c60aaccf281906"
+      }
+    ],
+    "note": "教学说明，不是原程序执行结果。",
+    "unit": "原字段单位；未核实单位不补填",
+    "sample": null,
+    "modelRerun": false
+  }
+}

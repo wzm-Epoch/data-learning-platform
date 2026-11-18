@@ -1,0 +1,28 @@
+{
+  "schemaVersion": "1.0",
+  "id": "p04-v4-source-17",
+  "title": "原单元67—70保存输出",
+  "kind": "text",
+  "columns": [],
+  "rows": [],
+  "text": "原单元67\narrival_date_month                0.001491\nstays_in_weekend_nights           0.001791\nchildren                          0.005036\narrival_date_day_of_month         0.006130\narrival_date_week_number          0.008148\narrival_date_year                 0.016660\nmeal                              0.017678\nstays_in_week_nights              0.024765\nbabies                            0.032491\nadr                               0.047557\ndays_in_waiting_list              0.054186\nprevious_bookings_not_canceled    0.057358\nmarket_segment                    0.059338\nadults                            0.060017\ncustomer_type                     0.068140\nis_repeated_guest                 0.084793\nin_company                        0.099310\nin_agent                          0.102068\nprevious_cancellations            0.110133\nhotel                             0.136531\nbooking_changes                   0.144381\ndistribution_channel              0.167600\nrequired_car_parking_spaces       0.195498\ntotal_of_special_requests         0.234658\nsame_assignment                   0.247770\ncountry                           0.267502\nlead_time                         0.293123\ndeposit_type                      0.468634\nreservation_status                0.917196\nis_canceled                       1.000000\nName: is_canceled, dtype: float64",
+  "context": {
+    "identity": "original-saved",
+    "buildId": "phase4-v1",
+    "createdAt": "2026-11-16T12:58:37.389041+00:00",
+    "inputs": [
+      {
+        "path": "交通旅行-全球酒店预订分析与预测-约550行（数据探索分析、随机森林、XGBoost、逻辑回归）/全球酒店预订分析与预测.ipynb",
+        "sha256": "f1166bb78198277c9bd5a0bbf360ce9b452a23b39733dfde5b7e6acb55fdee42"
+      },
+      {
+        "path": "交通旅行-全球酒店预订分析与预测-约550行（数据探索分析、随机森林、XGBoost、逻辑回归）/2022_hotel_bookings.csv",
+        "sha256": "ab2a3bfa58522e3a6310ae941303e1beeecb1c86960d538140525cee01578683"
+      }
+    ],
+    "note": "逐单元只读提取原文本；原运行时间未知，本次时间仅为提取时间。",
+    "unit": "原字段单位；未核实单位不补填",
+    "sample": null,
+    "modelRerun": false
+  }
+}

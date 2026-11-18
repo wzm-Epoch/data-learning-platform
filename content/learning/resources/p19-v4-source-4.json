@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1.0",
+  "id": "p19-v4-source-4",
+  "title": "原单元17—19保存输出",
+  "kind": "text",
+  "columns": [],
+  "rows": [],
+  "text": "原单元18\ncount                   29942\nunique                    949\ntop       2014-11-11 00:00:00\nfreq                      454\nfirst     2012-07-02 00:00:00\nlast      2015-02-05 00:00:00\nName: day, dtype: object\n\n原单元19\n商品类目数： 6\n商品类别数： 662\n商品数： 28394\n总销量： 49973\n用户数 29915\n",
+  "context": {
+    "identity": "original-saved",
+    "buildId": "phase4-v1",
+    "createdAt": "2026-11-16T12:58:37.389041+00:00",
+    "inputs": [
+      {
+        "path": "电商-母婴市场消费数据分析-约350行（pyecharts可视化、数据分析）/母婴市场消费数据分析.ipynb",
+        "sha256": "4e8243d4bf1a207860192e64196ac04e3ab42a602f5a74e651ab76c2fd2f7068"
+      },
+      {
+        "path": "电商-母婴市场消费数据分析-约350行（pyecharts可视化、数据分析）/(sample)sam_tianchi_mum_baby_trade_history.csv",
+        "sha256": "496284641c52e105d2b68fb4fff9996f1f56a472ef48a9c991a178fa2cc36986"
+      },
+      {
+        "path": "电商-母婴市场消费数据分析-约350行（pyecharts可视化、数据分析）/(sample)sam_tianchi_mum_baby.csv",
+        "sha256": "cef56ed5cc1c92041855c6b10c24b7d7871d0da0ea41565a101a5f7c4eceb471"
+      }
+    ],
+    "note": "逐单元只读提取原文本；原运行时间未知，本次时间仅为提取时间。",
+    "unit": "原字段单位；未核实单位不补填",
+    "sample": null,
+    "modelRerun": false
+  }
+}

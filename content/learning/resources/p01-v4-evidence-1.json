@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1.0",
+  "id": "p01-v4-evidence-1",
+  "title": "原单元4—5的执行证据边界",
+  "kind": "text",
+  "columns": [],
+  "rows": [],
+  "text": "这些单元没有可安全独立提取的数值或PNG输出。原HTML/Plotly对象不会当脚本执行；原变量或预测数组未另存时，不能补造ROC、残差或错分样本。可在本课数据实验步骤查看已实际导出的同源数据。",
+  "context": {
+    "identity": "teaching-adaptation",
+    "buildId": "phase4-v1",
+    "createdAt": "2026-11-16T12:58:37.389041+00:00",
+    "inputs": [
+      {
+        "path": "交易预测-约600行（EDA数据探索、逻辑回归、决策树、模型调参、模型评估）/信用卡欺诈交易预测.ipynb",
+        "sha256": "b84b7a8568ec364841c8cf8ff81a79addfdd1ebb39eefd6b8dd5c77bd3a5684f"
+      },
+      {
+        "path": "交易预测-约600行（EDA数据探索、逻辑回归、决策树、模型调参、模型评估）/信用卡欺诈交易预测.py",
+        "sha256": "1b2bc2e44354a2e9a8c37d5a260f6b77c00f305d8f9f1eb18ebda4957092e20e"
+      },
+      {
+        "path": "交易预测-约600行（EDA数据探索、逻辑回归、决策树、模型调参、模型评估）/creditcardfraud.csv",
+        "sha256": "76274b691b16a6c49d3f159c883398e03ccd6d1ee12d9d8ee38f4b4b98551a89"
+      }
+    ],
+    "note": "教学说明，不是原程序执行结果。",
+    "unit": "原字段单位；未核实单位不补填",
+    "sample": null,
+    "modelRerun": false
+  }
+}

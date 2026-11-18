@@ -1,0 +1,69 @@
+{
+  "schemaVersion": "1.0",
+  "id": "p05-v4-__-9c55a439",
+  "title": "星级：记录数与全量比例",
+  "kind": "table",
+  "columns": [
+    "星级",
+    "记录数",
+    "全量比例"
+  ],
+  "rows": [
+    [
+      "未知（缺失）",
+      1407,
+      0.606465517241379
+    ],
+    [
+      "4A",
+      560,
+      0.241379310344828
+    ],
+    [
+      "5A",
+      268,
+      0.11551724137931
+    ],
+    [
+      "3A",
+      85,
+      0.036637931034483
+    ]
+  ],
+  "text": null,
+  "context": {
+    "identity": "new-precomputed",
+    "buildId": "phase4-v1",
+    "createdAt": "2026-11-16T12:58:37.389041+00:00",
+    "inputs": [
+      {
+        "path": "交通旅行-热门旅游景点数据分析与可视化-约300行（pandas数据处理、pyecharts可视化、jieba分词）/旅游景点.ipynb",
+        "sha256": "4ab8708fdc7c3f7f984c34f9b01447432de17eb6ac04cc753ca8cec760db7c2d"
+      },
+      {
+        "path": "交通旅行-热门旅游景点数据分析与可视化-约300行（pandas数据处理、pyecharts可视化、jieba分词）/旅游景点.xlsx",
+        "sha256": "cbecb48e3276d3a64fd37ceae4a2fe4352b14ebed6db3af49f6b713d4e9e2fdd"
+      }
+    ],
+    "note": "全量2320行，最多展示前50类别；缺失单列，0是有效取值",
+    "unit": "记录数",
+    "sample": null,
+    "modelRerun": false
+  },
+  "chart": {
+    "type": "bar",
+    "x": 0,
+    "ys": [
+      1
+    ],
+    "question": "星级：记录数与全量比例",
+    "xLabel": "星级",
+    "yLabel": "记录数",
+    "denominator": "当前输入全部2320行；隐藏类别不改变比例分母",
+    "range": "当前输入已说明范围的全量聚合",
+    "filters": "全量2320行，最多展示前50类别；缺失单列，0是有效取值",
+    "nullPolicy": "缺失为null，保留0；不连接缺失点",
+    "interpretation": "对照同源表读取差异；关联不能推出因果或样本外结论。",
+    "filterColumn": 0
+  }
+}

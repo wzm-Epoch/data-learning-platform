@@ -1,0 +1,62 @@
+{
+  "schemaVersion": "1.0",
+  "id": "p04-v4-hotel",
+  "title": "hotel的组内is_canceled比例",
+  "kind": "table",
+  "columns": [
+    "hotel",
+    "分母行数",
+    "正类行数",
+    "组内正类比例"
+  ],
+  "rows": [
+    [
+      "City Hotel",
+      79330,
+      33102,
+      0.417269633177865
+    ],
+    [
+      "Resort Hotel",
+      40060,
+      11122,
+      0.277633549675487
+    ]
+  ],
+  "text": null,
+  "context": {
+    "identity": "new-precomputed",
+    "buildId": "phase4-v1",
+    "createdAt": "2026-11-16T12:58:37.389041+00:00",
+    "inputs": [
+      {
+        "path": "交通旅行-全球酒店预订分析与预测-约550行（数据探索分析、随机森林、XGBoost、逻辑回归）/全球酒店预订分析与预测.ipynb",
+        "sha256": "f1166bb78198277c9bd5a0bbf360ce9b452a23b39733dfde5b7e6acb55fdee42"
+      },
+      {
+        "path": "交通旅行-全球酒店预订分析与预测-约550行（数据探索分析、随机森林、XGBoost、逻辑回归）/2022_hotel_bookings.csv",
+        "sha256": "ab2a3bfa58522e3a6310ae941303e1beeecb1c86960d538140525cee01578683"
+      }
+    ],
+    "note": "先在完整输入分组后计算sum/size；图例/类别筛选不重定义各组分母",
+    "unit": "比例0—1",
+    "sample": null,
+    "modelRerun": false
+  },
+  "chart": {
+    "type": "bar",
+    "x": 0,
+    "ys": [
+      3
+    ],
+    "question": "hotel的组内is_canceled比例",
+    "xLabel": "hotel",
+    "yLabel": "比例0—1",
+    "denominator": "同一分组全部有效标签记录数",
+    "range": "当前输入已说明范围的全量聚合",
+    "filters": "先在完整输入分组后计算sum/size；图例/类别筛选不重定义各组分母",
+    "nullPolicy": "缺失为null，保留0；不连接缺失点",
+    "interpretation": "对照同源表读取差异；关联不能推出因果或样本外结论。",
+    "filterColumn": 0
+  }
+}

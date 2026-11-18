@@ -1,0 +1,57 @@
+{
+  "schemaVersion": "1.0",
+  "id": "p06-v4-input-quality",
+  "title": "本项目各输入表的读取与质量核对",
+  "kind": "table",
+  "columns": [
+    "输入文件/工作表",
+    "读取行",
+    "列数",
+    "缺失单元格",
+    "完全重复行"
+  ],
+  "rows": [
+    [
+      "athlete_events.csv#None",
+      271116,
+      15,
+      363853,
+      1385
+    ],
+    [
+      "noc_regions.csv#None",
+      230,
+      3,
+      212,
+      0
+    ]
+  ],
+  "text": null,
+  "context": {
+    "identity": "new-precomputed",
+    "buildId": "phase4-v1",
+    "createdAt": "2026-11-16T12:58:37.389041+00:00",
+    "inputs": [
+      {
+        "path": "体育-数据可视化-约1300行（Pyecharts可视化）/120年奥运会数据可视化.ipynb",
+        "sha256": "a243bf8b64b54f72c20d9460defd492205efc3ed3d8fed718b6741e4ff752bdf"
+      },
+      {
+        "path": "体育-数据可视化-约1300行（Pyecharts可视化）/120年奥运会数据可视化.py",
+        "sha256": "73609f83edc275407ef08d11fec0cf717b59f3ba2435593f703ba2c608d2ebe2"
+      },
+      {
+        "path": "体育-数据可视化-约1300行（Pyecharts可视化）/athlete_events.csv",
+        "sha256": "e9f6b1fa97f40e0f071a6de640acb42dd7a100cad67e5e69cab630192fabb089"
+      },
+      {
+        "path": "体育-数据可视化-约1300行（Pyecharts可视化）/noc_regions.csv",
+        "sha256": "ce7f3c272a3d81d07acf5e5eba4cbba77501f9db25d820d862c60aaccf281906"
+      }
+    ],
+    "note": "每张表分别统计；衍生表不当原始独立样本。人口多层表头在专属适配中另行解析。",
+    "unit": "行 / 列 / 单元格",
+    "sample": null,
+    "modelRerun": false
+  }
+}

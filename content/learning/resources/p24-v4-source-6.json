@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1.0",
+  "id": "p24-v4-source-6",
+  "title": "原单元38—43保存输出",
+  "kind": "text",
+  "columns": [],
+  "rows": [],
+  "text": "原单元38\ncount     29452\nunique        3\ntop           C\nfreq      20201\nName: lifecycle, dtype: object\n\n原单元40\n           count        mean          std   min    25%     50%        75%  \\\ngender                                                                      \n0.0        873.0  316.346802   566.606482  4.99  69.99  139.98  355.97000   \n1.0      16850.0  387.972592   655.523780  0.02  73.16  175.98  494.20575   \nunknown  11729.0  419.206270  1293.523770  0.02  75.96  179.00  528.99000   \n\n               max  \ngender              \n0.0       11169.72  \n1.0       29080.80  \nunknown  103466.10  ",
+  "context": {
+    "identity": "original-saved",
+    "buildId": "phase4-v1",
+    "createdAt": "2026-11-16T12:58:37.389041+00:00",
+    "inputs": [
+      {
+        "path": "电商-预测用户消费金额-约500行（线性回归模型、模型评估优化）/小红书.ipynb",
+        "sha256": "40650aad9a7d0c531e29b850ac54b77f0e60ad578779d9023c0838ec9163c3ec"
+      },
+      {
+        "path": "电商-预测用户消费金额-约500行（线性回归模型、模型评估优化）/小红书.py",
+        "sha256": "4dc9d8c79cb86e56964ec4588092499050c552333390a33e6dd1f2d50dc18cbb"
+      },
+      {
+        "path": "电商-预测用户消费金额-约500行（线性回归模型、模型评估优化）/redNew.csv",
+        "sha256": "e1a086141c06fc04ec3a4584b962a486ea270986255a9afeab463beda6727ece"
+      }
+    ],
+    "note": "逐单元只读提取原文本；原运行时间未知，本次时间仅为提取时间。",
+    "unit": "原字段单位；未核实单位不补填",
+    "sample": null,
+    "modelRerun": false
+  }
+}

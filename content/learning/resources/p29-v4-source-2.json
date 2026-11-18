@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1.0",
+  "id": "p29-v4-source-2",
+  "title": "原单元6—9保存输出",
+  "kind": "text",
+  "columns": [],
+  "rows": [],
+  "text": "原单元7\n   company  foursquare  trend     figure               job   salary  \\\n0  YIDATEC    移动互联网,游戏  不需要融资    2000人以上             数据分析师   7k-10k   \n1     希为科技     企业服务,金融  不需要融资    50-150人             数据分析师  15k-25k   \n2       传易    移动互联网,社交  不需要融资   150-500人    数据分析专员(J10236)  10k-15k   \n3     盛业资本     金融,数据服务   上市公司   150-500人             数据分析师  15k-30k   \n4      路行通  移动互联网,消费生活  不需要融资  500-2000人  数据分析师（碰撞场景探索与...  14k-20k   \n\n  experience education                                        description  \\\n0    经验1-3年     本科及以上   1、1年以上数据分析\\数据运营相关工作经验；2、接触过Android App运营、对App质...   \n1    经验1-3年     本科及以上   职位诱惑：14薪；年轻有活力的团队；五险一金；职位描述：岗位职责:1.深入理解业务，通过数据...   \n2      经验不限      学历不限   工作职责:1、负责运营数据整理规划工作，监控日常关键数据并分析异常变化，提交数据分析报告；2...   \n3    经验3-5年      学历不限   岗位职责:1、基于业务需求，规划分析思路，完成从数据提取、数据清洗、数据分析和报告产出的整个...   \n4    经验3-5年     本科及以上   岗位职责：1.负责车辆碰撞场景的深度探索及数据建模。2.负责车辆碰撞数据的新特征挖掘和衍生，...   \n\n  address  \n0     南山区  \n1     南山区  \n2     南山区  \n3     福田区  \n4     南山区  \n\n原单元9\n       company foursquare  trend   figure    job   salary experience  \\\ncount      436        436    436      436    436      436        436   \nunique     261         65      8       57    279       92          7   \ntop       字节跳动         金融  不需要融资  2000人以上  数据分析师  15k-30k    经验3-5年    \nfreq         7         71    129      127     53       50        189   \n\n       education                                        description address  \ncount        436                                                436     436  \nunique         4                                                431       6  \ntop       本科及以上   岗位职责：1、负责业务数据分析平台建设，设计有效的数据指标体系，支持业务日常运营和分析；2、...     南山区  \nfreq         324                                                  2     292  ",
+  "context": {
+    "identity": "original-saved",
+    "buildId": "phase4-v1",
+    "createdAt": "2026-11-16T12:58:37.389041+00:00",
+    "inputs": [
+      {
+        "path": "职场-数据分析师职位分析-约300行（数据探索分析、matplotlib可视化）/数据分析师岗位分析.ipynb",
+        "sha256": "612486c97729fe72863ed3f52b813320854acf96710711d4c7d1f67f9cd42e1c"
+      },
+      {
+        "path": "职场-数据分析师职位分析-约300行（数据探索分析、matplotlib可视化）/数据分析师岗位分析.py",
+        "sha256": "9dcdd68cdfd7ed8a3edd4d8b8e9af03b23f49f7edf8b9746af20bd1cd0afea01"
+      },
+      {
+        "path": "职场-数据分析师职位分析-约300行（数据探索分析、matplotlib可视化）/lagou.csv",
+        "sha256": "6b1daf9e5c5f2af353fa517917889ec4dd482e1c9623e4c141843ffdfd742fda"
+      }
+    ],
+    "note": "逐单元只读提取原文本；原运行时间未知，本次时间仅为提取时间。",
+    "unit": "原字段单位；未核实单位不补填",
+    "sample": null,
+    "modelRerun": false
+  }
+}

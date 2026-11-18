@@ -1,0 +1,40 @@
+{
+  "schemaVersion": "1.0",
+  "id": "p21-a-grain",
+  "title": "明细与订单的不同粒度",
+  "kind": "table",
+  "columns": [
+    "统计项",
+    "核对值"
+  ],
+  "rows": [
+    [
+      "明细行数",
+      3478
+    ],
+    [
+      "不同订单ID数",
+      918
+    ],
+    [
+      "日期范围",
+      "2017-01-03 06:06:00 至 2017-01-03 21:35:00"
+    ]
+  ],
+  "text": null,
+  "context": {
+    "identity": "new-precomputed",
+    "buildId": "phase3-v1",
+    "createdAt": "2026-11-16T11:41:51.304867+00:00",
+    "inputs": [
+      {
+        "path": "电商-超市销售数据分析与报表-约200行（数据透视分析）/order-14.3.csv",
+        "sha256": "8b681f21749942dda8dac1cf7b8b8fa468942207872c8eae225de47936587a58"
+      }
+    ],
+    "note": "全量只读核对。订单不是顾客人数。",
+    "unit": "行 / 订单",
+    "sample": null,
+    "modelRerun": false
+  }
+}

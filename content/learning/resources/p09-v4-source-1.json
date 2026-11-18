@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1.0",
+  "id": "p09-v4-source-1",
+  "title": "原单元4—8保存输出",
+  "kind": "text",
+  "columns": [],
+  "rows": [],
+  "text": "原单元7\n罗湖区: 二手房源共计「5372」套\n\n\n原单元8\n  area                       title community position    tax  total_price  \\\n0  罗湖区  国贸商圈，正规大两房，70年产权，红本满5年，有钥匙      天俊大厦      春风路  房本满五年        381.0   \n1  罗湖区   中海天钻大社区 绿化好 正对小区园林景观 只交契税      中海天钻      万象城  房本满五年       1039.0   \n2  罗湖区      地铁口物业，精装修，高层采光好，带大露台养花      兴业大厦      春风路   None        358.0   \n3  罗湖区       自如的装修，业主1998年买回来，价格好谈      庐山花园     罗湖口岸  房本满五年        132.0   \n4  罗湖区      国贸精装一房一厅，业主诚心出售。看房随时欢迎      银座金钻      春风路  房本满五年        183.0   \n\n   unit_price hourseType  hourseSize direction fitment  \n0     45400.0       2室2厅       83.77        东南      精装  \n1     85600.0       3室2厅      121.36         南      精装  \n2     42000.0       3室2厅       85.18        东南      精装  \n3     36700.0       1室0厅       35.85        西南      精装  \n4     48600.0       1室1厅       37.53         南      精装  ",
+  "context": {
+    "identity": "original-saved",
+    "buildId": "phase4-v1",
+    "createdAt": "2026-11-16T12:58:37.389041+00:00",
+    "inputs": [
+      {
+        "path": "房地产-二手房+可视化-约300行（爬虫+pyecharts可视化）/链家房源信息抓取+可视化.ipynb",
+        "sha256": "d3e01d5238a9e6cce1ea838100c7e068bf50acf793ff19463efef283a71bfd29"
+      },
+      {
+        "path": "房地产-二手房+可视化-约300行（爬虫+pyecharts可视化）/链家房源信息抓取+可视化.py",
+        "sha256": "dfcbce69d878829b69b369564f8ada8f8027da3cf4d7d3a3d6c93c77ab0693a2"
+      },
+      {
+        "path": "房地产-二手房+可视化-约300行（爬虫+pyecharts可视化）/shenzhen.csv",
+        "sha256": "fcf600064559278beeedb0b5e70d1de42d60ad64347ad2f485da5b167308bcc7"
+      }
+    ],
+    "note": "逐单元只读提取原文本；原运行时间未知，本次时间仅为提取时间。",
+    "unit": "原字段单位；未核实单位不补填",
+    "sample": null,
+    "modelRerun": false
+  }
+}

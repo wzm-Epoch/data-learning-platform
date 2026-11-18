@@ -1,0 +1,36 @@
+{
+  "schemaVersion": "1.0",
+  "id": "p20-v4-source-3",
+  "title": "原单元13—18保存输出",
+  "kind": "text",
+  "columns": [],
+  "rows": [],
+  "text": "原单元13\nupdate_time      False\nid               False\ntitle            False\nprice            False\nsale_count        True\ncomment_count     True\n店名               False\ndtype: bool\n\n原单元15\n              price    sale_count  comment_count\ncount  27512.000000  2.516200e+04   25162.000000\nmean     363.423512  1.231605e+04    1121.741197\nstd      614.876153  5.241236e+04    5277.781581\nmin        1.000000  0.000000e+00       0.000000\n25%       99.000000  2.780000e+02      21.000000\n50%      205.000000  1.443000e+03     153.000000\n75%      390.000000  6.353000e+03     669.000000\nmax    11100.000000  1.923160e+06  202930.000000\n\n原单元16\n0    0.0\nName: sale_count, dtype: float64\n0    0.0\nName: comment_count, dtype: float64\n\n\n原单元18\nupdate_time      0\nid               0\ntitle            0\nprice            0\nsale_count       0\ncomment_count    0\n店名               0\ndtype: int64",
+  "context": {
+    "identity": "original-saved",
+    "buildId": "phase4-v1",
+    "createdAt": "2026-11-16T12:58:37.389041+00:00",
+    "inputs": [
+      {
+        "path": "电商-美妆销售数据分析-约400行（matplotlib可视化、数据分析）/天猫双十一美妆销售数据分析.ipynb",
+        "sha256": "39640958b201474a19653da92c3ebc3addaad5dc2c00c7f7456c2874527e83ca"
+      },
+      {
+        "path": "电商-美妆销售数据分析-约400行（matplotlib可视化、数据分析）/天猫双十一美妆销售数据分析.py",
+        "sha256": "6f11add1e4f03bb97eb741d1f6fad21089f7237713878cf726ac4eed91bf6bc2"
+      },
+      {
+        "path": "电商-美妆销售数据分析-约400行（matplotlib可视化、数据分析）/双十一淘宝美妆数据.csv",
+        "sha256": "46acea03e8b133a00cd682a7fdda825fca7027feee60c4aa6a4ea80ea0d1d32f"
+      },
+      {
+        "path": "电商-美妆销售数据分析-约400行（matplotlib可视化、数据分析）/clean_beautymakeup.xlsx",
+        "sha256": "f398094083c48722d719ab29b6b6359e0032c642b7169a4e7f8aeb3c5c635223"
+      }
+    ],
+    "note": "逐单元只读提取原文本；原运行时间未知，本次时间仅为提取时间。",
+    "unit": "原字段单位；未核实单位不补填",
+    "sample": null,
+    "modelRerun": false
+  }
+}

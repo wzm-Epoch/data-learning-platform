@@ -1,0 +1,42 @@
+{
+  "schemaVersion": "1.0",
+  "id": "p27-v4-input-quality",
+  "title": "本项目各输入表的读取与质量核对",
+  "kind": "table",
+  "columns": [
+    "输入文件/工作表",
+    "读取行",
+    "列数",
+    "缺失单元格",
+    "完全重复行"
+  ],
+  "rows": [
+    [
+      "人口普查婚姻状态2000-2020.csv#None",
+      1224,
+      5,
+      0,
+      0
+    ]
+  ],
+  "text": null,
+  "context": {
+    "identity": "new-precomputed",
+    "buildId": "phase4-v1",
+    "createdAt": "2026-11-16T12:58:37.389041+00:00",
+    "inputs": [
+      {
+        "path": "社会科学-婚姻状况分析-约200行（plotly可视化、数据分析）/婚姻状况分析.ipynb",
+        "sha256": "fa44b9dec0d390587ba511eb17e693b4994a0dd7ff3a73457f432972a567addd"
+      },
+      {
+        "path": "社会科学-婚姻状况分析-约200行（plotly可视化、数据分析）/人口普查婚姻状态2000-2020.csv",
+        "sha256": "c849d4f2cc59db77a1d73b79e670cd4cb95b5e1c6c4b513d5da475f3ddbe2049"
+      }
+    ],
+    "note": "每张表分别统计；衍生表不当原始独立样本。人口多层表头在专属适配中另行解析。",
+    "unit": "行 / 列 / 单元格",
+    "sample": null,
+    "modelRerun": false
+  }
+}

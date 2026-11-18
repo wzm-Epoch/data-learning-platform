@@ -1,0 +1,48 @@
+{
+  "schemaVersion": "1.0",
+  "id": "p08-v4-evidence-7",
+  "title": "原单元29—30的执行证据边界",
+  "kind": "text",
+  "columns": [],
+  "rows": [],
+  "text": "这些单元没有可安全独立提取的数值或PNG输出。原HTML/Plotly对象不会当脚本执行；原变量或预测数组未另存时，不能补造ROC、残差或错分样本。可在本课数据实验步骤查看已实际导出的同源数据。",
+  "context": {
+    "identity": "teaching-adaptation",
+    "buildId": "phase4-v1",
+    "createdAt": "2026-11-16T12:58:37.389041+00:00",
+    "inputs": [
+      {
+        "path": "平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/拍拍贷平台业务数据分析.ipynb",
+        "sha256": "3ea7579b35438896bb838f4ecc960bafc50d7a5ca422023098086a66aa5b5a7b"
+      },
+      {
+        "path": "平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/拍拍贷平台业务数据分析.py",
+        "sha256": "444eae1e8c7e3f2884613cad0c07e2aafae1b33bbf056abd77fc5022f856ecd2"
+      },
+      {
+        "path": "平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LC.csv",
+        "sha256": "8c51d53301c2f4d11daea2f9c9dc68f2f805b8837b833db9bc097f995911617c"
+      },
+      {
+        "path": "平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LP.csv",
+        "sha256": "ae448c257c3acadd512839a2e7e8a6456baa2adb07481eedfea07ccbe20cc4ad"
+      },
+      {
+        "path": "平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCIS.csv",
+        "sha256": "a135299d5205043e02e51463cd8214b2bfe693c9ba2acea6e184405d199c84e7"
+      },
+      {
+        "path": "平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCIS数据字典.xlsx",
+        "sha256": "827ce47e5272489a4f87bf80c4592dfd47015744adafcab93fbee195f9a4405d"
+      },
+      {
+        "path": "平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCLP数据字典.xlsx",
+        "sha256": "d11e035d7044ef2ad846613625de0457a218580538e5ceca7b753d6aab1110ac"
+      }
+    ],
+    "note": "教学说明，不是原程序执行结果。",
+    "unit": "原字段单位；未核实单位不补填",
+    "sample": null,
+    "modelRerun": false
+  }
+}

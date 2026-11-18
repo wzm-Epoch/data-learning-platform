@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "1.0",
+  "id": "p08-v4-input-quality",
+  "title": "本项目各输入表的读取与质量核对",
+  "kind": "table",
+  "columns": [
+    "输入文件/工作表",
+    "读取行",
+    "列数",
+    "缺失单元格",
+    "完全重复行"
+  ],
+  "rows": [
+    [
+      "LC.csv#None",
+      328553,
+      21,
+      0,
+      0
+    ],
+    [
+      "LCIS.csv#None",
+      292539,
+      37,
+      399359,
+      106
+    ],
+    [
+      "LCIS数据字典.xlsx#Sheet1",
+      37,
+      5,
+      36,
+      0
+    ],
+    [
+      "LCLP数据字典.xlsx#Sheet1",
+      35,
+      4,
+      37,
+      0
+    ]
+  ],
+  "text": null,
+  "context": {
+    "identity": "new-precomputed",
+    "buildId": "phase4-v1",
+    "createdAt": "2026-11-16T12:58:37.389041+00:00",
+    "inputs": [
+      {
+        "path": "平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/拍拍贷平台业务数据分析.ipynb",
+        "sha256": "3ea7579b35438896bb838f4ecc960bafc50d7a5ca422023098086a66aa5b5a7b"
+      },
+      {
+        "path": "平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/拍拍贷平台业务数据分析.py",
+        "sha256": "444eae1e8c7e3f2884613cad0c07e2aafae1b33bbf056abd77fc5022f856ecd2"
+      },
+      {
+        "path": "平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LC.csv",
+        "sha256": "8c51d53301c2f4d11daea2f9c9dc68f2f805b8837b833db9bc097f995911617c"
+      },
+      {
+        "path": "平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LP.csv",
+        "sha256": "ae448c257c3acadd512839a2e7e8a6456baa2adb07481eedfea07ccbe20cc4ad"
+      },
+      {
+        "path": "平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCIS.csv",
+        "sha256": "a135299d5205043e02e51463cd8214b2bfe693c9ba2acea6e184405d199c84e7"
+      },
+      {
+        "path": "平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCIS数据字典.xlsx",
+        "sha256": "827ce47e5272489a4f87bf80c4592dfd47015744adafcab93fbee195f9a4405d"
+      },
+      {
+        "path": "平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCLP数据字典.xlsx",
+        "sha256": "d11e035d7044ef2ad846613625de0457a218580538e5ceca7b753d6aab1110ac"
+      }
+    ],
+    "note": "每张表分别统计；衍生表不当原始独立样本。人口多层表头在专属适配中另行解析。",
+    "unit": "行 / 列 / 单元格",
+    "sample": null,
+    "modelRerun": false
+  }
+}

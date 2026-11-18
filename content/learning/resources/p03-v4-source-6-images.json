@@ -1,0 +1,51 @@
+{
+  "schemaVersion": "1.0",
+  "id": "p03-v4-source-6-images",
+  "title": "原单元21—22保存输出 · 原保存图",
+  "kind": "image",
+  "columns": [],
+  "rows": [],
+  "text": null,
+  "context": {
+    "identity": "original-saved",
+    "buildId": "phase4-v1",
+    "createdAt": "2026-11-16T12:58:37.389041+00:00",
+    "inputs": [
+      {
+        "path": "交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/航空公司客户价值分析.ipynb",
+        "sha256": "bd72cf9fd918950642968c14f6021b77caeef58df86b4df65564c546279bbbb8"
+      },
+      {
+        "path": "交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/data/air_data.csv",
+        "sha256": "afcba77fc852376966a1026c4d991323b0e7cd7f26bdc975582080a93b6161eb"
+      },
+      {
+        "path": "交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/tmp/data_cleaned.csv",
+        "sha256": "e3455c8ebab78f5bf4e3972761783fd0e6fe33a47d9344d94a62f017deda8fe3"
+      },
+      {
+        "path": "交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/tmp/data_stand.csv",
+        "sha256": "6cf52be39fe13b24ffe49abbfe090f5240e98023adb5947c0f7d5c20364736f8"
+      },
+      {
+        "path": "交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/tmp/data_stipu.csv",
+        "sha256": "e7089dd0578664aca02f40184d60800992be2bcab0c7d2e38856f3221cb26c4b"
+      },
+      {
+        "path": "交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/tmp/explore.xlsx",
+        "sha256": "9876e3b4f6b70179ef76b7b402179263defc91e32b1f96e80a700cdb2a4d3dd2"
+      },
+      {
+        "path": "交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/客户信息属性说明.xls",
+        "sha256": "dd4a690ed7d91b0f1a92903c936df53a86534038b02245b55f84a8dd4e2cee8c"
+      }
+    ],
+    "note": "原图未经本次重跑；必须结合本步局限阅读，图片中的旧标注不代表本次认可。",
+    "unit": "原字段单位；未核实单位不补填",
+    "sample": null,
+    "modelRerun": false
+  },
+  "images": [
+    "learning/assets/p03-cell22-0.png"
+  ]
+}

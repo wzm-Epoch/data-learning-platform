@@ -1,0 +1,57 @@
+{
+  "schemaVersion": "1.0",
+  "id": "p23-v4-metrics",
+  "title": "新版本独立测试指标",
+  "kind": "table",
+  "columns": [
+    "指标",
+    "值"
+  ],
+  "rows": [
+    [
+      "概率AUC",
+      0.684568596995922
+    ],
+    [
+      "Accuracy",
+      0.882569773565034
+    ],
+    [
+      "Precision",
+      0.25
+    ],
+    [
+      "Recall",
+      0.002252252252252
+    ],
+    [
+      "全预测0准确率",
+      0.883096366508689
+    ]
+  ],
+  "text": null,
+  "context": {
+    "identity": "teaching-adaptation",
+    "buildId": "phase4-v1",
+    "createdAt": "2026-11-16T12:58:37.389041+00:00",
+    "inputs": [
+      {
+        "path": "电商-预测用户使用优惠券概率较高的客群-约350行（逻辑回归模型、模型评估）/预测天猫用户使用优惠券概率较高的客群.ipynb",
+        "sha256": "30fe7dee501aa066e11b65470a6ddcc0d6b33f84fe89d6a76aaa6aca75623099"
+      },
+      {
+        "path": "电商-预测用户使用优惠券概率较高的客群-约350行（逻辑回归模型、模型评估）/预测天猫用户使用优惠券概率较高的客群.py",
+        "sha256": "c19078cd43e1390f30a543729c1479cb5b6765519eee1f92a90f50c18a3ce37a"
+      },
+      {
+        "path": "电商-预测用户使用优惠券概率较高的客群-约350行（逻辑回归模型、模型评估）/tianmao.csv",
+        "sha256": "89e8ce6a9e14bb2aac1d28fb150644544212e88acf3a152757c6f547b9b1a3f0"
+      }
+    ],
+    "note": "训练集17721行；测试集7596行；阈值0.5。独立版本不与原不同划分直接比优劣。",
+    "unit": "原字段单位；未核实单位不补填",
+    "sample": null,
+    "modelRerun": true,
+    "modelVersion": "P23-stratified-probability-v1"
+  }
+}

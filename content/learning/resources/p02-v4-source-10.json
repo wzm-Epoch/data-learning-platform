@@ -1,0 +1,28 @@
+{
+  "schemaVersion": "1.0",
+  "id": "p02-v4-source-10",
+  "title": "原单元54—56保存输出",
+  "kind": "text",
+  "columns": [],
+  "rows": [],
+  "text": "原单元54\nIndex(['season', 'holiday', 'workingday', 'weather', 'temp', 'atemp',\n       'humidity', 'windspeed', 'month', 'day', 'hour'],\n      dtype='object')\n\n原单元55\narray([0.01240025, 0.00334546, 0.06676258, 0.01921132, 0.10073966,\n       0.04633024, 0.06046684, 0.0233788 , 0.03843807, 0.03353593,\n       0.59539085])",
+  "context": {
+    "identity": "original-saved",
+    "buildId": "phase4-v1",
+    "createdAt": "2026-11-16T12:58:37.389041+00:00",
+    "inputs": [
+      {
+        "path": "交通出行-共享单车预测租赁数量-约300行（随机森林、支持向量机模型）/自行车租赁数量预测.ipynb",
+        "sha256": "5d7bfa900fd3c472a9a4dd3e2fd241a940046dfdae12874866e1bc2633501530"
+      },
+      {
+        "path": "交通出行-共享单车预测租赁数量-约300行（随机森林、支持向量机模型）/train.csv",
+        "sha256": "11671d46ae41bf0df77d3d25268f4cb87683f3a33e4a54adf1bb3b24ee538cad"
+      }
+    ],
+    "note": "逐单元只读提取原文本；原运行时间未知，本次时间仅为提取时间。",
+    "unit": "原字段单位；未核实单位不补填",
+    "sample": null,
+    "modelRerun": false
+  }
+}

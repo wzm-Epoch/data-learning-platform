@@ -1,0 +1,89 @@
+{
+  "schemaVersion": "1.0",
+  "id": "p11-fields",
+  "title": "12列读取质量",
+  "kind": "table",
+  "columns": [
+    "字段",
+    "读取类型",
+    "缺失数"
+  ],
+  "rows": [
+    [
+      "Unnamed: 0",
+      "int64",
+      0
+    ],
+    [
+      "area",
+      "object",
+      0
+    ],
+    [
+      "title",
+      "object",
+      8
+    ],
+    [
+      "community",
+      "object",
+      0
+    ],
+    [
+      "position",
+      "object",
+      0
+    ],
+    [
+      "tax",
+      "object",
+      8196
+    ],
+    [
+      "total_price",
+      "float64",
+      0
+    ],
+    [
+      "unit_price",
+      "float64",
+      0
+    ],
+    [
+      "hourseType",
+      "object",
+      0
+    ],
+    [
+      "hourseSize",
+      "float64",
+      0
+    ],
+    [
+      "direction",
+      "object",
+      0
+    ],
+    [
+      "fitment",
+      "object",
+      0
+    ]
+  ],
+  "text": null,
+  "context": {
+    "identity": "new-precomputed",
+    "buildId": "phase3-v1",
+    "createdAt": "2026-11-16T11:41:51.304867+00:00",
+    "inputs": [
+      {
+        "path": "房地产-二手房数据分析-约400行（数据探索分析、matplotlib可视化）/shenzhen.csv",
+        "sha256": "607ca9622c8f38317738c7c401e81b88533137862db0cb50455b0a818da85a22"
+      }
+    ],
+    "note": "全量读取统计。原始字段hourse拼写保留，不偷偷重命名。",
+    "unit": "条",
+    "sample": null,
+    "modelRerun": false
+  }
+}

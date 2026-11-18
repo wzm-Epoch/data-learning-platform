@@ -1,0 +1,75 @@
+{
+  "schemaVersion": "1.0",
+  "id": "p19-v4-category",
+  "title": "商品大类购买量",
+  "kind": "table",
+  "columns": [
+    "cat1",
+    "buy_mount"
+  ],
+  "rows": [
+    [
+      "122650008",
+      2239
+    ],
+    [
+      "28",
+      16321
+    ],
+    [
+      "38",
+      3666
+    ],
+    [
+      "50008168",
+      15139
+    ],
+    [
+      "50014815",
+      9563
+    ],
+    [
+      "50022520",
+      3045
+    ]
+  ],
+  "text": null,
+  "context": {
+    "identity": "new-precomputed",
+    "buildId": "phase4-v1",
+    "createdAt": "2026-11-16T12:58:37.389041+00:00",
+    "inputs": [
+      {
+        "path": "电商-母婴市场消费数据分析-约350行（pyecharts可视化、数据分析）/母婴市场消费数据分析.ipynb",
+        "sha256": "4e8243d4bf1a207860192e64196ac04e3ab42a602f5a74e651ab76c2fd2f7068"
+      },
+      {
+        "path": "电商-母婴市场消费数据分析-约350行（pyecharts可视化、数据分析）/(sample)sam_tianchi_mum_baby_trade_history.csv",
+        "sha256": "496284641c52e105d2b68fb4fff9996f1f56a472ef48a9c991a178fa2cc36986"
+      },
+      {
+        "path": "电商-母婴市场消费数据分析-约350行（pyecharts可视化、数据分析）/(sample)sam_tianchi_mum_baby.csv",
+        "sha256": "cef56ed5cc1c92041855c6b10c24b7d7871d0da0ea41565a101a5f7c4eceb471"
+      }
+    ],
+    "note": "cat1是类别标签；不当连续数轴",
+    "unit": "原buy_mount计量",
+    "sample": null,
+    "modelRerun": false
+  },
+  "chart": {
+    "type": "bar",
+    "x": 0,
+    "ys": [
+      1
+    ],
+    "question": "商品大类购买量",
+    "xLabel": "cat1",
+    "yLabel": "原buy_mount计量",
+    "denominator": "不涉及比率；展示原量或统计量",
+    "range": "当前输入已说明范围的全量聚合",
+    "filters": "cat1是类别标签；不当连续数轴",
+    "nullPolicy": "缺失为null，保留0；不连接缺失点",
+    "interpretation": "对照同源表读取差异；关联不能推出因果或样本外结论。"
+  }
+}

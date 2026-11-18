@@ -1,0 +1,24 @@
+{
+  "schemaVersion": "1.0",
+  "id": "p17-counts-saved",
+  "title": "原保存簇数量与比例",
+  "kind": "text",
+  "columns": [],
+  "rows": [],
+  "text": "原单元 41\nclusters   0    1    2    3\ncounts    73  154  313  349\n##############################\nclusters       0     1     2     3\npercentage  0.08  0.17  0.35  0.39\n",
+  "context": {
+    "identity": "original-saved",
+    "buildId": "phase3-v1",
+    "createdAt": "2026-11-16T11:41:51.304867+00:00",
+    "inputs": [
+      {
+        "path": "电商-广告投放效果分析-约250行（KMeans聚类、数据分析）/聚类分析广告效果.ipynb",
+        "sha256": "ad88e032b91ce55504f1a19bc8e1ddb2a8829edc69cab6b2569cdbde39edd6b7"
+      }
+    ],
+    "note": "原Notebook保存输出，只读提取；未重跑，警告与环境路径未混作结果。",
+    "unit": "按原输出；未核实单位保留未知",
+    "sample": null,
+    "modelRerun": false
+  }
+}

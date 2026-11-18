@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1.0",
+  "id": "p28-v4-source-1",
+  "title": "原单元7—7保存输出",
+  "kind": "text",
+  "columns": [],
+  "rows": [],
+  "text": "原单元7\n5.13.0\n",
+  "context": {
+    "identity": "original-saved",
+    "buildId": "phase4-v1",
+    "createdAt": "2026-11-16T12:58:37.389041+00:00",
+    "inputs": [
+      {
+        "path": "职场-分析员工过早离职原因-约300行（相关性分析、变量分析、plotly可视化）/分析员工过早离职原因.ipynb",
+        "sha256": "9bf9cfcf11d11ed4dae94f8309a2d06aed0000ed3002fff5333d64d2de0e0184"
+      },
+      {
+        "path": "职场-分析员工过早离职原因-约300行（相关性分析、变量分析、plotly可视化）/分析员工过早离职原因.py",
+        "sha256": "3de51cc2b00d540e2634ea337ea0cb6c53f9973a549afcc820a0724de78e431d"
+      },
+      {
+        "path": "职场-分析员工过早离职原因-约300行（相关性分析、变量分析、plotly可视化）/HR_comma_sep.csv",
+        "sha256": "2510e274a90547f34c7b0db5a4ab70282c2710eb54252f14921bf980b81a928c"
+      }
+    ],
+    "note": "逐单元只读提取原文本；原运行时间未知，本次时间仅为提取时间。",
+    "unit": "原字段单位；未核实单位不补填",
+    "sample": null,
+    "modelRerun": false
+  }
+}

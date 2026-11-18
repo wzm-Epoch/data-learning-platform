@@ -1,0 +1,31 @@
+{
+  "schemaVersion": "1.0",
+  "id": "p04-v4-source-8-images",
+  "title": "原单元29—29保存输出 · 原保存图",
+  "kind": "image",
+  "columns": [],
+  "rows": [],
+  "text": null,
+  "context": {
+    "identity": "original-saved",
+    "buildId": "phase4-v1",
+    "createdAt": "2026-11-16T12:58:37.389041+00:00",
+    "inputs": [
+      {
+        "path": "交通旅行-全球酒店预订分析与预测-约550行（数据探索分析、随机森林、XGBoost、逻辑回归）/全球酒店预订分析与预测.ipynb",
+        "sha256": "f1166bb78198277c9bd5a0bbf360ce9b452a23b39733dfde5b7e6acb55fdee42"
+      },
+      {
+        "path": "交通旅行-全球酒店预订分析与预测-约550行（数据探索分析、随机森林、XGBoost、逻辑回归）/2022_hotel_bookings.csv",
+        "sha256": "ab2a3bfa58522e3a6310ae941303e1beeecb1c86960d538140525cee01578683"
+      }
+    ],
+    "note": "原图未经本次重跑；必须结合本步局限阅读，图片中的旧标注不代表本次认可。",
+    "unit": "原字段单位；未核实单位不补填",
+    "sample": null,
+    "modelRerun": false
+  },
+  "images": [
+    "learning/assets/p04-cell29-1.png"
+  ]
+}

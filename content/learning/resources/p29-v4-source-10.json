@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1.0",
+  "id": "p29-v4-source-10",
+  "title": "原单元30—30保存输出",
+  "kind": "text",
+  "columns": [],
+  "rows": [],
+  "text": "原单元30\n{'whiskers': [<matplotlib.lines.Line2D at 0x216eb796ec8>,\n  <matplotlib.lines.Line2D at 0x216eb7c2908>,\n  <matplotlib.lines.Line2D at 0x216eb7cdd48>,\n  <matplotlib.lines.Line2D at 0x216eb7cd5c8>,\n  <matplotlib.lines.Line2D at 0x216eb7ded08>,\n  <matplotlib.lines.Line2D at 0x216eb7e9948>,\n  <matplotlib.lines.Line2D at 0x216eb7f9e88>,\n  <matplotlib.lines.Line2D at 0x216eb7f9dc8>],\n 'caps': [<matplotlib.lines.Line2D at 0x216eb7c2d88>,\n  <matplotlib.lines.Line2D at 0x216eb7c2d08>,\n  <matplotlib.lines.Line2D at 0x216eb7d5d88>,\n  <matplotlib.lines.Line2D at 0x216eb7d5d08>,\n  <matplotlib.lines.Line2D at 0x216eb7e9dc8>,\n  <matplotlib.lines.Line2D at 0x216eb7f2348>,\n  <matplotlib.lines.Line2D at 0x216eb7f9fc8>,\n  <matplotlib.lines.Line2D at 0x216eb7ffb88>],\n 'boxes': [<matplotlib.lines.Line2D at 0x216eb7c20c8>,\n  <matplotlib.lines.Line2D at 0x216eb7cdf88>,\n  <matplotlib.lines.Line2D at 0x216eb7defc8>,\n  <matplotlib.lines.Line2D at 0x216eb7f2b48>],\n 'medians': [<matplotlib.lines.Line2D at 0x216eb7c2ec8>,\n  <matplotlib.lines.Line2D at 0x216eb7d5ec8>,\n  <matplotlib.lines.Line2D at 0x216eb7e9f08>,\n  <matplotlib.lines.Line2D at 0x216eb7ffd88>],\n 'fliers': [<matplotlib.lines.Line2D at 0x216eb7cdb88>,\n  <matplotlib.lines.Line2D at 0x216eb7deb48>,\n  <matplotlib.lines.Line2D at 0x216eb7f2948>,\n  <matplotlib.lines.Line2D at 0x216eb804948>],\n 'means': []}",
+  "context": {
+    "identity": "original-saved",
+    "buildId": "phase4-v1",
+    "createdAt": "2026-11-16T12:58:37.389041+00:00",
+    "inputs": [
+      {
+        "path": "职场-数据分析师职位分析-约300行（数据探索分析、matplotlib可视化）/数据分析师岗位分析.ipynb",
+        "sha256": "612486c97729fe72863ed3f52b813320854acf96710711d4c7d1f67f9cd42e1c"
+      },
+      {
+        "path": "职场-数据分析师职位分析-约300行（数据探索分析、matplotlib可视化）/数据分析师岗位分析.py",
+        "sha256": "9dcdd68cdfd7ed8a3edd4d8b8e9af03b23f49f7edf8b9746af20bd1cd0afea01"
+      },
+      {
+        "path": "职场-数据分析师职位分析-约300行（数据探索分析、matplotlib可视化）/lagou.csv",
+        "sha256": "6b1daf9e5c5f2af353fa517917889ec4dd482e1c9623e4c141843ffdfd742fda"
+      }
+    ],
+    "note": "逐单元只读提取原文本；原运行时间未知，本次时间仅为提取时间。",
+    "unit": "原字段单位；未核实单位不补填",
+    "sample": null,
+    "modelRerun": false
+  }
+}

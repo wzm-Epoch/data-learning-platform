@@ -1,0 +1,36 @@
+{
+  "schemaVersion": "1.0",
+  "id": "p24-v4-source-9-images",
+  "title": "原单元57—64保存输出 · 原保存图",
+  "kind": "image",
+  "columns": [],
+  "rows": [],
+  "text": null,
+  "context": {
+    "identity": "original-saved",
+    "buildId": "phase4-v1",
+    "createdAt": "2026-11-16T12:58:37.389041+00:00",
+    "inputs": [
+      {
+        "path": "电商-预测用户消费金额-约500行（线性回归模型、模型评估优化）/小红书.ipynb",
+        "sha256": "40650aad9a7d0c531e29b850ac54b77f0e60ad578779d9023c0838ec9163c3ec"
+      },
+      {
+        "path": "电商-预测用户消费金额-约500行（线性回归模型、模型评估优化）/小红书.py",
+        "sha256": "4dc9d8c79cb86e56964ec4588092499050c552333390a33e6dd1f2d50dc18cbb"
+      },
+      {
+        "path": "电商-预测用户消费金额-约500行（线性回归模型、模型评估优化）/redNew.csv",
+        "sha256": "e1a086141c06fc04ec3a4584b962a486ea270986255a9afeab463beda6727ece"
+      }
+    ],
+    "note": "原图未经本次重跑；必须结合本步局限阅读，图片中的旧标注不代表本次认可。",
+    "unit": "原字段单位；未核实单位不补填",
+    "sample": null,
+    "modelRerun": false
+  },
+  "images": [
+    "learning/assets/p24-cell60-1.png",
+    "learning/assets/p24-cell64-1.png"
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "schemaVersion": "1.0",
+  "id": "p17-profile-audit",
+  "title": "画像审辨的可验证边界",
+  "kind": "table",
+  "columns": [
+    "问题",
+    "原代码或证据",
+    "教学解释"
+  ],
+  "rows": [
+    [
+      "数值统计量",
+      "part1_desc.iloc[2, :]",
+      "describe第2位置为std，不是mean；原注释写均值错误"
+    ],
+    [
+      "编号对应",
+      "原单元41/43保存0,1,2,3簇数量73,154,313,349",
+      "原单元48/50的顺序和描述错位，不能直接照抄"
+    ],
+    [
+      "中心均值",
+      "缺少完整逐行标签和原聚类中心导出",
+      "本阶段不补造逐簇均值、中心或预测标签"
+    ],
+    [
+      "ROI",
+      "原数据无完整成本收益字段",
+      "合作方式roi是类别值，不能据此证明投入产出效果"
+    ]
+  ],
+  "text": null,
+  "context": {
+    "identity": "teaching-adaptation",
+    "buildId": "phase3-v1",
+    "createdAt": "2026-11-16T11:41:51.304867+00:00",
+    "inputs": [
+      {
+        "path": "电商-广告投放效果分析-约250行（KMeans聚类、数据分析）/聚类分析广告效果.ipynb",
+        "sha256": "ad88e032b91ce55504f1a19bc8e1ddb2a8829edc69cab6b2569cdbde39edd6b7"
+      },
+      {
+        "path": "电商-广告投放效果分析-约250行（KMeans聚类、数据分析）/ad_performance.csv",
+        "sha256": "4f767d4f273ae2745ac84a9791d2e3d81bdee37a26d1ca82fa4d8a9a5f3003fb"
+      }
+    ],
+    "note": "教学审辨；原保存雷达与数值表不能作为真实均值中心图。",
+    "unit": "不适用",
+    "sample": null,
+    "modelRerun": false
+  }
+}

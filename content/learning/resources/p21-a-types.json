@@ -1,0 +1,42 @@
+{
+  "schemaVersion": "1.0",
+  "id": "p21-a-types",
+  "title": "原文本与解析日期",
+  "kind": "table",
+  "columns": [
+    "字段",
+    "原字符串",
+    "教学读取后值",
+    "读取后类型"
+  ],
+  "rows": [
+    [
+      "成交时间",
+      "2017/1/3 9:56",
+      "2017-01-03 09:56:00",
+      "datetime64[ns]"
+    ],
+    [
+      "订单ID",
+      "20170103CDLG000210052759",
+      "20170103CDLG000210052759",
+      "字符串；不转为数值"
+    ]
+  ],
+  "text": null,
+  "context": {
+    "identity": "teaching-adaptation",
+    "buildId": "phase3-v1",
+    "createdAt": "2026-11-16T11:41:51.304867+00:00",
+    "inputs": [
+      {
+        "path": "电商-超市销售数据分析与报表-约200行（数据透视分析）/order-14.3.csv",
+        "sha256": "8b681f21749942dda8dac1cf7b8b8fa468942207872c8eae225de47936587a58"
+      }
+    ],
+    "note": "教学补充读取检查，原Notebook单元3使用parse_dates；未改原文件。",
+    "unit": "未知 / 原数据单位待核实",
+    "sample": null,
+    "modelRerun": false
+  }
+}

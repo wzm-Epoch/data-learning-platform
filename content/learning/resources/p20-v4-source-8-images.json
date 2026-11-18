@@ -1,0 +1,39 @@
+{
+  "schemaVersion": "1.0",
+  "id": "p20-v4-source-8-images",
+  "title": "原单元35—35保存输出 · 原保存图",
+  "kind": "image",
+  "columns": [],
+  "rows": [],
+  "text": null,
+  "context": {
+    "identity": "original-saved",
+    "buildId": "phase4-v1",
+    "createdAt": "2026-11-16T12:58:37.389041+00:00",
+    "inputs": [
+      {
+        "path": "电商-美妆销售数据分析-约400行（matplotlib可视化、数据分析）/天猫双十一美妆销售数据分析.ipynb",
+        "sha256": "39640958b201474a19653da92c3ebc3addaad5dc2c00c7f7456c2874527e83ca"
+      },
+      {
+        "path": "电商-美妆销售数据分析-约400行（matplotlib可视化、数据分析）/天猫双十一美妆销售数据分析.py",
+        "sha256": "6f11add1e4f03bb97eb741d1f6fad21089f7237713878cf726ac4eed91bf6bc2"
+      },
+      {
+        "path": "电商-美妆销售数据分析-约400行（matplotlib可视化、数据分析）/双十一淘宝美妆数据.csv",
+        "sha256": "46acea03e8b133a00cd682a7fdda825fca7027feee60c4aa6a4ea80ea0d1d32f"
+      },
+      {
+        "path": "电商-美妆销售数据分析-约400行（matplotlib可视化、数据分析）/clean_beautymakeup.xlsx",
+        "sha256": "f398094083c48722d719ab29b6b6359e0032c642b7169a4e7f8aeb3c5c635223"
+      }
+    ],
+    "note": "原图未经本次重跑；必须结合本步局限阅读，图片中的旧标注不代表本次认可。",
+    "unit": "原字段单位；未核实单位不补填",
+    "sample": null,
+    "modelRerun": false
+  },
+  "images": [
+    "learning/assets/p20-cell35-0.png"
+  ]
+}

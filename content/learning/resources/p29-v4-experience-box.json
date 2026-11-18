@@ -1,0 +1,115 @@
+{
+  "schemaVersion": "1.0",
+  "id": "p29-v4-experience-box",
+  "title": "experience的薪资中点五数概括",
+  "kind": "table",
+  "columns": [
+    "experience",
+    "最小",
+    "Q1",
+    "中位数",
+    "Q3",
+    "最大"
+  ],
+  "rows": [
+    [
+      "经验1-3年 ",
+      1.0,
+      9.0,
+      12.5,
+      17.5,
+      30.0
+    ],
+    [
+      "经验10年以上 ",
+      22.5,
+      35.625,
+      50.0,
+      62.5,
+      70.0
+    ],
+    [
+      "经验1年以下 ",
+      3.5,
+      5.0,
+      11.5,
+      12.5,
+      15.0
+    ],
+    [
+      "经验3-5年 ",
+      2.5,
+      16.0,
+      20.0,
+      24.0,
+      65.0
+    ],
+    [
+      "经验5-10年 ",
+      15.0,
+      22.5,
+      27.25,
+      38.625,
+      75.0
+    ],
+    [
+      "经验不限 ",
+      2.5,
+      5.5,
+      7.0,
+      11.5,
+      52.5
+    ],
+    [
+      "经验应届毕业生 ",
+      3.0,
+      4.5,
+      9.5,
+      10.5,
+      22.5
+    ]
+  ],
+  "text": null,
+  "context": {
+    "identity": "new-precomputed",
+    "buildId": "phase4-v1",
+    "createdAt": "2026-11-16T12:58:37.389041+00:00",
+    "inputs": [
+      {
+        "path": "职场-数据分析师职位分析-约300行（数据探索分析、matplotlib可视化）/数据分析师岗位分析.ipynb",
+        "sha256": "612486c97729fe72863ed3f52b813320854acf96710711d4c7d1f67f9cd42e1c"
+      },
+      {
+        "path": "职场-数据分析师职位分析-约300行（数据探索分析、matplotlib可视化）/数据分析师岗位分析.py",
+        "sha256": "9dcdd68cdfd7ed8a3edd4d8b8e9af03b23f49f7edf8b9746af20bd1cd0afea01"
+      },
+      {
+        "path": "职场-数据分析师职位分析-约300行（数据探索分析、matplotlib可视化）/lagou.csv",
+        "sha256": "6b1daf9e5c5f2af353fa517917889ec4dd482e1c9623e4c141843ffdfd742fda"
+      }
+    ],
+    "note": "须端使用全量min/max，不是Tukey 1.5IQR异常值规则；缺失不作0",
+    "unit": "K/月（原单元23单位；区间中点不是实发）",
+    "sample": null,
+    "modelRerun": false
+  },
+  "chart": {
+    "type": "boxplot",
+    "x": 0,
+    "ys": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "question": "experience的薪资中点五数概括",
+    "xLabel": "experience",
+    "yLabel": "K/月（原单元23单位；区间中点不是实发）",
+    "denominator": "不涉及比率；展示原量或统计量",
+    "range": "当前输入已说明范围的全量聚合",
+    "filters": "须端使用全量min/max，不是Tukey 1.5IQR异常值规则；缺失不作0",
+    "nullPolicy": "缺失为null，保留0；不连接缺失点",
+    "interpretation": "对照同源表读取差异；关联不能推出因果或样本外结论。"
+  }
+}

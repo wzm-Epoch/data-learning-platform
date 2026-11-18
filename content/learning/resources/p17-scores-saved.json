@@ -1,0 +1,24 @@
+{
+  "schemaVersion": "1.0",
+  "id": "p17-scores-saved",
+  "title": "原保存k搜索结果",
+  "kind": "text",
+  "columns": [],
+  "rows": [],
+  "text": "原单元 35\n*************************K值对应的轮廓系数:*************************\n[[2.         0.38655493]\n [3.         0.45757883]\n [4.         0.50209812]\n [5.         0.4800359 ]\n [6.         0.47761127]\n [7.         0.48317001]]\n最优的K值是:4 \n对应的轮廓系数是:0.5020981194788053\n",
+  "context": {
+    "identity": "original-saved",
+    "buildId": "phase3-v1",
+    "createdAt": "2026-11-16T11:41:51.304867+00:00",
+    "inputs": [
+      {
+        "path": "电商-广告投放效果分析-约250行（KMeans聚类、数据分析）/聚类分析广告效果.ipynb",
+        "sha256": "ad88e032b91ce55504f1a19bc8e1ddb2a8829edc69cab6b2569cdbde39edd6b7"
+      }
+    ],
+    "note": "原Notebook保存输出，只读提取；未重跑，警告与环境路径未混作结果。",
+    "unit": "按原输出；未核实单位保留未知",
+    "sample": null,
+    "modelRerun": false
+  }
+}

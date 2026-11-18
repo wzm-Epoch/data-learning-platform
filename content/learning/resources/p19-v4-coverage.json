@@ -1,0 +1,56 @@
+{
+  "schemaVersion": "1.0",
+  "id": "p19-v4-coverage",
+  "title": "交易与婴儿表覆盖",
+  "kind": "table",
+  "columns": [
+    "统计项",
+    "值"
+  ],
+  "rows": [
+    [
+      "交易原行",
+      29971
+    ],
+    [
+      "清洗后行",
+      29942
+    ],
+    [
+      "购买量",
+      49973
+    ],
+    [
+      "婴儿表行",
+      953
+    ],
+    [
+      "交易中可在婴儿表匹配的用户数",
+      953
+    ]
+  ],
+  "text": null,
+  "context": {
+    "identity": "new-precomputed",
+    "buildId": "phase4-v1",
+    "createdAt": "2026-11-16T12:58:37.389041+00:00",
+    "inputs": [
+      {
+        "path": "电商-母婴市场消费数据分析-约350行（pyecharts可视化、数据分析）/母婴市场消费数据分析.ipynb",
+        "sha256": "4e8243d4bf1a207860192e64196ac04e3ab42a602f5a74e651ab76c2fd2f7068"
+      },
+      {
+        "path": "电商-母婴市场消费数据分析-约350行（pyecharts可视化、数据分析）/(sample)sam_tianchi_mum_baby_trade_history.csv",
+        "sha256": "496284641c52e105d2b68fb4fff9996f1f56a472ef48a9c991a178fa2cc36986"
+      },
+      {
+        "path": "电商-母婴市场消费数据分析-约350行（pyecharts可视化、数据分析）/(sample)sam_tianchi_mum_baby.csv",
+        "sha256": "cef56ed5cc1c92041855c6b10c24b7d7871d0da0ea41565a101a5f7c4eceb471"
+      }
+    ],
+    "note": "两表覆盖不同，不能把婴儿表953人当全部买家，也没有年龄预测。",
+    "unit": "记录 / 用户 / 原购买量",
+    "sample": null,
+    "modelRerun": false
+  }
+}

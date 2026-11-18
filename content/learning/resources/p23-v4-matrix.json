@@ -1,0 +1,74 @@
+{
+  "schemaVersion": "1.0",
+  "id": "p23-v4-matrix",
+  "title": "新版本阈值0.5混淆矩阵",
+  "kind": "table",
+  "columns": [
+    "预测标签",
+    "实际标签",
+    "人数"
+  ],
+  "rows": [
+    [
+      "0",
+      "0",
+      6702
+    ],
+    [
+      "1",
+      "0",
+      6
+    ],
+    [
+      "0",
+      "1",
+      886
+    ],
+    [
+      "1",
+      "1",
+      2
+    ]
+  ],
+  "text": null,
+  "context": {
+    "identity": "teaching-adaptation",
+    "buildId": "phase4-v1",
+    "createdAt": "2026-11-16T12:58:37.389041+00:00",
+    "inputs": [
+      {
+        "path": "电商-预测用户使用优惠券概率较高的客群-约350行（逻辑回归模型、模型评估）/预测天猫用户使用优惠券概率较高的客群.ipynb",
+        "sha256": "30fe7dee501aa066e11b65470a6ddcc0d6b33f84fe89d6a76aaa6aca75623099"
+      },
+      {
+        "path": "电商-预测用户使用优惠券概率较高的客群-约350行（逻辑回归模型、模型评估）/预测天猫用户使用优惠券概率较高的客群.py",
+        "sha256": "c19078cd43e1390f30a543729c1479cb5b6765519eee1f92a90f50c18a3ce37a"
+      },
+      {
+        "path": "电商-预测用户使用优惠券概率较高的客群-约350行（逻辑回归模型、模型评估）/tianmao.csv",
+        "sha256": "89e8ce6a9e14bb2aac1d28fb150644544212e88acf3a152757c6f547b9b1a3f0"
+      }
+    ],
+    "note": "独立测试集，行是真实标签、列是预测标签",
+    "unit": "样本行",
+    "sample": null,
+    "modelRerun": true,
+    "modelVersion": "P23-stratified-probability-v1"
+  },
+  "chart": {
+    "type": "heatmap",
+    "x": 0,
+    "ys": [
+      1,
+      2
+    ],
+    "question": "新版本阈值0.5混淆矩阵",
+    "xLabel": "预测标签",
+    "yLabel": "样本行",
+    "denominator": "不涉及比率；展示原量或统计量",
+    "range": "当前输入已说明范围的全量聚合",
+    "filters": "独立测试集，行是真实标签、列是预测标签",
+    "nullPolicy": "缺失为null，保留0；不连接缺失点",
+    "interpretation": "对照同源表读取差异；关联不能推出因果或样本外结论。"
+  }
+}

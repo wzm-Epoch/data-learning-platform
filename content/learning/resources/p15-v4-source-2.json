@@ -1,0 +1,56 @@
+{
+  "schemaVersion": "1.0",
+  "id": "p15-v4-source-2",
+  "title": "原单元3—3保存输出",
+  "kind": "text",
+  "columns": [],
+  "rows": [],
+  "text": "原单元3\n   EntMovieID  DBOMovieID  EFMTMovieID       电影  \\\n0      709649       39085        40910  长津湖之水门桥   \n\n                            英文电影名          导演                     主演  \\\n0  The Battle At Lake Changjin II  陈凯歌/徐克/林超贤  吴京/易烊千玺/朱亚文/李晨/韩东君/胡军   \n\n   GenreMainID 主要类型       作品类型  ...     累计场次      累计人次   第一天观看人次  \\\n0           27   战争  战争/历史/主旋律  ...  1161376  52062562  11142376   \n\n           首映票房          首周票房         首周末票房   猫眼想看人数  淘票票想看人数  猫眼评分  豆瓣评分  \n0  6.384868e+08  2.530065e+09  9.807439e+08  1155811  1144344   9.6   7.2  \n\n[1 rows x 31 columns]",
+  "context": {
+    "identity": "original-saved",
+    "buildId": "phase4-v1",
+    "createdAt": "2026-11-16T12:58:37.389041+00:00",
+    "inputs": [
+      {
+        "path": "文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档票房分析.ipynb",
+        "sha256": "0e34c777bbbb63ca6d0a849712d9b1f7967f78f4ef809e84e99a8506efd75d10"
+      },
+      {
+        "path": "文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-电影票房表现概览.xlsx",
+        "sha256": "cde413d249940fa7751aea7a934b75ddb3af35cee5afd396ecee32614bda45b4"
+      },
+      {
+        "path": "文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-票房详情.xlsx",
+        "sha256": "ca6a7a8a97c92aca9b4d1095a48355a5a17771d100fe99ce177faba39e0d76ac"
+      },
+      {
+        "path": "文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-排片地域分布（场次）-top10影片.xlsx",
+        "sha256": "a4835d2355a994a5cf7f40e22053d2793d5c14761cb8474a603fe4a7e9c57389"
+      },
+      {
+        "path": "文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-排片场次分布（场次）-top10影片.xlsx",
+        "sha256": "5ad74390a3465cb233c56dde7f957b5addfcc7f292aff9a6c684d3a709e5a0e2"
+      },
+      {
+        "path": "文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-排片统计（场次）-top10影片.xlsx",
+        "sha256": "3f80027f7f6593e7af02dbd064bcef4cafc50d12532148afddc5667866594904"
+      },
+      {
+        "path": "文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-排片院线分布（场次）-top10影片.xlsx",
+        "sha256": "541b0d5675f7320f725d2314d3324e5d968cfc1eba3bd6c078daaaa835489a6e"
+      },
+      {
+        "path": "文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-电影票房三十日时段趋势数据.xlsx",
+        "sha256": "b3423598041e90de61fff3d154ba2e09aeea6a291999549ccf6ec600a6fc6a79"
+      },
+      {
+        "path": "文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-电影票房三十日时段详情.xls",
+        "sha256": "eb438315805b41886b99d019c4bc29514306995cdf3faed2cbb431e2574e1554"
+      }
+    ],
+    "note": "逐单元只读提取原文本；原运行时间未知，本次时间仅为提取时间。",
+    "unit": "原字段单位；未核实单位不补填",
+    "sample": null,
+    "modelRerun": false
+  }
+}

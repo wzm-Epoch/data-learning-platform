@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1.0",
+  "id": "p19-v4-source-5",
+  "title": "原单元22—28保存输出",
+  "kind": "text",
+  "columns": [],
+  "rows": [],
+  "text": "原单元25\n['2012-3',\n '2012-4',\n '2013-1',\n '2013-2',\n '2013-3',\n '2013-4',\n '2014-1',\n '2014-2',\n '2014-3',\n '2014-4',\n '2015-1']",
+  "context": {
+    "identity": "original-saved",
+    "buildId": "phase4-v1",
+    "createdAt": "2026-11-16T12:58:37.389041+00:00",
+    "inputs": [
+      {
+        "path": "电商-母婴市场消费数据分析-约350行（pyecharts可视化、数据分析）/母婴市场消费数据分析.ipynb",
+        "sha256": "4e8243d4bf1a207860192e64196ac04e3ab42a602f5a74e651ab76c2fd2f7068"
+      },
+      {
+        "path": "电商-母婴市场消费数据分析-约350行（pyecharts可视化、数据分析）/(sample)sam_tianchi_mum_baby_trade_history.csv",
+        "sha256": "496284641c52e105d2b68fb4fff9996f1f56a472ef48a9c991a178fa2cc36986"
+      },
+      {
+        "path": "电商-母婴市场消费数据分析-约350行（pyecharts可视化、数据分析）/(sample)sam_tianchi_mum_baby.csv",
+        "sha256": "cef56ed5cc1c92041855c6b10c24b7d7871d0da0ea41565a101a5f7c4eceb471"
+      }
+    ],
+    "note": "逐单元只读提取原文本；原运行时间未知，本次时间仅为提取时间。",
+    "unit": "原字段单位；未核实单位不补填",
+    "sample": null,
+    "modelRerun": false
+  }
+}

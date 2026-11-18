@@ -1,0 +1,75 @@
+{
+  "schemaVersion": "1.0",
+  "id": "p13-v4-input-quality",
+  "title": "本项目各输入表的读取与质量核对",
+  "kind": "table",
+  "columns": [
+    "输入文件/工作表",
+    "读取行",
+    "列数",
+    "缺失单元格",
+    "完全重复行"
+  ],
+  "rows": [
+    [
+      "票房榜.xlsx#Sheet1",
+      150,
+      8,
+      0,
+      0
+    ],
+    [
+      "电影票房三十日时段详情.xlsx#Sheet1",
+      3392,
+      15,
+      0,
+      0
+    ],
+    [
+      "电影票房三十日时段趋势数据.xlsx#Sheet1",
+      4620,
+      16,
+      0,
+      0
+    ],
+    [
+      "电影票房表现概览.xlsx#Sheet1",
+      100,
+      31,
+      71,
+      0
+    ]
+  ],
+  "text": null,
+  "context": {
+    "identity": "new-precomputed",
+    "buildId": "phase4-v1",
+    "createdAt": "2026-11-16T12:58:37.389041+00:00",
+    "inputs": [
+      {
+        "path": "文化娱乐-国产进口电影票房分析（Pyecharts大屏可视化）/国产进口电影票房分析.ipynb",
+        "sha256": "76d4713a436c730d38b1f620c0d2c51aa784a50c1b5276d8734d0d6ab02c058d"
+      },
+      {
+        "path": "文化娱乐-国产进口电影票房分析（Pyecharts大屏可视化）/票房榜.xlsx",
+        "sha256": "1c38523aeb55c46b7df881d3919becadd4be29aa47deed5784bf1297c5f6f946"
+      },
+      {
+        "path": "文化娱乐-国产进口电影票房分析（Pyecharts大屏可视化）/电影票房三十日时段详情.xlsx",
+        "sha256": "aaafac38878ea9d8961050e8ccb573411f091fe479ca639c1aea1aa1744bbe12"
+      },
+      {
+        "path": "文化娱乐-国产进口电影票房分析（Pyecharts大屏可视化）/电影票房三十日时段趋势数据.xlsx",
+        "sha256": "1460d62f759e58c9df0597f11c7db66735ebfc050e622713761774da5d96c20a"
+      },
+      {
+        "path": "文化娱乐-国产进口电影票房分析（Pyecharts大屏可视化）/电影票房表现概览.xlsx",
+        "sha256": "dcc0a445a76c685cc9b46f21df048ae1546ffe8a29b0777a84d254379bcf0096"
+      }
+    ],
+    "note": "每张表分别统计；衍生表不当原始独立样本。人口多层表头在专属适配中另行解析。",
+    "unit": "行 / 列 / 单元格",
+    "sample": null,
+    "modelRerun": false
+  }
+}

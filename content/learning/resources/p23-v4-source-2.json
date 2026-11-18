@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1.0",
+  "id": "p23-v4-source-2",
+  "title": "原单元13—15保存输出",
+  "kind": "text",
+  "columns": [],
+  "rows": [],
+  "text": "原单元13\n   default_no  default_yes  returned_no  returned_yes  loan_no  loan_yes\n0           1            0            0             1        1         0\n1           1            0            0             1        1         0\n2           1            0            0             1        0         1\n3           1            0            0             1        0         1\n4           1            0            0             1        1         0\n\n原单元14\n   ID  age         job   marital default returned loan  \\\n0   1   43  management   married      no      yes   no   \n1   2   42  technician  divorced      no      yes   no   \n2   3   47      admin.   married      no      yes  yes   \n3   4   28  management    single      no      yes  yes   \n4   5   42  technician  divorced      no      yes   no   \n\n   coupon_used_in_last6_month  coupon_used_in_last_month  coupon_ind  \\\n0                           2                          0           0   \n1                           1                          1           0   \n2                           2                          0           0   \n3                           2                          0           0   \n4                           5                          0           0   \n\n   default_no  default_yes  returned_no  returned_yes  loan_no  loan_yes  \n0           1            0            0             1        1         0  \n1           1            0            0             1        1         0  \n2           1            0            0             1        0         1  \n3           1            0            0             1        0         1  \n4           1            0            0             1        1         0  ",
+  "context": {
+    "identity": "original-saved",
+    "buildId": "phase4-v1",
+    "createdAt": "2026-11-16T12:58:37.389041+00:00",
+    "inputs": [
+      {
+        "path": "电商-预测用户使用优惠券概率较高的客群-约350行（逻辑回归模型、模型评估）/预测天猫用户使用优惠券概率较高的客群.ipynb",
+        "sha256": "30fe7dee501aa066e11b65470a6ddcc0d6b33f84fe89d6a76aaa6aca75623099"
+      },
+      {
+        "path": "电商-预测用户使用优惠券概率较高的客群-约350行（逻辑回归模型、模型评估）/预测天猫用户使用优惠券概率较高的客群.py",
+        "sha256": "c19078cd43e1390f30a543729c1479cb5b6765519eee1f92a90f50c18a3ce37a"
+      },
+      {
+        "path": "电商-预测用户使用优惠券概率较高的客群-约350行（逻辑回归模型、模型评估）/tianmao.csv",
+        "sha256": "89e8ce6a9e14bb2aac1d28fb150644544212e88acf3a152757c6f547b9b1a3f0"
+      }
+    ],
+    "note": "逐单元只读提取原文本；原运行时间未知，本次时间仅为提取时间。",
+    "unit": "原字段单位；未核实单位不补填",
+    "sample": null,
+    "modelRerun": false
+  }
+}

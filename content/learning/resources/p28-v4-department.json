@@ -1,0 +1,114 @@
+{
+  "schemaVersion": "1.0",
+  "id": "p28-v4-department",
+  "title": "sales的组内left比例",
+  "kind": "table",
+  "columns": [
+    "sales",
+    "分母行数",
+    "正类行数",
+    "组内正类比例"
+  ],
+  "rows": [
+    [
+      "IT",
+      1227,
+      273,
+      0.222493887530562
+    ],
+    [
+      "RandD",
+      787,
+      121,
+      0.153748411689962
+    ],
+    [
+      "accounting",
+      767,
+      204,
+      0.265971316818774
+    ],
+    [
+      "hr",
+      739,
+      215,
+      0.290933694181326
+    ],
+    [
+      "management",
+      630,
+      91,
+      0.144444444444444
+    ],
+    [
+      "marketing",
+      858,
+      203,
+      0.236596736596737
+    ],
+    [
+      "product_mng",
+      902,
+      198,
+      0.219512195121951
+    ],
+    [
+      "sales",
+      4140,
+      1014,
+      0.244927536231884
+    ],
+    [
+      "support",
+      2229,
+      555,
+      0.248990578734859
+    ],
+    [
+      "technical",
+      2720,
+      697,
+      0.25625
+    ]
+  ],
+  "text": null,
+  "context": {
+    "identity": "new-precomputed",
+    "buildId": "phase4-v1",
+    "createdAt": "2026-11-16T12:58:37.389041+00:00",
+    "inputs": [
+      {
+        "path": "职场-分析员工过早离职原因-约300行（相关性分析、变量分析、plotly可视化）/分析员工过早离职原因.ipynb",
+        "sha256": "9bf9cfcf11d11ed4dae94f8309a2d06aed0000ed3002fff5333d64d2de0e0184"
+      },
+      {
+        "path": "职场-分析员工过早离职原因-约300行（相关性分析、变量分析、plotly可视化）/分析员工过早离职原因.py",
+        "sha256": "3de51cc2b00d540e2634ea337ea0cb6c53f9973a549afcc820a0724de78e431d"
+      },
+      {
+        "path": "职场-分析员工过早离职原因-约300行（相关性分析、变量分析、plotly可视化）/HR_comma_sep.csv",
+        "sha256": "2510e274a90547f34c7b0db5a4ab70282c2710eb54252f14921bf980b81a928c"
+      }
+    ],
+    "note": "先在完整输入分组后计算sum/size；图例/类别筛选不重定义各组分母",
+    "unit": "比例0—1",
+    "sample": null,
+    "modelRerun": false
+  },
+  "chart": {
+    "type": "bar",
+    "x": 0,
+    "ys": [
+      3
+    ],
+    "question": "sales的组内left比例",
+    "xLabel": "sales",
+    "yLabel": "比例0—1",
+    "denominator": "同一分组全部有效标签记录数",
+    "range": "当前输入已说明范围的全量聚合",
+    "filters": "先在完整输入分组后计算sum/size；图例/类别筛选不重定义各组分母",
+    "nullPolicy": "缺失为null，保留0；不连接缺失点",
+    "interpretation": "对照同源表读取差异；关联不能推出因果或样本外结论。",
+    "filterColumn": 0
+  }
+}

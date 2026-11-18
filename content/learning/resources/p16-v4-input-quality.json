@@ -1,0 +1,42 @@
+{
+  "schemaVersion": "1.0",
+  "id": "p16-v4-input-quality",
+  "title": "本项目各输入表的读取与质量核对",
+  "kind": "table",
+  "columns": [
+    "输入文件/工作表",
+    "读取行",
+    "列数",
+    "缺失单元格",
+    "完全重复行"
+  ],
+  "rows": [
+    [
+      "wholesale_price_of_agricultural_products.csv#None",
+      1104,
+      6,
+      0,
+      0
+    ]
+  ],
+  "text": null,
+  "context": {
+    "identity": "new-precomputed",
+    "buildId": "phase4-v1",
+    "createdAt": "2026-11-16T12:58:37.389041+00:00",
+    "inputs": [
+      {
+        "path": "生活日常-时令蔬菜时间序列分析-约600行（matplotlib、seaborn可视化、多元回归）/时令蔬菜有哪些.ipynb",
+        "sha256": "470915ad6aeefbf6ccbbbbdab0004971fd91f7f9ccc628a7b42ed7e01a0c724a"
+      },
+      {
+        "path": "生活日常-时令蔬菜时间序列分析-约600行（matplotlib、seaborn可视化、多元回归）/wholesale_price_of_agricultural_products.csv",
+        "sha256": "f297941e77606fd53c6fa644e5b53ccd5fe005e09e86aca33c103cc2ca29eacd"
+      }
+    ],
+    "note": "每张表分别统计；衍生表不当原始独立样本。人口多层表头在专属适配中另行解析。",
+    "unit": "行 / 列 / 单元格",
+    "sample": null,
+    "modelRerun": false
+  }
+}

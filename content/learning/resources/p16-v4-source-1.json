@@ -1,0 +1,28 @@
+{
+  "schemaVersion": "1.0",
+  "id": "p16-v4-source-1",
+  "title": "原单元5—6保存输出",
+  "kind": "text",
+  "columns": [],
+  "rows": [],
+  "text": "原单元6\n   year_month product  price category\n0      202012      芹菜   3.76       蔬菜\n1      202012     西红柿   4.56       蔬菜\n2      202012      豆角   7.90       蔬菜\n3      202012     白萝卜   1.93       蔬菜\n4      202012      茄子   4.97       蔬菜",
+  "context": {
+    "identity": "original-saved",
+    "buildId": "phase4-v1",
+    "createdAt": "2026-11-16T12:58:37.389041+00:00",
+    "inputs": [
+      {
+        "path": "生活日常-时令蔬菜时间序列分析-约600行（matplotlib、seaborn可视化、多元回归）/时令蔬菜有哪些.ipynb",
+        "sha256": "470915ad6aeefbf6ccbbbbdab0004971fd91f7f9ccc628a7b42ed7e01a0c724a"
+      },
+      {
+        "path": "生活日常-时令蔬菜时间序列分析-约600行（matplotlib、seaborn可视化、多元回归）/wholesale_price_of_agricultural_products.csv",
+        "sha256": "f297941e77606fd53c6fa644e5b53ccd5fe005e09e86aca33c103cc2ca29eacd"
+      }
+    ],
+    "note": "逐单元只读提取原文本；原运行时间未知，本次时间仅为提取时间。",
+    "unit": "原字段单位；未核实单位不补填",
+    "sample": null,
+    "modelRerun": false
+  }
+}

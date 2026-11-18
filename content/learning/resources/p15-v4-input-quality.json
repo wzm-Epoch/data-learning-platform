@@ -1,0 +1,119 @@
+{
+  "schemaVersion": "1.0",
+  "id": "p15-v4-input-quality",
+  "title": "本项目各输入表的读取与质量核对",
+  "kind": "table",
+  "columns": [
+    "输入文件/工作表",
+    "读取行",
+    "列数",
+    "缺失单元格",
+    "完全重复行"
+  ],
+  "rows": [
+    [
+      "春节档-电影票房表现概览.xlsx#Sheet1",
+      10,
+      31,
+      4,
+      0
+    ],
+    [
+      "春节档-票房详情.xlsx#Sheet1",
+      38,
+      11,
+      0,
+      0
+    ],
+    [
+      "春节档-排片地域分布（场次）-top10影片.xlsx#Sheet1",
+      420,
+      4,
+      4,
+      0
+    ],
+    [
+      "春节档-排片场次分布（场次）-top10影片.xlsx#Sheet1",
+      70,
+      6,
+      0,
+      0
+    ],
+    [
+      "春节档-排片统计（场次）-top10影片.xlsx#Sheet1",
+      70,
+      4,
+      0,
+      0
+    ],
+    [
+      "春节档-排片院线分布（场次）-top10影片.xlsx#Sheet1",
+      455,
+      4,
+      6,
+      0
+    ],
+    [
+      "春节档-电影票房三十日时段趋势数据.xlsx#Sheet1",
+      241,
+      16,
+      0,
+      0
+    ],
+    [
+      "春节档-电影票房三十日时段详情.xls#Sheet1",
+      241,
+      15,
+      0,
+      0
+    ]
+  ],
+  "text": null,
+  "context": {
+    "identity": "new-precomputed",
+    "buildId": "phase4-v1",
+    "createdAt": "2026-11-16T12:58:37.389041+00:00",
+    "inputs": [
+      {
+        "path": "文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档票房分析.ipynb",
+        "sha256": "0e34c777bbbb63ca6d0a849712d9b1f7967f78f4ef809e84e99a8506efd75d10"
+      },
+      {
+        "path": "文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-电影票房表现概览.xlsx",
+        "sha256": "cde413d249940fa7751aea7a934b75ddb3af35cee5afd396ecee32614bda45b4"
+      },
+      {
+        "path": "文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-票房详情.xlsx",
+        "sha256": "ca6a7a8a97c92aca9b4d1095a48355a5a17771d100fe99ce177faba39e0d76ac"
+      },
+      {
+        "path": "文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-排片地域分布（场次）-top10影片.xlsx",
+        "sha256": "a4835d2355a994a5cf7f40e22053d2793d5c14761cb8474a603fe4a7e9c57389"
+      },
+      {
+        "path": "文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-排片场次分布（场次）-top10影片.xlsx",
+        "sha256": "5ad74390a3465cb233c56dde7f957b5addfcc7f292aff9a6c684d3a709e5a0e2"
+      },
+      {
+        "path": "文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-排片统计（场次）-top10影片.xlsx",
+        "sha256": "3f80027f7f6593e7af02dbd064bcef4cafc50d12532148afddc5667866594904"
+      },
+      {
+        "path": "文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-排片院线分布（场次）-top10影片.xlsx",
+        "sha256": "541b0d5675f7320f725d2314d3324e5d968cfc1eba3bd6c078daaaa835489a6e"
+      },
+      {
+        "path": "文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-电影票房三十日时段趋势数据.xlsx",
+        "sha256": "b3423598041e90de61fff3d154ba2e09aeea6a291999549ccf6ec600a6fc6a79"
+      },
+      {
+        "path": "文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-电影票房三十日时段详情.xls",
+        "sha256": "eb438315805b41886b99d019c4bc29514306995cdf3faed2cbb431e2574e1554"
+      }
+    ],
+    "note": "每张表分别统计；衍生表不当原始独立样本。人口多层表头在专属适配中另行解析。",
+    "unit": "行 / 列 / 单元格",
+    "sample": null,
+    "modelRerun": false
+  }
+}

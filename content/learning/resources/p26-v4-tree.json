@@ -1,0 +1,515 @@
+{
+  "schemaVersion": "1.0",
+  "id": "p26-v4-tree",
+  "title": "31省年龄结构Ward层次树",
+  "kind": "table",
+  "columns": [
+    "省份",
+    "新群组"
+  ],
+  "rows": [
+    [
+      "北京",
+      1
+    ],
+    [
+      "天津",
+      1
+    ],
+    [
+      "河北",
+      2
+    ],
+    [
+      "山西",
+      2
+    ],
+    [
+      "内蒙古",
+      1
+    ],
+    [
+      "辽宁",
+      1
+    ],
+    [
+      "吉林",
+      1
+    ],
+    [
+      "黑龙江",
+      1
+    ],
+    [
+      "上海",
+      1
+    ],
+    [
+      "江苏",
+      2
+    ],
+    [
+      "浙江",
+      1
+    ],
+    [
+      "安徽",
+      2
+    ],
+    [
+      "福建",
+      3
+    ],
+    [
+      "江西",
+      2
+    ],
+    [
+      "山东",
+      2
+    ],
+    [
+      "河南",
+      2
+    ],
+    [
+      "湖北",
+      2
+    ],
+    [
+      "湖南",
+      2
+    ],
+    [
+      "广东",
+      3
+    ],
+    [
+      "广西",
+      2
+    ],
+    [
+      "海南",
+      3
+    ],
+    [
+      "重庆",
+      2
+    ],
+    [
+      "四川",
+      2
+    ],
+    [
+      "贵州",
+      2
+    ],
+    [
+      "云南",
+      3
+    ],
+    [
+      "西藏",
+      3
+    ],
+    [
+      "陕西",
+      2
+    ],
+    [
+      "甘肃",
+      3
+    ],
+    [
+      "青海",
+      3
+    ],
+    [
+      "宁夏",
+      3
+    ],
+    [
+      "新疆",
+      3
+    ]
+  ],
+  "text": null,
+  "context": {
+    "identity": "teaching-adaptation",
+    "buildId": "phase4-v1",
+    "createdAt": "2026-11-16T12:58:37.389041+00:00",
+    "inputs": [
+      {
+        "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/关于第七次全国人口普查数据的探索.ipynb",
+        "sha256": "128dafa808c53033d8c300b682ae8cf67a8c77279b6c34db6385dfd70f0800a0"
+      },
+      {
+        "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/关于第七次全国人口普查数据的探索.py",
+        "sha256": "f0b7b07826be934cb9990546e3d13461b3434415fbe864b63389492587edbe35"
+      },
+      {
+        "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/各地区人口年龄构成.csv",
+        "sha256": "ab4bdab96f351ac920e48f2467cfad4f0d7aa97c10c23fabce16003ca173734e"
+      },
+      {
+        "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/各地区人口.csv",
+        "sha256": "e54df53ebcf223d5932943a9ad53b66df3d6d6798d2ee47333b0777236510bd2"
+      }
+    ],
+    "note": "树形只展示合并拓扑；横向位置不是距离刻度；真实距离见节点文字与合并表",
+    "unit": "Ward合并距离（节点文字）",
+    "sample": null,
+    "modelRerun": true,
+    "modelVersion": "P26-age-ward-v1"
+  },
+  "chart": {
+    "type": "tree",
+    "x": 0,
+    "ys": [
+      1
+    ],
+    "question": "31省年龄结构Ward层次树",
+    "xLabel": "省份",
+    "yLabel": "Ward合并距离（节点文字）",
+    "denominator": "不涉及比率；展示原量或统计量",
+    "range": "当前输入已说明范围的全量聚合",
+    "filters": "树形只展示合并拓扑；横向位置不是距离刻度；真实距离见节点文字与合并表",
+    "nullPolicy": "缺失为null，保留0；不连接缺失点",
+    "interpretation": "对照同源表读取差异；关联不能推出因果或样本外结论。",
+    "tree": {
+      "name": "Ward距离 0.329927",
+      "value": 0.32992684138487294,
+      "children": [
+        {
+          "name": "Ward距离 0.095915",
+          "value": 0.09591532202938174,
+          "children": [
+            {
+              "name": "Ward距离 0.029269",
+              "value": 0.02926858384001516,
+              "children": [
+                {
+                  "name": "内蒙古",
+                  "value": 0.0,
+                  "children": []
+                },
+                {
+                  "name": "Ward距离 0.019763",
+                  "value": 0.019763349918472825,
+                  "children": [
+                    {
+                      "name": "北京",
+                      "value": 0.0,
+                      "children": []
+                    },
+                    {
+                      "name": "浙江",
+                      "value": 0.0,
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "Ward距离 0.049965",
+              "value": 0.04996534799238371,
+              "children": [
+                {
+                  "name": "辽宁",
+                  "value": 0.0,
+                  "children": []
+                },
+                {
+                  "name": "Ward距离 0.044300",
+                  "value": 0.04430033859915739,
+                  "children": [
+                    {
+                      "name": "Ward距离 0.006524",
+                      "value": 0.006523802572119996,
+                      "children": [
+                        {
+                          "name": "黑龙江",
+                          "value": 0.0,
+                          "children": []
+                        },
+                        {
+                          "name": "上海",
+                          "value": 0.0,
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "name": "Ward距离 0.022775",
+                      "value": 0.022775425352778798,
+                      "children": [
+                        {
+                          "name": "天津",
+                          "value": 0.0,
+                          "children": []
+                        },
+                        {
+                          "name": "吉林",
+                          "value": 0.0,
+                          "children": []
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Ward距离 0.250796",
+          "value": 0.250795608672067,
+          "children": [
+            {
+              "name": "Ward距离 0.105488",
+              "value": 0.10548769596497978,
+              "children": [
+                {
+                  "name": "Ward距离 0.031218",
+                  "value": 0.031218424047347374,
+                  "children": [
+                    {
+                      "name": "Ward距离 0.004972",
+                      "value": 0.004971921157862431,
+                      "children": [
+                        {
+                          "name": "海南",
+                          "value": 0.0,
+                          "children": []
+                        },
+                        {
+                          "name": "云南",
+                          "value": 0.0,
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "name": "Ward距离 0.015446",
+                      "value": 0.015446035089951066,
+                      "children": [
+                        {
+                          "name": "福建",
+                          "value": 0.0,
+                          "children": []
+                        },
+                        {
+                          "name": "甘肃",
+                          "value": 0.0,
+                          "children": []
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "Ward距离 0.068955",
+                  "value": 0.06895510133412903,
+                  "children": [
+                    {
+                      "name": "西藏",
+                      "value": 0.0,
+                      "children": []
+                    },
+                    {
+                      "name": "Ward距离 0.040735",
+                      "value": 0.04073536547031326,
+                      "children": [
+                        {
+                          "name": "广东",
+                          "value": 0.0,
+                          "children": []
+                        },
+                        {
+                          "name": "Ward距离 0.028222",
+                          "value": 0.028222331583340206,
+                          "children": [
+                            {
+                              "name": "新疆",
+                              "value": 0.0,
+                              "children": []
+                            },
+                            {
+                              "name": "Ward距离 0.017297",
+                              "value": 0.017296820517077715,
+                              "children": [
+                                {
+                                  "name": "青海",
+                                  "value": 0.0,
+                                  "children": []
+                                },
+                                {
+                                  "name": "宁夏",
+                                  "value": 0.0,
+                                  "children": []
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "Ward距离 0.168056",
+              "value": 0.16805576965485508,
+              "children": [
+                {
+                  "name": "Ward距离 0.030147",
+                  "value": 0.03014664160399961,
+                  "children": [
+                    {
+                      "name": "河南",
+                      "value": 0.0,
+                      "children": []
+                    },
+                    {
+                      "name": "Ward距离 0.026033",
+                      "value": 0.02603286384553184,
+                      "children": [
+                        {
+                          "name": "江西",
+                          "value": 0.0,
+                          "children": []
+                        },
+                        {
+                          "name": "Ward距离 0.016593",
+                          "value": 0.016593070842975424,
+                          "children": [
+                            {
+                              "name": "广西",
+                              "value": 0.0,
+                              "children": []
+                            },
+                            {
+                              "name": "贵州",
+                              "value": 0.0,
+                              "children": []
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "Ward距离 0.090481",
+                  "value": 0.09048121720371952,
+                  "children": [
+                    {
+                      "name": "Ward距离 0.027138",
+                      "value": 0.027138287835946264,
+                      "children": [
+                        {
+                          "name": "安徽",
+                          "value": 0.0,
+                          "children": []
+                        },
+                        {
+                          "name": "Ward距离 0.017370",
+                          "value": 0.017370185184198014,
+                          "children": [
+                            {
+                              "name": "山东",
+                              "value": 0.0,
+                              "children": []
+                            },
+                            {
+                              "name": "Ward距离 0.009764",
+                              "value": 0.009763708311906852,
+                              "children": [
+                                {
+                                  "name": "河北",
+                                  "value": 0.0,
+                                  "children": []
+                                },
+                                {
+                                  "name": "湖南",
+                                  "value": 0.0,
+                                  "children": []
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "name": "Ward距离 0.048872",
+                      "value": 0.04887183919873146,
+                      "children": [
+                        {
+                          "name": "Ward距离 0.012594",
+                          "value": 0.01259391387403724,
+                          "children": [
+                            {
+                              "name": "江苏",
+                              "value": 0.0,
+                              "children": []
+                            },
+                            {
+                              "name": "Ward距离 0.002502",
+                              "value": 0.00250199920063936,
+                              "children": [
+                                {
+                                  "name": "重庆",
+                                  "value": 0.0,
+                                  "children": []
+                                },
+                                {
+                                  "name": "四川",
+                                  "value": 0.0,
+                                  "children": []
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "name": "Ward距离 0.019537",
+                          "value": 0.019536632258401136,
+                          "children": [
+                            {
+                              "name": "山西",
+                              "value": 0.0,
+                              "children": []
+                            },
+                            {
+                              "name": "Ward距离 0.016027",
+                              "value": 0.016027476407719357,
+                              "children": [
+                                {
+                                  "name": "湖北",
+                                  "value": 0.0,
+                                  "children": []
+                                },
+                                {
+                                  "name": "陕西",
+                                  "value": 0.0,
+                                  "children": []
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
