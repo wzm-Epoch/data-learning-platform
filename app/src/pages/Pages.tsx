@@ -300,12 +300,12 @@ export function SettingsPage({ catalog }: { catalog: Catalog }) {
         <p role="status">{notice}</p>
       </div>
       <div className={s.infoPanel}>
-        <h2>本地运行与内容状态</h2>
-        <p>正式入口：http://127.0.0.1:4173</p>
+        <h2>运行方式与内容状态</h2>
+        <p>{location.protocol === "https:" ? `在线入口：${location.origin}${location.pathname}` : "本机入口：http://127.0.0.1:4173"}</p>
         <p>
-          首页、目录与界面资源由本机提供，不请求公网字体或脚本。当前
+          {location.protocol === "https:" ? "在线版从本站加载课程和图表，访问需要网络；本机离线版仍可独立使用。当前" : "首页、目录与界面资源由本机提供，不请求公网字体或脚本。当前"}
           {catalog.projects.reduce((n, p) => n + p.learning.readyLessons, 0)}
-          节课已纳入本地资源。原资料缺口与尚未独立重跑的流程按项目说明。
+          节课已纳入资源包。原资料缺口与尚未独立重跑的流程按项目说明。
         </p>
         <BackupPanel />
       </div>

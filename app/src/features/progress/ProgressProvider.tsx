@@ -317,7 +317,11 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
           )}
         </aside>
       )}
-      {location.origin !== "http://127.0.0.1:4173" && (
+      {location.protocol === "https:" ? (
+        <p role="status">
+          当前为在线版本。进度保存在当前浏览器，与本机版不自动同步；可在设置中导入或导出学习进度。
+        </p>
+      ) : location.origin !== "http://127.0.0.1:4173" && (
         <p role="status">
           当前为非正式来源。正式学习请使用{" "}
           <a href="http://127.0.0.1:4173">http://127.0.0.1:4173</a>

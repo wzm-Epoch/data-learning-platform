@@ -1,5 +1,11 @@
 # 数据分析项目学习平台
 
+在线预览：https://wzm-epoch.github.io/data-learning-platform/
+
+在线版通过GitHub Pages提供页面与课程资源，学习进度保存在访问时使用的浏览器中，与本机版独立。已有本机进度可通过设置中的JSON备份导入。在线访问需要网络，本机离线入口仍保持原用法。
+
+维护者使用 `npm.cmd run build:pages` 生成适用于仓库子路径的 `dist-pages`，由 `gh-pages` 分支根目录发布。`main` 保存源码，推送源码不会自动重建在线预览；更新预览需要重新发布构建目录。构建目录不包含个人学习记录或本机配置。
+
 ## 从 GitHub 下载后启动
 
 GitHub 仓库不包含依赖目录 `node_modules`、构建目录 `dist`、发行压缩包 `delivery`、本机路径配置或个人学习进度备份。首次下载源码后需要安装依赖并构建；下文“已附dist”的说明针对本机原交付目录。
