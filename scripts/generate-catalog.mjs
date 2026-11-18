@@ -1,4 +1,8 @@
 import { availability } from "../schemas/availability.mjs";
+import {
+  originalDownloadsSchema,
+  matchOriginalPackage,
+} from "../schemas/original-downloads.mjs";
 import { generateProgress } from "./generate-progress.mjs";
 import { generateLearning, learningSummary } from "./generate-learning.mjs";
 import { readFile, writeFile, mkdir } from "node:fs/promises";
@@ -113,6 +117,28 @@ export async function generateCatalog(source, output) {
     path.join(output, "knowledge-index.json"),
     JSON.stringify(knowledge),
   );
+  let downloads;
+  try {
+    downloads = await read("original-downloads.json");
+  } catch (error) {
+    if (error.code !== "ENOENT") throw error;
+  }
+  if (downloads) {
+    const manifest = originalDownloadsSchema.parse(downloads);
+    for (const project of manifest.projects) {
+      if (!details.has(project.id))
+        throw new Error("资料包引用未知项目：" + project.id);
+      matchOriginalPackage(
+        manifest,
+        project.id,
+        details.get(project.id).sourceRefs,
+      );
+    }
+    await writeFile(
+      path.join(output, "original-downloads.json"),
+      JSON.stringify(manifest),
+    );
+  }
   console.log(
     `目录校验通过：${catalog.projects.length}项目 / ${catalog.categories.length}分类 / 独立详情包`,
   );

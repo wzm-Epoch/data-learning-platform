@@ -1,4 +1,5 @@
-import {ContentStatus} from "../components/ContentStatus";
+import { ContentStatus } from "../components/ContentStatus";
+import { OriginalDownloads } from "../components/OriginalDownloads";
 import { ProjectProgress } from "../features/progress/ProgressViews";
 import { Link, useParams } from "react-router-dom";
 import { ArrowRight, BookOpen, FileText, ShieldCheck } from "lucide-react";
@@ -53,7 +54,10 @@ function Title({ p }: { p: ProjectDetail }) {
       <span className={a.eyebrow}>
         {p.id} · {p.difficulty} · 原结果尚未重跑
       </span>
-      <h1>{p.title}</h1><p><ProjectProgress id={p.id}/></p>
+      <h1>{p.title}</h1>
+      <p>
+        <ProjectProgress id={p.id} />
+      </p>
       <p className={a.lead}>{p.summary}</p>
       <MetaLinks p={p} />
     </>
@@ -111,11 +115,14 @@ export function ProjectPage({ catalog }: { catalog: Catalog }) {
                   ? `${p.learning.readyLessons}课 / ${p.learning.readySteps}步已开放`
                   : "步骤仅规划"}
               </span>
-              <ContentStatus project={p}/>
+              <ContentStatus project={p} />
               <span>
                 课程资源：{p.learning.readyLessons ? "课已打包" : "待生成"}
               </span>
-              <span>学习记录：<ProjectProgress id={p.id}/></span>
+              <span>
+                学习记录：
+                <ProjectProgress id={p.id} />
+              </span>
             </div>
           </div>
           {p.scopeNotes.length > 0 && (
@@ -403,8 +410,9 @@ export function SourcesPage({ catalog }: { catalog: Catalog }) {
           <Title p={p} />
           <h2>原文件来源与审计证据</h2>
           <p className={a.lead}>
-            原始资产保留在本机只读目录。此页登记相对路径与哈希，不直接运行Notebook、HTML脚本、模型或安装包。
+            原始资产按项目完整打包发布，原文件内容保持不变。此页提供下载入口、相对路径与哈希，不直接运行Notebook、HTML脚本、模型或安装包。
           </p>
+          <OriginalDownloads projectId={p.id} sources={p.sourceRefs} />
           <section className={s.infoBox}>
             <h3>原始名称</h3>
             {p.originalNames.map((n) => (
@@ -428,7 +436,9 @@ export function SourcesPage({ catalog }: { catalog: Catalog }) {
                   {ref.path} <span>· {ref.role}</span>
                 </summary>
                 <p className={s.path}>SHA-256：{ref.sha256}</p>
-                <p>原资产只读登记；未作为网页执行资源发布。</p>
+                <p>
+                  此文件保留在本项目完整资料包中，下载状态见上方；不作为网页执行资源加载。
+                </p>
               </details>
             ))}
           </section>

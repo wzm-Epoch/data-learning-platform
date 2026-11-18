@@ -1,4 +1,14 @@
 declare module "*.mjs" {
+  export const originalDownloadsSchema: {
+    parse(value: unknown): unknown;
+    safeParse(value: unknown): { success: boolean; data?: unknown };
+  };
+  export function matchOriginalPackage(
+    manifest: unknown,
+    projectId: string,
+    refs: { path: string; sha256: string }[],
+  ): unknown;
+  export function formatFileBytes(value: number): string;
   export function imageCaption(resource: {
     context: { identity: string };
   }): string;
