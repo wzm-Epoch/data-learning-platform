@@ -1,0 +1,67 @@
+
+> data-learning-platform@0.6.0 test
+> node --test tests/catalog.test.mjs tests/phase2.test.mjs tests/phase3.test.mjs tests/phase4.test.mjs tests/phase4-review.test.mjs tests/phase5.test.mjs tests/phase6.test.mjs
+
+✔ 29 stable IDs, 12 categories, P21 is one project with two planned lessons (5.6871ms)
+✔ search title, original name, verified tag, case and no results (1.5183ms)
+✔ reject duplicate IDs and invalid category references (1.9011ms)
+✔ projects disclose actual representative readiness and unchanged rerun state (0.164ms)
+✔ all project packages validate, categories and route cover each stable ID exactly once (13.494ms)
+✔ combined category/difficulty/tag/readiness filters, stable sorts and knowledge search (1.0777ms)
+✔ required factual distinctions, dictionary physical types and unknown units (0.5889ms)
+✔ knowledge evidence resolves to actual source code cell, no fabricated steps (1197.3842ms)
+学习内容：29项目规划，30课已开放，554份轻量结果
+目录校验通过：30项目 / 12分类 / 独立详情包
+✔ temporary registry addition generates a 30th project without page code changes, then cleans up (2522.8169ms)
+✔ population mapped names survive runtime validation and source dictionaries supply only documented semantics (0.2366ms)
+✔ 30 ready lessons retain the original 25 stable representative steps (13.3975ms)
+✔ every ready step binds exact notebook source and only matching input/result identities (732.7239ms)
+✔ P21 lesson A/B inputs never cross, exact totals and period null policy are recomputed (2.2587ms)
+✔ P11 anomaly is retained and P17 saved std/labels are never presented as new trained means (4.353ms)
+✔ reading position round trip, invalid/version/unknown-step rejection and quota failure (1.4591ms)
+✔ duplicate step IDs and absent result text fail validation (2.334ms)
+✔ generator refuses a result whose input has been switched to the other P21 lesson (1680.4078ms)
+✔ tree contract permits data nodes only and requires type-specific dimensions (6.7671ms)
+✔ numeric chart mappings reject textual values but preserve null and real zero (4.08ms)
+✔ image captions distinguish saved Notebook plots from converted source photos (3.4688ms)
+✔ P21 coverage includes both lessons and every project contract matches current coverage (588.7467ms)
+✔ rebuild retains full environment, all adapter hashes and exactly active resources (43.2961ms)
+✔ 29 independent coverage records, 30 real lessons and source-specific steps (47.5028ms)
+✔ sales exact amounts reconcile without binary-floating rounding (2.115ms)
+✔ P17 computed k schemes each contain all 889 channels; original outputs stay original (3.9903ms)
+✔ P23 independent test probabilities reproduce AUC by rank and threshold confusion counts (9.9033ms)
+✔ full-rank seasonal correction, age subset and LP streaming denominator are explicit (4.6794ms)
+✔ filter numerics, missing/zero and unchanged denominators; unsafe chart scripts rejected (17.6512ms)
+✔ every result/PNG has a verified build hash and every chart has a valid typed contract (616.9173ms)
+✔ actual curriculum: 29 projects, 30 lessons, 385 valid explicit required steps, no false initial events (2.6125ms)
+✔ project denominator includes P21 both lessons, completion requires self-review; overall projects equally weighted (0.533ms)
+✔ review precedence, all complete derived, unavailable projects and zero denominator (0.7248ms)
+✔ round trip export/import preserves all effective states and location; preview is pure (5.6676ms)
+✔ malformed structure, enums, IDs, nested keys, future versions and oversized backups rejected (3.4256ms)
+✔ text-only revision retains completion, added step starts empty, substantive revision needs review (0.6887ms)
+✔ deleted steps archived and mapped replacements require review; deleted location maps (0.8331ms)
+✔ storage refresh restoration and CAS rejects stale tabs including externally cleared data (0.688ms)
+✔ corrupt and future stored data retained, no automatic overwrite (0.2578ms)
+✔ disabled reads and quota failures surfaced to caller for visible backup fallback (0.4251ms)
+✔ merge keeps newer step, deterministic ties, bounded deduplicated events; replace clears absent states (0.7221ms)
+✔ bounded events merge keeps only newest 100 without duplicated identities (7.0929ms)
+✔ explicit null deletion archives without mapping or contributing completion (0.3258ms)
+✔ generator excludes planned/inapplicable content and fingerprints substantive changes only (36.9041ms)
+✔ replace unlock cannot bypass a newer tab write (0.4246ms)
+✔ recommendation considers confirmed knowledge ahead of soft ordering and prioritizes real review state (3.9258ms)
+✔ multi-node recommendation and hard knowledge cycles rejected including unknown dependencies (17.1122ms)
+✔ content partial readiness, result validation and personal learning state are distinct (1.8646ms)
+✔ P14 saved matrix really 4x4 with correct test total and accuracy, unit example excluded (6.9691ms)
+✔ P24 true missing rates and independent low R2 stay separate from fitted claims (3.4299ms)
+✔ P25 age segments do not overlap and population is not mislabeled GDP (2.5835ms)
+✔ P28 group rate uses within-group denominator instead of headcount and encoded causality (2.9579ms)
+✔ light and dark token text contrast meets normal-text AA for declared pairs (1.8016ms)
+✔ corrupt runtime progress manifest rejected before any storage access (12.9569ms)
+ℹ tests 53
+ℹ suites 0
+ℹ pass 53
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 4009.0688

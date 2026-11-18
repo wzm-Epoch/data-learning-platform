@@ -1,0 +1,4483 @@
+[
+  {
+    "projectId": "P01",
+    "batch": "C",
+    "status": "available-content-open",
+    "lessonCount": 1,
+    "readySteps": 18,
+    "inputRefs": [
+      {
+        "path": "交易预测-约600行（EDA数据探索、逻辑回归、决策树、模型调参、模型评估）/creditcardfraud.csv",
+        "sha256": "76274b691b16a6c49d3f159c883398e03ccd6d1ee12d9d8ee38f4b4b98551a89"
+      },
+      {
+        "path": "交易预测-约600行（EDA数据探索、逻辑回归、决策树、模型调参、模型评估）/信用卡欺诈交易预测.ipynb",
+        "sha256": "b84b7a8568ec364841c8cf8ff81a79addfdd1ebb39eefd6b8dd5c77bd3a5684f"
+      },
+      {
+        "path": "交易预测-约600行（EDA数据探索、逻辑回归、决策树、模型调参、模型评估）/信用卡欺诈交易预测.py",
+        "sha256": "1b2bc2e44354a2e9a8c37d5a260f6b77c00f305d8f9f1eb18ebda4957092e20e"
+      }
+    ],
+    "resources": [
+      "learning/assets/p01-cell55-1.png",
+      "learning/assets/p01-cell56-1.png",
+      "learning/resources/p01-v4-Amount.json",
+      "learning/resources/p01-v4-Class.json",
+      "learning/resources/p01-v4-Time.json",
+      "learning/resources/p01-v4-class-amount.json",
+      "learning/resources/p01-v4-evidence-1.json",
+      "learning/resources/p01-v4-evidence-11.json",
+      "learning/resources/p01-v4-evidence-15.json",
+      "learning/resources/p01-v4-evidence-4.json",
+      "learning/resources/p01-v4-evidence-5.json",
+      "learning/resources/p01-v4-evidence-6.json",
+      "learning/resources/p01-v4-evidence-7.json",
+      "learning/resources/p01-v4-input-quality.json",
+      "learning/resources/p01-v4-source-10.json",
+      "learning/resources/p01-v4-source-12.json",
+      "learning/resources/p01-v4-source-13.json",
+      "learning/resources/p01-v4-source-14-images.json",
+      "learning/resources/p01-v4-source-14.json",
+      "learning/resources/p01-v4-source-16.json",
+      "learning/resources/p01-v4-source-17.json",
+      "learning/resources/p01-v4-source-2.json",
+      "learning/resources/p01-v4-source-3.json",
+      "learning/resources/p01-v4-source-8.json",
+      "learning/resources/p01-v4-source-9.json"
+    ],
+    "transforms": [
+      {
+        "input": "交易预测-约600行（EDA数据探索、逻辑回归、决策树、模型调参、模型评估）/creditcardfraud.csv",
+        "sheet": null,
+        "readRows": 284807,
+        "columns": [
+          "Time",
+          "V1",
+          "V2",
+          "V3",
+          "V4",
+          "V5",
+          "V6",
+          "V7",
+          "V8",
+          "V9",
+          "V10",
+          "V11",
+          "V12",
+          "V13",
+          "V14",
+          "V15",
+          "V16",
+          "V17",
+          "V18",
+          "V19",
+          "V20",
+          "V21",
+          "V22",
+          "V23",
+          "V24",
+          "V25",
+          "V26",
+          "V27",
+          "V28",
+          "Amount",
+          "Class"
+        ],
+        "missing": {
+          "Time": 0,
+          "V1": 0,
+          "V2": 0,
+          "V3": 0,
+          "V4": 0,
+          "V5": 0,
+          "V6": 0,
+          "V7": 0,
+          "V8": 0,
+          "V9": 0,
+          "V10": 0,
+          "V11": 0,
+          "V12": 0,
+          "V13": 0,
+          "V14": 0,
+          "V15": 0,
+          "V16": 0,
+          "V17": 0,
+          "V18": 0,
+          "V19": 0,
+          "V20": 0,
+          "V21": 0,
+          "V22": 0,
+          "V23": 0,
+          "V24": 0,
+          "V25": 0,
+          "V26": 0,
+          "V27": 0,
+          "V28": 0,
+          "Amount": 0,
+          "Class": 0
+        },
+        "readerOptions": {}
+      }
+    ],
+    "checks": {
+      "rows": 284807,
+      "frauds": 492,
+      "classSum": 284807
+    },
+    "models": [],
+    "blocked": [],
+    "originalModelRerun": false,
+    "savedOutputIdentity": "original-saved; extraction time only; original execution time unknown",
+    "validation": "adapter assertions passed; schema/production/browser tracked separately"
+  },
+  {
+    "projectId": "P02",
+    "batch": "C",
+    "status": "available-content-open",
+    "lessonCount": 1,
+    "readySteps": 11,
+    "inputRefs": [
+      {
+        "path": "交通出行-共享单车预测租赁数量-约300行（随机森林、支持向量机模型）/train.csv",
+        "sha256": "11671d46ae41bf0df77d3d25268f4cb87683f3a33e4a54adf1bb3b24ee538cad"
+      },
+      {
+        "path": "交通出行-共享单车预测租赁数量-约300行（随机森林、支持向量机模型）/自行车租赁数量预测.ipynb",
+        "sha256": "5d7bfa900fd3c472a9a4dd3e2fd241a940046dfdae12874866e1bc2633501530"
+      }
+    ],
+    "resources": [
+      "learning/assets/p02-cell13-1.png",
+      "learning/assets/p02-cell15-2.png",
+      "learning/assets/p02-cell30-1.png",
+      "learning/assets/p02-cell33-1.png",
+      "learning/assets/p02-cell36-1.png",
+      "learning/assets/p02-cell38-1.png",
+      "learning/assets/p02-cell50-0.png",
+      "learning/assets/p02-cell51-0.png",
+      "learning/assets/p02-cell56-0.png",
+      "learning/resources/p02-v4-correlation.json",
+      "learning/resources/p02-v4-hour.json",
+      "learning/resources/p02-v4-input-quality.json",
+      "learning/resources/p02-v4-source-1.json",
+      "learning/resources/p02-v4-source-10-images.json",
+      "learning/resources/p02-v4-source-10.json",
+      "learning/resources/p02-v4-source-2-images.json",
+      "learning/resources/p02-v4-source-2.json",
+      "learning/resources/p02-v4-source-3.json",
+      "learning/resources/p02-v4-source-4.json",
+      "learning/resources/p02-v4-source-5.json",
+      "learning/resources/p02-v4-source-6-images.json",
+      "learning/resources/p02-v4-source-6.json",
+      "learning/resources/p02-v4-source-7-images.json",
+      "learning/resources/p02-v4-source-7.json",
+      "learning/resources/p02-v4-source-8.json",
+      "learning/resources/p02-v4-source-9-images.json",
+      "learning/resources/p02-v4-source-9.json",
+      "learning/resources/p02-v4-wind-change.json",
+      "learning/resources/p02-v4-windspeed.json"
+    ],
+    "transforms": [
+      {
+        "input": "交通出行-共享单车预测租赁数量-约300行（随机森林、支持向量机模型）/train.csv",
+        "sheet": null,
+        "readRows": 10886,
+        "columns": [
+          "datetime",
+          "season",
+          "holiday",
+          "workingday",
+          "weather",
+          "temp",
+          "atemp",
+          "humidity",
+          "windspeed",
+          "casual",
+          "registered",
+          "count"
+        ],
+        "missing": {
+          "datetime": 0,
+          "season": 0,
+          "holiday": 0,
+          "workingday": 0,
+          "weather": 0,
+          "temp": 0,
+          "atemp": 0,
+          "humidity": 0,
+          "windspeed": 0,
+          "casual": 0,
+          "registered": 0,
+          "count": 0
+        },
+        "readerOptions": {}
+      }
+    ],
+    "checks": {
+      "compositionRows": 10886
+    },
+    "models": [],
+    "blocked": [],
+    "originalModelRerun": false,
+    "savedOutputIdentity": "original-saved; extraction time only; original execution time unknown",
+    "validation": "adapter assertions passed; schema/production/browser tracked separately"
+  },
+  {
+    "projectId": "P03",
+    "batch": "C",
+    "status": "available-content-open",
+    "lessonCount": 1,
+    "readySteps": 7,
+    "inputRefs": [
+      {
+        "path": "交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/data/air_data.csv",
+        "sha256": "afcba77fc852376966a1026c4d991323b0e7cd7f26bdc975582080a93b6161eb"
+      },
+      {
+        "path": "交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/tmp/data_cleaned.csv",
+        "sha256": "e3455c8ebab78f5bf4e3972761783fd0e6fe33a47d9344d94a62f017deda8fe3"
+      },
+      {
+        "path": "交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/tmp/data_stand.csv",
+        "sha256": "6cf52be39fe13b24ffe49abbfe090f5240e98023adb5947c0f7d5c20364736f8"
+      },
+      {
+        "path": "交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/tmp/data_stipu.csv",
+        "sha256": "e7089dd0578664aca02f40184d60800992be2bcab0c7d2e38856f3221cb26c4b"
+      },
+      {
+        "path": "交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/tmp/explore.xlsx",
+        "sha256": "9876e3b4f6b70179ef76b7b402179263defc91e32b1f96e80a700cdb2a4d3dd2"
+      },
+      {
+        "path": "交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/客户信息属性说明.xls",
+        "sha256": "dd4a690ed7d91b0f1a92903c936df53a86534038b02245b55f84a8dd4e2cee8c"
+      },
+      {
+        "path": "交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/航空公司客户价值分析.ipynb",
+        "sha256": "bd72cf9fd918950642968c14f6021b77caeef58df86b4df65564c546279bbbb8"
+      }
+    ],
+    "resources": [
+      "learning/assets/p03-cell22-0.png",
+      "learning/resources/p03-v4-centers.json",
+      "learning/resources/p03-v4-cleaning.json",
+      "learning/resources/p03-v4-cluster-sizes.json",
+      "learning/resources/p03-v4-input-quality.json",
+      "learning/resources/p03-v4-source-1.json",
+      "learning/resources/p03-v4-source-2.json",
+      "learning/resources/p03-v4-source-3.json",
+      "learning/resources/p03-v4-source-4.json",
+      "learning/resources/p03-v4-source-5.json",
+      "learning/resources/p03-v4-source-6-images.json",
+      "learning/resources/p03-v4-source-6.json"
+    ],
+    "transforms": [
+      {
+        "input": "交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/data/air_data.csv",
+        "sheet": null,
+        "readRows": 62988,
+        "columns": [
+          "MEMBER_NO",
+          "FFP_DATE",
+          "FIRST_FLIGHT_DATE",
+          "GENDER",
+          "FFP_TIER",
+          "WORK_CITY",
+          "WORK_PROVINCE",
+          "WORK_COUNTRY",
+          "AGE",
+          "LOAD_TIME",
+          "FLIGHT_COUNT",
+          "BP_SUM",
+          "EP_SUM_YR_1",
+          "EP_SUM_YR_2",
+          "SUM_YR_1",
+          "SUM_YR_2",
+          "SEG_KM_SUM",
+          "WEIGHTED_SEG_KM",
+          "LAST_FLIGHT_DATE",
+          "AVG_FLIGHT_COUNT",
+          "AVG_BP_SUM",
+          "BEGIN_TO_FIRST",
+          "LAST_TO_END",
+          "AVG_INTERVAL",
+          "MAX_INTERVAL",
+          "ADD_POINTS_SUM_YR_1",
+          "ADD_POINTS_SUM_YR_2",
+          "EXCHANGE_COUNT",
+          "avg_discount",
+          "P1Y_Flight_Count",
+          "L1Y_Flight_Count",
+          "P1Y_BP_SUM",
+          "L1Y_BP_SUM",
+          "EP_SUM",
+          "ADD_Point_SUM",
+          "Eli_Add_Point_Sum",
+          "L1Y_ELi_Add_Points",
+          "Points_Sum",
+          "L1Y_Points_Sum",
+          "Ration_L1Y_Flight_Count",
+          "Ration_P1Y_Flight_Count",
+          "Ration_P1Y_BPS",
+          "Ration_L1Y_BPS",
+          "Point_NotFlight"
+        ],
+        "missing": {
+          "MEMBER_NO": 0,
+          "FFP_DATE": 0,
+          "FIRST_FLIGHT_DATE": 0,
+          "GENDER": 3,
+          "FFP_TIER": 0,
+          "WORK_CITY": 2269,
+          "WORK_PROVINCE": 3248,
+          "WORK_COUNTRY": 26,
+          "AGE": 420,
+          "LOAD_TIME": 0,
+          "FLIGHT_COUNT": 0,
+          "BP_SUM": 0,
+          "EP_SUM_YR_1": 0,
+          "EP_SUM_YR_2": 0,
+          "SUM_YR_1": 551,
+          "SUM_YR_2": 138,
+          "SEG_KM_SUM": 0,
+          "WEIGHTED_SEG_KM": 0,
+          "LAST_FLIGHT_DATE": 0,
+          "AVG_FLIGHT_COUNT": 0,
+          "AVG_BP_SUM": 0,
+          "BEGIN_TO_FIRST": 0,
+          "LAST_TO_END": 0,
+          "AVG_INTERVAL": 0,
+          "MAX_INTERVAL": 0,
+          "ADD_POINTS_SUM_YR_1": 0,
+          "ADD_POINTS_SUM_YR_2": 0,
+          "EXCHANGE_COUNT": 0,
+          "avg_discount": 0,
+          "P1Y_Flight_Count": 0,
+          "L1Y_Flight_Count": 0,
+          "P1Y_BP_SUM": 0,
+          "L1Y_BP_SUM": 0,
+          "EP_SUM": 0,
+          "ADD_Point_SUM": 0,
+          "Eli_Add_Point_Sum": 0,
+          "L1Y_ELi_Add_Points": 0,
+          "Points_Sum": 0,
+          "L1Y_Points_Sum": 0,
+          "Ration_L1Y_Flight_Count": 0,
+          "Ration_P1Y_Flight_Count": 0,
+          "Ration_P1Y_BPS": 0,
+          "Ration_L1Y_BPS": 0,
+          "Point_NotFlight": 0
+        },
+        "readerOptions": {}
+      },
+      {
+        "input": "交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/tmp/data_cleaned.csv",
+        "sheet": null,
+        "readRows": 62044,
+        "columns": [
+          "Unnamed: 0",
+          "MEMBER_NO",
+          "FFP_DATE",
+          "FIRST_FLIGHT_DATE",
+          "GENDER",
+          "FFP_TIER",
+          "WORK_CITY",
+          "WORK_PROVINCE",
+          "WORK_COUNTRY",
+          "AGE",
+          "LOAD_TIME",
+          "FLIGHT_COUNT",
+          "BP_SUM",
+          "EP_SUM_YR_1",
+          "EP_SUM_YR_2",
+          "SUM_YR_1",
+          "SUM_YR_2",
+          "SEG_KM_SUM",
+          "WEIGHTED_SEG_KM",
+          "LAST_FLIGHT_DATE",
+          "AVG_FLIGHT_COUNT",
+          "AVG_BP_SUM",
+          "BEGIN_TO_FIRST",
+          "LAST_TO_END",
+          "AVG_INTERVAL",
+          "MAX_INTERVAL",
+          "ADD_POINTS_SUM_YR_1",
+          "ADD_POINTS_SUM_YR_2",
+          "EXCHANGE_COUNT",
+          "avg_discount",
+          "P1Y_Flight_Count",
+          "L1Y_Flight_Count",
+          "P1Y_BP_SUM",
+          "L1Y_BP_SUM",
+          "EP_SUM",
+          "ADD_Point_SUM",
+          "Eli_Add_Point_Sum",
+          "L1Y_ELi_Add_Points",
+          "Points_Sum",
+          "L1Y_Points_Sum",
+          "Ration_L1Y_Flight_Count",
+          "Ration_P1Y_Flight_Count",
+          "Ration_P1Y_BPS",
+          "Ration_L1Y_BPS",
+          "Point_NotFlight"
+        ],
+        "missing": {
+          "Unnamed: 0": 0,
+          "MEMBER_NO": 0,
+          "FFP_DATE": 0,
+          "FIRST_FLIGHT_DATE": 0,
+          "GENDER": 3,
+          "FFP_TIER": 0,
+          "WORK_CITY": 2253,
+          "WORK_PROVINCE": 3213,
+          "WORK_COUNTRY": 26,
+          "AGE": 412,
+          "LOAD_TIME": 0,
+          "FLIGHT_COUNT": 0,
+          "BP_SUM": 0,
+          "EP_SUM_YR_1": 0,
+          "EP_SUM_YR_2": 0,
+          "SUM_YR_1": 0,
+          "SUM_YR_2": 0,
+          "SEG_KM_SUM": 0,
+          "WEIGHTED_SEG_KM": 0,
+          "LAST_FLIGHT_DATE": 0,
+          "AVG_FLIGHT_COUNT": 0,
+          "AVG_BP_SUM": 0,
+          "BEGIN_TO_FIRST": 0,
+          "LAST_TO_END": 0,
+          "AVG_INTERVAL": 0,
+          "MAX_INTERVAL": 0,
+          "ADD_POINTS_SUM_YR_1": 0,
+          "ADD_POINTS_SUM_YR_2": 0,
+          "EXCHANGE_COUNT": 0,
+          "avg_discount": 0,
+          "P1Y_Flight_Count": 0,
+          "L1Y_Flight_Count": 0,
+          "P1Y_BP_SUM": 0,
+          "L1Y_BP_SUM": 0,
+          "EP_SUM": 0,
+          "ADD_Point_SUM": 0,
+          "Eli_Add_Point_Sum": 0,
+          "L1Y_ELi_Add_Points": 0,
+          "Points_Sum": 0,
+          "L1Y_Points_Sum": 0,
+          "Ration_L1Y_Flight_Count": 0,
+          "Ration_P1Y_Flight_Count": 0,
+          "Ration_P1Y_BPS": 0,
+          "Ration_L1Y_BPS": 0,
+          "Point_NotFlight": 0
+        },
+        "readerOptions": {}
+      },
+      {
+        "input": "交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/tmp/data_stand.csv",
+        "sheet": null,
+        "readRows": 62044,
+        "columns": [
+          "Unnamed: 0",
+          "zR",
+          "zF",
+          "zM",
+          "zC",
+          "zL"
+        ],
+        "missing": {
+          "Unnamed: 0": 0,
+          "zR": 0,
+          "zF": 0,
+          "zM": 0,
+          "zC": 0,
+          "zL": 0
+        },
+        "readerOptions": {}
+      },
+      {
+        "input": "交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/tmp/data_stipu.csv",
+        "sheet": null,
+        "readRows": 62044,
+        "columns": [
+          "Unnamed: 0",
+          "FFP_DATE",
+          "LOAD_TIME",
+          "avg_discount",
+          "FLIGHT_COUNT",
+          "SEG_KM_SUM",
+          "LAST_TO_END"
+        ],
+        "missing": {
+          "Unnamed: 0": 0,
+          "FFP_DATE": 0,
+          "LOAD_TIME": 0,
+          "avg_discount": 0,
+          "FLIGHT_COUNT": 0,
+          "SEG_KM_SUM": 0,
+          "LAST_TO_END": 0
+        },
+        "readerOptions": {}
+      },
+      {
+        "input": "交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/tmp/explore.xlsx",
+        "sheet": "Sheet1",
+        "readRows": 44,
+        "columns": [
+          "Unnamed: 0",
+          "空值数",
+          "最大值",
+          "最小值"
+        ],
+        "missing": {
+          "Unnamed: 0": 0,
+          "空值数": 0,
+          "最大值": 8,
+          "最小值": 8
+        },
+        "readerOptions": {}
+      },
+      {
+        "input": "交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/客户信息属性说明.xls",
+        "sheet": "变量含义",
+        "readRows": 44,
+        "columns": [
+          "属性中文",
+          "属性英文",
+          "备注"
+        ],
+        "missing": {
+          "属性中文": 0,
+          "属性英文": 0,
+          "备注": 39
+        },
+        "readerOptions": {}
+      }
+    ],
+    "checks": {
+      "raw": 62988,
+      "attachedClean": 62044,
+      "standardized": 62044,
+      "newClusterSum": 62044
+    },
+    "models": [
+      {
+        "version": "P03-attached-standardized-k5-v1",
+        "input": "原附data_stand.csv五标准化字段，不声称本次重建全部LRFMC",
+        "seed": 100,
+        "k": 5,
+        "n_init": 10,
+        "fitRows": 62044
+      }
+    ],
+    "blocked": [],
+    "originalModelRerun": false,
+    "savedOutputIdentity": "original-saved; extraction time only; original execution time unknown",
+    "validation": "adapter assertions passed; schema/production/browser tracked separately"
+  },
+  {
+    "projectId": "P04",
+    "batch": "C",
+    "status": "available-content-open",
+    "lessonCount": 1,
+    "readySteps": 23,
+    "inputRefs": [
+      {
+        "path": "交通旅行-全球酒店预订分析与预测-约550行（数据探索分析、随机森林、XGBoost、逻辑回归）/2022_hotel_bookings.csv",
+        "sha256": "ab2a3bfa58522e3a6310ae941303e1beeecb1c86960d538140525cee01578683"
+      },
+      {
+        "path": "交通旅行-全球酒店预订分析与预测-约550行（数据探索分析、随机森林、XGBoost、逻辑回归）/全球酒店预订分析与预测.ipynb",
+        "sha256": "f1166bb78198277c9bd5a0bbf360ce9b452a23b39733dfde5b7e6acb55fdee42"
+      }
+    ],
+    "resources": [
+      "learning/assets/p04-cell12-1.png",
+      "learning/assets/p04-cell17-0.png",
+      "learning/assets/p04-cell19-1.png",
+      "learning/assets/p04-cell23-0.png",
+      "learning/assets/p04-cell26-0.png",
+      "learning/assets/p04-cell29-1.png",
+      "learning/assets/p04-cell32-1.png",
+      "learning/assets/p04-cell37-0.png",
+      "learning/assets/p04-cell40-1.png",
+      "learning/assets/p04-cell68-0.png",
+      "learning/assets/p04-cell75-0.png",
+      "learning/assets/p04-cell80-0.png",
+      "learning/assets/p04-cell83-0.png",
+      "learning/assets/p04-cell9-0.png",
+      "learning/resources/p04-v4-arrival_date_year.json",
+      "learning/resources/p04-v4-deposit_type.json",
+      "learning/resources/p04-v4-evidence-12.json",
+      "learning/resources/p04-v4-evidence-15.json",
+      "learning/resources/p04-v4-evidence-18.json",
+      "learning/resources/p04-v4-hotel.json",
+      "learning/resources/p04-v4-input-quality.json",
+      "learning/resources/p04-v4-is_repeated_guest.json",
+      "learning/resources/p04-v4-lead_time.json",
+      "learning/resources/p04-v4-market_segment.json",
+      "learning/resources/p04-v4-source-1.json",
+      "learning/resources/p04-v4-source-10-images.json",
+      "learning/resources/p04-v4-source-10.json",
+      "learning/resources/p04-v4-source-11-images.json",
+      "learning/resources/p04-v4-source-11.json",
+      "learning/resources/p04-v4-source-13.json",
+      "learning/resources/p04-v4-source-14.json",
+      "learning/resources/p04-v4-source-16.json",
+      "learning/resources/p04-v4-source-17-images.json",
+      "learning/resources/p04-v4-source-17.json",
+      "learning/resources/p04-v4-source-19-images.json",
+      "learning/resources/p04-v4-source-2-images.json",
+      "learning/resources/p04-v4-source-20-images.json",
+      "learning/resources/p04-v4-source-21-images.json",
+      "learning/resources/p04-v4-source-22.json",
+      "learning/resources/p04-v4-source-3-images.json",
+      "learning/resources/p04-v4-source-3.json",
+      "learning/resources/p04-v4-source-4-images.json",
+      "learning/resources/p04-v4-source-5-images.json",
+      "learning/resources/p04-v4-source-5.json",
+      "learning/resources/p04-v4-source-6-images.json",
+      "learning/resources/p04-v4-source-7-images.json",
+      "learning/resources/p04-v4-source-8-images.json",
+      "learning/resources/p04-v4-source-8.json",
+      "learning/resources/p04-v4-source-9-images.json",
+      "learning/resources/p04-v4-source-9.json"
+    ],
+    "transforms": [
+      {
+        "input": "交通旅行-全球酒店预订分析与预测-约550行（数据探索分析、随机森林、XGBoost、逻辑回归）/2022_hotel_bookings.csv",
+        "sheet": null,
+        "readRows": 119390,
+        "columns": [
+          "hotel",
+          "is_canceled",
+          "lead_time",
+          "arrival_date_year",
+          "arrival_date_month",
+          "arrival_date_week_number",
+          "arrival_date_day_of_month",
+          "stays_in_weekend_nights",
+          "stays_in_week_nights",
+          "adults",
+          "children",
+          "babies",
+          "meal",
+          "country",
+          "market_segment",
+          "distribution_channel",
+          "is_repeated_guest",
+          "previous_cancellations",
+          "previous_bookings_not_canceled",
+          "reserved_room_type",
+          "assigned_room_type",
+          "booking_changes",
+          "deposit_type",
+          "agent",
+          "company",
+          "days_in_waiting_list",
+          "customer_type",
+          "adr",
+          "required_car_parking_spaces",
+          "total_of_special_requests",
+          "reservation_status",
+          "reservation_status_date"
+        ],
+        "missing": {
+          "hotel": 0,
+          "is_canceled": 0,
+          "lead_time": 0,
+          "arrival_date_year": 0,
+          "arrival_date_month": 0,
+          "arrival_date_week_number": 0,
+          "arrival_date_day_of_month": 0,
+          "stays_in_weekend_nights": 0,
+          "stays_in_week_nights": 0,
+          "adults": 0,
+          "children": 4,
+          "babies": 0,
+          "meal": 0,
+          "country": 488,
+          "market_segment": 0,
+          "distribution_channel": 0,
+          "is_repeated_guest": 0,
+          "previous_cancellations": 0,
+          "previous_bookings_not_canceled": 0,
+          "reserved_room_type": 0,
+          "assigned_room_type": 0,
+          "booking_changes": 0,
+          "deposit_type": 0,
+          "agent": 16340,
+          "company": 112593,
+          "days_in_waiting_list": 0,
+          "customer_type": 0,
+          "adr": 0,
+          "required_car_parking_spaces": 0,
+          "total_of_special_requests": 0,
+          "reservation_status": 0,
+          "reservation_status_date": 0
+        },
+        "readerOptions": {}
+      }
+    ],
+    "checks": {
+      "actualYears": [
+        2015,
+        2016,
+        2017
+      ]
+    },
+    "models": [],
+    "blocked": [],
+    "originalModelRerun": false,
+    "savedOutputIdentity": "original-saved; extraction time only; original execution time unknown",
+    "validation": "adapter assertions passed; schema/production/browser tracked separately"
+  },
+  {
+    "projectId": "P05",
+    "batch": "B",
+    "status": "available-content-open",
+    "lessonCount": 1,
+    "readySteps": 20,
+    "inputRefs": [
+      {
+        "path": "交通旅行-热门旅游景点数据分析与可视化-约300行（pandas数据处理、pyecharts可视化、jieba分词）/旅游景点.ipynb",
+        "sha256": "4ab8708fdc7c3f7f984c34f9b01447432de17eb6ac04cc753ca8cec760db7c2d"
+      },
+      {
+        "path": "交通旅行-热门旅游景点数据分析与可视化-约300行（pandas数据处理、pyecharts可视化、jieba分词）/旅游景点.xlsx",
+        "sha256": "cbecb48e3276d3a64fd37ceae4a2fe4352b14ebed6db3af49f6b713d4e9e2fdd"
+      }
+    ],
+    "resources": [
+      "learning/resources/p05-v4-__-0f4371a7.json",
+      "learning/resources/p05-v4-__-9c55a439.json",
+      "learning/resources/p05-v4-evidence-1.json",
+      "learning/resources/p05-v4-evidence-11.json",
+      "learning/resources/p05-v4-evidence-12.json",
+      "learning/resources/p05-v4-evidence-13.json",
+      "learning/resources/p05-v4-evidence-14.json",
+      "learning/resources/p05-v4-evidence-15.json",
+      "learning/resources/p05-v4-evidence-16.json",
+      "learning/resources/p05-v4-evidence-18.json",
+      "learning/resources/p05-v4-evidence-19.json",
+      "learning/resources/p05-v4-evidence-3.json",
+      "learning/resources/p05-v4-input-quality.json",
+      "learning/resources/p05-v4-region.json",
+      "learning/resources/p05-v4-source-10.json",
+      "learning/resources/p05-v4-source-17.json",
+      "learning/resources/p05-v4-source-2.json",
+      "learning/resources/p05-v4-source-4.json",
+      "learning/resources/p05-v4-source-5.json",
+      "learning/resources/p05-v4-source-6.json",
+      "learning/resources/p05-v4-source-7.json",
+      "learning/resources/p05-v4-source-8.json",
+      "learning/resources/p05-v4-source-9.json",
+      "learning/resources/p05-v4-top.json",
+      "learning/resources/p05-v4-zero-rule.json"
+    ],
+    "transforms": [
+      {
+        "input": "交通旅行-热门旅游景点数据分析与可视化-约300行（pandas数据处理、pyecharts可视化、jieba分词）/旅游景点.xlsx",
+        "sheet": "Sheet1",
+        "readRows": 2443,
+        "columns": [
+          "城市",
+          "名称",
+          "星级",
+          "评分",
+          "价格",
+          "销量",
+          "省/市/区",
+          "坐标",
+          "简介",
+          "是否免费",
+          "具体地址"
+        ],
+        "missing": {
+          "城市": 0,
+          "名称": 0,
+          "星级": 1530,
+          "评分": 0,
+          "价格": 0,
+          "销量": 0,
+          "省/市/区": 0,
+          "坐标": 0,
+          "简介": 41,
+          "是否免费": 0,
+          "具体地址": 3
+        },
+        "readerOptions": {}
+      }
+    ],
+    "checks": {
+      "raw": 2443,
+      "nonzero": 2320,
+      "zero": 123
+    },
+    "models": [],
+    "blocked": [],
+    "originalModelRerun": false,
+    "savedOutputIdentity": "original-saved; extraction time only; original execution time unknown",
+    "validation": "adapter assertions passed; schema/production/browser tracked separately"
+  },
+  {
+    "projectId": "P06",
+    "batch": "B",
+    "status": "available-content-open",
+    "lessonCount": 1,
+    "readySteps": 20,
+    "inputRefs": [
+      {
+        "path": "体育-数据可视化-约1300行（Pyecharts可视化）/120年奥运会数据可视化.ipynb",
+        "sha256": "a243bf8b64b54f72c20d9460defd492205efc3ed3d8fed718b6741e4ff752bdf"
+      },
+      {
+        "path": "体育-数据可视化-约1300行（Pyecharts可视化）/120年奥运会数据可视化.py",
+        "sha256": "73609f83edc275407ef08d11fec0cf717b59f3ba2435593f703ba2c608d2ebe2"
+      },
+      {
+        "path": "体育-数据可视化-约1300行（Pyecharts可视化）/athlete_events.csv",
+        "sha256": "e9f6b1fa97f40e0f071a6de640acb42dd7a100cad67e5e69cab630192fabb089"
+      },
+      {
+        "path": "体育-数据可视化-约1300行（Pyecharts可视化）/noc_regions.csv",
+        "sha256": "ce7f3c272a3d81d07acf5e5eba4cbba77501f9db25d820d862c60aaccf281906"
+      }
+    ],
+    "resources": [
+      "learning/resources/p06-v4-athletes.json",
+      "learning/resources/p06-v4-evidence-10.json",
+      "learning/resources/p06-v4-evidence-12.json",
+      "learning/resources/p06-v4-evidence-13.json",
+      "learning/resources/p06-v4-evidence-14.json",
+      "learning/resources/p06-v4-evidence-16.json",
+      "learning/resources/p06-v4-evidence-17.json",
+      "learning/resources/p06-v4-evidence-18.json",
+      "learning/resources/p06-v4-evidence-19.json",
+      "learning/resources/p06-v4-evidence-2.json",
+      "learning/resources/p06-v4-evidence-3.json",
+      "learning/resources/p06-v4-evidence-4.json",
+      "learning/resources/p06-v4-evidence-5.json",
+      "learning/resources/p06-v4-evidence-6.json",
+      "learning/resources/p06-v4-evidence-7.json",
+      "learning/resources/p06-v4-evidence-8.json",
+      "learning/resources/p06-v4-evidence-9.json",
+      "learning/resources/p06-v4-female.json",
+      "learning/resources/p06-v4-input-quality.json",
+      "learning/resources/p06-v4-medals.json",
+      "learning/resources/p06-v4-source-1.json",
+      "learning/resources/p06-v4-source-11.json",
+      "learning/resources/p06-v4-source-15.json"
+    ],
+    "transforms": [
+      {
+        "input": "体育-数据可视化-约1300行（Pyecharts可视化）/athlete_events.csv",
+        "sheet": null,
+        "readRows": 271116,
+        "columns": [
+          "ID",
+          "Name",
+          "Sex",
+          "Age",
+          "Height",
+          "Weight",
+          "Team",
+          "NOC",
+          "Games",
+          "Year",
+          "Season",
+          "City",
+          "Sport",
+          "Event",
+          "Medal"
+        ],
+        "missing": {
+          "ID": 0,
+          "Name": 0,
+          "Sex": 0,
+          "Age": 9474,
+          "Height": 60171,
+          "Weight": 62875,
+          "Team": 0,
+          "NOC": 0,
+          "Games": 0,
+          "Year": 0,
+          "Season": 0,
+          "City": 0,
+          "Sport": 0,
+          "Event": 0,
+          "Medal": 231333
+        },
+        "readerOptions": {}
+      },
+      {
+        "input": "体育-数据可视化-约1300行（Pyecharts可视化）/noc_regions.csv",
+        "sheet": null,
+        "readRows": 230,
+        "columns": [
+          "NOC",
+          "region",
+          "notes"
+        ],
+        "missing": {
+          "NOC": 0,
+          "region": 3,
+          "notes": 209
+        },
+        "readerOptions": {}
+      }
+    ],
+    "checks": {
+      "mergeRows": 271116,
+      "inputRows": 271116,
+      "nocUnique": true
+    },
+    "models": [],
+    "blocked": [],
+    "originalModelRerun": false,
+    "savedOutputIdentity": "original-saved; extraction time only; original execution time unknown",
+    "validation": "adapter assertions passed; schema/production/browser tracked separately"
+  },
+  {
+    "projectId": "P07",
+    "batch": "E",
+    "status": "partial-source-gaps",
+    "lessonCount": 1,
+    "readySteps": 4,
+    "inputRefs": [
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/1_1.jpg",
+        "sha256": "d48f6cc1eba2b2970fc66732ff6a8687decb6ee051546a3110f261cb8e2beab7"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/1_10.jpg",
+        "sha256": "b7e30758c066a8de1792f09a01b48e21cd08c66739ada83882924cdb2af85f47"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/1_11.jpg",
+        "sha256": "1716dd10a17a80c752b8eed57714fc3e1f9e40657afd883d43739b13c28ebebb"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/moment.csv",
+        "sha256": "99c91f5cd8b38c6867e03d922dab7abedb4ddb2fb3cd68b37c5774637b2c13dc"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/picData.xlsx",
+        "sha256": "61a56aa27ed02bc2820133c989c70c88102424de8f9529a2e6658a3ee0f541dc"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/test.xlsx",
+        "sha256": "246a6f8888d6c39461beafa86a8ebb53a44739cbd76bb3b057d7c51836973f26"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/train.xlsx",
+        "sha256": "86cf5cc2c929b8581d1ab5178eef029fbf14d109420cdd1f4a216f3f13ef2799"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/基于水色图像的水质评估.ipynb",
+        "sha256": "57b74242352e27f5f5d047334e5c845781e17b898cec79b0783e352a5f38e480"
+      }
+    ],
+    "resources": [
+      "learning/assets/p07-source-0.png",
+      "learning/assets/p07-source-1.png",
+      "learning/assets/p07-source-2.png",
+      "learning/resources/p07-v4-__-0d12cbd6.json",
+      "learning/resources/p07-v4-input-quality.json",
+      "learning/resources/p07-v4-moments.json",
+      "learning/resources/p07-v4-photos.json",
+      "learning/resources/p07-v4-source-1.json",
+      "learning/resources/p07-v4-source-2.json",
+      "learning/resources/p07-v4-source-3.json",
+      "learning/resources/p07-v4-test-matrix.json",
+      "learning/resources/p07-v4-train-matrix.json"
+    ],
+    "transforms": [
+      {
+        "input": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/moment.csv",
+        "sheet": null,
+        "readRows": 203,
+        "columns": [
+          "类别",
+          "序号",
+          "R通道一阶矩",
+          "G通道一阶矩",
+          "B通道一阶矩",
+          "R通道二阶矩",
+          "G通道二阶矩",
+          "B通道二阶矩",
+          "R通道三阶矩",
+          "G通道三阶矩",
+          "B通道三阶矩"
+        ],
+        "missing": {
+          "类别": 0,
+          "序号": 0,
+          "R通道一阶矩": 0,
+          "G通道一阶矩": 0,
+          "B通道一阶矩": 0,
+          "R通道二阶矩": 0,
+          "G通道二阶矩": 0,
+          "B通道二阶矩": 0,
+          "R通道三阶矩": 0,
+          "G通道三阶矩": 0,
+          "B通道三阶矩": 0
+        },
+        "readerOptions": {}
+      },
+      {
+        "input": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/train.xlsx",
+        "sheet": "Sheet1",
+        "readRows": 5,
+        "columns": [
+          "Unnamed: 0",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ],
+        "missing": {
+          "Unnamed: 0": 0,
+          "1": 0,
+          "2": 0,
+          "3": 0,
+          "4": 0,
+          "5": 0
+        },
+        "readerOptions": {}
+      },
+      {
+        "input": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/test.xlsx",
+        "sheet": "Sheet1",
+        "readRows": 5,
+        "columns": [
+          "Unnamed: 0",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ],
+        "missing": {
+          "Unnamed: 0": 0,
+          "1": 0,
+          "2": 0,
+          "3": 0,
+          "4": 0,
+          "5": 0
+        },
+        "readerOptions": {}
+      },
+      {
+        "input": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/picData.xlsx",
+        "sheet": "Sheet1",
+        "readRows": 203,
+        "columns": [
+          "0",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "type"
+        ],
+        "missing": {
+          "0": 0,
+          "1": 0,
+          "2": 0,
+          "3": 0,
+          "4": 0,
+          "5": 0,
+          "6": 0,
+          "7": 0,
+          "8": 0,
+          "type": 0
+        },
+        "readerOptions": {}
+      }
+    ],
+    "checks": {
+      "features": 203,
+      "photos": 199,
+      "missing": [
+        "1_42.jpg",
+        "2_38.jpg",
+        "3_10.jpg",
+        "3_11.jpg"
+      ]
+    },
+    "models": [],
+    "blocked": [
+      {
+        "step": "全量图像到moment特征端到端",
+        "reason": "203行特征仅附199图；缺失1_42.jpg,2_38.jpg,3_10.jpg,3_11.jpg；两特征支路未证实一一对应"
+      }
+    ],
+    "originalModelRerun": false,
+    "savedOutputIdentity": "original-saved; extraction time only; original execution time unknown",
+    "validation": "adapter assertions passed; schema/production/browser tracked separately"
+  },
+  {
+    "projectId": "P08",
+    "batch": "E",
+    "status": "partial-source-gaps",
+    "lessonCount": 1,
+    "readySteps": 17,
+    "inputRefs": [
+      {
+        "path": "平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LC.csv",
+        "sha256": "8c51d53301c2f4d11daea2f9c9dc68f2f805b8837b833db9bc097f995911617c"
+      },
+      {
+        "path": "平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCIS.csv",
+        "sha256": "a135299d5205043e02e51463cd8214b2bfe693c9ba2acea6e184405d199c84e7"
+      },
+      {
+        "path": "平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCIS数据字典.xlsx",
+        "sha256": "827ce47e5272489a4f87bf80c4592dfd47015744adafcab93fbee195f9a4405d"
+      },
+      {
+        "path": "平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCLP数据字典.xlsx",
+        "sha256": "d11e035d7044ef2ad846613625de0457a218580538e5ceca7b753d6aab1110ac"
+      },
+      {
+        "path": "平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LP.csv",
+        "sha256": "ae448c257c3acadd512839a2e7e8a6456baa2adb07481eedfea07ccbe20cc4ad"
+      },
+      {
+        "path": "平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/拍拍贷平台业务数据分析.ipynb",
+        "sha256": "3ea7579b35438896bb838f4ecc960bafc50d7a5ca422023098086a66aa5b5a7b"
+      },
+      {
+        "path": "平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/拍拍贷平台业务数据分析.py",
+        "sha256": "444eae1e8c7e3f2884613cad0c07e2aafae1b33bbf056abd77fc5022f856ecd2"
+      }
+    ],
+    "resources": [
+      "learning/assets/p08-cell14-0.png",
+      "learning/assets/p08-cell14-1.png",
+      "learning/assets/p08-cell17-0.png",
+      "learning/assets/p08-cell21-1.png",
+      "learning/assets/p08-cell24-1.png",
+      "learning/assets/p08-cell32-1.png",
+      "learning/assets/p08-cell35-1.png",
+      "learning/assets/p08-cell38-1.png",
+      "learning/assets/p08-cell41-1.png",
+      "learning/assets/p08-cell44-1.png",
+      "learning/assets/p08-cell46-2.png",
+      "learning/assets/p08-cell51-0.png",
+      "learning/assets/p08-cell55-0.png",
+      "learning/assets/p08-cell62-0.png",
+      "learning/resources/p08-v4-____-94846b25.json",
+      "learning/resources/p08-v4-____-c21f6317.json",
+      "learning/resources/p08-v4-evidence-15.json",
+      "learning/resources/p08-v4-evidence-2.json",
+      "learning/resources/p08-v4-evidence-7.json",
+      "learning/resources/p08-v4-input-quality.json",
+      "learning/resources/p08-v4-lp-preview.json",
+      "learning/resources/p08-v4-monthly.json",
+      "learning/resources/p08-v4-repayment.json",
+      "learning/resources/p08-v4-source-1.json",
+      "learning/resources/p08-v4-source-10-images.json",
+      "learning/resources/p08-v4-source-10.json",
+      "learning/resources/p08-v4-source-11-images.json",
+      "learning/resources/p08-v4-source-11.json",
+      "learning/resources/p08-v4-source-12-images.json",
+      "learning/resources/p08-v4-source-12.json",
+      "learning/resources/p08-v4-source-13-images.json",
+      "learning/resources/p08-v4-source-14-images.json",
+      "learning/resources/p08-v4-source-14.json",
+      "learning/resources/p08-v4-source-16-images.json",
+      "learning/resources/p08-v4-source-3-images.json",
+      "learning/resources/p08-v4-source-4-images.json",
+      "learning/resources/p08-v4-source-4.json",
+      "learning/resources/p08-v4-source-5-images.json",
+      "learning/resources/p08-v4-source-6-images.json",
+      "learning/resources/p08-v4-source-8-images.json",
+      "learning/resources/p08-v4-source-8.json",
+      "learning/resources/p08-v4-source-9-images.json",
+      "learning/resources/p08-v4-source-9.json"
+    ],
+    "transforms": [
+      {
+        "input": "平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LC.csv",
+        "sheet": null,
+        "readRows": 328553,
+        "columns": [
+          "ListingId",
+          "借款金额",
+          "借款期限",
+          "借款利率",
+          "借款成功日期",
+          "初始评级",
+          "借款类型",
+          "是否首标",
+          "年龄",
+          "性别",
+          "手机认证",
+          "户口认证",
+          "视频认证",
+          "学历认证",
+          "征信认证",
+          "淘宝认证",
+          "历史成功借款次数",
+          "历史成功借款金额",
+          "总待还本金",
+          "历史正常还款期数",
+          "历史逾期还款期数"
+        ],
+        "missing": {
+          "ListingId": 0,
+          "借款金额": 0,
+          "借款期限": 0,
+          "借款利率": 0,
+          "借款成功日期": 0,
+          "初始评级": 0,
+          "借款类型": 0,
+          "是否首标": 0,
+          "年龄": 0,
+          "性别": 0,
+          "手机认证": 0,
+          "户口认证": 0,
+          "视频认证": 0,
+          "学历认证": 0,
+          "征信认证": 0,
+          "淘宝认证": 0,
+          "历史成功借款次数": 0,
+          "历史成功借款金额": 0,
+          "总待还本金": 0,
+          "历史正常还款期数": 0,
+          "历史逾期还款期数": 0
+        },
+        "readerOptions": {}
+      },
+      {
+        "input": "平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LP.csv",
+        "readRows": 3203276,
+        "chunkSize": 100000,
+        "missingCells": 0,
+        "aggregation": "value_counts(还款状态,dropna=False)",
+        "preview": "first100",
+        "noLCISAmountSum": true
+      },
+      {
+        "input": "平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCIS.csv",
+        "sheet": null,
+        "readRows": 292539,
+        "columns": [
+          "ListingId",
+          "借款金额",
+          "借款期限",
+          "借款利率",
+          "借款成功日期",
+          "初始评级",
+          "借款类型",
+          "是否首标",
+          "年龄",
+          "性别",
+          "手机认证",
+          "户口认证",
+          "视频认证",
+          "学历认证",
+          "征信认证",
+          "淘宝认证",
+          "历史成功借款次数",
+          "历史成功借款金额",
+          "总待还本金",
+          "历史正常还款期数",
+          "历史逾期还款期数",
+          "我的投资金额",
+          "当前到期期数",
+          "当前还款期数",
+          "已还本金",
+          "已还利息",
+          "待还本金",
+          "待还利息",
+          "标当前逾期天数",
+          "标当前状态",
+          "上次还款日期",
+          "上次还款本金",
+          "上次还款利息",
+          "下次计划还款日期",
+          "下次计划还款本金",
+          "下次计划还款利息",
+          "recorddate"
+        ],
+        "missing": {
+          "ListingId": 0,
+          "借款金额": 0,
+          "借款期限": 0,
+          "借款利率": 0,
+          "借款成功日期": 0,
+          "初始评级": 0,
+          "借款类型": 0,
+          "是否首标": 0,
+          "年龄": 0,
+          "性别": 0,
+          "手机认证": 0,
+          "户口认证": 0,
+          "视频认证": 0,
+          "学历认证": 0,
+          "征信认证": 0,
+          "淘宝认证": 0,
+          "历史成功借款次数": 1203,
+          "历史成功借款金额": 1203,
+          "总待还本金": 0,
+          "历史正常还款期数": 0,
+          "历史逾期还款期数": 0,
+          "我的投资金额": 0,
+          "当前到期期数": 0,
+          "当前还款期数": 0,
+          "已还本金": 0,
+          "已还利息": 0,
+          "待还本金": 0,
+          "待还利息": 0,
+          "标当前逾期天数": 0,
+          "标当前状态": 0,
+          "上次还款日期": 21049,
+          "上次还款本金": 22249,
+          "上次还款利息": 22249,
+          "下次计划还款日期": 109976,
+          "下次计划还款本金": 109976,
+          "下次计划还款利息": 111045,
+          "recorddate": 409
+        },
+        "readerOptions": {}
+      },
+      {
+        "input": "平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCIS数据字典.xlsx",
+        "sheet": "Sheet1",
+        "readRows": 37,
+        "columns": [
+          "表名格式",
+          "字段序号",
+          "字段名",
+          "字段类型",
+          "字段注释"
+        ],
+        "missing": {
+          "表名格式": 36,
+          "字段序号": 0,
+          "字段名": 0,
+          "字段类型": 0,
+          "字段注释": 0
+        },
+        "readerOptions": {}
+      },
+      {
+        "input": "平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCLP数据字典.xlsx",
+        "sheet": "Sheet1",
+        "readRows": 35,
+        "columns": [
+          "Unnamed: 0",
+          "LC",
+          "每支标一条记录",
+          "Unnamed: 3"
+        ],
+        "missing": {
+          "Unnamed: 0": 33,
+          "LC": 1,
+          "每支标一条记录": 1,
+          "Unnamed: 3": 2
+        },
+        "readerOptions": {}
+      }
+    ],
+    "checks": {
+      "lpRows": 3203276,
+      "lpCountSum": 3203276,
+      "previewRows": 100
+    },
+    "models": [],
+    "blocked": [
+      {
+        "step": "原复杂还款收益流程独立复现",
+        "reason": "已开放原保存代码/图及全量安全聚合；原多表回款收益计算未完整重跑，不将快照金额直接求和"
+      }
+    ],
+    "originalModelRerun": false,
+    "savedOutputIdentity": "original-saved; extraction time only; original execution time unknown",
+    "validation": "adapter assertions passed; schema/production/browser tracked separately"
+  },
+  {
+    "projectId": "P09",
+    "batch": "B",
+    "status": "partial-source-gaps",
+    "lessonCount": 1,
+    "readySteps": 9,
+    "inputRefs": [
+      {
+        "path": "房地产-二手房+可视化-约300行（爬虫+pyecharts可视化）/shenzhen.csv",
+        "sha256": "fcf600064559278beeedb0b5e70d1de42d60ad64347ad2f485da5b167308bcc7"
+      },
+      {
+        "path": "房地产-二手房+可视化-约300行（爬虫+pyecharts可视化）/链家房源信息抓取+可视化.ipynb",
+        "sha256": "d3e01d5238a9e6cce1ea838100c7e068bf50acf793ff19463efef283a71bfd29"
+      },
+      {
+        "path": "房地产-二手房+可视化-约300行（爬虫+pyecharts可视化）/链家房源信息抓取+可视化.py",
+        "sha256": "dfcbce69d878829b69b369564f8ada8f8027da3cf4d7d3a3d6c93c77ab0693a2"
+      }
+    ],
+    "resources": [
+      "learning/resources/p09-v4-area.json",
+      "learning/resources/p09-v4-evidence-3.json",
+      "learning/resources/p09-v4-evidence-4.json",
+      "learning/resources/p09-v4-evidence-5.json",
+      "learning/resources/p09-v4-evidence-6.json",
+      "learning/resources/p09-v4-evidence-7.json",
+      "learning/resources/p09-v4-evidence-8.json",
+      "learning/resources/p09-v4-input-quality.json",
+      "learning/resources/p09-v4-price-area.json",
+      "learning/resources/p09-v4-region-price.json",
+      "learning/resources/p09-v4-source-1.json",
+      "learning/resources/p09-v4-source-2.json"
+    ],
+    "transforms": [
+      {
+        "input": "房地产-二手房+可视化-约300行（爬虫+pyecharts可视化）/shenzhen.csv",
+        "sheet": null,
+        "readRows": 18907,
+        "columns": [
+          "Unnamed: 0",
+          "area",
+          "title",
+          "community",
+          "position",
+          "tax",
+          "total_price",
+          "unit_price",
+          "hourseType",
+          "hourseSize",
+          "direction",
+          "fitment"
+        ],
+        "missing": {
+          "Unnamed: 0": 0,
+          "area": 0,
+          "title": 8,
+          "community": 0,
+          "position": 0,
+          "tax": 8196,
+          "total_price": 0,
+          "unit_price": 0,
+          "hourseType": 0,
+          "hourseSize": 0,
+          "direction": 0,
+          "fitment": 0
+        },
+        "readerOptions": {}
+      }
+    ],
+    "checks": {},
+    "models": [],
+    "blocked": [
+      {
+        "step": "重新联网采集",
+        "reason": "离线主线使用本地shenzhen.csv，当前采集网站与可用性未验证；联网步骤仅供阅读"
+      }
+    ],
+    "originalModelRerun": false,
+    "savedOutputIdentity": "original-saved; extraction time only; original execution time unknown",
+    "validation": "adapter assertions passed; schema/production/browser tracked separately"
+  },
+  {
+    "projectId": "P10",
+    "batch": "C",
+    "status": "available-content-open",
+    "lessonCount": 1,
+    "readySteps": 11,
+    "inputRefs": [
+      {
+        "path": "房地产-二手房房价分析和预测-约300行(多元线性回归)/house_information.csv",
+        "sha256": "91ed525f82fb2f74add0bc00173c8d4599759dc448dc1c242de1c9b0de4263d5"
+      },
+      {
+        "path": "房地产-二手房房价分析和预测-约300行(多元线性回归)/二手房房价分析和预测房价.ipynb",
+        "sha256": "caf6d6c3c48cce8585ee6470fe71cea841c0022abcbf6841f3678be4521323f2"
+      },
+      {
+        "path": "房地产-二手房房价分析和预测-约300行(多元线性回归)/二手房房价分析和预测房价.py",
+        "sha256": "95959ec33bde8fedf9c1ba1e8b7582592038548e8c9986e73d7297213dc7e7c6"
+      }
+    ],
+    "resources": [
+      "learning/assets/p10-cell25-0.png",
+      "learning/assets/p10-cell26-0.png",
+      "learning/assets/p10-cell29-0.png",
+      "learning/resources/p10-v4-__-4889eebc.json",
+      "learning/resources/p10-v4-area-price.json",
+      "learning/resources/p10-v4-cleaning.json",
+      "learning/resources/p10-v4-evidence-4.json",
+      "learning/resources/p10-v4-input-quality.json",
+      "learning/resources/p10-v4-source-1.json",
+      "learning/resources/p10-v4-source-10.json",
+      "learning/resources/p10-v4-source-2.json",
+      "learning/resources/p10-v4-source-3.json",
+      "learning/resources/p10-v4-source-5-images.json",
+      "learning/resources/p10-v4-source-5.json",
+      "learning/resources/p10-v4-source-6-images.json",
+      "learning/resources/p10-v4-source-6.json",
+      "learning/resources/p10-v4-source-7.json",
+      "learning/resources/p10-v4-source-8.json",
+      "learning/resources/p10-v4-source-9.json"
+    ],
+    "transforms": [
+      {
+        "input": "房地产-二手房房价分析和预测-约300行(多元线性回归)/house_information.csv",
+        "sheet": null,
+        "readRows": 5830,
+        "columns": [
+          "index",
+          "单价",
+          "小区名称",
+          "建筑面积",
+          "户型",
+          "房屋总价",
+          "朝向",
+          "楼层",
+          "装修"
+        ],
+        "missing": {
+          "index": 0,
+          "单价": 0,
+          "小区名称": 0,
+          "建筑面积": 0,
+          "户型": 0,
+          "房屋总价": 0,
+          "朝向": 0,
+          "楼层": 0,
+          "装修": 0
+        },
+        "readerOptions": {}
+      }
+    ],
+    "checks": {},
+    "models": [],
+    "blocked": [],
+    "originalModelRerun": false,
+    "savedOutputIdentity": "original-saved; extraction time only; original execution time unknown",
+    "validation": "adapter assertions passed; schema/production/browser tracked separately"
+  },
+  {
+    "projectId": "P11",
+    "batch": "A",
+    "status": "available-content-open",
+    "lessonCount": 1,
+    "readySteps": 8,
+    "inputRefs": [
+      {
+        "path": "房地产-二手房数据分析-约400行（数据探索分析、matplotlib可视化）/shenzhen.csv",
+        "sha256": "607ca9622c8f38317738c7c401e81b88533137862db0cb50455b0a818da85a22"
+      },
+      {
+        "path": "房地产-二手房数据分析-约400行（数据探索分析、matplotlib可视化）/链家二手房数据分析.ipynb",
+        "sha256": "acad26c9cb4fa911fd8a0eaaf3ff393fbfa191134bb6f75745a0ff455d59a384"
+      }
+    ],
+    "resources": [
+      "learning/resources/p11-anomaly.json",
+      "learning/resources/p11-area.json",
+      "learning/resources/p11-change.json",
+      "learning/resources/p11-correlation.json",
+      "learning/resources/p11-fields.json",
+      "learning/resources/p11-preview.json",
+      "learning/resources/p11-relation.json",
+      "learning/resources/p11-structure.json",
+      "learning/resources/p11-v4-area.json",
+      "learning/resources/p11-v4-hourseSize.json",
+      "learning/resources/p11-v4-input-quality.json",
+      "learning/resources/p11-v4-scatter.json"
+    ],
+    "transforms": [
+      {
+        "input": "房地产-二手房数据分析-约400行（数据探索分析、matplotlib可视化）/shenzhen.csv",
+        "sheet": null,
+        "readRows": 18907,
+        "columns": [
+          "Unnamed: 0",
+          "area",
+          "title",
+          "community",
+          "position",
+          "tax",
+          "total_price",
+          "unit_price",
+          "hourseType",
+          "hourseSize",
+          "direction",
+          "fitment"
+        ],
+        "missing": {
+          "Unnamed: 0": 0,
+          "area": 0,
+          "title": 8,
+          "community": 0,
+          "position": 0,
+          "tax": 8196,
+          "total_price": 0,
+          "unit_price": 0,
+          "hourseType": 0,
+          "hourseSize": 0,
+          "direction": 0,
+          "fitment": 0
+        },
+        "readerOptions": {}
+      }
+    ],
+    "checks": {
+      "before": 18907,
+      "after": 18906,
+      "anomaly": 10871.0
+    },
+    "models": [],
+    "blocked": [],
+    "originalModelRerun": false,
+    "savedOutputIdentity": "original-saved; extraction time only; original execution time unknown",
+    "validation": "adapter assertions passed; schema/production/browser tracked separately"
+  },
+  {
+    "projectId": "P12",
+    "batch": "B",
+    "status": "available-content-open",
+    "lessonCount": 1,
+    "readySteps": 23,
+    "inputRefs": [
+      {
+        "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/历年考研分数线数据可视化.ipynb",
+        "sha256": "c9831348a3ef1a14841eb4795a3c3fbee5ec366b73fda5fbdaaa6dc58d1e552e"
+      },
+      {
+        "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/历年考研分数线数据可视化.py",
+        "sha256": "bebb16f3fdf7b72aa7c3558d1481ce1dae8911bc60178b26589e7ad113dd1417"
+      },
+      {
+        "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/大学信息2021new.xlsx",
+        "sha256": "d818cb1ad3889fce546b37eea1ef9c9e2cc08b5b19317f0d42da29713d57629c"
+      },
+      {
+        "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(1).csv",
+        "sha256": "50c7796c19a865a3678ae923daf5eed10aaa6b321ce7b494278ad241b7b917d6"
+      },
+      {
+        "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(2).csv",
+        "sha256": "6bcddbf2cc251ea04020314c77f80866d6973eed098f2fb1da8bc01b8b2b6557"
+      },
+      {
+        "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(3).csv",
+        "sha256": "7543dd1beb75aea06f6ef7a3a1cedcce2cb624282d25b0a637c183ccd70b3b8d"
+      },
+      {
+        "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(4).csv",
+        "sha256": "30139bc9966041cfb5aa43f1fe1361a290c9c913d8823699bacca82228997e89"
+      },
+      {
+        "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(5).csv",
+        "sha256": "22bcf3325c35670271d2007faab97296abd98a216fbb77542d5c9ac326a683bb"
+      },
+      {
+        "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(6).csv",
+        "sha256": "87c5d0c9fa2cd3303086d8d1e0f83941e21d7525ae33a30d336f1ec67727d4e9"
+      },
+      {
+        "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研调剂数据-3.08.xlsx",
+        "sha256": "0318a005e1c31c90febfd4b86bda4908b512b35275154d44176cba8aed7e7d9a"
+      }
+    ],
+    "resources": [
+      "learning/assets/p12-cell36-0.png",
+      "learning/assets/p12-cell38-0.png",
+      "learning/resources/p12-v4-__-bff0b9e4.json",
+      "learning/resources/p12-v4-____-0bb76771.json",
+      "learning/resources/p12-v4-evidence-1.json",
+      "learning/resources/p12-v4-evidence-11.json",
+      "learning/resources/p12-v4-evidence-12.json",
+      "learning/resources/p12-v4-evidence-20.json",
+      "learning/resources/p12-v4-evidence-6.json",
+      "learning/resources/p12-v4-evidence-9.json",
+      "learning/resources/p12-v4-input-quality.json",
+      "learning/resources/p12-v4-join-audit.json",
+      "learning/resources/p12-v4-major.json",
+      "learning/resources/p12-v4-source-10.json",
+      "learning/resources/p12-v4-source-13-images.json",
+      "learning/resources/p12-v4-source-13.json",
+      "learning/resources/p12-v4-source-14.json",
+      "learning/resources/p12-v4-source-15.json",
+      "learning/resources/p12-v4-source-16.json",
+      "learning/resources/p12-v4-source-17.json",
+      "learning/resources/p12-v4-source-18.json",
+      "learning/resources/p12-v4-source-19.json",
+      "learning/resources/p12-v4-source-2.json",
+      "learning/resources/p12-v4-source-21.json",
+      "learning/resources/p12-v4-source-22.json",
+      "learning/resources/p12-v4-source-3.json",
+      "learning/resources/p12-v4-source-4.json",
+      "learning/resources/p12-v4-source-5.json",
+      "learning/resources/p12-v4-source-7.json",
+      "learning/resources/p12-v4-source-8.json"
+    ],
+    "transforms": [
+      {
+        "input": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(1).csv",
+        "sheet": null,
+        "readRows": 20000,
+        "columns": [
+          "年份",
+          "学校名称_链接",
+          "学校名称",
+          "院系名称_链接",
+          "院系名称",
+          "专业代码",
+          "专业名称_链接",
+          "专业名称",
+          "总分",
+          "政治__管综",
+          "外语",
+          "业务课_一",
+          "业务课_二"
+        ],
+        "missing": {
+          "年份": 0,
+          "学校名称_链接": 0,
+          "学校名称": 1,
+          "院系名称_链接": 0,
+          "院系名称": 55,
+          "专业代码": 1,
+          "专业名称_链接": 0,
+          "专业名称": 0,
+          "总分": 0,
+          "政治__管综": 0,
+          "外语": 0,
+          "业务课_一": 0,
+          "业务课_二": 0
+        },
+        "readerOptions": {}
+      },
+      {
+        "input": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(2).csv",
+        "sheet": null,
+        "readRows": 20000,
+        "columns": [
+          "年份",
+          "学校名称_链接",
+          "学校名称",
+          "院系名称_链接",
+          "院系名称",
+          "专业代码",
+          "专业名称_链接",
+          "专业名称",
+          "总分",
+          "政治__管综",
+          "外语",
+          "业务课_一",
+          "业务课_二"
+        ],
+        "missing": {
+          "年份": 0,
+          "学校名称_链接": 0,
+          "学校名称": 0,
+          "院系名称_链接": 0,
+          "院系名称": 49,
+          "专业代码": 0,
+          "专业名称_链接": 0,
+          "专业名称": 0,
+          "总分": 0,
+          "政治__管综": 0,
+          "外语": 0,
+          "业务课_一": 0,
+          "业务课_二": 0
+        },
+        "readerOptions": {}
+      },
+      {
+        "input": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(3).csv",
+        "sheet": null,
+        "readRows": 20000,
+        "columns": [
+          "年份",
+          "学校名称_链接",
+          "学校名称",
+          "院系名称_链接",
+          "院系名称",
+          "专业代码",
+          "专业名称_链接",
+          "专业名称",
+          "总分",
+          "政治__管综",
+          "外语",
+          "业务课_一",
+          "业务课_二"
+        ],
+        "missing": {
+          "年份": 0,
+          "学校名称_链接": 0,
+          "学校名称": 0,
+          "院系名称_链接": 0,
+          "院系名称": 9,
+          "专业代码": 0,
+          "专业名称_链接": 0,
+          "专业名称": 0,
+          "总分": 0,
+          "政治__管综": 0,
+          "外语": 0,
+          "业务课_一": 0,
+          "业务课_二": 0
+        },
+        "readerOptions": {}
+      },
+      {
+        "input": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(4).csv",
+        "sheet": null,
+        "readRows": 20000,
+        "columns": [
+          "年份",
+          "学校名称_链接",
+          "学校名称",
+          "院系名称_链接",
+          "院系名称",
+          "专业代码",
+          "专业名称_链接",
+          "专业名称",
+          "总分",
+          "政治__管综",
+          "外语",
+          "业务课_一",
+          "业务课_二"
+        ],
+        "missing": {
+          "年份": 0,
+          "学校名称_链接": 0,
+          "学校名称": 0,
+          "院系名称_链接": 0,
+          "院系名称": 21,
+          "专业代码": 0,
+          "专业名称_链接": 0,
+          "专业名称": 0,
+          "总分": 0,
+          "政治__管综": 0,
+          "外语": 0,
+          "业务课_一": 0,
+          "业务课_二": 0
+        },
+        "readerOptions": {}
+      },
+      {
+        "input": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(5).csv",
+        "sheet": null,
+        "readRows": 20000,
+        "columns": [
+          "年份",
+          "学校名称_链接",
+          "学校名称",
+          "院系名称_链接",
+          "院系名称",
+          "专业代码",
+          "专业名称_链接",
+          "专业名称",
+          "总分",
+          "政治__管综",
+          "外语",
+          "业务课_一",
+          "业务课_二"
+        ],
+        "missing": {
+          "年份": 0,
+          "学校名称_链接": 0,
+          "学校名称": 0,
+          "院系名称_链接": 0,
+          "院系名称": 5,
+          "专业代码": 99,
+          "专业名称_链接": 0,
+          "专业名称": 0,
+          "总分": 0,
+          "政治__管综": 0,
+          "外语": 0,
+          "业务课_一": 0,
+          "业务课_二": 0
+        },
+        "readerOptions": {}
+      },
+      {
+        "input": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(6).csv",
+        "sheet": null,
+        "readRows": 864,
+        "columns": [
+          "年份",
+          "学校名称_链接",
+          "学校名称",
+          "院系名称_链接",
+          "院系名称",
+          "专业代码",
+          "专业名称_链接",
+          "专业名称",
+          "总分",
+          "政治__管综",
+          "外语",
+          "业务课_一",
+          "业务课_二"
+        ],
+        "missing": {
+          "年份": 0,
+          "学校名称_链接": 0,
+          "学校名称": 0,
+          "院系名称_链接": 0,
+          "院系名称": 0,
+          "专业代码": 3,
+          "专业名称_链接": 0,
+          "专业名称": 0,
+          "总分": 0,
+          "政治__管综": 0,
+          "外语": 0,
+          "业务课_一": 0,
+          "业务课_二": 0
+        },
+        "readerOptions": {}
+      },
+      {
+        "input": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/大学信息2021new.xlsx",
+        "sheet": "Sheet1",
+        "readRows": 747,
+        "columns": [
+          "school",
+          "school_type",
+          "school_attr",
+          "province"
+        ],
+        "missing": {
+          "school": 0,
+          "school_type": 219,
+          "school_attr": 216,
+          "province": 0
+        },
+        "readerOptions": {}
+      },
+      {
+        "input": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研调剂数据-3.08.xlsx",
+        "sheet": "Sheet1",
+        "readRows": 747,
+        "columns": [
+          "school",
+          "name",
+          "title",
+          "url",
+          "time"
+        ],
+        "missing": {
+          "school": 0,
+          "name": 10,
+          "title": 0,
+          "url": 0,
+          "time": 0
+        },
+        "readerOptions": {}
+      }
+    ],
+    "checks": {
+      "raw": 100864,
+      "clean": 100563
+    },
+    "models": [],
+    "blocked": [],
+    "originalModelRerun": false,
+    "savedOutputIdentity": "original-saved; extraction time only; original execution time unknown",
+    "validation": "adapter assertions passed; schema/production/browser tracked separately"
+  },
+  {
+    "projectId": "P13",
+    "batch": "B",
+    "status": "available-content-open",
+    "lessonCount": 1,
+    "readySteps": 19,
+    "inputRefs": [
+      {
+        "path": "文化娱乐-国产进口电影票房分析（Pyecharts大屏可视化）/国产进口电影票房分析.ipynb",
+        "sha256": "76d4713a436c730d38b1f620c0d2c51aa784a50c1b5276d8734d0d6ab02c058d"
+      },
+      {
+        "path": "文化娱乐-国产进口电影票房分析（Pyecharts大屏可视化）/电影票房三十日时段详情.xlsx",
+        "sha256": "aaafac38878ea9d8961050e8ccb573411f091fe479ca639c1aea1aa1744bbe12"
+      },
+      {
+        "path": "文化娱乐-国产进口电影票房分析（Pyecharts大屏可视化）/电影票房三十日时段趋势数据.xlsx",
+        "sha256": "1460d62f759e58c9df0597f11c7db66735ebfc050e622713761774da5d96c20a"
+      },
+      {
+        "path": "文化娱乐-国产进口电影票房分析（Pyecharts大屏可视化）/电影票房表现概览.xlsx",
+        "sha256": "dcc0a445a76c685cc9b46f21df048ae1546ffe8a29b0777a84d254379bcf0096"
+      },
+      {
+        "path": "文化娱乐-国产进口电影票房分析（Pyecharts大屏可视化）/票房榜.xlsx",
+        "sha256": "1c38523aeb55c46b7df881d3919becadd4be29aa47deed5784bf1297c5f6f946"
+      }
+    ],
+    "resources": [
+      "learning/resources/p13-v4-____-119f5eef.json",
+      "learning/resources/p13-v4-daily.json",
+      "learning/resources/p13-v4-evidence-1.json",
+      "learning/resources/p13-v4-evidence-10.json",
+      "learning/resources/p13-v4-evidence-12.json",
+      "learning/resources/p13-v4-evidence-13.json",
+      "learning/resources/p13-v4-evidence-14.json",
+      "learning/resources/p13-v4-evidence-16.json",
+      "learning/resources/p13-v4-evidence-17.json",
+      "learning/resources/p13-v4-evidence-6.json",
+      "learning/resources/p13-v4-evidence-7.json",
+      "learning/resources/p13-v4-evidence-8.json",
+      "learning/resources/p13-v4-evidence-9.json",
+      "learning/resources/p13-v4-input-quality.json",
+      "learning/resources/p13-v4-ranking.json",
+      "learning/resources/p13-v4-source-11.json",
+      "learning/resources/p13-v4-source-15.json",
+      "learning/resources/p13-v4-source-18.json",
+      "learning/resources/p13-v4-source-2.json",
+      "learning/resources/p13-v4-source-3.json",
+      "learning/resources/p13-v4-source-4.json",
+      "learning/resources/p13-v4-source-5.json"
+    ],
+    "transforms": [
+      {
+        "input": "文化娱乐-国产进口电影票房分析（Pyecharts大屏可视化）/票房榜.xlsx",
+        "sheet": "Sheet1",
+        "readRows": 150,
+        "columns": [
+          "榜单类别",
+          "电影",
+          "上映日期",
+          "票房",
+          "场均人次",
+          "平均票价",
+          "排名",
+          "EnMovieID"
+        ],
+        "missing": {
+          "榜单类别": 0,
+          "电影": 0,
+          "上映日期": 0,
+          "票房": 0,
+          "场均人次": 0,
+          "平均票价": 0,
+          "排名": 0,
+          "EnMovieID": 0
+        },
+        "readerOptions": {}
+      },
+      {
+        "input": "文化娱乐-国产进口电影票房分析（Pyecharts大屏可视化）/电影票房三十日时段详情.xlsx",
+        "sheet": "Sheet1",
+        "readRows": 3392,
+        "columns": [
+          "电影",
+          "EnMovieID",
+          "DBOMovieID",
+          "日期",
+          "星期",
+          "当前票房",
+          "当前场次",
+          "当前人次",
+          "票房占比",
+          "黄金场票房",
+          "黄金场场次",
+          "黄金场人次",
+          "黄金场票房占比",
+          "黄金场场次占比",
+          "黄金场人次占比"
+        ],
+        "missing": {
+          "电影": 0,
+          "EnMovieID": 0,
+          "DBOMovieID": 0,
+          "日期": 0,
+          "星期": 0,
+          "当前票房": 0,
+          "当前场次": 0,
+          "当前人次": 0,
+          "票房占比": 0,
+          "黄金场票房": 0,
+          "黄金场场次": 0,
+          "黄金场人次": 0,
+          "黄金场票房占比": 0,
+          "黄金场场次占比": 0,
+          "黄金场人次占比": 0
+        },
+        "readerOptions": {}
+      },
+      {
+        "input": "文化娱乐-国产进口电影票房分析（Pyecharts大屏可视化）/电影票房三十日时段趋势数据.xlsx",
+        "sheet": "Sheet1",
+        "readRows": 4620,
+        "columns": [
+          "电影",
+          "EnMovieID",
+          "DBOMovieID",
+          "日期",
+          "其他票房",
+          "其他场次",
+          "其他人次",
+          "票房",
+          "场次",
+          "人次",
+          "票房占比",
+          "场次占比",
+          "人次占比",
+          "平均票价",
+          "场均人次",
+          "场均收入"
+        ],
+        "missing": {
+          "电影": 0,
+          "EnMovieID": 0,
+          "DBOMovieID": 0,
+          "日期": 0,
+          "其他票房": 0,
+          "其他场次": 0,
+          "其他人次": 0,
+          "票房": 0,
+          "场次": 0,
+          "人次": 0,
+          "票房占比": 0,
+          "场次占比": 0,
+          "人次占比": 0,
+          "平均票价": 0,
+          "场均人次": 0,
+          "场均收入": 0
+        },
+        "readerOptions": {}
+      },
+      {
+        "input": "文化娱乐-国产进口电影票房分析（Pyecharts大屏可视化）/电影票房表现概览.xlsx",
+        "sheet": "Sheet1",
+        "readRows": 100,
+        "columns": [
+          "EnMovieID",
+          "DBOMovieID",
+          "EFMTMovieID",
+          "电影",
+          "英文电影名",
+          "导演",
+          "主演",
+          "GenreMainID",
+          "主要类型",
+          "作品类型",
+          "地区",
+          "电影时长",
+          "电影版本",
+          "点映日期",
+          "最晚结束日期",
+          "最新上映天数",
+          "正式上映日期",
+          "数据截止日期",
+          "点映天数",
+          "点映票房",
+          "累计票房",
+          "累计场次",
+          "累计人次",
+          "第一天观看人次",
+          "首映票房",
+          "首周票房",
+          "首周末票房",
+          "猫眼想看人数",
+          "淘票票想看人数",
+          "猫眼评分",
+          "豆瓣评分"
+        ],
+        "missing": {
+          "EnMovieID": 0,
+          "DBOMovieID": 0,
+          "EFMTMovieID": 0,
+          "电影": 0,
+          "英文电影名": 0,
+          "导演": 0,
+          "主演": 8,
+          "GenreMainID": 0,
+          "主要类型": 0,
+          "作品类型": 0,
+          "地区": 0,
+          "电影时长": 3,
+          "电影版本": 0,
+          "点映日期": 0,
+          "最晚结束日期": 0,
+          "最新上映天数": 0,
+          "正式上映日期": 0,
+          "数据截止日期": 0,
+          "点映天数": 0,
+          "点映票房": 0,
+          "累计票房": 0,
+          "累计场次": 0,
+          "累计人次": 0,
+          "第一天观看人次": 0,
+          "首映票房": 0,
+          "首周票房": 0,
+          "首周末票房": 0,
+          "猫眼想看人数": 7,
+          "淘票票想看人数": 39,
+          "猫眼评分": 7,
+          "豆瓣评分": 7
+        },
+        "readerOptions": {}
+      }
+    ],
+    "checks": {
+      "rankingRows": 150,
+      "distinctMovieIDs": 100
+    },
+    "models": [],
+    "blocked": [],
+    "originalModelRerun": false,
+    "savedOutputIdentity": "original-saved; extraction time only; original execution time unknown",
+    "validation": "adapter assertions passed; schema/production/browser tracked separately"
+  },
+  {
+    "projectId": "P14",
+    "batch": "D",
+    "status": "partial-source-gaps",
+    "lessonCount": 1,
+    "readySteps": 6,
+    "inputRefs": [
+      {
+        "path": "文化娱乐-情感分析-含实验-约150行（分词、朴素贝叶斯模型）/数据分析实验源码/data/data.csv",
+        "sha256": "1042efeb053116242156ee24a8b18ce22875396752eea5eb30751d46a25d8b3c"
+      },
+      {
+        "path": "文化娱乐-情感分析-含实验-约150行（分词、朴素贝叶斯模型）/数据分析实验源码/微博情感分析.ipynb",
+        "sha256": "7994e4bdf4be4e71f06fdc4cab368640ef83b19847ad8ddcbad54e34a126ba94"
+      }
+    ],
+    "resources": [
+      "learning/resources/p14-v4-___-0754f9f7.json",
+      "learning/resources/p14-v4-evidence-1.json",
+      "learning/resources/p14-v4-evidence-3.json",
+      "learning/resources/p14-v4-evidence-5.json",
+      "learning/resources/p14-v4-input-quality.json",
+      "learning/resources/p14-v4-source-2.json",
+      "learning/resources/p14-v4-source-4.json",
+      "learning/resources/p14-v4-tokens.json",
+      "learning/resources/p14-v4-type.json",
+      "learning/resources/p14-v6-saved-confusion.json"
+    ],
+    "transforms": [
+      {
+        "input": "文化娱乐-情感分析-含实验-约150行（分词、朴素贝叶斯模型）/数据分析实验源码/data/data.csv",
+        "sheet": null,
+        "readRows": 266525,
+        "columns": [
+          "text",
+          "type"
+        ],
+        "missing": {
+          "text": 0,
+          "type": 0
+        },
+        "readerOptions": {}
+      }
+    ],
+    "checks": {
+      "csvRows": 266525,
+      "labels": {
+        "0": 159801,
+        "2": 44198,
+        "1": 41415,
+        "3": 21111
+      },
+      "sparseShape": [
+        266525,
+        30000
+      ]
+    },
+    "models": [],
+    "blocked": [
+      {
+        "step": "原文转CSV",
+        "reason": "代码引用1_simplifyweibo.txt缺失；不以4_simplifyweibo.txt替代；现成data.csv后续步骤可学"
+      }
+    ],
+    "originalModelRerun": false,
+    "savedOutputIdentity": "original-saved; extraction time only; original execution time unknown",
+    "validation": "adapter assertions passed; schema/production/browser tracked separately"
+  },
+  {
+    "projectId": "P15",
+    "batch": "B",
+    "status": "partial-source-gaps",
+    "lessonCount": 1,
+    "readySteps": 14,
+    "inputRefs": [
+      {
+        "path": "文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-排片地域分布（场次）-top10影片.xlsx",
+        "sha256": "a4835d2355a994a5cf7f40e22053d2793d5c14761cb8474a603fe4a7e9c57389"
+      },
+      {
+        "path": "文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-排片场次分布（场次）-top10影片.xlsx",
+        "sha256": "5ad74390a3465cb233c56dde7f957b5addfcc7f292aff9a6c684d3a709e5a0e2"
+      },
+      {
+        "path": "文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-排片统计（场次）-top10影片.xlsx",
+        "sha256": "3f80027f7f6593e7af02dbd064bcef4cafc50d12532148afddc5667866594904"
+      },
+      {
+        "path": "文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-排片院线分布（场次）-top10影片.xlsx",
+        "sha256": "541b0d5675f7320f725d2314d3324e5d968cfc1eba3bd6c078daaaa835489a6e"
+      },
+      {
+        "path": "文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-电影票房三十日时段详情.xls",
+        "sha256": "eb438315805b41886b99d019c4bc29514306995cdf3faed2cbb431e2574e1554"
+      },
+      {
+        "path": "文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-电影票房三十日时段趋势数据.xlsx",
+        "sha256": "b3423598041e90de61fff3d154ba2e09aeea6a291999549ccf6ec600a6fc6a79"
+      },
+      {
+        "path": "文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-电影票房表现概览.xlsx",
+        "sha256": "cde413d249940fa7751aea7a934b75ddb3af35cee5afd396ecee32614bda45b4"
+      },
+      {
+        "path": "文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-票房详情.xlsx",
+        "sha256": "ca6a7a8a97c92aca9b4d1095a48355a5a17771d100fe99ce177faba39e0d76ac"
+      },
+      {
+        "path": "文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档票房分析.ipynb",
+        "sha256": "0e34c777bbbb63ca6d0a849712d9b1f7967f78f4ef809e84e99a8506efd75d10"
+      }
+    ],
+    "resources": [
+      "learning/resources/p15-v4-city-level.json",
+      "learning/resources/p15-v4-daily.json",
+      "learning/resources/p15-v4-evidence-1.json",
+      "learning/resources/p15-v4-evidence-11.json",
+      "learning/resources/p15-v4-evidence-12.json",
+      "learning/resources/p15-v4-evidence-5.json",
+      "learning/resources/p15-v4-evidence-8.json",
+      "learning/resources/p15-v4-input-quality.json",
+      "learning/resources/p15-v4-source-10.json",
+      "learning/resources/p15-v4-source-13.json",
+      "learning/resources/p15-v4-source-2.json",
+      "learning/resources/p15-v4-source-3.json",
+      "learning/resources/p15-v4-source-4.json",
+      "learning/resources/p15-v4-source-6.json",
+      "learning/resources/p15-v4-source-7.json",
+      "learning/resources/p15-v4-source-9.json",
+      "learning/resources/p15-v4-totals.json"
+    ],
+    "transforms": [
+      {
+        "input": "文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-电影票房表现概览.xlsx",
+        "sheet": "Sheet1",
+        "readRows": 10,
+        "columns": [
+          "EntMovieID",
+          "DBOMovieID",
+          "EFMTMovieID",
+          "电影",
+          "英文电影名",
+          "导演",
+          "主演",
+          "GenreMainID",
+          "主要类型",
+          "作品类型",
+          "地区",
+          "电影时长",
+          "电影版本",
+          "点映日期",
+          "最晚结束日期",
+          "最新上映天数",
+          "正式上映日期",
+          "数据截止日期",
+          "点映天数",
+          "点映票房",
+          "累计票房",
+          "累计场次",
+          "累计人次",
+          "第一天观看人次",
+          "首映票房",
+          "首周票房",
+          "首周末票房",
+          "猫眼想看人数",
+          "淘票票想看人数",
+          "猫眼评分",
+          "豆瓣评分"
+        ],
+        "missing": {
+          "EntMovieID": 0,
+          "DBOMovieID": 0,
+          "EFMTMovieID": 0,
+          "电影": 0,
+          "英文电影名": 0,
+          "导演": 0,
+          "主演": 0,
+          "GenreMainID": 0,
+          "主要类型": 0,
+          "作品类型": 0,
+          "地区": 0,
+          "电影时长": 3,
+          "电影版本": 0,
+          "点映日期": 0,
+          "最晚结束日期": 0,
+          "最新上映天数": 0,
+          "正式上映日期": 0,
+          "数据截止日期": 0,
+          "点映天数": 0,
+          "点映票房": 0,
+          "累计票房": 0,
+          "累计场次": 0,
+          "累计人次": 0,
+          "第一天观看人次": 0,
+          "首映票房": 0,
+          "首周票房": 0,
+          "首周末票房": 0,
+          "猫眼想看人数": 0,
+          "淘票票想看人数": 0,
+          "猫眼评分": 0,
+          "豆瓣评分": 1
+        },
+        "readerOptions": {}
+      },
+      {
+        "input": "文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-票房详情.xlsx",
+        "sheet": "Sheet1",
+        "readRows": 38,
+        "columns": [
+          "日期",
+          "票房",
+          "票房环比",
+          "场次",
+          "场次环比",
+          "人次",
+          "人次环比",
+          "场均人次",
+          "平均票价",
+          "当日票房冠军",
+          "服务费"
+        ],
+        "missing": {
+          "日期": 0,
+          "票房": 0,
+          "票房环比": 0,
+          "场次": 0,
+          "场次环比": 0,
+          "人次": 0,
+          "人次环比": 0,
+          "场均人次": 0,
+          "平均票价": 0,
+          "当日票房冠军": 0,
+          "服务费": 0
+        },
+        "readerOptions": {}
+      },
+      {
+        "input": "文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-排片地域分布（场次）-top10影片.xlsx",
+        "sheet": "Sheet1",
+        "readRows": 420,
+        "columns": [
+          "日期",
+          "城市",
+          "电影",
+          "场次"
+        ],
+        "missing": {
+          "日期": 0,
+          "城市": 0,
+          "电影": 0,
+          "场次": 4
+        },
+        "readerOptions": {}
+      },
+      {
+        "input": "文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-排片场次分布（场次）-top10影片.xlsx",
+        "sheet": "Sheet1",
+        "readRows": 70,
+        "columns": [
+          "日期",
+          "电影",
+          "上午场",
+          "下午场",
+          "加映场",
+          "黄金场"
+        ],
+        "missing": {
+          "日期": 0,
+          "电影": 0,
+          "上午场": 0,
+          "下午场": 0,
+          "加映场": 0,
+          "黄金场": 0
+        },
+        "readerOptions": {}
+      },
+      {
+        "input": "文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-排片统计（场次）-top10影片.xlsx",
+        "sheet": "Sheet1",
+        "readRows": 70,
+        "columns": [
+          "日期",
+          "电影",
+          "场次",
+          "占比"
+        ],
+        "missing": {
+          "日期": 0,
+          "电影": 0,
+          "场次": 0,
+          "占比": 0
+        },
+        "readerOptions": {}
+      },
+      {
+        "input": "文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-排片院线分布（场次）-top10影片.xlsx",
+        "sheet": "Sheet1",
+        "readRows": 455,
+        "columns": [
+          "日期",
+          "院线",
+          "电影",
+          "场次"
+        ],
+        "missing": {
+          "日期": 0,
+          "院线": 0,
+          "电影": 0,
+          "场次": 6
+        },
+        "readerOptions": {}
+      },
+      {
+        "input": "文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-电影票房三十日时段趋势数据.xlsx",
+        "sheet": "Sheet1",
+        "readRows": 241,
+        "columns": [
+          "电影",
+          "EnMovieID",
+          "DBOMovieID",
+          "日期",
+          "其他票房",
+          "其他场次",
+          "其他人次",
+          "票房",
+          "场次",
+          "人次",
+          "票房占比",
+          "场次占比",
+          "人次占比",
+          "平均票价",
+          "场均人次",
+          "场均收入"
+        ],
+        "missing": {
+          "电影": 0,
+          "EnMovieID": 0,
+          "DBOMovieID": 0,
+          "日期": 0,
+          "其他票房": 0,
+          "其他场次": 0,
+          "其他人次": 0,
+          "票房": 0,
+          "场次": 0,
+          "人次": 0,
+          "票房占比": 0,
+          "场次占比": 0,
+          "人次占比": 0,
+          "平均票价": 0,
+          "场均人次": 0,
+          "场均收入": 0
+        },
+        "readerOptions": {}
+      },
+      {
+        "input": "文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-电影票房三十日时段详情.xls",
+        "sheet": "Sheet1",
+        "readRows": 241,
+        "columns": [
+          "电影",
+          "EnMovieID",
+          "DBOMovieID",
+          "日期",
+          "星期",
+          "当前票房/万",
+          "当前场次",
+          "当前人次/万",
+          "票房占比",
+          "黄金场票房/万",
+          "黄金场场次",
+          "黄金场人次",
+          "黄金场票房占比",
+          "黄金场场次占比",
+          "黄金场人次占比"
+        ],
+        "missing": {
+          "电影": 0,
+          "EnMovieID": 0,
+          "DBOMovieID": 0,
+          "日期": 0,
+          "星期": 0,
+          "当前票房/万": 0,
+          "当前场次": 0,
+          "当前人次/万": 0,
+          "票房占比": 0,
+          "黄金场票房/万": 0,
+          "黄金场场次": 0,
+          "黄金场人次": 0,
+          "黄金场票房占比": 0,
+          "黄金场场次占比": 0,
+          "黄金场人次占比": 0
+        },
+        "readerOptions": {}
+      }
+    ],
+    "checks": {},
+    "models": [],
+    "blocked": [
+      {
+        "step": "旧xls票房单位解释",
+        "reason": "表头“/万”与原除数/改名存在矛盾；已开放原物理值与代码，不能给出未经核实单位的换算结论"
+      }
+    ],
+    "originalModelRerun": false,
+    "savedOutputIdentity": "original-saved; extraction time only; original execution time unknown",
+    "validation": "adapter assertions passed; schema/production/browser tracked separately"
+  },
+  {
+    "projectId": "P16",
+    "batch": "D",
+    "status": "available-content-open",
+    "lessonCount": 1,
+    "readySteps": 14,
+    "inputRefs": [
+      {
+        "path": "生活日常-时令蔬菜时间序列分析-约600行（matplotlib、seaborn可视化、多元回归）/wholesale_price_of_agricultural_products.csv",
+        "sha256": "f297941e77606fd53c6fa644e5b53ccd5fe005e09e86aca33c103cc2ca29eacd"
+      },
+      {
+        "path": "生活日常-时令蔬菜时间序列分析-约600行（matplotlib、seaborn可视化、多元回归）/时令蔬菜有哪些.ipynb",
+        "sha256": "470915ad6aeefbf6ccbbbbdab0004971fd91f7f9ccc628a7b42ed7e01a0c724a"
+      }
+    ],
+    "resources": [
+      "learning/assets/p16-cell14-0.png",
+      "learning/assets/p16-cell17-0.png",
+      "learning/assets/p16-cell20-0.png",
+      "learning/assets/p16-cell23-0.png",
+      "learning/assets/p16-cell26-0.png",
+      "learning/assets/p16-cell33-0.png",
+      "learning/assets/p16-cell39-0.png",
+      "learning/assets/p16-cell41-0.png",
+      "learning/assets/p16-cell43-1.png",
+      "learning/assets/p16-cell46-0.png",
+      "learning/assets/p16-cell48-0.png",
+      "learning/resources/p16-v4-coefficients.json",
+      "learning/resources/p16-v4-evidence-10.json",
+      "learning/resources/p16-v4-evidence-3.json",
+      "learning/resources/p16-v4-input-quality.json",
+      "learning/resources/p16-v4-rank.json",
+      "learning/resources/p16-v4-source-1.json",
+      "learning/resources/p16-v4-source-11-images.json",
+      "learning/resources/p16-v4-source-12-images.json",
+      "learning/resources/p16-v4-source-13-images.json",
+      "learning/resources/p16-v4-source-2.json",
+      "learning/resources/p16-v4-source-4-images.json",
+      "learning/resources/p16-v4-source-5-images.json",
+      "learning/resources/p16-v4-source-6-images.json",
+      "learning/resources/p16-v4-source-7-images.json",
+      "learning/resources/p16-v4-source-8-images.json",
+      "learning/resources/p16-v4-source-9-images.json",
+      "learning/resources/p16-v4-time.json"
+    ],
+    "transforms": [
+      {
+        "input": "生活日常-时令蔬菜时间序列分析-约600行（matplotlib、seaborn可视化、多元回归）/wholesale_price_of_agricultural_products.csv",
+        "sheet": null,
+        "readRows": 1104,
+        "columns": [
+          "year_month",
+          "product",
+          "price",
+          "category"
+        ],
+        "missing": {
+          "year_month": 0,
+          "product": 0,
+          "price": 0,
+          "category": 0
+        },
+        "readerOptions": {}
+      }
+    ],
+    "checks": {
+      "products": 46,
+      "allFullRank": true
+    },
+    "models": [
+      {
+        "version": "P16-drop-first-month-v1",
+        "method": "OLS const + trend + 11 month dummies",
+        "baseline": "首月类别",
+        "trainScope": "全量描述性拟合，不是预测验证",
+        "products": 46,
+        "seed": null
+      }
+    ],
+    "blocked": [],
+    "originalModelRerun": false,
+    "savedOutputIdentity": "original-saved; extraction time only; original execution time unknown",
+    "validation": "adapter assertions passed; schema/production/browser tracked separately"
+  },
+  {
+    "projectId": "P17",
+    "batch": "A",
+    "status": "available-content-open",
+    "lessonCount": 1,
+    "readySteps": 8,
+    "inputRefs": [
+      {
+        "path": "电商-广告投放效果分析-约250行（KMeans聚类、数据分析）/ad_performance.csv",
+        "sha256": "4f767d4f273ae2745ac84a9791d2e3d81bdee37a26d1ca82fa4d8a9a5f3003fb"
+      },
+      {
+        "path": "电商-广告投放效果分析-约250行（KMeans聚类、数据分析）/聚类分析广告效果.ipynb",
+        "sha256": "ad88e032b91ce55504f1a19bc8e1ddb2a8829edc69cab6b2569cdbde39edd6b7"
+      },
+      {
+        "path": "电商-广告投放效果分析-约250行（KMeans聚类、数据分析）/聚类分析广告效果.py",
+        "sha256": "d9d3c4c55eea4c26a15c1cc652b2e7793f294ad7f7697f7ce793985a402860b1"
+      }
+    ],
+    "resources": [
+      "learning/resources/p17-counts-saved.json",
+      "learning/resources/p17-counts.json",
+      "learning/resources/p17-encoding.json",
+      "learning/resources/p17-missing.json",
+      "learning/resources/p17-preview.json",
+      "learning/resources/p17-profile-audit.json",
+      "learning/resources/p17-profile-saved.json",
+      "learning/resources/p17-scale.json",
+      "learning/resources/p17-scores-saved.json",
+      "learning/resources/p17-scores.json",
+      "learning/resources/p17-v4-counts.json",
+      "learning/resources/p17-v4-input-quality.json",
+      "learning/resources/p17-v4-labels.json",
+      "learning/resources/p17-v4-means.json",
+      "learning/resources/p17-v4-silhouette.json"
+    ],
+    "transforms": [
+      {
+        "input": "电商-广告投放效果分析-约250行（KMeans聚类、数据分析）/ad_performance.csv",
+        "sheet": null,
+        "readRows": 889,
+        "columns": [
+          "渠道代号",
+          "日均UV",
+          "平均注册率",
+          "平均搜索量",
+          "访问深度",
+          "平均停留时间",
+          "订单转化率",
+          "投放总时间",
+          "素材类型",
+          "广告类型",
+          "合作方式",
+          "广告尺寸",
+          "广告卖点"
+        ],
+        "missing": {
+          "渠道代号": 0,
+          "日均UV": 0,
+          "平均注册率": 0,
+          "平均搜索量": 0,
+          "访问深度": 0,
+          "平均停留时间": 2,
+          "订单转化率": 0,
+          "投放总时间": 0,
+          "素材类型": 0,
+          "广告类型": 0,
+          "合作方式": 0,
+          "广告尺寸": 0,
+          "广告卖点": 0
+        },
+        "readerOptions": {}
+      }
+    ],
+    "checks": {
+      "rows": 889,
+      "features": 33,
+      "kValues": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "countSums": {
+        "2": 889,
+        "3": 889,
+        "4": 889,
+        "5": 889,
+        "6": 889,
+        "7": 889
+      }
+    },
+    "models": [
+      {
+        "version": "P17-seed100-ninit10-v1",
+        "method": "KMeans",
+        "seed": 100,
+        "n_init": 10,
+        "k": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "preprocess": "6数值MinMax+27独热；删除平均停留时间；不含渠道ID",
+        "fitRows": 889,
+        "features": 33
+      }
+    ],
+    "blocked": [],
+    "originalModelRerun": false,
+    "savedOutputIdentity": "original-saved; extraction time only; original execution time unknown",
+    "validation": "adapter assertions passed; schema/production/browser tracked separately"
+  },
+  {
+    "projectId": "P18",
+    "batch": "D",
+    "status": "available-content-open",
+    "lessonCount": 1,
+    "readySteps": 10,
+    "inputRefs": [
+      {
+        "path": "电商-数据情感分析-约150行（分词、关键词提取、情感分析）/京东评论数据.csv",
+        "sha256": "142cbb8443ed879582fdc56d3c728e19b376dce2e8779e65b57718a4d14a1691"
+      },
+      {
+        "path": "电商-数据情感分析-约150行（分词、关键词提取、情感分析）/京东评论数据情感分析.ipynb",
+        "sha256": "6414527f85039d478eee720bd4a03e00565ded4963f373673f2af574e6a817fd"
+      },
+      {
+        "path": "电商-数据情感分析-约150行（分词、关键词提取、情感分析）/京东评论数据情感分析.py",
+        "sha256": "aca2005a974501a6c679afb1374691b7db139c1b8d77bbc2f547c52138d03088"
+      }
+    ],
+    "resources": [
+      "learning/assets/p18-cell16-0.png",
+      "learning/assets/p18-cell19-1.png",
+      "learning/assets/p18-cell26-0.png",
+      "learning/assets/p18-cell29-0.png",
+      "learning/resources/p18-v4-_____-ba931ba8.json",
+      "learning/resources/p18-v4-input-quality.json",
+      "learning/resources/p18-v4-score.json",
+      "learning/resources/p18-v4-sentiment.json",
+      "learning/resources/p18-v4-source-1.json",
+      "learning/resources/p18-v4-source-2.json",
+      "learning/resources/p18-v4-source-3.json",
+      "learning/resources/p18-v4-source-4.json",
+      "learning/resources/p18-v4-source-5-images.json",
+      "learning/resources/p18-v4-source-6-images.json",
+      "learning/resources/p18-v4-source-7.json",
+      "learning/resources/p18-v4-source-8-images.json",
+      "learning/resources/p18-v4-source-8.json",
+      "learning/resources/p18-v4-source-9-images.json",
+      "learning/resources/p18-v4-source-9.json"
+    ],
+    "transforms": [
+      {
+        "input": "电商-数据情感分析-约150行（分词、关键词提取、情感分析）/京东评论数据.csv",
+        "sheet": null,
+        "readRows": 3637,
+        "columns": [
+          "sku_id",
+          "_id",
+          "item_name",
+          "comment_id",
+          "content",
+          "creation_time",
+          "reply_count",
+          "score",
+          "useful_vote_count",
+          "useless_vote_count",
+          "user_level_id",
+          "user_province",
+          "nickname",
+          "user_level_name",
+          "user_client",
+          "user_client_show",
+          "is_mobile",
+          "days",
+          "reference_time",
+          "after_days",
+          "after_user_comment"
+        ],
+        "missing": {
+          "sku_id": 0,
+          "_id": 0,
+          "item_name": 0,
+          "comment_id": 0,
+          "content": 0,
+          "creation_time": 0,
+          "reply_count": 0,
+          "score": 0,
+          "useful_vote_count": 0,
+          "useless_vote_count": 0,
+          "user_level_id": 0,
+          "user_province": 3637,
+          "nickname": 0,
+          "user_level_name": 0,
+          "user_client": 0,
+          "user_client_show": 175,
+          "is_mobile": 1,
+          "days": 1,
+          "reference_time": 1,
+          "after_days": 1,
+          "after_user_comment": 1
+        },
+        "readerOptions": {}
+      }
+    ],
+    "checks": {
+      "savedCountSum": 3637
+    },
+    "models": [],
+    "blocked": [],
+    "originalModelRerun": false,
+    "savedOutputIdentity": "original-saved; extraction time only; original execution time unknown",
+    "validation": "adapter assertions passed; schema/production/browser tracked separately"
+  },
+  {
+    "projectId": "P19",
+    "batch": "D",
+    "status": "available-content-open",
+    "lessonCount": 1,
+    "readySteps": 11,
+    "inputRefs": [
+      {
+        "path": "电商-母婴市场消费数据分析-约350行（pyecharts可视化、数据分析）/(sample)sam_tianchi_mum_baby.csv",
+        "sha256": "cef56ed5cc1c92041855c6b10c24b7d7871d0da0ea41565a101a5f7c4eceb471"
+      },
+      {
+        "path": "电商-母婴市场消费数据分析-约350行（pyecharts可视化、数据分析）/(sample)sam_tianchi_mum_baby_trade_history.csv",
+        "sha256": "496284641c52e105d2b68fb4fff9996f1f56a472ef48a9c991a178fa2cc36986"
+      },
+      {
+        "path": "电商-母婴市场消费数据分析-约350行（pyecharts可视化、数据分析）/母婴市场消费数据分析.ipynb",
+        "sha256": "4e8243d4bf1a207860192e64196ac04e3ab42a602f5a74e651ab76c2fd2f7068"
+      }
+    ],
+    "resources": [
+      "learning/assets/p19-cell15-0.png",
+      "learning/assets/p19-cell23-0.png",
+      "learning/assets/p19-cell26-0.png",
+      "learning/assets/p19-cell51-0.png",
+      "learning/assets/p19-cell54-0.png",
+      "learning/assets/p19-cell55-0.png",
+      "learning/assets/p19-cell56-0.png",
+      "learning/resources/p19-v4-category.json",
+      "learning/resources/p19-v4-coverage.json",
+      "learning/resources/p19-v4-evidence-1.json",
+      "learning/resources/p19-v4-evidence-6.json",
+      "learning/resources/p19-v4-evidence-7.json",
+      "learning/resources/p19-v4-input-quality.json",
+      "learning/resources/p19-v4-monthly.json",
+      "learning/resources/p19-v4-repurchase.json",
+      "learning/resources/p19-v4-source-10-images.json",
+      "learning/resources/p19-v4-source-2.json",
+      "learning/resources/p19-v4-source-3-images.json",
+      "learning/resources/p19-v4-source-3.json",
+      "learning/resources/p19-v4-source-4.json",
+      "learning/resources/p19-v4-source-5-images.json",
+      "learning/resources/p19-v4-source-5.json",
+      "learning/resources/p19-v4-source-8.json",
+      "learning/resources/p19-v4-source-9-images.json"
+    ],
+    "transforms": [
+      {
+        "input": "电商-母婴市场消费数据分析-约350行（pyecharts可视化、数据分析）/(sample)sam_tianchi_mum_baby_trade_history.csv",
+        "sheet": null,
+        "readRows": 29971,
+        "columns": [
+          "user_id",
+          "auction_id",
+          "cat_id",
+          "cat1",
+          "property",
+          "buy_mount",
+          "day"
+        ],
+        "missing": {
+          "user_id": 0,
+          "auction_id": 0,
+          "cat_id": 0,
+          "cat1": 0,
+          "property": 144,
+          "buy_mount": 0,
+          "day": 0
+        },
+        "readerOptions": {
+          "dtype": "{'user_id': <class 'str'>, 'auction_id': <class 'str'>, 'cat_id': <class 'str'>, 'cat1': <class 'str'>}"
+        }
+      },
+      {
+        "input": "电商-母婴市场消费数据分析-约350行（pyecharts可视化、数据分析）/(sample)sam_tianchi_mum_baby.csv",
+        "sheet": null,
+        "readRows": 953,
+        "columns": [
+          "user_id",
+          "birthday",
+          "gender"
+        ],
+        "missing": {
+          "user_id": 0,
+          "birthday": 0,
+          "gender": 0
+        },
+        "readerOptions": {
+          "dtype": "{'user_id': <class 'str'>}"
+        }
+      }
+    ],
+    "checks": {
+      "clean": 29942,
+      "quantity": 49973
+    },
+    "models": [],
+    "blocked": [],
+    "originalModelRerun": false,
+    "savedOutputIdentity": "original-saved; extraction time only; original execution time unknown",
+    "validation": "adapter assertions passed; schema/production/browser tracked separately"
+  },
+  {
+    "projectId": "P20",
+    "batch": "B",
+    "status": "available-content-open",
+    "lessonCount": 1,
+    "readySteps": 14,
+    "inputRefs": [
+      {
+        "path": "电商-美妆销售数据分析-约400行（matplotlib可视化、数据分析）/clean_beautymakeup.xlsx",
+        "sha256": "f398094083c48722d719ab29b6b6359e0032c642b7169a4e7f8aeb3c5c635223"
+      },
+      {
+        "path": "电商-美妆销售数据分析-约400行（matplotlib可视化、数据分析）/双十一淘宝美妆数据.csv",
+        "sha256": "46acea03e8b133a00cd682a7fdda825fca7027feee60c4aa6a4ea80ea0d1d32f"
+      },
+      {
+        "path": "电商-美妆销售数据分析-约400行（matplotlib可视化、数据分析）/天猫双十一美妆销售数据分析.ipynb",
+        "sha256": "39640958b201474a19653da92c3ebc3addaad5dc2c00c7f7456c2874527e83ca"
+      },
+      {
+        "path": "电商-美妆销售数据分析-约400行（matplotlib可视化、数据分析）/天猫双十一美妆销售数据分析.py",
+        "sha256": "6f11add1e4f03bb97eb741d1f6fad21089f7237713878cf726ac4eed91bf6bc2"
+      }
+    ],
+    "resources": [
+      "learning/assets/p20-cell32-0.png",
+      "learning/assets/p20-cell35-0.png",
+      "learning/assets/p20-cell38-0.png",
+      "learning/assets/p20-cell40-1.png",
+      "learning/assets/p20-cell41-1.png",
+      "learning/assets/p20-cell43-1.png",
+      "learning/assets/p20-cell44-1.png",
+      "learning/assets/p20-cell46-0.png",
+      "learning/assets/p20-cell48-0.png",
+      "learning/assets/p20-cell51-0.png",
+      "learning/assets/p20-cell53-0.png",
+      "learning/assets/p20-cell55-0.png",
+      "learning/assets/p20-cell58-1.png",
+      "learning/assets/p20-cell59-0.png",
+      "learning/assets/p20-cell62-0.png",
+      "learning/resources/p20-v4-cleaning.json",
+      "learning/resources/p20-v4-input-quality.json",
+      "learning/resources/p20-v4-main_type.json",
+      "learning/resources/p20-v4-price-box.json",
+      "learning/resources/p20-v4-price-sale.json",
+      "learning/resources/p20-v4-sku.json",
+      "learning/resources/p20-v4-source-1.json",
+      "learning/resources/p20-v4-source-10-images.json",
+      "learning/resources/p20-v4-source-10.json",
+      "learning/resources/p20-v4-source-11-images.json",
+      "learning/resources/p20-v4-source-11.json",
+      "learning/resources/p20-v4-source-12-images.json",
+      "learning/resources/p20-v4-source-13-images.json",
+      "learning/resources/p20-v4-source-2.json",
+      "learning/resources/p20-v4-source-3.json",
+      "learning/resources/p20-v4-source-4.json",
+      "learning/resources/p20-v4-source-5.json",
+      "learning/resources/p20-v4-source-6.json",
+      "learning/resources/p20-v4-source-7-images.json",
+      "learning/resources/p20-v4-source-8-images.json",
+      "learning/resources/p20-v4-source-9-images.json"
+    ],
+    "transforms": [
+      {
+        "input": "电商-美妆销售数据分析-约400行（matplotlib可视化、数据分析）/双十一淘宝美妆数据.csv",
+        "sheet": null,
+        "readRows": 27598,
+        "columns": [
+          "update_time",
+          "id",
+          "title",
+          "price",
+          "sale_count",
+          "comment_count",
+          "店名"
+        ],
+        "missing": {
+          "update_time": 0,
+          "id": 0,
+          "title": 0,
+          "price": 0,
+          "sale_count": 2354,
+          "comment_count": 2354,
+          "店名": 0
+        },
+        "readerOptions": {}
+      },
+      {
+        "input": "电商-美妆销售数据分析-约400行（matplotlib可视化、数据分析）/clean_beautymakeup.xlsx",
+        "sheet": "clean_data",
+        "readRows": 27512,
+        "columns": [
+          "update_time",
+          "id",
+          "title",
+          "price",
+          "sale_count",
+          "comment_count",
+          "店名",
+          "sub_type",
+          "main_type",
+          "是否男士专用",
+          "销售额",
+          "day"
+        ],
+        "missing": {
+          "update_time": 0,
+          "id": 0,
+          "title": 0,
+          "price": 0,
+          "sale_count": 0,
+          "comment_count": 0,
+          "店名": 0,
+          "sub_type": 0,
+          "main_type": 0,
+          "是否男士专用": 0,
+          "销售额": 0,
+          "day": 0
+        },
+        "readerOptions": {}
+      }
+    ],
+    "checks": {
+      "raw": 27598,
+      "dedup": 27512,
+      "attached": 27512
+    },
+    "models": [],
+    "blocked": [],
+    "originalModelRerun": false,
+    "savedOutputIdentity": "original-saved; extraction time only; original execution time unknown",
+    "validation": "adapter assertions passed; schema/production/browser tracked separately"
+  },
+  {
+    "projectId": "P21",
+    "batch": "A",
+    "status": "available-content-open",
+    "lessonCount": 2,
+    "readySteps": 12,
+    "inputRefs": [
+      {
+        "path": "电商-超市销售数据分析与报表-约200行（数据透视分析）/1、超市销售数据分析.ipynb",
+        "sha256": "9daf640dafc9cd923fd98713a73ee06e932b2db8efa13ba0781394908d23e2f4"
+      },
+      {
+        "path": "电商-超市销售数据分析与报表-约200行（数据透视分析）/2、超市销售数据自动化报表.ipynb",
+        "sha256": "67f79a5d288e92ef0f7ba8aee2405b81b930891c7654673c875cf661116694ff"
+      },
+      {
+        "path": "电商-超市销售数据分析与报表-约200行（数据透视分析）/order-14.1.csv",
+        "sha256": "ad338a62062f41470ae982c94e1bf5c8ab1c4c23aba88537f78563d0af8fe3b8"
+      },
+      {
+        "path": "电商-超市销售数据分析与报表-约200行（数据透视分析）/order-14.3.csv",
+        "sha256": "8b681f21749942dda8dac1cf7b8b8fa468942207872c8eae225de47936587a58"
+      },
+      {
+        "path": "电商-超市销售数据分析与报表-约200行（数据透视分析）/order.csv",
+        "sha256": "7125126eeef71db20ada51c7d5ab3efa5a4222a121b8aac77a79e4f0608a3399"
+      }
+    ],
+    "resources": [
+      "learning/resources/p21-a-category.json",
+      "learning/resources/p21-a-grain.json",
+      "learning/resources/p21-a-hour.json",
+      "learning/resources/p21-a-order.json",
+      "learning/resources/p21-a-product.json",
+      "learning/resources/p21-a-stores.json",
+      "learning/resources/p21-a-types.json",
+      "learning/resources/p21-b-attached.json",
+      "learning/resources/p21-b-periods.json",
+      "learning/resources/p21-b-quality.json",
+      "learning/resources/p21-b-report.json",
+      "learning/resources/p21-b-zero.json",
+      "learning/resources/p21-v4-hour.json",
+      "learning/resources/p21-v4-input-quality.json",
+      "learning/resources/p21-v4-stores.json",
+      "learning/resources/p21-v4-top-2.json",
+      "learning/resources/p21-v4-top-3.json"
+    ],
+    "transforms": [
+      {
+        "input": "电商-超市销售数据分析与报表-约200行（数据透视分析）/order-14.3.csv",
+        "sheet": null,
+        "readRows": 3478,
+        "columns": [
+          "商品ID",
+          "类别ID",
+          "门店编号",
+          "单价",
+          "销量",
+          "成交时间",
+          "订单ID"
+        ],
+        "missing": {
+          "商品ID": 0,
+          "类别ID": 0,
+          "门店编号": 0,
+          "单价": 0,
+          "销量": 0,
+          "成交时间": 0,
+          "订单ID": 0
+        },
+        "readerOptions": {
+          "dtype": "{'订单ID': <class 'str'>, '商品ID': <class 'str'>, '类别ID': <class 'str'>}"
+        }
+      }
+    ],
+    "checks": {
+      "exactAmount": "28950.06645",
+      "orders": 918,
+      "aRows": 3478
+    },
+    "models": [],
+    "blocked": [],
+    "originalModelRerun": false,
+    "savedOutputIdentity": "original-saved; extraction time only; original execution time unknown",
+    "validation": "adapter assertions passed; schema/production/browser tracked separately"
+  },
+  {
+    "projectId": "P22",
+    "batch": "C",
+    "status": "available-content-open",
+    "lessonCount": 1,
+    "readySteps": 19,
+    "inputRefs": [
+      {
+        "path": "电商-门店可视化与顾客分组-约500行（pyecharts地图可视化、KMeans聚类、大屏可视化）/uniqlo.csv",
+        "sha256": "a0472c1a06c803e83d4825478febe7a57a0b4a90a950a260895ebbcdefa9336d"
+      },
+      {
+        "path": "电商-门店可视化与顾客分组-约500行（pyecharts地图可视化、KMeans聚类、大屏可视化）/uniqlo1.csv",
+        "sha256": "d8550e05409876826907185b51627b9a46aa1ef92366ea75d7e45cb865f5cd43"
+      },
+      {
+        "path": "电商-门店可视化与顾客分组-约500行（pyecharts地图可视化、KMeans聚类、大屏可视化）/uniqlo2.csv",
+        "sha256": "85134715043965c641062cf78376f6feb7686ae0003a88ac56c88b1f4c95ae41"
+      },
+      {
+        "path": "电商-门店可视化与顾客分组-约500行（pyecharts地图可视化、KMeans聚类、大屏可视化）/优衣库门店可视化与顾客拜访数据分组.ipynb",
+        "sha256": "26f251ebfd81462ae1c97061f9dbec49b8ca6ffe35a17ff3b24afab964e78775"
+      }
+    ],
+    "resources": [
+      "learning/assets/p22-cell69-0.png",
+      "learning/assets/p22-cell71-0.png",
+      "learning/resources/p22-v4-coordinates.json",
+      "learning/resources/p22-v4-counts.json",
+      "learning/resources/p22-v4-evidence-10.json",
+      "learning/resources/p22-v4-evidence-6.json",
+      "learning/resources/p22-v4-evidence-9.json",
+      "learning/resources/p22-v4-input-quality.json",
+      "learning/resources/p22-v4-labels.json",
+      "learning/resources/p22-v4-source-1.json",
+      "learning/resources/p22-v4-source-11.json",
+      "learning/resources/p22-v4-source-12.json",
+      "learning/resources/p22-v4-source-13.json",
+      "learning/resources/p22-v4-source-14.json",
+      "learning/resources/p22-v4-source-15-images.json",
+      "learning/resources/p22-v4-source-15.json",
+      "learning/resources/p22-v4-source-16.json",
+      "learning/resources/p22-v4-source-17.json",
+      "learning/resources/p22-v4-source-18.json",
+      "learning/resources/p22-v4-source-2.json",
+      "learning/resources/p22-v4-source-3.json",
+      "learning/resources/p22-v4-source-4.json",
+      "learning/resources/p22-v4-source-5.json",
+      "learning/resources/p22-v4-source-7.json",
+      "learning/resources/p22-v4-source-8.json"
+    ],
+    "transforms": [
+      {
+        "input": "电商-门店可视化与顾客分组-约500行（pyecharts地图可视化、KMeans聚类、大屏可视化）/uniqlo2.csv",
+        "sheet": null,
+        "readRows": 80,
+        "columns": [
+          "姓名",
+          "剩余拜访次数",
+          "地址",
+          "详细地址",
+          "经度",
+          "纬度"
+        ],
+        "missing": {
+          "姓名": 0,
+          "剩余拜访次数": 0,
+          "地址": 0,
+          "详细地址": 0,
+          "经度": 0,
+          "纬度": 0
+        },
+        "readerOptions": {}
+      },
+      {
+        "input": "电商-门店可视化与顾客分组-约500行（pyecharts地图可视化、KMeans聚类、大屏可视化）/uniqlo.csv",
+        "sheet": null,
+        "readRows": 80,
+        "columns": [
+          "姓名",
+          "剩余拜访次数",
+          "地址"
+        ],
+        "missing": {
+          "姓名": 0,
+          "剩余拜访次数": 0,
+          "地址": 0
+        },
+        "readerOptions": {}
+      },
+      {
+        "input": "电商-门店可视化与顾客分组-约500行（pyecharts地图可视化、KMeans聚类、大屏可视化）/uniqlo1.csv",
+        "sheet": null,
+        "readRows": 80,
+        "columns": [
+          "姓名",
+          "剩余拜访次数",
+          "地址",
+          "详细地址"
+        ],
+        "missing": {
+          "姓名": 0,
+          "剩余拜访次数": 0,
+          "地址": 0,
+          "详细地址": 0
+        },
+        "readerOptions": {}
+      }
+    ],
+    "checks": {
+      "coordinateRows": 80
+    },
+    "models": [
+      {
+        "version": "P22-coordinate-k3-k8-v1",
+        "k": [
+          3,
+          8
+        ],
+        "seed": 100,
+        "n_init": 10,
+        "features": [
+          "经度",
+          "纬度"
+        ],
+        "rows": 80,
+        "limitation": "原坐标系未知，直接欧氏距离是近似，不等同地理路网/客户价值"
+      }
+    ],
+    "blocked": [],
+    "originalModelRerun": false,
+    "savedOutputIdentity": "original-saved; extraction time only; original execution time unknown",
+    "validation": "adapter assertions passed; schema/production/browser tracked separately"
+  },
+  {
+    "projectId": "P23",
+    "batch": "A",
+    "status": "available-content-open",
+    "lessonCount": 1,
+    "readySteps": 13,
+    "inputRefs": [
+      {
+        "path": "电商-预测用户使用优惠券概率较高的客群-约350行（逻辑回归模型、模型评估）/tianmao.csv",
+        "sha256": "89e8ce6a9e14bb2aac1d28fb150644544212e88acf3a152757c6f547b9b1a3f0"
+      },
+      {
+        "path": "电商-预测用户使用优惠券概率较高的客群-约350行（逻辑回归模型、模型评估）/预测天猫用户使用优惠券概率较高的客群.ipynb",
+        "sha256": "30fe7dee501aa066e11b65470a6ddcc0d6b33f84fe89d6a76aaa6aca75623099"
+      },
+      {
+        "path": "电商-预测用户使用优惠券概率较高的客群-约350行（逻辑回归模型、模型评估）/预测天猫用户使用优惠券概率较高的客群.py",
+        "sha256": "c19078cd43e1390f30a543729c1479cb5b6765519eee1f92a90f50c18a3ce37a"
+      }
+    ],
+    "resources": [
+      "learning/assets/p23-cell24-1.png",
+      "learning/assets/p23-cell26-1.png",
+      "learning/assets/p23-cell28-1.png",
+      "learning/assets/p23-cell30-2.png",
+      "learning/assets/p23-cell35-0.png",
+      "learning/assets/p23-cell39-2.png",
+      "learning/resources/p23-v4-age.json",
+      "learning/resources/p23-v4-input-quality.json",
+      "learning/resources/p23-v4-label-share.json",
+      "learning/resources/p23-v4-matrix.json",
+      "learning/resources/p23-v4-metrics.json",
+      "learning/resources/p23-v4-probabilities.json",
+      "learning/resources/p23-v4-roc.json",
+      "learning/resources/p23-v4-source-1.json",
+      "learning/resources/p23-v4-source-10.json",
+      "learning/resources/p23-v4-source-11.json",
+      "learning/resources/p23-v4-source-12.json",
+      "learning/resources/p23-v4-source-2.json",
+      "learning/resources/p23-v4-source-3.json",
+      "learning/resources/p23-v4-source-4.json",
+      "learning/resources/p23-v4-source-5-images.json",
+      "learning/resources/p23-v4-source-5.json",
+      "learning/resources/p23-v4-source-6-images.json",
+      "learning/resources/p23-v4-source-6.json",
+      "learning/resources/p23-v4-source-7-images.json",
+      "learning/resources/p23-v4-source-7.json",
+      "learning/resources/p23-v4-source-8.json",
+      "learning/resources/p23-v4-source-9.json"
+    ],
+    "transforms": [
+      {
+        "input": "电商-预测用户使用优惠券概率较高的客群-约350行（逻辑回归模型、模型评估）/tianmao.csv",
+        "sheet": null,
+        "readRows": 25317,
+        "columns": [
+          "ID",
+          "age",
+          "job",
+          "marital",
+          "default",
+          "returned",
+          "loan",
+          "coupon_used_in_last6_month",
+          "coupon_used_in_last_month",
+          "coupon_ind"
+        ],
+        "missing": {
+          "ID": 0,
+          "age": 0,
+          "job": 0,
+          "marital": 0,
+          "default": 0,
+          "returned": 0,
+          "loan": 0,
+          "coupon_used_in_last6_month": 0,
+          "coupon_used_in_last_month": 0,
+          "coupon_ind": 0
+        },
+        "readerOptions": {}
+      }
+    ],
+    "checks": {
+      "trainRows": 17721,
+      "testRows": 7596,
+      "overlap": 0,
+      "probabilityAUC": 0.6845685969959225,
+      "matrix": [
+        [
+          6702,
+          6
+        ],
+        [
+          886,
+          2
+        ]
+      ],
+      "probabilityCount": 7596,
+      "positiveTotal": 2961
+    },
+    "models": [
+      {
+        "version": "P23-stratified-probability-v1",
+        "method": "StandardScaler(train only) + LogisticRegression",
+        "features": [
+          "coupon_used_in_last_month",
+          "returned",
+          "loan",
+          "coupon_used_in_last6_month",
+          "default",
+          "age"
+        ],
+        "seed": 100,
+        "test_size": 0.3,
+        "stratify": "coupon_ind",
+        "trainRows": 17721,
+        "testRows": 7596,
+        "trainIndexSha256": "17a8ebc58afe37b7fd849bf3fff89c0325428eacd51251f6fea3f6ee0bf9555d",
+        "testIndexSha256": "54af92f3adefc053503efc6aeb3ec50182809fb658bd6ee502d2a858d8f61603",
+        "trainTestIntersection": 0,
+        "max_iter": 3000,
+        "C": 1,
+        "class_weight": null,
+        "solver": "lbfgs"
+      }
+    ],
+    "blocked": [],
+    "originalModelRerun": false,
+    "savedOutputIdentity": "original-saved; extraction time only; original execution time unknown",
+    "validation": "adapter assertions passed; schema/production/browser tracked separately"
+  },
+  {
+    "projectId": "P24",
+    "batch": "C",
+    "status": "available-content-open",
+    "lessonCount": 1,
+    "readySteps": 15,
+    "inputRefs": [
+      {
+        "path": "电商-预测用户消费金额-约500行（线性回归模型、模型评估优化）/redNew.csv",
+        "sha256": "e1a086141c06fc04ec3a4584b962a486ea270986255a9afeab463beda6727ece"
+      },
+      {
+        "path": "电商-预测用户消费金额-约500行（线性回归模型、模型评估优化）/小红书.ipynb",
+        "sha256": "40650aad9a7d0c531e29b850ac54b77f0e60ad578779d9023c0838ec9163c3ec"
+      },
+      {
+        "path": "电商-预测用户消费金额-约500行（线性回归模型、模型评估优化）/小红书.py",
+        "sha256": "4dc9d8c79cb86e56964ec4588092499050c552333390a33e6dd1f2d50dc18cbb"
+      }
+    ],
+    "resources": [
+      "learning/assets/p24-cell22-2.png",
+      "learning/assets/p24-cell24-2.png",
+      "learning/assets/p24-cell26-2.png",
+      "learning/assets/p24-cell29-2.png",
+      "learning/assets/p24-cell35-1.png",
+      "learning/assets/p24-cell36-1.png",
+      "learning/assets/p24-cell37-1.png",
+      "learning/assets/p24-cell41-1.png",
+      "learning/assets/p24-cell42-1.png",
+      "learning/assets/p24-cell43-1.png",
+      "learning/assets/p24-cell46-1.png",
+      "learning/assets/p24-cell47-1.png",
+      "learning/assets/p24-cell48-1.png",
+      "learning/assets/p24-cell52-1.png",
+      "learning/assets/p24-cell53-1.png",
+      "learning/assets/p24-cell54-1.png",
+      "learning/assets/p24-cell60-1.png",
+      "learning/assets/p24-cell64-1.png",
+      "learning/assets/p24-cell65-1.png",
+      "learning/assets/p24-cell66-1.png",
+      "learning/assets/p24-cell67-1.png",
+      "learning/assets/p24-cell68-1.png",
+      "learning/assets/p24-cell69-1.png",
+      "learning/resources/p24-v4-age.json",
+      "learning/resources/p24-v4-amount-revenue.json",
+      "learning/resources/p24-v4-evidence-11.json",
+      "learning/resources/p24-v4-evidence-2.json",
+      "learning/resources/p24-v4-holdout-scatter.json",
+      "learning/resources/p24-v4-holdout.json",
+      "learning/resources/p24-v4-input-quality.json",
+      "learning/resources/p24-v4-missing.json",
+      "learning/resources/p24-v4-revenue.json",
+      "learning/resources/p24-v4-source-1.json",
+      "learning/resources/p24-v4-source-10-images.json",
+      "learning/resources/p24-v4-source-12.json",
+      "learning/resources/p24-v4-source-13.json",
+      "learning/resources/p24-v4-source-14.json",
+      "learning/resources/p24-v4-source-3-images.json",
+      "learning/resources/p24-v4-source-3.json",
+      "learning/resources/p24-v4-source-4.json",
+      "learning/resources/p24-v4-source-5-images.json",
+      "learning/resources/p24-v4-source-5.json",
+      "learning/resources/p24-v4-source-6-images.json",
+      "learning/resources/p24-v4-source-6.json",
+      "learning/resources/p24-v4-source-7-images.json",
+      "learning/resources/p24-v4-source-7.json",
+      "learning/resources/p24-v4-source-8-images.json",
+      "learning/resources/p24-v4-source-8.json",
+      "learning/resources/p24-v4-source-9-images.json",
+      "learning/resources/p24-v4-source-9.json"
+    ],
+    "transforms": [
+      {
+        "input": "电商-预测用户消费金额-约500行（线性回归模型、模型评估优化）/redNew.csv",
+        "sheet": null,
+        "readRows": 29452,
+        "columns": [
+          "revenue",
+          "gender",
+          "age",
+          "engaged_last_30",
+          "lifecycle",
+          " days_since_last_order ",
+          "previous_order_amount",
+          "3rd_party_stores"
+        ],
+        "missing": {
+          "revenue": 0,
+          "gender": 11729,
+          "age": 12736,
+          "engaged_last_30": 11729,
+          "lifecycle": 0,
+          " days_since_last_order ": 0,
+          "previous_order_amount": 0,
+          "3rd_party_stores": 0
+        },
+        "readerOptions": {}
+      }
+    ],
+    "checks": {
+      "holdoutR2": 0.038624320590585404,
+      "trainRows": 20616,
+      "testRows": 8836,
+      "overlap": 0
+    },
+    "models": [
+      {
+        "version": "P24-holdout-train-imputer-v1",
+        "features": [
+          "previous_order_amount",
+          "days_since_last_order",
+          "engaged_1",
+          "lifecycle_C"
+        ],
+        "seed": 100,
+        "test_size": 0.3,
+        "trainRows": 20616,
+        "testRows": 8836,
+        "trainTestIntersection": 0,
+        "imputerFit": "train only mean",
+        "limitation": "训练外演示不保证成熟预测能力，engaged缺失数值均值是本教学选择"
+      }
+    ],
+    "blocked": [],
+    "originalModelRerun": false,
+    "savedOutputIdentity": "original-saved; extraction time only; original execution time unknown",
+    "validation": "adapter assertions passed; schema/production/browser tracked separately"
+  },
+  {
+    "projectId": "P25",
+    "batch": "D",
+    "status": "available-content-open",
+    "lessonCount": 1,
+    "readySteps": 7,
+    "inputRefs": [
+      {
+        "path": "社会科学-人口普查-数据可视化-约750行（Pyecharts可视化、数据分析）/data/全国人口年龄构成.csv",
+        "sha256": "55abc6661dbfcc66fe0d69563ecb794b6e34447c36d272f680073391e68e6a15"
+      },
+      {
+        "path": "社会科学-人口普查-数据可视化-约750行（Pyecharts可视化、数据分析）/data/各地区15岁及以上人口平均受教育年限.csv",
+        "sha256": "d438f7270713be4b25b5bb0ffbf11086c1e6e93fb15f0df73f267a22acf063f1"
+      },
+      {
+        "path": "社会科学-人口普查-数据可视化-约750行（Pyecharts可视化、数据分析）/data/各地区人口.csv",
+        "sha256": "e54df53ebcf223d5932943a9ad53b66df3d6d6798d2ee47333b0777236510bd2"
+      },
+      {
+        "path": "社会科学-人口普查-数据可视化-约750行（Pyecharts可视化、数据分析）/data/各地区人口年龄构成.csv",
+        "sha256": "ab4bdab96f351ac920e48f2467cfad4f0d7aa97c10c23fabce16003ca173734e"
+      },
+      {
+        "path": "社会科学-人口普查-数据可视化-约750行（Pyecharts可视化、数据分析）/data/各地区性别构成.csv",
+        "sha256": "2d70917d4b26bb515186d140625a24c68c3a4cd35e01000c3c56c456ab98e750"
+      },
+      {
+        "path": "社会科学-人口普查-数据可视化-约750行（Pyecharts可视化、数据分析）/data/各地区每10万人口中拥有的各类受教育程度人数.csv",
+        "sha256": "5f06777bf301ef73779f5173ad08f5900bef85ad6e01613a7e05132a316a9c91"
+      },
+      {
+        "path": "社会科学-人口普查-数据可视化-约750行（Pyecharts可视化、数据分析）/第七次全国人口普查-数据可视化.ipynb",
+        "sha256": "d8dbf08ea73d90493c2aa06cc84d7d444946929d426fdf078da098266e85bcc6"
+      },
+      {
+        "path": "社会科学-人口普查-数据可视化-约750行（Pyecharts可视化、数据分析）/第七次全国人口普查-数据可视化.py",
+        "sha256": "7c73df2a24115c3089a9d99819b2c14472a5fdc2088d52c76b9fefaad92beca5"
+      }
+    ],
+    "resources": [
+      "learning/resources/p25-v4-ages.json",
+      "learning/resources/p25-v4-evidence-1.json",
+      "learning/resources/p25-v4-evidence-3.json",
+      "learning/resources/p25-v4-evidence-4.json",
+      "learning/resources/p25-v4-evidence-5.json",
+      "learning/resources/p25-v4-evidence-6.json",
+      "learning/resources/p25-v4-input-quality.json",
+      "learning/resources/p25-v4-population.json",
+      "learning/resources/p25-v4-source-2.json"
+    ],
+    "transforms": [
+      {
+        "input": "社会科学-人口普查-数据可视化-约750行（Pyecharts可视化、数据分析）/data/各地区人口年龄构成.csv",
+        "sheet": null,
+        "readRows": 34,
+        "columns": [
+          "各地区人口年龄构成",
+          "Unnamed: 1",
+          "Unnamed: 2",
+          "Unnamed: 3",
+          "Unnamed: 4"
+        ],
+        "missing": {
+          "各地区人口年龄构成": 1,
+          "Unnamed: 1": 0,
+          "Unnamed: 2": 1,
+          "Unnamed: 3": 1,
+          "Unnamed: 4": 1
+        },
+        "readerOptions": {}
+      },
+      {
+        "input": "社会科学-人口普查-数据可视化-约750行（Pyecharts可视化、数据分析）/data/各地区人口.csv",
+        "sheet": null,
+        "readRows": 35,
+        "columns": [
+          "各地区人口",
+          "Unnamed: 1",
+          "Unnamed: 2",
+          "Unnamed: 3"
+        ],
+        "missing": {
+          "各地区人口": 1,
+          "Unnamed: 1": 1,
+          "Unnamed: 2": 1,
+          "Unnamed: 3": 2
+        },
+        "readerOptions": {}
+      },
+      {
+        "input": "社会科学-人口普查-数据可视化-约750行（Pyecharts可视化、数据分析）/data/全国人口年龄构成.csv",
+        "sheet": null,
+        "readRows": 6,
+        "columns": [
+          "全国人口年龄构成",
+          "Unnamed: 1",
+          "Unnamed: 2"
+        ],
+        "missing": {
+          "全国人口年龄构成": 0,
+          "Unnamed: 1": 0,
+          "Unnamed: 2": 0
+        },
+        "readerOptions": {}
+      },
+      {
+        "input": "社会科学-人口普查-数据可视化-约750行（Pyecharts可视化、数据分析）/data/各地区15岁及以上人口平均受教育年限.csv",
+        "sheet": null,
+        "readRows": 33,
+        "columns": [
+          "各地区 15 岁及以上人口平均受教育年限",
+          "Unnamed: 1",
+          "Unnamed: 2"
+        ],
+        "missing": {
+          "各地区 15 岁及以上人口平均受教育年限": 0,
+          "Unnamed: 1": 0,
+          "Unnamed: 2": 0
+        },
+        "readerOptions": {}
+      },
+      {
+        "input": "社会科学-人口普查-数据可视化-约750行（Pyecharts可视化、数据分析）/data/各地区性别构成.csv",
+        "sheet": null,
+        "readRows": 34,
+        "columns": [
+          "各地区人口性别构成",
+          "Unnamed: 1",
+          "Unnamed: 2",
+          "Unnamed: 3"
+        ],
+        "missing": {
+          "各地区人口性别构成": 1,
+          "Unnamed: 1": 0,
+          "Unnamed: 2": 1,
+          "Unnamed: 3": 1
+        },
+        "readerOptions": {}
+      },
+      {
+        "input": "社会科学-人口普查-数据可视化-约750行（Pyecharts可视化、数据分析）/data/各地区每10万人口中拥有的各类受教育程度人数.csv",
+        "sheet": null,
+        "readRows": 33,
+        "columns": [
+          "各地区每 10 万人口中拥有的各类受教育程度人数",
+          "Unnamed: 1",
+          "Unnamed: 2",
+          "Unnamed: 3",
+          "Unnamed: 4"
+        ],
+        "missing": {
+          "各地区每 10 万人口中拥有的各类受教育程度人数": 0,
+          "Unnamed: 1": 0,
+          "Unnamed: 2": 0,
+          "Unnamed: 3": 0,
+          "Unnamed: 4": 0
+        },
+        "readerOptions": {}
+      }
+    ],
+    "checks": {
+      "provinces": 31,
+      "ageExclusive": true,
+      "age65Subset": true
+    },
+    "models": [],
+    "blocked": [],
+    "originalModelRerun": false,
+    "savedOutputIdentity": "original-saved; extraction time only; original execution time unknown",
+    "validation": "adapter assertions passed; schema/production/browser tracked separately"
+  },
+  {
+    "projectId": "P26",
+    "batch": "D",
+    "status": "available-content-open",
+    "lessonCount": 1,
+    "readySteps": 14,
+    "inputRefs": [
+      {
+        "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/2000年中国各地区城乡人口分布.csv",
+        "sha256": "010b8352eaad3195fa9cc3c1bb00dd7eb138ec9b97b86e42d6ff1b4d0cfb5c49"
+      },
+      {
+        "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/2001-2020中国各地区常住人口数量.csv",
+        "sha256": "2177221892c12f7e7d5488db7495efe0228a6c5cb1b34b87370790f6b97803d5"
+      },
+      {
+        "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/2005-2019年中国各地区城镇人口数量.csv",
+        "sha256": "42396462dd8849b48ff4c236f0d47555151085772564da0dbcd69210b3f567ee"
+      },
+      {
+        "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/全国人口年龄构成.csv",
+        "sha256": "55abc6661dbfcc66fe0d69563ecb794b6e34447c36d272f680073391e68e6a15"
+      },
+      {
+        "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/分省年度GDP数据.csv",
+        "sha256": "40a058b7d851eb3aa3aeb25ed7e92f0410eb94eff01503b2e72c17180c51a3d7"
+      },
+      {
+        "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/各地区15岁及以上人口平均受教育年限.csv",
+        "sha256": "d438f7270713be4b25b5bb0ffbf11086c1e6e93fb15f0df73f267a22acf063f1"
+      },
+      {
+        "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/各地区人口.csv",
+        "sha256": "e54df53ebcf223d5932943a9ad53b66df3d6d6798d2ee47333b0777236510bd2"
+      },
+      {
+        "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/各地区人口年龄构成.csv",
+        "sha256": "ab4bdab96f351ac920e48f2467cfad4f0d7aa97c10c23fabce16003ca173734e"
+      },
+      {
+        "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/各地区性别构成.csv",
+        "sha256": "2d70917d4b26bb515186d140625a24c68c3a4cd35e01000c3c56c456ab98e750"
+      },
+      {
+        "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/各地区每10万人口中拥有的各类受教育程度人数.csv",
+        "sha256": "5f06777bf301ef73779f5173ad08f5900bef85ad6e01613a7e05132a316a9c91"
+      },
+      {
+        "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/关于第七次全国人口普查数据的探索.ipynb",
+        "sha256": "128dafa808c53033d8c300b682ae8cf67a8c77279b6c34db6385dfd70f0800a0"
+      },
+      {
+        "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/关于第七次全国人口普查数据的探索.py",
+        "sha256": "f0b7b07826be934cb9990546e3d13461b3434415fbe864b63389492587edbe35"
+      }
+    ],
+    "resources": [
+      "learning/assets/p26-cell33-0.png",
+      "learning/resources/p26-v4-ages.json",
+      "learning/resources/p26-v4-aligned.json",
+      "learning/resources/p26-v4-correlation.json",
+      "learning/resources/p26-v4-evidence-11.json",
+      "learning/resources/p26-v4-input-quality.json",
+      "learning/resources/p26-v4-linkage.json",
+      "learning/resources/p26-v4-population.json",
+      "learning/resources/p26-v4-source-1.json",
+      "learning/resources/p26-v4-source-10.json",
+      "learning/resources/p26-v4-source-12.json",
+      "learning/resources/p26-v4-source-13.json",
+      "learning/resources/p26-v4-source-2.json",
+      "learning/resources/p26-v4-source-3.json",
+      "learning/resources/p26-v4-source-4.json",
+      "learning/resources/p26-v4-source-5.json",
+      "learning/resources/p26-v4-source-6.json",
+      "learning/resources/p26-v4-source-7.json",
+      "learning/resources/p26-v4-source-8.json",
+      "learning/resources/p26-v4-source-9-images.json",
+      "learning/resources/p26-v4-source-9.json",
+      "learning/resources/p26-v4-tree.json",
+      "learning/resources/p26-v4-urban-floating.json"
+    ],
+    "transforms": [
+      {
+        "input": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/各地区人口年龄构成.csv",
+        "sheet": null,
+        "readRows": 34,
+        "columns": [
+          "各地区人口年龄构成",
+          "Unnamed: 1",
+          "Unnamed: 2",
+          "Unnamed: 3",
+          "Unnamed: 4"
+        ],
+        "missing": {
+          "各地区人口年龄构成": 1,
+          "Unnamed: 1": 0,
+          "Unnamed: 2": 1,
+          "Unnamed: 3": 1,
+          "Unnamed: 4": 1
+        },
+        "readerOptions": {}
+      },
+      {
+        "input": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/各地区人口.csv",
+        "sheet": null,
+        "readRows": 35,
+        "columns": [
+          "各地区人口",
+          "Unnamed: 1",
+          "Unnamed: 2",
+          "Unnamed: 3"
+        ],
+        "missing": {
+          "各地区人口": 1,
+          "Unnamed: 1": 1,
+          "Unnamed: 2": 1,
+          "Unnamed: 3": 2
+        },
+        "readerOptions": {}
+      },
+      {
+        "input": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/分省年度GDP数据.csv",
+        "sheet": null,
+        "readRows": 31,
+        "columns": [
+          "地区",
+          "2020年",
+          "2019年",
+          "2018年",
+          "2017年",
+          "2016年",
+          "2015年",
+          "2014年",
+          "2013年",
+          "2012年",
+          "2011年",
+          "2010年",
+          "2009年",
+          "2008年",
+          "2007年",
+          "2006年",
+          "2005年",
+          "2004年",
+          "2003年",
+          "2002年",
+          "2001年",
+          "2000年",
+          "1999年",
+          "1998年",
+          "1997年",
+          "1996年",
+          "1995年",
+          "1994年",
+          "1993年",
+          "1992年"
+        ],
+        "missing": {
+          "地区": 0,
+          "2020年": 0,
+          "2019年": 0,
+          "2018年": 0,
+          "2017年": 0,
+          "2016年": 0,
+          "2015年": 0,
+          "2014年": 0,
+          "2013年": 0,
+          "2012年": 0,
+          "2011年": 0,
+          "2010年": 0,
+          "2009年": 0,
+          "2008年": 0,
+          "2007年": 0,
+          "2006年": 0,
+          "2005年": 0,
+          "2004年": 0,
+          "2003年": 0,
+          "2002年": 0,
+          "2001年": 0,
+          "2000年": 0,
+          "1999年": 0,
+          "1998年": 0,
+          "1997年": 0,
+          "1996年": 0,
+          "1995年": 0,
+          "1994年": 0,
+          "1993年": 0,
+          "1992年": 0
+        },
+        "readerOptions": {}
+      },
+      {
+        "input": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/2005-2019年中国各地区城镇人口数量.csv",
+        "sheet": null,
+        "readRows": 31,
+        "columns": [
+          "地区",
+          "2019年",
+          "2018年",
+          "2017年",
+          "2016年",
+          "2015年",
+          "2014年",
+          "2013年",
+          "2012年",
+          "2011年",
+          "2010年",
+          "2009年",
+          "2008年",
+          "2007年",
+          "2006年",
+          "2005年"
+        ],
+        "missing": {
+          "地区": 0,
+          "2019年": 0,
+          "2018年": 0,
+          "2017年": 0,
+          "2016年": 0,
+          "2015年": 0,
+          "2014年": 0,
+          "2013年": 0,
+          "2012年": 0,
+          "2011年": 0,
+          "2010年": 0,
+          "2009年": 0,
+          "2008年": 0,
+          "2007年": 0,
+          "2006年": 0,
+          "2005年": 0
+        },
+        "readerOptions": {}
+      },
+      {
+        "input": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/2001-2020中国各地区常住人口数量.csv",
+        "sheet": null,
+        "readRows": 31,
+        "columns": [
+          "地区",
+          "2020年",
+          "2019年",
+          "2018年",
+          "2017年",
+          "2016年",
+          "2015年",
+          "2014年",
+          "2013年",
+          "2012年",
+          "2011年",
+          "2010年",
+          "2009年",
+          "2008年",
+          "2007年",
+          "2006年",
+          "2005年",
+          "2004年",
+          "2003年",
+          "2002年",
+          "2001年"
+        ],
+        "missing": {
+          "地区": 0,
+          "2020年": 0,
+          "2019年": 0,
+          "2018年": 0,
+          "2017年": 0,
+          "2016年": 0,
+          "2015年": 0,
+          "2014年": 0,
+          "2013年": 0,
+          "2012年": 0,
+          "2011年": 0,
+          "2010年": 0,
+          "2009年": 0,
+          "2008年": 0,
+          "2007年": 0,
+          "2006年": 0,
+          "2005年": 0,
+          "2004年": 0,
+          "2003年": 0,
+          "2002年": 0,
+          "2001年": 0
+        },
+        "readerOptions": {}
+      },
+      {
+        "input": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/2000年中国各地区城乡人口分布.csv",
+        "sheet": null,
+        "readRows": 31,
+        "columns": [
+          "地区",
+          "总人口",
+          "城镇人口",
+          "乡村人口",
+          "城镇人口比例",
+          "乡村人口比例"
+        ],
+        "missing": {
+          "地区": 0,
+          "总人口": 0,
+          "城镇人口": 0,
+          "乡村人口": 0,
+          "城镇人口比例": 0,
+          "乡村人口比例": 0
+        },
+        "readerOptions": {}
+      },
+      {
+        "input": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/全国人口年龄构成.csv",
+        "sheet": null,
+        "readRows": 6,
+        "columns": [
+          "全国人口年龄构成",
+          "Unnamed: 1",
+          "Unnamed: 2"
+        ],
+        "missing": {
+          "全国人口年龄构成": 0,
+          "Unnamed: 1": 0,
+          "Unnamed: 2": 0
+        },
+        "readerOptions": {}
+      },
+      {
+        "input": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/各地区15岁及以上人口平均受教育年限.csv",
+        "sheet": null,
+        "readRows": 33,
+        "columns": [
+          "各地区 15 岁及以上人口平均受教育年限",
+          "Unnamed: 1",
+          "Unnamed: 2"
+        ],
+        "missing": {
+          "各地区 15 岁及以上人口平均受教育年限": 0,
+          "Unnamed: 1": 0,
+          "Unnamed: 2": 0
+        },
+        "readerOptions": {}
+      },
+      {
+        "input": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/各地区性别构成.csv",
+        "sheet": null,
+        "readRows": 34,
+        "columns": [
+          "各地区人口性别构成",
+          "Unnamed: 1",
+          "Unnamed: 2",
+          "Unnamed: 3"
+        ],
+        "missing": {
+          "各地区人口性别构成": 1,
+          "Unnamed: 1": 0,
+          "Unnamed: 2": 1,
+          "Unnamed: 3": 1
+        },
+        "readerOptions": {}
+      },
+      {
+        "input": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/各地区每10万人口中拥有的各类受教育程度人数.csv",
+        "sheet": null,
+        "readRows": 33,
+        "columns": [
+          "各地区每 10 万人口中拥有的各类受教育程度人数",
+          "Unnamed: 1",
+          "Unnamed: 2",
+          "Unnamed: 3",
+          "Unnamed: 4"
+        ],
+        "missing": {
+          "各地区每 10 万人口中拥有的各类受教育程度人数": 0,
+          "Unnamed: 1": 0,
+          "Unnamed: 2": 0,
+          "Unnamed: 3": 0,
+          "Unnamed: 4": 0
+        },
+        "readerOptions": {}
+      }
+    ],
+    "checks": {
+      "provinces": 31,
+      "ageExclusive": true,
+      "age65Subset": true,
+      "alignedRows": 31
+    },
+    "models": [
+      {
+        "version": "P26-age-ward-v1",
+        "method": "Ward Euclidean on 3 mutually exclusive age proportions",
+        "rows": 31,
+        "features": [
+          "0—14岁",
+          "15—59岁",
+          "60岁及以上"
+        ],
+        "clusters": 3,
+        "seed": null
+      }
+    ],
+    "blocked": [],
+    "originalModelRerun": false,
+    "savedOutputIdentity": "original-saved; extraction time only; original execution time unknown",
+    "validation": "adapter assertions passed; schema/production/browser tracked separately"
+  },
+  {
+    "projectId": "P27",
+    "batch": "D",
+    "status": "available-content-open",
+    "lessonCount": 1,
+    "readySteps": 8,
+    "inputRefs": [
+      {
+        "path": "社会科学-婚姻状况分析-约200行（plotly可视化、数据分析）/人口普查婚姻状态2000-2020.csv",
+        "sha256": "c849d4f2cc59db77a1d73b79e670cd4cb95b5e1c6c4b513d5da475f3ddbe2049"
+      },
+      {
+        "path": "社会科学-婚姻状况分析-约200行（plotly可视化、数据分析）/婚姻状况分析.ipynb",
+        "sha256": "fa44b9dec0d390587ba511eb17e693b4994a0dd7ff3a73457f432972a567addd"
+      }
+    ],
+    "resources": [
+      "learning/resources/p27-v4-evidence-1.json",
+      "learning/resources/p27-v4-evidence-2.json",
+      "learning/resources/p27-v4-evidence-3.json",
+      "learning/resources/p27-v4-evidence-4.json",
+      "learning/resources/p27-v4-evidence-5.json",
+      "learning/resources/p27-v4-evidence-6.json",
+      "learning/resources/p27-v4-evidence-7.json",
+      "learning/resources/p27-v4-input-quality.json",
+      "learning/resources/p27-v4-marriage.json"
+    ],
+    "transforms": [
+      {
+        "input": "社会科学-婚姻状况分析-约200行（plotly可视化、数据分析）/人口普查婚姻状态2000-2020.csv",
+        "sheet": null,
+        "readRows": 1224,
+        "columns": [
+          "age",
+          "pop",
+          "state",
+          "gender",
+          "record_year"
+        ],
+        "missing": {
+          "age": 0,
+          "pop": 0,
+          "state": 0,
+          "gender": 0,
+          "record_year": 0
+        },
+        "readerOptions": {}
+      }
+    ],
+    "checks": {
+      "rawRows": 1224,
+      "mergedRows": 1224,
+      "maxProportion": 0.9999152867936051
+    },
+    "models": [],
+    "blocked": [],
+    "originalModelRerun": false,
+    "savedOutputIdentity": "original-saved; extraction time only; original execution time unknown",
+    "validation": "adapter assertions passed; schema/production/browser tracked separately"
+  },
+  {
+    "projectId": "P28",
+    "batch": "B",
+    "status": "available-content-open",
+    "lessonCount": 1,
+    "readySteps": 18,
+    "inputRefs": [
+      {
+        "path": "职场-分析员工过早离职原因-约300行（相关性分析、变量分析、plotly可视化）/HR_comma_sep.csv",
+        "sha256": "2510e274a90547f34c7b0db5a4ab70282c2710eb54252f14921bf980b81a928c"
+      },
+      {
+        "path": "职场-分析员工过早离职原因-约300行（相关性分析、变量分析、plotly可视化）/分析员工过早离职原因.ipynb",
+        "sha256": "9bf9cfcf11d11ed4dae94f8309a2d06aed0000ed3002fff5333d64d2de0e0184"
+      },
+      {
+        "path": "职场-分析员工过早离职原因-约300行（相关性分析、变量分析、plotly可视化）/分析员工过早离职原因.py",
+        "sha256": "3de51cc2b00d540e2634ea337ea0cb6c53f9973a549afcc820a0724de78e431d"
+      }
+    ],
+    "resources": [
+      "learning/assets/p28-cell36-0.png",
+      "learning/resources/p28-v4-department.json",
+      "learning/resources/p28-v4-evidence-11.json",
+      "learning/resources/p28-v4-evidence-12.json",
+      "learning/resources/p28-v4-evidence-13.json",
+      "learning/resources/p28-v4-evidence-14.json",
+      "learning/resources/p28-v4-evidence-15.json",
+      "learning/resources/p28-v4-evidence-16.json",
+      "learning/resources/p28-v4-evidence-17.json",
+      "learning/resources/p28-v4-evidence-5.json",
+      "learning/resources/p28-v4-input-quality.json",
+      "learning/resources/p28-v4-left.json",
+      "learning/resources/p28-v4-promotion.json",
+      "learning/resources/p28-v4-salary.json",
+      "learning/resources/p28-v4-satisfaction.json",
+      "learning/resources/p28-v4-source-1.json",
+      "learning/resources/p28-v4-source-10-images.json",
+      "learning/resources/p28-v4-source-2.json",
+      "learning/resources/p28-v4-source-3.json",
+      "learning/resources/p28-v4-source-4.json",
+      "learning/resources/p28-v4-source-6.json",
+      "learning/resources/p28-v4-source-7.json",
+      "learning/resources/p28-v4-source-8.json",
+      "learning/resources/p28-v4-source-9.json"
+    ],
+    "transforms": [
+      {
+        "input": "职场-分析员工过早离职原因-约300行（相关性分析、变量分析、plotly可视化）/HR_comma_sep.csv",
+        "sheet": null,
+        "readRows": 14999,
+        "columns": [
+          "satisfaction_level",
+          "last_evaluation",
+          "number_project",
+          "average_montly_hours",
+          "time_spend_company",
+          "Work_accident",
+          "left",
+          "promotion_last_5years",
+          "sales",
+          "salary"
+        ],
+        "missing": {
+          "satisfaction_level": 0,
+          "last_evaluation": 0,
+          "number_project": 0,
+          "average_montly_hours": 0,
+          "time_spend_company": 0,
+          "Work_accident": 0,
+          "left": 0,
+          "promotion_last_5years": 0,
+          "sales": 0,
+          "salary": 0
+        },
+        "readerOptions": {}
+      }
+    ],
+    "checks": {
+      "rows": 14999,
+      "lowSalaryLeftRate": 0.2968835429196282,
+      "left": 3571
+    },
+    "models": [],
+    "blocked": [],
+    "originalModelRerun": false,
+    "savedOutputIdentity": "original-saved; extraction time only; original execution time unknown",
+    "validation": "adapter assertions passed; schema/production/browser tracked separately"
+  },
+  {
+    "projectId": "P29",
+    "batch": "B",
+    "status": "available-content-open",
+    "lessonCount": 1,
+    "readySteps": 12,
+    "inputRefs": [
+      {
+        "path": "职场-数据分析师职位分析-约300行（数据探索分析、matplotlib可视化）/lagou.csv",
+        "sha256": "6b1daf9e5c5f2af353fa517917889ec4dd482e1c9623e4c141843ffdfd742fda"
+      },
+      {
+        "path": "职场-数据分析师职位分析-约300行（数据探索分析、matplotlib可视化）/数据分析师岗位分析.ipynb",
+        "sha256": "612486c97729fe72863ed3f52b813320854acf96710711d4c7d1f67f9cd42e1c"
+      },
+      {
+        "path": "职场-数据分析师职位分析-约300行（数据探索分析、matplotlib可视化）/数据分析师岗位分析.py",
+        "sha256": "9dcdd68cdfd7ed8a3edd4d8b8e9af03b23f49f7edf8b9746af20bd1cd0afea01"
+      }
+    ],
+    "resources": [
+      "learning/assets/p29-cell11-0.png",
+      "learning/assets/p29-cell12-0.png",
+      "learning/assets/p29-cell16-0.png",
+      "learning/assets/p29-cell18-0.png",
+      "learning/assets/p29-cell20-1.png",
+      "learning/assets/p29-cell23-0.png",
+      "learning/assets/p29-cell25-1.png",
+      "learning/assets/p29-cell28-1.png",
+      "learning/assets/p29-cell30-1.png",
+      "learning/assets/p29-cell33-0.png",
+      "learning/resources/p29-v4-____-7a5cb7d9.json",
+      "learning/resources/p29-v4-address.json",
+      "learning/resources/p29-v4-education.json",
+      "learning/resources/p29-v4-evidence-1.json",
+      "learning/resources/p29-v4-experience-box.json",
+      "learning/resources/p29-v4-experience.json",
+      "learning/resources/p29-v4-input-quality.json",
+      "learning/resources/p29-v4-salary-preview.json",
+      "learning/resources/p29-v4-skills-text.json",
+      "learning/resources/p29-v4-source-10-images.json",
+      "learning/resources/p29-v4-source-10.json",
+      "learning/resources/p29-v4-source-11-images.json",
+      "learning/resources/p29-v4-source-2.json",
+      "learning/resources/p29-v4-source-3-images.json",
+      "learning/resources/p29-v4-source-4-images.json",
+      "learning/resources/p29-v4-source-5-images.json",
+      "learning/resources/p29-v4-source-6-images.json",
+      "learning/resources/p29-v4-source-6.json",
+      "learning/resources/p29-v4-source-7-images.json",
+      "learning/resources/p29-v4-source-7.json",
+      "learning/resources/p29-v4-source-8-images.json",
+      "learning/resources/p29-v4-source-8.json",
+      "learning/resources/p29-v4-source-9-images.json",
+      "learning/resources/p29-v4-source-9.json"
+    ],
+    "transforms": [
+      {
+        "input": "职场-数据分析师职位分析-约300行（数据探索分析、matplotlib可视化）/lagou.csv",
+        "sheet": null,
+        "readRows": 436,
+        "columns": [
+          "company",
+          "foursquare",
+          "trend",
+          "figure",
+          "job",
+          "salary",
+          "experience",
+          "education",
+          "description",
+          "address"
+        ],
+        "missing": {
+          "company": 0,
+          "foursquare": 0,
+          "trend": 0,
+          "figure": 0,
+          "job": 0,
+          "salary": 0,
+          "experience": 0,
+          "education": 0,
+          "description": 0,
+          "address": 0
+        },
+        "readerOptions": {}
+      }
+    ],
+    "checks": {
+      "rows": 436,
+      "salaryParsed": 436
+    },
+    "models": [],
+    "blocked": [],
+    "originalModelRerun": false,
+    "savedOutputIdentity": "original-saved; extraction time only; original execution time unknown",
+    "validation": "adapter assertions passed; schema/production/browser tracked separately"
+  }
+]

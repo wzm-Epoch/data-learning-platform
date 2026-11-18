@@ -1,0 +1,77 @@
+{
+  "projectId": "P11",
+  "batch": "A",
+  "status": "available-content-open",
+  "lessonCount": 1,
+  "readySteps": 8,
+  "inputRefs": [
+    {
+      "path": "房地产-二手房数据分析-约400行（数据探索分析、matplotlib可视化）/shenzhen.csv",
+      "sha256": "607ca9622c8f38317738c7c401e81b88533137862db0cb50455b0a818da85a22"
+    },
+    {
+      "path": "房地产-二手房数据分析-约400行（数据探索分析、matplotlib可视化）/链家二手房数据分析.ipynb",
+      "sha256": "acad26c9cb4fa911fd8a0eaaf3ff393fbfa191134bb6f75745a0ff455d59a384"
+    }
+  ],
+  "resources": [
+    "learning/resources/p11-anomaly.json",
+    "learning/resources/p11-area.json",
+    "learning/resources/p11-change.json",
+    "learning/resources/p11-correlation.json",
+    "learning/resources/p11-fields.json",
+    "learning/resources/p11-preview.json",
+    "learning/resources/p11-relation.json",
+    "learning/resources/p11-structure.json",
+    "learning/resources/p11-v4-area.json",
+    "learning/resources/p11-v4-hourseSize.json",
+    "learning/resources/p11-v4-input-quality.json",
+    "learning/resources/p11-v4-scatter.json"
+  ],
+  "transforms": [
+    {
+      "input": "房地产-二手房数据分析-约400行（数据探索分析、matplotlib可视化）/shenzhen.csv",
+      "sheet": null,
+      "readRows": 18907,
+      "columns": [
+        "Unnamed: 0",
+        "area",
+        "title",
+        "community",
+        "position",
+        "tax",
+        "total_price",
+        "unit_price",
+        "hourseType",
+        "hourseSize",
+        "direction",
+        "fitment"
+      ],
+      "missing": {
+        "Unnamed: 0": 0,
+        "area": 0,
+        "title": 8,
+        "community": 0,
+        "position": 0,
+        "tax": 8196,
+        "total_price": 0,
+        "unit_price": 0,
+        "hourseType": 0,
+        "hourseSize": 0,
+        "direction": 0,
+        "fitment": 0
+      },
+      "readerOptions": {}
+    }
+  ],
+  "checks": {
+    "before": 18907,
+    "after": 18906,
+    "anomaly": 10871.0
+  },
+  "models": [],
+  "blocked": [],
+  "originalModelRerun": false,
+  "savedOutputIdentity": "original-saved; extraction time only; original execution time unknown",
+  "validation": "adapter assertions passed; schema/production/browser tracked separately"
+}

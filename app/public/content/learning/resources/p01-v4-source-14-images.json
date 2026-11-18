@@ -1,0 +1,36 @@
+{
+  "schemaVersion": "1.0",
+  "id": "p01-v4-source-14-images",
+  "title": "原单元54—56保存输出 · 原保存图",
+  "kind": "image",
+  "columns": [],
+  "rows": [],
+  "text": null,
+  "context": {
+    "identity": "original-saved",
+    "buildId": "phase4-v1",
+    "createdAt": "2026-11-16T12:58:37.389041+00:00",
+    "inputs": [
+      {
+        "path": "交易预测-约600行（EDA数据探索、逻辑回归、决策树、模型调参、模型评估）/信用卡欺诈交易预测.ipynb",
+        "sha256": "b84b7a8568ec364841c8cf8ff81a79addfdd1ebb39eefd6b8dd5c77bd3a5684f"
+      },
+      {
+        "path": "交易预测-约600行（EDA数据探索、逻辑回归、决策树、模型调参、模型评估）/信用卡欺诈交易预测.py",
+        "sha256": "1b2bc2e44354a2e9a8c37d5a260f6b77c00f305d8f9f1eb18ebda4957092e20e"
+      },
+      {
+        "path": "交易预测-约600行（EDA数据探索、逻辑回归、决策树、模型调参、模型评估）/creditcardfraud.csv",
+        "sha256": "76274b691b16a6c49d3f159c883398e03ccd6d1ee12d9d8ee38f4b4b98551a89"
+      }
+    ],
+    "note": "原图未经本次重跑；必须结合本步局限阅读，图片中的旧标注不代表本次认可。",
+    "unit": "原字段单位；未核实单位不补填",
+    "sample": null,
+    "modelRerun": false
+  },
+  "images": [
+    "learning/assets/p01-cell55-1.png",
+    "learning/assets/p01-cell56-1.png"
+  ]
+}

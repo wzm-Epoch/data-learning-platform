@@ -1,0 +1,1025 @@
+{
+  "schemaVersion": "1.0",
+  "contentVersion": "0.6.0",
+  "projectId": "P23",
+  "id": "main-analysis",
+  "title": "预测天猫用户使用优惠券概率较高的客群",
+  "status": "ready",
+  "steps": [
+    {
+      "id": "source-007-009",
+      "title": "指标解释 · 单元7—9",
+      "status": "ready",
+      "kind": "analysis",
+      "knowledgeIds": [
+        "Pandas",
+        "Matplotlib",
+        "Seaborn",
+        "独热编码",
+        "逻辑回归"
+      ],
+      "explanation": [
+        "本步按原Notebook顺序阅读单元7—9。原保存输出尚未重跑；安装、联网采集、写原文件和模型加载均不会在网页运行。",
+        "read_csv只读取指定CSV；编码、表头和字段需要与输入字典核对。",
+        "绘图参数只控制展示；结论仍须受输入范围与统计口径约束。",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：Table of Contents\n分析背景分析目标1 数据概况分析1.1 数据预览指标解释1.2 数据清洗1.2.1 类别型变量2 单变量分析2.1 观察样本0、1的平衡性2.2 观察均值大小对于数据类型为0和1的变量，观察均值大小可以帮助我们分析这个变量在flag上的分布：2.3 可视化3 相关和可视化4 逻辑回归模型的建立和评估4.1 模型建立4.1.1 抽取训练集和测试集并进行拟合4.1.2 查看模型结果4.2 模型评估4.2.1 评估方法一：计算准确度比较训练集和测试集的准确率，保证内在信息一致性:4.2.2 评估方法二：ROC和AUC4.3 模型优化5 业务建议5.1 用户分析5.2 提高优惠券使用率分析 - 高价值用户5.3 结论",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：## 分析背景\n“天猫”（英文：Tmail，亦称淘宝商城，天猫商城）原名淘宝商城，是一个综合性购物网站，也是马云淘宝网打造的B2C(Business-to-Consumer, 商业零售)品牌。其整合数千家品牌商、生产商，为商家和消费者之间提供一站式解决方案，提供100%品质保证的商品，7天无理由退货的售后服务，以及购物积分返现等优质服务",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：## 分析目标\n根据用户数据以及消费行为数据\n- 使用Python建立分类模型，进行逻辑回归\n- 预测使用优惠券概率较高的客群",
+        "原单元59把y_pred_train硬标签输入ROC；单元63重新fit后单元65仍用旧y_pred_train。保存测试矩阵[[6722,11],[862,1]]的正类召回率为1/863；新概率版本在末尾独立展示。"
+      ],
+      "teachingCode": "# 原代码仅供阅读，不由网页执行。\n# 本次可运行适配实现见末尾数据实验步骤。",
+      "limitations": [
+        "测试正类Recall=1/863≈0.116%，高准确率无效；AUC使用训练硬标签；二轮复用旧y_pred_train，不能声称优化后真实AUC；0.116等相关被误写强相关；exp系数是odds倍率而非概率倍率；平台真实来源未经独立验证。",
+        "原代码与保存输出保持原身份；新改编计算另列。"
+      ],
+      "codeRefs": [
+        {
+          "path": "电商-预测用户使用优惠券概率较高的客群-约350行（逻辑回归模型、模型评估）/预测天猫用户使用优惠券概率较高的客群.ipynb",
+          "notebookSha256": "30fe7dee501aa066e11b65470a6ddcc0d6b33f84fe89d6a76aaa6aca75623099",
+          "cell": 7,
+          "code": "#导入模块和数据\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n%matplotlib inline\n\ncoupon = pd.read_csv('tianmao.csv')\ncoupon.head()",
+          "codeSha256": "61b3c8c8e42ed13bf4d2675f3e0881498f0721e621076893e259299fe366401f"
+        },
+        {
+          "path": "电商-预测用户使用优惠券概率较高的客群-约350行（逻辑回归模型、模型评估）/预测天猫用户使用优惠券概率较高的客群.ipynb",
+          "notebookSha256": "30fe7dee501aa066e11b65470a6ddcc0d6b33f84fe89d6a76aaa6aca75623099",
+          "cell": 8,
+          "code": "#查看数据行列总数\ncoupon.shape",
+          "codeSha256": "2b1b67f607ca4051390f860eabfe962ddf55d3bb5676292c0fcf533a486fcdaf"
+        },
+        {
+          "path": "电商-预测用户使用优惠券概率较高的客群-约350行（逻辑回归模型、模型评估）/预测天猫用户使用优惠券概率较高的客群.ipynb",
+          "notebookSha256": "30fe7dee501aa066e11b65470a6ddcc0d6b33f84fe89d6a76aaa6aca75623099",
+          "cell": 9,
+          "code": "#查看数据是否有缺失值\ncoupon.info()",
+          "codeSha256": "e18a94d8f1e82e73b6ee2367e401d439a3461f41efbaedf4c71b1f28426c32d0"
+        }
+      ],
+      "inputRefs": [
+        {
+          "path": "电商-预测用户使用优惠券概率较高的客群-约350行（逻辑回归模型、模型评估）/预测天猫用户使用优惠券概率较高的客群.ipynb",
+          "sha256": "30fe7dee501aa066e11b65470a6ddcc0d6b33f84fe89d6a76aaa6aca75623099"
+        },
+        {
+          "path": "电商-预测用户使用优惠券概率较高的客群-约350行（逻辑回归模型、模型评估）/预测天猫用户使用优惠券概率较高的客群.py",
+          "sha256": "c19078cd43e1390f30a543729c1479cb5b6765519eee1f92a90f50c18a3ce37a"
+        },
+        {
+          "path": "电商-预测用户使用优惠券概率较高的客群-约350行（逻辑回归模型、模型评估）/tianmao.csv",
+          "sha256": "89e8ce6a9e14bb2aac1d28fb150644544212e88acf3a152757c6f547b9b1a3f0"
+        }
+      ],
+      "outputRefs": [
+        "learning/resources/p23-v4-source-1.json"
+      ],
+      "exercise": {
+        "prompt": "根据本步单元7—9和保存证据，说明一次变换的输入、输出和一项无法验证的结论。",
+        "hint": "先查看代码中的列选择/过滤/拟合，再核对输出身份和本项目局限。",
+        "checklist": [
+          "准确引用原单元7—9",
+          "指出实际字段或变量与一项真实输出",
+          "把未重跑、资料缺失和统计缺陷分别说明"
+        ],
+        "provenance": "第四阶段教学补充，自评，不代表原文件试题"
+      },
+      "outputTitles": {
+        "learning/resources/p23-v4-source-1.json": "原单元7—9保存输出"
+      }
+    },
+    {
+      "id": "source-013-015",
+      "title": "1.2.1 类别型变量 · 单元13—15",
+      "status": "ready",
+      "kind": "analysis",
+      "knowledgeIds": [
+        "Pandas",
+        "Matplotlib",
+        "Seaborn",
+        "独热编码",
+        "逻辑回归"
+      ],
+      "explanation": [
+        "本步按原Notebook顺序阅读单元13—15。原保存输出尚未重跑；安装、联网采集、写原文件和模型加载均不会在网页运行。",
+        "get_dummies把类别转成0/1列，不能把类别编号当连续距离。",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：## 1.2 数据清洗",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：### 1.2.1 类别型变量",
+        "原单元59把y_pred_train硬标签输入ROC；单元63重新fit后单元65仍用旧y_pred_train。保存测试矩阵[[6722,11],[862,1]]的正类召回率为1/863；新概率版本在末尾独立展示。"
+      ],
+      "teachingCode": "# 原代码仅供阅读，不由网页执行。\n# 本次可运行适配实现见末尾数据实验步骤。",
+      "limitations": [
+        "测试正类Recall=1/863≈0.116%，高准确率无效；AUC使用训练硬标签；二轮复用旧y_pred_train，不能声称优化后真实AUC；0.116等相关被误写强相关；exp系数是odds倍率而非概率倍率；平台真实来源未经独立验证。",
+        "原代码与保存输出保持原身份；新改编计算另列。"
+      ],
+      "codeRefs": [
+        {
+          "path": "电商-预测用户使用优惠券概率较高的客群-约350行（逻辑回归模型、模型评估）/预测天猫用户使用优惠券概率较高的客群.ipynb",
+          "notebookSha256": "30fe7dee501aa066e11b65470a6ddcc0d6b33f84fe89d6a76aaa6aca75623099",
+          "cell": 13,
+          "code": "#将类别型变量转换为数字型变量，便于之后分析\n#但在本案例中，为了后续分析方便，只处理default, returned, loan这三个变量，保留job, marital \n#把default、returned、loan三个变量单独取出来进行哑变量处理get_dummies()。\ncoupon1 = coupon[['default','returned','loan']]\ncoupon1 = pd.get_dummies(coupon1)\ncoupon1.head()",
+          "codeSha256": "df774652fca84b0b18b20602b85ae574a51a11ae55202c5bd25ee5f747d7985f"
+        },
+        {
+          "path": "电商-预测用户使用优惠券概率较高的客群-约350行（逻辑回归模型、模型评估）/预测天猫用户使用优惠券概率较高的客群.ipynb",
+          "notebookSha256": "30fe7dee501aa066e11b65470a6ddcc0d6b33f84fe89d6a76aaa6aca75623099",
+          "cell": 14,
+          "code": "#把处理后的表格和原表格进行拼接\ncoupon = pd.concat([coupon, coupon1], axis = 1)\ncoupon.head()",
+          "codeSha256": "39e7e5d3daf3b0fe76e170b951c64ca32bc37610e215cb959a38bf1ae2d39b09"
+        },
+        {
+          "path": "电商-预测用户使用优惠券概率较高的客群-约350行（逻辑回归模型、模型评估）/预测天猫用户使用优惠券概率较高的客群.ipynb",
+          "notebookSha256": "30fe7dee501aa066e11b65470a6ddcc0d6b33f84fe89d6a76aaa6aca75623099",
+          "cell": 15,
+          "code": "#删除包含重复信息和无意义信息的数据\ncoupon.drop(['ID', 'default', 'default_no', 'returned', 'returned_no', 'loan', 'loan_no'], axis = 1, inplace = True)\n\n#将coupon_ind重新命名为flag，便于之后分析\ncoupon = coupon.rename(columns = {'coupon_ind' : 'flag'})\ncoupon.info()",
+          "codeSha256": "64343059cb84de66625b127a6e75b82928d60ec7fb6599b487ce48d4870f2c9f"
+        }
+      ],
+      "inputRefs": [
+        {
+          "path": "电商-预测用户使用优惠券概率较高的客群-约350行（逻辑回归模型、模型评估）/预测天猫用户使用优惠券概率较高的客群.ipynb",
+          "sha256": "30fe7dee501aa066e11b65470a6ddcc0d6b33f84fe89d6a76aaa6aca75623099"
+        },
+        {
+          "path": "电商-预测用户使用优惠券概率较高的客群-约350行（逻辑回归模型、模型评估）/预测天猫用户使用优惠券概率较高的客群.py",
+          "sha256": "c19078cd43e1390f30a543729c1479cb5b6765519eee1f92a90f50c18a3ce37a"
+        },
+        {
+          "path": "电商-预测用户使用优惠券概率较高的客群-约350行（逻辑回归模型、模型评估）/tianmao.csv",
+          "sha256": "89e8ce6a9e14bb2aac1d28fb150644544212e88acf3a152757c6f547b9b1a3f0"
+        }
+      ],
+      "outputRefs": [
+        "learning/resources/p23-v4-source-2.json"
+      ],
+      "exercise": {
+        "prompt": "根据本步单元13—15和保存证据，说明一次变换的输入、输出和一项无法验证的结论。",
+        "hint": "先查看代码中的列选择/过滤/拟合，再核对输出身份和本项目局限。",
+        "checklist": [
+          "准确引用原单元13—15",
+          "指出实际字段或变量与一项真实输出",
+          "把未重跑、资料缺失和统计缺陷分别说明"
+        ],
+        "provenance": "第四阶段教学补充，自评，不代表原文件试题"
+      },
+      "outputTitles": {
+        "learning/resources/p23-v4-source-2.json": "原单元13—15保存输出"
+      }
+    },
+    {
+      "id": "source-018-018",
+      "title": "2.1 观察样本0、1的平衡性 · 单元18—18",
+      "status": "ready",
+      "kind": "analysis",
+      "knowledgeIds": [
+        "Pandas",
+        "Matplotlib",
+        "Seaborn",
+        "独热编码",
+        "逻辑回归"
+      ],
+      "explanation": [
+        "本步按原Notebook顺序阅读单元18—18。原保存输出尚未重跑；安装、联网采集、写原文件和模型加载均不会在网页运行。",
+        "本步展示原变量赋值、查看或配置；变量实际内容以保存输出与本次数据证据为准，不从代码存在推断执行成功。",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：# 2 单变量分析",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：## 2.1 观察样本0、1的平衡性",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：- 在二分类问题中，0、1的占比要保持平衡型，实际情况中不低于0.05，否则会影响模型的预测\n- 该数据集0、1占比均高于0.05，因此其分布是合理的",
+        "原单元59把y_pred_train硬标签输入ROC；单元63重新fit后单元65仍用旧y_pred_train。保存测试矩阵[[6722,11],[862,1]]的正类召回率为1/863；新概率版本在末尾独立展示。"
+      ],
+      "teachingCode": "# 原代码仅供阅读，不由网页执行。\n# 本次可运行适配实现见末尾数据实验步骤。",
+      "limitations": [
+        "测试正类Recall=1/863≈0.116%，高准确率无效；AUC使用训练硬标签；二轮复用旧y_pred_train，不能声称优化后真实AUC；0.116等相关被误写强相关；exp系数是odds倍率而非概率倍率；平台真实来源未经独立验证。",
+        "原代码与保存输出保持原身份；新改编计算另列。"
+      ],
+      "codeRefs": [
+        {
+          "path": "电商-预测用户使用优惠券概率较高的客群-约350行（逻辑回归模型、模型评估）/预测天猫用户使用优惠券概率较高的客群.ipynb",
+          "notebookSha256": "30fe7dee501aa066e11b65470a6ddcc0d6b33f84fe89d6a76aaa6aca75623099",
+          "cell": 18,
+          "code": "#二分类模型，观察样本(flag)0,1的平衡性\ncoupon['flag'].value_counts(1)",
+          "codeSha256": "d8a170831141cbe8e3e505fa2a4c0272192c17111b91afd736d5fdfdaaa490a4"
+        }
+      ],
+      "inputRefs": [
+        {
+          "path": "电商-预测用户使用优惠券概率较高的客群-约350行（逻辑回归模型、模型评估）/预测天猫用户使用优惠券概率较高的客群.ipynb",
+          "sha256": "30fe7dee501aa066e11b65470a6ddcc0d6b33f84fe89d6a76aaa6aca75623099"
+        },
+        {
+          "path": "电商-预测用户使用优惠券概率较高的客群-约350行（逻辑回归模型、模型评估）/预测天猫用户使用优惠券概率较高的客群.py",
+          "sha256": "c19078cd43e1390f30a543729c1479cb5b6765519eee1f92a90f50c18a3ce37a"
+        },
+        {
+          "path": "电商-预测用户使用优惠券概率较高的客群-约350行（逻辑回归模型、模型评估）/tianmao.csv",
+          "sha256": "89e8ce6a9e14bb2aac1d28fb150644544212e88acf3a152757c6f547b9b1a3f0"
+        }
+      ],
+      "outputRefs": [
+        "learning/resources/p23-v4-source-3.json"
+      ],
+      "exercise": {
+        "prompt": "根据本步单元18—18和保存证据，说明一次变换的输入、输出和一项无法验证的结论。",
+        "hint": "先查看代码中的列选择/过滤/拟合，再核对输出身份和本项目局限。",
+        "checklist": [
+          "准确引用原单元18—18",
+          "指出实际字段或变量与一项真实输出",
+          "把未重跑、资料缺失和统计缺陷分别说明"
+        ],
+        "provenance": "第四阶段教学补充，自评，不代表原文件试题"
+      },
+      "outputTitles": {
+        "learning/resources/p23-v4-source-3.json": "原单元18—18保存输出"
+      }
+    },
+    {
+      "id": "source-021-021",
+      "title": "2.2 观察均值大小 · 单元21—21",
+      "status": "ready",
+      "kind": "analysis",
+      "knowledgeIds": [
+        "Pandas",
+        "Matplotlib",
+        "Seaborn",
+        "独热编码",
+        "逻辑回归"
+      ],
+      "explanation": [
+        "本步按原Notebook顺序阅读单元21—21。原保存输出尚未重跑；安装、联网采集、写原文件和模型加载均不会在网页运行。",
+        "groupby先定义分组键，再计算聚合；count、size与nunique的计数粒度不同。",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：## 2.2 观察均值大小",
+        "原单元59把y_pred_train硬标签输入ROC；单元63重新fit后单元65仍用旧y_pred_train。保存测试矩阵[[6722,11],[862,1]]的正类召回率为1/863；新概率版本在末尾独立展示。"
+      ],
+      "teachingCode": "# 原代码仅供阅读，不由网页执行。\n# 本次可运行适配实现见末尾数据实验步骤。",
+      "limitations": [
+        "测试正类Recall=1/863≈0.116%，高准确率无效；AUC使用训练硬标签；二轮复用旧y_pred_train，不能声称优化后真实AUC；0.116等相关被误写强相关；exp系数是odds倍率而非概率倍率；平台真实来源未经独立验证。",
+        "原代码与保存输出保持原身份；新改编计算另列。"
+      ],
+      "codeRefs": [
+        {
+          "path": "电商-预测用户使用优惠券概率较高的客群-约350行（逻辑回归模型、模型评估）/预测天猫用户使用优惠券概率较高的客群.ipynb",
+          "notebookSha256": "30fe7dee501aa066e11b65470a6ddcc0d6b33f84fe89d6a76aaa6aca75623099",
+          "cell": 21,
+          "code": "#先按客户是否使用coupon进行分类聚合\nsummary = coupon.groupby(['flag'])\n#求出各种情况均值的占比情况\nsummary.mean()",
+          "codeSha256": "09e5403d3d53dca6b63fa6966dc6cc2da3c7674d265b7382a122430cdce66609"
+        }
+      ],
+      "inputRefs": [
+        {
+          "path": "电商-预测用户使用优惠券概率较高的客群-约350行（逻辑回归模型、模型评估）/预测天猫用户使用优惠券概率较高的客群.ipynb",
+          "sha256": "30fe7dee501aa066e11b65470a6ddcc0d6b33f84fe89d6a76aaa6aca75623099"
+        },
+        {
+          "path": "电商-预测用户使用优惠券概率较高的客群-约350行（逻辑回归模型、模型评估）/预测天猫用户使用优惠券概率较高的客群.py",
+          "sha256": "c19078cd43e1390f30a543729c1479cb5b6765519eee1f92a90f50c18a3ce37a"
+        },
+        {
+          "path": "电商-预测用户使用优惠券概率较高的客群-约350行（逻辑回归模型、模型评估）/tianmao.csv",
+          "sha256": "89e8ce6a9e14bb2aac1d28fb150644544212e88acf3a152757c6f547b9b1a3f0"
+        }
+      ],
+      "outputRefs": [
+        "learning/resources/p23-v4-source-4.json"
+      ],
+      "exercise": {
+        "prompt": "根据本步单元21—21和保存证据，说明一次变换的输入、输出和一项无法验证的结论。",
+        "hint": "先查看代码中的列选择/过滤/拟合，再核对输出身份和本项目局限。",
+        "checklist": [
+          "准确引用原单元21—21",
+          "指出实际字段或变量与一项真实输出",
+          "把未重跑、资料缺失和统计缺陷分别说明"
+        ],
+        "provenance": "第四阶段教学补充，自评，不代表原文件试题"
+      },
+      "outputTitles": {
+        "learning/resources/p23-v4-source-4.json": "原单元21—21保存输出"
+      }
+    },
+    {
+      "id": "source-024-031",
+      "title": "2.3 可视化 · 单元24—31",
+      "status": "ready",
+      "kind": "analysis",
+      "knowledgeIds": [
+        "Pandas",
+        "Matplotlib",
+        "Seaborn",
+        "独热编码",
+        "逻辑回归"
+      ],
+      "explanation": [
+        "本步按原Notebook顺序阅读单元24—31。原保存输出尚未重跑；安装、联网采集、写原文件和模型加载均不会在网页运行。",
+        "绘图参数只控制展示；结论仍须受输入范围与统计口径约束。",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：### 对于数据类型为0和1的变量，观察均值大小可以帮助我们分析这个变量在flag上的分布：\n- coupon_used_in_last_month在0的均值为0.26，在1的均值为0.53，说明越是在上个月使用了coupon的客户，接下来再使用coupon的概率会越高\n- default_yes和loan_yes在0时的均值均大于在1时的均值，说明花呗违约和用花呗结账的客户在接下来的时间里使用coupon的概率较小\n- age在0和1的均值分别为40.8和41.8，差别不大，说明年龄无太大的区分关系",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：## 2.3 可视化",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：- 相比起没有退货的客户，退货的客户使用coupon的概率较小",
+        "原单元59把y_pred_train硬标签输入ROC；单元63重新fit后单元65仍用旧y_pred_train。保存测试矩阵[[6722,11],[862,1]]的正类召回率为1/863；新概率版本在末尾独立展示。"
+      ],
+      "teachingCode": "# 原代码仅供阅读，不由网页执行。\n# 本次可运行适配实现见末尾数据实验步骤。",
+      "limitations": [
+        "测试正类Recall=1/863≈0.116%，高准确率无效；AUC使用训练硬标签；二轮复用旧y_pred_train，不能声称优化后真实AUC；0.116等相关被误写强相关；exp系数是odds倍率而非概率倍率；平台真实来源未经独立验证。",
+        "原代码与保存输出保持原身份；新改编计算另列。"
+      ],
+      "codeRefs": [
+        {
+          "path": "电商-预测用户使用优惠券概率较高的客群-约350行（逻辑回归模型、模型评估）/预测天猫用户使用优惠券概率较高的客群.ipynb",
+          "notebookSha256": "30fe7dee501aa066e11b65470a6ddcc0d6b33f84fe89d6a76aaa6aca75623099",
+          "cell": 24,
+          "code": "#观察returned_yes在flag上的分布\nsns.countplot(y = 'returned_yes', hue = 'flag', data = coupon)",
+          "codeSha256": "e02541452b4fbcf06ce857ed72e5cedabf2e051c7f4d65bbbbbbba1d41d01b1b"
+        },
+        {
+          "path": "电商-预测用户使用优惠券概率较高的客群-约350行（逻辑回归模型、模型评估）/预测天猫用户使用优惠券概率较高的客群.ipynb",
+          "notebookSha256": "30fe7dee501aa066e11b65470a6ddcc0d6b33f84fe89d6a76aaa6aca75623099",
+          "cell": 26,
+          "code": "#观察marital在flag上的分布\nsns.countplot(y = 'marital', hue = 'flag', data = coupon)",
+          "codeSha256": "66c1673d36fb0b5dc197a6340400a3779d618cb4d74cd9cd55f4da09ef64d067"
+        },
+        {
+          "path": "电商-预测用户使用优惠券概率较高的客群-约350行（逻辑回归模型、模型评估）/预测天猫用户使用优惠券概率较高的客群.ipynb",
+          "notebookSha256": "30fe7dee501aa066e11b65470a6ddcc0d6b33f84fe89d6a76aaa6aca75623099",
+          "cell": 28,
+          "code": "#观察job在flag上的分布\nsns.countplot(y = 'job', hue = 'flag', data = coupon, order = coupon['job'].value_counts().index)",
+          "codeSha256": "4bfd0ae50b32730031ff018cc378d835773d9724f5abd3329151f6f322851b21"
+        },
+        {
+          "path": "电商-预测用户使用优惠券概率较高的客群-约350行（逻辑回归模型、模型评估）/预测天猫用户使用优惠券概率较高的客群.ipynb",
+          "notebookSha256": "30fe7dee501aa066e11b65470a6ddcc0d6b33f84fe89d6a76aaa6aca75623099",
+          "cell": 30,
+          "code": "#观察age在flag上的分布\nsns.distplot(coupon['age'])",
+          "codeSha256": "e1a5ba46c341fe379f880f155cdcf13d41297a43813381cfa444b11b62fa28bd"
+        },
+        {
+          "path": "电商-预测用户使用优惠券概率较高的客群-约350行（逻辑回归模型、模型评估）/预测天猫用户使用优惠券概率较高的客群.ipynb",
+          "notebookSha256": "30fe7dee501aa066e11b65470a6ddcc0d6b33f84fe89d6a76aaa6aca75623099",
+          "cell": 31,
+          "code": "#查看age在整体数据的分布情况\ncoupon['age'].describe()",
+          "codeSha256": "7e540ba5cb8692ddfcec973fca07c6faf53ecc30332a4534788d39c5967c49e4"
+        }
+      ],
+      "inputRefs": [
+        {
+          "path": "电商-预测用户使用优惠券概率较高的客群-约350行（逻辑回归模型、模型评估）/预测天猫用户使用优惠券概率较高的客群.ipynb",
+          "sha256": "30fe7dee501aa066e11b65470a6ddcc0d6b33f84fe89d6a76aaa6aca75623099"
+        },
+        {
+          "path": "电商-预测用户使用优惠券概率较高的客群-约350行（逻辑回归模型、模型评估）/预测天猫用户使用优惠券概率较高的客群.py",
+          "sha256": "c19078cd43e1390f30a543729c1479cb5b6765519eee1f92a90f50c18a3ce37a"
+        },
+        {
+          "path": "电商-预测用户使用优惠券概率较高的客群-约350行（逻辑回归模型、模型评估）/tianmao.csv",
+          "sha256": "89e8ce6a9e14bb2aac1d28fb150644544212e88acf3a152757c6f547b9b1a3f0"
+        }
+      ],
+      "outputRefs": [
+        "learning/resources/p23-v4-source-5.json",
+        "learning/resources/p23-v4-source-5-images.json"
+      ],
+      "exercise": {
+        "prompt": "根据本步单元24—31和保存证据，说明一次变换的输入、输出和一项无法验证的结论。",
+        "hint": "先查看代码中的列选择/过滤/拟合，再核对输出身份和本项目局限。",
+        "checklist": [
+          "准确引用原单元24—31",
+          "指出实际字段或变量与一项真实输出",
+          "把未重跑、资料缺失和统计缺陷分别说明"
+        ],
+        "provenance": "第四阶段教学补充，自评，不代表原文件试题"
+      },
+      "outputTitles": {
+        "learning/resources/p23-v4-source-5.json": "原单元24—31保存输出",
+        "learning/resources/p23-v4-source-5-images.json": "原单元24—31保存输出 · 原保存图"
+      }
+    },
+    {
+      "id": "source-033-035",
+      "title": "2.3 可视化 · 单元33—35",
+      "status": "ready",
+      "kind": "analysis",
+      "knowledgeIds": [
+        "Pandas",
+        "Matplotlib",
+        "Seaborn",
+        "独热编码",
+        "逻辑回归"
+      ],
+      "explanation": [
+        "本步按原Notebook顺序阅读单元33—35。原保存输出尚未重跑；安装、联网采集、写原文件和模型加载均不会在网页运行。",
+        "groupby先定义分组键，再计算聚合；count、size与nunique的计数粒度不同。",
+        "绘图参数只控制展示；结论仍须受输入范围与统计口径约束。",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：- 数据显示18 - 95岁的客户使用coupon可能性较高，使用coupon概率较高的客群集中在40岁\n- 发现age > 60岁的极端值较少，但它们影响了整体数据分布，需要把这部分数据剔除在分析范围外",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：- 20 - 40岁的客群使用coupon概率最高\n- 18，32，48岁分别为三个年龄段中使用coupon概率较高的年龄平均值",
+        "原单元59把y_pred_train硬标签输入ROC；单元63重新fit后单元65仍用旧y_pred_train。保存测试矩阵[[6722,11],[862,1]]的正类召回率为1/863；新概率版本在末尾独立展示。"
+      ],
+      "teachingCode": "# 原代码仅供阅读，不由网页执行。\n# 本次可运行适配实现见末尾数据实验步骤。",
+      "limitations": [
+        "测试正类Recall=1/863≈0.116%，高准确率无效；AUC使用训练硬标签；二轮复用旧y_pred_train，不能声称优化后真实AUC；0.116等相关被误写强相关；exp系数是odds倍率而非概率倍率；平台真实来源未经独立验证。",
+        "原代码与保存输出保持原身份；新改编计算另列。"
+      ],
+      "codeRefs": [
+        {
+          "path": "电商-预测用户使用优惠券概率较高的客群-约350行（逻辑回归模型、模型评估）/预测天猫用户使用优惠券概率较高的客群.ipynb",
+          "notebookSha256": "30fe7dee501aa066e11b65470a6ddcc0d6b33f84fe89d6a76aaa6aca75623099",
+          "cell": 33,
+          "code": "#对于年龄进行快速分组，探究各个年龄段对于是否使用coupon的影响\nage60 = coupon[coupon['age'] < 60]\nbins = [0, 20, 40, 60]\nlabels = ['<20','<40','<60']\nage60['age_new'] = pd.cut(age60.age, bins, right=False,labels = labels)\nage60.groupby(['age_new'])['age'].describe()",
+          "codeSha256": "9519d88888c0d5533b2e5a93e7c9f4e34a1f2dedb2dbbc85c98ea7bc8befced5"
+        },
+        {
+          "path": "电商-预测用户使用优惠券概率较高的客群-约350行（逻辑回归模型、模型评估）/预测天猫用户使用优惠券概率较高的客群.ipynb",
+          "notebookSha256": "30fe7dee501aa066e11b65470a6ddcc0d6b33f84fe89d6a76aaa6aca75623099",
+          "cell": 34,
+          "code": "age60['age_new'].describe()",
+          "codeSha256": "299f2c9f5c057f1ef13dae58b70b948ea8da3f2e2c527f1efed0e7336c3c3b5b"
+        },
+        {
+          "path": "电商-预测用户使用优惠券概率较高的客群-约350行（逻辑回归模型、模型评估）/预测天猫用户使用优惠券概率较高的客群.ipynb",
+          "notebookSha256": "30fe7dee501aa066e11b65470a6ddcc0d6b33f84fe89d6a76aaa6aca75623099",
+          "cell": 35,
+          "code": "#绘制age60['age_new']的饼图，使数据更加直观\nplt.figure(figsize=[9,7])\nage60['age_new'].value_counts().plot.pie()\nplt.show()",
+          "codeSha256": "81ed70b7db49d5232bb8f7343fa7c6c3f53327317a1a7b80f50ff491b775a30b"
+        }
+      ],
+      "inputRefs": [
+        {
+          "path": "电商-预测用户使用优惠券概率较高的客群-约350行（逻辑回归模型、模型评估）/预测天猫用户使用优惠券概率较高的客群.ipynb",
+          "sha256": "30fe7dee501aa066e11b65470a6ddcc0d6b33f84fe89d6a76aaa6aca75623099"
+        },
+        {
+          "path": "电商-预测用户使用优惠券概率较高的客群-约350行（逻辑回归模型、模型评估）/预测天猫用户使用优惠券概率较高的客群.py",
+          "sha256": "c19078cd43e1390f30a543729c1479cb5b6765519eee1f92a90f50c18a3ce37a"
+        },
+        {
+          "path": "电商-预测用户使用优惠券概率较高的客群-约350行（逻辑回归模型、模型评估）/tianmao.csv",
+          "sha256": "89e8ce6a9e14bb2aac1d28fb150644544212e88acf3a152757c6f547b9b1a3f0"
+        }
+      ],
+      "outputRefs": [
+        "learning/resources/p23-v4-source-6.json",
+        "learning/resources/p23-v4-source-6-images.json"
+      ],
+      "exercise": {
+        "prompt": "根据本步单元33—35和保存证据，说明一次变换的输入、输出和一项无法验证的结论。",
+        "hint": "先查看代码中的列选择/过滤/拟合，再核对输出身份和本项目局限。",
+        "checklist": [
+          "准确引用原单元33—35",
+          "指出实际字段或变量与一项真实输出",
+          "把未重跑、资料缺失和统计缺陷分别说明"
+        ],
+        "provenance": "第四阶段教学补充，自评，不代表原文件试题"
+      },
+      "outputTitles": {
+        "learning/resources/p23-v4-source-6.json": "原单元33—35保存输出",
+        "learning/resources/p23-v4-source-6-images.json": "原单元33—35保存输出 · 原保存图"
+      }
+    },
+    {
+      "id": "source-038-039",
+      "title": "3 相关和可视化 · 单元38—39",
+      "status": "ready",
+      "kind": "analysis",
+      "knowledgeIds": [
+        "Pandas",
+        "Matplotlib",
+        "Seaborn",
+        "独热编码",
+        "逻辑回归"
+      ],
+      "explanation": [
+        "本步按原Notebook顺序阅读单元38—39。原保存输出尚未重跑；安装、联网采集、写原文件和模型加载均不会在网页运行。",
+        "corr描述数值相关；ID和任意名义编码不能直接用于实质解释。",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：# 3 相关和可视化",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：- flag与coupon_used_in_last_month, age成强正相关关系\n- flag与coupon_used_in_last6_month, returned_yes成强负相关关系\n- 其他变量与flag的相关不明显，为了分析准确性，因此不做过度解读",
+        "原单元59把y_pred_train硬标签输入ROC；单元63重新fit后单元65仍用旧y_pred_train。保存测试矩阵[[6722,11],[862,1]]的正类召回率为1/863；新概率版本在末尾独立展示。"
+      ],
+      "teachingCode": "# 原代码仅供阅读，不由网页执行。\n# 本次可运行适配实现见末尾数据实验步骤。",
+      "limitations": [
+        "测试正类Recall=1/863≈0.116%，高准确率无效；AUC使用训练硬标签；二轮复用旧y_pred_train，不能声称优化后真实AUC；0.116等相关被误写强相关；exp系数是odds倍率而非概率倍率；平台真实来源未经独立验证。",
+        "原代码与保存输出保持原身份；新改编计算另列。"
+      ],
+      "codeRefs": [
+        {
+          "path": "电商-预测用户使用优惠券概率较高的客群-约350行（逻辑回归模型、模型评估）/预测天猫用户使用优惠券概率较高的客群.ipynb",
+          "notebookSha256": "30fe7dee501aa066e11b65470a6ddcc0d6b33f84fe89d6a76aaa6aca75623099",
+          "cell": 38,
+          "code": "#围绕flag变量，观察它与其他变量的关系\ncoupon.corr()[['flag']].sort_values('flag', ascending = False)",
+          "codeSha256": "0a985ff3e887a82fce0ffcc708f709bd36ecb7898c42a238439dca26b323fcd6"
+        },
+        {
+          "path": "电商-预测用户使用优惠券概率较高的客群-约350行（逻辑回归模型、模型评估）/预测天猫用户使用优惠券概率较高的客群.ipynb",
+          "notebookSha256": "30fe7dee501aa066e11b65470a6ddcc0d6b33f84fe89d6a76aaa6aca75623099",
+          "cell": 39,
+          "code": "sns.heatmap(coupon.corr(), cmap = 'Blues')",
+          "codeSha256": "dde0bc063ce2c07dd8f30f305489e2c5c0d7a7f744dc3101c95856b52305f52c"
+        }
+      ],
+      "inputRefs": [
+        {
+          "path": "电商-预测用户使用优惠券概率较高的客群-约350行（逻辑回归模型、模型评估）/预测天猫用户使用优惠券概率较高的客群.ipynb",
+          "sha256": "30fe7dee501aa066e11b65470a6ddcc0d6b33f84fe89d6a76aaa6aca75623099"
+        },
+        {
+          "path": "电商-预测用户使用优惠券概率较高的客群-约350行（逻辑回归模型、模型评估）/预测天猫用户使用优惠券概率较高的客群.py",
+          "sha256": "c19078cd43e1390f30a543729c1479cb5b6765519eee1f92a90f50c18a3ce37a"
+        },
+        {
+          "path": "电商-预测用户使用优惠券概率较高的客群-约350行（逻辑回归模型、模型评估）/tianmao.csv",
+          "sha256": "89e8ce6a9e14bb2aac1d28fb150644544212e88acf3a152757c6f547b9b1a3f0"
+        }
+      ],
+      "outputRefs": [
+        "learning/resources/p23-v4-source-7.json",
+        "learning/resources/p23-v4-source-7-images.json"
+      ],
+      "exercise": {
+        "prompt": "根据本步单元38—39和保存证据，说明一次变换的输入、输出和一项无法验证的结论。",
+        "hint": "先查看代码中的列选择/过滤/拟合，再核对输出身份和本项目局限。",
+        "checklist": [
+          "准确引用原单元38—39",
+          "指出实际字段或变量与一项真实输出",
+          "把未重跑、资料缺失和统计缺陷分别说明"
+        ],
+        "provenance": "第四阶段教学补充，自评，不代表原文件试题"
+      },
+      "outputTitles": {
+        "learning/resources/p23-v4-source-7.json": "原单元38—39保存输出",
+        "learning/resources/p23-v4-source-7-images.json": "原单元38—39保存输出 · 原保存图"
+      }
+    },
+    {
+      "id": "source-044-045",
+      "title": "4.1.1 抽取训练集和测试集并进行拟合 · 单元44—45",
+      "status": "ready",
+      "kind": "modeling",
+      "knowledgeIds": [
+        "Pandas",
+        "Matplotlib",
+        "Seaborn",
+        "独热编码",
+        "逻辑回归"
+      ],
+      "explanation": [
+        "本步按原Notebook顺序阅读单元44—45。原保存输出尚未重跑；安装、联网采集、写原文件和模型加载均不会在网页运行。",
+        "fit拟合对象状态；是否仅在训练数据拟合决定评估边界。",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：# 4 逻辑回归模型的建立和评估",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：## 4.1 模型建立",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：### 4.1.1 抽取训练集和测试集并进行拟合",
+        "原单元59把y_pred_train硬标签输入ROC；单元63重新fit后单元65仍用旧y_pred_train。保存测试矩阵[[6722,11],[862,1]]的正类召回率为1/863；新概率版本在末尾独立展示。"
+      ],
+      "teachingCode": "# 原代码仅供阅读，不由网页执行。\n# 本次可运行适配实现见末尾数据实验步骤。",
+      "limitations": [
+        "测试正类Recall=1/863≈0.116%，高准确率无效；AUC使用训练硬标签；二轮复用旧y_pred_train，不能声称优化后真实AUC；0.116等相关被误写强相关；exp系数是odds倍率而非概率倍率；平台真实来源未经独立验证。",
+        "原代码与保存输出保持原身份；新改编计算另列。"
+      ],
+      "codeRefs": [
+        {
+          "path": "电商-预测用户使用优惠券概率较高的客群-约350行（逻辑回归模型、模型评估）/预测天猫用户使用优惠券概率较高的客群.ipynb",
+          "notebookSha256": "30fe7dee501aa066e11b65470a6ddcc0d6b33f84fe89d6a76aaa6aca75623099",
+          "cell": 44,
+          "code": "#先设定自变量x和因变量y\nx = coupon[['coupon_used_in_last_month', 'returned_yes', 'loan_yes']]\ny = coupon['flag']",
+          "codeSha256": "f6049006bcb996a0402ffc49b31d7b8baaad5481340340acf9fbca41742bc19f"
+        },
+        {
+          "path": "电商-预测用户使用优惠券概率较高的客群-约350行（逻辑回归模型、模型评估）/预测天猫用户使用优惠券概率较高的客群.ipynb",
+          "notebookSha256": "30fe7dee501aa066e11b65470a6ddcc0d6b33f84fe89d6a76aaa6aca75623099",
+          "cell": 45,
+          "code": "#调用sklearn模块，随机抽取训练集和测试集\nfrom sklearn.model_selection import train_test_split\nx_train, x_test, y_train, y_test = train_test_split(x, y, test_size = 0.3, random_state = 100) #训练集和测试集抽取比例为70/30\n\n#调用sklearn中逻辑回归模块\nfrom sklearn import linear_model\nlr = linear_model.LogisticRegression()\n\n#拟合\nlr.fit(x_train, y_train)",
+          "codeSha256": "4e79dd9fcd16042a2685a19d97ccc9a1e517ed52f7a5f41b28ab364ac4aedb48"
+        }
+      ],
+      "inputRefs": [
+        {
+          "path": "电商-预测用户使用优惠券概率较高的客群-约350行（逻辑回归模型、模型评估）/预测天猫用户使用优惠券概率较高的客群.ipynb",
+          "sha256": "30fe7dee501aa066e11b65470a6ddcc0d6b33f84fe89d6a76aaa6aca75623099"
+        },
+        {
+          "path": "电商-预测用户使用优惠券概率较高的客群-约350行（逻辑回归模型、模型评估）/预测天猫用户使用优惠券概率较高的客群.py",
+          "sha256": "c19078cd43e1390f30a543729c1479cb5b6765519eee1f92a90f50c18a3ce37a"
+        },
+        {
+          "path": "电商-预测用户使用优惠券概率较高的客群-约350行（逻辑回归模型、模型评估）/tianmao.csv",
+          "sha256": "89e8ce6a9e14bb2aac1d28fb150644544212e88acf3a152757c6f547b9b1a3f0"
+        }
+      ],
+      "outputRefs": [
+        "learning/resources/p23-v4-source-8.json"
+      ],
+      "exercise": {
+        "prompt": "根据本步单元44—45和保存证据，说明一次变换的输入、输出和一项无法验证的结论。",
+        "hint": "先查看代码中的列选择/过滤/拟合，再核对输出身份和本项目局限。",
+        "checklist": [
+          "准确引用原单元44—45",
+          "指出实际字段或变量与一项真实输出",
+          "把未重跑、资料缺失和统计缺陷分别说明"
+        ],
+        "provenance": "第四阶段教学补充，自评，不代表原文件试题"
+      },
+      "outputTitles": {
+        "learning/resources/p23-v4-source-8.json": "原单元44—45保存输出"
+      }
+    },
+    {
+      "id": "source-047-049",
+      "title": "4.1.2 查看模型结果 · 单元47—49",
+      "status": "ready",
+      "kind": "analysis",
+      "knowledgeIds": [
+        "Pandas",
+        "Matplotlib",
+        "Seaborn",
+        "独热编码",
+        "逻辑回归"
+      ],
+      "explanation": [
+        "本步按原Notebook顺序阅读单元47—49。原保存输出尚未重跑；安装、联网采集、写原文件和模型加载均不会在网页运行。",
+        "本步展示原变量赋值、查看或配置；变量实际内容以保存输出与本次数据证据为准，不从代码存在推断执行成功。",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：### 4.1.2 查看模型结果",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：- 当coupon_used_in_last_month从0到1时，不使用coupon到使用coupon的概率提升是e的0.38，即是其他组客户的1.46倍\n- 当returned_yes从1到0时，使用coupon到不使用coupon的概率提升是其他组客户的0.38倍\n- 当loan_yes从1到0时，使用coupon到不使用coupon的概率提升是其他组客户的0.57倍\n- 故从概率来看，上月使用过coupon的客户、未退货客户和未用花呗付款的客群再使用coupon的概率会更高。",
+        "原单元59把y_pred_train硬标签输入ROC；单元63重新fit后单元65仍用旧y_pred_train。保存测试矩阵[[6722,11],[862,1]]的正类召回率为1/863；新概率版本在末尾独立展示。"
+      ],
+      "teachingCode": "# 原代码仅供阅读，不由网页执行。\n# 本次可运行适配实现见末尾数据实验步骤。",
+      "limitations": [
+        "测试正类Recall=1/863≈0.116%，高准确率无效；AUC使用训练硬标签；二轮复用旧y_pred_train，不能声称优化后真实AUC；0.116等相关被误写强相关；exp系数是odds倍率而非概率倍率；平台真实来源未经独立验证。",
+        "原代码与保存输出保持原身份；新改编计算另列。"
+      ],
+      "codeRefs": [
+        {
+          "path": "电商-预测用户使用优惠券概率较高的客群-约350行（逻辑回归模型、模型评估）/预测天猫用户使用优惠券概率较高的客群.ipynb",
+          "notebookSha256": "30fe7dee501aa066e11b65470a6ddcc0d6b33f84fe89d6a76aaa6aca75623099",
+          "cell": 47,
+          "code": "#查看系数\nlr.coef_",
+          "codeSha256": "a0515e4b2d58af02fd5cd425d95ad397d57e3a3b6b82a453c0df8715e6a82556"
+        },
+        {
+          "path": "电商-预测用户使用优惠券概率较高的客群-约350行（逻辑回归模型、模型评估）/预测天猫用户使用优惠券概率较高的客群.ipynb",
+          "notebookSha256": "30fe7dee501aa066e11b65470a6ddcc0d6b33f84fe89d6a76aaa6aca75623099",
+          "cell": 49,
+          "code": "#查看截距\nlr.intercept_",
+          "codeSha256": "f45c08f07ae5ea7c584156f5ea798059c7bdd281ede99275e1aa8d808c7f967b"
+        }
+      ],
+      "inputRefs": [
+        {
+          "path": "电商-预测用户使用优惠券概率较高的客群-约350行（逻辑回归模型、模型评估）/预测天猫用户使用优惠券概率较高的客群.ipynb",
+          "sha256": "30fe7dee501aa066e11b65470a6ddcc0d6b33f84fe89d6a76aaa6aca75623099"
+        },
+        {
+          "path": "电商-预测用户使用优惠券概率较高的客群-约350行（逻辑回归模型、模型评估）/预测天猫用户使用优惠券概率较高的客群.py",
+          "sha256": "c19078cd43e1390f30a543729c1479cb5b6765519eee1f92a90f50c18a3ce37a"
+        },
+        {
+          "path": "电商-预测用户使用优惠券概率较高的客群-约350行（逻辑回归模型、模型评估）/tianmao.csv",
+          "sha256": "89e8ce6a9e14bb2aac1d28fb150644544212e88acf3a152757c6f547b9b1a3f0"
+        }
+      ],
+      "outputRefs": [
+        "learning/resources/p23-v4-source-9.json"
+      ],
+      "exercise": {
+        "prompt": "根据本步单元47—49和保存证据，说明一次变换的输入、输出和一项无法验证的结论。",
+        "hint": "先查看代码中的列选择/过滤/拟合，再核对输出身份和本项目局限。",
+        "checklist": [
+          "准确引用原单元47—49",
+          "指出实际字段或变量与一项真实输出",
+          "把未重跑、资料缺失和统计缺陷分别说明"
+        ],
+        "provenance": "第四阶段教学补充，自评，不代表原文件试题"
+      },
+      "outputTitles": {
+        "learning/resources/p23-v4-source-9.json": "原单元47—49保存输出"
+      }
+    },
+    {
+      "id": "source-052-056",
+      "title": "4.2.1 评估方法一：计算准确度 · 单元52—56",
+      "status": "ready",
+      "kind": "analysis",
+      "knowledgeIds": [
+        "Pandas",
+        "Matplotlib",
+        "Seaborn",
+        "独热编码",
+        "逻辑回归"
+      ],
+      "explanation": [
+        "本步按原Notebook顺序阅读单元52—56。原保存输出尚未重跑；安装、联网采集、写原文件和模型加载均不会在网页运行。",
+        "predict给出类别或预测量；概率排序需要predict_proba或decision_function。",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：## 4.2 模型评估",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：### 4.2.1 评估方法一：计算准确度",
+        "原单元59把y_pred_train硬标签输入ROC；单元63重新fit后单元65仍用旧y_pred_train。保存测试矩阵[[6722,11],[862,1]]的正类召回率为1/863；新概率版本在末尾独立展示。"
+      ],
+      "teachingCode": "# 原代码仅供阅读，不由网页执行。\n# 本次可运行适配实现见末尾数据实验步骤。",
+      "limitations": [
+        "测试正类Recall=1/863≈0.116%，高准确率无效；AUC使用训练硬标签；二轮复用旧y_pred_train，不能声称优化后真实AUC；0.116等相关被误写强相关；exp系数是odds倍率而非概率倍率；平台真实来源未经独立验证。",
+        "原代码与保存输出保持原身份；新改编计算另列。"
+      ],
+      "codeRefs": [
+        {
+          "path": "电商-预测用户使用优惠券概率较高的客群-约350行（逻辑回归模型、模型评估）/预测天猫用户使用优惠券概率较高的客群.ipynb",
+          "notebookSha256": "30fe7dee501aa066e11b65470a6ddcc0d6b33f84fe89d6a76aaa6aca75623099",
+          "cell": 52,
+          "code": "#通过训练集和测试集的自变量x，分别计算出对应的预测值\ny_pred_train = lr.predict(x_train)\ny_pred_test = lr.predict(x_test)",
+          "codeSha256": "fe67c1be16391a99d9ca999d9a2ef696b82845e001c35559cc27836ae36e3cd2"
+        },
+        {
+          "path": "电商-预测用户使用优惠券概率较高的客群-约350行（逻辑回归模型、模型评估）/预测天猫用户使用优惠券概率较高的客群.ipynb",
+          "notebookSha256": "30fe7dee501aa066e11b65470a6ddcc0d6b33f84fe89d6a76aaa6aca75623099",
+          "cell": 53,
+          "code": "#搭建训练集混淆矩阵\nfrom sklearn import metrics\nmetrics.confusion_matrix(y_train, y_pred_train)",
+          "codeSha256": "d5ed4d5ec783485dd573a85a3eb42ddd337d49101af08cdc511f1c5e8d79bbc3"
+        },
+        {
+          "path": "电商-预测用户使用优惠券概率较高的客群-约350行（逻辑回归模型、模型评估）/预测天猫用户使用优惠券概率较高的客群.ipynb",
+          "notebookSha256": "30fe7dee501aa066e11b65470a6ddcc0d6b33f84fe89d6a76aaa6aca75623099",
+          "cell": 54,
+          "code": "#查看训练集准确率\nmetrics.accuracy_score(y_train, y_pred_train)",
+          "codeSha256": "69c226fbab98e048f4b34d7b7611e52ea885f83c2d9b701618177fd2925cd3bb"
+        },
+        {
+          "path": "电商-预测用户使用优惠券概率较高的客群-约350行（逻辑回归模型、模型评估）/预测天猫用户使用优惠券概率较高的客群.ipynb",
+          "notebookSha256": "30fe7dee501aa066e11b65470a6ddcc0d6b33f84fe89d6a76aaa6aca75623099",
+          "cell": 55,
+          "code": "#搭建测试集混淆矩阵\nmetrics.confusion_matrix(y_test, y_pred_test)",
+          "codeSha256": "4ceb9f3ae76b346d9cb696329476b9b82f71f14b73cca8e07ae333958d93610d"
+        },
+        {
+          "path": "电商-预测用户使用优惠券概率较高的客群-约350行（逻辑回归模型、模型评估）/预测天猫用户使用优惠券概率较高的客群.ipynb",
+          "notebookSha256": "30fe7dee501aa066e11b65470a6ddcc0d6b33f84fe89d6a76aaa6aca75623099",
+          "cell": 56,
+          "code": "#查看测试集准确率\nmetrics.accuracy_score(y_test, y_pred_test)",
+          "codeSha256": "a6f722e521bf4def8c1b10b6cfda6b4eb05adc7bab686ab07174d1ef7b27aafa"
+        }
+      ],
+      "inputRefs": [
+        {
+          "path": "电商-预测用户使用优惠券概率较高的客群-约350行（逻辑回归模型、模型评估）/预测天猫用户使用优惠券概率较高的客群.ipynb",
+          "sha256": "30fe7dee501aa066e11b65470a6ddcc0d6b33f84fe89d6a76aaa6aca75623099"
+        },
+        {
+          "path": "电商-预测用户使用优惠券概率较高的客群-约350行（逻辑回归模型、模型评估）/预测天猫用户使用优惠券概率较高的客群.py",
+          "sha256": "c19078cd43e1390f30a543729c1479cb5b6765519eee1f92a90f50c18a3ce37a"
+        },
+        {
+          "path": "电商-预测用户使用优惠券概率较高的客群-约350行（逻辑回归模型、模型评估）/tianmao.csv",
+          "sha256": "89e8ce6a9e14bb2aac1d28fb150644544212e88acf3a152757c6f547b9b1a3f0"
+        }
+      ],
+      "outputRefs": [
+        "learning/resources/p23-v4-source-10.json"
+      ],
+      "exercise": {
+        "prompt": "根据本步单元52—56和保存证据，说明一次变换的输入、输出和一项无法验证的结论。",
+        "hint": "先查看代码中的列选择/过滤/拟合，再核对输出身份和本项目局限。",
+        "checklist": [
+          "准确引用原单元52—56",
+          "指出实际字段或变量与一项真实输出",
+          "把未重跑、资料缺失和统计缺陷分别说明"
+        ],
+        "provenance": "第四阶段教学补充，自评，不代表原文件试题"
+      },
+      "outputTitles": {
+        "learning/resources/p23-v4-source-10.json": "原单元52—56保存输出"
+      }
+    },
+    {
+      "id": "source-059-059",
+      "title": "4.2.2 评估方法二：ROC和AUC · 单元59—59",
+      "status": "ready",
+      "kind": "analysis",
+      "knowledgeIds": [
+        "Pandas",
+        "Matplotlib",
+        "Seaborn",
+        "独热编码",
+        "逻辑回归"
+      ],
+      "explanation": [
+        "本步按原Notebook顺序阅读单元59—59。原保存输出尚未重跑；安装、联网采集、写原文件和模型加载均不会在网页运行。",
+        "本步展示原变量赋值、查看或配置；变量实际内容以保存输出与本次数据证据为准，不从代码存在推断执行成功。",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：#### 比较训练集和测试集的准确率，保证内在信息一致性:\n- 模型在train和test的表现中不能相差过大。案例中训练集与测试集的准确率相差很小，故该模型是合理的\n- 但是未来客群和特点都可能会发生变化，需要做出自己的平衡。train和test只是帮助建立一个概念，不要为了单独的模型太过追求准确率",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：### 4.2.2 评估方法二：ROC和AUC",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：一般好的模型评分在0.7 - 0.8之间，故此模型需要被调整",
+        "原单元59把y_pred_train硬标签输入ROC；单元63重新fit后单元65仍用旧y_pred_train。保存测试矩阵[[6722,11],[862,1]]的正类召回率为1/863；新概率版本在末尾独立展示。"
+      ],
+      "teachingCode": "# 原代码仅供阅读，不由网页执行。\n# 本次可运行适配实现见末尾数据实验步骤。",
+      "limitations": [
+        "测试正类Recall=1/863≈0.116%，高准确率无效；AUC使用训练硬标签；二轮复用旧y_pred_train，不能声称优化后真实AUC；0.116等相关被误写强相关；exp系数是odds倍率而非概率倍率；平台真实来源未经独立验证。",
+        "原代码与保存输出保持原身份；新改编计算另列。"
+      ],
+      "codeRefs": [
+        {
+          "path": "电商-预测用户使用优惠券概率较高的客群-约350行（逻辑回归模型、模型评估）/预测天猫用户使用优惠券概率较高的客群.ipynb",
+          "notebookSha256": "30fe7dee501aa066e11b65470a6ddcc0d6b33f84fe89d6a76aaa6aca75623099",
+          "cell": 59,
+          "code": "#使用auc评估模型\nfrom sklearn.metrics import roc_curve, auc\nfpr,tpr,threshold = roc_curve(y_train, y_pred_train)\nroc_auc = auc(fpr,tpr)\n\nprint(roc_auc)",
+          "codeSha256": "cc5dc9d072740b0e78334ef644156232ddbc0a7c9fd076dd29b4081da222955f"
+        }
+      ],
+      "inputRefs": [
+        {
+          "path": "电商-预测用户使用优惠券概率较高的客群-约350行（逻辑回归模型、模型评估）/预测天猫用户使用优惠券概率较高的客群.ipynb",
+          "sha256": "30fe7dee501aa066e11b65470a6ddcc0d6b33f84fe89d6a76aaa6aca75623099"
+        },
+        {
+          "path": "电商-预测用户使用优惠券概率较高的客群-约350行（逻辑回归模型、模型评估）/预测天猫用户使用优惠券概率较高的客群.py",
+          "sha256": "c19078cd43e1390f30a543729c1479cb5b6765519eee1f92a90f50c18a3ce37a"
+        },
+        {
+          "path": "电商-预测用户使用优惠券概率较高的客群-约350行（逻辑回归模型、模型评估）/tianmao.csv",
+          "sha256": "89e8ce6a9e14bb2aac1d28fb150644544212e88acf3a152757c6f547b9b1a3f0"
+        }
+      ],
+      "outputRefs": [
+        "learning/resources/p23-v4-source-11.json"
+      ],
+      "exercise": {
+        "prompt": "根据本步单元59—59和保存证据，说明一次变换的输入、输出和一项无法验证的结论。",
+        "hint": "先查看代码中的列选择/过滤/拟合，再核对输出身份和本项目局限。",
+        "checklist": [
+          "准确引用原单元59—59",
+          "指出实际字段或变量与一项真实输出",
+          "把未重跑、资料缺失和统计缺陷分别说明"
+        ],
+        "provenance": "第四阶段教学补充，自评，不代表原文件试题"
+      },
+      "outputTitles": {
+        "learning/resources/p23-v4-source-11.json": "原单元59—59保存输出"
+      }
+    },
+    {
+      "id": "source-062-065",
+      "title": "4.3 模型优化 · 单元62—65",
+      "status": "ready",
+      "kind": "modeling",
+      "knowledgeIds": [
+        "Pandas",
+        "Matplotlib",
+        "Seaborn",
+        "独热编码",
+        "逻辑回归"
+      ],
+      "explanation": [
+        "本步按原Notebook顺序阅读单元62—65。原保存输出尚未重跑；安装、联网采集、写原文件和模型加载均不会在网页运行。",
+        "fit拟合对象状态；是否仅在训练数据拟合决定评估边界。",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：## 4.3 模型优化",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：- 只有coupon_used_in_last_month, age和flag的成正相关关系，其他变量与flag均为反相关关系\n- 模型迭代后AUC评分变化不大，说明coupon的使用率明显较低",
+        "原单元59把y_pred_train硬标签输入ROC；单元63重新fit后单元65仍用旧y_pred_train。保存测试矩阵[[6722,11],[862,1]]的正类召回率为1/863；新概率版本在末尾独立展示。"
+      ],
+      "teachingCode": "# 原代码仅供阅读，不由网页执行。\n# 本次可运行适配实现见末尾数据实验步骤。",
+      "limitations": [
+        "测试正类Recall=1/863≈0.116%，高准确率无效；AUC使用训练硬标签；二轮复用旧y_pred_train，不能声称优化后真实AUC；0.116等相关被误写强相关；exp系数是odds倍率而非概率倍率；平台真实来源未经独立验证。",
+        "原代码与保存输出保持原身份；新改编计算另列。"
+      ],
+      "codeRefs": [
+        {
+          "path": "电商-预测用户使用优惠券概率较高的客群-约350行（逻辑回归模型、模型评估）/预测天猫用户使用优惠券概率较高的客群.ipynb",
+          "notebookSha256": "30fe7dee501aa066e11b65470a6ddcc0d6b33f84fe89d6a76aaa6aca75623099",
+          "cell": 62,
+          "code": "#新增变量returned_yes\nx = coupon[['coupon_used_in_last_month', 'returned_yes', 'loan_yes', 'coupon_used_in_last6_month', 'default_yes', 'age']]\ny = coupon['flag']",
+          "codeSha256": "8b571c91d1606f6366781dc13bd10eb6a55a0027a5ffe1caecc4cd0b6c344b7a"
+        },
+        {
+          "path": "电商-预测用户使用优惠券概率较高的客群-约350行（逻辑回归模型、模型评估）/预测天猫用户使用优惠券概率较高的客群.ipynb",
+          "notebookSha256": "30fe7dee501aa066e11b65470a6ddcc0d6b33f84fe89d6a76aaa6aca75623099",
+          "cell": 63,
+          "code": "#调用sklearn模块，随机抽取训练集和测试集\nfrom sklearn.model_selection import train_test_split\nx_train, x_test, y_train, y_test = train_test_split(x, y, test_size = 0.3, random_state = 100) #训练集和测试集抽取比例为70/30\n\n#调用sklearn中逻辑回归模块\nfrom sklearn import linear_model\nlr = linear_model.LogisticRegression()\n\n#拟合\nlr.fit(x_train, y_train)",
+          "codeSha256": "4e79dd9fcd16042a2685a19d97ccc9a1e517ed52f7a5f41b28ab364ac4aedb48"
+        },
+        {
+          "path": "电商-预测用户使用优惠券概率较高的客群-约350行（逻辑回归模型、模型评估）/预测天猫用户使用优惠券概率较高的客群.ipynb",
+          "notebookSha256": "30fe7dee501aa066e11b65470a6ddcc0d6b33f84fe89d6a76aaa6aca75623099",
+          "cell": 64,
+          "code": "lr.coef_",
+          "codeSha256": "e69aee93928574fa5ca3abb3d724316efcb335e8bc5a92a4a18d2dd42e48a3d6"
+        },
+        {
+          "path": "电商-预测用户使用优惠券概率较高的客群-约350行（逻辑回归模型、模型评估）/预测天猫用户使用优惠券概率较高的客群.ipynb",
+          "notebookSha256": "30fe7dee501aa066e11b65470a6ddcc0d6b33f84fe89d6a76aaa6aca75623099",
+          "cell": 65,
+          "code": "#使用auc评估模型\nfrom sklearn.metrics import roc_curve, auc\nfpr,tpr,threshold = roc_curve(y_train, y_pred_train)\nroc_auc = auc(fpr,tpr)\n\nprint(roc_auc)",
+          "codeSha256": "cc5dc9d072740b0e78334ef644156232ddbc0a7c9fd076dd29b4081da222955f"
+        }
+      ],
+      "inputRefs": [
+        {
+          "path": "电商-预测用户使用优惠券概率较高的客群-约350行（逻辑回归模型、模型评估）/预测天猫用户使用优惠券概率较高的客群.ipynb",
+          "sha256": "30fe7dee501aa066e11b65470a6ddcc0d6b33f84fe89d6a76aaa6aca75623099"
+        },
+        {
+          "path": "电商-预测用户使用优惠券概率较高的客群-约350行（逻辑回归模型、模型评估）/预测天猫用户使用优惠券概率较高的客群.py",
+          "sha256": "c19078cd43e1390f30a543729c1479cb5b6765519eee1f92a90f50c18a3ce37a"
+        },
+        {
+          "path": "电商-预测用户使用优惠券概率较高的客群-约350行（逻辑回归模型、模型评估）/tianmao.csv",
+          "sha256": "89e8ce6a9e14bb2aac1d28fb150644544212e88acf3a152757c6f547b9b1a3f0"
+        }
+      ],
+      "outputRefs": [
+        "learning/resources/p23-v4-source-12.json"
+      ],
+      "exercise": {
+        "prompt": "根据本步单元62—65和保存证据，说明一次变换的输入、输出和一项无法验证的结论。",
+        "hint": "先查看代码中的列选择/过滤/拟合，再核对输出身份和本项目局限。",
+        "checklist": [
+          "准确引用原单元62—65",
+          "指出实际字段或变量与一项真实输出",
+          "把未重跑、资料缺失和统计缺陷分别说明"
+        ],
+        "provenance": "第四阶段教学补充，自评，不代表原文件试题"
+      },
+      "outputTitles": {
+        "learning/resources/p23-v4-source-12.json": "原单元62—65保存输出"
+      }
+    },
+    {
+      "id": "phase4-data",
+      "title": "真实数据实验 · 预测天猫用户使用优惠券概率较高的客群",
+      "status": "ready",
+      "kind": "analysis",
+      "knowledgeIds": [
+        "Pandas",
+        "Matplotlib",
+        "Seaborn",
+        "独热编码",
+        "逻辑回归"
+      ],
+      "explanation": [
+        "使用客户及历史优惠券行为拟合优惠券使用分类模型。",
+        "本步运行工程适配器，展示真实输入的质量、专属聚合与图表。清洗、分组和模型边界见代码与每份结果说明。教学代码为本项目经过审查的实现；不会执行原Notebook。",
+        "已实际准备7份结果；请切换结果逐项核对问题、单位、范围、分母、过滤条件和来源身份。"
+      ],
+      "teachingCode": "import numpy as np\nimport pandas as pd\nfrom decimal import Decimal\nimport csv\nfrom sklearn.cluster import KMeans\nfrom sklearn.preprocessing import MinMaxScaler\nfrom sklearn.metrics import silhouette_score,roc_curve,roc_auc_score,confusion_matrix,precision_score,recall_score,accuracy_score\nfrom sklearn.model_selection import train_test_split\nfrom sklearn.pipeline import make_pipeline\nfrom sklearn.preprocessing import StandardScaler\nfrom sklearn.linear_model import LogisticRegression\nfrom phase4_common import SOURCE,ROOT,read\ndef run(p):\n if p.id=='P21':\n  a=p.load('order-14.3.csv',dtype={'订单ID':str,'商品ID':str,'类别ID':str})\n  # Decimal values are calculated from the original strings, never from rounded floats.\n  ref=next(r for r in p.refs if r.endswith('/order-14.3.csv'))\n  with (SOURCE/ref).open(encoding='gb18030',newline='') as f: raw=list(csv.DictReader(f))\n  amounts={}\n  for r in raw:amounts[r['门店编号']]=amounts.get(r['门店编号'],Decimal(0))+Decimal(r['单价'])*Decimal(r['销量'])\n  total=sum(amounts.values());assert total==Decimal('28950.06645')\n  p.chart('stores','三门店金额与全量占比',pd.DataFrame([[k,float(v),str(v),float(v/total)] for k,v in sorted(amounts.items())],columns=['门店','绘图金额','原精度金额','全量金额比例']),note='order-14.3.csv；金额=逐行单价×销量；只读精度对账',unit='金额单位待核实',denominator='全部3478行精确金额28950.06645',filtercol=0)\n  a['小时']=pd.to_datetime(a['成交时间']).dt.hour\n  hour=a.groupby('小时')['订单ID'].nunique().reset_index(name='小时内不同订单数')\n  p.chart('hour','小时内独立订单数',hour,kind='line',unit='订单',note='按小时和订单ID去重；不同小时可能包含同一订单，不称顾客人数')\n  for col in ['类别ID','商品ID']:\n   v=a.groupby(col)['销量'].sum().sort_values(ascending=False).head(10).reset_index()\n   p.chart('top-'+str(len(p.resources)),col+'销量Top10',v,note='全量分组后取10；编码按类别，未知销量单位',unit='销量单位待核实')\n  p.checks.update({'exactAmount':str(total),'orders':int(a['订单ID'].nunique()),'aRows':len(a)})\n elif p.id=='P11':\n  h=p.load('shenzhen.csv');clean=h[h.hourseSize<=10000].copy();assert len(h)-len(clean)==1\n  p.scatter(clean,'hourseSize','total_price','scatter');v=clean.groupby('area').agg(挂牌行数=('area','size'),平均单价=('unit_price','mean')).reset_index()\n  p.chart('area','清洗后各区域挂牌行数',v,note='按原面积≤10000规则剔除1条；不把挂牌价称成交价',unit='挂牌记录',filtercol=0)\n  p.hist(clean,'hourseSize');p.checks.update({'before':len(h),'after':len(clean),'anomaly':float(h.loc[h.hourseSize>10000,'hourseSize'].iloc[0])})\n elif p.id=='P17':\n  d=p.load('ad_performance.csv');d2=d.drop(columns=['平均停留时间']);nums=d2.iloc[:,1:7]\n  cats=['素材类型','广告类型','合作方式','广告尺寸','广告卖点'];X=np.column_stack([MinMaxScaler().fit_transform(nums),pd.get_dummies(d2[cats],dtype=int).values])\n  assert X.shape==(889,33);scores=[];counts=[];centers=[];samples=[]\n  for k in range(2,8):\n   m=KMeans(n_clusters=k,n_init=10,random_state=100);labels=m.fit_predict(X);scores.append([k,silhouette_score(X,labels),float(m.inertia_)])\n   for cl in range(k):\n    counts.append([str(k),str(cl),int((labels==cl).sum())]);means=nums.loc[labels==cl].mean()\n    centers.append([str(k),str(cl)]+means.tolist())\n   for i in range(len(d)):samples.append([str(k),str(i),str(labels[i]),float(nums.iloc[i,0]),float(nums.iloc[i,1])])\n  model='P17-seed100-ninit10-v1';p.models.append({'version':model,'method':'KMeans','seed':100,'n_init':10,'k':list(range(2,8)),'preprocess':'6数值MinMax+27独热；删除平均停留时间；不含渠道ID','fitRows':889,'features':33})\n  p.chart('silhouette','新版本已计算k=2—7轮廓系数',pd.DataFrame(scores,columns=['k','轮廓系数','inertia']),kind='line',unit='无量纲',model=model,note='独立教学版本；不是原保存k搜索的重现')\n  p.chart('counts','新版本各k的簇数量',pd.DataFrame(counts,columns=['k方案','簇ID','渠道数']),x=1,ys=[2],filtercol=0,unit='渠道',model=model,note='选择k只切换这6个已算方案；簇ID无序且不能与原簇直接对应')\n  p.frame('means','新版本逐簇六数值特征真实均值',pd.DataFrame(centers,columns=['k方案','簇ID']+list(nums.columns)),'本次根据完整新标签计算mean；与原错误使用describe.iloc[2]的std分开保存。',identity='teaching-adaptation',model=model)\n  p.frame('labels','新版本完整逐行簇标签及两个原数值字段',pd.DataFrame(samples,columns=['k方案','原行索引','新簇ID',str(nums.columns[0]),str(nums.columns[1])]),'6方案×889行；表格分页，无任意在线重训。',identity='teaching-adaptation',model=model)\n  p.checks.update({'rows':889,'features':33,'kValues':list(range(2,8)),'countSums':{str(k):sum(r[2] for r in counts if r[0]==str(k)) for k in range(2,8)}})\n elif p.id=='P23':\n  d=p.load('tianmao.csv');p.counts(d,'coupon_ind','label-share');p.hist(d,'age')\n  cols=['coupon_used_in_last_month','returned','loan','coupon_used_in_last6_month','default','age']\n  X=d[cols].copy()\n  for c in ['returned','loan','default']:\n   assert set(X[c].unique())<={'yes','no'};X[c]=X[c].map({'yes':1,'no':0})\n  y=d.coupon_ind;tr,te=train_test_split(np.arange(len(d)),test_size=.3,stratify=y,random_state=100)\n  assert len(set(tr)&set(te))==0\n  model=make_pipeline(StandardScaler(),LogisticRegression(max_iter=3000,random_state=100))\n  model.fit(X.iloc[tr],y.iloc[tr]);probs=model.predict_proba(X.iloc[te])[:,1];pred=(probs>=.5).astype(int)\n  fpr,tpr,threshold=roc_curve(y.iloc[te],probs);auc=roc_auc_score(y.iloc[te],probs);cm=confusion_matrix(y.iloc[te],pred)\n  version='P23-stratified-probability-v1';p.models.append({'version':version,'method':'StandardScaler(train only) + LogisticRegression','features':cols,'seed':100,'test_size':.3,'stratify':'coupon_ind','trainRows':len(tr),'testRows':len(te),'trainIndexSha256':__import__('hashlib').sha256(tr.tobytes()).hexdigest(),'testIndexSha256':__import__('hashlib').sha256(te.tobytes()).hexdigest(),'trainTestIntersection':0,'max_iter':3000,'C':1,'class_weight':None,'solver':'lbfgs'})\n  p.chart('roc','独立测试集概率ROC',pd.DataFrame({'FPR':fpr,'TPR':tpr}),kind='roc',unit='比例0—1',model=version,note=f'本次教学修正；AUC={auc:.8f}。未在测试集调参，原硬标签AUC另列。')\n  p.frame('probabilities','独立测试集真实概率：浏览器阈值探索',pd.DataFrame({'实际标签':y.iloc[te].values,'正类概率':probs}),'仅从该新版本独立测试集计算；改变阈值不会重训，也不把测试阈值探索作为泛化保证。',identity='teaching-adaptation',model=version,probabilities=True)\n  p.chart('matrix','新版本阈值0.5混淆矩阵',pd.DataFrame([[str(j),str(i),int(cm[i,j])] for i in range(2) for j in range(2)],columns=['预测标签','实际标签','人数']),kind='heatmap',ys=[1,2],unit='样本行',model=version,note='独立测试集，行是真实标签、列是预测标签')\n  p.frame('metrics','新版本独立测试指标',pd.DataFrame([['概率AUC',auc],['Accuracy',accuracy_score(y.iloc[te],pred)],['Precision',precision_score(y.iloc[te],pred,zero_division=0)],['Recall',recall_score(y.iloc[te],pred,zero_division=0)],['全预测0准确率',float((y.iloc[te]==0).mean())]],columns=['指标','值']),'训练集17721行；测试集7596行；阈值0.5。独立版本不与原不同划分直接比优劣。',identity='teaching-adaptation',model=version)\n  p.checks.update({'trainRows':len(tr),'testRows':len(te),'overlap':0,'probabilityAUC':auc,'matrix':cm.tolist(),'probabilityCount':len(probs),'positiveTotal':int(y.sum())})\n",
+      "limitations": [
+        "测试正类Recall=1/863≈0.116%，高准确率无效；AUC使用训练硬标签；二轮复用旧y_pred_train，不能声称优化后真实AUC；0.116等相关被误写强相关；exp系数是odds倍率而非概率倍率；平台真实来源未经独立验证。",
+        "新版本不覆盖原保存成绩；所有新训练均在构建清单中单列。"
+      ],
+      "codeRefs": [
+        {
+          "path": "电商-预测用户使用优惠券概率较高的客群-约350行（逻辑回归模型、模型评估）/预测天猫用户使用优惠券概率较高的客群.ipynb",
+          "notebookSha256": "30fe7dee501aa066e11b65470a6ddcc0d6b33f84fe89d6a76aaa6aca75623099",
+          "cell": 7,
+          "code": "#导入模块和数据\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n%matplotlib inline\n\ncoupon = pd.read_csv('tianmao.csv')\ncoupon.head()",
+          "codeSha256": "61b3c8c8e42ed13bf4d2675f3e0881498f0721e621076893e259299fe366401f"
+        },
+        {
+          "path": "电商-预测用户使用优惠券概率较高的客群-约350行（逻辑回归模型、模型评估）/预测天猫用户使用优惠券概率较高的客群.ipynb",
+          "notebookSha256": "30fe7dee501aa066e11b65470a6ddcc0d6b33f84fe89d6a76aaa6aca75623099",
+          "cell": 21,
+          "code": "#先按客户是否使用coupon进行分类聚合\nsummary = coupon.groupby(['flag'])\n#求出各种情况均值的占比情况\nsummary.mean()",
+          "codeSha256": "09e5403d3d53dca6b63fa6966dc6cc2da3c7674d265b7382a122430cdce66609"
+        },
+        {
+          "path": "电商-预测用户使用优惠券概率较高的客群-约350行（逻辑回归模型、模型评估）/预测天猫用户使用优惠券概率较高的客群.ipynb",
+          "notebookSha256": "30fe7dee501aa066e11b65470a6ddcc0d6b33f84fe89d6a76aaa6aca75623099",
+          "cell": 33,
+          "code": "#对于年龄进行快速分组，探究各个年龄段对于是否使用coupon的影响\nage60 = coupon[coupon['age'] < 60]\nbins = [0, 20, 40, 60]\nlabels = ['<20','<40','<60']\nage60['age_new'] = pd.cut(age60.age, bins, right=False,labels = labels)\nage60.groupby(['age_new'])['age'].describe()",
+          "codeSha256": "9519d88888c0d5533b2e5a93e7c9f4e34a1f2dedb2dbbc85c98ea7bc8befced5"
+        },
+        {
+          "path": "电商-预测用户使用优惠券概率较高的客群-约350行（逻辑回归模型、模型评估）/预测天猫用户使用优惠券概率较高的客群.ipynb",
+          "notebookSha256": "30fe7dee501aa066e11b65470a6ddcc0d6b33f84fe89d6a76aaa6aca75623099",
+          "cell": 45,
+          "code": "#调用sklearn模块，随机抽取训练集和测试集\nfrom sklearn.model_selection import train_test_split\nx_train, x_test, y_train, y_test = train_test_split(x, y, test_size = 0.3, random_state = 100) #训练集和测试集抽取比例为70/30\n\n#调用sklearn中逻辑回归模块\nfrom sklearn import linear_model\nlr = linear_model.LogisticRegression()\n\n#拟合\nlr.fit(x_train, y_train)",
+          "codeSha256": "4e79dd9fcd16042a2685a19d97ccc9a1e517ed52f7a5f41b28ab364ac4aedb48"
+        }
+      ],
+      "inputRefs": [
+        {
+          "path": "电商-预测用户使用优惠券概率较高的客群-约350行（逻辑回归模型、模型评估）/预测天猫用户使用优惠券概率较高的客群.ipynb",
+          "sha256": "30fe7dee501aa066e11b65470a6ddcc0d6b33f84fe89d6a76aaa6aca75623099"
+        },
+        {
+          "path": "电商-预测用户使用优惠券概率较高的客群-约350行（逻辑回归模型、模型评估）/预测天猫用户使用优惠券概率较高的客群.py",
+          "sha256": "c19078cd43e1390f30a543729c1479cb5b6765519eee1f92a90f50c18a3ce37a"
+        },
+        {
+          "path": "电商-预测用户使用优惠券概率较高的客群-约350行（逻辑回归模型、模型评估）/tianmao.csv",
+          "sha256": "89e8ce6a9e14bb2aac1d28fb150644544212e88acf3a152757c6f547b9b1a3f0"
+        }
+      ],
+      "outputRefs": [
+        "learning/resources/p23-v4-label-share.json",
+        "learning/resources/p23-v4-age.json",
+        "learning/resources/p23-v4-roc.json",
+        "learning/resources/p23-v4-probabilities.json",
+        "learning/resources/p23-v4-matrix.json",
+        "learning/resources/p23-v4-metrics.json",
+        "learning/resources/p23-v4-input-quality.json"
+      ],
+      "exercise": {
+        "prompt": "算全预测不用券基线；从混淆矩阵算Precision/Recall。",
+        "hint": "从同源表取数，写出算式；先核对全量/抽样和原保存/新计算身份。",
+        "checklist": [
+          "列出真实字段、筛选规则和当前样本范围",
+          "用表格复核至少一个频数、比率或模型指标",
+          "指出一个不能由本图推出的结论"
+        ],
+        "provenance": "已批准路线练习与第四阶段核对清单，采用自评"
+      },
+      "outputTitles": {
+        "learning/resources/p23-v4-label-share.json": "coupon_ind：记录数与全量比例",
+        "learning/resources/p23-v4-age.json": "age的全量等宽分布",
+        "learning/resources/p23-v4-roc.json": "独立测试集概率ROC",
+        "learning/resources/p23-v4-probabilities.json": "独立测试集真实概率：浏览器阈值探索",
+        "learning/resources/p23-v4-matrix.json": "新版本阈值0.5混淆矩阵",
+        "learning/resources/p23-v4-metrics.json": "新版本独立测试指标",
+        "learning/resources/p23-v4-input-quality.json": "本项目各输入表的读取与质量核对"
+      }
+    }
+  ]
+}

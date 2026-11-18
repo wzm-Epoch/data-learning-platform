@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1.0",
+  "id": "p23-v4-source-4",
+  "title": "原单元21—21保存输出",
+  "kind": "text",
+  "columns": [],
+  "rows": [],
+  "text": "原单元21\n            age  coupon_used_in_last6_month  coupon_used_in_last_month  \\\nflag                                                                     \n0     40.819601                    2.857846                   0.260378   \n1     41.809524                    2.124282                   0.537994   \n\n      default_yes  returned_yes  loan_yes  \nflag                                       \n0        0.018876      0.579755  0.169037  \n1        0.008781      0.357649  0.094563  ",
+  "context": {
+    "identity": "original-saved",
+    "buildId": "phase4-v1",
+    "createdAt": "2026-11-16T12:58:37.389041+00:00",
+    "inputs": [
+      {
+        "path": "电商-预测用户使用优惠券概率较高的客群-约350行（逻辑回归模型、模型评估）/预测天猫用户使用优惠券概率较高的客群.ipynb",
+        "sha256": "30fe7dee501aa066e11b65470a6ddcc0d6b33f84fe89d6a76aaa6aca75623099"
+      },
+      {
+        "path": "电商-预测用户使用优惠券概率较高的客群-约350行（逻辑回归模型、模型评估）/预测天猫用户使用优惠券概率较高的客群.py",
+        "sha256": "c19078cd43e1390f30a543729c1479cb5b6765519eee1f92a90f50c18a3ce37a"
+      },
+      {
+        "path": "电商-预测用户使用优惠券概率较高的客群-约350行（逻辑回归模型、模型评估）/tianmao.csv",
+        "sha256": "89e8ce6a9e14bb2aac1d28fb150644544212e88acf3a152757c6f547b9b1a3f0"
+      }
+    ],
+    "note": "逐单元只读提取原文本；原运行时间未知，本次时间仅为提取时间。",
+    "unit": "原字段单位；未核实单位不补填",
+    "sample": null,
+    "modelRerun": false
+  }
+}

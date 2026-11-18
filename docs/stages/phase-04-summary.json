@@ -1,0 +1,60 @@
+{
+  "projects": 29,
+  "lessons": 30,
+  "steps": 385,
+  "activeResults": 554,
+  "savedPNG": 128,
+  "charts": 95,
+  "newModelProjects": [
+    "P03",
+    "P16",
+    "P17",
+    "P22",
+    "P23",
+    "P24",
+    "P26"
+  ],
+  "blocked": {
+    "P07": [
+      {
+        "step": "全量图像到moment特征端到端",
+        "reason": "203行特征仅附199图；缺失1_42.jpg,2_38.jpg,3_10.jpg,3_11.jpg；两特征支路未证实一一对应"
+      }
+    ],
+    "P08": [
+      {
+        "step": "原复杂还款收益流程独立复现",
+        "reason": "已开放原保存代码/图及全量安全聚合；原多表回款收益计算未完整重跑，不将快照金额直接求和"
+      }
+    ],
+    "P09": [
+      {
+        "step": "重新联网采集",
+        "reason": "离线主线使用本地shenzhen.csv，当前采集网站与可用性未验证；联网步骤仅供阅读"
+      }
+    ],
+    "P14": [
+      {
+        "step": "原文转CSV",
+        "reason": "代码引用1_simplifyweibo.txt缺失；不以4_simplifyweibo.txt替代；现成data.csv后续步骤可学"
+      }
+    ],
+    "P15": [
+      {
+        "step": "旧xls票房单位解释",
+        "reason": "表头“/万”与原除数/改名存在矛盾；已开放原物理值与代码，不能给出未经核实单位的换算结论"
+      }
+    ]
+  },
+  "environment": {
+    "python": "3.13.9",
+    "pandas": "2.3.3",
+    "numpy": "2.3.5",
+    "scikit-learn": "1.7.2",
+    "scipy": "1.16.3",
+    "statsmodels": "0.14.5",
+    "openpyxl": "3.1.5",
+    "xlrd": "2.0.2",
+    "Pillow": "12.0.0"
+  }
+}

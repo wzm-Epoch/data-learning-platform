@@ -1,0 +1,949 @@
+[
+  {
+    "projectId": "P21",
+    "id": "sales-explore",
+    "steps": [
+      {
+        "id": "a-grain",
+        "title": "认识一单多行",
+        "kind": "orientation",
+        "knowledgeIds": [
+          "Pandas",
+          "去重"
+        ],
+        "cells": [
+          3
+        ],
+        "inputFiles": [
+          "order-14.3.csv"
+        ],
+        "outputs": [
+          "p21-a-grain",
+          "p21-a-order"
+        ],
+        "explanation": [
+          "先确定一行代表什么。order-14.3的一行是商品交易明细，同一订单ID可以出现多次。右侧先展示全量核对，再展示第一条记录所属订单的全部明细。",
+          "当前文件共3478行、918个不同订单ID。918是订单量；缺少顾客标识和到店记录，不能称为918名顾客。该文件日期范围由本次读取统计，不从文件名猜测。"
+        ],
+        "teachingCode": "orders = data['订单ID'].nunique()\nrows = len(data)  # 明细行数，不是顾客数",
+        "limitations": [
+          "订单ID是否跨日期复用需逐数据源核实；本课不推断真实客流。"
+        ],
+        "exercise": {
+          "prompt": "为什么3478条明细不等于3478个顾客？",
+          "hint": "观察右侧同一个订单ID是否占多行。",
+          "checklist": [
+            "说清一行的粒度",
+            "区分明细、订单和顾客"
+          ],
+          "provenance": "本阶段教学补充练习；自评，不自动判卷"
+        }
+      },
+      {
+        "id": "a-load",
+        "title": "读取编码与日期",
+        "kind": "data",
+        "knowledgeIds": [
+          "Pandas",
+          "Datetime"
+        ],
+        "cells": [
+          3
+        ],
+        "inputFiles": [
+          "order-14.3.csv"
+        ],
+        "outputs": [
+          "p21-a-types"
+        ],
+        "explanation": [
+          "原单元3使用GBK读取和parse_dates解析成交时间。本次适配使用可兼容该文件的GB18030，并保留ID为字符串，避免大整数或标识被当连续数值。",
+          "右侧文本与解析日期来自同一输入记录，是本次教学读取检查。代码区域的原代码保持原样；教学补充独立标识，不会写回原文件。"
+        ],
+        "teachingCode": "data = pd.read_csv('order-14.3.csv', encoding='gb18030',\n    dtype={'订单ID': str, '商品ID': str, '类别ID': str},\n    parse_dates=['成交时间'])",
+        "limitations": [
+          "GB18030兼容此输入不意味着所有CSV都应使用同一编码。"
+        ],
+        "exercise": {
+          "prompt": "如果不解析日期，按小时分组前还缺少什么？",
+          "hint": "比较原字符串与datetime64读取后类型。",
+          "checklist": [
+            "说明编码与日期参数不同职责",
+            "保留标识字段为字符串"
+          ],
+          "provenance": "本阶段教学补充练习；自评，不自动判卷"
+        }
+      },
+      {
+        "id": "a-pivot",
+        "title": "类别与商品透视",
+        "kind": "analysis",
+        "knowledgeIds": [
+          "groupby",
+          "pivot_table"
+        ],
+        "cells": [
+          5,
+          7
+        ],
+        "inputFiles": [
+          "order-14.3.csv"
+        ],
+        "outputs": [
+          "p21-a-category",
+          "p21-a-product"
+        ],
+        "explanation": [
+          "原单元5按类别ID聚合销量，单元7按商品ID生成透视表。两张表都先对全量求和，再按汇总值降序取前10。",
+          "类别名称字典没有附带，因此只显示原ID。销量带小数，计量单位未知；这些是原字段数值的汇总，不应统一解释为商品件数。"
+        ],
+        "teachingCode": "category = data.groupby('类别ID')['销量'].sum()\nproduct = data.pivot_table(index='商品ID', values='销量', aggfunc='sum')",
+        "limitations": [
+          "不同商品可能计量方式不同；不能仅据汇总数认定销量最高的实际实物类别。"
+        ],
+        "exercise": {
+          "prompt": "类别Top10与商品Top10的分组键有什么不同？",
+          "hint": "回到原代码的index和groupby参数。",
+          "checklist": [
+            "区分分组键与聚合值",
+            "注明销量计量单位未知"
+          ],
+          "provenance": "本阶段教学补充练习；自评，不自动判卷"
+        }
+      },
+      {
+        "id": "a-stores",
+        "title": "金额与门店占比",
+        "kind": "analysis",
+        "knowledgeIds": [
+          "Pandas",
+          "groupby"
+        ],
+        "cells": [
+          9,
+          10
+        ],
+        "inputFiles": [
+          "order-14.3.csv"
+        ],
+        "outputs": [
+          "p21-a-stores"
+        ],
+        "explanation": [
+          "原口径是逐行单价×销量，再按门店求和。本次适配从原始数字字符串用Decimal重算，总额为28950.06645，汇总前不做两位小数舍入。",
+          "CDLG、CDNL、CDXL三门店金额与总计对账。占比分母是这份文件全部3478条明细的金额。原单元10绘制饼图，本阶段提供同源聚合表；复杂图表在第四阶段制作。"
+        ],
+        "teachingCode": "from decimal import Decimal\n# 在适配层用原字符串计算；展示舍入不影响校验\namount = Decimal(raw_price) * Decimal(raw_quantity)",
+        "limitations": [
+          "金额和销量单位未独立核实；不在标题擅自标元或件。"
+        ],
+        "exercise": {
+          "prompt": "从三门店金额核对总额，并解释占比分母。",
+          "hint": "先相加原精度金额，再看总计行；不要先把每行明细舍入。",
+          "checklist": [
+            "核对总额28950.06645",
+            "说明占比基于全量金额",
+            "保留金额单位未知"
+          ],
+          "provenance": "本阶段教学补充练习；自评，不自动判卷"
+        }
+      },
+      {
+        "id": "a-hour",
+        "title": "小时内订单去重",
+        "kind": "analysis",
+        "knowledgeIds": [
+          "Datetime",
+          "去重"
+        ],
+        "cells": [
+          12
+        ],
+        "inputFiles": [
+          "order-14.3.csv"
+        ],
+        "outputs": [
+          "p21-a-hour"
+        ],
+        "explanation": [
+          "原单元12先提取小时，再对小时和订单ID组合去重。右侧同一小时并列显示明细条数与不同订单数。",
+          "同一订单若跨小时出现，会在不同小时各计一次；小时计数相加未必等于全日nunique。原注释称客流，本课程称小时内订单量。"
+        ],
+        "teachingCode": "data['小时'] = data['成交时间'].dt.hour\nhour_orders = data[['小时','订单ID']].drop_duplicates().groupby('小时').size()",
+        "limitations": [
+          "统计的是订单出现小时，不是顾客到店时段或人数。"
+        ],
+        "exercise": {
+          "prompt": "为什么小时订单数相加可能不等于918？",
+          "hint": "考虑一个订单ID在两个小时出现的情况；这是口径解释，不是假造本文件记录。",
+          "checklist": [
+            "写出小时+订单ID去重键",
+            "不把订单数称为客流人数"
+          ],
+          "provenance": "本阶段教学补充练习；自评，不自动判卷"
+        }
+      },
+      {
+        "id": "a-reflect",
+        "title": "用有限证据总结与练习",
+        "kind": "practice",
+        "knowledgeIds": [
+          "groupby",
+          "去重"
+        ],
+        "cells": [
+          9,
+          12
+        ],
+        "inputFiles": [
+          "order-14.3.csv"
+        ],
+        "outputs": [
+          "p21-a-stores",
+          "p21-a-hour"
+        ],
+        "explanation": [
+          "用一条门店比较和一条时段观察总结本文件。每句话都注明样本日期、统计粒度与单位限制。",
+          "可以在这里记录临时回答并对照核对清单自评。系统只保存当前阅读位置，不自动判卷、不标记课程已掌握，也不计算完成率。"
+        ],
+        "teachingCode": "# 教学总结提纲：样本范围 → 计算口径 → 观察 → 局限\n# 本页不执行Python，也不写入原目录。",
+        "limitations": [
+          "样本只反映本文件所含交易，不能外推全部市场。"
+        ],
+        "exercise": {
+          "prompt": "用两句话总结门店与小时分布，并写一句限制。",
+          "hint": "直接引用右侧真实表格；避免顾客、件、元等未验证词。",
+          "checklist": [
+            "至少引用一项表中数值",
+            "说明订单不是人数",
+            "注明未知单位与样本边界"
+          ],
+          "provenance": "本阶段教学补充练习；自评，不自动判卷"
+        }
+      }
+    ]
+  },
+  {
+    "projectId": "P21",
+    "id": "monthly-report",
+    "steps": [
+      {
+        "id": "b-quality",
+        "title": "检查报表输入与全空行",
+        "kind": "cleaning",
+        "knowledgeIds": [
+          "Pandas"
+        ],
+        "cells": [
+          3
+        ],
+        "inputFiles": [
+          "order-14.1.csv"
+        ],
+        "outputs": [
+          "p21-b-quality"
+        ],
+        "explanation": [
+          "B课只读取order-14.1；order.csv是附带报表结果，不是输入明细。3744行中266行七列全空，剔除后3478行。",
+          "原单元3只读取和查看info，没有显式删除全空行。教学适配增加dropna(how=\"all\")检查，输出写入新工程。A/B总金额巧合一致也不能交换输入；二者成交日期不同。"
+        ],
+        "teachingCode": "raw = pd.read_csv('order-14.1.csv', encoding='gb18030', dtype={'订单ID':str})\nempty_rows = raw.isna().all(axis=1)\nclean = raw.dropna(how='all').copy()",
+        "limitations": [
+          "只去除全空行，不意味着其余所有缺失或异常均已排除。"
+        ],
+        "exercise": {
+          "prompt": "为什么B课不能直接换用A课文件？",
+          "hint": "比较两课日期范围和原Notebook的文件名，而不是只比较总额。",
+          "checklist": [
+            "写出3744−266=3478",
+            "区分原代码与教学补充",
+            "不使用order.csv作为明细"
+          ],
+          "provenance": "本阶段教学补充练习；自评，不自动判卷"
+        }
+      },
+      {
+        "id": "b-periods",
+        "title": "界定比较期间与月末边界",
+        "kind": "analysis",
+        "knowledgeIds": [
+          "Datetime"
+        ],
+        "cells": [
+          5,
+          7,
+          9
+        ],
+        "inputFiles": [
+          "order-14.1.csv"
+        ],
+        "outputs": [
+          "p21-b-periods"
+        ],
+        "explanation": [
+          "原代码固定比较2018年2月、2018年1月和2017年2月，这里的本月不是当前日期。原上界写月末00:00，原则上可能漏掉月末白天。",
+          "教学版采用起始日≤时间<下一月首日。当前文件日期均在00:00，本次逐期间核对两种筛选新增纳入均为0；不能声称这次修正实际找回了缺失交易。"
+        ],
+        "teachingCode": "current = clean[(clean['成交时间'] >= '2018-02-01') &\n                (clean['成交时间'] < '2018-03-01')]\n# clean['成交时间']须先由pd.to_datetime解析",
+        "limitations": [
+          "月份天数不同，未调整营业日；订单ID里的数字不能替代成交时间。"
+        ],
+        "exercise": {
+          "prompt": "为什么下一月首日的半开区间更稳妥？本文件实际差几行？",
+          "hint": "看右侧“本文件新增纳入行数”，将潜在缺陷与本次实测分开。",
+          "checklist": [
+            "解释月末00:00风险",
+            "指出本次差异0行",
+            "不把原本月解读为今天"
+          ],
+          "provenance": "本阶段教学补充练习；自评，不自动判卷"
+        }
+      },
+      {
+        "id": "b-metrics",
+        "title": "金额、订单量与平均每单金额",
+        "kind": "analysis",
+        "knowledgeIds": [
+          "去重",
+          "Pandas"
+        ],
+        "cells": [
+          10
+        ],
+        "inputFiles": [
+          "order-14.1.csv"
+        ],
+        "outputs": [
+          "p21-b-report",
+          "p21-b-zero"
+        ],
+        "explanation": [
+          "先把同一期间的明细金额求和，再对订单ID去重计数。原称客单价的金额/订单数，在这里准确称平均每订单金额。",
+          "若期间没有订单，分母为0，平均每订单金额不可计算，应显示空值和原因。右侧2019年1月来自对当前文件无记录期间的确定性筛选，不是模拟经营数据。"
+        ],
+        "teachingCode": "sales = (period['单价'] * period['销量']).sum()\norders = period['订单ID'].nunique()\naverage = sales / orders if orders else None",
+        "limitations": [
+          "订单ID可能跨期间复用，不能无条件把各期订单数相加当独立顾客。"
+        ],
+        "exercise": {
+          "prompt": "无订单时，平均每订单金额为什么不填0？",
+          "hint": "0意味着已观测且结果为零；不可计算意味着分母无效。",
+          "checklist": [
+            "区分明细行数与订单数",
+            "写出金额/订单公式",
+            "分母0返回None"
+          ],
+          "provenance": "本阶段教学补充练习；自评，不自动判卷"
+        }
+      },
+      {
+        "id": "b-report",
+        "title": "同比环比与原附结果对账",
+        "kind": "interpretation",
+        "knowledgeIds": [
+          "同比环比"
+        ],
+        "cells": [
+          12,
+          14,
+          16
+        ],
+        "inputFiles": [
+          "order-14.1.csv",
+          "order.csv"
+        ],
+        "outputs": [
+          "p21-b-report",
+          "p21-b-attached"
+        ],
+        "explanation": [
+          "同比与环比均使用本期/比较期−1；比较期为0或不可用时不返回Infinity，也不将其解释为0%增长。",
+          "本次从order-14.1预计算的三期指标与原附order.csv逐项按容差核对一致；两种身份并列显示。原附表保留“客流量”原标签，但教学统一解释为订单量。原单元16会写order.csv，本平台仅展示，不执行它。"
+        ],
+        "teachingCode": "def growth(current, baseline):\n    return None if baseline is None or baseline == 0 else current / baseline - 1\n# 禁止在原目录执行原report.to_csv；这里只查看预计算结果。",
+        "limitations": [
+          "原附结果不是本次运行的证据；本次预计算有独立清单和输入哈希。"
+        ],
+        "exercise": {
+          "prompt": "选择一个指标手算同比；说明比较期为0如何处理。",
+          "hint": "用未提前舍入的数据计算。百分比显示需将比例乘100。",
+          "checklist": [
+            "写出本期/比较期−1",
+            "分开原附与新算身份",
+            "不把订单量变成人数"
+          ],
+          "provenance": "本阶段教学补充练习；自评，不自动判卷"
+        }
+      },
+      {
+        "id": "b-practice",
+        "title": "报表解释与本机继续实验",
+        "kind": "practice",
+        "knowledgeIds": [
+          "同比环比",
+          "Datetime"
+        ],
+        "cells": [
+          10,
+          12
+        ],
+        "inputFiles": [
+          "order-14.1.csv"
+        ],
+        "outputs": [
+          "p21-b-periods",
+          "p21-b-zero"
+        ],
+        "explanation": [
+          "先说明比较期间，再解释金额、订单量和平均每单金额的变化是否同向。写出可能影响比较的月份天数和数据范围限制，不自行补业务原因。",
+          "代码可复制或下载为文本，在本机Jupyter使用工程外的原文件只读路径继续实验；将输出目录设在新工程analysis下。网页不运行Python。这里的自评不会产生完整完成记录。"
+        ],
+        "teachingCode": "# 本机练习：把end设为下月首日；将结果写入新工程analysis/exports\n# 原始文件只读；先检查分母是否为0，再解释增长率。",
+        "limitations": [
+          "不提供在线Python执行，不自动判定答案正确。"
+        ],
+        "exercise": {
+          "prompt": "设计一个可处理空期间的月报函数，并说明保存输出位置。",
+          "hint": "把筛选、金额求和、订单去重、安全除法分开写。",
+          "checklist": [
+            "使用半开期间",
+            "空订单返回不可计算",
+            "输出只写新工程"
+          ],
+          "provenance": "本阶段教学补充练习；自评，不自动判卷"
+        }
+      }
+    ]
+  },
+  {
+    "projectId": "P11",
+    "id": "main-analysis",
+    "steps": [
+      {
+        "id": "listing-scope",
+        "title": "认识历史挂牌样本",
+        "kind": "orientation",
+        "knowledgeIds": [
+          "EDA"
+        ],
+        "cells": [
+          6
+        ],
+        "inputFiles": [
+          "shenzhen.csv"
+        ],
+        "outputs": [
+          "p11-preview"
+        ],
+        "explanation": [
+          "本课读取P11自身shenzhen.csv，18907行、12列。P09有相近版本但title不同，不覆盖或替换。",
+          "一行是本文件挂牌记录，不能当实际成交；前12行仅用于认识字段。后续全量统计将明确是否按原异常规则剔除记录。"
+        ],
+        "teachingCode": "df = pd.read_csv(source_path)\n# source_path定位P11原文件；不使用P09替代。",
+        "limitations": [
+          "这是历史样本，不能充当当前房价或购房建议。"
+        ],
+        "exercise": {
+          "prompt": "挂牌价与成交价是同一个概念吗？",
+          "hint": "从原来源定位能知道什么，又缺少什么？",
+          "checklist": [
+            "明确历史挂牌范围",
+            "不混用P09版本"
+          ],
+          "provenance": "本阶段教学补充练习；自评，不自动判卷"
+        }
+      },
+      {
+        "id": "read-fields",
+        "title": "读取12列与缺失",
+        "kind": "data",
+        "knowledgeIds": [
+          "Pandas"
+        ],
+        "cells": [
+          6,
+          7,
+          12,
+          15
+        ],
+        "inputFiles": [
+          "shenzhen.csv"
+        ],
+        "outputs": [
+          "p11-fields"
+        ],
+        "explanation": [
+          "原字段hourseSize、hourseType的拼写按原样保留。右侧对全量重新统计读取类型和缺失；title与tax存在缺失。",
+          "原单元15检查重复行，当前文件完全重复行数为0。字符串描述缺失和数值字段单位未知是不同问题，不应一律填0。"
+        ],
+        "teachingCode": "quality = pd.DataFrame({'dtype':df.dtypes.astype(str),\n                        'missing':df.isna().sum()})\nfull_duplicate_rows = df.duplicated().sum()",
+        "limitations": [
+          "读取类型不是完整业务语义；不据int/float就认定变量可直接做距离。"
+        ],
+        "exercise": {
+          "prompt": "对title缺失和面积极端值应采用相同处理吗？",
+          "hint": "一个是缺失文本，一个是数值异常；分别列检查规则。",
+          "checklist": [
+            "认识全部12列",
+            "区分缺失与异常",
+            "不默认所有缺失填0"
+          ],
+          "provenance": "本阶段教学补充练习；自评，不自动判卷"
+        }
+      },
+      {
+        "id": "investigate-area",
+        "title": "调查10871面积异常",
+        "kind": "cleaning",
+        "knowledgeIds": [
+          "数据清洗"
+        ],
+        "cells": [
+          9,
+          10
+        ],
+        "inputFiles": [
+          "shenzhen.csv"
+        ],
+        "outputs": [
+          "p11-anomaly",
+          "p11-change"
+        ],
+        "explanation": [
+          "原单元9筛选hourseSize>10000，当前命中1条，原行标识12546、面积10871。单元10删除该行，样本由18907变为18906。",
+          "异常快照与剔除后均值在新工程分别保留。它可能是录入或单位问题，但本资料不能证明真实值；不能擅自修成108.71。"
+        ],
+        "teachingCode": "flag = df['hourseSize'] > 10000\nexcluded = df.loc[flag].copy()\nclean = df.loc[~flag].copy()  # 不覆盖原CSV",
+        "limitations": [
+          ">10000是原规则而非普适阈值；删除原因需要业务核对。"
+        ],
+        "exercise": {
+          "prompt": "计算删除前后面积均值差，并说明为何保留异常证据。",
+          "hint": "右侧对照表的均值来自全量重算，不是20行预览。",
+          "checklist": [
+            "定位原行12546",
+            "说明18907→18906",
+            "不猜测正确面积"
+          ],
+          "provenance": "本阶段教学补充练习；自评，不自动判卷"
+        }
+      },
+      {
+        "id": "aggregate-area",
+        "title": "按区域统计挂牌记录",
+        "kind": "analysis",
+        "knowledgeIds": [
+          "groupby",
+          "分组统计"
+        ],
+        "cells": [
+          18,
+          23,
+          24
+        ],
+        "inputFiles": [
+          "shenzhen.csv"
+        ],
+        "outputs": [
+          "p11-area"
+        ],
+        "explanation": [
+          "基于剔除1条后的18906条记录，按area统计挂牌行数和价格原字段均值。分组统计使用同一清洗规则与同一样本分母。",
+          "原文和原图存在单位量级错误风险，当前以原数值单位待核实展示。区域均价差异可能混合户型、面积与样本结构，不能直接解释为区域导致价格。"
+        ],
+        "teachingCode": "area = clean.groupby('area').agg(\n    rows=('area','size'), mean_total=('total_price','mean'),\n    mean_unit=('unit_price','mean'))",
+        "limitations": [
+          "均值受样本结构与极值影响；没有成交真实性验证。"
+        ],
+        "exercise": {
+          "prompt": "挂牌数量最多是否说明购房者最偏好该区域？",
+          "hint": "供给样本与需求偏好不是同一指标。",
+          "checklist": [
+            "说明按area分组",
+            "引用正确清洗后范围",
+            "避免因果与偏好外推"
+          ],
+          "provenance": "本阶段教学补充练习；自评，不自动判卷"
+        }
+      },
+      {
+        "id": "compare-structure",
+        "title": "比较户型、装修与朝向",
+        "kind": "analysis",
+        "knowledgeIds": [
+          "分组统计"
+        ],
+        "cells": [
+          18,
+          36,
+          38
+        ],
+        "inputFiles": [
+          "shenzhen.csv"
+        ],
+        "outputs": [
+          "p11-structure"
+        ],
+        "explanation": [
+          "每个维度独立计算频数与占全部18906行的比例，展示前10类。不把三个维度的记录数相加，也不把Top10的占比再强制归一到100%。",
+          "原代码把低频类别合并“其它”时用了严格大于和小于阈值，等于阈值的类别可能漏计。教学表保留原类别，避免默默排除边界值。"
+        ],
+        "teachingCode": "counts = clean['hourseType'].value_counts(dropna=False)\nshare = counts / len(clean)\n# 如需合并其它，用互补集合而不是两边严格不等式。",
+        "limitations": [
+          "分类数量不说明偏好；装修与价格关联不代表装修带来因果增值。"
+        ],
+        "exercise": {
+          "prompt": "Top10占比之和没到100%是否必然算错？",
+          "hint": "先检查是否保留全部类别和分母。",
+          "checklist": [
+            "说清Top10范围",
+            "各维度分别计数",
+            "说明阈值等号边界"
+          ],
+          "provenance": "本阶段教学补充练习；自评，不自动判卷"
+        }
+      },
+      {
+        "id": "area-price",
+        "title": "观察面积与总价关系",
+        "kind": "analysis",
+        "knowledgeIds": [
+          "EDA"
+        ],
+        "cells": [
+          41
+        ],
+        "inputFiles": [
+          "shenzhen.csv"
+        ],
+        "outputs": [
+          "p11-relation",
+          "p11-correlation"
+        ],
+        "explanation": [
+          "右侧前20行快照用于对照同一记录的面积与总价；它不是全量散点，也不能据20行给出市场结论。另一个表是清洗后全量Pearson描述性统计。",
+          "本阶段以可追溯表格建立代码—数据一致性；完整交互散点在第四阶段实现。没有训练房价预测模型。"
+        ],
+        "teachingCode": "correlation = clean['hourseSize'].corr(clean['total_price'])\npreview = clean[['hourseSize','total_price']].head(20)",
+        "limitations": [
+          "Pearson只反映线性关联；相关不等于因果，也不是预测准确率。"
+        ],
+        "exercise": {
+          "prompt": "相关系数能否证明增加面积一定导致更高总价？",
+          "hint": "考虑地段、户型、房龄等未控制因素。",
+          "checklist": [
+            "区分20行预览和全量统计",
+            "不把相关称预测成绩"
+          ],
+          "provenance": "本阶段教学补充练习；自评，不自动判卷"
+        }
+      },
+      {
+        "id": "limited-conclusion",
+        "title": "写有限结论与自评",
+        "kind": "practice",
+        "knowledgeIds": [
+          "EDA",
+          "数据清洗"
+        ],
+        "cells": [
+          10,
+          23,
+          41
+        ],
+        "inputFiles": [
+          "shenzhen.csv"
+        ],
+        "outputs": [
+          "p11-change",
+          "p11-area"
+        ],
+        "explanation": [
+          "总结应包含历史挂牌范围、原异常规则、清洗后样本规模以及一项可核对的区域比较。",
+          "把原文中的“影响”“原因”改写为本样本关联，保留单位待核实。下方练习按核对清单自评，不进行自动评分。"
+        ],
+        "teachingCode": "# 结论模板：在这份历史挂牌样本中，按...规则后观察到...\n# 不能据此认定...；还需核实...。",
+        "limitations": [
+          "不根据单一样本提供当前价格判断。"
+        ],
+        "exercise": {
+          "prompt": "改写一句因果化的房价结论，并解释异常删除如何改变均值。",
+          "hint": "每句话注明样本、规则、统计量和局限。",
+          "checklist": [
+            "包含清洗后18906行",
+            "比较删除前后均值",
+            "不编造单位或当前市场结论"
+          ],
+          "provenance": "本阶段教学补充练习；自评，不自动判卷"
+        }
+      }
+    ]
+  },
+  {
+    "projectId": "P17",
+    "id": "main-analysis",
+    "steps": [
+      {
+        "id": "channel-input",
+        "title": "认识渠道指标",
+        "kind": "orientation",
+        "knowledgeIds": [
+          "EDA"
+        ],
+        "cells": [
+          8,
+          12,
+          13
+        ],
+        "inputFiles": [
+          "ad_performance.csv"
+        ],
+        "outputs": [
+          "p17-preview"
+        ],
+        "explanation": [
+          "ad_performance包含889个渠道样本、13列。渠道代号是标识，不应当作连续数值或参与距离计算。",
+          "先区分流量、比率与素材类别。合作方式中的roi只是类别取值，不是经核实的投入产出比指标；没有完整成本收益字段。"
+        ],
+        "teachingCode": "raw_data = pd.read_csv(source_path)\nfeatures = raw_data.drop(columns=['渠道代号'])  # 标识不作为距离",
+        "limitations": [
+          "各业务指标单位和取值定义仍需原业务字典支持。"
+        ],
+        "exercise": {
+          "prompt": "合作方式为roi是否足以断言投放回报高？",
+          "hint": "检查原表是否真的有成本和收益金额。",
+          "checklist": [
+            "区分标识与特征",
+            "不把类别roi解释成实际ROI"
+          ],
+          "provenance": "本阶段教学补充练习；自评，不自动判卷"
+        }
+      },
+      {
+        "id": "missing-policy",
+        "title": "追踪缺失字段处置",
+        "kind": "cleaning",
+        "knowledgeIds": [
+          "Pandas",
+          "EDA"
+        ],
+        "cells": [
+          16,
+          17,
+          19,
+          24
+        ],
+        "inputFiles": [
+          "ad_performance.csv"
+        ],
+        "outputs": [
+          "p17-missing"
+        ],
+        "explanation": [
+          "本次全量核对平均停留时间缺失2条。原代码单元24选择删除整列，而不是删除两行或填补数值。",
+          "原文依据与访问深度相关较高讨论删除，但相关高不等于完全相同信息。教学需要同时记录保留889行、列从13变12的变化。"
+        ],
+        "teachingCode": "missing = raw_data.isna().sum()\nraw_data2 = raw_data.drop(columns=['平均停留时间'])",
+        "limitations": [
+          "删除一列会丢失信息，不能宣称必然提升模型效果。"
+        ],
+        "exercise": {
+          "prompt": "原处理删除的是行还是列？还剩多少渠道？",
+          "hint": "看drop的columns/axis参数，不把2处缺失解释为删除2样本。",
+          "checklist": [
+            "指出删除平均停留时间整列",
+            "保留889行",
+            "解释处置的局限"
+          ],
+          "provenance": "本阶段教学补充练习；自评，不自动判卷"
+        }
+      },
+      {
+        "id": "one-hot",
+        "title": "比较类别编码前后",
+        "kind": "analysis",
+        "knowledgeIds": [
+          "OneHotEncoder"
+        ],
+        "cells": [
+          26,
+          27,
+          28
+        ],
+        "inputFiles": [
+          "ad_performance.csv"
+        ],
+        "outputs": [
+          "p17-encoding"
+        ],
+        "explanation": [
+          "五个类别字段经独热编码形成27列。本次教学适配使用pandas.get_dummies，与原单元28路径相对应；不执行旧sparse=False接口。",
+          "每列表示一个类别是否出现。类别列顺序需由编码器或get_dummies实际输出确定；不能将五字段任意编码成1、2、3再假定数值距离。"
+        ],
+        "teachingCode": "cols = ['素材类型','广告类型','合作方式','广告尺寸','广告卖点']\nonehot = pd.get_dummies(raw_data2[cols], dtype=int)",
+        "limitations": [
+          "独热会改变各字段对距离的权重；不同类别数也需审辨。"
+        ],
+        "exercise": {
+          "prompt": "为什么不直接把广告卖点编码为1、2、3？",
+          "hint": "编号差距不代表类别间有业务距离或顺序。",
+          "checklist": [
+            "理解27列0/1含义",
+            "区分原OneHotEncoder与教学get_dummies",
+            "不把类别编号看成连续量"
+          ],
+          "provenance": "本阶段教学补充练习；自评，不自动判卷"
+        }
+      },
+      {
+        "id": "minmax",
+        "title": "观察缩放如何改变距离",
+        "kind": "analysis",
+        "knowledgeIds": [
+          "MinMaxScaler"
+        ],
+        "cells": [
+          30,
+          32
+        ],
+        "inputFiles": [
+          "ad_performance.csv"
+        ],
+        "outputs": [
+          "p17-scale"
+        ],
+        "explanation": [
+          "原代码选择删除停留时间后的六个数值特征做MinMax，再与27列独热编码拼成33维。右侧原值、全量最小/最大和缩放后值都从当前文件确定性生成。",
+          "变换公式为(x−min)/(max−min)。常量列需要独立规则以避免除0，本次适配常量列映射0；这不表示已训练聚类。"
+        ],
+        "teachingCode": "numeric = raw_data2.iloc[:,1:7]\nscaled = (numeric - numeric.min()) / (numeric.max() - numeric.min())\nscaled = scaled.fillna(0)\n# 六数值特征 + 27独热列 = 33维",
+        "limitations": [
+          "缩放不能自动解决异常值、权重选择或类别特征距离定义。"
+        ],
+        "exercise": {
+          "prompt": "对照一个字段手算缩放值，并说明为何要缩放。",
+          "hint": "从表中取同一行原值、最小和最大。",
+          "checklist": [
+            "写出MinMax公式",
+            "核对6+27=33维",
+            "不把预处理称为已重训"
+          ],
+          "provenance": "本阶段教学补充练习；自评，不自动判卷"
+        }
+      },
+      {
+        "id": "k-search",
+        "title": "读取k与轮廓系数",
+        "kind": "modeling",
+        "knowledgeIds": [
+          "KMeans",
+          "轮廓系数"
+        ],
+        "cells": [
+          35
+        ],
+        "inputFiles": [
+          "ad_performance.csv"
+        ],
+        "outputs": [
+          "p17-scores",
+          "p17-scores-saved"
+        ],
+        "explanation": [
+          "原代码实际搜索k=2到7，注释“到5”并不准确。右侧是原单元35保存的候选评分，在这次保存运行中k=4最高。",
+          "本阶段没有执行fit_predict或重新训练；原代码未固定random_state，新运行未必复现相同编号与评分。页面不提供伪装成重训练的k滑块。"
+        ],
+        "teachingCode": "# 本阶段只读取原Notebook单元35保存输出\n# 若将来重训：固定random_state与n_init，另建结果版本并记录环境。",
+        "limitations": [
+          "轮廓系数最高不等于业务最优，更不说明ROI最高。"
+        ],
+        "exercise": {
+          "prompt": "保存结果中k=4最高是否证明所有未来样本也应取4？",
+          "hint": "区分一次候选搜索与普遍业务规律。",
+          "checklist": [
+            "明确搜索范围2—7",
+            "注明原保存未重跑",
+            "指出随机初始化边界"
+          ],
+          "provenance": "本阶段教学补充练习；自评，不自动判卷"
+        }
+      },
+      {
+        "id": "cluster-counts",
+        "title": "按原簇ID核对群体数量",
+        "kind": "interpretation",
+        "knowledgeIds": [
+          "KMeans"
+        ],
+        "cells": [
+          39,
+          41
+        ],
+        "inputFiles": [
+          "ad_performance.csv"
+        ],
+        "outputs": [
+          "p17-counts",
+          "p17-counts-saved"
+        ],
+        "explanation": [
+          "保存数量严格按原簇ID对齐：0为73，1为154，2为313，3为349，总和889。右侧比例用这组保存数量除889确定性计算。",
+          "原单元48文字将数量换序，不能把“第一类”自动映射到簇0。簇ID无序，跨运行也没有固定业务含义；完整逐行标签未独立导出。"
+        ],
+        "teachingCode": "# 读取保存的ID→数量映射，不重新生成标签\n# 只有取得与该次模型一致的完整标签，才可计算逐簇新统计。",
+        "limitations": [
+          "不从前5行的保存标签补造其余884行标签。"
+        ],
+        "exercise": {
+          "prompt": "为什么必须保留簇ID与数量的对应关系？",
+          "hint": "对比原文字数量顺序和原单元41表头。",
+          "checklist": [
+            "核对73+154+313+349=889",
+            "区分标签编号与排序",
+            "不伪造逐行聚类结果"
+          ],
+          "provenance": "本阶段教学补充练习；自评，不自动判卷"
+        }
+      },
+      {
+        "id": "profile-audit",
+        "title": "逐群审辨画像并总结",
+        "kind": "practice",
+        "knowledgeIds": [
+          "KMeans",
+          "轮廓系数"
+        ],
+        "cells": [
+          43,
+          45
+        ],
+        "inputFiles": [
+          "ad_performance.csv"
+        ],
+        "outputs": [
+          "p17-profile-saved",
+          "p17-profile-audit"
+        ],
+        "explanation": [
+          "原单元43的数值部分用describe().iloc[2]，实际取标准差std，不是注释所说的均值；后续雷达图又对这些标准差缩放，不能称为聚类均值中心。",
+          "原单元50的编号和文字画像还与保存数量/统计量错位。当前资料缺完整逐行标签，不能据现有截图补算真实逐簇均值。本课保留保存证据并指出缺口，不将错误画像包装成可信结论。"
+        ],
+        "teachingCode": "# 原代码问题：part1_desc.iloc[2, :] 是std\n# 教学修正意图：part1_desc.loc['mean']\n# 但当前缺完整标签，不能在本页凭空生成修正后的逐簇均值。",
+        "limitations": [
+          "原数值不是群体均值；完整标签/中心缺失，修正画像需后续独立复现版本。"
+        ],
+        "exercise": {
+          "prompt": "指出原画像至少两处问题，并列出要重建可信画像所缺材料。",
+          "hint": "分别检查describe行索引、簇ID映射和完整标签。",
+          "checklist": [
+            "指出iloc[2]是std",
+            "指出数量/编号错位",
+            "不把旧雷达称均值中心",
+            "不伪造缺失标签或ROI结论"
+          ],
+          "provenance": "本阶段教学补充练习；自评，不自动判卷"
+        }
+      }
+    ]
+  }
+]

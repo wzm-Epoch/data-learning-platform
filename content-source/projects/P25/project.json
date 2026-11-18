@@ -1,0 +1,510 @@
+{
+  "id": "P25",
+  "title": "第七次全国人口普查-数据可视化",
+  "originalNames": [
+    "社会科学-人口普查-数据可视化-约750行（Pyecharts可视化、数据分析）",
+    "第七次全国人口普查-数据可视化.ipynb"
+  ],
+  "categoryId": "society",
+  "summary": "整理第七次人口普查表格并展示地区人口结构。",
+  "difficulty": "初级",
+  "skillTags": [
+    "Pandas",
+    "Pyecharts",
+    "地图",
+    "条形图",
+    "比例图",
+    "数据清洗"
+  ],
+  "methods": "没有机器学习模型",
+  "sourceRefs": [
+    {
+      "path": "社会科学-人口普查-数据可视化-约750行（Pyecharts可视化、数据分析）/.ipynb_checkpoints/第七次全国人口普查-数据可视化-checkpoint.ipynb",
+      "sha256": "d8dbf08ea73d90493c2aa06cc84d7d444946929d426fdf078da098266e85bcc6",
+      "role": "code"
+    },
+    {
+      "path": "社会科学-人口普查-数据可视化-约750行（Pyecharts可视化、数据分析）/canyon.hdr",
+      "sha256": "b209189c626fb1cc7821ab3439653272352545f62cc637667eeb17eea91dd5a5",
+      "role": "other"
+    },
+    {
+      "path": "社会科学-人口普查-数据可视化-约750行（Pyecharts可视化、数据分析）/data/全国人口年龄构成.csv",
+      "sha256": "55abc6661dbfcc66fe0d69563ecb794b6e34447c36d272f680073391e68e6a15",
+      "role": "data"
+    },
+    {
+      "path": "社会科学-人口普查-数据可视化-约750行（Pyecharts可视化、数据分析）/data/各地区15岁及以上人口平均受教育年限.csv",
+      "sha256": "d438f7270713be4b25b5bb0ffbf11086c1e6e93fb15f0df73f267a22acf063f1",
+      "role": "data"
+    },
+    {
+      "path": "社会科学-人口普查-数据可视化-约750行（Pyecharts可视化、数据分析）/data/各地区人口.csv",
+      "sha256": "e54df53ebcf223d5932943a9ad53b66df3d6d6798d2ee47333b0777236510bd2",
+      "role": "data"
+    },
+    {
+      "path": "社会科学-人口普查-数据可视化-约750行（Pyecharts可视化、数据分析）/data/各地区人口年龄构成.csv",
+      "sha256": "ab4bdab96f351ac920e48f2467cfad4f0d7aa97c10c23fabce16003ca173734e",
+      "role": "data"
+    },
+    {
+      "path": "社会科学-人口普查-数据可视化-约750行（Pyecharts可视化、数据分析）/data/各地区性别构成.csv",
+      "sha256": "2d70917d4b26bb515186d140625a24c68c3a4cd35e01000c3c56c456ab98e750",
+      "role": "data"
+    },
+    {
+      "path": "社会科学-人口普查-数据可视化-约750行（Pyecharts可视化、数据分析）/data/各地区每10万人口中拥有的各类受教育程度人数.csv",
+      "sha256": "5f06777bf301ef73779f5173ad08f5900bef85ad6e01613a7e05132a316a9c91",
+      "role": "data"
+    },
+    {
+      "path": "社会科学-人口普查-数据可视化-约750行（Pyecharts可视化、数据分析）/第七次全国人口普查-数据可视化.html",
+      "sha256": "89777ddfcd095d05856838dd44a4703d4e598c42e04e35ab63ca5365043e3b96",
+      "role": "output"
+    },
+    {
+      "path": "社会科学-人口普查-数据可视化-约750行（Pyecharts可视化、数据分析）/第七次全国人口普查-数据可视化.ipynb",
+      "sha256": "d8dbf08ea73d90493c2aa06cc84d7d444946929d426fdf078da098266e85bcc6",
+      "role": "code"
+    },
+    {
+      "path": "社会科学-人口普查-数据可视化-约750行（Pyecharts可视化、数据分析）/第七次全国人口普查-数据可视化.py",
+      "sha256": "7c73df2a24115c3089a9d99819b2c14472a5fdc2088d52c76b9fefaad92beca5",
+      "role": "code"
+    }
+  ],
+  "limitations": [
+    "6份CSV含说明行，默认读取行数不等于有效省份数；部分概览为原文/硬编码值，不能伪称由CSV计算；3D地图系列名写GDP但值为人口；性别总量不能推算必然单身人数；65+是60+子集不可重复堆叠。"
+  ],
+  "lessons": [
+    {
+      "id": "main-analysis",
+      "title": "第七次全国人口普查-数据可视化",
+      "source": "社会科学-人口普查-数据可视化-约750行（Pyecharts可视化、数据分析）/第七次全国人口普查-数据可视化.ipynb"
+    }
+  ],
+  "readiness": {
+    "source": "audited",
+    "course": "not-adapted",
+    "rerun": "not-run",
+    "offline": "not-packaged"
+  },
+  "detailRef": "projects/P25/project.json",
+  "searchKeywords": [
+    "辨认说明行",
+    "重建真实字段",
+    "核对人数和单位",
+    "比较2010/2020占比",
+    "分省年龄性别教育",
+    "追踪硬编码概览",
+    "审查不当推论"
+  ],
+  "prerequisites": "比例、CSV非标准表头、分组统计、地图读法。",
+  "recommendedProjectIds": [
+    "P27"
+  ],
+  "recommendationNote": "P27。",
+  "schemaVersion": "1.0",
+  "contentVersion": "0.2.0",
+  "learningObjectives": [
+    "整理第七次人口普查表格并展示地区人口结构。 重点掌握Pandas、Pyecharts、地图、条形图、比例图、数据清洗。",
+    "辨认说明行",
+    "重建真实字段",
+    "核对人数和单位",
+    "比较2010/2020占比",
+    "分省年龄性别教育",
+    "追踪硬编码概览",
+    "审查不当推论"
+  ],
+  "exercise": {
+    "text": "识别60+与65+重叠；把GDP错标签修正列入改编稿而非修改原稿。",
+    "provenance": "已批准路线中新设计的巩固练习；非原文件已有试题",
+    "answerStatus": "参考答案尚未制作"
+  },
+  "datasets": [
+    {
+      "id": "D01-1",
+      "path": "社会科学-人口普查-数据可视化-约750行（Pyecharts可视化、数据分析）/data/全国人口年龄构成.csv",
+      "sha256": "55abc6661dbfcc66fe0d69563ecb794b6e34447c36d272f680073391e68e6a15",
+      "sheet": null,
+      "rows": 6,
+      "columns": 3,
+      "encoding": "utf-8-sig",
+      "grain": "待核实；读取行数不等于独立业务实体数",
+      "origin": null,
+      "license": null,
+      "fields": [
+        {
+          "name": "全国人口年龄构成",
+          "dtype": "str",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P25 / 社会科学-人口普查-数据可视化-约750行（Pyecharts可视化、数据分析）/data/全国人口年龄构成.csv"
+        },
+        {
+          "name": "Unnamed: 1",
+          "dtype": "str",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P25 / 社会科学-人口普查-数据可视化-约750行（Pyecharts可视化、数据分析）/data/全国人口年龄构成.csv"
+        },
+        {
+          "name": "Unnamed: 2",
+          "dtype": "str",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P25 / 社会科学-人口普查-数据可视化-约750行（Pyecharts可视化、数据分析）/data/全国人口年龄构成.csv"
+        }
+      ],
+      "teachingMappings": [
+        {
+          "source": "社会科学-人口普查-数据可视化-约750行（Pyecharts可视化、数据分析）/第七次全国人口普查-数据可视化.ipynb",
+          "cell": 4,
+          "code": "\ndf = pd.read_csv('./data/各地区人口.csv', usecols=['各地区人口', 'Unnamed: 1'])\ndf.drop(labels=[0, 1], axis=0, inplace=True)\ndf.rename(columns={'Unnamed: 1':'人口数', '各地区人口':'地区'}, inplace=True)\n\ndictcode = {'北京': '北京市',\n '天津': '天津市',\n '河北': '河北省',\n '山西': '山西省',\n '内蒙古': '内蒙古自治区',\n '辽宁': '辽宁省',\n '吉林': '吉林省',\n '黑龙江': '黑龙江省',\n '上海': '上海市',\n '江苏': '江苏省',\n '浙江': '浙江省',\n '安徽': '安徽省',\n '福建': '福建省',\n '江西': '江西省',\n '山东': '山东省',\n '河南': '河南省',\n '湖北': '湖北省',\n '湖南': '湖南省',\n '广东': '广东省',\n '广西': '广西壮族自治区',\n '海南': '海南省',\n '重庆': '重庆市',\n '四川': '四川省',\n '贵州': '贵州省',\n '云南': '云南省',\n '西藏': '西藏自治区',\n '陕西': '陕西省',\n '甘肃': '甘肃省',\n '青海': '青海省',\n '宁夏': '宁夏回族自治区',\n '新疆': '新疆维吾尔自治区'}\n\ncoord = {\n    '湖北': [114.31667, 30.51667],\n    '广东': [113.23333, 23.16667],",
+          "inputFields": [],
+          "outputFields": [],
+          "note": "原代码读取/清洗映射参考；本阶段未执行，不代表已生成清洗表，类型与缺失数不从物理表继承。"
+        }
+      ]
+    },
+    {
+      "id": "D02-1",
+      "path": "社会科学-人口普查-数据可视化-约750行（Pyecharts可视化、数据分析）/data/各地区15岁及以上人口平均受教育年限.csv",
+      "sha256": "d438f7270713be4b25b5bb0ffbf11086c1e6e93fb15f0df73f267a22acf063f1",
+      "sheet": null,
+      "rows": 33,
+      "columns": 3,
+      "encoding": "utf-8-sig",
+      "grain": "待核实；读取行数不等于独立业务实体数",
+      "origin": null,
+      "license": null,
+      "fields": [
+        {
+          "name": "各地区 15 岁及以上人口平均受教育年限",
+          "dtype": "str",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P25 / 社会科学-人口普查-数据可视化-约750行（Pyecharts可视化、数据分析）/data/各地区15岁及以上人口平均受教育年限.csv"
+        },
+        {
+          "name": "Unnamed: 1",
+          "dtype": "str",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P25 / 社会科学-人口普查-数据可视化-约750行（Pyecharts可视化、数据分析）/data/各地区15岁及以上人口平均受教育年限.csv"
+        },
+        {
+          "name": "Unnamed: 2",
+          "dtype": "str",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P25 / 社会科学-人口普查-数据可视化-约750行（Pyecharts可视化、数据分析）/data/各地区15岁及以上人口平均受教育年限.csv"
+        }
+      ],
+      "teachingMappings": []
+    },
+    {
+      "id": "D03-1",
+      "path": "社会科学-人口普查-数据可视化-约750行（Pyecharts可视化、数据分析）/data/各地区人口.csv",
+      "sha256": "e54df53ebcf223d5932943a9ad53b66df3d6d6798d2ee47333b0777236510bd2",
+      "sheet": null,
+      "rows": 35,
+      "columns": 4,
+      "encoding": "utf-8-sig",
+      "grain": "待核实；读取行数不等于独立业务实体数",
+      "origin": null,
+      "license": null,
+      "fields": [
+        {
+          "name": "各地区人口",
+          "dtype": "str",
+          "missing": 1,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P25 / 社会科学-人口普查-数据可视化-约750行（Pyecharts可视化、数据分析）/data/各地区人口.csv"
+        },
+        {
+          "name": "Unnamed: 1",
+          "dtype": "str",
+          "missing": 1,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P25 / 社会科学-人口普查-数据可视化-约750行（Pyecharts可视化、数据分析）/data/各地区人口.csv"
+        },
+        {
+          "name": "Unnamed: 2",
+          "dtype": "str",
+          "missing": 1,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P25 / 社会科学-人口普查-数据可视化-约750行（Pyecharts可视化、数据分析）/data/各地区人口.csv"
+        },
+        {
+          "name": "Unnamed: 3",
+          "dtype": "str",
+          "missing": 2,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P25 / 社会科学-人口普查-数据可视化-约750行（Pyecharts可视化、数据分析）/data/各地区人口.csv"
+        }
+      ],
+      "teachingMappings": [
+        {
+          "source": "社会科学-人口普查-数据可视化-约750行（Pyecharts可视化、数据分析）/第七次全国人口普查-数据可视化.ipynb",
+          "cell": 4,
+          "code": "\ndf = pd.read_csv('./data/各地区人口.csv', usecols=['各地区人口', 'Unnamed: 1'])\ndf.drop(labels=[0, 1], axis=0, inplace=True)\ndf.rename(columns={'Unnamed: 1':'人口数', '各地区人口':'地区'}, inplace=True)\n\ndictcode = {'北京': '北京市',\n '天津': '天津市',\n '河北': '河北省',\n '山西': '山西省',\n '内蒙古': '内蒙古自治区',\n '辽宁': '辽宁省',\n '吉林': '吉林省',\n '黑龙江': '黑龙江省',\n '上海': '上海市',\n '江苏': '江苏省',\n '浙江': '浙江省',\n '安徽': '安徽省',\n '福建': '福建省',\n '江西': '江西省',\n '山东': '山东省',\n '河南': '河南省',\n '湖北': '湖北省',\n '湖南': '湖南省',\n '广东': '广东省',\n '广西': '广西壮族自治区',\n '海南': '海南省',\n '重庆': '重庆市',\n '四川': '四川省',\n '贵州': '贵州省',\n '云南': '云南省',\n '西藏': '西藏自治区',\n '陕西': '陕西省',\n '甘肃': '甘肃省',\n '青海': '青海省',\n '宁夏': '宁夏回族自治区',\n '新疆': '新疆维吾尔自治区'}\n\ncoord = {\n    '湖北': [114.31667, 30.51667],\n    '广东': [113.23333, 23.16667],",
+          "inputFields": [],
+          "outputFields": [],
+          "note": "原代码读取/清洗映射参考；本阶段未执行，不代表已生成清洗表，类型与缺失数不从物理表继承。"
+        },
+        {
+          "source": "社会科学-人口普查-数据可视化-约750行（Pyecharts可视化、数据分析）/第七次全国人口普查-数据可视化.ipynb",
+          "cell": 8,
+          "code": "df = pd.read_csv('./data/各地区人口.csv')\ndf.drop(labels=[0, 1, 2, 34], axis=0, inplace=True)\ndf.columns = ['地区', '人口数', '2020年占比', '2010年占比']\ndf['2020年占比'] = df['2020年占比'].astype('float')\ndf['2010年占比'] = df['2010年占比'].astype('float')\ndf['占比变化'] = df['2020年占比'] - df['2010年占比']\n\ndata_pair = []\nfor idx, row in df.iterrows():\n    data_pair.append([dictcode[row['地区'].replace(' ', '')], round(row['占比变化'], 2)])",
+          "inputFields": [],
+          "outputFields": [
+            "地区",
+            "人口数",
+            "2020年占比",
+            "2010年占比"
+          ],
+          "note": "原代码读取/清洗映射参考；本阶段未执行，不代表已生成清洗表，类型与缺失数不从物理表继承。"
+        }
+      ]
+    },
+    {
+      "id": "D04-1",
+      "path": "社会科学-人口普查-数据可视化-约750行（Pyecharts可视化、数据分析）/data/各地区人口年龄构成.csv",
+      "sha256": "ab4bdab96f351ac920e48f2467cfad4f0d7aa97c10c23fabce16003ca173734e",
+      "sheet": null,
+      "rows": 34,
+      "columns": 5,
+      "encoding": "utf-8-sig",
+      "grain": "待核实；读取行数不等于独立业务实体数",
+      "origin": null,
+      "license": null,
+      "fields": [
+        {
+          "name": "各地区人口年龄构成",
+          "dtype": "str",
+          "missing": 1,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P25 / 社会科学-人口普查-数据可视化-约750行（Pyecharts可视化、数据分析）/data/各地区人口年龄构成.csv"
+        },
+        {
+          "name": "Unnamed: 1",
+          "dtype": "str",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P25 / 社会科学-人口普查-数据可视化-约750行（Pyecharts可视化、数据分析）/data/各地区人口年龄构成.csv"
+        },
+        {
+          "name": "Unnamed: 2",
+          "dtype": "str",
+          "missing": 1,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P25 / 社会科学-人口普查-数据可视化-约750行（Pyecharts可视化、数据分析）/data/各地区人口年龄构成.csv"
+        },
+        {
+          "name": "Unnamed: 3",
+          "dtype": "str",
+          "missing": 1,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P25 / 社会科学-人口普查-数据可视化-约750行（Pyecharts可视化、数据分析）/data/各地区人口年龄构成.csv"
+        },
+        {
+          "name": "Unnamed: 4",
+          "dtype": "str",
+          "missing": 1,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P25 / 社会科学-人口普查-数据可视化-约750行（Pyecharts可视化、数据分析）/data/各地区人口年龄构成.csv"
+        }
+      ],
+      "teachingMappings": [
+        {
+          "source": "社会科学-人口普查-数据可视化-约750行（Pyecharts可视化、数据分析）/第七次全国人口普查-数据可视化.ipynb",
+          "cell": 11,
+          "code": "df = pd.read_csv('./data/各地区人口年龄构成.csv')\ndf.drop(labels=[0, 1], axis=0, inplace=True)\ndf.columns = ['地区', '0—14岁',\t'15—59岁',\t'60岁及以上', '其中65岁及以上']\ndf['0—14岁'] = df['0—14岁'].astype('float')\ndf['15—59岁'] = df['15—59岁'].astype('float')\ndf['60岁及以上'] = df['60岁及以上'].astype('float')",
+          "inputFields": [],
+          "outputFields": [
+            "地区",
+            "0—14岁",
+            "15—59岁",
+            "60岁及以上",
+            "其中65岁及以上"
+          ],
+          "note": "原代码读取/清洗映射参考；本阶段未执行，不代表已生成清洗表，类型与缺失数不从物理表继承。"
+        }
+      ]
+    },
+    {
+      "id": "D05-1",
+      "path": "社会科学-人口普查-数据可视化-约750行（Pyecharts可视化、数据分析）/data/各地区性别构成.csv",
+      "sha256": "2d70917d4b26bb515186d140625a24c68c3a4cd35e01000c3c56c456ab98e750",
+      "sheet": null,
+      "rows": 34,
+      "columns": 4,
+      "encoding": "utf-8-sig",
+      "grain": "待核实；读取行数不等于独立业务实体数",
+      "origin": null,
+      "license": null,
+      "fields": [
+        {
+          "name": "各地区人口性别构成",
+          "dtype": "str",
+          "missing": 1,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P25 / 社会科学-人口普查-数据可视化-约750行（Pyecharts可视化、数据分析）/data/各地区性别构成.csv"
+        },
+        {
+          "name": "Unnamed: 1",
+          "dtype": "str",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P25 / 社会科学-人口普查-数据可视化-约750行（Pyecharts可视化、数据分析）/data/各地区性别构成.csv"
+        },
+        {
+          "name": "Unnamed: 2",
+          "dtype": "str",
+          "missing": 1,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P25 / 社会科学-人口普查-数据可视化-约750行（Pyecharts可视化、数据分析）/data/各地区性别构成.csv"
+        },
+        {
+          "name": "Unnamed: 3",
+          "dtype": "str",
+          "missing": 1,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P25 / 社会科学-人口普查-数据可视化-约750行（Pyecharts可视化、数据分析）/data/各地区性别构成.csv"
+        }
+      ],
+      "teachingMappings": [
+        {
+          "source": "社会科学-人口普查-数据可视化-约750行（Pyecharts可视化、数据分析）/第七次全国人口普查-数据可视化.ipynb",
+          "cell": 4,
+          "code": "\ndf = pd.read_csv('./data/各地区人口.csv', usecols=['各地区人口', 'Unnamed: 1'])\ndf.drop(labels=[0, 1], axis=0, inplace=True)\ndf.rename(columns={'Unnamed: 1':'人口数', '各地区人口':'地区'}, inplace=True)\n\ndictcode = {'北京': '北京市',\n '天津': '天津市',\n '河北': '河北省',\n '山西': '山西省',\n '内蒙古': '内蒙古自治区',\n '辽宁': '辽宁省',\n '吉林': '吉林省',\n '黑龙江': '黑龙江省',\n '上海': '上海市',\n '江苏': '江苏省',\n '浙江': '浙江省',\n '安徽': '安徽省',\n '福建': '福建省',\n '江西': '江西省',\n '山东': '山东省',\n '河南': '河南省',\n '湖北': '湖北省',\n '湖南': '湖南省',\n '广东': '广东省',\n '广西': '广西壮族自治区',\n '海南': '海南省',\n '重庆': '重庆市',\n '四川': '四川省',\n '贵州': '贵州省',\n '云南': '云南省',\n '西藏': '西藏自治区',\n '陕西': '陕西省',\n '甘肃': '甘肃省',\n '青海': '青海省',\n '宁夏': '宁夏回族自治区',\n '新疆': '新疆维吾尔自治区'}\n\ncoord = {\n    '湖北': [114.31667, 30.51667],\n    '广东': [113.23333, 23.16667],",
+          "inputFields": [],
+          "outputFields": [],
+          "note": "原代码读取/清洗映射参考；本阶段未执行，不代表已生成清洗表，类型与缺失数不从物理表继承。"
+        },
+        {
+          "source": "社会科学-人口普查-数据可视化-约750行（Pyecharts可视化、数据分析）/第七次全国人口普查-数据可视化.ipynb",
+          "cell": 15,
+          "code": "df = pd.read_csv('./data/各地区性别构成.csv')\ndf.drop(labels=[0, 1], axis=0, inplace=True)\ndf.columns = ['地区', '女',\t'男',\t'性别比']\ndf['男'] = df['男'].astype('float')\ndf['女'] = df['女'].astype('float')\ndf.sort_values(by='女', inplace=True)",
+          "inputFields": [],
+          "outputFields": [
+            "地区",
+            "女",
+            "男",
+            "性别比"
+          ],
+          "note": "原代码读取/清洗映射参考；本阶段未执行，不代表已生成清洗表，类型与缺失数不从物理表继承。"
+        }
+      ]
+    },
+    {
+      "id": "D06-1",
+      "path": "社会科学-人口普查-数据可视化-约750行（Pyecharts可视化、数据分析）/data/各地区每10万人口中拥有的各类受教育程度人数.csv",
+      "sha256": "5f06777bf301ef73779f5173ad08f5900bef85ad6e01613a7e05132a316a9c91",
+      "sheet": null,
+      "rows": 33,
+      "columns": 5,
+      "encoding": "utf-8-sig",
+      "grain": "待核实；读取行数不等于独立业务实体数",
+      "origin": null,
+      "license": null,
+      "fields": [
+        {
+          "name": "各地区每 10 万人口中拥有的各类受教育程度人数",
+          "dtype": "str",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P25 / 社会科学-人口普查-数据可视化-约750行（Pyecharts可视化、数据分析）/data/各地区每10万人口中拥有的各类受教育程度人数.csv"
+        },
+        {
+          "name": "Unnamed: 1",
+          "dtype": "str",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P25 / 社会科学-人口普查-数据可视化-约750行（Pyecharts可视化、数据分析）/data/各地区每10万人口中拥有的各类受教育程度人数.csv"
+        },
+        {
+          "name": "Unnamed: 2",
+          "dtype": "str",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P25 / 社会科学-人口普查-数据可视化-约750行（Pyecharts可视化、数据分析）/data/各地区每10万人口中拥有的各类受教育程度人数.csv"
+        },
+        {
+          "name": "Unnamed: 3",
+          "dtype": "str",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P25 / 社会科学-人口普查-数据可视化-约750行（Pyecharts可视化、数据分析）/data/各地区每10万人口中拥有的各类受教育程度人数.csv"
+        },
+        {
+          "name": "Unnamed: 4",
+          "dtype": "str",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P25 / 社会科学-人口普查-数据可视化-约750行（Pyecharts可视化、数据分析）/data/各地区每10万人口中拥有的各类受教育程度人数.csv"
+        }
+      ],
+      "teachingMappings": [
+        {
+          "source": "社会科学-人口普查-数据可视化-约750行（Pyecharts可视化、数据分析）/第七次全国人口普查-数据可视化.ipynb",
+          "cell": 4,
+          "code": "\ndf = pd.read_csv('./data/各地区人口.csv', usecols=['各地区人口', 'Unnamed: 1'])\ndf.drop(labels=[0, 1], axis=0, inplace=True)\ndf.rename(columns={'Unnamed: 1':'人口数', '各地区人口':'地区'}, inplace=True)\n\ndictcode = {'北京': '北京市',\n '天津': '天津市',\n '河北': '河北省',\n '山西': '山西省',\n '内蒙古': '内蒙古自治区',\n '辽宁': '辽宁省',\n '吉林': '吉林省',\n '黑龙江': '黑龙江省',\n '上海': '上海市',\n '江苏': '江苏省',\n '浙江': '浙江省',\n '安徽': '安徽省',\n '福建': '福建省',\n '江西': '江西省',\n '山东': '山东省',\n '河南': '河南省',\n '湖北': '湖北省',\n '湖南': '湖南省',\n '广东': '广东省',\n '广西': '广西壮族自治区',\n '海南': '海南省',\n '重庆': '重庆市',\n '四川': '四川省',\n '贵州': '贵州省',\n '云南': '云南省',\n '西藏': '西藏自治区',\n '陕西': '陕西省',\n '甘肃': '甘肃省',\n '青海': '青海省',\n '宁夏': '宁夏回族自治区',\n '新疆': '新疆维吾尔自治区'}\n\ncoord = {\n    '湖北': [114.31667, 30.51667],\n    '广东': [113.23333, 23.16667],",
+          "inputFields": [],
+          "outputFields": [],
+          "note": "原代码读取/清洗映射参考；本阶段未执行，不代表已生成清洗表，类型与缺失数不从物理表继承。"
+        },
+        {
+          "source": "社会科学-人口普查-数据可视化-约750行（Pyecharts可视化、数据分析）/第七次全国人口普查-数据可视化.ipynb",
+          "cell": 18,
+          "code": "df = pd.read_csv('./data/各地区每10万人口中拥有的各类受教育程度人数.csv')\ndf.drop(labels=[0, 1], axis=0, inplace=True)\ndf.columns = ['地区', '大学', '高中',\t'初中', '小学']\ndf['大学'] = df['大学'].astype('int') / 1e3\ndf['高中'] = df['高中'].astype('int') / 1e3\ndf['初中'] = df['初中'].astype('int') / 1e3\ndf['小学'] = df['小学'].astype('int') / 1e3\ndf['其他'] = 100-df['大学'] - df['高中'] - df['初中'] - df['小学']\ndf.sort_values(by='大学', inplace=True)",
+          "inputFields": [],
+          "outputFields": [
+            "地区",
+            "大学",
+            "高中",
+            "初中",
+            "小学"
+          ],
+          "note": "原代码读取/清洗映射参考；本阶段未执行，不代表已生成清洗表，类型与缺失数不从物理表继承。"
+        }
+      ]
+    }
+  ],
+  "scopeNotes": [
+    "与另一人口项目共享6份普查CSV，保留独立项目和原代码。物理表头、读取缺失与原代码清洗映射分区展示；未执行清洗，不编造清洗后统计。"
+  ],
+  "originalWorkflow": "人口概览→省份占比变化→年龄构成→性别构成→教育分布。",
+  "savedResult": "保存全国和分省人口结构图，原文对广东和东北人口占比变化作描述。",
+  "sourceEvidence": [
+    "01_项目资产盘点.md#P25",
+    "03_完整学习路线.md#P25",
+    "附录B_全数据字段与缺失字典.md#P25"
+  ]
+}

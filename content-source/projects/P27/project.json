@@ -1,0 +1,156 @@
+{
+  "id": "P27",
+  "title": "婚姻状况分析",
+  "originalNames": [
+    "社会科学-婚姻状况分析-约200行（plotly可视化、数据分析）",
+    "婚姻状况分析.ipynb"
+  ],
+  "categoryId": "society",
+  "summary": "用三次普查婚姻状态样本理解年龄性别与婚姻结构变化。",
+  "difficulty": "入门",
+  "skillTags": [
+    "Pandas",
+    "Plotly",
+    "groupby",
+    "merge",
+    "pivot",
+    "比例",
+    "交互图"
+  ],
+  "methods": "没有预测模型",
+  "sourceRefs": [
+    {
+      "path": "社会科学-婚姻状况分析-约200行（plotly可视化、数据分析）/.ipynb_checkpoints/婚姻状况分析-checkpoint.ipynb",
+      "sha256": "fa44b9dec0d390587ba511eb17e693b4994a0dd7ff3a73457f432972a567addd",
+      "role": "code"
+    },
+    {
+      "path": "社会科学-婚姻状况分析-约200行（plotly可视化、数据分析）/人口普查婚姻状态2000-2020.csv",
+      "sha256": "c849d4f2cc59db77a1d73b79e670cd4cb95b5e1c6c4b513d5da475f3ddbe2049",
+      "role": "data"
+    },
+    {
+      "path": "社会科学-婚姻状况分析-约200行（plotly可视化、数据分析）/婚姻状况分析.html",
+      "sha256": "723761172e9124d21991d7bfc040295640b3f059f48ba17bcf1098c7caa7b013",
+      "role": "output"
+    },
+    {
+      "path": "社会科学-婚姻状况分析-约200行（plotly可视化、数据分析）/婚姻状况分析.ipynb",
+      "sha256": "fa44b9dec0d390587ba511eb17e693b4994a0dd7ff3a73457f432972a567addd",
+      "role": "code"
+    }
+  ],
+  "limitations": [
+    "是抽样横截面状态，不是每年离婚发生率或个人结婚年龄追踪；只能表述样本/普查截面变化；有总体比例读数与年龄范围解释风险。"
+  ],
+  "lessons": [
+    {
+      "id": "main-analysis",
+      "title": "婚姻状况分析",
+      "source": "社会科学-婚姻状况分析-约200行（plotly可视化、数据分析）/婚姻状况分析.ipynb"
+    }
+  ],
+  "readiness": {
+    "source": "audited",
+    "course": "not-adapted",
+    "rerun": "not-run",
+    "offline": "not-packaged"
+  },
+  "detailRef": "projects/P27/project.json",
+  "searchKeywords": [
+    "看懂1224行记录",
+    "计算同年龄性别分母",
+    "2020结构",
+    "对比未婚曲线",
+    "切换2000/2010/2020",
+    "解读离婚与丧偶状态",
+    "写横截面结论"
+  ],
+  "prerequisites": "Pandas分组、merge、百分比、图轴阅读。",
+  "recommendedProjectIds": [
+    "P21"
+  ],
+  "recommendationNote": "P21。",
+  "schemaVersion": "1.0",
+  "contentVersion": "0.2.0",
+  "learningObjectives": [
+    "用三次普查婚姻状态样本理解年龄性别与婚姻结构变化。 重点掌握Pandas、Plotly、groupby、merge、pivot、比例、交互图。",
+    "看懂1224行记录",
+    "计算同年龄性别分母",
+    "2020结构",
+    "对比未婚曲线",
+    "切换2000/2010/2020",
+    "解读离婚与丧偶状态",
+    "写横截面结论"
+  ],
+  "exercise": {
+    "text": "比较状态占比与事件率；解释为什么不能推算同一人的婚姻轨迹。",
+    "provenance": "已批准路线中新设计的巩固练习；非原文件已有试题",
+    "answerStatus": "参考答案尚未制作"
+  },
+  "datasets": [
+    {
+      "id": "D01-1",
+      "path": "社会科学-婚姻状况分析-约200行（plotly可视化、数据分析）/人口普查婚姻状态2000-2020.csv",
+      "sha256": "c849d4f2cc59db77a1d73b79e670cd4cb95b5e1c6c4b513d5da475f3ddbe2049",
+      "sheet": null,
+      "rows": 1224,
+      "columns": 5,
+      "encoding": "utf-8-sig",
+      "grain": "待核实；读取行数不等于独立业务实体数",
+      "origin": null,
+      "license": null,
+      "fields": [
+        {
+          "name": "age",
+          "dtype": "str",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P27 / 社会科学-婚姻状况分析-约200行（plotly可视化、数据分析）/人口普查婚姻状态2000-2020.csv"
+        },
+        {
+          "name": "pop",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P27 / 社会科学-婚姻状况分析-约200行（plotly可视化、数据分析）/人口普查婚姻状态2000-2020.csv"
+        },
+        {
+          "name": "state",
+          "dtype": "str",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P27 / 社会科学-婚姻状况分析-约200行（plotly可视化、数据分析）/人口普查婚姻状态2000-2020.csv"
+        },
+        {
+          "name": "gender",
+          "dtype": "str",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P27 / 社会科学-婚姻状况分析-约200行（plotly可视化、数据分析）/人口普查婚姻状态2000-2020.csv"
+        },
+        {
+          "name": "record_year",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P27 / 社会科学-婚姻状况分析-约200行（plotly可视化、数据分析）/人口普查婚姻状态2000-2020.csv"
+        }
+      ],
+      "teachingMappings": []
+    }
+  ],
+  "scopeNotes": [],
+  "originalWorkflow": "条件分母→婚姻状态概览→未婚曲线→历次普查比较→性别比→离婚丧偶。",
+  "savedResult": "原保存25岁女性未婚比例由2000约18%到2020约53%的样本描述，并有状态与年龄曲线。",
+  "sourceEvidence": [
+    "01_项目资产盘点.md#P27",
+    "03_完整学习路线.md#P27",
+    "附录B_全数据字段与缺失字典.md#P27"
+  ]
+}

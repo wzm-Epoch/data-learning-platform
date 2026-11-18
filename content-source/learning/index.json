@@ -1,0 +1,2316 @@
+{
+  "schemaVersion": "1.0",
+  "contentVersion": "0.6.0",
+  "projects": [
+    {
+      "id": "P01",
+      "lessons": [
+        {
+          "id": "main-analysis",
+          "title": "信用卡欺诈交易预测",
+          "status": "ready",
+          "ref": "learning/projects/P01/main-analysis.json",
+          "steps": [
+            {
+              "id": "source-004-005",
+              "title": "项目介绍 · 单元4—5",
+              "status": "ready"
+            },
+            {
+              "id": "source-007-008",
+              "title": "EDA 数据探索 · 单元7—8",
+              "status": "ready"
+            },
+            {
+              "id": "source-010-010",
+              "title": "缺失值检查 · 单元10—10",
+              "status": "ready"
+            },
+            {
+              "id": "source-012-014",
+              "title": "交易类别分布 · 单元12—14",
+              "status": "ready"
+            },
+            {
+              "id": "source-017-020",
+              "title": "探索交易时间分布 · 单元17—20",
+              "status": "ready"
+            },
+            {
+              "id": "source-023-024",
+              "title": "探索交易金额分布 · 单元23—24",
+              "status": "ready"
+            },
+            {
+              "id": "source-027-027",
+              "title": "探索交易时间与金额之间的分布关系 · 单元27—27",
+              "status": "ready"
+            },
+            {
+              "id": "source-029-029",
+              "title": "数据预处理 · 单元29—29",
+              "status": "ready"
+            },
+            {
+              "id": "source-033-034",
+              "title": "Step 1. 训练集与测试集切分 · 单元33—34",
+              "status": "ready"
+            },
+            {
+              "id": "source-038-041",
+              "title": "Step 2. 对训练数据进行样本平衡 · 单元38—41",
+              "status": "ready"
+            },
+            {
+              "id": "source-043-043",
+              "title": "建模与模型评估 · 单元43—43",
+              "status": "ready"
+            },
+            {
+              "id": "source-045-047",
+              "title": "LR建模 · 单元45—47",
+              "status": "ready"
+            },
+            {
+              "id": "source-050-052",
+              "title": "原始数据集调整类别权重参数后建模效果 · 单元50—52",
+              "status": "ready"
+            },
+            {
+              "id": "source-054-056",
+              "title": "绘制混淆矩阵 · 单元54—56",
+              "status": "ready"
+            },
+            {
+              "id": "source-058-061",
+              "title": "决策树建模 · 单元58—61",
+              "status": "ready"
+            },
+            {
+              "id": "source-064-065",
+              "title": "绘制决策树 · 单元64—65",
+              "status": "ready"
+            },
+            {
+              "id": "source-068-068",
+              "title": "分类器效果对比 · 单元68—68",
+              "status": "ready"
+            },
+            {
+              "id": "phase4-data",
+              "title": "真实数据实验 · 信用卡欺诈交易预测",
+              "status": "ready"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "P02",
+      "lessons": [
+        {
+          "id": "main-analysis",
+          "title": "自行车租赁数量预测",
+          "status": "ready",
+          "ref": "learning/projects/P02/main-analysis.json",
+          "steps": [
+            {
+              "id": "source-006-011",
+              "title": "数据理解 · 单元6—11",
+              "status": "ready"
+            },
+            {
+              "id": "source-013-015",
+              "title": "数据理解 · 单元13—15",
+              "status": "ready"
+            },
+            {
+              "id": "source-017-019",
+              "title": "数据预处理 · 单元17—19",
+              "status": "ready"
+            },
+            {
+              "id": "source-021-025",
+              "title": "日期处理 · 单元21—25",
+              "status": "ready"
+            },
+            {
+              "id": "source-027-027",
+              "title": "缺失值处理 · 单元27—27",
+              "status": "ready"
+            },
+            {
+              "id": "source-030-036",
+              "title": "异常值处理 · 单元30—36",
+              "status": "ready"
+            },
+            {
+              "id": "source-038-041",
+              "title": "异常值处理 · 单元38—41",
+              "status": "ready"
+            },
+            {
+              "id": "source-043-047",
+              "title": "使用支持向量机和随机森林分别建模 · 单元43—47",
+              "status": "ready"
+            },
+            {
+              "id": "source-048-053",
+              "title": "使用支持向量机和随机森林分别建模 · 单元48—53",
+              "status": "ready"
+            },
+            {
+              "id": "source-054-056",
+              "title": "使用支持向量机和随机森林分别建模 · 单元54—56",
+              "status": "ready"
+            },
+            {
+              "id": "phase4-data",
+              "title": "真实数据实验 · 自行车租赁数量预测",
+              "status": "ready"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "P03",
+      "lessons": [
+        {
+          "id": "main-analysis",
+          "title": "航空公司客户价值分析",
+          "status": "ready",
+          "ref": "learning/projects/P03/main-analysis.json",
+          "steps": [
+            {
+              "id": "source-005-006",
+              "title": "1.对数据进行基本的探索 · 单元5—6",
+              "status": "ready"
+            },
+            {
+              "id": "source-008-009",
+              "title": "2.数据清洗 · 单元8—9",
+              "status": "ready"
+            },
+            {
+              "id": "source-011-012",
+              "title": "属性规约 · 单元11—12",
+              "status": "ready"
+            },
+            {
+              "id": "source-014-015",
+              "title": "3.数据变换 · 单元14—15",
+              "status": "ready"
+            },
+            {
+              "id": "source-017-018",
+              "title": "4、聚类分析 · 单元17—18",
+              "status": "ready"
+            },
+            {
+              "id": "source-021-022",
+              "title": "5、客户价值分析 · 单元21—22",
+              "status": "ready"
+            },
+            {
+              "id": "phase4-data",
+              "title": "真实数据实验 · 航空公司客户价值分析",
+              "status": "ready"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "P04",
+      "lessons": [
+        {
+          "id": "main-analysis",
+          "title": "全球酒店预订分析与预测",
+          "status": "ready",
+          "ref": "learning/projects/P04/main-analysis.json",
+          "steps": [
+            {
+              "id": "source-004-008",
+              "title": "1. 探索数据 · 单元4—8",
+              "status": "ready"
+            },
+            {
+              "id": "source-009-009",
+              "title": "1. 探索数据 · 单元9—9",
+              "status": "ready"
+            },
+            {
+              "id": "source-012-013",
+              "title": "2.1酒店预订量和取消量 · 单元12—13",
+              "status": "ready"
+            },
+            {
+              "id": "source-016-017",
+              "title": "2.2酒店各月份预订量 · 单元16—17",
+              "status": "ready"
+            },
+            {
+              "id": "source-019-020",
+              "title": "2.3客源地与预订取消率 · 单元19—20",
+              "status": "ready"
+            },
+            {
+              "id": "source-023-023",
+              "title": "2.4客户类型 · 单元23—23",
+              "status": "ready"
+            },
+            {
+              "id": "source-026-026",
+              "title": "2.5酒店预订途径 · 单元26—26",
+              "status": "ready"
+            },
+            {
+              "id": "source-029-029",
+              "title": "2.6各类旅客日均开销 · 单元29—29",
+              "status": "ready"
+            },
+            {
+              "id": "source-032-033",
+              "title": "2.7新老客数量与取消预订率 · 单元32—33",
+              "status": "ready"
+            },
+            {
+              "id": "source-036-037",
+              "title": "2.8押金方式与预定取消率 · 单元36—37",
+              "status": "ready"
+            },
+            {
+              "id": "source-040-041",
+              "title": "2.9房间类型与预定取消量 · 单元40—41",
+              "status": "ready"
+            },
+            {
+              "id": "source-047-047",
+              "title": "3.数据预处理 · 单元47—47",
+              "status": "ready"
+            },
+            {
+              "id": "source-049-053",
+              "title": "3.1处理分类型变量 · 单元49—53",
+              "status": "ready"
+            },
+            {
+              "id": "source-054-058",
+              "title": "3.1处理分类型变量 · 单元54—58",
+              "status": "ready"
+            },
+            {
+              "id": "source-060-060",
+              "title": "3.1处理分类型变量 · 单元60—60",
+              "status": "ready"
+            },
+            {
+              "id": "source-062-065",
+              "title": "3.2处理连续型变量 · 单元62—65",
+              "status": "ready"
+            },
+            {
+              "id": "source-067-070",
+              "title": "3.3各变量的相关性系数 · 单元67—70",
+              "status": "ready"
+            },
+            {
+              "id": "source-072-072",
+              "title": "4建模预测 · 单元72—72",
+              "status": "ready"
+            },
+            {
+              "id": "source-074-075",
+              "title": "4.1随机森林 · 单元74—75",
+              "status": "ready"
+            },
+            {
+              "id": "source-078-080",
+              "title": "4.2XGBoost · 单元78—80",
+              "status": "ready"
+            },
+            {
+              "id": "source-082-083",
+              "title": "4.3逻辑回归 · 单元82—83",
+              "status": "ready"
+            },
+            {
+              "id": "source-085-086",
+              "title": "4.5小结 · 单元85—86",
+              "status": "ready"
+            },
+            {
+              "id": "phase4-data",
+              "title": "真实数据实验 · 全球酒店预订分析与预测",
+              "status": "ready"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "P05",
+      "lessons": [
+        {
+          "id": "main-analysis",
+          "title": "旅游景点",
+          "status": "ready",
+          "ref": "learning/projects/P05/main-analysis.json",
+          "steps": [
+            {
+              "id": "source-004-004",
+              "title": "1. 导入模块 · 单元4—4",
+              "status": "ready"
+            },
+            {
+              "id": "source-007-007",
+              "title": "2.1 读取数据 · 单元7—7",
+              "status": "ready"
+            },
+            {
+              "id": "source-009-009",
+              "title": "2.2 查看索引、数据类型和内存信息 · 单元9—9",
+              "status": "ready"
+            },
+            {
+              "id": "source-011-011",
+              "title": "2.3 查看数值型列汇总统计 · 单元11—11",
+              "status": "ready"
+            },
+            {
+              "id": "source-013-013",
+              "title": "2.4 查看销量为0的行 · 单元13—13",
+              "status": "ready"
+            },
+            {
+              "id": "source-016-016",
+              "title": "2.5 去除销量为0的行数据 · 单元16—16",
+              "status": "ready"
+            },
+            {
+              "id": "source-019-019",
+              "title": "2.6 统计各列空值 · 单元19—19",
+              "status": "ready"
+            },
+            {
+              "id": "source-022-022",
+              "title": "2.7 将星级缺失值用‘未知’填充 · 单元22—22",
+              "status": "ready"
+            },
+            {
+              "id": "source-024-024",
+              "title": "2.8 也可以将所有缺失值都用‘未知’填充 · 单元24—24",
+              "status": "ready"
+            },
+            {
+              "id": "source-026-026",
+              "title": "2.9 按销量排序 · 单元26—26",
+              "status": "ready"
+            },
+            {
+              "id": "source-029-029",
+              "title": "3.1 销量前20热门景点数据 · 单元29—29",
+              "status": "ready"
+            },
+            {
+              "id": "source-031-032",
+              "title": "3.2 假期出行数据全国地图分布 · 单元31—32",
+              "status": "ready"
+            },
+            {
+              "id": "source-034-034",
+              "title": "3.3 各省市4A-5A景区数量柱状图 · 单元34—34",
+              "status": "ready"
+            },
+            {
+              "id": "source-036-036",
+              "title": "3.4 各省市4A-5A景区数量玫瑰图 · 单元36—36",
+              "status": "ready"
+            },
+            {
+              "id": "source-038-038",
+              "title": "3.5 各省市4A-5A景区数量阴影散点图 · 单元38—38",
+              "status": "ready"
+            },
+            {
+              "id": "source-040-040",
+              "title": "3.6 各省市4A-5A景区地图分布 · 单元40—40",
+              "status": "ready"
+            },
+            {
+              "id": "source-042-043",
+              "title": "3.7 门票价格区间占比玫瑰图 · 单元42—43",
+              "status": "ready"
+            },
+            {
+              "id": "source-045-045",
+              "title": "3.8 门票价格区间数量散点图 · 单元45—45",
+              "status": "ready"
+            },
+            {
+              "id": "source-047-047",
+              "title": "3.9 景点简介词云 · 单元47—47",
+              "status": "ready"
+            },
+            {
+              "id": "phase4-data",
+              "title": "真实数据实验 · 旅游景点",
+              "status": "ready"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "P06",
+      "lessons": [
+        {
+          "id": "main-analysis",
+          "title": "120年奥运会数据可视化",
+          "status": "ready",
+          "ref": "learning/projects/P06/main-analysis.json",
+          "steps": [
+            {
+              "id": "source-005-006",
+              "title": "导入库 & 数据 · 单元5—6",
+              "status": "ready"
+            },
+            {
+              "id": "source-008-009",
+              "title": "累计奖牌数 · 单元8—9",
+              "status": "ready"
+            },
+            {
+              "id": "source-011-011",
+              "title": "各国夏奥会累计奖牌数 · 单元11—11",
+              "status": "ready"
+            },
+            {
+              "id": "source-013-013",
+              "title": "各国冬奥会累计奖牌数 · 单元13—13",
+              "status": "ready"
+            },
+            {
+              "id": "source-015-015",
+              "title": "各项运动产生金牌数 · 单元15—15",
+              "status": "ready"
+            },
+            {
+              "id": "source-017-017",
+              "title": "运动员层面 · 单元17—17",
+              "status": "ready"
+            },
+            {
+              "id": "source-019-019",
+              "title": "历年女性运动员占比趋势 · 单元19—19",
+              "status": "ready"
+            },
+            {
+              "id": "source-021-021",
+              "title": "获得金牌最多的运动员 · 单元21—21",
+              "status": "ready"
+            },
+            {
+              "id": "source-023-023",
+              "title": "获得金牌/奖牌比例 · 单元23—23",
+              "status": "ready"
+            },
+            {
+              "id": "source-025-025",
+              "title": "运动员平均体质数据 · 单元25—25",
+              "status": "ready"
+            },
+            {
+              "id": "source-027-027",
+              "title": "🇨🇳中国奥运会表现 · 单元27—27",
+              "status": "ready"
+            },
+            {
+              "id": "source-029-029",
+              "title": "历届奥运会参赛人数 · 单元29—29",
+              "status": "ready"
+            },
+            {
+              "id": "source-031-031",
+              "title": "历届奥运会奖牌数 · 单元31—31",
+              "status": "ready"
+            },
+            {
+              "id": "source-033-033",
+              "title": "优势项目 · 单元33—33",
+              "status": "ready"
+            },
+            {
+              "id": "source-035-035",
+              "title": "🇺🇸美国奥运会表现 · 单元35—35",
+              "status": "ready"
+            },
+            {
+              "id": "source-037-037",
+              "title": "历届奥运会参加人数 · 单元37—37",
+              "status": "ready"
+            },
+            {
+              "id": "source-039-039",
+              "title": "历届奥运会获得奖牌数 · 单元39—39",
+              "status": "ready"
+            },
+            {
+              "id": "source-041-041",
+              "title": "优势项目 · 单元41—41",
+              "status": "ready"
+            },
+            {
+              "id": "source-043-043",
+              "title": "被单个国家统治的奥运会项目 · 单元43—43",
+              "status": "ready"
+            },
+            {
+              "id": "phase4-data",
+              "title": "真实数据实验 · 120年奥运会数据可视化",
+              "status": "ready"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "P07",
+      "lessons": [
+        {
+          "id": "main-analysis",
+          "title": "基于水色图像的水质评估",
+          "status": "ready",
+          "ref": "learning/projects/P07/main-analysis.json",
+          "steps": [
+            {
+              "id": "source-009-012",
+              "title": "数据特征提取 · 单元9—12",
+              "status": "ready"
+            },
+            {
+              "id": "source-014-017",
+              "title": "支持向量机模型建立 · 单元14—17",
+              "status": "ready"
+            },
+            {
+              "id": "source-019-019",
+              "title": "模型评价 · 单元19—19",
+              "status": "ready"
+            },
+            {
+              "id": "phase4-data",
+              "title": "真实数据实验 · 基于水色图像的水质评估",
+              "status": "ready"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "P08",
+      "lessons": [
+        {
+          "id": "main-analysis",
+          "title": "拍拍贷平台业务数据分析",
+          "status": "ready",
+          "ref": "learning/projects/P08/main-analysis.json",
+          "steps": [
+            {
+              "id": "source-004-010",
+              "title": "一、借款人分析 · 单元4—10",
+              "status": "ready"
+            },
+            {
+              "id": "source-011-011",
+              "title": "一、借款人分析 · 单元11—11",
+              "status": "ready"
+            },
+            {
+              "id": "source-013-014",
+              "title": "1.分析用户画像（性别、学历、年龄、是否首标） · 单元13—14",
+              "status": "ready"
+            },
+            {
+              "id": "source-017-017",
+              "title": "2.分析资金储备 · 单元17—17",
+              "status": "ready"
+            },
+            {
+              "id": "source-020-021",
+              "title": "3.分析逾期还款率（借款人的初始评级、借款类型、性别、年龄、借款金额等特征） · 单元20—21",
+              "status": "ready"
+            },
+            {
+              "id": "source-024-024",
+              "title": "4.分析借款利率（借款人的初始评级、借款类型、性别、年龄、借款金额等特征） · 单元24—24",
+              "status": "ready"
+            },
+            {
+              "id": "source-029-030",
+              "title": "二、用户还款情况分析 · 单元29—30",
+              "status": "ready"
+            },
+            {
+              "id": "source-032-032",
+              "title": "1.分析不同借款金额用户的还款情况 · 单元32—32",
+              "status": "ready"
+            },
+            {
+              "id": "source-035-035",
+              "title": "2.分析不同年龄段用户的还款情况 · 单元35—35",
+              "status": "ready"
+            },
+            {
+              "id": "source-038-038",
+              "title": "3.分析不同性别用户的还款情况 · 单元38—38",
+              "status": "ready"
+            },
+            {
+              "id": "source-041-041",
+              "title": "4.分析不同初始评级客户的还款情况 · 单元41—41",
+              "status": "ready"
+            },
+            {
+              "id": "source-044-046",
+              "title": "5.分析不同借款类型客户的还款情况 · 单元44—46",
+              "status": "ready"
+            },
+            {
+              "id": "source-051-051",
+              "title": "1.不同等级（A-F）随逾期天数催收还款率的走势 · 单元51—51",
+              "status": "ready"
+            },
+            {
+              "id": "source-054-055",
+              "title": "2.不同借款期数随逾期天数催收还款率的走势 · 单元54—55",
+              "status": "ready"
+            },
+            {
+              "id": "source-058-058",
+              "title": "3.不同借款金额随逾期天数催收还款率的走势 · 单元58—58",
+              "status": "ready"
+            },
+            {
+              "id": "source-062-062",
+              "title": "四.累积收益曲线 · 单元62—62",
+              "status": "ready"
+            },
+            {
+              "id": "phase4-data",
+              "title": "真实数据实验 · 拍拍贷平台业务数据分析",
+              "status": "ready"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "P09",
+      "lessons": [
+        {
+          "id": "main-analysis",
+          "title": "链家房源信息抓取+可视化",
+          "status": "ready",
+          "ref": "learning/projects/P09/main-analysis.json",
+          "steps": [
+            {
+              "id": "source-004-008",
+              "title": "爬虫 · 单元4—8",
+              "status": "ready"
+            },
+            {
+              "id": "source-011-013",
+              "title": "数据可视化 · 单元11—13",
+              "status": "ready"
+            },
+            {
+              "id": "source-015-015",
+              "title": "房源面积-总价散点图 · 单元15—15",
+              "status": "ready"
+            },
+            {
+              "id": "source-017-017",
+              "title": "各行政区均价 · 单元17—17",
+              "status": "ready"
+            },
+            {
+              "id": "source-019-019",
+              "title": "均价最高的10个小区 · 单元19—19",
+              "status": "ready"
+            },
+            {
+              "id": "source-021-021",
+              "title": "均价最高的10个地段 · 单元21—21",
+              "status": "ready"
+            },
+            {
+              "id": "source-023-023",
+              "title": "户型分布 · 单元23—23",
+              "status": "ready"
+            },
+            {
+              "id": "source-025-026",
+              "title": "词云图 · 单元25—26",
+              "status": "ready"
+            },
+            {
+              "id": "phase4-data",
+              "title": "真实数据实验 · 链家房源信息抓取+可视化",
+              "status": "ready"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "P10",
+      "lessons": [
+        {
+          "id": "main-analysis",
+          "title": "二手房房价分析和预测房价",
+          "status": "ready",
+          "ref": "learning/projects/P10/main-analysis.json",
+          "steps": [
+            {
+              "id": "source-006-010",
+              "title": "数据清洗 · 单元6—10",
+              "status": "ready"
+            },
+            {
+              "id": "source-011-015",
+              "title": "数据清洗 · 单元11—15",
+              "status": "ready"
+            },
+            {
+              "id": "source-016-020",
+              "title": "数据清洗 · 单元16—20",
+              "status": "ready"
+            },
+            {
+              "id": "source-021-022",
+              "title": "数据清洗 · 单元21—22",
+              "status": "ready"
+            },
+            {
+              "id": "source-024-026",
+              "title": "数据可视化 · 单元24—26",
+              "status": "ready"
+            },
+            {
+              "id": "source-028-029",
+              "title": "构建房价预测模型 · 单元28—29",
+              "status": "ready"
+            },
+            {
+              "id": "source-031-035",
+              "title": "多特征模型训练（多元线性回归） · 单元31—35",
+              "status": "ready"
+            },
+            {
+              "id": "source-036-036",
+              "title": "多特征模型训练（多元线性回归） · 单元36—36",
+              "status": "ready"
+            },
+            {
+              "id": "source-038-043",
+              "title": "假设验证法选出最佳特征组合 · 单元38—43",
+              "status": "ready"
+            },
+            {
+              "id": "source-046-046",
+              "title": "房价的预测 · 单元46—46",
+              "status": "ready"
+            },
+            {
+              "id": "phase4-data",
+              "title": "真实数据实验 · 二手房房价分析和预测房价",
+              "status": "ready"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "P11",
+      "lessons": [
+        {
+          "id": "main-analysis",
+          "title": "链家二手房数据分析",
+          "status": "ready",
+          "ref": "learning/projects/P11/main-analysis.json",
+          "steps": [
+            {
+              "id": "listing-scope",
+              "title": "认识历史挂牌样本",
+              "status": "ready"
+            },
+            {
+              "id": "read-fields",
+              "title": "读取12列与缺失",
+              "status": "ready"
+            },
+            {
+              "id": "investigate-area",
+              "title": "调查10871面积异常",
+              "status": "ready"
+            },
+            {
+              "id": "aggregate-area",
+              "title": "按区域统计挂牌记录",
+              "status": "ready"
+            },
+            {
+              "id": "compare-structure",
+              "title": "比较户型、装修与朝向",
+              "status": "ready"
+            },
+            {
+              "id": "area-price",
+              "title": "观察面积与总价关系",
+              "status": "ready"
+            },
+            {
+              "id": "limited-conclusion",
+              "title": "写有限结论与自评",
+              "status": "ready"
+            },
+            {
+              "id": "phase4-data",
+              "title": "真实数据实验 · 链家二手房数据分析",
+              "status": "ready"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "P12",
+      "lessons": [
+        {
+          "id": "main-analysis",
+          "title": "历年考研分数线数据可视化",
+          "status": "ready",
+          "ref": "learning/projects/P12/main-analysis.json",
+          "steps": [
+            {
+              "id": "source-004-004",
+              "title": "导入库 · 单元4—4",
+              "status": "ready"
+            },
+            {
+              "id": "source-006-007",
+              "title": "读取文件考研历年国家分数线 · 单元6—7",
+              "status": "ready"
+            },
+            {
+              "id": "source-009-012",
+              "title": "处理重复值和空值 · 单元9—12",
+              "status": "ready"
+            },
+            {
+              "id": "source-014-014",
+              "title": "删除不需要的列 · 单元14—14",
+              "status": "ready"
+            },
+            {
+              "id": "source-016-016",
+              "title": "替换删除特殊字符 · 单元16—16",
+              "status": "ready"
+            },
+            {
+              "id": "source-018-018",
+              "title": "单独筛选出2020年考研信息 · 单元18—18",
+              "status": "ready"
+            },
+            {
+              "id": "source-020-020",
+              "title": "统计专业 · 单元20—20",
+              "status": "ready"
+            },
+            {
+              "id": "source-022-022",
+              "title": "分组归纳学校对应的专业数（专业可能是重复值） · 单元22—22",
+              "status": "ready"
+            },
+            {
+              "id": "source-024-024",
+              "title": "转化考研专业总分特殊值 · 单元24—24",
+              "status": "ready"
+            },
+            {
+              "id": "source-026-026",
+              "title": "分组归纳各专业的最高分，最低分，平均分 · 单元26—26",
+              "status": "ready"
+            },
+            {
+              "id": "source-028-029",
+              "title": "绘制各专业分数的柱状图 · 单元28—29",
+              "status": "ready"
+            },
+            {
+              "id": "source-031-031",
+              "title": "绘制2020年考研专业Top50 · 单元31—31",
+              "status": "ready"
+            },
+            {
+              "id": "source-033-038",
+              "title": "绘制关键词云图 · 单元33—38",
+              "status": "ready"
+            },
+            {
+              "id": "source-040-043",
+              "title": "读取2021年考研调剂信息 · 单元40—43",
+              "status": "ready"
+            },
+            {
+              "id": "source-045-046",
+              "title": "转换学校属性类别 · 单元45—46",
+              "status": "ready"
+            },
+            {
+              "id": "source-048-052",
+              "title": "删除重复值 · 单元48—52",
+              "status": "ready"
+            },
+            {
+              "id": "source-054-055",
+              "title": "拼接调剂信息 · 单元54—55",
+              "status": "ready"
+            },
+            {
+              "id": "source-057-057",
+              "title": "查看缺失数据 · 单元57—57",
+              "status": "ready"
+            },
+            {
+              "id": "source-059-059",
+              "title": "发布时间对应的发布频次 · 单元59—59",
+              "status": "ready"
+            },
+            {
+              "id": "source-061-061",
+              "title": "调剂信息发布时间走势图 · 单元61—61",
+              "status": "ready"
+            },
+            {
+              "id": "source-064-065",
+              "title": "绘制学校类别饼图 · 单元64—65",
+              "status": "ready"
+            },
+            {
+              "id": "source-067-071",
+              "title": "调剂信息发布数省份分布 · 单元67—71",
+              "status": "ready"
+            },
+            {
+              "id": "phase4-data",
+              "title": "真实数据实验 · 历年考研分数线数据可视化",
+              "status": "ready"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "P13",
+      "lessons": [
+        {
+          "id": "main-analysis",
+          "title": "国产进口电影票房分析",
+          "status": "ready",
+          "ref": "learning/projects/P13/main-analysis.json",
+          "steps": [
+            {
+              "id": "source-002-002",
+              "title": "国产进口电影票房分析 · 单元2—2",
+              "status": "ready"
+            },
+            {
+              "id": "source-004-004",
+              "title": "票房榜数据概览 · 单元4—4",
+              "status": "ready"
+            },
+            {
+              "id": "source-006-009",
+              "title": "票房榜数据字段处理 · 单元6—9",
+              "status": "ready"
+            },
+            {
+              "id": "source-011-011",
+              "title": "电影票房表现数据概览 · 单元11—11",
+              "status": "ready"
+            },
+            {
+              "id": "source-013-017",
+              "title": "电影票房数据字段处理 · 单元13—17",
+              "status": "ready"
+            },
+            {
+              "id": "source-019-019",
+              "title": "榜单类别 -  TOP50 · 单元19—19",
+              "status": "ready"
+            },
+            {
+              "id": "source-021-021",
+              "title": "榜单类别 - 国产/进口 - TOP50 · 单元21—21",
+              "status": "ready"
+            },
+            {
+              "id": "source-024-024",
+              "title": "电影票房榜单 - TOP50 · 单元24—24",
+              "status": "ready"
+            },
+            {
+              "id": "source-026-026",
+              "title": "电影票房榜单 - 国产/进口 - TOP50 · 单元26—26",
+              "status": "ready"
+            },
+            {
+              "id": "source-028-028",
+              "title": "计算上榜电影年份汇总 · 单元28—28",
+              "status": "ready"
+            },
+            {
+              "id": "source-030-031",
+              "title": "计算上榜电影标签汇总 · 单元30—31",
+              "status": "ready"
+            },
+            {
+              "id": "source-033-033",
+              "title": "国产-进口上榜 - TOP50 - 详情分布 · 单元33—33",
+              "status": "ready"
+            },
+            {
+              "id": "source-035-035",
+              "title": "国产电影上映首周票房表现 -Top50 · 单元35—35",
+              "status": "ready"
+            },
+            {
+              "id": "source-037-037",
+              "title": "进口电影上映首周票房表现 -Top50 · 单元37—37",
+              "status": "ready"
+            },
+            {
+              "id": "source-039-041",
+              "title": "电影票房三十日时段详情 · 单元39—41",
+              "status": "ready"
+            },
+            {
+              "id": "source-043-043",
+              "title": "长津湖上映后三十日电影票房表现 · 单元43—43",
+              "status": "ready"
+            },
+            {
+              "id": "source-045-046",
+              "title": "长津湖电影评分 · 单元45—46",
+              "status": "ready"
+            },
+            {
+              "id": "source-048-049",
+              "title": "大屏展示 · 单元48—49",
+              "status": "ready"
+            },
+            {
+              "id": "phase4-data",
+              "title": "真实数据实验 · 国产进口电影票房分析",
+              "status": "ready"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "P14",
+      "lessons": [
+        {
+          "id": "main-analysis",
+          "title": "微博情感分析",
+          "status": "ready",
+          "ref": "learning/projects/P14/main-analysis.json",
+          "steps": [
+            {
+              "id": "source-005-005",
+              "title": "数据预处理 · 单元5—5",
+              "status": "ready"
+            },
+            {
+              "id": "source-008-008",
+              "title": "分词 · 单元8—8",
+              "status": "ready"
+            },
+            {
+              "id": "source-010-010",
+              "title": "特征提取 · 单元10—10",
+              "status": "ready"
+            },
+            {
+              "id": "source-012-017",
+              "title": "建立朴素贝叶斯模型 · 单元12—17",
+              "status": "ready"
+            },
+            {
+              "id": "source-018-018",
+              "title": "建立朴素贝叶斯模型 · 单元18—18",
+              "status": "ready"
+            },
+            {
+              "id": "phase4-data",
+              "title": "真实数据实验 · 微博情感分析",
+              "status": "ready"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "P15",
+      "lessons": [
+        {
+          "id": "main-analysis",
+          "title": "春节档票房分析",
+          "status": "ready",
+          "ref": "learning/projects/P15/main-analysis.json",
+          "steps": [
+            {
+              "id": "source-001-001",
+              "title": "春节档票房分析 · 单元1—1",
+              "status": "ready"
+            },
+            {
+              "id": "source-003-003",
+              "title": "票房榜数据概览 · 单元3—3",
+              "status": "ready"
+            },
+            {
+              "id": "source-005-009",
+              "title": "电影票房数据字段处理 · 单元5—9",
+              "status": "ready"
+            },
+            {
+              "id": "source-012-015",
+              "title": "电影票房七日时段详情 · 单元12—15",
+              "status": "ready"
+            },
+            {
+              "id": "source-017-017",
+              "title": "长津湖上映后一周电影票房表现 · 单元17—17",
+              "status": "ready"
+            },
+            {
+              "id": "source-019-021",
+              "title": "春节档-票房详情大盘数据 · 单元19—21",
+              "status": "ready"
+            },
+            {
+              "id": "source-023-025",
+              "title": "2022年春节电影票房大盘 · 单元23—25",
+              "status": "ready"
+            },
+            {
+              "id": "source-027-027",
+              "title": "春节档上映电影票房表现概览 · 单元27—27",
+              "status": "ready"
+            },
+            {
+              "id": "source-029-033",
+              "title": "春节档-排片地域分布（场次） · 单元29—33",
+              "status": "ready"
+            },
+            {
+              "id": "source-035-036",
+              "title": "春节档-排片统计（场次） · 单元35—36",
+              "status": "ready"
+            },
+            {
+              "id": "source-038-038",
+              "title": "春节档 - 排片地域分布 - 排片统计（累计场次） · 单元38—38",
+              "status": "ready"
+            },
+            {
+              "id": "source-040-040",
+              "title": "春节档 - 排片地域分布 - 排片统计（每日趋势变化轮播图） · 单元40—40",
+              "status": "ready"
+            },
+            {
+              "id": "source-042-043",
+              "title": "大屏展示 · 单元42—43",
+              "status": "ready"
+            },
+            {
+              "id": "phase4-data",
+              "title": "真实数据实验 · 春节档票房分析",
+              "status": "ready"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "P16",
+      "lessons": [
+        {
+          "id": "main-analysis",
+          "title": "时令蔬菜有哪些",
+          "status": "ready",
+          "ref": "learning/projects/P16/main-analysis.json",
+          "steps": [
+            {
+              "id": "source-005-006",
+              "title": "环境准备 · 单元5—6",
+              "status": "ready"
+            },
+            {
+              "id": "source-008-008",
+              "title": "数据预处理 · 单元8—8",
+              "status": "ready"
+            },
+            {
+              "id": "source-010-012",
+              "title": "各类农产品批发价的历史变化 · 单元10—12",
+              "status": "ready"
+            },
+            {
+              "id": "source-014-014",
+              "title": "畜禽产品 · 单元14—14",
+              "status": "ready"
+            },
+            {
+              "id": "source-017-017",
+              "title": "水产品 · 单元17—17",
+              "status": "ready"
+            },
+            {
+              "id": "source-020-020",
+              "title": "水果 · 单元20—20",
+              "status": "ready"
+            },
+            {
+              "id": "source-023-023",
+              "title": "蔬菜 · 单元23—23",
+              "status": "ready"
+            },
+            {
+              "id": "source-026-026",
+              "title": "农产品批发价的历史波动幅度 · 单元26—26",
+              "status": "ready"
+            },
+            {
+              "id": "source-029-033",
+              "title": "使用多元回归计算农产品价格的趋势和季节性 · 单元29—33",
+              "status": "ready"
+            },
+            {
+              "id": "source-035-037",
+              "title": "计算所有农产品的季节性信息 · 单元35—37",
+              "status": "ready"
+            },
+            {
+              "id": "source-039-041",
+              "title": "哪些农产品的季节性更强？ · 单元39—41",
+              "status": "ready"
+            },
+            {
+              "id": "source-043-043",
+              "title": "时令蔬菜有哪些？ · 单元43—43",
+              "status": "ready"
+            },
+            {
+              "id": "source-046-048",
+              "title": "哪些农产品的价格有明显的涨跌？ · 单元46—48",
+              "status": "ready"
+            },
+            {
+              "id": "phase4-data",
+              "title": "真实数据实验 · 时令蔬菜有哪些",
+              "status": "ready"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "P17",
+      "lessons": [
+        {
+          "id": "main-analysis",
+          "title": "聚类分析广告效果",
+          "status": "ready",
+          "ref": "learning/projects/P17/main-analysis.json",
+          "steps": [
+            {
+              "id": "channel-input",
+              "title": "认识渠道指标",
+              "status": "ready"
+            },
+            {
+              "id": "missing-policy",
+              "title": "追踪缺失字段处置",
+              "status": "ready"
+            },
+            {
+              "id": "one-hot",
+              "title": "比较类别编码前后",
+              "status": "ready"
+            },
+            {
+              "id": "minmax",
+              "title": "观察缩放如何改变距离",
+              "status": "ready"
+            },
+            {
+              "id": "k-search",
+              "title": "读取k与轮廓系数",
+              "status": "ready"
+            },
+            {
+              "id": "cluster-counts",
+              "title": "按原簇ID核对群体数量",
+              "status": "ready"
+            },
+            {
+              "id": "profile-audit",
+              "title": "逐群审辨画像并总结",
+              "status": "ready"
+            },
+            {
+              "id": "phase4-data",
+              "title": "真实数据实验 · 聚类分析广告效果",
+              "status": "ready"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "P18",
+      "lessons": [
+        {
+          "id": "main-analysis",
+          "title": "京东评论数据情感分析",
+          "status": "ready",
+          "ref": "learning/projects/P18/main-analysis.json",
+          "steps": [
+            {
+              "id": "source-004-004",
+              "title": "1.1 数据导入 · 单元4—4",
+              "status": "ready"
+            },
+            {
+              "id": "source-006-006",
+              "title": "1.2 数据描述 · 单元6—6",
+              "status": "ready"
+            },
+            {
+              "id": "source-008-008",
+              "title": "1.3 数据预处理 · 单元8—8",
+              "status": "ready"
+            },
+            {
+              "id": "source-012-013",
+              "title": "2.1 情感分 · 单元12—13",
+              "status": "ready"
+            },
+            {
+              "id": "source-016-016",
+              "title": "2.2 情感分直方图 · 单元16—16",
+              "status": "ready"
+            },
+            {
+              "id": "source-019-019",
+              "title": "2.3 词云图 · 单元19—19",
+              "status": "ready"
+            },
+            {
+              "id": "source-021-021",
+              "title": "2.4 关键词提取 · 单元21—21",
+              "status": "ready"
+            },
+            {
+              "id": "source-025-026",
+              "title": "3.1 积极评论与消极评论占比 · 单元25—26",
+              "status": "ready"
+            },
+            {
+              "id": "source-028-030",
+              "title": "3.2 消极评论分析 · 单元28—30",
+              "status": "ready"
+            },
+            {
+              "id": "phase4-data",
+              "title": "真实数据实验 · 京东评论数据情感分析",
+              "status": "ready"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "P19",
+      "lessons": [
+        {
+          "id": "main-analysis",
+          "title": "母婴市场消费数据分析",
+          "status": "ready",
+          "ref": "learning/projects/P19/main-analysis.json",
+          "steps": [
+            {
+              "id": "source-006-006",
+              "title": "分析目的 · 单元6—6",
+              "status": "ready"
+            },
+            {
+              "id": "source-009-013",
+              "title": "导入数据 · 单元9—13",
+              "status": "ready"
+            },
+            {
+              "id": "source-014-015",
+              "title": "导入数据 · 单元14—15",
+              "status": "ready"
+            },
+            {
+              "id": "source-017-019",
+              "title": "数据清洗 · 单元17—19",
+              "status": "ready"
+            },
+            {
+              "id": "source-022-028",
+              "title": "整体市场情况 · 单元22—28",
+              "status": "ready"
+            },
+            {
+              "id": "source-031-035",
+              "title": "第一季度销量下滑原因 · 单元31—35",
+              "status": "ready"
+            },
+            {
+              "id": "source-038-041",
+              "title": "第四季度销量上升原因 · 单元38—41",
+              "status": "ready"
+            },
+            {
+              "id": "source-045-049",
+              "title": "复购率 · 单元45—49",
+              "status": "ready"
+            },
+            {
+              "id": "source-050-051",
+              "title": "复购率 · 单元50—51",
+              "status": "ready"
+            },
+            {
+              "id": "source-054-056",
+              "title": "商品销售情况 · 单元54—56",
+              "status": "ready"
+            },
+            {
+              "id": "phase4-data",
+              "title": "真实数据实验 · 母婴市场消费数据分析",
+              "status": "ready"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "P20",
+      "lessons": [
+        {
+          "id": "main-analysis",
+          "title": "天猫双十一美妆销售数据分析",
+          "status": "ready",
+          "ref": "learning/projects/P20/main-analysis.json",
+          "steps": [
+            {
+              "id": "source-005-007",
+              "title": "一、读取数据 · 单元5—7",
+              "status": "ready"
+            },
+            {
+              "id": "source-010-011",
+              "title": "2.1 重复数据处理 · 单元10—11",
+              "status": "ready"
+            },
+            {
+              "id": "source-013-018",
+              "title": "2.2 缺失值处理 · 单元13—18",
+              "status": "ready"
+            },
+            {
+              "id": "source-020-024",
+              "title": "2.3 提取表格中有用信息并新增为列 · 单元20—24",
+              "status": "ready"
+            },
+            {
+              "id": "source-025-028",
+              "title": "2.3 提取表格中有用信息并新增为列 · 单元25—28",
+              "status": "ready"
+            },
+            {
+              "id": "source-030-030",
+              "title": "三、数据探索 · 单元30—30",
+              "status": "ready"
+            },
+            {
+              "id": "source-032-032",
+              "title": "3.1 各品牌SKU数 · 单元32—32",
+              "status": "ready"
+            },
+            {
+              "id": "source-035-035",
+              "title": "3.2 品牌总销量和总销售额 · 单元35—35",
+              "status": "ready"
+            },
+            {
+              "id": "source-038-044",
+              "title": "3.3 各类别的销售量、销售额情况 · 单元38—44",
+              "status": "ready"
+            },
+            {
+              "id": "source-046-048",
+              "title": "3.4 各品牌热度 · 单元46—48",
+              "status": "ready"
+            },
+            {
+              "id": "source-051-055",
+              "title": "3.5 各品牌价格 · 单元51—55",
+              "status": "ready"
+            },
+            {
+              "id": "source-058-059",
+              "title": "3.6 男性护肤品销量情况 · 单元58—59",
+              "status": "ready"
+            },
+            {
+              "id": "source-062-062",
+              "title": "3.7 分析时间与销量的关系，体现购买高峰期 · 单元62—62",
+              "status": "ready"
+            },
+            {
+              "id": "phase4-data",
+              "title": "真实数据实验 · 天猫双十一美妆销售数据分析",
+              "status": "ready"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "P21",
+      "lessons": [
+        {
+          "id": "sales-explore",
+          "title": "1、超市销售数据分析",
+          "status": "ready",
+          "ref": "learning/projects/P21/sales-explore.json",
+          "steps": [
+            {
+              "id": "a-grain",
+              "title": "认识一单多行",
+              "status": "ready"
+            },
+            {
+              "id": "a-load",
+              "title": "读取编码与日期",
+              "status": "ready"
+            },
+            {
+              "id": "a-pivot",
+              "title": "类别与商品透视",
+              "status": "ready"
+            },
+            {
+              "id": "a-stores",
+              "title": "金额与门店占比",
+              "status": "ready"
+            },
+            {
+              "id": "a-hour",
+              "title": "小时内订单去重",
+              "status": "ready"
+            },
+            {
+              "id": "a-reflect",
+              "title": "用有限证据总结与练习",
+              "status": "ready"
+            },
+            {
+              "id": "phase4-data",
+              "title": "真实数据实验 · 超市销售数据分析与报表（两节课程）",
+              "status": "ready"
+            }
+          ]
+        },
+        {
+          "id": "monthly-report",
+          "title": "2、超市销售数据自动化报表",
+          "status": "ready",
+          "ref": "learning/projects/P21/monthly-report.json",
+          "steps": [
+            {
+              "id": "b-quality",
+              "title": "检查报表输入与全空行",
+              "status": "ready"
+            },
+            {
+              "id": "b-periods",
+              "title": "界定比较期间与月末边界",
+              "status": "ready"
+            },
+            {
+              "id": "b-metrics",
+              "title": "金额、订单量与平均每单金额",
+              "status": "ready"
+            },
+            {
+              "id": "b-report",
+              "title": "同比环比与原附结果对账",
+              "status": "ready"
+            },
+            {
+              "id": "b-practice",
+              "title": "报表解释与本机继续实验",
+              "status": "ready"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "P22",
+      "lessons": [
+        {
+          "id": "main-analysis",
+          "title": "优衣库门店可视化与顾客拜访数据分组",
+          "status": "ready",
+          "ref": "learning/projects/P22/main-analysis.json",
+          "steps": [
+            {
+              "id": "source-013-013",
+              "title": "1 数据导入 · 单元13—13",
+              "status": "ready"
+            },
+            {
+              "id": "source-016-016",
+              "title": "2.1 查看数据形状 · 单元16—16",
+              "status": "ready"
+            },
+            {
+              "id": "source-018-018",
+              "title": "2.2 检查缺失值 · 单元18—18",
+              "status": "ready"
+            },
+            {
+              "id": "source-020-020",
+              "title": "2.3 有无重复值 · 单元20—20",
+              "status": "ready"
+            },
+            {
+              "id": "source-025-025",
+              "title": "3.1 获取详细地址 · 单元25—25",
+              "status": "ready"
+            },
+            {
+              "id": "source-028-028",
+              "title": "3.2.1 安装geopy包 · 单元28—28",
+              "status": "ready"
+            },
+            {
+              "id": "source-036-036",
+              "title": "1.1 读取地点数据 · 单元36—36",
+              "status": "ready"
+            },
+            {
+              "id": "source-038-042",
+              "title": "1.2 筛选优衣库门店 · 单元38—42",
+              "status": "ready"
+            },
+            {
+              "id": "source-046-046",
+              "title": "2.1 带涟漪效果的散点图 · 单元46—46",
+              "status": "ready"
+            },
+            {
+              "id": "source-049-049",
+              "title": "2.2 热力图 · 单元49—49",
+              "status": "ready"
+            },
+            {
+              "id": "source-053-053",
+              "title": "1 数据获取 · 单元53—53",
+              "status": "ready"
+            },
+            {
+              "id": "source-057-057",
+              "title": "2.1 KMeans分组 · 单元57—57",
+              "status": "ready"
+            },
+            {
+              "id": "source-060-060",
+              "title": "2.2.1 分组结果 · 单元60—60",
+              "status": "ready"
+            },
+            {
+              "id": "source-062-063",
+              "title": "2.2.2 中心点坐标 · 单元62—63",
+              "status": "ready"
+            },
+            {
+              "id": "source-068-071",
+              "title": "3.1 The Elbow Method · 单元68—71",
+              "status": "ready"
+            },
+            {
+              "id": "source-074-075",
+              "title": "3.2 分组结果可视化 · 单元74—75",
+              "status": "ready"
+            },
+            {
+              "id": "source-077-077",
+              "title": "3.3 聚类中心地址 · 单元77—77",
+              "status": "ready"
+            },
+            {
+              "id": "source-080-081",
+              "title": "大屏展示 · 单元80—81",
+              "status": "ready"
+            },
+            {
+              "id": "phase4-data",
+              "title": "真实数据实验 · 优衣库门店可视化与顾客拜访数据分组",
+              "status": "ready"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "P23",
+      "lessons": [
+        {
+          "id": "main-analysis",
+          "title": "预测天猫用户使用优惠券概率较高的客群",
+          "status": "ready",
+          "ref": "learning/projects/P23/main-analysis.json",
+          "steps": [
+            {
+              "id": "source-007-009",
+              "title": "指标解释 · 单元7—9",
+              "status": "ready"
+            },
+            {
+              "id": "source-013-015",
+              "title": "1.2.1 类别型变量 · 单元13—15",
+              "status": "ready"
+            },
+            {
+              "id": "source-018-018",
+              "title": "2.1 观察样本0、1的平衡性 · 单元18—18",
+              "status": "ready"
+            },
+            {
+              "id": "source-021-021",
+              "title": "2.2 观察均值大小 · 单元21—21",
+              "status": "ready"
+            },
+            {
+              "id": "source-024-031",
+              "title": "2.3 可视化 · 单元24—31",
+              "status": "ready"
+            },
+            {
+              "id": "source-033-035",
+              "title": "2.3 可视化 · 单元33—35",
+              "status": "ready"
+            },
+            {
+              "id": "source-038-039",
+              "title": "3 相关和可视化 · 单元38—39",
+              "status": "ready"
+            },
+            {
+              "id": "source-044-045",
+              "title": "4.1.1 抽取训练集和测试集并进行拟合 · 单元44—45",
+              "status": "ready"
+            },
+            {
+              "id": "source-047-049",
+              "title": "4.1.2 查看模型结果 · 单元47—49",
+              "status": "ready"
+            },
+            {
+              "id": "source-052-056",
+              "title": "4.2.1 评估方法一：计算准确度 · 单元52—56",
+              "status": "ready"
+            },
+            {
+              "id": "source-059-059",
+              "title": "4.2.2 评估方法二：ROC和AUC · 单元59—59",
+              "status": "ready"
+            },
+            {
+              "id": "source-062-065",
+              "title": "4.3 模型优化 · 单元62—65",
+              "status": "ready"
+            },
+            {
+              "id": "phase4-data",
+              "title": "真实数据实验 · 预测天猫用户使用优惠券概率较高的客群",
+              "status": "ready"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "P24",
+      "lessons": [
+        {
+          "id": "main-analysis",
+          "title": "小红书",
+          "status": "ready",
+          "ref": "learning/projects/P24/main-analysis.json",
+          "steps": [
+            {
+              "id": "source-009-015",
+              "title": "指标解释 · 单元9—15",
+              "status": "ready"
+            },
+            {
+              "id": "source-016-017",
+              "title": "指标解释 · 单元16—17",
+              "status": "ready"
+            },
+            {
+              "id": "source-022-029",
+              "title": "2.1 数字型变量 · 单元22—29",
+              "status": "ready"
+            },
+            {
+              "id": "source-030-030",
+              "title": "2.1 数字型变量 · 单元30—30",
+              "status": "ready"
+            },
+            {
+              "id": "source-033-037",
+              "title": "2.2 类别型变量 · 单元33—37",
+              "status": "ready"
+            },
+            {
+              "id": "source-038-043",
+              "title": "2.2 类别型变量 · 单元38—43",
+              "status": "ready"
+            },
+            {
+              "id": "source-045-049",
+              "title": "2.2 类别型变量 · 单元45—49",
+              "status": "ready"
+            },
+            {
+              "id": "source-051-054",
+              "title": "2.2 类别型变量 · 单元51—54",
+              "status": "ready"
+            },
+            {
+              "id": "source-057-064",
+              "title": "3 相关可视化 · 单元57—64",
+              "status": "ready"
+            },
+            {
+              "id": "source-065-069",
+              "title": "3 相关可视化 · 单元65—69",
+              "status": "ready"
+            },
+            {
+              "id": "source-071-071",
+              "title": "4 回归模型 · 单元71—71",
+              "status": "ready"
+            },
+            {
+              "id": "source-073-074",
+              "title": "4.1 建立模型 · 单元73—74",
+              "status": "ready"
+            },
+            {
+              "id": "source-076-078",
+              "title": "4.2 模型评估 · 单元76—78",
+              "status": "ready"
+            },
+            {
+              "id": "source-081-083",
+              "title": "4.2 模型迭代优化 · 单元81—83",
+              "status": "ready"
+            },
+            {
+              "id": "phase4-data",
+              "title": "真实数据实验 · 小红书",
+              "status": "ready"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "P25",
+      "lessons": [
+        {
+          "id": "main-analysis",
+          "title": "第七次全国人口普查-数据可视化",
+          "status": "ready",
+          "ref": "learning/projects/P25/main-analysis.json",
+          "steps": [
+            {
+              "id": "source-002-002",
+              "title": "第七次全国人口普查-数据可视化 · 单元2—2",
+              "status": "ready"
+            },
+            {
+              "id": "source-004-006",
+              "title": "概览 · 单元4—6",
+              "status": "ready"
+            },
+            {
+              "id": "source-008-009",
+              "title": "各省 · 单元8—9",
+              "status": "ready"
+            },
+            {
+              "id": "source-011-013",
+              "title": "年龄构成 · 单元11—13",
+              "status": "ready"
+            },
+            {
+              "id": "source-015-016",
+              "title": "性别构成 · 单元15—16",
+              "status": "ready"
+            },
+            {
+              "id": "source-018-020",
+              "title": "教育程度 · 单元18—20",
+              "status": "ready"
+            },
+            {
+              "id": "phase4-data",
+              "title": "真实数据实验 · 第七次全国人口普查-数据可视化",
+              "status": "ready"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "P26",
+      "lessons": [
+        {
+          "id": "main-analysis",
+          "title": "关于第七次全国人口普查数据的探索",
+          "status": "ready",
+          "ref": "learning/projects/P26/main-analysis.json",
+          "steps": [
+            {
+              "id": "source-006-006",
+              "title": "准备阶段 · 单元6—6",
+              "status": "ready"
+            },
+            {
+              "id": "source-009-010",
+              "title": "年龄结构数据的预处理 · 单元9—10",
+              "status": "ready"
+            },
+            {
+              "id": "source-012-013",
+              "title": "教育数据的引入 · 单元12—13",
+              "status": "ready"
+            },
+            {
+              "id": "source-015-016",
+              "title": "人口总数数据的引入 · 单元15—16",
+              "status": "ready"
+            },
+            {
+              "id": "source-018-019",
+              "title": "GDP数据的引入 · 单元18—19",
+              "status": "ready"
+            },
+            {
+              "id": "source-021-023",
+              "title": "城市化数据的引入 · 单元21—23",
+              "status": "ready"
+            },
+            {
+              "id": "source-025-025",
+              "title": "流动人口数据的引入 · 单元25—25",
+              "status": "ready"
+            },
+            {
+              "id": "source-028-028",
+              "title": "数据聚合 · 单元28—28",
+              "status": "ready"
+            },
+            {
+              "id": "source-032-037",
+              "title": "分析阶段 · 单元32—37",
+              "status": "ready"
+            },
+            {
+              "id": "source-038-040",
+              "title": "分析阶段 · 单元38—40",
+              "status": "ready"
+            },
+            {
+              "id": "source-043-043",
+              "title": "对于人口年龄结构的影响因素可能有哪些？ · 单元43—43",
+              "status": "ready"
+            },
+            {
+              "id": "source-047-047",
+              "title": "城市化进度对于人口年龄结构影响的观察 · 单元47—47",
+              "status": "ready"
+            },
+            {
+              "id": "source-050-050",
+              "title": "流动人口对于人口年龄结构影响的观察 · 单元50—50",
+              "status": "ready"
+            },
+            {
+              "id": "phase4-data",
+              "title": "真实数据实验 · 关于第七次全国人口普查数据的探索",
+              "status": "ready"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "P27",
+      "lessons": [
+        {
+          "id": "main-analysis",
+          "title": "婚姻状况分析",
+          "status": "ready",
+          "ref": "learning/projects/P27/main-analysis.json",
+          "steps": [
+            {
+              "id": "source-004-006",
+              "title": "数据准备 · 单元4—6",
+              "status": "ready"
+            },
+            {
+              "id": "source-008-008",
+              "title": "婚姻状况概览 · 单元8—8",
+              "status": "ready"
+            },
+            {
+              "id": "source-011-011",
+              "title": "婚姻的开始 · 单元11—11",
+              "status": "ready"
+            },
+            {
+              "id": "source-014-014",
+              "title": "结婚年龄的推迟 · 单元14—14",
+              "status": "ready"
+            },
+            {
+              "id": "source-017-017",
+              "title": "未婚人口的男女比例 · 单元17—17",
+              "status": "ready"
+            },
+            {
+              "id": "source-021-021",
+              "title": "离婚 · 单元21—21",
+              "status": "ready"
+            },
+            {
+              "id": "source-024-028",
+              "title": "丧偶 · 单元24—28",
+              "status": "ready"
+            },
+            {
+              "id": "phase4-data",
+              "title": "真实数据实验 · 婚姻状况分析",
+              "status": "ready"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "P28",
+      "lessons": [
+        {
+          "id": "main-analysis",
+          "title": "分析员工过早离职原因",
+          "status": "ready",
+          "ref": "learning/projects/P28/main-analysis.json",
+          "steps": [
+            {
+              "id": "source-007-007",
+              "title": "项目介绍 · 单元7—7",
+              "status": "ready"
+            },
+            {
+              "id": "source-009-010",
+              "title": "1.数据检查与理解 · 单元9—10",
+              "status": "ready"
+            },
+            {
+              "id": "source-012-012",
+              "title": "1.1. 检查是否存在缺失值 · 单元12—12",
+              "status": "ready"
+            },
+            {
+              "id": "source-014-014",
+              "title": "1.2. 适当的改名来更直观的理解和获取特征列 · 单元14—14",
+              "status": "ready"
+            },
+            {
+              "id": "source-016-016",
+              "title": "1.3. 查看数据的信息 · 单元16—16",
+              "status": "ready"
+            },
+            {
+              "id": "source-018-018",
+              "title": "1.4. 展示所有类型特征的信息 · 单元18—18",
+              "status": "ready"
+            },
+            {
+              "id": "source-020-025",
+              "title": "1.5. 类别数字化 · 单元20—25",
+              "status": "ready"
+            },
+            {
+              "id": "source-027-029",
+              "title": "1.6. 改变columns的顺序 · 单元27—29",
+              "status": "ready"
+            },
+            {
+              "id": "source-032-033",
+              "title": "2.1. 描述性分析 · 单元32—33",
+              "status": "ready"
+            },
+            {
+              "id": "source-035-036",
+              "title": "2.2. 相关性分析 · 单元35—36",
+              "status": "ready"
+            },
+            {
+              "id": "source-038-040",
+              "title": "2.3.变量分析 · 单元38—40",
+              "status": "ready"
+            },
+            {
+              "id": "source-042-043",
+              "title": "2.3.2. 公司员工的满意度与入职年份的关系 · 单元42—43",
+              "status": "ready"
+            },
+            {
+              "id": "source-045-046",
+              "title": "2.3.3. 公司各部门的员工离职与在职情况对比 · 单元45—46",
+              "status": "ready"
+            },
+            {
+              "id": "source-048-049",
+              "title": "2.3.4. 公司各部门的员工的工资水平 · 单元48—49",
+              "status": "ready"
+            },
+            {
+              "id": "source-051-052",
+              "title": "2.3.5 员工薪资与离职率 · 单元51—52",
+              "status": "ready"
+            },
+            {
+              "id": "source-054-055",
+              "title": "2.3.6. 员工过去5年的升职情况与离职对比 · 单元54—55",
+              "status": "ready"
+            },
+            {
+              "id": "source-057-058",
+              "title": "2.3.7. 员工绩效与离职的对比 · 单元57—58",
+              "status": "ready"
+            },
+            {
+              "id": "phase4-data",
+              "title": "真实数据实验 · 分析员工过早离职原因",
+              "status": "ready"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "P29",
+      "lessons": [
+        {
+          "id": "main-analysis",
+          "title": "数据分析师岗位分析",
+          "status": "ready",
+          "ref": "learning/projects/P29/main-analysis.json",
+          "steps": [
+            {
+              "id": "source-004-004",
+              "title": "1. 导包 · 单元4—4",
+              "status": "ready"
+            },
+            {
+              "id": "source-006-009",
+              "title": "2. 读取查看数据 · 单元6—9",
+              "status": "ready"
+            },
+            {
+              "id": "source-011-012",
+              "title": "3. 数据探索分析 · 单元11—12",
+              "status": "ready"
+            },
+            {
+              "id": "source-015-016",
+              "title": "3.2. 不同行业数据分析师岗位的需求情况 · 单元15—16",
+              "status": "ready"
+            },
+            {
+              "id": "source-018-018",
+              "title": "3.3. 数据分析师对应聘者工作年限的要求 · 单元18—18",
+              "status": "ready"
+            },
+            {
+              "id": "source-020-020",
+              "title": "3.4. 数据分析师对求职者学历的要求 · 单元20—20",
+              "status": "ready"
+            },
+            {
+              "id": "source-022-023",
+              "title": "3.5. 数据分析师的薪酬范围分布 · 单元22—23",
+              "status": "ready"
+            },
+            {
+              "id": "source-025-025",
+              "title": "3.6. 公司规模与薪酬之间的关系 · 单元25—25",
+              "status": "ready"
+            },
+            {
+              "id": "source-027-028",
+              "title": "3.7. 工作经验与薪酬的关系 · 单元27—28",
+              "status": "ready"
+            },
+            {
+              "id": "source-030-030",
+              "title": "3.8. 学历对薪酬的影响 · 单元30—30",
+              "status": "ready"
+            },
+            {
+              "id": "source-032-033",
+              "title": "3.9. 职业技能关键词 · 单元32—33",
+              "status": "ready"
+            },
+            {
+              "id": "phase4-data",
+              "title": "真实数据实验 · 数据分析师岗位分析",
+              "status": "ready"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

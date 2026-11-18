@@ -1,0 +1,225 @@
+{
+  "id": "P02",
+  "title": "自行车租赁数量预测",
+  "originalNames": [
+    "交通出行-共享单车预测租赁数量-约300行（随机森林、支持向量机模型）",
+    "自行车租赁数量预测.ipynb"
+  ],
+  "categoryId": "travel",
+  "summary": "根据天气和时间等信息预测共享单车租赁数量。",
+  "difficulty": "高级",
+  "skillTags": [
+    "Pandas",
+    "NumPy",
+    "Matplotlib",
+    "Seaborn",
+    "EDA",
+    "特征工程",
+    "随机森林回归",
+    "SVR",
+    "模型评估"
+  ],
+  "methods": "RandomForestRegressor、SVR",
+  "sourceRefs": [
+    {
+      "path": "交通出行-共享单车预测租赁数量-约300行（随机森林、支持向量机模型）/.ipynb_checkpoints/自行车租赁数量预测-checkpoint.ipynb",
+      "sha256": "5d7bfa900fd3c472a9a4dd3e2fd241a940046dfdae12874866e1bc2633501530",
+      "role": "code"
+    },
+    {
+      "path": "交通出行-共享单车预测租赁数量-约300行（随机森林、支持向量机模型）/train.csv",
+      "sha256": "11671d46ae41bf0df77d3d25268f4cb87683f3a33e4a54adf1bb3b24ee538cad",
+      "role": "data"
+    },
+    {
+      "path": "交通出行-共享单车预测租赁数量-约300行（随机森林、支持向量机模型）/特征重要性可视化.png",
+      "sha256": "1c25b56f4725527b44732af67f7f8585336376b21931837f19f643d91ce3ba7c",
+      "role": "output"
+    },
+    {
+      "path": "交通出行-共享单车预测租赁数量-约300行（随机森林、支持向量机模型）/自行车租赁数量预测.html",
+      "sha256": "b6512b04ec21feeca286dcee0760e021516609a8d8acc00b3bdd8ef4f506da9f",
+      "role": "output"
+    },
+    {
+      "path": "交通出行-共享单车预测租赁数量-约300行（随机森林、支持向量机模型）/自行车租赁数量预测.ipynb",
+      "sha256": "5d7bfa900fd3c472a9a4dd3e2fd241a940046dfdae12874866e1bc2633501530",
+      "role": "code"
+    },
+    {
+      "path": "交通出行-共享单车预测租赁数量-约300行（随机森林、支持向量机模型）/随机森林预测结果.png",
+      "sha256": "ececf00b7647080b959ae1760f96dbd0f6d06947ce36db3693655a6f1ec059ba",
+      "role": "output"
+    }
+  ],
+  "limitations": [
+    "随机切分不代表未来时间预测；风速处理发生于全量表；未固定森林随机种子；对比折线横轴是测试样本顺序，非真实连续时间。"
+  ],
+  "lessons": [
+    {
+      "id": "main-analysis",
+      "title": "自行车租赁数量预测",
+      "source": "交通出行-共享单车预测租赁数量-约300行（随机森林、支持向量机模型）/自行车租赁数量预测.ipynb"
+    }
+  ],
+  "readiness": {
+    "source": "audited",
+    "course": "not-adapted",
+    "rerun": "not-run",
+    "offline": "not-packaged"
+  },
+  "detailRef": "projects/P02/project.json",
+  "searchKeywords": [
+    "认识租赁目标",
+    "核对count组成",
+    "观察高峰与天气",
+    "追踪风速替换",
+    "构建时间特征与去泄漏字段",
+    "比较RF和SVR",
+    "解释重要性和时间验证局限"
+  ],
+  "prerequisites": "回归、特征工程、IQR、训练测试集、评价指标。",
+  "recommendedProjectIds": [
+    "P10",
+    "P19"
+  ],
+  "recommendationNote": "P10、P19。",
+  "schemaVersion": "1.0",
+  "contentVersion": "0.2.0",
+  "learningObjectives": [
+    "根据天气和时间等信息预测共享单车租赁数量。 重点掌握Pandas、NumPy、Matplotlib、Seaborn、EDA、特征工程、随机森林回归、SVR、模型评估。",
+    "认识租赁目标",
+    "核对count组成",
+    "观察高峰与天气",
+    "追踪风速替换",
+    "构建时间特征与去泄漏字段",
+    "比较RF和SVR",
+    "解释重要性和时间验证局限"
+  ],
+  "exercise": {
+    "text": "解释为何删除casual/registered；设计按日期向后留出的验证方案。",
+    "provenance": "已批准路线中新设计的巩固练习；非原文件已有试题",
+    "answerStatus": "参考答案尚未制作"
+  },
+  "datasets": [
+    {
+      "id": "D01-1",
+      "path": "交通出行-共享单车预测租赁数量-约300行（随机森林、支持向量机模型）/train.csv",
+      "sha256": "11671d46ae41bf0df77d3d25268f4cb87683f3a33e4a54adf1bb3b24ee538cad",
+      "sheet": null,
+      "rows": 10886,
+      "columns": 12,
+      "encoding": "utf-8-sig",
+      "grain": "待核实；读取行数不等于独立业务实体数",
+      "origin": null,
+      "license": null,
+      "fields": [
+        {
+          "name": "datetime",
+          "dtype": "str",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P02 / 交通出行-共享单车预测租赁数量-约300行（随机森林、支持向量机模型）/train.csv"
+        },
+        {
+          "name": "season",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P02 / 交通出行-共享单车预测租赁数量-约300行（随机森林、支持向量机模型）/train.csv"
+        },
+        {
+          "name": "holiday",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P02 / 交通出行-共享单车预测租赁数量-约300行（随机森林、支持向量机模型）/train.csv"
+        },
+        {
+          "name": "workingday",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P02 / 交通出行-共享单车预测租赁数量-约300行（随机森林、支持向量机模型）/train.csv"
+        },
+        {
+          "name": "weather",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P02 / 交通出行-共享单车预测租赁数量-约300行（随机森林、支持向量机模型）/train.csv"
+        },
+        {
+          "name": "temp",
+          "dtype": "float64",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P02 / 交通出行-共享单车预测租赁数量-约300行（随机森林、支持向量机模型）/train.csv"
+        },
+        {
+          "name": "atemp",
+          "dtype": "float64",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P02 / 交通出行-共享单车预测租赁数量-约300行（随机森林、支持向量机模型）/train.csv"
+        },
+        {
+          "name": "humidity",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P02 / 交通出行-共享单车预测租赁数量-约300行（随机森林、支持向量机模型）/train.csv"
+        },
+        {
+          "name": "windspeed",
+          "dtype": "float64",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P02 / 交通出行-共享单车预测租赁数量-约300行（随机森林、支持向量机模型）/train.csv"
+        },
+        {
+          "name": "casual",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P02 / 交通出行-共享单车预测租赁数量-约300行（随机森林、支持向量机模型）/train.csv"
+        },
+        {
+          "name": "registered",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P02 / 交通出行-共享单车预测租赁数量-约300行（随机森林、支持向量机模型）/train.csv"
+        },
+        {
+          "name": "count",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P02 / 交通出行-共享单车预测租赁数量-约300行（随机森林、支持向量机模型）/train.csv"
+        }
+      ],
+      "teachingMappings": []
+    }
+  ],
+  "scopeNotes": [],
+  "originalWorkflow": "读取→分布及相关→异常解释→时间特征→随机切分→双模型比较→重要性。",
+  "savedResult": "原保存测试R²：随机森林0.874621，SVR 0.448701；hour特征重要性约0.595。",
+  "sourceEvidence": [
+    "01_项目资产盘点.md#P02",
+    "03_完整学习路线.md#P02",
+    "附录B_全数据字段与缺失字典.md#P02"
+  ]
+}

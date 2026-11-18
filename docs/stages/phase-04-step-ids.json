@@ -1,0 +1,2319 @@
+[
+  {
+    "projectId": "P01",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-01",
+    "publishedId": "source-004-005",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P01",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-02",
+    "publishedId": "source-007-008",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P01",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-03",
+    "publishedId": "source-010-010",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P01",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-04",
+    "publishedId": "source-012-014",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P01",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-05",
+    "publishedId": "source-017-020",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P01",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-06",
+    "publishedId": "source-023-024",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P01",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-07",
+    "publishedId": "source-027-027",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P01",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-08",
+    "publishedId": "source-029-029",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P01",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-09",
+    "publishedId": "source-033-034",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P01",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-10",
+    "publishedId": "source-038-041",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P01",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-11",
+    "publishedId": "source-043-043",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P01",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-12",
+    "publishedId": "source-045-047",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P01",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-13",
+    "publishedId": "source-050-052",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P01",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-14",
+    "publishedId": "source-054-056",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P01",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-15",
+    "publishedId": "source-058-061",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P01",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-16",
+    "publishedId": "source-064-065",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P01",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-17",
+    "publishedId": "source-068-068",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P02",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-01",
+    "publishedId": "source-006-011",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P02",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-02",
+    "publishedId": "source-013-015",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P02",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-03",
+    "publishedId": "source-017-019",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P02",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-04",
+    "publishedId": "source-021-025",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P02",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-05",
+    "publishedId": "source-027-027",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P02",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-06",
+    "publishedId": "source-030-036",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P02",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-07",
+    "publishedId": "source-038-041",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P02",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-08",
+    "publishedId": "source-043-047",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P02",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-09",
+    "publishedId": "source-048-053",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P02",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-10",
+    "publishedId": "source-054-056",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P03",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-01",
+    "publishedId": "source-005-006",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P03",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-02",
+    "publishedId": "source-008-009",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P03",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-03",
+    "publishedId": "source-011-012",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P03",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-04",
+    "publishedId": "source-014-015",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P03",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-05",
+    "publishedId": "source-017-018",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P03",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-06",
+    "publishedId": "source-021-022",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P04",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-01",
+    "publishedId": "source-004-008",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P04",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-02",
+    "publishedId": "source-009-009",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P04",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-03",
+    "publishedId": "source-012-013",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P04",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-04",
+    "publishedId": "source-016-017",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P04",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-05",
+    "publishedId": "source-019-020",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P04",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-06",
+    "publishedId": "source-023-023",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P04",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-07",
+    "publishedId": "source-026-026",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P04",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-08",
+    "publishedId": "source-029-029",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P04",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-09",
+    "publishedId": "source-032-033",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P04",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-10",
+    "publishedId": "source-036-037",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P04",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-11",
+    "publishedId": "source-040-041",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P04",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-12",
+    "publishedId": "source-047-047",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P04",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-13",
+    "publishedId": "source-049-053",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P04",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-14",
+    "publishedId": "source-054-058",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P04",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-15",
+    "publishedId": "source-060-060",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P04",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-16",
+    "publishedId": "source-062-065",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P04",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-17",
+    "publishedId": "source-067-070",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P04",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-18",
+    "publishedId": "source-072-072",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P04",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-19",
+    "publishedId": "source-074-075",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P04",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-20",
+    "publishedId": "source-078-080",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P04",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-21",
+    "publishedId": "source-082-083",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P04",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-22",
+    "publishedId": "source-085-086",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P05",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-01",
+    "publishedId": "source-004-004",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P05",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-02",
+    "publishedId": "source-007-007",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P05",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-03",
+    "publishedId": "source-009-009",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P05",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-04",
+    "publishedId": "source-011-011",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P05",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-05",
+    "publishedId": "source-013-013",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P05",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-06",
+    "publishedId": "source-016-016",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P05",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-07",
+    "publishedId": "source-019-019",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P05",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-08",
+    "publishedId": "source-022-022",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P05",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-09",
+    "publishedId": "source-024-024",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P05",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-10",
+    "publishedId": "source-026-026",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P05",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-11",
+    "publishedId": "source-029-029",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P05",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-12",
+    "publishedId": "source-031-032",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P05",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-13",
+    "publishedId": "source-034-034",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P05",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-14",
+    "publishedId": "source-036-036",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P05",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-15",
+    "publishedId": "source-038-038",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P05",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-16",
+    "publishedId": "source-040-040",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P05",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-17",
+    "publishedId": "source-042-043",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P05",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-18",
+    "publishedId": "source-045-045",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P05",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-19",
+    "publishedId": "source-047-047",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P06",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-01",
+    "publishedId": "source-005-006",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P06",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-02",
+    "publishedId": "source-008-009",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P06",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-03",
+    "publishedId": "source-011-011",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P06",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-04",
+    "publishedId": "source-013-013",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P06",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-05",
+    "publishedId": "source-015-015",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P06",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-06",
+    "publishedId": "source-017-017",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P06",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-07",
+    "publishedId": "source-019-019",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P06",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-08",
+    "publishedId": "source-021-021",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P06",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-09",
+    "publishedId": "source-023-023",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P06",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-10",
+    "publishedId": "source-025-025",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P06",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-11",
+    "publishedId": "source-027-027",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P06",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-12",
+    "publishedId": "source-029-029",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P06",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-13",
+    "publishedId": "source-031-031",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P06",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-14",
+    "publishedId": "source-033-033",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P06",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-15",
+    "publishedId": "source-035-035",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P06",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-16",
+    "publishedId": "source-037-037",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P06",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-17",
+    "publishedId": "source-039-039",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P06",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-18",
+    "publishedId": "source-041-041",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P06",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-19",
+    "publishedId": "source-043-043",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P07",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-01",
+    "publishedId": "source-009-012",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P07",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-02",
+    "publishedId": "source-014-017",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P07",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-03",
+    "publishedId": "source-019-019",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P08",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-01",
+    "publishedId": "source-004-010",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P08",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-02",
+    "publishedId": "source-011-011",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P08",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-03",
+    "publishedId": "source-013-014",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P08",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-04",
+    "publishedId": "source-017-017",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P08",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-05",
+    "publishedId": "source-020-021",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P08",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-06",
+    "publishedId": "source-024-024",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P08",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-07",
+    "publishedId": "source-029-030",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P08",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-08",
+    "publishedId": "source-032-032",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P08",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-09",
+    "publishedId": "source-035-035",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P08",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-10",
+    "publishedId": "source-038-038",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P08",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-11",
+    "publishedId": "source-041-041",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P08",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-12",
+    "publishedId": "source-044-046",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P08",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-13",
+    "publishedId": "source-051-051",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P08",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-14",
+    "publishedId": "source-054-055",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P08",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-15",
+    "publishedId": "source-058-058",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P08",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-16",
+    "publishedId": "source-062-062",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P09",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-01",
+    "publishedId": "source-004-008",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P09",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-02",
+    "publishedId": "source-011-013",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P09",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-03",
+    "publishedId": "source-015-015",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P09",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-04",
+    "publishedId": "source-017-017",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P09",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-05",
+    "publishedId": "source-019-019",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P09",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-06",
+    "publishedId": "source-021-021",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P09",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-07",
+    "publishedId": "source-023-023",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P09",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-08",
+    "publishedId": "source-025-026",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P10",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-01",
+    "publishedId": "source-006-010",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P10",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-02",
+    "publishedId": "source-011-015",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P10",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-03",
+    "publishedId": "source-016-020",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P10",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-04",
+    "publishedId": "source-021-022",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P10",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-05",
+    "publishedId": "source-024-026",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P10",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-06",
+    "publishedId": "source-028-029",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P10",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-07",
+    "publishedId": "source-031-035",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P10",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-08",
+    "publishedId": "source-036-036",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P10",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-09",
+    "publishedId": "source-038-043",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P10",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-10",
+    "publishedId": "source-046-046",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P12",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-01",
+    "publishedId": "source-004-004",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P12",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-02",
+    "publishedId": "source-006-007",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P12",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-03",
+    "publishedId": "source-009-012",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P12",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-04",
+    "publishedId": "source-014-014",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P12",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-05",
+    "publishedId": "source-016-016",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P12",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-06",
+    "publishedId": "source-018-018",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P12",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-07",
+    "publishedId": "source-020-020",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P12",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-08",
+    "publishedId": "source-022-022",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P12",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-09",
+    "publishedId": "source-024-024",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P12",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-10",
+    "publishedId": "source-026-026",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P12",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-11",
+    "publishedId": "source-028-029",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P12",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-12",
+    "publishedId": "source-031-031",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P12",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-13",
+    "publishedId": "source-033-038",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P12",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-14",
+    "publishedId": "source-040-043",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P12",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-15",
+    "publishedId": "source-045-046",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P12",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-16",
+    "publishedId": "source-048-052",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P12",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-17",
+    "publishedId": "source-054-055",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P12",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-18",
+    "publishedId": "source-057-057",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P12",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-19",
+    "publishedId": "source-059-059",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P12",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-20",
+    "publishedId": "source-061-061",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P12",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-21",
+    "publishedId": "source-064-065",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P12",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-22",
+    "publishedId": "source-067-071",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P13",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-01",
+    "publishedId": "source-002-002",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P13",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-02",
+    "publishedId": "source-004-004",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P13",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-03",
+    "publishedId": "source-006-009",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P13",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-04",
+    "publishedId": "source-011-011",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P13",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-05",
+    "publishedId": "source-013-017",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P13",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-06",
+    "publishedId": "source-019-019",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P13",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-07",
+    "publishedId": "source-021-021",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P13",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-08",
+    "publishedId": "source-024-024",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P13",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-09",
+    "publishedId": "source-026-026",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P13",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-10",
+    "publishedId": "source-028-028",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P13",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-11",
+    "publishedId": "source-030-031",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P13",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-12",
+    "publishedId": "source-033-033",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P13",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-13",
+    "publishedId": "source-035-035",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P13",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-14",
+    "publishedId": "source-037-037",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P13",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-15",
+    "publishedId": "source-039-041",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P13",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-16",
+    "publishedId": "source-043-043",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P13",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-17",
+    "publishedId": "source-045-046",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P13",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-18",
+    "publishedId": "source-048-049",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P14",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-01",
+    "publishedId": "source-005-005",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P14",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-02",
+    "publishedId": "source-008-008",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P14",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-03",
+    "publishedId": "source-010-010",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P14",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-04",
+    "publishedId": "source-012-017",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P14",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-05",
+    "publishedId": "source-018-018",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P15",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-01",
+    "publishedId": "source-001-001",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P15",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-02",
+    "publishedId": "source-003-003",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P15",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-03",
+    "publishedId": "source-005-009",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P15",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-04",
+    "publishedId": "source-012-015",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P15",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-05",
+    "publishedId": "source-017-017",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P15",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-06",
+    "publishedId": "source-019-021",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P15",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-07",
+    "publishedId": "source-023-025",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P15",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-08",
+    "publishedId": "source-027-027",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P15",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-09",
+    "publishedId": "source-029-033",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P15",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-10",
+    "publishedId": "source-035-036",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P15",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-11",
+    "publishedId": "source-038-038",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P15",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-12",
+    "publishedId": "source-040-040",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P15",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-13",
+    "publishedId": "source-042-043",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P16",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-01",
+    "publishedId": "source-005-006",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P16",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-02",
+    "publishedId": "source-008-008",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P16",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-03",
+    "publishedId": "source-010-012",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P16",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-04",
+    "publishedId": "source-014-014",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P16",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-05",
+    "publishedId": "source-017-017",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P16",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-06",
+    "publishedId": "source-020-020",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P16",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-07",
+    "publishedId": "source-023-023",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P16",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-08",
+    "publishedId": "source-026-026",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P16",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-09",
+    "publishedId": "source-029-033",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P16",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-10",
+    "publishedId": "source-035-037",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P16",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-11",
+    "publishedId": "source-039-041",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P16",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-12",
+    "publishedId": "source-043-043",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P16",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-13",
+    "publishedId": "source-046-048",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P18",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-01",
+    "publishedId": "source-004-004",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P18",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-02",
+    "publishedId": "source-006-006",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P18",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-03",
+    "publishedId": "source-008-008",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P18",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-04",
+    "publishedId": "source-012-013",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P18",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-05",
+    "publishedId": "source-016-016",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P18",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-06",
+    "publishedId": "source-019-019",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P18",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-07",
+    "publishedId": "source-021-021",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P18",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-08",
+    "publishedId": "source-025-026",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P18",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-09",
+    "publishedId": "source-028-030",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P19",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-01",
+    "publishedId": "source-006-006",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P19",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-02",
+    "publishedId": "source-009-013",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P19",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-03",
+    "publishedId": "source-014-015",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P19",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-04",
+    "publishedId": "source-017-019",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P19",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-05",
+    "publishedId": "source-022-028",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P19",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-06",
+    "publishedId": "source-031-035",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P19",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-07",
+    "publishedId": "source-038-041",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P19",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-08",
+    "publishedId": "source-045-049",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P19",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-09",
+    "publishedId": "source-050-051",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P19",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-10",
+    "publishedId": "source-054-056",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P20",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-01",
+    "publishedId": "source-005-007",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P20",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-02",
+    "publishedId": "source-010-011",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P20",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-03",
+    "publishedId": "source-013-018",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P20",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-04",
+    "publishedId": "source-020-024",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P20",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-05",
+    "publishedId": "source-025-028",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P20",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-06",
+    "publishedId": "source-030-030",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P20",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-07",
+    "publishedId": "source-032-032",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P20",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-08",
+    "publishedId": "source-035-035",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P20",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-09",
+    "publishedId": "source-038-044",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P20",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-10",
+    "publishedId": "source-046-048",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P20",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-11",
+    "publishedId": "source-051-055",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P20",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-12",
+    "publishedId": "source-058-059",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P20",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-13",
+    "publishedId": "source-062-062",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P22",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-01",
+    "publishedId": "source-013-013",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P22",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-02",
+    "publishedId": "source-016-016",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P22",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-03",
+    "publishedId": "source-018-018",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P22",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-04",
+    "publishedId": "source-020-020",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P22",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-05",
+    "publishedId": "source-025-025",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P22",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-06",
+    "publishedId": "source-028-028",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P22",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-07",
+    "publishedId": "source-036-036",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P22",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-08",
+    "publishedId": "source-038-042",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P22",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-09",
+    "publishedId": "source-046-046",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P22",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-10",
+    "publishedId": "source-049-049",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P22",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-11",
+    "publishedId": "source-053-053",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P22",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-12",
+    "publishedId": "source-057-057",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P22",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-13",
+    "publishedId": "source-060-060",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P22",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-14",
+    "publishedId": "source-062-063",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P22",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-15",
+    "publishedId": "source-068-071",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P22",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-16",
+    "publishedId": "source-074-075",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P22",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-17",
+    "publishedId": "source-077-077",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P22",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-18",
+    "publishedId": "source-080-081",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P23",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-01",
+    "publishedId": "source-007-009",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P23",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-02",
+    "publishedId": "source-013-015",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P23",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-03",
+    "publishedId": "source-018-018",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P23",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-04",
+    "publishedId": "source-021-021",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P23",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-05",
+    "publishedId": "source-024-031",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P23",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-06",
+    "publishedId": "source-033-035",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P23",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-07",
+    "publishedId": "source-038-039",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P23",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-08",
+    "publishedId": "source-044-045",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P23",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-09",
+    "publishedId": "source-047-049",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P23",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-10",
+    "publishedId": "source-052-056",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P23",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-11",
+    "publishedId": "source-059-059",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P23",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-12",
+    "publishedId": "source-062-065",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P24",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-01",
+    "publishedId": "source-009-015",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P24",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-02",
+    "publishedId": "source-016-017",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P24",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-03",
+    "publishedId": "source-022-029",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P24",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-04",
+    "publishedId": "source-030-030",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P24",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-05",
+    "publishedId": "source-033-037",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P24",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-06",
+    "publishedId": "source-038-043",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P24",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-07",
+    "publishedId": "source-045-049",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P24",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-08",
+    "publishedId": "source-051-054",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P24",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-09",
+    "publishedId": "source-057-064",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P24",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-10",
+    "publishedId": "source-065-069",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P24",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-11",
+    "publishedId": "source-071-071",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P24",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-12",
+    "publishedId": "source-073-074",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P24",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-13",
+    "publishedId": "source-076-078",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P24",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-14",
+    "publishedId": "source-081-083",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P25",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-01",
+    "publishedId": "source-002-002",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P25",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-02",
+    "publishedId": "source-004-006",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P25",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-03",
+    "publishedId": "source-008-009",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P25",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-04",
+    "publishedId": "source-011-013",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P25",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-05",
+    "publishedId": "source-015-016",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P25",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-06",
+    "publishedId": "source-018-020",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P26",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-01",
+    "publishedId": "source-006-006",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P26",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-02",
+    "publishedId": "source-009-010",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P26",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-03",
+    "publishedId": "source-012-013",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P26",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-04",
+    "publishedId": "source-015-016",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P26",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-05",
+    "publishedId": "source-018-019",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P26",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-06",
+    "publishedId": "source-021-023",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P26",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-07",
+    "publishedId": "source-025-025",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P26",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-08",
+    "publishedId": "source-028-028",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P26",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-09",
+    "publishedId": "source-032-037",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P26",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-10",
+    "publishedId": "source-038-040",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P26",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-11",
+    "publishedId": "source-043-043",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P26",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-12",
+    "publishedId": "source-047-047",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P26",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-13",
+    "publishedId": "source-050-050",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P27",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-01",
+    "publishedId": "source-004-006",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P27",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-02",
+    "publishedId": "source-008-008",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P27",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-03",
+    "publishedId": "source-011-011",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P27",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-04",
+    "publishedId": "source-014-014",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P27",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-05",
+    "publishedId": "source-017-017",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P27",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-06",
+    "publishedId": "source-021-021",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P27",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-07",
+    "publishedId": "source-024-028",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P28",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-01",
+    "publishedId": "source-007-007",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P28",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-02",
+    "publishedId": "source-009-010",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P28",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-03",
+    "publishedId": "source-012-012",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P28",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-04",
+    "publishedId": "source-014-014",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P28",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-05",
+    "publishedId": "source-016-016",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P28",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-06",
+    "publishedId": "source-018-018",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P28",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-07",
+    "publishedId": "source-020-025",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P28",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-08",
+    "publishedId": "source-027-029",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P28",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-09",
+    "publishedId": "source-032-033",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P28",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-10",
+    "publishedId": "source-035-036",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P28",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-11",
+    "publishedId": "source-038-040",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P28",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-12",
+    "publishedId": "source-042-043",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P28",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-13",
+    "publishedId": "source-045-046",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P28",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-14",
+    "publishedId": "source-048-049",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P28",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-15",
+    "publishedId": "source-051-052",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P28",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-16",
+    "publishedId": "source-054-055",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P28",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-17",
+    "publishedId": "source-057-058",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P29",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-01",
+    "publishedId": "source-004-004",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P29",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-02",
+    "publishedId": "source-006-009",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P29",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-03",
+    "publishedId": "source-011-012",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P29",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-04",
+    "publishedId": "source-015-016",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P29",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-05",
+    "publishedId": "source-018-018",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P29",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-06",
+    "publishedId": "source-020-020",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P29",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-07",
+    "publishedId": "source-022-023",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P29",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-08",
+    "publishedId": "source-025-025",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P29",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-09",
+    "publishedId": "source-027-028",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P29",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-10",
+    "publishedId": "source-030-030",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  },
+  {
+    "projectId": "P29",
+    "lessonId": "main-analysis",
+    "previousUnpublishedId": "planned-11",
+    "publishedId": "source-032-033",
+    "reason": "仅规划ID没有有效学习记录；正式课按真实源单元设新ID，避免把不同内容复用同一ID"
+  }
+]

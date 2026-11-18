@@ -1,0 +1,34 @@
+{
+  "schemaVersion": "1.0",
+  "id": "p11-correlation",
+  "title": "清洗后全量面积与总价相关",
+  "kind": "table",
+  "columns": [
+    "方法",
+    "样本行数",
+    "相关系数"
+  ],
+  "rows": [
+    [
+      "Pearson",
+      18906,
+      0.8296817029
+    ]
+  ],
+  "text": null,
+  "context": {
+    "identity": "new-precomputed",
+    "buildId": "phase3-v1",
+    "createdAt": "2026-11-16T11:41:51.304867+00:00",
+    "inputs": [
+      {
+        "path": "房地产-二手房数据分析-约400行（数据探索分析、matplotlib可视化）/shenzhen.csv",
+        "sha256": "607ca9622c8f38317738c7c401e81b88533137862db0cb50455b0a818da85a22"
+      }
+    ],
+    "note": "本次全量描述性统计；相关关系不能解释为面积造成房价变化。",
+    "unit": "未知 / 原数据单位待核实",
+    "sample": null,
+    "modelRerun": false
+  }
+}

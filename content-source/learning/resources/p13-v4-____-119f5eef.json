@@ -1,0 +1,64 @@
+{
+  "schemaVersion": "1.0",
+  "id": "p13-v4-____-119f5eef",
+  "title": "榜单类别：记录数与全量比例",
+  "kind": "table",
+  "columns": [
+    "榜单类别",
+    "记录数",
+    "全量比例"
+  ],
+  "rows": [
+    [
+      "全部",
+      50,
+      0.333333333333333
+    ],
+    [
+      "国产",
+      50,
+      0.333333333333333
+    ],
+    [
+      "进口",
+      50,
+      0.333333333333333
+    ]
+  ],
+  "text": null,
+  "context": {
+    "identity": "new-precomputed",
+    "buildId": "phase4-v1",
+    "createdAt": "2026-11-16T12:58:37.389041+00:00",
+    "inputs": [
+      {
+        "path": "文化娱乐-国产进口电影票房分析（Pyecharts大屏可视化）/国产进口电影票房分析.ipynb",
+        "sha256": "76d4713a436c730d38b1f620c0d2c51aa784a50c1b5276d8734d0d6ab02c058d"
+      },
+      {
+        "path": "文化娱乐-国产进口电影票房分析（Pyecharts大屏可视化）/票房榜.xlsx",
+        "sha256": "1c38523aeb55c46b7df881d3919becadd4be29aa47deed5784bf1297c5f6f946"
+      }
+    ],
+    "note": "全量150行，最多展示前50类别；缺失单列，0是有效取值",
+    "unit": "记录数",
+    "sample": null,
+    "modelRerun": false
+  },
+  "chart": {
+    "type": "bar",
+    "x": 0,
+    "ys": [
+      1
+    ],
+    "question": "榜单类别：记录数与全量比例",
+    "xLabel": "榜单类别",
+    "yLabel": "记录数",
+    "denominator": "当前输入全部150行；隐藏类别不改变比例分母",
+    "range": "当前输入已说明范围的全量聚合",
+    "filters": "全量150行，最多展示前50类别；缺失单列，0是有效取值",
+    "nullPolicy": "缺失为null，保留0；不连接缺失点",
+    "interpretation": "对照同源表读取差异；关联不能推出因果或样本外结论。",
+    "filterColumn": 0
+  }
+}

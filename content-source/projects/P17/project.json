@@ -1,0 +1,228 @@
+{
+  "id": "P17",
+  "title": "聚类分析广告效果",
+  "originalNames": [
+    "电商-广告投放效果分析-约250行（KMeans聚类、数据分析）",
+    "聚类分析广告效果.ipynb"
+  ],
+  "categoryId": "commerce",
+  "summary": "根据渠道流量、转化和素材属性进行广告渠道分群。",
+  "difficulty": "进阶",
+  "skillTags": [
+    "Pandas",
+    "NumPy",
+    "Matplotlib",
+    "Seaborn",
+    "OneHotEncoder",
+    "MinMaxScaler",
+    "KMeans",
+    "轮廓系数"
+  ],
+  "methods": "KMeans；搜索k=2到7，原保存k=4",
+  "sourceRefs": [
+    {
+      "path": "电商-广告投放效果分析-约250行（KMeans聚类、数据分析）/.ipynb_checkpoints/聚类分析广告效果-checkpoint.ipynb",
+      "sha256": "ad88e032b91ce55504f1a19bc8e1ddb2a8829edc69cab6b2569cdbde39edd6b7",
+      "role": "code"
+    },
+    {
+      "path": "电商-广告投放效果分析-约250行（KMeans聚类、数据分析）/ad_performance.csv",
+      "sha256": "4f767d4f273ae2745ac84a9791d2e3d81bdee37a26d1ca82fa4d8a9a5f3003fb",
+      "role": "data"
+    },
+    {
+      "path": "电商-广告投放效果分析-约250行（KMeans聚类、数据分析）/聚类分析广告效果.html",
+      "sha256": "171e7b08d19c68ce8c657f07d37ee826b9f5d6a1b867cbb97743a08f2204f654",
+      "role": "output"
+    },
+    {
+      "path": "电商-广告投放效果分析-约250行（KMeans聚类、数据分析）/聚类分析广告效果.ipynb",
+      "sha256": "ad88e032b91ce55504f1a19bc8e1ddb2a8829edc69cab6b2569cdbde39edd6b7",
+      "role": "code"
+    },
+    {
+      "path": "电商-广告投放效果分析-约250行（KMeans聚类、数据分析）/聚类分析广告效果.py",
+      "sha256": "d9d3c4c55eea4c26a15c1cc652b2e7793f294ad7f7697f7ce793985a402860b1",
+      "role": "code"
+    }
+  ],
+  "limitations": [
+    "原文群体编号、数量与业务描述有错位，平台须绑定实际中心而非照抄；无成本收益字段支撑ROI结论；未固定随机种子。"
+  ],
+  "lessons": [
+    {
+      "id": "main-analysis",
+      "title": "聚类分析广告效果",
+      "source": "电商-广告投放效果分析-约250行（KMeans聚类、数据分析）/聚类分析广告效果.ipynb"
+    }
+  ],
+  "readiness": {
+    "source": "audited",
+    "course": "not-adapted",
+    "rerun": "not-run",
+    "offline": "not-packaged"
+  },
+  "detailRef": "projects/P17/project.json",
+  "searchKeywords": [
+    "认识渠道指标",
+    "追踪缺失字段处置",
+    "比较编码前后",
+    "观察缩放改变距离",
+    "读取k与轮廓系数",
+    "检查群体数量",
+    "逐群核对画像"
+  ],
+  "prerequisites": "EDA、类别编码、缩放、无监督学习、距离。",
+  "recommendedProjectIds": [
+    "P20"
+  ],
+  "recommendationNote": "P20。",
+  "schemaVersion": "1.0",
+  "contentVersion": "0.2.0",
+  "learningObjectives": [
+    "根据渠道流量、转化和素材属性进行广告渠道分群。 重点掌握Pandas、NumPy、Matplotlib、Seaborn、OneHotEncoder、MinMaxScaler、KMeans、轮廓系数。",
+    "认识渠道指标",
+    "追踪缺失字段处置",
+    "比较编码前后",
+    "观察缩放改变距离",
+    "读取k与轮廓系数",
+    "检查群体数量",
+    "逐群核对画像"
+  ],
+  "exercise": {
+    "text": "解释为何独热而非任意数字编码；核对原结论的簇编号错位。",
+    "provenance": "已批准路线中新设计的巩固练习；非原文件已有试题",
+    "answerStatus": "课程内已提供提示与核对清单，采用自评，不自动判卷"
+  },
+  "datasets": [
+    {
+      "id": "D01-1",
+      "path": "电商-广告投放效果分析-约250行（KMeans聚类、数据分析）/ad_performance.csv",
+      "sha256": "4f767d4f273ae2745ac84a9791d2e3d81bdee37a26d1ca82fa4d8a9a5f3003fb",
+      "sheet": null,
+      "rows": 889,
+      "columns": 13,
+      "encoding": "utf-8-sig",
+      "grain": "待核实；读取行数不等于独立业务实体数",
+      "origin": null,
+      "license": null,
+      "fields": [
+        {
+          "name": "渠道代号",
+          "dtype": "str",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P17 / 电商-广告投放效果分析-约250行（KMeans聚类、数据分析）/ad_performance.csv"
+        },
+        {
+          "name": "日均UV",
+          "dtype": "float64",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P17 / 电商-广告投放效果分析-约250行（KMeans聚类、数据分析）/ad_performance.csv"
+        },
+        {
+          "name": "平均注册率",
+          "dtype": "float64",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P17 / 电商-广告投放效果分析-约250行（KMeans聚类、数据分析）/ad_performance.csv"
+        },
+        {
+          "name": "平均搜索量",
+          "dtype": "float64",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P17 / 电商-广告投放效果分析-约250行（KMeans聚类、数据分析）/ad_performance.csv"
+        },
+        {
+          "name": "访问深度",
+          "dtype": "float64",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P17 / 电商-广告投放效果分析-约250行（KMeans聚类、数据分析）/ad_performance.csv"
+        },
+        {
+          "name": "平均停留时间",
+          "dtype": "float64",
+          "missing": 2,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P17 / 电商-广告投放效果分析-约250行（KMeans聚类、数据分析）/ad_performance.csv"
+        },
+        {
+          "name": "订单转化率",
+          "dtype": "float64",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P17 / 电商-广告投放效果分析-约250行（KMeans聚类、数据分析）/ad_performance.csv"
+        },
+        {
+          "name": "投放总时间",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P17 / 电商-广告投放效果分析-约250行（KMeans聚类、数据分析）/ad_performance.csv"
+        },
+        {
+          "name": "素材类型",
+          "dtype": "str",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P17 / 电商-广告投放效果分析-约250行（KMeans聚类、数据分析）/ad_performance.csv"
+        },
+        {
+          "name": "广告类型",
+          "dtype": "str",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P17 / 电商-广告投放效果分析-约250行（KMeans聚类、数据分析）/ad_performance.csv"
+        },
+        {
+          "name": "合作方式",
+          "dtype": "str",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P17 / 电商-广告投放效果分析-约250行（KMeans聚类、数据分析）/ad_performance.csv"
+        },
+        {
+          "name": "广告尺寸",
+          "dtype": "str",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P17 / 电商-广告投放效果分析-约250行（KMeans聚类、数据分析）/ad_performance.csv"
+        },
+        {
+          "name": "广告卖点",
+          "dtype": "str",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P17 / 电商-广告投放效果分析-约250行（KMeans聚类、数据分析）/ad_performance.csv"
+        }
+      ],
+      "teachingMappings": []
+    }
+  ],
+  "scopeNotes": [
+    "第三阶段重新读取原Notebook单元43发现：part1_desc.iloc[2, :]取describe的std，而非注释所称均值；后续雷达图亦基于该标准差表，不能称为均值中心画像。完整标签未独立导出，当前不补造修正均值。"
+  ],
+  "originalWorkflow": "审查13列→相关性→删冗余特征→独热缩放→按轮廓系数选k→群体特征→雷达解释。",
+  "savedResult": "原保存轮廓系数0.502098，k=4，标签0到3数量73/154/313/349。",
+  "sourceEvidence": [
+    "01_项目资产盘点.md#P17",
+    "03_完整学习路线.md#P17",
+    "附录B_全数据字段与缺失字典.md#P17"
+  ]
+}

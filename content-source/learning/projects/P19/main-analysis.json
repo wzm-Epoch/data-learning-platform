@@ -1,0 +1,912 @@
+{
+  "schemaVersion": "1.0",
+  "contentVersion": "0.6.0",
+  "projectId": "P19",
+  "id": "main-analysis",
+  "title": "母婴市场消费数据分析",
+  "status": "ready",
+  "steps": [
+    {
+      "id": "source-006-006",
+      "title": "分析目的 · 单元6—6",
+      "status": "ready",
+      "kind": "analysis",
+      "knowledgeIds": [
+        "Pandas",
+        "NumPy",
+        "Pyecharts",
+        "Matplotlib",
+        "Seaborn"
+      ],
+      "explanation": [
+        "本步按原Notebook顺序阅读单元6—6。原保存输出尚未重跑；安装、联网采集、写原文件和模型加载均不会在网页运行。",
+        "绘图参数只控制展示；结论仍须受输入范围与统计口径约束。",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：Table of Contents\n1&nbsp;&nbsp;母婴商品销售数据分析1.1&nbsp;&nbsp;项目介绍1.1.1&nbsp;&nbsp;项目背景1.1.2&nbsp;&nbsp;分析目的1.2&nbsp;&nbsp;数据准备1.2.1&nbsp;&nbsp;导入数据1.2.2&nbsp;&nbsp;数据清洗1.3&nbsp;&nbsp;数据分析1.3.1&nbsp;&nbsp;整体市场情况1.3.1.1&nbsp;&nbsp;第一季度销量下滑原因1.3.1.2&nbsp;&nbsp;第四季度销量上升原因1.3.1.3&nbsp;&nbsp;复购率1.3.2&nbsp;&nbsp;商品销售情况",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：# 母婴商品销售数据分析",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：## 项目介绍"
+      ],
+      "teachingCode": "# 原代码仅供阅读，不由网页执行。\n# 本次可运行适配实现见末尾数据实验步骤。",
+      "limitations": [
+        "两表覆盖不同，婴儿表953人，代码并未实现年龄预测；无单价不能计算营业额；原文将销量称销售额、日期有笔误；节日原因是推测；抽样不支持全国市场规模或质量归因。",
+        "原代码与保存输出保持原身份；新改编计算另列。"
+      ],
+      "codeRefs": [
+        {
+          "path": "电商-母婴市场消费数据分析-约350行（pyecharts可视化、数据分析）/母婴市场消费数据分析.ipynb",
+          "notebookSha256": "4e8243d4bf1a207860192e64196ac04e3ab42a602f5a74e651ab76c2fd2f7068",
+          "cell": 6,
+          "code": "import numpy as np\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport pyecharts.charts as pyc\nimport pyecharts.options as opts\nimport warnings\nfrom datetime import datetime\nwarnings.filterwarnings(\"ignore\")\n%matplotlib inline\nplt.rcParams['font.sans-serif'] = ['Microsoft YaHei']\nplt.rcParams['axes.unicode_minus'] = False\n# 作图的字体默认设置\nfontdict = {'fontsize': 15,\n            'horizontalalignment': 'center'}",
+          "codeSha256": "f0ce0b32c61b48c16ae3b32ed342d44ac733edb4f195f77793b8b438b16ffb5a"
+        }
+      ],
+      "inputRefs": [
+        {
+          "path": "电商-母婴市场消费数据分析-约350行（pyecharts可视化、数据分析）/母婴市场消费数据分析.ipynb",
+          "sha256": "4e8243d4bf1a207860192e64196ac04e3ab42a602f5a74e651ab76c2fd2f7068"
+        },
+        {
+          "path": "电商-母婴市场消费数据分析-约350行（pyecharts可视化、数据分析）/(sample)sam_tianchi_mum_baby_trade_history.csv",
+          "sha256": "496284641c52e105d2b68fb4fff9996f1f56a472ef48a9c991a178fa2cc36986"
+        },
+        {
+          "path": "电商-母婴市场消费数据分析-约350行（pyecharts可视化、数据分析）/(sample)sam_tianchi_mum_baby.csv",
+          "sha256": "cef56ed5cc1c92041855c6b10c24b7d7871d0da0ea41565a101a5f7c4eceb471"
+        }
+      ],
+      "outputRefs": [
+        "learning/resources/p19-v4-evidence-1.json"
+      ],
+      "exercise": {
+        "prompt": "根据本步单元6—6和保存证据，说明一次变换的输入、输出和一项无法验证的结论。",
+        "hint": "先查看代码中的列选择/过滤/拟合，再核对输出身份和本项目局限。",
+        "checklist": [
+          "准确引用原单元6—6",
+          "指出实际字段或变量与一项真实输出",
+          "把未重跑、资料缺失和统计缺陷分别说明"
+        ],
+        "provenance": "第四阶段教学补充，自评，不代表原文件试题"
+      },
+      "outputTitles": {
+        "learning/resources/p19-v4-evidence-1.json": "原单元6—6的执行证据边界"
+      }
+    },
+    {
+      "id": "source-009-013",
+      "title": "导入数据 · 单元9—13",
+      "status": "ready",
+      "kind": "analysis",
+      "knowledgeIds": [
+        "Pandas",
+        "NumPy",
+        "Pyecharts",
+        "Matplotlib",
+        "Seaborn"
+      ],
+      "explanation": [
+        "本步按原Notebook顺序阅读单元9—13。原保存输出尚未重跑；安装、联网采集、写原文件和模型加载均不会在网页运行。",
+        "read_csv只读取指定CSV；编码、表头和字段需要与输入字典核对。",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：## 数据准备",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：### 导入数据"
+      ],
+      "teachingCode": "# 原代码仅供阅读，不由网页执行。\n# 本次可运行适配实现见末尾数据实验步骤。",
+      "limitations": [
+        "两表覆盖不同，婴儿表953人，代码并未实现年龄预测；无单价不能计算营业额；原文将销量称销售额、日期有笔误；节日原因是推测；抽样不支持全国市场规模或质量归因。",
+        "原代码与保存输出保持原身份；新改编计算另列。"
+      ],
+      "codeRefs": [
+        {
+          "path": "电商-母婴市场消费数据分析-约350行（pyecharts可视化、数据分析）/母婴市场消费数据分析.ipynb",
+          "notebookSha256": "4e8243d4bf1a207860192e64196ac04e3ab42a602f5a74e651ab76c2fd2f7068",
+          "cell": 9,
+          "code": "baby = pd.read_csv(\"./(sample)sam_tianchi_mum_baby.csv\")\ntrade = pd.read_csv(\"./(sample)sam_tianchi_mum_baby_trade_history.csv\")",
+          "codeSha256": "5ea542cc6c32c829ee2dcf855cc9d49292a09d0dbd2a8de685710d6d91ee8b0c"
+        },
+        {
+          "path": "电商-母婴市场消费数据分析-约350行（pyecharts可视化、数据分析）/母婴市场消费数据分析.ipynb",
+          "notebookSha256": "4e8243d4bf1a207860192e64196ac04e3ab42a602f5a74e651ab76c2fd2f7068",
+          "cell": 10,
+          "code": "baby.head()",
+          "codeSha256": "f8e512a070a4f47c605b1c6d85f46096cfef7b287734fff90f269dd6472a644c"
+        },
+        {
+          "path": "电商-母婴市场消费数据分析-约350行（pyecharts可视化、数据分析）/母婴市场消费数据分析.ipynb",
+          "notebookSha256": "4e8243d4bf1a207860192e64196ac04e3ab42a602f5a74e651ab76c2fd2f7068",
+          "cell": 11,
+          "code": "trade.head()",
+          "codeSha256": "87835879b81816fca355569831a49a0d1af3a60dccca5f1345be5fa544dd383d"
+        },
+        {
+          "path": "电商-母婴市场消费数据分析-约350行（pyecharts可视化、数据分析）/母婴市场消费数据分析.ipynb",
+          "notebookSha256": "4e8243d4bf1a207860192e64196ac04e3ab42a602f5a74e651ab76c2fd2f7068",
+          "cell": 12,
+          "code": "baby.info()",
+          "codeSha256": "6ee0b6d01b783a7e0b2624799fa12a9b8eb2b9056a30a8eab5a746edf8acb9aa"
+        },
+        {
+          "path": "电商-母婴市场消费数据分析-约350行（pyecharts可视化、数据分析）/母婴市场消费数据分析.ipynb",
+          "notebookSha256": "4e8243d4bf1a207860192e64196ac04e3ab42a602f5a74e651ab76c2fd2f7068",
+          "cell": 13,
+          "code": "trade.info()",
+          "codeSha256": "3c9efd177e457c473a657acdfa71d74eb3ee0ef60633557b56a5dcad8ed02fe1"
+        }
+      ],
+      "inputRefs": [
+        {
+          "path": "电商-母婴市场消费数据分析-约350行（pyecharts可视化、数据分析）/母婴市场消费数据分析.ipynb",
+          "sha256": "4e8243d4bf1a207860192e64196ac04e3ab42a602f5a74e651ab76c2fd2f7068"
+        },
+        {
+          "path": "电商-母婴市场消费数据分析-约350行（pyecharts可视化、数据分析）/(sample)sam_tianchi_mum_baby_trade_history.csv",
+          "sha256": "496284641c52e105d2b68fb4fff9996f1f56a472ef48a9c991a178fa2cc36986"
+        },
+        {
+          "path": "电商-母婴市场消费数据分析-约350行（pyecharts可视化、数据分析）/(sample)sam_tianchi_mum_baby.csv",
+          "sha256": "cef56ed5cc1c92041855c6b10c24b7d7871d0da0ea41565a101a5f7c4eceb471"
+        }
+      ],
+      "outputRefs": [
+        "learning/resources/p19-v4-source-2.json"
+      ],
+      "exercise": {
+        "prompt": "根据本步单元9—13和保存证据，说明一次变换的输入、输出和一项无法验证的结论。",
+        "hint": "先查看代码中的列选择/过滤/拟合，再核对输出身份和本项目局限。",
+        "checklist": [
+          "准确引用原单元9—13",
+          "指出实际字段或变量与一项真实输出",
+          "把未重跑、资料缺失和统计缺陷分别说明"
+        ],
+        "provenance": "第四阶段教学补充，自评，不代表原文件试题"
+      },
+      "outputTitles": {
+        "learning/resources/p19-v4-source-2.json": "原单元9—13保存输出"
+      }
+    },
+    {
+      "id": "source-014-015",
+      "title": "导入数据 · 单元14—15",
+      "status": "ready",
+      "kind": "analysis",
+      "knowledgeIds": [
+        "Pandas",
+        "NumPy",
+        "Pyecharts",
+        "Matplotlib",
+        "Seaborn"
+      ],
+      "explanation": [
+        "本步按原Notebook顺序阅读单元14—15。原保存输出尚未重跑；安装、联网采集、写原文件和模型加载均不会在网页运行。",
+        "绘图参数只控制展示；结论仍须受输入范围与统计口径约束。"
+      ],
+      "teachingCode": "# 原代码仅供阅读，不由网页执行。\n# 本次可运行适配实现见末尾数据实验步骤。",
+      "limitations": [
+        "两表覆盖不同，婴儿表953人，代码并未实现年龄预测；无单价不能计算营业额；原文将销量称销售额、日期有笔误；节日原因是推测；抽样不支持全国市场规模或质量归因。",
+        "原代码与保存输出保持原身份；新改编计算另列。"
+      ],
+      "codeRefs": [
+        {
+          "path": "电商-母婴市场消费数据分析-约350行（pyecharts可视化、数据分析）/母婴市场消费数据分析.ipynb",
+          "notebookSha256": "4e8243d4bf1a207860192e64196ac04e3ab42a602f5a74e651ab76c2fd2f7068",
+          "cell": 14,
+          "code": "trade.buy_mount.describe()",
+          "codeSha256": "faced1668ce576dcf2ac7baf2d40d866223befb7ba6e5e2e5959416f451ed4cb"
+        },
+        {
+          "path": "电商-母婴市场消费数据分析-约350行（pyecharts可视化、数据分析）/母婴市场消费数据分析.ipynb",
+          "notebookSha256": "4e8243d4bf1a207860192e64196ac04e3ab42a602f5a74e651ab76c2fd2f7068",
+          "cell": 15,
+          "code": "quantity = trade.buy_mount.value_counts().sort_index()\nplt.figure(figsize=(10, 8))\nsns.scatterplot(x=quantity.index, y=quantity.values, alpha=0.3)\nplt.title(\"单个订单购买量分布\", fontdict=fontdict)\nplt.ylabel(\"订单数\", fontdict=fontdict)\nplt.xlabel(\"购买量\", fontdict=fontdict)\nplt.show()",
+          "codeSha256": "7f2c7b3919e01bc1fc032e32ef7d8b9f39e9067d22124b1abe7f826e0573f12f"
+        }
+      ],
+      "inputRefs": [
+        {
+          "path": "电商-母婴市场消费数据分析-约350行（pyecharts可视化、数据分析）/母婴市场消费数据分析.ipynb",
+          "sha256": "4e8243d4bf1a207860192e64196ac04e3ab42a602f5a74e651ab76c2fd2f7068"
+        },
+        {
+          "path": "电商-母婴市场消费数据分析-约350行（pyecharts可视化、数据分析）/(sample)sam_tianchi_mum_baby_trade_history.csv",
+          "sha256": "496284641c52e105d2b68fb4fff9996f1f56a472ef48a9c991a178fa2cc36986"
+        },
+        {
+          "path": "电商-母婴市场消费数据分析-约350行（pyecharts可视化、数据分析）/(sample)sam_tianchi_mum_baby.csv",
+          "sha256": "cef56ed5cc1c92041855c6b10c24b7d7871d0da0ea41565a101a5f7c4eceb471"
+        }
+      ],
+      "outputRefs": [
+        "learning/resources/p19-v4-source-3.json",
+        "learning/resources/p19-v4-source-3-images.json"
+      ],
+      "exercise": {
+        "prompt": "根据本步单元14—15和保存证据，说明一次变换的输入、输出和一项无法验证的结论。",
+        "hint": "先查看代码中的列选择/过滤/拟合，再核对输出身份和本项目局限。",
+        "checklist": [
+          "准确引用原单元14—15",
+          "指出实际字段或变量与一项真实输出",
+          "把未重跑、资料缺失和统计缺陷分别说明"
+        ],
+        "provenance": "第四阶段教学补充，自评，不代表原文件试题"
+      },
+      "outputTitles": {
+        "learning/resources/p19-v4-source-3.json": "原单元14—15保存输出",
+        "learning/resources/p19-v4-source-3-images.json": "原单元14—15保存输出 · 原保存图"
+      }
+    },
+    {
+      "id": "source-017-019",
+      "title": "数据清洗 · 单元17—19",
+      "status": "ready",
+      "kind": "analysis",
+      "knowledgeIds": [
+        "Pandas",
+        "NumPy",
+        "Pyecharts",
+        "Matplotlib",
+        "Seaborn"
+      ],
+      "explanation": [
+        "本步按原Notebook顺序阅读单元17—19。原保存输出尚未重跑；安装、联网采集、写原文件和模型加载均不会在网页运行。",
+        "本步展示原变量赋值、查看或配置；变量实际内容以保存输出与本次数据证据为准，不从代码存在推断执行成功。",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：### 数据清洗\n1. 保留buy_amount[1,195]以内的订单。\n2. 查看有无缺失值异常值，并进行处理。\n3. trade中的auction_id未指定是什么属性，我们就将他默认改为item_id。\n4. 数据集中的property全是数字，需要有对应的字典才能知道对应什么属性，这边先删除。\n5. day改成日期形式。"
+      ],
+      "teachingCode": "# 原代码仅供阅读，不由网页执行。\n# 本次可运行适配实现见末尾数据实验步骤。",
+      "limitations": [
+        "两表覆盖不同，婴儿表953人，代码并未实现年龄预测；无单价不能计算营业额；原文将销量称销售额、日期有笔误；节日原因是推测；抽样不支持全国市场规模或质量归因。",
+        "原代码与保存输出保持原身份；新改编计算另列。"
+      ],
+      "codeRefs": [
+        {
+          "path": "电商-母婴市场消费数据分析-约350行（pyecharts可视化、数据分析）/母婴市场消费数据分析.ipynb",
+          "notebookSha256": "4e8243d4bf1a207860192e64196ac04e3ab42a602f5a74e651ab76c2fd2f7068",
+          "cell": 17,
+          "code": "# 保留buy_mount[0,195]以内的记录\ntrade = trade[(trade.buy_mount >= 1) & (trade.buy_mount <= 195)]\n# 列重命名\ntrade.rename({\"auction_id\": \"item_id\"}, axis=1, inplace=True)\n# 先将property暂且取出放在一边，后续再分析\nproperty = trade.property\ntrade.drop('property', axis=1, inplace=True)\n# 日期类型转换\nbaby['birthday'] = pd.to_datetime(baby.birthday.astype('str'))\ntrade['day'] = pd.to_datetime(trade.day.astype('str'))",
+          "codeSha256": "78065fd10420dd289f2ebf59f90f4783f27906fc737966806fe2e02536b2d675"
+        },
+        {
+          "path": "电商-母婴市场消费数据分析-约350行（pyecharts可视化、数据分析）/母婴市场消费数据分析.ipynb",
+          "notebookSha256": "4e8243d4bf1a207860192e64196ac04e3ab42a602f5a74e651ab76c2fd2f7068",
+          "cell": 18,
+          "code": "# 本次统计数据的时间范围是2012/7/2-2015/2/5\ntrade.day.describe()",
+          "codeSha256": "0af0e37d363b5e75d5465ac50e36bb9b6f7d08e77924771bc57b5c1e2258be2b"
+        },
+        {
+          "path": "电商-母婴市场消费数据分析-约350行（pyecharts可视化、数据分析）/母婴市场消费数据分析.ipynb",
+          "notebookSha256": "4e8243d4bf1a207860192e64196ac04e3ab42a602f5a74e651ab76c2fd2f7068",
+          "cell": 19,
+          "code": "count_cat1 = trade.cat1.nunique()\ncount_cat = trade.cat_id.nunique()\ncount_item = trade.item_id.nunique()\nsales_volume = trade.buy_mount.sum()\ncount_user = trade.user_id.nunique()\nprint(\"商品类目数：\", count_cat1)\nprint(\"商品类别数：\", count_cat)\nprint(\"商品数：\", count_item)\nprint(\"总销量：\", sales_volume)\nprint(\"用户数\", count_user)",
+          "codeSha256": "0c08aa83b7f6e1435ef01d9edd3df177e22c5c24e9c97574c96ba7243eeaf7c3"
+        }
+      ],
+      "inputRefs": [
+        {
+          "path": "电商-母婴市场消费数据分析-约350行（pyecharts可视化、数据分析）/母婴市场消费数据分析.ipynb",
+          "sha256": "4e8243d4bf1a207860192e64196ac04e3ab42a602f5a74e651ab76c2fd2f7068"
+        },
+        {
+          "path": "电商-母婴市场消费数据分析-约350行（pyecharts可视化、数据分析）/(sample)sam_tianchi_mum_baby_trade_history.csv",
+          "sha256": "496284641c52e105d2b68fb4fff9996f1f56a472ef48a9c991a178fa2cc36986"
+        },
+        {
+          "path": "电商-母婴市场消费数据分析-约350行（pyecharts可视化、数据分析）/(sample)sam_tianchi_mum_baby.csv",
+          "sha256": "cef56ed5cc1c92041855c6b10c24b7d7871d0da0ea41565a101a5f7c4eceb471"
+        }
+      ],
+      "outputRefs": [
+        "learning/resources/p19-v4-source-4.json"
+      ],
+      "exercise": {
+        "prompt": "根据本步单元17—19和保存证据，说明一次变换的输入、输出和一项无法验证的结论。",
+        "hint": "先查看代码中的列选择/过滤/拟合，再核对输出身份和本项目局限。",
+        "checklist": [
+          "准确引用原单元17—19",
+          "指出实际字段或变量与一项真实输出",
+          "把未重跑、资料缺失和统计缺陷分别说明"
+        ],
+        "provenance": "第四阶段教学补充，自评，不代表原文件试题"
+      },
+      "outputTitles": {
+        "learning/resources/p19-v4-source-4.json": "原单元17—19保存输出"
+      }
+    },
+    {
+      "id": "source-022-028",
+      "title": "整体市场情况 · 单元22—28",
+      "status": "ready",
+      "kind": "analysis",
+      "knowledgeIds": [
+        "Pandas",
+        "NumPy",
+        "Pyecharts",
+        "Matplotlib",
+        "Seaborn"
+      ],
+      "explanation": [
+        "本步按原Notebook顺序阅读单元22—28。原保存输出尚未重跑；安装、联网采集、写原文件和模型加载均不会在网页运行。",
+        "groupby先定义分组键，再计算聚合；count、size与nunique的计数粒度不同。",
+        "绘图参数只控制展示；结论仍须受输入范围与统计口径约束。",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：## 数据分析",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：### 整体市场情况",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：2017/7-2015/2期间总销量是49973件，从上图我们可以看出淘宝和天猫平台母婴商品市场销量整体呈现上升趋势，但是波动较大。"
+      ],
+      "teachingCode": "# 原代码仅供阅读，不由网页执行。\n# 本次可运行适配实现见末尾数据实验步骤。",
+      "limitations": [
+        "两表覆盖不同，婴儿表953人，代码并未实现年龄预测；无单价不能计算营业额；原文将销量称销售额、日期有笔误；节日原因是推测；抽样不支持全国市场规模或质量归因。",
+        "原代码与保存输出保持原身份；新改编计算另列。"
+      ],
+      "codeRefs": [
+        {
+          "path": "电商-母婴市场消费数据分析-约350行（pyecharts可视化、数据分析）/母婴市场消费数据分析.ipynb",
+          "notebookSha256": "4e8243d4bf1a207860192e64196ac04e3ab42a602f5a74e651ab76c2fd2f7068",
+          "cell": 22,
+          "code": "# 根据年月查看销量趋势\n# 根据年分组\nyear_item = trade[['item_id', 'buy_mount', 'day']].groupby(by=trade.day.dt.year)[\n    'buy_mount'].sum()\n# 各年季度销量情况\nyear_quarter_item = trade[['item_id', 'buy_mount', 'day']].groupby(by=[trade.day.dt.year, trade.day.dt.quarter])[\n    'buy_mount'].sum()\n# 根据年月分组\nyear_month_item = trade[['item_id', 'buy_mount', 'day']].groupby(\n    by=[trade.day.dt.year, trade.day.dt.month])['buy_mount'].sum()",
+          "codeSha256": "ba1af83d7784ab54ed6b2aed048591d11d9826bc85bbc59dfca77f64ce69a485"
+        },
+        {
+          "path": "电商-母婴市场消费数据分析-约350行（pyecharts可视化、数据分析）/母婴市场消费数据分析.ipynb",
+          "notebookSha256": "4e8243d4bf1a207860192e64196ac04e3ab42a602f5a74e651ab76c2fd2f7068",
+          "cell": 23,
+          "code": "# 各年销量情况\nplt.figure(figsize=(10, 5))\nsns.barplot(x=year_item.index, y=year_item.values)\nplt.title(\"年销量趋势\", fontdict=fontdict)\nplt.xlabel(\"年份\", fontdict=fontdict)\nplt.ylabel(\"销量\", fontdict=fontdict)\nplt.show()",
+          "codeSha256": "2d2fe0d015e70448d7236350819de0fc05c2c5a03f7c8b65fa4ad3d0239b75ff"
+        },
+        {
+          "path": "电商-母婴市场消费数据分析-约350行（pyecharts可视化、数据分析）/母婴市场消费数据分析.ipynb",
+          "notebookSha256": "4e8243d4bf1a207860192e64196ac04e3ab42a602f5a74e651ab76c2fd2f7068",
+          "cell": 25,
+          "code": "index_list = year_quarter_item.index.tolist()\nindex_list = ['-'.join([str(x[0]),str(x[1])]) for x in index_list]\nindex_list",
+          "codeSha256": "5864dcf9db281b24e5882798edf22376451f2a6c92ea104c08ef6a7956d4f02e"
+        },
+        {
+          "path": "电商-母婴市场消费数据分析-约350行（pyecharts可视化、数据分析）/母婴市场消费数据分析.ipynb",
+          "notebookSha256": "4e8243d4bf1a207860192e64196ac04e3ab42a602f5a74e651ab76c2fd2f7068",
+          "cell": 26,
+          "code": "# 各季度销售情况\nplt.figure(figsize=(10, 5))\nsns.barplot(x=index_list, y=year_quarter_item.values)\nplt.title(\"季度销量趋势\", fontdict=fontdict)\nplt.xlabel(\"(年,季度)\", fontdict=fontdict)\nplt.ylabel(\"销量\", fontdict=fontdict)\nplt.show()",
+          "codeSha256": "a4f4e377f79ea906c2aa4e151cc4ee3693284a9723879f21566a067f81e59c43"
+        },
+        {
+          "path": "电商-母婴市场消费数据分析-约350行（pyecharts可视化、数据分析）/母婴市场消费数据分析.ipynb",
+          "notebookSha256": "4e8243d4bf1a207860192e64196ac04e3ab42a602f5a74e651ab76c2fd2f7068",
+          "cell": 28,
+          "code": "# 各月份销量情况\nx = [str(x[0])+\"/\"+str(x[1]) for x in year_month_item.index]\ny = [int(x) for x in year_month_item.values]\np  =pyc.Bar().add_xaxis(xaxis_data=x\n                    ).add_yaxis(series_name=\"销量\", y_axis=y, \n                        markpoint_opts=opts.MarkPointOpts(data=[opts.MarkPointItem(coord=[x[4], y[4]], value=y[4]), \n                        opts.MarkPointItem(coord=[x[10], y[10]], value=y[10]), \n                    opts.MarkPointItem(coord=[x[16], y[16]], value=y[16]), \n                    opts.MarkPointItem(coord=[x[22], y[22]], value=y[22]), opts.MarkPointItem(coord=[x[28], y[28]], value=y[28])])\n                    ).set_series_opts(label_opts=opts.LabelOpts(is_show=False)\n                ).set_global_opts(title_opts=opts.TitleOpts(title=\"月销量趋势\", subtitle=\"2012/7-2015/2的销量趋势图\"), toolbox_opts=opts.ToolboxOpts())\np.render_notebook()",
+          "codeSha256": "8ec72faeb96d6e4340c75e7930ea160df7eee0e5637eb0015ff4786a71a37b67"
+        }
+      ],
+      "inputRefs": [
+        {
+          "path": "电商-母婴市场消费数据分析-约350行（pyecharts可视化、数据分析）/母婴市场消费数据分析.ipynb",
+          "sha256": "4e8243d4bf1a207860192e64196ac04e3ab42a602f5a74e651ab76c2fd2f7068"
+        },
+        {
+          "path": "电商-母婴市场消费数据分析-约350行（pyecharts可视化、数据分析）/(sample)sam_tianchi_mum_baby_trade_history.csv",
+          "sha256": "496284641c52e105d2b68fb4fff9996f1f56a472ef48a9c991a178fa2cc36986"
+        },
+        {
+          "path": "电商-母婴市场消费数据分析-约350行（pyecharts可视化、数据分析）/(sample)sam_tianchi_mum_baby.csv",
+          "sha256": "cef56ed5cc1c92041855c6b10c24b7d7871d0da0ea41565a101a5f7c4eceb471"
+        }
+      ],
+      "outputRefs": [
+        "learning/resources/p19-v4-source-5.json",
+        "learning/resources/p19-v4-source-5-images.json"
+      ],
+      "exercise": {
+        "prompt": "根据本步单元22—28和保存证据，说明一次变换的输入、输出和一项无法验证的结论。",
+        "hint": "先查看代码中的列选择/过滤/拟合，再核对输出身份和本项目局限。",
+        "checklist": [
+          "准确引用原单元22—28",
+          "指出实际字段或变量与一项真实输出",
+          "把未重跑、资料缺失和统计缺陷分别说明"
+        ],
+        "provenance": "第四阶段教学补充，自评，不代表原文件试题"
+      },
+      "outputTitles": {
+        "learning/resources/p19-v4-source-5.json": "原单元22—28保存输出",
+        "learning/resources/p19-v4-source-5-images.json": "原单元22—28保存输出 · 原保存图"
+      }
+    },
+    {
+      "id": "source-031-035",
+      "title": "第一季度销量下滑原因 · 单元31—35",
+      "status": "ready",
+      "kind": "analysis",
+      "knowledgeIds": [
+        "Pandas",
+        "NumPy",
+        "Pyecharts",
+        "Matplotlib",
+        "Seaborn"
+      ],
+      "explanation": [
+        "本步按原Notebook顺序阅读单元31—35。原保存输出尚未重跑；安装、联网采集、写原文件和模型加载均不会在网页运行。",
+        "groupby先定义分组键，再计算聚合；count、size与nunique的计数粒度不同。",
+        "绘图参数只控制展示；结论仍须受输入范围与统计口径约束。",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：1. 2013年和2014年的第一季度销量都有所下滑，主要聚集在1、2月。\n2. 每年的5月、11月都会出现不同程度的销量上涨。",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：#### 第一季度销量下滑原因\n假设一下销售量下降是否和春节假期有关?\\"
+      ],
+      "teachingCode": "# 原代码仅供阅读，不由网页执行。\n# 本次可运行适配实现见末尾数据实验步骤。",
+      "limitations": [
+        "两表覆盖不同，婴儿表953人，代码并未实现年龄预测；无单价不能计算营业额；原文将销量称销售额、日期有笔误；节日原因是推测；抽样不支持全国市场规模或质量归因。",
+        "原代码与保存输出保持原身份；新改编计算另列。"
+      ],
+      "codeRefs": [
+        {
+          "path": "电商-母婴市场消费数据分析-约350行（pyecharts可视化、数据分析）/母婴市场消费数据分析.ipynb",
+          "notebookSha256": "4e8243d4bf1a207860192e64196ac04e3ab42a602f5a74e651ab76c2fd2f7068",
+          "cell": 31,
+          "code": "def quarterData(trade: pd.DataFrame, low: tuple, high: tuple) -> list:\n    \"\"\"\n    输入日期型字符串,返回日期范围内的销量和用户量\n    \"\"\"\n    from datetime import datetime\n    low = datetime.strptime(low, \"%Y/%m/%d\")\n    high = datetime.strptime(high, \"%Y/%m/%d\")\n    trade_low = trade[(trade.day >= datetime(low.year, low.month, low.day)) & (\n        trade.day <= datetime(high.year, high.month, high.day))]\n    group_low = trade_low[['buy_mount', 'day', 'user_id']].groupby(\n        by=[trade_low.day.dt.month, trade_low.day.dt.day])\n    mount = group_low.buy_mount.sum()\n    user = group_low.user_id.nunique()\n\n    return [mount, user]",
+          "codeSha256": "360c2f5e0de28bffd39f05e5e4b65fad318a732e31b0fd594bd97f97c78639a4"
+        },
+        {
+          "path": "电商-母婴市场消费数据分析-约350行（pyecharts可视化、数据分析）/母婴市场消费数据分析.ipynb",
+          "notebookSha256": "4e8243d4bf1a207860192e64196ac04e3ab42a602f5a74e651ab76c2fd2f7068",
+          "cell": 32,
+          "code": "def lineMountUser(mount, user, title):\n    \"\"\"\n    输入销量和用户量数据以及标题，生成折线图\n    \"\"\"\n    plot = pyc.Line().add_xaxis(xaxis_data=[str(x[0])+\"/\"+str(x[1]) for x in mount.index]\n                                ).add_yaxis(series_name=\"销量\", y_axis=[int(x) for x in mount.values], markline_opts=opts.MarkLineOpts(data=[opts.MarkLineItem(name='当月销量均值', type_=\"average\")])\n                                            ).add_yaxis(series_name=\"用户量\", y_axis=[int(x) for x in user.values], markline_opts=opts.MarkLineOpts(data=[opts.MarkLineItem(name='当月用户量量均值', type_=\"average\")])\n                                                        ).set_series_opts(label_opts=opts.LabelOpts(is_show=False)\n                                                                          ).set_global_opts(title_opts=opts.TitleOpts(title=title), toolbox_opts=opts.ToolboxOpts(), tooltip_opts=opts.TooltipOpts(trigger='axis')\n                                                                                            ).render_notebook()\n    return plot",
+          "codeSha256": "5dc62b8b9a6b16f873fc44ae91a642bdc58a3dbcbd5f7110fbd62c79ddccbeac"
+        },
+        {
+          "path": "电商-母婴市场消费数据分析-约350行（pyecharts可视化、数据分析）/母婴市场消费数据分析.ipynb",
+          "notebookSha256": "4e8243d4bf1a207860192e64196ac04e3ab42a602f5a74e651ab76c2fd2f7068",
+          "cell": 33,
+          "code": "mount_2013_1_quarter = quarterData(trade, \"2013/1/1\", \"2013/3/31\")[0]\nmount_2014_1_quarter = quarterData(trade, \"2014/1/1\", \"2014/3/31\")[0]\nuser_2013_1_quarter = quarterData(trade, \"2013/1/1\", \"2013/3/31\")[1]\nuser_2014_1_quarter = quarterData(trade, \"2014/1/1\", \"2014/3/31\")[1]",
+          "codeSha256": "0545e3b546b395b234adb7bff8097072e582e75064203889d3f07e4b35b35db2"
+        },
+        {
+          "path": "电商-母婴市场消费数据分析-约350行（pyecharts可视化、数据分析）/母婴市场消费数据分析.ipynb",
+          "notebookSha256": "4e8243d4bf1a207860192e64196ac04e3ab42a602f5a74e651ab76c2fd2f7068",
+          "cell": 34,
+          "code": "lineMountUser(mount_2013_1_quarter, user_2013_1_quarter, \"2013年第一季度销量\")",
+          "codeSha256": "65ffedcb4aee7bba3096920ad8f337658faaf04f1b15c67b3c2eb3b45ca3fe0e"
+        },
+        {
+          "path": "电商-母婴市场消费数据分析-约350行（pyecharts可视化、数据分析）/母婴市场消费数据分析.ipynb",
+          "notebookSha256": "4e8243d4bf1a207860192e64196ac04e3ab42a602f5a74e651ab76c2fd2f7068",
+          "cell": 35,
+          "code": "lineMountUser(mount_2014_1_quarter, user_2014_1_quarter, \"2014年第一季度销量\")",
+          "codeSha256": "cb3141a302f4e73fd6147a1301ae09b5803ba8672308e468bfa4d9e2c8e7b59c"
+        }
+      ],
+      "inputRefs": [
+        {
+          "path": "电商-母婴市场消费数据分析-约350行（pyecharts可视化、数据分析）/母婴市场消费数据分析.ipynb",
+          "sha256": "4e8243d4bf1a207860192e64196ac04e3ab42a602f5a74e651ab76c2fd2f7068"
+        },
+        {
+          "path": "电商-母婴市场消费数据分析-约350行（pyecharts可视化、数据分析）/(sample)sam_tianchi_mum_baby_trade_history.csv",
+          "sha256": "496284641c52e105d2b68fb4fff9996f1f56a472ef48a9c991a178fa2cc36986"
+        },
+        {
+          "path": "电商-母婴市场消费数据分析-约350行（pyecharts可视化、数据分析）/(sample)sam_tianchi_mum_baby.csv",
+          "sha256": "cef56ed5cc1c92041855c6b10c24b7d7871d0da0ea41565a101a5f7c4eceb471"
+        }
+      ],
+      "outputRefs": [
+        "learning/resources/p19-v4-evidence-6.json"
+      ],
+      "exercise": {
+        "prompt": "根据本步单元31—35和保存证据，说明一次变换的输入、输出和一项无法验证的结论。",
+        "hint": "先查看代码中的列选择/过滤/拟合，再核对输出身份和本项目局限。",
+        "checklist": [
+          "准确引用原单元31—35",
+          "指出实际字段或变量与一项真实输出",
+          "把未重跑、资料缺失和统计缺陷分别说明"
+        ],
+        "provenance": "第四阶段教学补充，自评，不代表原文件试题"
+      },
+      "outputTitles": {
+        "learning/resources/p19-v4-evidence-6.json": "原单元31—35的执行证据边界"
+      }
+    },
+    {
+      "id": "source-038-041",
+      "title": "第四季度销量上升原因 · 单元38—41",
+      "status": "ready",
+      "kind": "analysis",
+      "knowledgeIds": [
+        "Pandas",
+        "NumPy",
+        "Pyecharts",
+        "Matplotlib",
+        "Seaborn"
+      ],
+      "explanation": [
+        "本步按原Notebook顺序阅读单元38—41。原保存输出尚未重跑；安装、联网采集、写原文件和模型加载均不会在网页运行。",
+        "本步展示原变量赋值、查看或配置；变量实际内容以保存输出与本次数据证据为准，不从代码存在推断执行成功。",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：- 2013/2/1-2013/2/15处于销量谷底，2013年春节假期：2013/2/9-2013/2/15\n- 2014/1/26-2014/2/4处于销售谷底，2014年春节假期：2014/1/31-2014/2/6\n> 2015年春节假期是2015/2/18-2015/2/24，数据集统计时间只到2015/2/5，所以就暂不分析2015年第一季度情况\n\n临近春节可能存在部分企业提早放假，快递停运，销售低谷时段与春节假期基本吻合，假期结束后购买量和用户量上升，所以可以认为第一季度销量下降是由春节假期造成的",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：#### 第四季度销量上升原因\n假设是否与双11双12活动有关？",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：1. 可以很明显看出2013年和2014年双十一及双十二当天的销量和销售额都激增。\n2. 每年的双十一活动用户量和销量都比往年多，用户量增长为75%-80%。"
+      ],
+      "teachingCode": "# 原代码仅供阅读，不由网页执行。\n# 本次可运行适配实现见末尾数据实验步骤。",
+      "limitations": [
+        "两表覆盖不同，婴儿表953人，代码并未实现年龄预测；无单价不能计算营业额；原文将销量称销售额、日期有笔误；节日原因是推测；抽样不支持全国市场规模或质量归因。",
+        "原代码与保存输出保持原身份；新改编计算另列。"
+      ],
+      "codeRefs": [
+        {
+          "path": "电商-母婴市场消费数据分析-约350行（pyecharts可视化、数据分析）/母婴市场消费数据分析.ipynb",
+          "notebookSha256": "4e8243d4bf1a207860192e64196ac04e3ab42a602f5a74e651ab76c2fd2f7068",
+          "cell": 38,
+          "code": "mount_2012_4_quarter, user_2012_4_quarter = quarterData(\n    trade, \"2012/10/1\", \"2012/12/31\")\nmount_2013_4_quarter, user_2013_4_quarter = quarterData(\n    trade, \"2013/10/1\", \"2013/12/31\")\nmount_2014_4_quarter, user_2014_4_quarter = quarterData(\n    trade, \"2014/10/1\", \"2014/12/31\")",
+          "codeSha256": "85ace03690533f515a6463398ce6eb409a833d083a30e3b3b265bf2e77f65216"
+        },
+        {
+          "path": "电商-母婴市场消费数据分析-约350行（pyecharts可视化、数据分析）/母婴市场消费数据分析.ipynb",
+          "notebookSha256": "4e8243d4bf1a207860192e64196ac04e3ab42a602f5a74e651ab76c2fd2f7068",
+          "cell": 39,
+          "code": "lineMountUser(mount_2012_4_quarter, user_2012_4_quarter, \"2012年第四季度销量\")",
+          "codeSha256": "737156acd1ea3586fc4708aad283d664b7d79fa7aefc25babcd8939dcb2e94b7"
+        },
+        {
+          "path": "电商-母婴市场消费数据分析-约350行（pyecharts可视化、数据分析）/母婴市场消费数据分析.ipynb",
+          "notebookSha256": "4e8243d4bf1a207860192e64196ac04e3ab42a602f5a74e651ab76c2fd2f7068",
+          "cell": 40,
+          "code": "lineMountUser(mount_2013_4_quarter, user_2013_4_quarter, \"2013年第四季度销量\")",
+          "codeSha256": "446ded180a8f5b8a4db92172509de89b04e3cdae2a4c1f1b4ded0d7d72eabf61"
+        },
+        {
+          "path": "电商-母婴市场消费数据分析-约350行（pyecharts可视化、数据分析）/母婴市场消费数据分析.ipynb",
+          "notebookSha256": "4e8243d4bf1a207860192e64196ac04e3ab42a602f5a74e651ab76c2fd2f7068",
+          "cell": 41,
+          "code": "lineMountUser(mount_2014_4_quarter, user_2014_4_quarter, \"2014年第四季度销量\")",
+          "codeSha256": "5bcba045422f2e1d5be4b57cbd8ea573f485c9b7a3221787cba26d62ea1888c2"
+        }
+      ],
+      "inputRefs": [
+        {
+          "path": "电商-母婴市场消费数据分析-约350行（pyecharts可视化、数据分析）/母婴市场消费数据分析.ipynb",
+          "sha256": "4e8243d4bf1a207860192e64196ac04e3ab42a602f5a74e651ab76c2fd2f7068"
+        },
+        {
+          "path": "电商-母婴市场消费数据分析-约350行（pyecharts可视化、数据分析）/(sample)sam_tianchi_mum_baby_trade_history.csv",
+          "sha256": "496284641c52e105d2b68fb4fff9996f1f56a472ef48a9c991a178fa2cc36986"
+        },
+        {
+          "path": "电商-母婴市场消费数据分析-约350行（pyecharts可视化、数据分析）/(sample)sam_tianchi_mum_baby.csv",
+          "sha256": "cef56ed5cc1c92041855c6b10c24b7d7871d0da0ea41565a101a5f7c4eceb471"
+        }
+      ],
+      "outputRefs": [
+        "learning/resources/p19-v4-evidence-7.json"
+      ],
+      "exercise": {
+        "prompt": "根据本步单元38—41和保存证据，说明一次变换的输入、输出和一项无法验证的结论。",
+        "hint": "先查看代码中的列选择/过滤/拟合，再核对输出身份和本项目局限。",
+        "checklist": [
+          "准确引用原单元38—41",
+          "指出实际字段或变量与一项真实输出",
+          "把未重跑、资料缺失和统计缺陷分别说明"
+        ],
+        "provenance": "第四阶段教学补充，自评，不代表原文件试题"
+      },
+      "outputTitles": {
+        "learning/resources/p19-v4-evidence-7.json": "原单元38—41的执行证据边界"
+      }
+    },
+    {
+      "id": "source-045-049",
+      "title": "复购率 · 单元45—49",
+      "status": "ready",
+      "kind": "analysis",
+      "knowledgeIds": [
+        "Pandas",
+        "NumPy",
+        "Pyecharts",
+        "Matplotlib",
+        "Seaborn"
+      ],
+      "explanation": [
+        "本步按原Notebook顺序阅读单元45—49。原保存输出尚未重跑；安装、联网采集、写原文件和模型加载均不会在网页运行。",
+        "groupby先定义分组键，再计算聚合；count、size与nunique的计数粒度不同。",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：#### 复购率"
+      ],
+      "teachingCode": "# 原代码仅供阅读，不由网页执行。\n# 本次可运行适配实现见末尾数据实验步骤。",
+      "limitations": [
+        "两表覆盖不同，婴儿表953人，代码并未实现年龄预测；无单价不能计算营业额；原文将销量称销售额、日期有笔误；节日原因是推测；抽样不支持全国市场规模或质量归因。",
+        "原代码与保存输出保持原身份；新改编计算另列。"
+      ],
+      "codeRefs": [
+        {
+          "path": "电商-母婴市场消费数据分析-约350行（pyecharts可视化、数据分析）/母婴市场消费数据分析.ipynb",
+          "notebookSha256": "4e8243d4bf1a207860192e64196ac04e3ab42a602f5a74e651ab76c2fd2f7068",
+          "cell": 45,
+          "code": "# 由于数据不完整，所以我们只计算2013年和2014年的复购率\nrepurchase_data_2013 = trade[(trade.day >= datetime(\n    2013, 1, 1)) & (trade.day <= datetime(2013, 12, 31))]\nrepurchase_data_2014 = trade[(trade.day >= datetime(\n    2014, 1, 1)) & (trade.day <= datetime(2014, 12, 31))]",
+          "codeSha256": "a3c7fc3b3691a5bbb5f5a7c9129cf8a5e8c921833d400b522bd726293298ca38"
+        },
+        {
+          "path": "电商-母婴市场消费数据分析-约350行（pyecharts可视化、数据分析）/母婴市场消费数据分析.ipynb",
+          "notebookSha256": "4e8243d4bf1a207860192e64196ac04e3ab42a602f5a74e651ab76c2fd2f7068",
+          "cell": 46,
+          "code": "# 根据月和userid分组\ngroup_2013 = repurchase_data_2013.groupby(\n    by=[repurchase_data_2013.day.dt.month, 'user_id'])\ngroup_2014 = repurchase_data_2014.groupby(\n    by=[repurchase_data_2014.day.dt.month, 'user_id'])",
+          "codeSha256": "827c25e638cc8987da238922ac933b19c17e6aaadf3a3e4c8c64ba24d743dc25"
+        },
+        {
+          "path": "电商-母婴市场消费数据分析-约350行（pyecharts可视化、数据分析）/母婴市场消费数据分析.ipynb",
+          "notebookSha256": "4e8243d4bf1a207860192e64196ac04e3ab42a602f5a74e651ab76c2fd2f7068",
+          "cell": 47,
+          "code": "repurchase_data_2013.groupby(\n    by=[repurchase_data_2013.day.dt.month, 'user_id']).size()[[1]].sum()",
+          "codeSha256": "ab3e6934ec1ca476c4576890643837c010e59985cd06187d878fad6823a75c02"
+        },
+        {
+          "path": "电商-母婴市场消费数据分析-约350行（pyecharts可视化、数据分析）/母婴市场消费数据分析.ipynb",
+          "notebookSha256": "4e8243d4bf1a207860192e64196ac04e3ab42a602f5a74e651ab76c2fd2f7068",
+          "cell": 48,
+          "code": "def cmonthPurchaseRate(data):\n    \"\"\"\n    导入根据月和userid分组数据\n    \"\"\"\n    rate = []\n    for i in range(1, 13):\n        cmonth_bought_user = data.size()[[i]].sum()\n        cmonth_repurchase_user = (data.size()[[i]] > 1).sum()\n        rate.append(round(cmonth_repurchase_user/cmonth_bought_user, 4))\n    return rate",
+          "codeSha256": "8cf478404a5e67f9f00663b38903f8912542bd89d6aabae024c0e731b35b79d7"
+        },
+        {
+          "path": "电商-母婴市场消费数据分析-约350行（pyecharts可视化、数据分析）/母婴市场消费数据分析.ipynb",
+          "notebookSha256": "4e8243d4bf1a207860192e64196ac04e3ab42a602f5a74e651ab76c2fd2f7068",
+          "cell": 49,
+          "code": "purchase_rate_month_2013 = cmonthPurchaseRate(group_2013)\npurchase_rate_month_2014 = cmonthPurchaseRate(group_2014)",
+          "codeSha256": "1ca0a09db568e0d47e23611c72b2cbb3f26d9f56bfbb177a1909cf80a796dd18"
+        }
+      ],
+      "inputRefs": [
+        {
+          "path": "电商-母婴市场消费数据分析-约350行（pyecharts可视化、数据分析）/母婴市场消费数据分析.ipynb",
+          "sha256": "4e8243d4bf1a207860192e64196ac04e3ab42a602f5a74e651ab76c2fd2f7068"
+        },
+        {
+          "path": "电商-母婴市场消费数据分析-约350行（pyecharts可视化、数据分析）/(sample)sam_tianchi_mum_baby_trade_history.csv",
+          "sha256": "496284641c52e105d2b68fb4fff9996f1f56a472ef48a9c991a178fa2cc36986"
+        },
+        {
+          "path": "电商-母婴市场消费数据分析-约350行（pyecharts可视化、数据分析）/(sample)sam_tianchi_mum_baby.csv",
+          "sha256": "cef56ed5cc1c92041855c6b10c24b7d7871d0da0ea41565a101a5f7c4eceb471"
+        }
+      ],
+      "outputRefs": [
+        "learning/resources/p19-v4-source-8.json"
+      ],
+      "exercise": {
+        "prompt": "根据本步单元45—49和保存证据，说明一次变换的输入、输出和一项无法验证的结论。",
+        "hint": "先查看代码中的列选择/过滤/拟合，再核对输出身份和本项目局限。",
+        "checklist": [
+          "准确引用原单元45—49",
+          "指出实际字段或变量与一项真实输出",
+          "把未重跑、资料缺失和统计缺陷分别说明"
+        ],
+        "provenance": "第四阶段教学补充，自评，不代表原文件试题"
+      },
+      "outputTitles": {
+        "learning/resources/p19-v4-source-8.json": "原单元45—49保存输出"
+      }
+    },
+    {
+      "id": "source-050-051",
+      "title": "复购率 · 单元50—51",
+      "status": "ready",
+      "kind": "analysis",
+      "knowledgeIds": [
+        "Pandas",
+        "NumPy",
+        "Pyecharts",
+        "Matplotlib",
+        "Seaborn"
+      ],
+      "explanation": [
+        "本步按原Notebook顺序阅读单元50—51。原保存输出尚未重跑；安装、联网采集、写原文件和模型加载均不会在网页运行。",
+        "groupby先定义分组键，再计算聚合；count、size与nunique的计数粒度不同。",
+        "绘图参数只控制展示；结论仍须受输入范围与统计口径约束。",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：4月、10月及11月都存在一定的用户当月复购，但是复购率都极低，各产品大类的复购率也极低，均未到达1%，考虑到用户单次购买量大多是一件，且复购率低，说明用户对单一商品的回购欲望极低，商家应该从产品角度进行考虑，例如产品质量及购物体验等。"
+      ],
+      "teachingCode": "# 原代码仅供阅读，不由网页执行。\n# 本次可运行适配实现见末尾数据实验步骤。",
+      "limitations": [
+        "两表覆盖不同，婴儿表953人，代码并未实现年龄预测；无单价不能计算营业额；原文将销量称销售额、日期有笔误；节日原因是推测；抽样不支持全国市场规模或质量归因。",
+        "原代码与保存输出保持原身份；新改编计算另列。"
+      ],
+      "codeRefs": [
+        {
+          "path": "电商-母婴市场消费数据分析-约350行（pyecharts可视化、数据分析）/母婴市场消费数据分析.ipynb",
+          "notebookSha256": "4e8243d4bf1a207860192e64196ac04e3ab42a602f5a74e651ab76c2fd2f7068",
+          "cell": 50,
+          "code": "pyc.Line().add_xaxis(xaxis_data=[x for x in range(1, 13)]\n                     ).add_yaxis(\n    series_name='2013年当月复购率', y_axis=purchase_rate_month_2013\n).add_yaxis(series_name='2014年当月复购率', y_axis=purchase_rate_month_2014\n            ).set_series_opts(label_opts=opts.LabelOpts(is_show=False)).set_global_opts(title_opts=opts.TitleOpts(title=\"当月复购率变化趋势\", subtitle=\"2013年及2014年月复购率变化趋势\"), toolbox_opts=opts.ToolboxOpts(), tooltip_opts=opts.TooltipOpts(is_show=True, trigger='axis')).render_notebook()",
+          "codeSha256": "3b7c0ff1f03801d0f68092a9ec276c87e1b1749096af79e83cbfe21d451e3cc0"
+        },
+        {
+          "path": "电商-母婴市场消费数据分析-约350行（pyecharts可视化、数据分析）/母婴市场消费数据分析.ipynb",
+          "notebookSha256": "4e8243d4bf1a207860192e64196ac04e3ab42a602f5a74e651ab76c2fd2f7068",
+          "cell": 51,
+          "code": "# 产品大类复购率\n# 根据产品大类分组，然后循环大类进行索引求出每个大类的复购率\nt = trade.groupby(by=['cat1', 'user_id']).size()\npurchase_dict={}\nfor i in trade.cat1.unique():\n    c = t.loc[i].value_counts()\n    purchase_dict[i]=((c.sum()-c[:1])/c[:1]).values[0].round(4)\nplt.figure(figsize=(10,6))\nsns.barplot(x=list(purchase_dict.keys()),y=list(purchase_dict.values()))\nplt.title(\"各大类复购率\",fontdict=fontdict)\nplt.show()",
+          "codeSha256": "c91ba6536b7a3ed1f19a8162b377842c238151336cbba77016f8aa2ba5113d5d"
+        }
+      ],
+      "inputRefs": [
+        {
+          "path": "电商-母婴市场消费数据分析-约350行（pyecharts可视化、数据分析）/母婴市场消费数据分析.ipynb",
+          "sha256": "4e8243d4bf1a207860192e64196ac04e3ab42a602f5a74e651ab76c2fd2f7068"
+        },
+        {
+          "path": "电商-母婴市场消费数据分析-约350行（pyecharts可视化、数据分析）/(sample)sam_tianchi_mum_baby_trade_history.csv",
+          "sha256": "496284641c52e105d2b68fb4fff9996f1f56a472ef48a9c991a178fa2cc36986"
+        },
+        {
+          "path": "电商-母婴市场消费数据分析-约350行（pyecharts可视化、数据分析）/(sample)sam_tianchi_mum_baby.csv",
+          "sha256": "cef56ed5cc1c92041855c6b10c24b7d7871d0da0ea41565a101a5f7c4eceb471"
+        }
+      ],
+      "outputRefs": [
+        "learning/resources/p19-v4-source-9-images.json"
+      ],
+      "exercise": {
+        "prompt": "根据本步单元50—51和保存证据，说明一次变换的输入、输出和一项无法验证的结论。",
+        "hint": "先查看代码中的列选择/过滤/拟合，再核对输出身份和本项目局限。",
+        "checklist": [
+          "准确引用原单元50—51",
+          "指出实际字段或变量与一项真实输出",
+          "把未重跑、资料缺失和统计缺陷分别说明"
+        ],
+        "provenance": "第四阶段教学补充，自评，不代表原文件试题"
+      },
+      "outputTitles": {
+        "learning/resources/p19-v4-source-9-images.json": "原单元50—51保存输出 · 原保存图"
+      }
+    },
+    {
+      "id": "source-054-056",
+      "title": "商品销售情况 · 单元54—56",
+      "status": "ready",
+      "kind": "analysis",
+      "knowledgeIds": [
+        "Pandas",
+        "NumPy",
+        "Pyecharts",
+        "Matplotlib",
+        "Seaborn"
+      ],
+      "explanation": [
+        "本步按原Notebook顺序阅读单元54—56。原保存输出尚未重跑；安装、联网采集、写原文件和模型加载均不会在网页运行。",
+        "groupby先定义分组键，再计算聚合；count、size与nunique的计数粒度不同。",
+        "绘图参数只控制展示；结论仍须受输入范围与统计口径约束。",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：### 商品销售情况",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：大类28和50008168销量最佳，大类38虽然销量低、子类数最少但是人均购买量却很高，说明用户在购买38大类下的产品时选择余地较少，但同时用户对此类产品的需求又很旺盛，可以适量的增加38大类下的子类产品，提高销售量"
+      ],
+      "teachingCode": "# 原代码仅供阅读，不由网页执行。\n# 本次可运行适配实现见末尾数据实验步骤。",
+      "limitations": [
+        "两表覆盖不同，婴儿表953人，代码并未实现年龄预测；无单价不能计算营业额；原文将销量称销售额、日期有笔误；节日原因是推测；抽样不支持全国市场规模或质量归因。",
+        "原代码与保存输出保持原身份；新改编计算另列。"
+      ],
+      "codeRefs": [
+        {
+          "path": "电商-母婴市场消费数据分析-约350行（pyecharts可视化、数据分析）/母婴市场消费数据分析.ipynb",
+          "notebookSha256": "4e8243d4bf1a207860192e64196ac04e3ab42a602f5a74e651ab76c2fd2f7068",
+          "cell": 54,
+          "code": "# 商品大类销售情况\ncat = trade.groupby(\"cat1\")['buy_mount'].sum()\nsns.barplot(x=cat.index, y=cat.values)\nplt.title(\"商品大类销售情况\")\nplt.xlabel(\"商品大类\")\nplt.show()",
+          "codeSha256": "a94f70c80bbec13a9e5d1652d28f3a97dcbf240332a06913f7b78ad3edfefa23"
+        },
+        {
+          "path": "电商-母婴市场消费数据分析-约350行（pyecharts可视化、数据分析）/母婴市场消费数据分析.ipynb",
+          "notebookSha256": "4e8243d4bf1a207860192e64196ac04e3ab42a602f5a74e651ab76c2fd2f7068",
+          "cell": 55,
+          "code": "# 人均大类购买情况\ncat_aver_user = (trade.groupby(\"cat1\")['buy_mount'].sum(\n) / trade.groupby(\"cat1\")['user_id'].count()).sort_values(ascending=False)\nsns.barplot(x=cat_aver_user.index, y=cat_aver_user.values)\nplt.title(\"商品大类人均购买情况\")\nplt.xlabel(\"商品大类\")\nplt.show()",
+          "codeSha256": "bfb9b88c73e7abced6ea21657872989b03fd28ecaa556b3af21ac3464881cdbf"
+        },
+        {
+          "path": "电商-母婴市场消费数据分析-约350行（pyecharts可视化、数据分析）/母婴市场消费数据分析.ipynb",
+          "notebookSha256": "4e8243d4bf1a207860192e64196ac04e3ab42a602f5a74e651ab76c2fd2f7068",
+          "cell": 56,
+          "code": "# 大类下子类别数量\ncat_count = trade.groupby(\"cat1\")['cat_id'].count()\nsns.barplot(x=cat_count.index, y=cat_count.values)\nplt.title(\"商品大类的子类数量\")\nplt.xlabel(\"商品大类\")\nplt.show()",
+          "codeSha256": "bd46ee11b972309e0c7ab921b8ce2ce550c8109ccd933458b7a97bee9a300986"
+        }
+      ],
+      "inputRefs": [
+        {
+          "path": "电商-母婴市场消费数据分析-约350行（pyecharts可视化、数据分析）/母婴市场消费数据分析.ipynb",
+          "sha256": "4e8243d4bf1a207860192e64196ac04e3ab42a602f5a74e651ab76c2fd2f7068"
+        },
+        {
+          "path": "电商-母婴市场消费数据分析-约350行（pyecharts可视化、数据分析）/(sample)sam_tianchi_mum_baby_trade_history.csv",
+          "sha256": "496284641c52e105d2b68fb4fff9996f1f56a472ef48a9c991a178fa2cc36986"
+        },
+        {
+          "path": "电商-母婴市场消费数据分析-约350行（pyecharts可视化、数据分析）/(sample)sam_tianchi_mum_baby.csv",
+          "sha256": "cef56ed5cc1c92041855c6b10c24b7d7871d0da0ea41565a101a5f7c4eceb471"
+        }
+      ],
+      "outputRefs": [
+        "learning/resources/p19-v4-source-10-images.json"
+      ],
+      "exercise": {
+        "prompt": "根据本步单元54—56和保存证据，说明一次变换的输入、输出和一项无法验证的结论。",
+        "hint": "先查看代码中的列选择/过滤/拟合，再核对输出身份和本项目局限。",
+        "checklist": [
+          "准确引用原单元54—56",
+          "指出实际字段或变量与一项真实输出",
+          "把未重跑、资料缺失和统计缺陷分别说明"
+        ],
+        "provenance": "第四阶段教学补充，自评，不代表原文件试题"
+      },
+      "outputTitles": {
+        "learning/resources/p19-v4-source-10-images.json": "原单元54—56保存输出 · 原保存图"
+      }
+    },
+    {
+      "id": "phase4-data",
+      "title": "真实数据实验 · 母婴市场消费数据分析",
+      "status": "ready",
+      "kind": "analysis",
+      "knowledgeIds": [
+        "Pandas",
+        "NumPy",
+        "Pyecharts",
+        "Matplotlib",
+        "Seaborn"
+      ],
+      "explanation": [
+        "分析母婴交易的时间变化、复购与品类销量。",
+        "本步运行工程适配器，展示真实输入的质量、专属聚合与图表。清洗、分组和模型边界见代码与每份结果说明。教学代码为本项目经过审查的实现；不会执行原Notebook。",
+        "已实际准备5份结果；请切换结果逐项核对问题、单位、范围、分母、过滤条件和来源身份。"
+      ],
+      "teachingCode": "def p19(p):\n d=p.load('(sample)sam_tianchi_mum_baby_trade_history.csv',dtype={'user_id':str,'auction_id':str,'cat_id':str,'cat1':str});baby=p.load('(sample)sam_tianchi_mum_baby.csv',dtype={'user_id':str});c=d[d.buy_mount.between(1,195)].copy();assert len(c)==29942 and int(c.buy_mount.sum())==49973\n c['月份']=pd.to_datetime(c.day.astype(str),format='%Y%m%d').dt.strftime('%Y-%m');g=c.groupby('月份').buy_mount.sum().reset_index();p.chart('monthly','月购买量趋势',g,kind='line',unit='原buy_mount计量',note='无单价字段，不称销售额；日期不同覆盖长度影响比较')\n p.chart('category','商品大类购买量',c.groupby('cat1').buy_mount.sum().reset_index(),note='cat1是类别标签；不当连续数轴',unit='原buy_mount计量');g=c.groupby(['月份','user_id']).size().rename('购买记录数').reset_index();rate=g.groupby('月份').购买记录数.agg(当月用户数='size',重复用户数=lambda s:int((s>1).sum())).reset_index();rate['复购用户比例']=rate.重复用户数/rate.当月用户数\n p.chart('repurchase','同月有两条以上购买记录的用户比例',rate[['月份','复购用户比例','当月用户数','重复用户数']],kind='line',note='按月份和user_id计记录；用户去重作分母，不把记录比例当用户比例',unit='比例0—1',denominator='每月样本中不同user_id数量')\n p.add('coverage','交易与婴儿表覆盖',['统计项','值'],[['交易原行',len(d)],['清洗后行',len(c)],['购买量',int(c.buy_mount.sum())],['婴儿表行',len(baby)],['交易中可在婴儿表匹配的用户数',len(set(c.user_id)&set(baby.user_id))]],'两表覆盖不同，不能把婴儿表953人当全部买家，也没有年龄预测。',unit='记录 / 用户 / 原购买量');p.checks.update(clean=len(c),quantity=int(c.buy_mount.sum()))\n",
+      "limitations": [
+        "两表覆盖不同，婴儿表953人，代码并未实现年龄预测；无单价不能计算营业额；原文将销量称销售额、日期有笔误；节日原因是推测；抽样不支持全国市场规模或质量归因。",
+        "新版本不覆盖原保存成绩；所有新训练均在构建清单中单列。"
+      ],
+      "codeRefs": [
+        {
+          "path": "电商-母婴市场消费数据分析-约350行（pyecharts可视化、数据分析）/母婴市场消费数据分析.ipynb",
+          "notebookSha256": "4e8243d4bf1a207860192e64196ac04e3ab42a602f5a74e651ab76c2fd2f7068",
+          "cell": 9,
+          "code": "baby = pd.read_csv(\"./(sample)sam_tianchi_mum_baby.csv\")\ntrade = pd.read_csv(\"./(sample)sam_tianchi_mum_baby_trade_history.csv\")",
+          "codeSha256": "5ea542cc6c32c829ee2dcf855cc9d49292a09d0dbd2a8de685710d6d91ee8b0c"
+        },
+        {
+          "path": "电商-母婴市场消费数据分析-约350行（pyecharts可视化、数据分析）/母婴市场消费数据分析.ipynb",
+          "notebookSha256": "4e8243d4bf1a207860192e64196ac04e3ab42a602f5a74e651ab76c2fd2f7068",
+          "cell": 22,
+          "code": "# 根据年月查看销量趋势\n# 根据年分组\nyear_item = trade[['item_id', 'buy_mount', 'day']].groupby(by=trade.day.dt.year)[\n    'buy_mount'].sum()\n# 各年季度销量情况\nyear_quarter_item = trade[['item_id', 'buy_mount', 'day']].groupby(by=[trade.day.dt.year, trade.day.dt.quarter])[\n    'buy_mount'].sum()\n# 根据年月分组\nyear_month_item = trade[['item_id', 'buy_mount', 'day']].groupby(\n    by=[trade.day.dt.year, trade.day.dt.month])['buy_mount'].sum()",
+          "codeSha256": "ba1af83d7784ab54ed6b2aed048591d11d9826bc85bbc59dfca77f64ce69a485"
+        },
+        {
+          "path": "电商-母婴市场消费数据分析-约350行（pyecharts可视化、数据分析）/母婴市场消费数据分析.ipynb",
+          "notebookSha256": "4e8243d4bf1a207860192e64196ac04e3ab42a602f5a74e651ab76c2fd2f7068",
+          "cell": 31,
+          "code": "def quarterData(trade: pd.DataFrame, low: tuple, high: tuple) -> list:\n    \"\"\"\n    输入日期型字符串,返回日期范围内的销量和用户量\n    \"\"\"\n    from datetime import datetime\n    low = datetime.strptime(low, \"%Y/%m/%d\")\n    high = datetime.strptime(high, \"%Y/%m/%d\")\n    trade_low = trade[(trade.day >= datetime(low.year, low.month, low.day)) & (\n        trade.day <= datetime(high.year, high.month, high.day))]\n    group_low = trade_low[['buy_mount', 'day', 'user_id']].groupby(\n        by=[trade_low.day.dt.month, trade_low.day.dt.day])\n    mount = group_low.buy_mount.sum()\n    user = group_low.user_id.nunique()\n\n    return [mount, user]",
+          "codeSha256": "360c2f5e0de28bffd39f05e5e4b65fad318a732e31b0fd594bd97f97c78639a4"
+        },
+        {
+          "path": "电商-母婴市场消费数据分析-约350行（pyecharts可视化、数据分析）/母婴市场消费数据分析.ipynb",
+          "notebookSha256": "4e8243d4bf1a207860192e64196ac04e3ab42a602f5a74e651ab76c2fd2f7068",
+          "cell": 46,
+          "code": "# 根据月和userid分组\ngroup_2013 = repurchase_data_2013.groupby(\n    by=[repurchase_data_2013.day.dt.month, 'user_id'])\ngroup_2014 = repurchase_data_2014.groupby(\n    by=[repurchase_data_2014.day.dt.month, 'user_id'])",
+          "codeSha256": "827c25e638cc8987da238922ac933b19c17e6aaadf3a3e4c8c64ba24d743dc25"
+        }
+      ],
+      "inputRefs": [
+        {
+          "path": "电商-母婴市场消费数据分析-约350行（pyecharts可视化、数据分析）/母婴市场消费数据分析.ipynb",
+          "sha256": "4e8243d4bf1a207860192e64196ac04e3ab42a602f5a74e651ab76c2fd2f7068"
+        },
+        {
+          "path": "电商-母婴市场消费数据分析-约350行（pyecharts可视化、数据分析）/(sample)sam_tianchi_mum_baby_trade_history.csv",
+          "sha256": "496284641c52e105d2b68fb4fff9996f1f56a472ef48a9c991a178fa2cc36986"
+        },
+        {
+          "path": "电商-母婴市场消费数据分析-约350行（pyecharts可视化、数据分析）/(sample)sam_tianchi_mum_baby.csv",
+          "sha256": "cef56ed5cc1c92041855c6b10c24b7d7871d0da0ea41565a101a5f7c4eceb471"
+        }
+      ],
+      "outputRefs": [
+        "learning/resources/p19-v4-monthly.json",
+        "learning/resources/p19-v4-category.json",
+        "learning/resources/p19-v4-repurchase.json",
+        "learning/resources/p19-v4-coverage.json",
+        "learning/resources/p19-v4-input-quality.json"
+      ],
+      "exercise": {
+        "prompt": "解释为什么没有销售额；比较按订单行与独立用户定义复购。",
+        "hint": "从同源表取数，写出算式；先核对全量/抽样和原保存/新计算身份。",
+        "checklist": [
+          "列出真实字段、筛选规则和当前样本范围",
+          "用表格复核至少一个频数、比率或模型指标",
+          "指出一个不能由本图推出的结论"
+        ],
+        "provenance": "已批准路线练习与第四阶段核对清单，采用自评"
+      },
+      "outputTitles": {
+        "learning/resources/p19-v4-monthly.json": "月购买量趋势",
+        "learning/resources/p19-v4-category.json": "商品大类购买量",
+        "learning/resources/p19-v4-repurchase.json": "同月有两条以上购买记录的用户比例",
+        "learning/resources/p19-v4-coverage.json": "交易与婴儿表覆盖",
+        "learning/resources/p19-v4-input-quality.json": "本项目各输入表的读取与质量核对"
+      }
+    }
+  ]
+}

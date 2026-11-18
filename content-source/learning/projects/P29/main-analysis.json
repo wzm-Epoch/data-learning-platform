@@ -1,0 +1,845 @@
+{
+  "schemaVersion": "1.0",
+  "contentVersion": "0.6.0",
+  "projectId": "P29",
+  "id": "main-analysis",
+  "title": "数据分析师岗位分析",
+  "status": "ready",
+  "steps": [
+    {
+      "id": "source-004-004",
+      "title": "1. 导包 · 单元4—4",
+      "status": "ready",
+      "kind": "analysis",
+      "knowledgeIds": [
+        "Pandas",
+        "NumPy",
+        "Matplotlib",
+        "Seaborn",
+        "Jieba"
+      ],
+      "explanation": [
+        "本步按原Notebook顺序阅读单元4—4。原保存输出尚未重跑；安装、联网采集、写原文件和模型加载均不会在网页运行。",
+        "绘图参数只控制展示；结论仍须受输入范围与统计口径约束。",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：Table of Contents\n项目介绍关键词1. 导包2. 读取查看数据3. 数据探索分析3.1. 不同区域数据分析师职位的需求情况3.2. 不同行业数据分析师岗位的需求情况3.3. 数据分析师对应聘者工作年限的要求3.4. 数据分析师对求职者学历的要求3.5. 数据分析师的薪酬范围分布3.6. 公司规模与薪酬之间的关系3.7. 工作经验与薪酬的关系3.8. 学历对薪酬的影响3.9. 职业技能关键词4.分析结论",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：###  项目介绍\n使用拉钩网抓取的437条招聘信息，从多维度分析深圳数据分析岗位，了解数据分析师行业现状。\n\n#### 关键词\n- 数据探索分析、matplotlib可视化、结巴分词、词云图",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：### 1. 导包"
+      ],
+      "teachingCode": "# 原代码仅供阅读，不由网页执行。\n# 本次可运行适配实现见末尾数据实验步骤。",
+      "limitations": [
+        "原介绍437与实表差1；薪资区间中点不是实际收入；历史样本不能代表当前就业市场；SQL/机器学习等出现在职位文本中，不是该项目使用这些技术的证据。",
+        "原代码与保存输出保持原身份；新改编计算另列。"
+      ],
+      "codeRefs": [
+        {
+          "path": "职场-数据分析师职位分析-约300行（数据探索分析、matplotlib可视化）/数据分析师岗位分析.ipynb",
+          "notebookSha256": "612486c97729fe72863ed3f52b813320854acf96710711d4c7d1f67f9cd42e1c",
+          "cell": 4,
+          "code": "import numpy as np\nimport pandas as pd\nimport seaborn as sns\nimport jieba\nimport jieba.analyse\nimport re\nfrom wordcloud import WordCloud\nfrom matplotlib import pyplot as plt\nfrom matplotlib import style\nstyle.use('ggplot')\n# from matplotlib.font_manager import FontProperties\nimport pprint\n# 让图表直接在jupyter中展示出来\n%matplotlib inline\n# 解决中文乱码问题\nplt.rcParams[\"font.sans-serif\"] = 'SimHei'\n# 解决负号无法正常显示问题\nplt.rcParams['axes.unicode_minus'] = False\n# import matplotlib as mpl\n# 关闭警告信息\nimport warnings\nwarnings.filterwarnings('ignore')",
+          "codeSha256": "3c35e5c50c3fbd226d94298d6841f644871189f0b0fe6f74ecc697e82811e674"
+        }
+      ],
+      "inputRefs": [
+        {
+          "path": "职场-数据分析师职位分析-约300行（数据探索分析、matplotlib可视化）/数据分析师岗位分析.ipynb",
+          "sha256": "612486c97729fe72863ed3f52b813320854acf96710711d4c7d1f67f9cd42e1c"
+        },
+        {
+          "path": "职场-数据分析师职位分析-约300行（数据探索分析、matplotlib可视化）/数据分析师岗位分析.py",
+          "sha256": "9dcdd68cdfd7ed8a3edd4d8b8e9af03b23f49f7edf8b9746af20bd1cd0afea01"
+        },
+        {
+          "path": "职场-数据分析师职位分析-约300行（数据探索分析、matplotlib可视化）/lagou.csv",
+          "sha256": "6b1daf9e5c5f2af353fa517917889ec4dd482e1c9623e4c141843ffdfd742fda"
+        }
+      ],
+      "outputRefs": [
+        "learning/resources/p29-v4-evidence-1.json"
+      ],
+      "exercise": {
+        "prompt": "根据本步单元4—4和保存证据，说明一次变换的输入、输出和一项无法验证的结论。",
+        "hint": "先查看代码中的列选择/过滤/拟合，再核对输出身份和本项目局限。",
+        "checklist": [
+          "准确引用原单元4—4",
+          "指出实际字段或变量与一项真实输出",
+          "把未重跑、资料缺失和统计缺陷分别说明"
+        ],
+        "provenance": "第四阶段教学补充，自评，不代表原文件试题"
+      },
+      "outputTitles": {
+        "learning/resources/p29-v4-evidence-1.json": "原单元4—4的执行证据边界"
+      }
+    },
+    {
+      "id": "source-006-009",
+      "title": "2. 读取查看数据 · 单元6—9",
+      "status": "ready",
+      "kind": "analysis",
+      "knowledgeIds": [
+        "Pandas",
+        "NumPy",
+        "Matplotlib",
+        "Seaborn",
+        "Jieba"
+      ],
+      "explanation": [
+        "本步按原Notebook顺序阅读单元6—9。原保存输出尚未重跑；安装、联网采集、写原文件和模型加载均不会在网页运行。",
+        "read_csv只读取指定CSV；编码、表头和字段需要与输入字典核对。",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：### 2. 读取查看数据"
+      ],
+      "teachingCode": "# 原代码仅供阅读，不由网页执行。\n# 本次可运行适配实现见末尾数据实验步骤。",
+      "limitations": [
+        "原介绍437与实表差1；薪资区间中点不是实际收入；历史样本不能代表当前就业市场；SQL/机器学习等出现在职位文本中，不是该项目使用这些技术的证据。",
+        "原代码与保存输出保持原身份；新改编计算另列。"
+      ],
+      "codeRefs": [
+        {
+          "path": "职场-数据分析师职位分析-约300行（数据探索分析、matplotlib可视化）/数据分析师岗位分析.ipynb",
+          "notebookSha256": "612486c97729fe72863ed3f52b813320854acf96710711d4c7d1f67f9cd42e1c",
+          "cell": 6,
+          "code": "data = pd.read_csv('./lagou.csv')",
+          "codeSha256": "43e829c7d9a36027daae69d0626ebbb3c2a74cc7c8c219e76a92c001e95ba8c0"
+        },
+        {
+          "path": "职场-数据分析师职位分析-约300行（数据探索分析、matplotlib可视化）/数据分析师岗位分析.ipynb",
+          "notebookSha256": "612486c97729fe72863ed3f52b813320854acf96710711d4c7d1f67f9cd42e1c",
+          "cell": 7,
+          "code": "data.head()",
+          "codeSha256": "34e98e8950a51174c935ec410530bc4275b1b5f082cc1a173160189b4abaf046"
+        },
+        {
+          "path": "职场-数据分析师职位分析-约300行（数据探索分析、matplotlib可视化）/数据分析师岗位分析.ipynb",
+          "notebookSha256": "612486c97729fe72863ed3f52b813320854acf96710711d4c7d1f67f9cd42e1c",
+          "cell": 8,
+          "code": "data.info()",
+          "codeSha256": "6e62376975cc884a8ea19e487640fa0d78939b33c19564ea23977f2e86e6414c"
+        },
+        {
+          "path": "职场-数据分析师职位分析-约300行（数据探索分析、matplotlib可视化）/数据分析师岗位分析.ipynb",
+          "notebookSha256": "612486c97729fe72863ed3f52b813320854acf96710711d4c7d1f67f9cd42e1c",
+          "cell": 9,
+          "code": "data.describe()",
+          "codeSha256": "febca3a92504ff1429d913dd790a7c53df34c8ef31b0257d7cd9f86d149b0f9b"
+        }
+      ],
+      "inputRefs": [
+        {
+          "path": "职场-数据分析师职位分析-约300行（数据探索分析、matplotlib可视化）/数据分析师岗位分析.ipynb",
+          "sha256": "612486c97729fe72863ed3f52b813320854acf96710711d4c7d1f67f9cd42e1c"
+        },
+        {
+          "path": "职场-数据分析师职位分析-约300行（数据探索分析、matplotlib可视化）/数据分析师岗位分析.py",
+          "sha256": "9dcdd68cdfd7ed8a3edd4d8b8e9af03b23f49f7edf8b9746af20bd1cd0afea01"
+        },
+        {
+          "path": "职场-数据分析师职位分析-约300行（数据探索分析、matplotlib可视化）/lagou.csv",
+          "sha256": "6b1daf9e5c5f2af353fa517917889ec4dd482e1c9623e4c141843ffdfd742fda"
+        }
+      ],
+      "outputRefs": [
+        "learning/resources/p29-v4-source-2.json"
+      ],
+      "exercise": {
+        "prompt": "根据本步单元6—9和保存证据，说明一次变换的输入、输出和一项无法验证的结论。",
+        "hint": "先查看代码中的列选择/过滤/拟合，再核对输出身份和本项目局限。",
+        "checklist": [
+          "准确引用原单元6—9",
+          "指出实际字段或变量与一项真实输出",
+          "把未重跑、资料缺失和统计缺陷分别说明"
+        ],
+        "provenance": "第四阶段教学补充，自评，不代表原文件试题"
+      },
+      "outputTitles": {
+        "learning/resources/p29-v4-source-2.json": "原单元6—9保存输出"
+      }
+    },
+    {
+      "id": "source-011-012",
+      "title": "3. 数据探索分析 · 单元11—12",
+      "status": "ready",
+      "kind": "analysis",
+      "knowledgeIds": [
+        "Pandas",
+        "NumPy",
+        "Matplotlib",
+        "Seaborn",
+        "Jieba"
+      ],
+      "explanation": [
+        "本步按原Notebook顺序阅读单元11—12。原保存输出尚未重跑；安装、联网采集、写原文件和模型加载均不会在网页运行。",
+        "绘图参数只控制展示；结论仍须受输入范围与统计口径约束。",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：### 3. 数据探索分析\n从多维度（区域、薪资情况、工作年限、学历、所在行业、公司规模、职位要求）进行分析，分析数据分析师的区域分布、薪资分布及其各个字段之间的关联。\n#### 3.1. 不同区域数据分析师职位的需求情况",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：小结：不难看出南山区的需求遥遥领先于其他区，不愧是深圳互联网聚集地（比如有腾讯、中兴等），当然福田和宝安也相对是需求比较多的，其余区域很少甚至部分新区都还没有需求。这说明了数据分析师确实是一个朝阳产业，因此优先在南山、福田、宝安求职。"
+      ],
+      "teachingCode": "# 原代码仅供阅读，不由网页执行。\n# 本次可运行适配实现见末尾数据实验步骤。",
+      "limitations": [
+        "原介绍437与实表差1；薪资区间中点不是实际收入；历史样本不能代表当前就业市场；SQL/机器学习等出现在职位文本中，不是该项目使用这些技术的证据。",
+        "原代码与保存输出保持原身份；新改编计算另列。"
+      ],
+      "codeRefs": [
+        {
+          "path": "职场-数据分析师职位分析-约300行（数据探索分析、matplotlib可视化）/数据分析师岗位分析.ipynb",
+          "notebookSha256": "612486c97729fe72863ed3f52b813320854acf96710711d4c7d1f67f9cd42e1c",
+          "cell": 11,
+          "code": "plt.figure(figsize = (8,6))\ndata['address'].value_counts().sort_values(ascending=False).plot.bar(width = 0.8,color = 'steelblue')\nplt.ylabel('职位数量')\nplt.xlabel('区域')\nplt.title('不同区域的职位分布')\nplt.grid(False)",
+          "codeSha256": "ec78ff5b14b0f6b63a35b41f61c8a393694cf5ef3ebe5b08b8243db549f9bc67"
+        },
+        {
+          "path": "职场-数据分析师职位分析-约300行（数据探索分析、matplotlib可视化）/数据分析师岗位分析.ipynb",
+          "notebookSha256": "612486c97729fe72863ed3f52b813320854acf96710711d4c7d1f67f9cd42e1c",
+          "cell": 12,
+          "code": "plt.figure(figsize = (8,6))\ndata['address'].value_counts().sort_values(ascending = False).plot.bar(width = 0.8,color = 'blue')\nplt.xlabel('区域')\nplt.ylabel('职位数量')\nplt.title('不同区域数据分析师职位数量')\nplt.grid(False)",
+          "codeSha256": "dae60f2644604027f18f85418e5894d682aa6c49f4fa1846c9ef3a844b453ac2"
+        }
+      ],
+      "inputRefs": [
+        {
+          "path": "职场-数据分析师职位分析-约300行（数据探索分析、matplotlib可视化）/数据分析师岗位分析.ipynb",
+          "sha256": "612486c97729fe72863ed3f52b813320854acf96710711d4c7d1f67f9cd42e1c"
+        },
+        {
+          "path": "职场-数据分析师职位分析-约300行（数据探索分析、matplotlib可视化）/数据分析师岗位分析.py",
+          "sha256": "9dcdd68cdfd7ed8a3edd4d8b8e9af03b23f49f7edf8b9746af20bd1cd0afea01"
+        },
+        {
+          "path": "职场-数据分析师职位分析-约300行（数据探索分析、matplotlib可视化）/lagou.csv",
+          "sha256": "6b1daf9e5c5f2af353fa517917889ec4dd482e1c9623e4c141843ffdfd742fda"
+        }
+      ],
+      "outputRefs": [
+        "learning/resources/p29-v4-source-3-images.json"
+      ],
+      "exercise": {
+        "prompt": "根据本步单元11—12和保存证据，说明一次变换的输入、输出和一项无法验证的结论。",
+        "hint": "先查看代码中的列选择/过滤/拟合，再核对输出身份和本项目局限。",
+        "checklist": [
+          "准确引用原单元11—12",
+          "指出实际字段或变量与一项真实输出",
+          "把未重跑、资料缺失和统计缺陷分别说明"
+        ],
+        "provenance": "第四阶段教学补充，自评，不代表原文件试题"
+      },
+      "outputTitles": {
+        "learning/resources/p29-v4-source-3-images.json": "原单元11—12保存输出 · 原保存图"
+      }
+    },
+    {
+      "id": "source-015-016",
+      "title": "3.2. 不同行业数据分析师岗位的需求情况 · 单元15—16",
+      "status": "ready",
+      "kind": "analysis",
+      "knowledgeIds": [
+        "Pandas",
+        "NumPy",
+        "Matplotlib",
+        "Seaborn",
+        "Jieba"
+      ],
+      "explanation": [
+        "本步按原Notebook顺序阅读单元15—16。原保存输出尚未重跑；安装、联网采集、写原文件和模型加载均不会在网页运行。",
+        "绘图参数只控制展示；结论仍须受输入范围与统计口径约束。",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：#### 3.2. 不同行业数据分析师岗位的需求情况"
+      ],
+      "teachingCode": "# 原代码仅供阅读，不由网页执行。\n# 本次可运行适配实现见末尾数据实验步骤。",
+      "limitations": [
+        "原介绍437与实表差1；薪资区间中点不是实际收入；历史样本不能代表当前就业市场；SQL/机器学习等出现在职位文本中，不是该项目使用这些技术的证据。",
+        "原代码与保存输出保持原身份；新改编计算另列。"
+      ],
+      "codeRefs": [
+        {
+          "path": "职场-数据分析师职位分析-约300行（数据探索分析、matplotlib可视化）/数据分析师岗位分析.ipynb",
+          "notebookSha256": "612486c97729fe72863ed3f52b813320854acf96710711d4c7d1f67f9cd42e1c",
+          "cell": 15,
+          "code": "# 存在多个行业，只取第一个\nclean_foursquare = [str(i.split(',')[0]) for i in data.foursquare]\ndata['foursquare'] = clean_foursquare",
+          "codeSha256": "1a905a9b37902f3ccc65e6a099840f728689679fb10c92e70b1b8983109904c1"
+        },
+        {
+          "path": "职场-数据分析师职位分析-约300行（数据探索分析、matplotlib可视化）/数据分析师岗位分析.ipynb",
+          "notebookSha256": "612486c97729fe72863ed3f52b813320854acf96710711d4c7d1f67f9cd42e1c",
+          "cell": 16,
+          "code": "plt.figure(figsize = (8,6))\ndata['foursquare'].value_counts().sort_values(ascending = True).plot.barh(width = 0.8,color = 'red')\nplt.xlabel('职位数量')\nplt.ylabel('职位名称')\nplt.title('不同行业数据分析师职位数量')\nplt.grid(False)",
+          "codeSha256": "4d0f0cc30df3fc486e72251163e6c4cdf16bbebc4c43b4db88c5b258d4b657e7"
+        }
+      ],
+      "inputRefs": [
+        {
+          "path": "职场-数据分析师职位分析-约300行（数据探索分析、matplotlib可视化）/数据分析师岗位分析.ipynb",
+          "sha256": "612486c97729fe72863ed3f52b813320854acf96710711d4c7d1f67f9cd42e1c"
+        },
+        {
+          "path": "职场-数据分析师职位分析-约300行（数据探索分析、matplotlib可视化）/数据分析师岗位分析.py",
+          "sha256": "9dcdd68cdfd7ed8a3edd4d8b8e9af03b23f49f7edf8b9746af20bd1cd0afea01"
+        },
+        {
+          "path": "职场-数据分析师职位分析-约300行（数据探索分析、matplotlib可视化）/lagou.csv",
+          "sha256": "6b1daf9e5c5f2af353fa517917889ec4dd482e1c9623e4c141843ffdfd742fda"
+        }
+      ],
+      "outputRefs": [
+        "learning/resources/p29-v4-source-4-images.json"
+      ],
+      "exercise": {
+        "prompt": "根据本步单元15—16和保存证据，说明一次变换的输入、输出和一项无法验证的结论。",
+        "hint": "先查看代码中的列选择/过滤/拟合，再核对输出身份和本项目局限。",
+        "checklist": [
+          "准确引用原单元15—16",
+          "指出实际字段或变量与一项真实输出",
+          "把未重跑、资料缺失和统计缺陷分别说明"
+        ],
+        "provenance": "第四阶段教学补充，自评，不代表原文件试题"
+      },
+      "outputTitles": {
+        "learning/resources/p29-v4-source-4-images.json": "原单元15—16保存输出 · 原保存图"
+      }
+    },
+    {
+      "id": "source-018-018",
+      "title": "3.3. 数据分析师对应聘者工作年限的要求 · 单元18—18",
+      "status": "ready",
+      "kind": "analysis",
+      "knowledgeIds": [
+        "Pandas",
+        "NumPy",
+        "Matplotlib",
+        "Seaborn",
+        "Jieba"
+      ],
+      "explanation": [
+        "本步按原Notebook顺序阅读单元18—18。原保存输出尚未重跑；安装、联网采集、写原文件和模型加载均不会在网页运行。",
+        "绘图参数只控制展示；结论仍须受输入范围与统计口径约束。",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：小结：可以发现数分析师岗位主要集中于移动互联网行业领域，此外，数据分析岗位也开始融入传统行业例如金融、电商、企业服务、消费生活等，可以预见在不久的将来这种的占比会不断增大，其发展势头不容小觑。\n\n#### 3.3. 数据分析师对应聘者工作年限的要求"
+      ],
+      "teachingCode": "# 原代码仅供阅读，不由网页执行。\n# 本次可运行适配实现见末尾数据实验步骤。",
+      "limitations": [
+        "原介绍437与实表差1；薪资区间中点不是实际收入；历史样本不能代表当前就业市场；SQL/机器学习等出现在职位文本中，不是该项目使用这些技术的证据。",
+        "原代码与保存输出保持原身份；新改编计算另列。"
+      ],
+      "codeRefs": [
+        {
+          "path": "职场-数据分析师职位分析-约300行（数据探索分析、matplotlib可视化）/数据分析师岗位分析.ipynb",
+          "notebookSha256": "612486c97729fe72863ed3f52b813320854acf96710711d4c7d1f67f9cd42e1c",
+          "cell": 18,
+          "code": "plt.figure(figsize = (8,6))\ndata['experience'].value_counts().plot.barh(width = 0.6,color = 'orange')\nplt.xlabel('职位数量')\nplt.ylabel('工作经验')\nplt.title('数据分析对求职者工作经验的要求',loc = \"center\")\nplt.grid(False)",
+          "codeSha256": "81c770f3c78a7ca6412f5809588f3ec6705b63e60c0189c7105c2f2515aaf1b1"
+        }
+      ],
+      "inputRefs": [
+        {
+          "path": "职场-数据分析师职位分析-约300行（数据探索分析、matplotlib可视化）/数据分析师岗位分析.ipynb",
+          "sha256": "612486c97729fe72863ed3f52b813320854acf96710711d4c7d1f67f9cd42e1c"
+        },
+        {
+          "path": "职场-数据分析师职位分析-约300行（数据探索分析、matplotlib可视化）/数据分析师岗位分析.py",
+          "sha256": "9dcdd68cdfd7ed8a3edd4d8b8e9af03b23f49f7edf8b9746af20bd1cd0afea01"
+        },
+        {
+          "path": "职场-数据分析师职位分析-约300行（数据探索分析、matplotlib可视化）/lagou.csv",
+          "sha256": "6b1daf9e5c5f2af353fa517917889ec4dd482e1c9623e4c141843ffdfd742fda"
+        }
+      ],
+      "outputRefs": [
+        "learning/resources/p29-v4-source-5-images.json"
+      ],
+      "exercise": {
+        "prompt": "根据本步单元18—18和保存证据，说明一次变换的输入、输出和一项无法验证的结论。",
+        "hint": "先查看代码中的列选择/过滤/拟合，再核对输出身份和本项目局限。",
+        "checklist": [
+          "准确引用原单元18—18",
+          "指出实际字段或变量与一项真实输出",
+          "把未重跑、资料缺失和统计缺陷分别说明"
+        ],
+        "provenance": "第四阶段教学补充，自评，不代表原文件试题"
+      },
+      "outputTitles": {
+        "learning/resources/p29-v4-source-5-images.json": "原单元18—18保存输出 · 原保存图"
+      }
+    },
+    {
+      "id": "source-020-020",
+      "title": "3.4. 数据分析师对求职者学历的要求 · 单元20—20",
+      "status": "ready",
+      "kind": "analysis",
+      "knowledgeIds": [
+        "Pandas",
+        "NumPy",
+        "Matplotlib",
+        "Seaborn",
+        "Jieba"
+      ],
+      "explanation": [
+        "本步按原Notebook顺序阅读单元20—20。原保存输出尚未重跑；安装、联网采集、写原文件和模型加载均不会在网页运行。",
+        "本步展示原变量赋值、查看或配置；变量实际内容以保存输出与本次数据证据为准，不从代码存在推断执行成功。",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：小结：大部分企业都是需要求职者有一定的工作经验的（谁都想招一个能直接上手的员工，而不是还要花一段时间去培养他），甚至是超过3年的工作经验，对应届生其实很不利。\n#### 3.4. 数据分析师对求职者学历的要求"
+      ],
+      "teachingCode": "# 原代码仅供阅读，不由网页执行。\n# 本次可运行适配实现见末尾数据实验步骤。",
+      "limitations": [
+        "原介绍437与实表差1；薪资区间中点不是实际收入；历史样本不能代表当前就业市场；SQL/机器学习等出现在职位文本中，不是该项目使用这些技术的证据。",
+        "原代码与保存输出保持原身份；新改编计算另列。"
+      ],
+      "codeRefs": [
+        {
+          "path": "职场-数据分析师职位分析-约300行（数据探索分析、matplotlib可视化）/数据分析师岗位分析.ipynb",
+          "notebookSha256": "612486c97729fe72863ed3f52b813320854acf96710711d4c7d1f67f9cd42e1c",
+          "cell": 20,
+          "code": "education_count = data['education'].value_counts()\nlabels='本科及以上','学历不限','硕士及以上','大专及以上'\ncolors=[ 'lightskyblue', 'gold','yellowgreen', 'lightcoral']\nexplode=(0.1,0.1,0.1,0.1)\nplt.axis('equal')\nplt.title('数据分析师对求职者学历的要求',size = 15)\nplt.pie(education_count,explode=explode,labels=labels,colors=colors,autopct='%1.1f%%',\n        shadow=True,labeldistance=1.1,startangle=60,radius=1.2)",
+          "codeSha256": "77c2ec556fcf97d50fb418110af61544befc9e151951fa8ff55b921b6ecc7f72"
+        }
+      ],
+      "inputRefs": [
+        {
+          "path": "职场-数据分析师职位分析-约300行（数据探索分析、matplotlib可视化）/数据分析师岗位分析.ipynb",
+          "sha256": "612486c97729fe72863ed3f52b813320854acf96710711d4c7d1f67f9cd42e1c"
+        },
+        {
+          "path": "职场-数据分析师职位分析-约300行（数据探索分析、matplotlib可视化）/数据分析师岗位分析.py",
+          "sha256": "9dcdd68cdfd7ed8a3edd4d8b8e9af03b23f49f7edf8b9746af20bd1cd0afea01"
+        },
+        {
+          "path": "职场-数据分析师职位分析-约300行（数据探索分析、matplotlib可视化）/lagou.csv",
+          "sha256": "6b1daf9e5c5f2af353fa517917889ec4dd482e1c9623e4c141843ffdfd742fda"
+        }
+      ],
+      "outputRefs": [
+        "learning/resources/p29-v4-source-6.json",
+        "learning/resources/p29-v4-source-6-images.json"
+      ],
+      "exercise": {
+        "prompt": "根据本步单元20—20和保存证据，说明一次变换的输入、输出和一项无法验证的结论。",
+        "hint": "先查看代码中的列选择/过滤/拟合，再核对输出身份和本项目局限。",
+        "checklist": [
+          "准确引用原单元20—20",
+          "指出实际字段或变量与一项真实输出",
+          "把未重跑、资料缺失和统计缺陷分别说明"
+        ],
+        "provenance": "第四阶段教学补充，自评，不代表原文件试题"
+      },
+      "outputTitles": {
+        "learning/resources/p29-v4-source-6.json": "原单元20—20保存输出",
+        "learning/resources/p29-v4-source-6-images.json": "原单元20—20保存输出 · 原保存图"
+      }
+    },
+    {
+      "id": "source-022-023",
+      "title": "3.5. 数据分析师的薪酬范围分布 · 单元22—23",
+      "status": "ready",
+      "kind": "analysis",
+      "knowledgeIds": [
+        "Pandas",
+        "NumPy",
+        "Matplotlib",
+        "Seaborn",
+        "Jieba"
+      ],
+      "explanation": [
+        "本步按原Notebook顺序阅读单元22—23。原保存输出尚未重跑；安装、联网采集、写原文件和模型加载均不会在网页运行。",
+        "本步展示原变量赋值、查看或配置；变量实际内容以保存输出与本次数据证据为准，不从代码存在推断执行成功。",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：小结：可以发现，数据分析师岗位对学历的要求不算太高，大部分公司要求具备本科学历即可，这是因为数据分析师岗位仅仅要求求职者具备基本的数学知识以及编程，不像算法岗要求那么高，所以对大多数人来说数据分析师还是一个不错的岗位选择。\n\n#### 3.5. 数据分析师的薪酬范围分布"
+      ],
+      "teachingCode": "# 原代码仅供阅读，不由网页执行。\n# 本次可运行适配实现见末尾数据实验步骤。",
+      "limitations": [
+        "原介绍437与实表差1；薪资区间中点不是实际收入；历史样本不能代表当前就业市场；SQL/机器学习等出现在职位文本中，不是该项目使用这些技术的证据。",
+        "原代码与保存输出保持原身份；新改编计算另列。"
+      ],
+      "codeRefs": [
+        {
+          "path": "职场-数据分析师职位分析-约300行（数据探索分析、matplotlib可视化）/数据分析师岗位分析.ipynb",
+          "notebookSha256": "612486c97729fe72863ed3f52b813320854acf96710711d4c7d1f67f9cd42e1c",
+          "cell": 22,
+          "code": "# 去除字段中'k'或'K'字符\nclean_salary = [re.sub('[k|K]','',i) for i in data.salary]\n\n# 将salary数据转换为DataFrame格式\nsalary = pd.DataFrame(clean_salary,columns = ['salary'])\nsalary_s = pd.DataFrame((x.split('-') for x in salary['salary']),columns = ['bottomSalary','topSalary'])\n# 更改字段格式\nsalary_s['bottomSalary']=salary_s['bottomSalary'].astype(np.int)\nsalary_s['topSalary']=salary_s['topSalary'].astype(np.int)\n\n# 计算平均值\nsalary_avg = [(salary_s['bottomSalary'][i] + salary_s['topSalary'][i])/2 for i in range(len(salary_s))]\nsalary_s['avgSalary'] = salary_avg\n# for i in range(len(salary_s)):\n#     avg.append((salary_s['bottomSalary'][i]+salary_s['topSalary'][i])/2)\n# salary_s['avgSalary']=avg\n\n# 将salary_s表与原表进行拼接\ndata = pd.merge(data,salary_s,right_index=True,left_index=True)\ndata.head()",
+          "codeSha256": "5c645bf0fd364972ac13c5b0e8653b5933e00b1332ada1097d1b3beb8c23d255"
+        },
+        {
+          "path": "职场-数据分析师职位分析-约300行（数据探索分析、matplotlib可视化）/数据分析师岗位分析.ipynb",
+          "notebookSha256": "612486c97729fe72863ed3f52b813320854acf96710711d4c7d1f67f9cd42e1c",
+          "cell": 23,
+          "code": "plt.figure(figsize = (8,6))\nplt.hist(data['avgSalary'],bins=16,color='green')\nplt.axis('tight') \nplt.title('薪酬分布')\nplt.xlabel('每月薪酬（单位：K/月）')\nplt.ylabel('职位数量')\nplt.grid(False)",
+          "codeSha256": "bbb5fd54a017c1963d7de916379069759bb81b026bd53e92d49ba83be142409a"
+        }
+      ],
+      "inputRefs": [
+        {
+          "path": "职场-数据分析师职位分析-约300行（数据探索分析、matplotlib可视化）/数据分析师岗位分析.ipynb",
+          "sha256": "612486c97729fe72863ed3f52b813320854acf96710711d4c7d1f67f9cd42e1c"
+        },
+        {
+          "path": "职场-数据分析师职位分析-约300行（数据探索分析、matplotlib可视化）/数据分析师岗位分析.py",
+          "sha256": "9dcdd68cdfd7ed8a3edd4d8b8e9af03b23f49f7edf8b9746af20bd1cd0afea01"
+        },
+        {
+          "path": "职场-数据分析师职位分析-约300行（数据探索分析、matplotlib可视化）/lagou.csv",
+          "sha256": "6b1daf9e5c5f2af353fa517917889ec4dd482e1c9623e4c141843ffdfd742fda"
+        }
+      ],
+      "outputRefs": [
+        "learning/resources/p29-v4-source-7.json",
+        "learning/resources/p29-v4-source-7-images.json"
+      ],
+      "exercise": {
+        "prompt": "根据本步单元22—23和保存证据，说明一次变换的输入、输出和一项无法验证的结论。",
+        "hint": "先查看代码中的列选择/过滤/拟合，再核对输出身份和本项目局限。",
+        "checklist": [
+          "准确引用原单元22—23",
+          "指出实际字段或变量与一项真实输出",
+          "把未重跑、资料缺失和统计缺陷分别说明"
+        ],
+        "provenance": "第四阶段教学补充，自评，不代表原文件试题"
+      },
+      "outputTitles": {
+        "learning/resources/p29-v4-source-7.json": "原单元22—23保存输出",
+        "learning/resources/p29-v4-source-7-images.json": "原单元22—23保存输出 · 原保存图"
+      }
+    },
+    {
+      "id": "source-025-025",
+      "title": "3.6. 公司规模与薪酬之间的关系 · 单元25—25",
+      "status": "ready",
+      "kind": "analysis",
+      "knowledgeIds": [
+        "Pandas",
+        "NumPy",
+        "Matplotlib",
+        "Seaborn",
+        "Jieba"
+      ],
+      "explanation": [
+        "本步按原Notebook顺序阅读单元25—25。原保存输出尚未重跑；安装、联网采集、写原文件和模型加载均不会在网页运行。",
+        "groupby先定义分组键，再计算聚合；count、size与nunique的计数粒度不同。",
+        "绘图参数只控制展示；结论仍须受输入范围与统计口径约束。",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：小结：可以发现数据分析师的薪酬分布范围主要在 6K-25K 之间，尤其集中在20K左右，少量岗位甚至高达40K以上，好好干，有钱途。\n#### 3.6. 公司规模与薪酬之间的关系"
+      ],
+      "teachingCode": "# 原代码仅供阅读，不由网页执行。\n# 本次可运行适配实现见末尾数据实验步骤。",
+      "limitations": [
+        "原介绍437与实表差1；薪资区间中点不是实际收入；历史样本不能代表当前就业市场；SQL/机器学习等出现在职位文本中，不是该项目使用这些技术的证据。",
+        "原代码与保存输出保持原身份；新改编计算另列。"
+      ],
+      "codeRefs": [
+        {
+          "path": "职场-数据分析师职位分析-约300行（数据探索分析、matplotlib可视化）/数据分析师岗位分析.ipynb",
+          "notebookSha256": "612486c97729fe72863ed3f52b813320854acf96710711d4c7d1f67f9cd42e1c",
+          "cell": 25,
+          "code": "data['figure'] = data['figure'].map(str.strip)\ndata.groupby(['figure']).count()\n\nsize1=data.loc[data['figure'] == '15-50人',['figure','avgSalary']]\nsize2=data.loc[data['figure'] == '50-150人',['figure','avgSalary']]\nsize3=data.loc[data['figure'] == '150-500人',['figure','avgSalary']]\nsize4=data.loc[data['figure'] == '500-2000人',['figure','avgSalary']]\nsize5=data.loc[data['figure'] == '2000人以上',['figure','avgSalary']]\n\nplt.figure(figsize = (20,8))\nplt.xlabel('公司规模')\nplt.ylabel('平均薪酬（K/月）')\nplt.title('公司规模与平均薪酬')\nplt.grid(False)\nplt.boxplot((size1['avgSalary'],size2['avgSalary'],size3['avgSalary'],size4['avgSalary'],size5['avgSalary']),\n            labels=('15-50人','50-150人','150-500人','500-2000人','2000人以上'))\n# plt.grid(color='#95a5a6',linestyle='--',linewidth=0.8,axis='y',alpha=0.4)",
+          "codeSha256": "784eac7a41bbd9653abf4e2793d2624c55c1a5d1c7e0bea3657c2e250f176f14"
+        }
+      ],
+      "inputRefs": [
+        {
+          "path": "职场-数据分析师职位分析-约300行（数据探索分析、matplotlib可视化）/数据分析师岗位分析.ipynb",
+          "sha256": "612486c97729fe72863ed3f52b813320854acf96710711d4c7d1f67f9cd42e1c"
+        },
+        {
+          "path": "职场-数据分析师职位分析-约300行（数据探索分析、matplotlib可视化）/数据分析师岗位分析.py",
+          "sha256": "9dcdd68cdfd7ed8a3edd4d8b8e9af03b23f49f7edf8b9746af20bd1cd0afea01"
+        },
+        {
+          "path": "职场-数据分析师职位分析-约300行（数据探索分析、matplotlib可视化）/lagou.csv",
+          "sha256": "6b1daf9e5c5f2af353fa517917889ec4dd482e1c9623e4c141843ffdfd742fda"
+        }
+      ],
+      "outputRefs": [
+        "learning/resources/p29-v4-source-8.json",
+        "learning/resources/p29-v4-source-8-images.json"
+      ],
+      "exercise": {
+        "prompt": "根据本步单元25—25和保存证据，说明一次变换的输入、输出和一项无法验证的结论。",
+        "hint": "先查看代码中的列选择/过滤/拟合，再核对输出身份和本项目局限。",
+        "checklist": [
+          "准确引用原单元25—25",
+          "指出实际字段或变量与一项真实输出",
+          "把未重跑、资料缺失和统计缺陷分别说明"
+        ],
+        "provenance": "第四阶段教学补充，自评，不代表原文件试题"
+      },
+      "outputTitles": {
+        "learning/resources/p29-v4-source-8.json": "原单元25—25保存输出",
+        "learning/resources/p29-v4-source-8-images.json": "原单元25—25保存输出 · 原保存图"
+      }
+    },
+    {
+      "id": "source-027-028",
+      "title": "3.7. 工作经验与薪酬的关系 · 单元27—28",
+      "status": "ready",
+      "kind": "analysis",
+      "knowledgeIds": [
+        "Pandas",
+        "NumPy",
+        "Matplotlib",
+        "Seaborn",
+        "Jieba"
+      ],
+      "explanation": [
+        "本步按原Notebook顺序阅读单元27—28。原保存输出尚未重跑；安装、联网采集、写原文件和模型加载均不会在网页运行。",
+        "绘图参数只控制展示；结论仍须受输入范围与统计口径约束。",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：小结：如箱形图所示，随着公司的规模增大，平均薪酬有明显上涨的趋势。另外大厂（2000人以上）是工资待遇虽然比较高，但是差距也大。\n#### 3.7. 工作经验与薪酬的关系"
+      ],
+      "teachingCode": "# 原代码仅供阅读，不由网页执行。\n# 本次可运行适配实现见末尾数据实验步骤。",
+      "limitations": [
+        "原介绍437与实表差1；薪资区间中点不是实际收入；历史样本不能代表当前就业市场；SQL/机器学习等出现在职位文本中，不是该项目使用这些技术的证据。",
+        "原代码与保存输出保持原身份；新改编计算另列。"
+      ],
+      "codeRefs": [
+        {
+          "path": "职场-数据分析师职位分析-约300行（数据探索分析、matplotlib可视化）/数据分析师岗位分析.ipynb",
+          "notebookSha256": "612486c97729fe72863ed3f52b813320854acf96710711d4c7d1f67f9cd42e1c",
+          "cell": 27,
+          "code": "data['experience'] = data['experience'].map(str.strip)\n\n# 把经验应届毕业生和经验不限归为经验1年以下\nfor i in range(len(data['experience'])):\n    if data['experience'][i] in ['经验应届毕业生','经验不限']:\n        data['experience'][i]='经验1年以下'\n# data['experience']",
+          "codeSha256": "732dcd28a082fbbcf1453ff5e821dc9678409d4581018be11a0060006e54bf90"
+        },
+        {
+          "path": "职场-数据分析师职位分析-约300行（数据探索分析、matplotlib可视化）/数据分析师岗位分析.ipynb",
+          "notebookSha256": "612486c97729fe72863ed3f52b813320854acf96710711d4c7d1f67f9cd42e1c",
+          "cell": 28,
+          "code": "year1=data.loc[data['experience'] == '经验1年以下',['experience','avgSalary']]\nyear2=data.loc[data['experience'] == '经验1-3年',['experience','avgSalary']]\nyear3=data.loc[data['experience'] == '经验3-5年',['experience','avgSalary']]\nyear4=data.loc[data['experience'] == '经验5-10年',['experience','avgSalary']]\n\nplt.figure(figsize = (20,8))\nplt.xlabel('工作年限')\nplt.ylabel('薪酬（K/月）')\nplt.title('工作年限与平均薪酬')\nplt.grid(False)\n# plt.grid(color='#95a5a6',linestyle='--',linewidth=0.8,axis='y',alpha=0.4)\nplt.boxplot((year1['avgSalary'],year2['avgSalary'],year3['avgSalary'],year4['avgSalary']),\n            labels=('经验1年以下','经验1-3年','经验3-5年','经验5-10年'))",
+          "codeSha256": "96c8cfe9b774d30ffec5b26b28214dee36077bbb15effc7d62c670d0c8ab46a2"
+        }
+      ],
+      "inputRefs": [
+        {
+          "path": "职场-数据分析师职位分析-约300行（数据探索分析、matplotlib可视化）/数据分析师岗位分析.ipynb",
+          "sha256": "612486c97729fe72863ed3f52b813320854acf96710711d4c7d1f67f9cd42e1c"
+        },
+        {
+          "path": "职场-数据分析师职位分析-约300行（数据探索分析、matplotlib可视化）/数据分析师岗位分析.py",
+          "sha256": "9dcdd68cdfd7ed8a3edd4d8b8e9af03b23f49f7edf8b9746af20bd1cd0afea01"
+        },
+        {
+          "path": "职场-数据分析师职位分析-约300行（数据探索分析、matplotlib可视化）/lagou.csv",
+          "sha256": "6b1daf9e5c5f2af353fa517917889ec4dd482e1c9623e4c141843ffdfd742fda"
+        }
+      ],
+      "outputRefs": [
+        "learning/resources/p29-v4-source-9.json",
+        "learning/resources/p29-v4-source-9-images.json"
+      ],
+      "exercise": {
+        "prompt": "根据本步单元27—28和保存证据，说明一次变换的输入、输出和一项无法验证的结论。",
+        "hint": "先查看代码中的列选择/过滤/拟合，再核对输出身份和本项目局限。",
+        "checklist": [
+          "准确引用原单元27—28",
+          "指出实际字段或变量与一项真实输出",
+          "把未重跑、资料缺失和统计缺陷分别说明"
+        ],
+        "provenance": "第四阶段教学补充，自评，不代表原文件试题"
+      },
+      "outputTitles": {
+        "learning/resources/p29-v4-source-9.json": "原单元27—28保存输出",
+        "learning/resources/p29-v4-source-9-images.json": "原单元27—28保存输出 · 原保存图"
+      }
+    },
+    {
+      "id": "source-030-030",
+      "title": "3.8. 学历对薪酬的影响 · 单元30—30",
+      "status": "ready",
+      "kind": "analysis",
+      "knowledgeIds": [
+        "Pandas",
+        "NumPy",
+        "Matplotlib",
+        "Seaborn",
+        "Jieba"
+      ],
+      "explanation": [
+        "本步按原Notebook顺序阅读单元30—30。原保存输出尚未重跑；安装、联网采集、写原文件和模型加载均不会在网页运行。",
+        "绘图参数只控制展示；结论仍须受输入范围与统计口径约束。",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：小结：随着工作经验的增长，薪资也跟着涨，工作3年后基本都在22K以上了。不过工作经验在1年以下却有些反常，经验1年以下的薪酬甚至比经验1-3年的都高，这可能由于应届毕业生之间的能力、学历差异造成的，真的是能者多劳啊！\n#### 3.8. 学历对薪酬的影响"
+      ],
+      "teachingCode": "# 原代码仅供阅读，不由网页执行。\n# 本次可运行适配实现见末尾数据实验步骤。",
+      "limitations": [
+        "原介绍437与实表差1；薪资区间中点不是实际收入；历史样本不能代表当前就业市场；SQL/机器学习等出现在职位文本中，不是该项目使用这些技术的证据。",
+        "原代码与保存输出保持原身份；新改编计算另列。"
+      ],
+      "codeRefs": [
+        {
+          "path": "职场-数据分析师职位分析-约300行（数据探索分析、matplotlib可视化）/数据分析师岗位分析.ipynb",
+          "notebookSha256": "612486c97729fe72863ed3f52b813320854acf96710711d4c7d1f67f9cd42e1c",
+          "cell": 30,
+          "code": "data['education']=data['education'].map(str.strip)\n \nedu1=data.loc[data['education'] == '学历不限',['education','avgSalary']]\nedu2=data.loc[data['education'] == '大专及以上',['education','avgSalary']]\nedu3=data.loc[data['education'] == '本科及以上',['education','avgSalary']]\nedu4=data.loc[data['education'] == '硕士及以上',['education','avgSalary']]\n\nplt.figure(figsize = (20,8))\nplt.xlabel('学历')\nplt.ylabel('薪酬（K/月）')\nplt.title('学历与平均薪酬')\nplt.grid(False)\n# plt.grid(color='#95a5a6',linestyle='--',linewidth=0.8,axis='y',alpha=0.4)\nplt.boxplot((edu1['avgSalary'],edu2['avgSalary'],edu3['avgSalary'],edu4['avgSalary']),labels=('学历不限','大专及以上','本科及以上','硕士及以上'))",
+          "codeSha256": "80670c4ef6825ccd4b9c00a5839c3b52344953ada5e9b26f52d5e3b3434d9bac"
+        }
+      ],
+      "inputRefs": [
+        {
+          "path": "职场-数据分析师职位分析-约300行（数据探索分析、matplotlib可视化）/数据分析师岗位分析.ipynb",
+          "sha256": "612486c97729fe72863ed3f52b813320854acf96710711d4c7d1f67f9cd42e1c"
+        },
+        {
+          "path": "职场-数据分析师职位分析-约300行（数据探索分析、matplotlib可视化）/数据分析师岗位分析.py",
+          "sha256": "9dcdd68cdfd7ed8a3edd4d8b8e9af03b23f49f7edf8b9746af20bd1cd0afea01"
+        },
+        {
+          "path": "职场-数据分析师职位分析-约300行（数据探索分析、matplotlib可视化）/lagou.csv",
+          "sha256": "6b1daf9e5c5f2af353fa517917889ec4dd482e1c9623e4c141843ffdfd742fda"
+        }
+      ],
+      "outputRefs": [
+        "learning/resources/p29-v4-source-10.json",
+        "learning/resources/p29-v4-source-10-images.json"
+      ],
+      "exercise": {
+        "prompt": "根据本步单元30—30和保存证据，说明一次变换的输入、输出和一项无法验证的结论。",
+        "hint": "先查看代码中的列选择/过滤/拟合，再核对输出身份和本项目局限。",
+        "checklist": [
+          "准确引用原单元30—30",
+          "指出实际字段或变量与一项真实输出",
+          "把未重跑、资料缺失和统计缺陷分别说明"
+        ],
+        "provenance": "第四阶段教学补充，自评，不代表原文件试题"
+      },
+      "outputTitles": {
+        "learning/resources/p29-v4-source-10.json": "原单元30—30保存输出",
+        "learning/resources/p29-v4-source-10-images.json": "原单元30—30保存输出 · 原保存图"
+      }
+    },
+    {
+      "id": "source-032-033",
+      "title": "3.9. 职业技能关键词 · 单元32—33",
+      "status": "ready",
+      "kind": "analysis",
+      "knowledgeIds": [
+        "Pandas",
+        "NumPy",
+        "Matplotlib",
+        "Seaborn",
+        "Jieba"
+      ],
+      "explanation": [
+        "本步按原Notebook顺序阅读单元32—33。原保存输出尚未重跑；安装、联网采集、写原文件和模型加载均不会在网页运行。",
+        "本步展示原变量赋值、查看或配置；变量实际内容以保存输出与本次数据证据为准，不从代码存在推断执行成功。",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：小结：学历不同，工资待遇的区别还是挺明显的。其中，本科及以上学历的薪酬待遇的极差较大，这是因为大部分公司都要求求职者具备本科及以上的学历；硕士及以上则更上一层楼，好歹人家比你多花三年时间。\n#### 3.9. 职业技能关键词"
+      ],
+      "teachingCode": "# 原代码仅供阅读，不由网页执行。\n# 本次可运行适配实现见末尾数据实验步骤。",
+      "limitations": [
+        "原介绍437与实表差1；薪资区间中点不是实际收入；历史样本不能代表当前就业市场；SQL/机器学习等出现在职位文本中，不是该项目使用这些技术的证据。",
+        "原代码与保存输出保持原身份；新改编计算另列。"
+      ],
+      "codeRefs": [
+        {
+          "path": "职场-数据分析师职位分析-约300行（数据探索分析、matplotlib可视化）/数据分析师岗位分析.ipynb",
+          "notebookSha256": "612486c97729fe72863ed3f52b813320854acf96710711d4c7d1f67f9cd42e1c",
+          "cell": 32,
+          "code": "# 把每个岗位描述连接起来保存在文件中\ndescription_text = ' '.join([i for i in data['description']])\n\nwith open('des.txt','w',encoding = 'utf-8') as f:\n    f.write(description_text)\n    f.close()",
+          "codeSha256": "e0c149f402b0e2162393c8cc247cf8b6d4bf8fdbad434e6d0f974fab02730299"
+        },
+        {
+          "path": "职场-数据分析师职位分析-约300行（数据探索分析、matplotlib可视化）/数据分析师岗位分析.ipynb",
+          "notebookSha256": "612486c97729fe72863ed3f52b813320854acf96710711d4c7d1f67f9cd42e1c",
+          "cell": 33,
+          "code": "text = open('des.txt', 'r',encoding='utf-8').read()\nstop_word = ['岗位职责','任职要求','工作职责','岗位要求','任职资格','本科及以上学历','本科以上学历','职位描述',\n             '工作职责','岗位职责1','职位诱惑','职位要求','任职要求1','工作职责1','职位职责','计算机','数据分析',\n             'and','to','with','the','in','for','of']\nwordcloud = WordCloud(font_path=\"./SimHei.ttf\",\n                      stopwords=stop_word,  # 去掉停用词\n                      max_words=100,\n                      width=2000,\n                      height=1200).generate(text)\n# 保存词云\nwordcloud.to_file('DT.jpg')\n# 显示词云文件\nplt.imshow(wordcloud)\nplt.axis(\"off\")\nplt.show()",
+          "codeSha256": "a01ce1b08f28723637386a3a94e21e791fa42a53ce3cd1e3def056904cefc707"
+        }
+      ],
+      "inputRefs": [
+        {
+          "path": "职场-数据分析师职位分析-约300行（数据探索分析、matplotlib可视化）/数据分析师岗位分析.ipynb",
+          "sha256": "612486c97729fe72863ed3f52b813320854acf96710711d4c7d1f67f9cd42e1c"
+        },
+        {
+          "path": "职场-数据分析师职位分析-约300行（数据探索分析、matplotlib可视化）/数据分析师岗位分析.py",
+          "sha256": "9dcdd68cdfd7ed8a3edd4d8b8e9af03b23f49f7edf8b9746af20bd1cd0afea01"
+        },
+        {
+          "path": "职场-数据分析师职位分析-约300行（数据探索分析、matplotlib可视化）/lagou.csv",
+          "sha256": "6b1daf9e5c5f2af353fa517917889ec4dd482e1c9623e4c141843ffdfd742fda"
+        }
+      ],
+      "outputRefs": [
+        "learning/resources/p29-v4-source-11-images.json"
+      ],
+      "exercise": {
+        "prompt": "根据本步单元32—33和保存证据，说明一次变换的输入、输出和一项无法验证的结论。",
+        "hint": "先查看代码中的列选择/过滤/拟合，再核对输出身份和本项目局限。",
+        "checklist": [
+          "准确引用原单元32—33",
+          "指出实际字段或变量与一项真实输出",
+          "把未重跑、资料缺失和统计缺陷分别说明"
+        ],
+        "provenance": "第四阶段教学补充，自评，不代表原文件试题"
+      },
+      "outputTitles": {
+        "learning/resources/p29-v4-source-11-images.json": "原单元32—33保存输出 · 原保存图"
+      }
+    },
+    {
+      "id": "phase4-data",
+      "title": "真实数据实验 · 数据分析师岗位分析",
+      "status": "ready",
+      "kind": "analysis",
+      "knowledgeIds": [
+        "Pandas",
+        "NumPy",
+        "Matplotlib",
+        "Seaborn",
+        "Jieba"
+      ],
+      "explanation": [
+        "从深圳招聘样本分析数据分析师岗位的区域、薪资与技能。",
+        "本步运行工程适配器，展示真实输入的质量、专属聚合与图表。清洗、分组和模型边界见代码与每份结果说明。教学代码为本项目经过审查的实现；不会执行原Notebook。",
+        "已实际准备8份结果；请切换结果逐项核对问题、单位、范围、分母、过滤条件和来源身份。"
+      ],
+      "teachingCode": "def p29(p):\n d=p.load();p.counts(d,'address');p.counts(d,'experience');p.counts(d,'education');s=d.salary.astype(str).str.extract(r'^(\\d+)[kK]?-(\\d+)[kK]?$').astype(float);assert s.notna().all().all();c=d.copy();c['下界']=s[0];c['上界']=s[1];c['薪资中点']=(s[0]+s[1])/2\n box(p,c,'experience','薪资中点','experience-box','K/月（原单元23单位；区间中点不是实发）');p.hist(c,'薪资中点');p.frame('salary-preview','薪资字符串拆分前20行',c[['salary','下界','上界','薪资中点']].head(20),'原区间可解析；中点仅为汇总替代量，不作为个人实际收入。',sample='原顺序前20/436行')\n text=' '.join(d.description.fillna('')).lower();terms=['python','sql','excel','tableau','spss','hadoop','spark','r语言'];p.chart('skills-text','职位描述中预定义技能词的文本频次',pd.DataFrame([[t,len(re.findall(re.escape(t),text))] for t in terms],columns=['文本词','不区分大小写子串次数']),note='教学词表子串计数，不是Jieba重跑；文本提及SQL不等于本项目代码使用SQL',unit='子串次数');p.checks.update(rows=len(d),salaryParsed=len(c))\n",
+      "limitations": [
+        "原介绍437与实表差1；薪资区间中点不是实际收入；历史样本不能代表当前就业市场；SQL/机器学习等出现在职位文本中，不是该项目使用这些技术的证据。",
+        "新版本不覆盖原保存成绩；所有新训练均在构建清单中单列。"
+      ],
+      "codeRefs": [
+        {
+          "path": "职场-数据分析师职位分析-约300行（数据探索分析、matplotlib可视化）/数据分析师岗位分析.ipynb",
+          "notebookSha256": "612486c97729fe72863ed3f52b813320854acf96710711d4c7d1f67f9cd42e1c",
+          "cell": 6,
+          "code": "data = pd.read_csv('./lagou.csv')",
+          "codeSha256": "43e829c7d9a36027daae69d0626ebbb3c2a74cc7c8c219e76a92c001e95ba8c0"
+        },
+        {
+          "path": "职场-数据分析师职位分析-约300行（数据探索分析、matplotlib可视化）/数据分析师岗位分析.ipynb",
+          "notebookSha256": "612486c97729fe72863ed3f52b813320854acf96710711d4c7d1f67f9cd42e1c",
+          "cell": 25,
+          "code": "data['figure'] = data['figure'].map(str.strip)\ndata.groupby(['figure']).count()\n\nsize1=data.loc[data['figure'] == '15-50人',['figure','avgSalary']]\nsize2=data.loc[data['figure'] == '50-150人',['figure','avgSalary']]\nsize3=data.loc[data['figure'] == '150-500人',['figure','avgSalary']]\nsize4=data.loc[data['figure'] == '500-2000人',['figure','avgSalary']]\nsize5=data.loc[data['figure'] == '2000人以上',['figure','avgSalary']]\n\nplt.figure(figsize = (20,8))\nplt.xlabel('公司规模')\nplt.ylabel('平均薪酬（K/月）')\nplt.title('公司规模与平均薪酬')\nplt.grid(False)\nplt.boxplot((size1['avgSalary'],size2['avgSalary'],size3['avgSalary'],size4['avgSalary'],size5['avgSalary']),\n            labels=('15-50人','50-150人','150-500人','500-2000人','2000人以上'))\n# plt.grid(color='#95a5a6',linestyle='--',linewidth=0.8,axis='y',alpha=0.4)",
+          "codeSha256": "784eac7a41bbd9653abf4e2793d2624c55c1a5d1c7e0bea3657c2e250f176f14"
+        }
+      ],
+      "inputRefs": [
+        {
+          "path": "职场-数据分析师职位分析-约300行（数据探索分析、matplotlib可视化）/数据分析师岗位分析.ipynb",
+          "sha256": "612486c97729fe72863ed3f52b813320854acf96710711d4c7d1f67f9cd42e1c"
+        },
+        {
+          "path": "职场-数据分析师职位分析-约300行（数据探索分析、matplotlib可视化）/数据分析师岗位分析.py",
+          "sha256": "9dcdd68cdfd7ed8a3edd4d8b8e9af03b23f49f7edf8b9746af20bd1cd0afea01"
+        },
+        {
+          "path": "职场-数据分析师职位分析-约300行（数据探索分析、matplotlib可视化）/lagou.csv",
+          "sha256": "6b1daf9e5c5f2af353fa517917889ec4dd482e1c9623e4c141843ffdfd742fda"
+        }
+      ],
+      "outputRefs": [
+        "learning/resources/p29-v4-address.json",
+        "learning/resources/p29-v4-experience.json",
+        "learning/resources/p29-v4-education.json",
+        "learning/resources/p29-v4-experience-box.json",
+        "learning/resources/p29-v4-____-7a5cb7d9.json",
+        "learning/resources/p29-v4-salary-preview.json",
+        "learning/resources/p29-v4-skills-text.json",
+        "learning/resources/p29-v4-input-quality.json"
+      ],
+      "exercise": {
+        "prompt": "比较区间上下界与中点；解释招聘文本标签和代码技术标签的区别。",
+        "hint": "从同源表取数，写出算式；先核对全量/抽样和原保存/新计算身份。",
+        "checklist": [
+          "列出真实字段、筛选规则和当前样本范围",
+          "用表格复核至少一个频数、比率或模型指标",
+          "指出一个不能由本图推出的结论"
+        ],
+        "provenance": "已批准路线练习与第四阶段核对清单，采用自评"
+      },
+      "outputTitles": {
+        "learning/resources/p29-v4-address.json": "address：记录数与全量比例",
+        "learning/resources/p29-v4-experience.json": "experience：记录数与全量比例",
+        "learning/resources/p29-v4-education.json": "education：记录数与全量比例",
+        "learning/resources/p29-v4-experience-box.json": "experience的薪资中点五数概括",
+        "learning/resources/p29-v4-____-7a5cb7d9.json": "薪资中点的全量等宽分布",
+        "learning/resources/p29-v4-salary-preview.json": "薪资字符串拆分前20行",
+        "learning/resources/p29-v4-skills-text.json": "职位描述中预定义技能词的文本频次",
+        "learning/resources/p29-v4-input-quality.json": "本项目各输入表的读取与质量核对"
+      }
+    }
+  ]
+}

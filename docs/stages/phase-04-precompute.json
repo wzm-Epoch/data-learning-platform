@@ -1,0 +1,3458 @@
+{
+  "schemaVersion": "1.0",
+  "buildId": "phase4-v1",
+  "createdAt": "2026-11-16T13:05:46.028718+00:00",
+  "adapterSha256": "a0242a7107b170cb30cb8ff1c72cdeac48f2bf39dcc324f4b5aabc76c87df5bd",
+  "editorialSha256": "823edd4bd73a2cf71cd4b60797ec76a005c5d1a59cf180df9c265d2cdd23660d",
+  "environment": {
+    "python": "3.13.9",
+    "pandas": "2.3.3",
+    "numpy": "2.3.5",
+    "scikit-learn": "1.7.2",
+    "scipy": "1.16.3",
+    "statsmodels": "0.14.5",
+    "openpyxl": "3.1.5",
+    "xlrd": "2.0.2",
+    "Pillow": "12.0.0"
+  },
+  "inputs": [
+    {
+      "path": "交易预测-约600行（EDA数据探索、逻辑回归、决策树、模型调参、模型评估）/creditcardfraud.csv",
+      "sha256": "76274b691b16a6c49d3f159c883398e03ccd6d1ee12d9d8ee38f4b4b98551a89"
+    },
+    {
+      "path": "交易预测-约600行（EDA数据探索、逻辑回归、决策树、模型调参、模型评估）/信用卡欺诈交易预测.ipynb",
+      "sha256": "b84b7a8568ec364841c8cf8ff81a79addfdd1ebb39eefd6b8dd5c77bd3a5684f"
+    },
+    {
+      "path": "交易预测-约600行（EDA数据探索、逻辑回归、决策树、模型调参、模型评估）/信用卡欺诈交易预测.py",
+      "sha256": "1b2bc2e44354a2e9a8c37d5a260f6b77c00f305d8f9f1eb18ebda4957092e20e"
+    },
+    {
+      "path": "交通出行-共享单车预测租赁数量-约300行（随机森林、支持向量机模型）/train.csv",
+      "sha256": "11671d46ae41bf0df77d3d25268f4cb87683f3a33e4a54adf1bb3b24ee538cad"
+    },
+    {
+      "path": "交通出行-共享单车预测租赁数量-约300行（随机森林、支持向量机模型）/自行车租赁数量预测.ipynb",
+      "sha256": "5d7bfa900fd3c472a9a4dd3e2fd241a940046dfdae12874866e1bc2633501530"
+    },
+    {
+      "path": "交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/data/air_data.csv",
+      "sha256": "afcba77fc852376966a1026c4d991323b0e7cd7f26bdc975582080a93b6161eb"
+    },
+    {
+      "path": "交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/tmp/data_cleaned.csv",
+      "sha256": "e3455c8ebab78f5bf4e3972761783fd0e6fe33a47d9344d94a62f017deda8fe3"
+    },
+    {
+      "path": "交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/tmp/data_stand.csv",
+      "sha256": "6cf52be39fe13b24ffe49abbfe090f5240e98023adb5947c0f7d5c20364736f8"
+    },
+    {
+      "path": "交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/tmp/data_stipu.csv",
+      "sha256": "e7089dd0578664aca02f40184d60800992be2bcab0c7d2e38856f3221cb26c4b"
+    },
+    {
+      "path": "交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/tmp/explore.xlsx",
+      "sha256": "9876e3b4f6b70179ef76b7b402179263defc91e32b1f96e80a700cdb2a4d3dd2"
+    },
+    {
+      "path": "交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/客户信息属性说明.xls",
+      "sha256": "dd4a690ed7d91b0f1a92903c936df53a86534038b02245b55f84a8dd4e2cee8c"
+    },
+    {
+      "path": "交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/航空公司客户价值分析.ipynb",
+      "sha256": "bd72cf9fd918950642968c14f6021b77caeef58df86b4df65564c546279bbbb8"
+    },
+    {
+      "path": "交通旅行-全球酒店预订分析与预测-约550行（数据探索分析、随机森林、XGBoost、逻辑回归）/2022_hotel_bookings.csv",
+      "sha256": "ab2a3bfa58522e3a6310ae941303e1beeecb1c86960d538140525cee01578683"
+    },
+    {
+      "path": "交通旅行-全球酒店预订分析与预测-约550行（数据探索分析、随机森林、XGBoost、逻辑回归）/全球酒店预订分析与预测.ipynb",
+      "sha256": "f1166bb78198277c9bd5a0bbf360ce9b452a23b39733dfde5b7e6acb55fdee42"
+    },
+    {
+      "path": "交通旅行-热门旅游景点数据分析与可视化-约300行（pandas数据处理、pyecharts可视化、jieba分词）/旅游景点.ipynb",
+      "sha256": "4ab8708fdc7c3f7f984c34f9b01447432de17eb6ac04cc753ca8cec760db7c2d"
+    },
+    {
+      "path": "交通旅行-热门旅游景点数据分析与可视化-约300行（pandas数据处理、pyecharts可视化、jieba分词）/旅游景点.xlsx",
+      "sha256": "cbecb48e3276d3a64fd37ceae4a2fe4352b14ebed6db3af49f6b713d4e9e2fdd"
+    },
+    {
+      "path": "体育-数据可视化-约1300行（Pyecharts可视化）/120年奥运会数据可视化.ipynb",
+      "sha256": "a243bf8b64b54f72c20d9460defd492205efc3ed3d8fed718b6741e4ff752bdf"
+    },
+    {
+      "path": "体育-数据可视化-约1300行（Pyecharts可视化）/120年奥运会数据可视化.py",
+      "sha256": "73609f83edc275407ef08d11fec0cf717b59f3ba2435593f703ba2c608d2ebe2"
+    },
+    {
+      "path": "体育-数据可视化-约1300行（Pyecharts可视化）/athlete_events.csv",
+      "sha256": "e9f6b1fa97f40e0f071a6de640acb42dd7a100cad67e5e69cab630192fabb089"
+    },
+    {
+      "path": "体育-数据可视化-约1300行（Pyecharts可视化）/noc_regions.csv",
+      "sha256": "ce7f3c272a3d81d07acf5e5eba4cbba77501f9db25d820d862c60aaccf281906"
+    },
+    {
+      "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/1_1.jpg",
+      "sha256": "d48f6cc1eba2b2970fc66732ff6a8687decb6ee051546a3110f261cb8e2beab7"
+    },
+    {
+      "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/1_10.jpg",
+      "sha256": "b7e30758c066a8de1792f09a01b48e21cd08c66739ada83882924cdb2af85f47"
+    },
+    {
+      "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/1_11.jpg",
+      "sha256": "1716dd10a17a80c752b8eed57714fc3e1f9e40657afd883d43739b13c28ebebb"
+    },
+    {
+      "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/moment.csv",
+      "sha256": "99c91f5cd8b38c6867e03d922dab7abedb4ddb2fb3cd68b37c5774637b2c13dc"
+    },
+    {
+      "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/picData.xlsx",
+      "sha256": "61a56aa27ed02bc2820133c989c70c88102424de8f9529a2e6658a3ee0f541dc"
+    },
+    {
+      "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/test.xlsx",
+      "sha256": "246a6f8888d6c39461beafa86a8ebb53a44739cbd76bb3b057d7c51836973f26"
+    },
+    {
+      "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/train.xlsx",
+      "sha256": "86cf5cc2c929b8581d1ab5178eef029fbf14d109420cdd1f4a216f3f13ef2799"
+    },
+    {
+      "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/基于水色图像的水质评估.ipynb",
+      "sha256": "57b74242352e27f5f5d047334e5c845781e17b898cec79b0783e352a5f38e480"
+    },
+    {
+      "path": "平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LC.csv",
+      "sha256": "8c51d53301c2f4d11daea2f9c9dc68f2f805b8837b833db9bc097f995911617c"
+    },
+    {
+      "path": "平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCIS.csv",
+      "sha256": "a135299d5205043e02e51463cd8214b2bfe693c9ba2acea6e184405d199c84e7"
+    },
+    {
+      "path": "平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCIS数据字典.xlsx",
+      "sha256": "827ce47e5272489a4f87bf80c4592dfd47015744adafcab93fbee195f9a4405d"
+    },
+    {
+      "path": "平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCLP数据字典.xlsx",
+      "sha256": "d11e035d7044ef2ad846613625de0457a218580538e5ceca7b753d6aab1110ac"
+    },
+    {
+      "path": "平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LP.csv",
+      "sha256": "ae448c257c3acadd512839a2e7e8a6456baa2adb07481eedfea07ccbe20cc4ad"
+    },
+    {
+      "path": "平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/拍拍贷平台业务数据分析.ipynb",
+      "sha256": "3ea7579b35438896bb838f4ecc960bafc50d7a5ca422023098086a66aa5b5a7b"
+    },
+    {
+      "path": "平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/拍拍贷平台业务数据分析.py",
+      "sha256": "444eae1e8c7e3f2884613cad0c07e2aafae1b33bbf056abd77fc5022f856ecd2"
+    },
+    {
+      "path": "房地产-二手房+可视化-约300行（爬虫+pyecharts可视化）/shenzhen.csv",
+      "sha256": "fcf600064559278beeedb0b5e70d1de42d60ad64347ad2f485da5b167308bcc7"
+    },
+    {
+      "path": "房地产-二手房+可视化-约300行（爬虫+pyecharts可视化）/链家房源信息抓取+可视化.ipynb",
+      "sha256": "d3e01d5238a9e6cce1ea838100c7e068bf50acf793ff19463efef283a71bfd29"
+    },
+    {
+      "path": "房地产-二手房+可视化-约300行（爬虫+pyecharts可视化）/链家房源信息抓取+可视化.py",
+      "sha256": "dfcbce69d878829b69b369564f8ada8f8027da3cf4d7d3a3d6c93c77ab0693a2"
+    },
+    {
+      "path": "房地产-二手房房价分析和预测-约300行(多元线性回归)/house_information.csv",
+      "sha256": "91ed525f82fb2f74add0bc00173c8d4599759dc448dc1c242de1c9b0de4263d5"
+    },
+    {
+      "path": "房地产-二手房房价分析和预测-约300行(多元线性回归)/二手房房价分析和预测房价.ipynb",
+      "sha256": "caf6d6c3c48cce8585ee6470fe71cea841c0022abcbf6841f3678be4521323f2"
+    },
+    {
+      "path": "房地产-二手房房价分析和预测-约300行(多元线性回归)/二手房房价分析和预测房价.py",
+      "sha256": "95959ec33bde8fedf9c1ba1e8b7582592038548e8c9986e73d7297213dc7e7c6"
+    },
+    {
+      "path": "房地产-二手房数据分析-约400行（数据探索分析、matplotlib可视化）/shenzhen.csv",
+      "sha256": "607ca9622c8f38317738c7c401e81b88533137862db0cb50455b0a818da85a22"
+    },
+    {
+      "path": "房地产-二手房数据分析-约400行（数据探索分析、matplotlib可视化）/链家二手房数据分析.ipynb",
+      "sha256": "acad26c9cb4fa911fd8a0eaaf3ff393fbfa191134bb6f75745a0ff455d59a384"
+    },
+    {
+      "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/历年考研分数线数据可视化.ipynb",
+      "sha256": "c9831348a3ef1a14841eb4795a3c3fbee5ec366b73fda5fbdaaa6dc58d1e552e"
+    },
+    {
+      "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/历年考研分数线数据可视化.py",
+      "sha256": "bebb16f3fdf7b72aa7c3558d1481ce1dae8911bc60178b26589e7ad113dd1417"
+    },
+    {
+      "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/大学信息2021new.xlsx",
+      "sha256": "d818cb1ad3889fce546b37eea1ef9c9e2cc08b5b19317f0d42da29713d57629c"
+    },
+    {
+      "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(1).csv",
+      "sha256": "50c7796c19a865a3678ae923daf5eed10aaa6b321ce7b494278ad241b7b917d6"
+    },
+    {
+      "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(2).csv",
+      "sha256": "6bcddbf2cc251ea04020314c77f80866d6973eed098f2fb1da8bc01b8b2b6557"
+    },
+    {
+      "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(3).csv",
+      "sha256": "7543dd1beb75aea06f6ef7a3a1cedcce2cb624282d25b0a637c183ccd70b3b8d"
+    },
+    {
+      "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(4).csv",
+      "sha256": "30139bc9966041cfb5aa43f1fe1361a290c9c913d8823699bacca82228997e89"
+    },
+    {
+      "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(5).csv",
+      "sha256": "22bcf3325c35670271d2007faab97296abd98a216fbb77542d5c9ac326a683bb"
+    },
+    {
+      "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(6).csv",
+      "sha256": "87c5d0c9fa2cd3303086d8d1e0f83941e21d7525ae33a30d336f1ec67727d4e9"
+    },
+    {
+      "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研调剂数据-3.08.xlsx",
+      "sha256": "0318a005e1c31c90febfd4b86bda4908b512b35275154d44176cba8aed7e7d9a"
+    },
+    {
+      "path": "文化娱乐-国产进口电影票房分析（Pyecharts大屏可视化）/国产进口电影票房分析.ipynb",
+      "sha256": "76d4713a436c730d38b1f620c0d2c51aa784a50c1b5276d8734d0d6ab02c058d"
+    },
+    {
+      "path": "文化娱乐-国产进口电影票房分析（Pyecharts大屏可视化）/电影票房三十日时段详情.xlsx",
+      "sha256": "aaafac38878ea9d8961050e8ccb573411f091fe479ca639c1aea1aa1744bbe12"
+    },
+    {
+      "path": "文化娱乐-国产进口电影票房分析（Pyecharts大屏可视化）/电影票房三十日时段趋势数据.xlsx",
+      "sha256": "1460d62f759e58c9df0597f11c7db66735ebfc050e622713761774da5d96c20a"
+    },
+    {
+      "path": "文化娱乐-国产进口电影票房分析（Pyecharts大屏可视化）/电影票房表现概览.xlsx",
+      "sha256": "dcc0a445a76c685cc9b46f21df048ae1546ffe8a29b0777a84d254379bcf0096"
+    },
+    {
+      "path": "文化娱乐-国产进口电影票房分析（Pyecharts大屏可视化）/票房榜.xlsx",
+      "sha256": "1c38523aeb55c46b7df881d3919becadd4be29aa47deed5784bf1297c5f6f946"
+    },
+    {
+      "path": "文化娱乐-情感分析-含实验-约150行（分词、朴素贝叶斯模型）/数据分析实验源码/data/data.csv",
+      "sha256": "1042efeb053116242156ee24a8b18ce22875396752eea5eb30751d46a25d8b3c"
+    },
+    {
+      "path": "文化娱乐-情感分析-含实验-约150行（分词、朴素贝叶斯模型）/数据分析实验源码/微博情感分析.ipynb",
+      "sha256": "7994e4bdf4be4e71f06fdc4cab368640ef83b19847ad8ddcbad54e34a126ba94"
+    },
+    {
+      "path": "文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-排片地域分布（场次）-top10影片.xlsx",
+      "sha256": "a4835d2355a994a5cf7f40e22053d2793d5c14761cb8474a603fe4a7e9c57389"
+    },
+    {
+      "path": "文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-排片场次分布（场次）-top10影片.xlsx",
+      "sha256": "5ad74390a3465cb233c56dde7f957b5addfcc7f292aff9a6c684d3a709e5a0e2"
+    },
+    {
+      "path": "文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-排片统计（场次）-top10影片.xlsx",
+      "sha256": "3f80027f7f6593e7af02dbd064bcef4cafc50d12532148afddc5667866594904"
+    },
+    {
+      "path": "文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-排片院线分布（场次）-top10影片.xlsx",
+      "sha256": "541b0d5675f7320f725d2314d3324e5d968cfc1eba3bd6c078daaaa835489a6e"
+    },
+    {
+      "path": "文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-电影票房三十日时段详情.xls",
+      "sha256": "eb438315805b41886b99d019c4bc29514306995cdf3faed2cbb431e2574e1554"
+    },
+    {
+      "path": "文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-电影票房三十日时段趋势数据.xlsx",
+      "sha256": "b3423598041e90de61fff3d154ba2e09aeea6a291999549ccf6ec600a6fc6a79"
+    },
+    {
+      "path": "文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-电影票房表现概览.xlsx",
+      "sha256": "cde413d249940fa7751aea7a934b75ddb3af35cee5afd396ecee32614bda45b4"
+    },
+    {
+      "path": "文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-票房详情.xlsx",
+      "sha256": "ca6a7a8a97c92aca9b4d1095a48355a5a17771d100fe99ce177faba39e0d76ac"
+    },
+    {
+      "path": "文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档票房分析.ipynb",
+      "sha256": "0e34c777bbbb63ca6d0a849712d9b1f7967f78f4ef809e84e99a8506efd75d10"
+    },
+    {
+      "path": "生活日常-时令蔬菜时间序列分析-约600行（matplotlib、seaborn可视化、多元回归）/wholesale_price_of_agricultural_products.csv",
+      "sha256": "f297941e77606fd53c6fa644e5b53ccd5fe005e09e86aca33c103cc2ca29eacd"
+    },
+    {
+      "path": "生活日常-时令蔬菜时间序列分析-约600行（matplotlib、seaborn可视化、多元回归）/时令蔬菜有哪些.ipynb",
+      "sha256": "470915ad6aeefbf6ccbbbbdab0004971fd91f7f9ccc628a7b42ed7e01a0c724a"
+    },
+    {
+      "path": "电商-广告投放效果分析-约250行（KMeans聚类、数据分析）/ad_performance.csv",
+      "sha256": "4f767d4f273ae2745ac84a9791d2e3d81bdee37a26d1ca82fa4d8a9a5f3003fb"
+    },
+    {
+      "path": "电商-广告投放效果分析-约250行（KMeans聚类、数据分析）/聚类分析广告效果.ipynb",
+      "sha256": "ad88e032b91ce55504f1a19bc8e1ddb2a8829edc69cab6b2569cdbde39edd6b7"
+    },
+    {
+      "path": "电商-广告投放效果分析-约250行（KMeans聚类、数据分析）/聚类分析广告效果.py",
+      "sha256": "d9d3c4c55eea4c26a15c1cc652b2e7793f294ad7f7697f7ce793985a402860b1"
+    },
+    {
+      "path": "电商-数据情感分析-约150行（分词、关键词提取、情感分析）/京东评论数据.csv",
+      "sha256": "142cbb8443ed879582fdc56d3c728e19b376dce2e8779e65b57718a4d14a1691"
+    },
+    {
+      "path": "电商-数据情感分析-约150行（分词、关键词提取、情感分析）/京东评论数据情感分析.ipynb",
+      "sha256": "6414527f85039d478eee720bd4a03e00565ded4963f373673f2af574e6a817fd"
+    },
+    {
+      "path": "电商-数据情感分析-约150行（分词、关键词提取、情感分析）/京东评论数据情感分析.py",
+      "sha256": "aca2005a974501a6c679afb1374691b7db139c1b8d77bbc2f547c52138d03088"
+    },
+    {
+      "path": "电商-母婴市场消费数据分析-约350行（pyecharts可视化、数据分析）/(sample)sam_tianchi_mum_baby.csv",
+      "sha256": "cef56ed5cc1c92041855c6b10c24b7d7871d0da0ea41565a101a5f7c4eceb471"
+    },
+    {
+      "path": "电商-母婴市场消费数据分析-约350行（pyecharts可视化、数据分析）/(sample)sam_tianchi_mum_baby_trade_history.csv",
+      "sha256": "496284641c52e105d2b68fb4fff9996f1f56a472ef48a9c991a178fa2cc36986"
+    },
+    {
+      "path": "电商-母婴市场消费数据分析-约350行（pyecharts可视化、数据分析）/母婴市场消费数据分析.ipynb",
+      "sha256": "4e8243d4bf1a207860192e64196ac04e3ab42a602f5a74e651ab76c2fd2f7068"
+    },
+    {
+      "path": "电商-美妆销售数据分析-约400行（matplotlib可视化、数据分析）/clean_beautymakeup.xlsx",
+      "sha256": "f398094083c48722d719ab29b6b6359e0032c642b7169a4e7f8aeb3c5c635223"
+    },
+    {
+      "path": "电商-美妆销售数据分析-约400行（matplotlib可视化、数据分析）/双十一淘宝美妆数据.csv",
+      "sha256": "46acea03e8b133a00cd682a7fdda825fca7027feee60c4aa6a4ea80ea0d1d32f"
+    },
+    {
+      "path": "电商-美妆销售数据分析-约400行（matplotlib可视化、数据分析）/天猫双十一美妆销售数据分析.ipynb",
+      "sha256": "39640958b201474a19653da92c3ebc3addaad5dc2c00c7f7456c2874527e83ca"
+    },
+    {
+      "path": "电商-美妆销售数据分析-约400行（matplotlib可视化、数据分析）/天猫双十一美妆销售数据分析.py",
+      "sha256": "6f11add1e4f03bb97eb741d1f6fad21089f7237713878cf726ac4eed91bf6bc2"
+    },
+    {
+      "path": "电商-超市销售数据分析与报表-约200行（数据透视分析）/1、超市销售数据分析.ipynb",
+      "sha256": "9daf640dafc9cd923fd98713a73ee06e932b2db8efa13ba0781394908d23e2f4"
+    },
+    {
+      "path": "电商-超市销售数据分析与报表-约200行（数据透视分析）/2、超市销售数据自动化报表.ipynb",
+      "sha256": "67f79a5d288e92ef0f7ba8aee2405b81b930891c7654673c875cf661116694ff"
+    },
+    {
+      "path": "电商-超市销售数据分析与报表-约200行（数据透视分析）/order-14.1.csv",
+      "sha256": "ad338a62062f41470ae982c94e1bf5c8ab1c4c23aba88537f78563d0af8fe3b8"
+    },
+    {
+      "path": "电商-超市销售数据分析与报表-约200行（数据透视分析）/order-14.3.csv",
+      "sha256": "8b681f21749942dda8dac1cf7b8b8fa468942207872c8eae225de47936587a58"
+    },
+    {
+      "path": "电商-超市销售数据分析与报表-约200行（数据透视分析）/order.csv",
+      "sha256": "7125126eeef71db20ada51c7d5ab3efa5a4222a121b8aac77a79e4f0608a3399"
+    },
+    {
+      "path": "电商-门店可视化与顾客分组-约500行（pyecharts地图可视化、KMeans聚类、大屏可视化）/uniqlo.csv",
+      "sha256": "a0472c1a06c803e83d4825478febe7a57a0b4a90a950a260895ebbcdefa9336d"
+    },
+    {
+      "path": "电商-门店可视化与顾客分组-约500行（pyecharts地图可视化、KMeans聚类、大屏可视化）/uniqlo1.csv",
+      "sha256": "d8550e05409876826907185b51627b9a46aa1ef92366ea75d7e45cb865f5cd43"
+    },
+    {
+      "path": "电商-门店可视化与顾客分组-约500行（pyecharts地图可视化、KMeans聚类、大屏可视化）/uniqlo2.csv",
+      "sha256": "85134715043965c641062cf78376f6feb7686ae0003a88ac56c88b1f4c95ae41"
+    },
+    {
+      "path": "电商-门店可视化与顾客分组-约500行（pyecharts地图可视化、KMeans聚类、大屏可视化）/优衣库门店可视化与顾客拜访数据分组.ipynb",
+      "sha256": "26f251ebfd81462ae1c97061f9dbec49b8ca6ffe35a17ff3b24afab964e78775"
+    },
+    {
+      "path": "电商-预测用户使用优惠券概率较高的客群-约350行（逻辑回归模型、模型评估）/tianmao.csv",
+      "sha256": "89e8ce6a9e14bb2aac1d28fb150644544212e88acf3a152757c6f547b9b1a3f0"
+    },
+    {
+      "path": "电商-预测用户使用优惠券概率较高的客群-约350行（逻辑回归模型、模型评估）/预测天猫用户使用优惠券概率较高的客群.ipynb",
+      "sha256": "30fe7dee501aa066e11b65470a6ddcc0d6b33f84fe89d6a76aaa6aca75623099"
+    },
+    {
+      "path": "电商-预测用户使用优惠券概率较高的客群-约350行（逻辑回归模型、模型评估）/预测天猫用户使用优惠券概率较高的客群.py",
+      "sha256": "c19078cd43e1390f30a543729c1479cb5b6765519eee1f92a90f50c18a3ce37a"
+    },
+    {
+      "path": "电商-预测用户消费金额-约500行（线性回归模型、模型评估优化）/redNew.csv",
+      "sha256": "e1a086141c06fc04ec3a4584b962a486ea270986255a9afeab463beda6727ece"
+    },
+    {
+      "path": "电商-预测用户消费金额-约500行（线性回归模型、模型评估优化）/小红书.ipynb",
+      "sha256": "40650aad9a7d0c531e29b850ac54b77f0e60ad578779d9023c0838ec9163c3ec"
+    },
+    {
+      "path": "电商-预测用户消费金额-约500行（线性回归模型、模型评估优化）/小红书.py",
+      "sha256": "4dc9d8c79cb86e56964ec4588092499050c552333390a33e6dd1f2d50dc18cbb"
+    },
+    {
+      "path": "社会科学-人口普查-数据可视化-约750行（Pyecharts可视化、数据分析）/data/全国人口年龄构成.csv",
+      "sha256": "55abc6661dbfcc66fe0d69563ecb794b6e34447c36d272f680073391e68e6a15"
+    },
+    {
+      "path": "社会科学-人口普查-数据可视化-约750行（Pyecharts可视化、数据分析）/data/各地区15岁及以上人口平均受教育年限.csv",
+      "sha256": "d438f7270713be4b25b5bb0ffbf11086c1e6e93fb15f0df73f267a22acf063f1"
+    },
+    {
+      "path": "社会科学-人口普查-数据可视化-约750行（Pyecharts可视化、数据分析）/data/各地区人口.csv",
+      "sha256": "e54df53ebcf223d5932943a9ad53b66df3d6d6798d2ee47333b0777236510bd2"
+    },
+    {
+      "path": "社会科学-人口普查-数据可视化-约750行（Pyecharts可视化、数据分析）/data/各地区人口年龄构成.csv",
+      "sha256": "ab4bdab96f351ac920e48f2467cfad4f0d7aa97c10c23fabce16003ca173734e"
+    },
+    {
+      "path": "社会科学-人口普查-数据可视化-约750行（Pyecharts可视化、数据分析）/data/各地区性别构成.csv",
+      "sha256": "2d70917d4b26bb515186d140625a24c68c3a4cd35e01000c3c56c456ab98e750"
+    },
+    {
+      "path": "社会科学-人口普查-数据可视化-约750行（Pyecharts可视化、数据分析）/data/各地区每10万人口中拥有的各类受教育程度人数.csv",
+      "sha256": "5f06777bf301ef73779f5173ad08f5900bef85ad6e01613a7e05132a316a9c91"
+    },
+    {
+      "path": "社会科学-人口普查-数据可视化-约750行（Pyecharts可视化、数据分析）/第七次全国人口普查-数据可视化.ipynb",
+      "sha256": "d8dbf08ea73d90493c2aa06cc84d7d444946929d426fdf078da098266e85bcc6"
+    },
+    {
+      "path": "社会科学-人口普查-数据可视化-约750行（Pyecharts可视化、数据分析）/第七次全国人口普查-数据可视化.py",
+      "sha256": "7c73df2a24115c3089a9d99819b2c14472a5fdc2088d52c76b9fefaad92beca5"
+    },
+    {
+      "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/2000年中国各地区城乡人口分布.csv",
+      "sha256": "010b8352eaad3195fa9cc3c1bb00dd7eb138ec9b97b86e42d6ff1b4d0cfb5c49"
+    },
+    {
+      "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/2001-2020中国各地区常住人口数量.csv",
+      "sha256": "2177221892c12f7e7d5488db7495efe0228a6c5cb1b34b87370790f6b97803d5"
+    },
+    {
+      "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/2005-2019年中国各地区城镇人口数量.csv",
+      "sha256": "42396462dd8849b48ff4c236f0d47555151085772564da0dbcd69210b3f567ee"
+    },
+    {
+      "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/全国人口年龄构成.csv",
+      "sha256": "55abc6661dbfcc66fe0d69563ecb794b6e34447c36d272f680073391e68e6a15"
+    },
+    {
+      "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/分省年度GDP数据.csv",
+      "sha256": "40a058b7d851eb3aa3aeb25ed7e92f0410eb94eff01503b2e72c17180c51a3d7"
+    },
+    {
+      "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/各地区15岁及以上人口平均受教育年限.csv",
+      "sha256": "d438f7270713be4b25b5bb0ffbf11086c1e6e93fb15f0df73f267a22acf063f1"
+    },
+    {
+      "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/各地区人口.csv",
+      "sha256": "e54df53ebcf223d5932943a9ad53b66df3d6d6798d2ee47333b0777236510bd2"
+    },
+    {
+      "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/各地区人口年龄构成.csv",
+      "sha256": "ab4bdab96f351ac920e48f2467cfad4f0d7aa97c10c23fabce16003ca173734e"
+    },
+    {
+      "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/各地区性别构成.csv",
+      "sha256": "2d70917d4b26bb515186d140625a24c68c3a4cd35e01000c3c56c456ab98e750"
+    },
+    {
+      "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/各地区每10万人口中拥有的各类受教育程度人数.csv",
+      "sha256": "5f06777bf301ef73779f5173ad08f5900bef85ad6e01613a7e05132a316a9c91"
+    },
+    {
+      "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/关于第七次全国人口普查数据的探索.ipynb",
+      "sha256": "128dafa808c53033d8c300b682ae8cf67a8c77279b6c34db6385dfd70f0800a0"
+    },
+    {
+      "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/关于第七次全国人口普查数据的探索.py",
+      "sha256": "f0b7b07826be934cb9990546e3d13461b3434415fbe864b63389492587edbe35"
+    },
+    {
+      "path": "社会科学-婚姻状况分析-约200行（plotly可视化、数据分析）/人口普查婚姻状态2000-2020.csv",
+      "sha256": "c849d4f2cc59db77a1d73b79e670cd4cb95b5e1c6c4b513d5da475f3ddbe2049"
+    },
+    {
+      "path": "社会科学-婚姻状况分析-约200行（plotly可视化、数据分析）/婚姻状况分析.ipynb",
+      "sha256": "fa44b9dec0d390587ba511eb17e693b4994a0dd7ff3a73457f432972a567addd"
+    },
+    {
+      "path": "职场-分析员工过早离职原因-约300行（相关性分析、变量分析、plotly可视化）/HR_comma_sep.csv",
+      "sha256": "2510e274a90547f34c7b0db5a4ab70282c2710eb54252f14921bf980b81a928c"
+    },
+    {
+      "path": "职场-分析员工过早离职原因-约300行（相关性分析、变量分析、plotly可视化）/分析员工过早离职原因.ipynb",
+      "sha256": "9bf9cfcf11d11ed4dae94f8309a2d06aed0000ed3002fff5333d64d2de0e0184"
+    },
+    {
+      "path": "职场-分析员工过早离职原因-约300行（相关性分析、变量分析、plotly可视化）/分析员工过早离职原因.py",
+      "sha256": "3de51cc2b00d540e2634ea337ea0cb6c53f9973a549afcc820a0724de78e431d"
+    },
+    {
+      "path": "职场-数据分析师职位分析-约300行（数据探索分析、matplotlib可视化）/lagou.csv",
+      "sha256": "6b1daf9e5c5f2af353fa517917889ec4dd482e1c9623e4c141843ffdfd742fda"
+    },
+    {
+      "path": "职场-数据分析师职位分析-约300行（数据探索分析、matplotlib可视化）/数据分析师岗位分析.ipynb",
+      "sha256": "612486c97729fe72863ed3f52b813320854acf96710711d4c7d1f67f9cd42e1c"
+    },
+    {
+      "path": "职场-数据分析师职位分析-约300行（数据探索分析、matplotlib可视化）/数据分析师岗位分析.py",
+      "sha256": "9dcdd68cdfd7ed8a3edd4d8b8e9af03b23f49f7edf8b9746af20bd1cd0afea01"
+    }
+  ],
+  "outputs": [
+    {
+      "ref": "learning/assets/p01-cell55-1.png",
+      "sha256": "d2dc250d8d3bec2a2b2de78833c116a3bfb702858d26c91cb8f3e49319980703"
+    },
+    {
+      "ref": "learning/assets/p01-cell56-1.png",
+      "sha256": "1b7d664a28ea08731c65b2b7918d48252b0d82d478da3cf98a1a9007af873079"
+    },
+    {
+      "ref": "learning/assets/p02-cell13-1.png",
+      "sha256": "574c5078e6f7c3129bbab71fb0f607970f3b54cba810faedf367687158834a42"
+    },
+    {
+      "ref": "learning/assets/p02-cell15-2.png",
+      "sha256": "bbc194658caad2d84c3ecf2b5b3591d2f7ba11320641ffe4cab77f1a85fd37bb"
+    },
+    {
+      "ref": "learning/assets/p02-cell30-1.png",
+      "sha256": "5eb2761b389d5db3eab999c7a022f4fa5d3ce339055a60162b371807d1b753ac"
+    },
+    {
+      "ref": "learning/assets/p02-cell33-1.png",
+      "sha256": "b64e544553574ebdd9e4c79a648a15196d0df3bbaa64d873cf3bbf91128f714e"
+    },
+    {
+      "ref": "learning/assets/p02-cell36-1.png",
+      "sha256": "5de529312785172043a401e87156bc19f21fbbe0cb4a095c1a280838d8c9c1f1"
+    },
+    {
+      "ref": "learning/assets/p02-cell38-1.png",
+      "sha256": "fe4d3fe38c586aa74fb43bef6a635e026c55427086d8c375a5aced93f12a7cda"
+    },
+    {
+      "ref": "learning/assets/p02-cell50-0.png",
+      "sha256": "d96c1ba42173da6c8630faafce073a6ae4394ccf51b1fb957973a8cdb1e2f7b3"
+    },
+    {
+      "ref": "learning/assets/p02-cell51-0.png",
+      "sha256": "b21a1fd37df98f0f7a5e670e95514f23b9f9a80f10ad993f1285055682f6be1d"
+    },
+    {
+      "ref": "learning/assets/p02-cell56-0.png",
+      "sha256": "a4aca87a2a611c8de6fe331eb07869e4bf67d4eb9b145087d2af4065b3754f15"
+    },
+    {
+      "ref": "learning/assets/p03-cell22-0.png",
+      "sha256": "26e99618bc675a6c7fa0cbfa56fda8d8dca084fc552cefbf684f8aebbf85a17d"
+    },
+    {
+      "ref": "learning/assets/p04-cell12-1.png",
+      "sha256": "27aa90bac92c1d02d2ee8acbb0c716ff05e04daf9d37ec1890e11652cab3be14"
+    },
+    {
+      "ref": "learning/assets/p04-cell17-0.png",
+      "sha256": "0ed4cc9d46ae63f0e311ae23d2979c000a92f03cb2a45e18195c9261b731ddb6"
+    },
+    {
+      "ref": "learning/assets/p04-cell19-1.png",
+      "sha256": "2464c698bfebe2fddab2298bb432ae16cfd9386f5910d3eb365b8411d8ebb053"
+    },
+    {
+      "ref": "learning/assets/p04-cell23-0.png",
+      "sha256": "069bec1d6e02e155335abc1049ac2e729981b0f9f2e22561c0e1d8896d57e81e"
+    },
+    {
+      "ref": "learning/assets/p04-cell26-0.png",
+      "sha256": "4c137dc701a7a1adc1729461aa6bff1287460dc6db3955c3586a3e879f434951"
+    },
+    {
+      "ref": "learning/assets/p04-cell29-1.png",
+      "sha256": "ae221510fd3d06aa0cfb5a69fbea07a0335ea8d03c8074fb4e3b84dffa55e110"
+    },
+    {
+      "ref": "learning/assets/p04-cell32-1.png",
+      "sha256": "99c6394c567d8b4c1a71cba2cad4eb4dc8fd4a0006cf11763ef28d3d239235a1"
+    },
+    {
+      "ref": "learning/assets/p04-cell37-0.png",
+      "sha256": "5fc1c43cc5d169109defb337a298118abedd459a77928f70f8c431053e2874b2"
+    },
+    {
+      "ref": "learning/assets/p04-cell40-1.png",
+      "sha256": "5bb2b47613c7b0cac7c883f6b4be123f0916791a2c6fbb5cb30e4f3e90614548"
+    },
+    {
+      "ref": "learning/assets/p04-cell68-0.png",
+      "sha256": "96ba43a013085d5ad7d7c3e9e025123324662733c7281bbcf697566c6c3262a6"
+    },
+    {
+      "ref": "learning/assets/p04-cell75-0.png",
+      "sha256": "300b8573d8139943e11a4525dd0b328367a1dbf50b6377a07e02f14388550ceb"
+    },
+    {
+      "ref": "learning/assets/p04-cell80-0.png",
+      "sha256": "02336d9036a95b601fbe98df40b9a6aaecc73bc729492dbca723c5506589b60f"
+    },
+    {
+      "ref": "learning/assets/p04-cell83-0.png",
+      "sha256": "a88b82c663723b423a8eb6fc28a6a8ecd9fc552cf7b04aa35f4aae94f36e480b"
+    },
+    {
+      "ref": "learning/assets/p04-cell9-0.png",
+      "sha256": "4632605b4b4ec9f5b0e502ee6c283e218b361632ea068e1f5f490790cf6f90ac"
+    },
+    {
+      "ref": "learning/assets/p07-source-0.png",
+      "sha256": "265b1eeb8532c4caf6d8ae15eacf8dd71dd41ea4973d18a502c650100059237d"
+    },
+    {
+      "ref": "learning/assets/p07-source-1.png",
+      "sha256": "1a49bbe04df16d91911eba1fdcb2c6074fe591a8ee2a343411fca9d233218731"
+    },
+    {
+      "ref": "learning/assets/p07-source-2.png",
+      "sha256": "7716ef2e97f7a95c865a08fdf9adfe99004b3531d8738be2babd80029ff76876"
+    },
+    {
+      "ref": "learning/assets/p08-cell14-0.png",
+      "sha256": "c61f63548f8ba64f487f3783bd83766f252268dd67322f631459dc87d0f494ff"
+    },
+    {
+      "ref": "learning/assets/p08-cell14-1.png",
+      "sha256": "afd0ab5b7c2364d8ff1fb463eb73ac373fd4c4a63cd5e0fff09f3afb524d0273"
+    },
+    {
+      "ref": "learning/assets/p08-cell17-0.png",
+      "sha256": "30958cb04623d75eab1b456945c5c2d9a2e4274212010244ff0ec344834e0b0c"
+    },
+    {
+      "ref": "learning/assets/p08-cell21-1.png",
+      "sha256": "3184a344b19afaeaf693980a9accd0c2e9dafd8fd7c1fbbe457c7479b83a34ea"
+    },
+    {
+      "ref": "learning/assets/p08-cell24-1.png",
+      "sha256": "0ba454b0f9ca5525ebe254a9d7ccc663582511c1b90bd3f85613f7453769d56e"
+    },
+    {
+      "ref": "learning/assets/p08-cell32-1.png",
+      "sha256": "8b738b693c5855219a339c4a0ed1df59c07ce1adf14d4dd4b9e7e4d8e2f18dc9"
+    },
+    {
+      "ref": "learning/assets/p08-cell35-1.png",
+      "sha256": "9808c0b9caabb90625534959d0a77d8334cded435d8390e22185f05bb69e9dca"
+    },
+    {
+      "ref": "learning/assets/p08-cell38-1.png",
+      "sha256": "7def42617bbd480835a9f4ecbc8ec5317a3bc909e43dccbf0984e81e5c05fb86"
+    },
+    {
+      "ref": "learning/assets/p08-cell41-1.png",
+      "sha256": "9a9388084ca8efe802751d33d34da0f7c62201861de2799a516d204a2816a58e"
+    },
+    {
+      "ref": "learning/assets/p08-cell44-1.png",
+      "sha256": "9daae0f2c4007df41613fd8224dde3cef2bed745d0bc708b287f486538278963"
+    },
+    {
+      "ref": "learning/assets/p08-cell46-2.png",
+      "sha256": "6484883354e2800089cb2fc40a45082407eed0b1ab45e011767063ff49d3863a"
+    },
+    {
+      "ref": "learning/assets/p08-cell51-0.png",
+      "sha256": "345f1f202c63dc43e0c968a186b8b07ba77fb6603ce9b8fa506f273090bffef3"
+    },
+    {
+      "ref": "learning/assets/p08-cell55-0.png",
+      "sha256": "26e24900264cd24c5e11417b45f3f48e631f251d65a94bc8c4c048d4e1a62584"
+    },
+    {
+      "ref": "learning/assets/p08-cell62-0.png",
+      "sha256": "d299057d44aaf385ef30b79978be32f193e7c4b1d936636ecb87dccf764f3cc1"
+    },
+    {
+      "ref": "learning/assets/p10-cell25-0.png",
+      "sha256": "959efc2fb0ffee33dd71c5644a94ee2b95170b5518c09f58f5049a90e473f500"
+    },
+    {
+      "ref": "learning/assets/p10-cell26-0.png",
+      "sha256": "525004c2b01443c6b4029047f1c70069b5b46399cb2547b70b24eb74d222f4c4"
+    },
+    {
+      "ref": "learning/assets/p10-cell29-0.png",
+      "sha256": "93e8c2d0b9be08d5250681f4644ae9d9ec45e0faec455e3e396f0fa6c5a7590e"
+    },
+    {
+      "ref": "learning/assets/p12-cell36-0.png",
+      "sha256": "ee8f1ad53787edb209ac54348024d4ec176167f67d6b9e309d63e7e191fc5232"
+    },
+    {
+      "ref": "learning/assets/p12-cell38-0.png",
+      "sha256": "0824330845f063813cb4902b1fd7608c6ea7d45c7d9cbc9191b06a08fab6f8e0"
+    },
+    {
+      "ref": "learning/assets/p16-cell14-0.png",
+      "sha256": "33a8f32004ff1ad1d10d5207a32d0e4c58862549e1b287dfdb4e9c4b6047c9aa"
+    },
+    {
+      "ref": "learning/assets/p16-cell17-0.png",
+      "sha256": "4eec8b91f9c11358dca7d663d1c64c98253601a84b5649e3b1dc42928093bca5"
+    },
+    {
+      "ref": "learning/assets/p16-cell20-0.png",
+      "sha256": "6da2cc007595bcc6e5aa1d880de05c6818890516cc2ad2759095ba8f0dd326de"
+    },
+    {
+      "ref": "learning/assets/p16-cell23-0.png",
+      "sha256": "acdc1336ca5cf008aede8e39eaf029b474fb4a47091198968d181b03ff38243d"
+    },
+    {
+      "ref": "learning/assets/p16-cell26-0.png",
+      "sha256": "3b4f70ca0697570cc4b6f9671b2f67078afe513d2d2f7f70d668c0c837fadde8"
+    },
+    {
+      "ref": "learning/assets/p16-cell33-0.png",
+      "sha256": "c6280a118d671dea4557e43e17e9824e8d5dcf4024a5ac4fc5b2f4a71bf6dc69"
+    },
+    {
+      "ref": "learning/assets/p16-cell39-0.png",
+      "sha256": "bc1f18723c81956dd9307d68805b35d2c245e276a283365921050fb99361286e"
+    },
+    {
+      "ref": "learning/assets/p16-cell41-0.png",
+      "sha256": "2e5d267bb8862fd8067db3157a1049d403ba8dea9d1a27f3334b043eb2e79a81"
+    },
+    {
+      "ref": "learning/assets/p16-cell43-1.png",
+      "sha256": "423dd4ef99c14b4aee46b05590a94991acbb095dde6fcc7143e77d58b1ac4fc6"
+    },
+    {
+      "ref": "learning/assets/p16-cell46-0.png",
+      "sha256": "409d0470dd065a5f8cdcea83a973b537154d252eba1a875567efc581fd960127"
+    },
+    {
+      "ref": "learning/assets/p16-cell48-0.png",
+      "sha256": "029ed7b9339980e667304712a1970cce41d0d5b67270e7512764edd35c633aaf"
+    },
+    {
+      "ref": "learning/assets/p18-cell16-0.png",
+      "sha256": "3b2affce3c12d9f7c949d3deb6ef9ea6d5a1f47f150d6dac1fcaf214c88befe8"
+    },
+    {
+      "ref": "learning/assets/p18-cell19-1.png",
+      "sha256": "35ae2c82ba5c1ae69a1165c2d89d505e77709eeb12d284bedf4c5037e290e10d"
+    },
+    {
+      "ref": "learning/assets/p18-cell26-0.png",
+      "sha256": "f9e5d82b6c6a0ce1d451ac24b48ee19b42ade92794bb05528766a2367f0fd0f4"
+    },
+    {
+      "ref": "learning/assets/p18-cell29-0.png",
+      "sha256": "4a91ba5fc5bf758cb51fe79029da41139a2952f8416c40dc9cb7f875ed8f99e8"
+    },
+    {
+      "ref": "learning/assets/p19-cell15-0.png",
+      "sha256": "a92d2d6409fbc654be573e527a7ed40d8ea2338af934493b1d9c21709ccbbe07"
+    },
+    {
+      "ref": "learning/assets/p19-cell23-0.png",
+      "sha256": "e1121bc60c06fb11e9ee82768c4b071bc5cda87b546d5c92e32444414bd90b33"
+    },
+    {
+      "ref": "learning/assets/p19-cell26-0.png",
+      "sha256": "b466bc598756f0e500a1ca1ecc3e36f98cc054125c0c4838c59524dcb27c6e5c"
+    },
+    {
+      "ref": "learning/assets/p19-cell51-0.png",
+      "sha256": "0f9eac0226e6753c2721069fee55e3adc3092f6c788711016453040befad7c2f"
+    },
+    {
+      "ref": "learning/assets/p19-cell54-0.png",
+      "sha256": "fc17473882be5f226d7475939052c976a0052deb5f4576d36bdfed0c49093031"
+    },
+    {
+      "ref": "learning/assets/p19-cell55-0.png",
+      "sha256": "fd8412df1f4d6c7e5c9088446513eddce1b5881e69a06b7188483f0f1f38bd31"
+    },
+    {
+      "ref": "learning/assets/p19-cell56-0.png",
+      "sha256": "8e7306bebc63ae5ba568a5b692285f7d5a0c374a1d685dc7f0449aced3af9880"
+    },
+    {
+      "ref": "learning/assets/p20-cell32-0.png",
+      "sha256": "06ee856d17a5909379b3015d53199c85d95bfc5d5fd0a197a969408c40edcdec"
+    },
+    {
+      "ref": "learning/assets/p20-cell35-0.png",
+      "sha256": "b44f728a2edbc940827764dc552608119ba12856f8b7d9b231eaed49587e454e"
+    },
+    {
+      "ref": "learning/assets/p20-cell38-0.png",
+      "sha256": "5afae78df11e20716e80d638b859ce1df3e176086bf0a04896a5577c070d5e44"
+    },
+    {
+      "ref": "learning/assets/p20-cell40-1.png",
+      "sha256": "3cf16f5d2cf7fc72909964938f829e35bc37681d3be35ffd928e422bf5758d3d"
+    },
+    {
+      "ref": "learning/assets/p20-cell41-1.png",
+      "sha256": "bbb7fe903b5b02c28d4e26792b29f85b399da4a31393e325f03b5d0e97dc810d"
+    },
+    {
+      "ref": "learning/assets/p20-cell43-1.png",
+      "sha256": "2dc443362e85960b02aba141cb787b74ea01e62fce4368899ec7bfda2dfed858"
+    },
+    {
+      "ref": "learning/assets/p20-cell44-1.png",
+      "sha256": "2f2c3aaaad3cb8325cee14efb1266618ab4905e6d1a4e710cc501e4ae7d6ed2c"
+    },
+    {
+      "ref": "learning/assets/p20-cell46-0.png",
+      "sha256": "60eb69613dbd6648ab2e20fc931a3eac85c6d52bce9ff035aa019d1f95adf822"
+    },
+    {
+      "ref": "learning/assets/p20-cell48-0.png",
+      "sha256": "1da3617ff450e536546b4f0250e202e5446c18b7b856a17f4412a901d76cb824"
+    },
+    {
+      "ref": "learning/assets/p20-cell51-0.png",
+      "sha256": "ec38fa5f833d98f4df211702b6b832495316b89a67bd7c68a63297a48740a187"
+    },
+    {
+      "ref": "learning/assets/p20-cell53-0.png",
+      "sha256": "ce22ee07dc1b25fe53c3628213d901e36d1b2f8eec745a15cdc3863add46c34e"
+    },
+    {
+      "ref": "learning/assets/p20-cell55-0.png",
+      "sha256": "35ed94ed148fb22807ead9b97d502e624aae10f01a2b1d4e423de73f9632ec8f"
+    },
+    {
+      "ref": "learning/assets/p20-cell58-1.png",
+      "sha256": "bcfac46160f1b12d79ca8c1a08446e2e13ebf2f360607116e049cf4d385bae25"
+    },
+    {
+      "ref": "learning/assets/p20-cell59-0.png",
+      "sha256": "99a01e0f5fd85923658a70be838af0cfe70d7c176c8127f119a284fc942cf5fd"
+    },
+    {
+      "ref": "learning/assets/p20-cell62-0.png",
+      "sha256": "a0523c398a32c03a22ab5b82116e78e5bca8c1103847eca202bd16a0a6e23b64"
+    },
+    {
+      "ref": "learning/assets/p22-cell69-0.png",
+      "sha256": "61b1d855e5f5fc433ec2b6281e289f907ae50b4b25ccac5bfa4a47d098362ae1"
+    },
+    {
+      "ref": "learning/assets/p22-cell71-0.png",
+      "sha256": "ad4d65650bbc8ffe07194c7e3c749cba22c13f649b0a36fbea98ab3687b761f9"
+    },
+    {
+      "ref": "learning/assets/p23-cell24-1.png",
+      "sha256": "1b6e32642e113fa654a61c754e3e56b0688db8338c2ce5ae616eac494eb7c9d7"
+    },
+    {
+      "ref": "learning/assets/p23-cell26-1.png",
+      "sha256": "8f76974e42c582beadfa784c3fc3126a955c183b998d2551739425cd43c5eeaf"
+    },
+    {
+      "ref": "learning/assets/p23-cell28-1.png",
+      "sha256": "f6554a947ccfe86e1ad9c179bcaba143465040c140b53e322b174618d142ff7b"
+    },
+    {
+      "ref": "learning/assets/p23-cell30-2.png",
+      "sha256": "3433f8a2a1895592d33ca5710e593834d81082b71346377c68aa5a78ad7ce85a"
+    },
+    {
+      "ref": "learning/assets/p23-cell35-0.png",
+      "sha256": "39777c904a47ec970d3ef4f6f413f5d27b1c823bcd7d3315040c5db0e5b83907"
+    },
+    {
+      "ref": "learning/assets/p23-cell39-2.png",
+      "sha256": "97eddca6835a1583ee6957e3bda0762a0a6d0c3b2690572cd0c80e0c63995599"
+    },
+    {
+      "ref": "learning/assets/p24-cell22-2.png",
+      "sha256": "3460a55dd3ad3a9abdd9ef8c88d518ccf1b6253089b32ecd8ce280c6b7b825e4"
+    },
+    {
+      "ref": "learning/assets/p24-cell24-2.png",
+      "sha256": "3c97159f354f94bf2ad6fc7bf03dd3b431e32b479409c19bcf4e23a4ef3ac275"
+    },
+    {
+      "ref": "learning/assets/p24-cell26-2.png",
+      "sha256": "11536928c76848e128ddbc57f81657a036b1c81c8f19070cf3399fc1eb22be9a"
+    },
+    {
+      "ref": "learning/assets/p24-cell29-2.png",
+      "sha256": "8d17e0d8b13f38101b5b185a660474c827389e77cf0ae9333f3cfe0a7ce00ff3"
+    },
+    {
+      "ref": "learning/assets/p24-cell35-1.png",
+      "sha256": "85c6a192be868115c9b9e119930ea8c8deabad82d25870ac12f8a63e1ad98193"
+    },
+    {
+      "ref": "learning/assets/p24-cell36-1.png",
+      "sha256": "4a4cf5fd8b5dc80c49b4df8dc44c688d089fdbee9b5ee56659b8cb4c0b1bdaa8"
+    },
+    {
+      "ref": "learning/assets/p24-cell37-1.png",
+      "sha256": "b0622931416754750639a46b02937cf21c3fe6677af242f206adfda9eb1a46d6"
+    },
+    {
+      "ref": "learning/assets/p24-cell41-1.png",
+      "sha256": "5702834adb5819eb310db6b7e128e7234ed485519fef5a3c5a15c93de4076851"
+    },
+    {
+      "ref": "learning/assets/p24-cell42-1.png",
+      "sha256": "c0ceade03d5c02c3d0204df15640e21ac62ff0305a421a0fe2b134a95af60a54"
+    },
+    {
+      "ref": "learning/assets/p24-cell43-1.png",
+      "sha256": "251988e4f8c5e7f56dbc229c0e1d854a87956cf120efe27e4f65e43c4fa35e89"
+    },
+    {
+      "ref": "learning/assets/p24-cell46-1.png",
+      "sha256": "6055479ded93c70e23c2096a11cdecaaa37b3c009482e68251af589e39e56bfd"
+    },
+    {
+      "ref": "learning/assets/p24-cell47-1.png",
+      "sha256": "eee58295ee7cf94f34edc5eaf08c732f5ed06f631ae6dabf834e37fb958684df"
+    },
+    {
+      "ref": "learning/assets/p24-cell48-1.png",
+      "sha256": "4560217a4ea68ac8f9cce771fded8c0c2092c024e665e49841152eccd39af4d4"
+    },
+    {
+      "ref": "learning/assets/p24-cell52-1.png",
+      "sha256": "1022cc72f5a29419aabe85252f299d14a4339d45abf000aa19142ff10bfd5ab3"
+    },
+    {
+      "ref": "learning/assets/p24-cell53-1.png",
+      "sha256": "81069406e436d2cdc07b8a6f92612f701c6528b80f8fed2faf0ae80074a15e16"
+    },
+    {
+      "ref": "learning/assets/p24-cell54-1.png",
+      "sha256": "cd4c952c314bb18893f893bb7f35cad651363a41bf73c49aa548af48bd6f74d4"
+    },
+    {
+      "ref": "learning/assets/p24-cell60-1.png",
+      "sha256": "60b8ffa1911e9b17ed37a2b4de26adcb925f90a36f52880f8b43fe094b026aeb"
+    },
+    {
+      "ref": "learning/assets/p24-cell64-1.png",
+      "sha256": "5d87832c25c51b587a46f04b22b89c305deed55d07f1f33ebcd616761ee5d17e"
+    },
+    {
+      "ref": "learning/assets/p24-cell65-1.png",
+      "sha256": "c8dce509e8d08073128e3336960b5d8ee914b1d406ff465905369f39299d8f5d"
+    },
+    {
+      "ref": "learning/assets/p24-cell66-1.png",
+      "sha256": "24ed5409bc3fd00348221254145524733041b8b24f8c0d6c7aaa0edba9da0501"
+    },
+    {
+      "ref": "learning/assets/p24-cell67-1.png",
+      "sha256": "f051abc6e64c1ad9731137d3d02bbea88e77073f6af9136607ad557560bb9417"
+    },
+    {
+      "ref": "learning/assets/p24-cell68-1.png",
+      "sha256": "2e5113234e001589daaf34aafe53d8046ee7e8682cfae002985e6fea61af8822"
+    },
+    {
+      "ref": "learning/assets/p24-cell69-1.png",
+      "sha256": "2d1835b166073cab7c9ae8b21abec0035a4a28504fd31535cb0ae63bfe44905b"
+    },
+    {
+      "ref": "learning/assets/p26-cell33-0.png",
+      "sha256": "0b1cfac8813b81b81889918c7999064473f9f96f6a0cc78509c8899cd1fdf52b"
+    },
+    {
+      "ref": "learning/assets/p28-cell36-0.png",
+      "sha256": "5326503e15281a98461796602fc232d77af2b0970792fa1dec1e270ec5a97d33"
+    },
+    {
+      "ref": "learning/assets/p29-cell11-0.png",
+      "sha256": "8f444d165df022172d517f5c87d8c190d9b2f326ed5aa46dfa2d84995bd1d42c"
+    },
+    {
+      "ref": "learning/assets/p29-cell12-0.png",
+      "sha256": "5735a0fb8182137f07c5d21a81b2e48dd2e1f43eb39dabb35b6c169579cd9974"
+    },
+    {
+      "ref": "learning/assets/p29-cell16-0.png",
+      "sha256": "acb2f6b413d3892259d20ac9aa701bc0132126500ea8a23ac5ffa82d0bbc9e51"
+    },
+    {
+      "ref": "learning/assets/p29-cell18-0.png",
+      "sha256": "30c67f4b4011d2f8a7c557f09d2f1590b8037f2263e05e7db1d5d47456e002f3"
+    },
+    {
+      "ref": "learning/assets/p29-cell20-1.png",
+      "sha256": "af236b023ff279ad095a6cfd4a7027de0e93207bd316e56d44120b051f4fce78"
+    },
+    {
+      "ref": "learning/assets/p29-cell23-0.png",
+      "sha256": "1a776539dbc868fcae65f68d0e2fcd412d657561acb2e2a674f77bdfc234f2f9"
+    },
+    {
+      "ref": "learning/assets/p29-cell25-1.png",
+      "sha256": "99324217bafaef97ccf21bdba138610a40128b5ec75d80dc51ccc3446adc89a2"
+    },
+    {
+      "ref": "learning/assets/p29-cell28-1.png",
+      "sha256": "d24cb7514b5b23add514752ed8fa96bc7650fb6d05d1a4afe93d53884066934e"
+    },
+    {
+      "ref": "learning/assets/p29-cell30-1.png",
+      "sha256": "f743f73c222cb90a259095e9a7e4fae534b9afd8ea19c815e800cd1e4c5159be"
+    },
+    {
+      "ref": "learning/assets/p29-cell33-0.png",
+      "sha256": "5776df784b9937050dd3a9c74a4593e7e5744ed04c0e2e93ddc14449440d6e2f"
+    },
+    {
+      "ref": "learning/resources/p01-v4-Amount.json",
+      "sha256": "d26685da6d5f59e4c711a9f0b1fcb1c3b8064e9fc28eed9e0b9320b2d8216405"
+    },
+    {
+      "ref": "learning/resources/p01-v4-Class.json",
+      "sha256": "124ca68fc80a959cf334afe25d7b2aa243d90fe4654c0a55ac2fbaaf33ba62d4"
+    },
+    {
+      "ref": "learning/resources/p01-v4-Time.json",
+      "sha256": "996b0f238670d75b413cd70f32f7c3759e1e215cfbb49fb87b4eee7ef3ea63a1"
+    },
+    {
+      "ref": "learning/resources/p01-v4-class-amount.json",
+      "sha256": "c00f49379ef21c3ada1a6c97841fa7ecc0624ff41a9caf7f85e79b1e220a6a85"
+    },
+    {
+      "ref": "learning/resources/p01-v4-evidence-1.json",
+      "sha256": "e7830ed6aca4073e463f411585ac7e928d14d5ff5a471189b17da72c3f016e67"
+    },
+    {
+      "ref": "learning/resources/p01-v4-evidence-11.json",
+      "sha256": "792855fa5e736bcc3a2b3f3ae581c53c32505d646bce8ba626b331d400f2f8a3"
+    },
+    {
+      "ref": "learning/resources/p01-v4-evidence-15.json",
+      "sha256": "cc95317e8495cfbff4cf13ac10a55d8d345ecadddb6a82ae61c9623ac3b56269"
+    },
+    {
+      "ref": "learning/resources/p01-v4-evidence-4.json",
+      "sha256": "23c3e7da45e1d64c829fcb5b21fccf218a49b9819d61347a0016a59e1b259f8c"
+    },
+    {
+      "ref": "learning/resources/p01-v4-evidence-5.json",
+      "sha256": "aa945062caa8ad9a2e340e55e17229e8c8717b3f577a12c064b39043342ada0a"
+    },
+    {
+      "ref": "learning/resources/p01-v4-evidence-6.json",
+      "sha256": "d145844777d695025dbf4f76977012423076eedf33fea4787f418548be692d22"
+    },
+    {
+      "ref": "learning/resources/p01-v4-evidence-7.json",
+      "sha256": "64c5f4051c774c4a322c01380819fcb03733769c34b3fe86f19b457b023e6483"
+    },
+    {
+      "ref": "learning/resources/p01-v4-input-quality.json",
+      "sha256": "288d621d3c983f27f9810ff1df2bd865e8d632ed76a867dc570adebb3245d710"
+    },
+    {
+      "ref": "learning/resources/p01-v4-source-10.json",
+      "sha256": "a6eeab8eb64dfe4299fcdc858074a9e109b9eaed8250ddd070c2420944602e51"
+    },
+    {
+      "ref": "learning/resources/p01-v4-source-12.json",
+      "sha256": "81c48b0a8f08548616acfd90d6598890c2483f0ff038bfb78aa3f39d8ca7d96d"
+    },
+    {
+      "ref": "learning/resources/p01-v4-source-13.json",
+      "sha256": "3f2955eae0977eb1d3e8cfb94d71587e2096d835fc5c2bbe4981020e2d970db8"
+    },
+    {
+      "ref": "learning/resources/p01-v4-source-14-images.json",
+      "sha256": "da5818a6c5bfb6be965f040ea19946b055a5110543f399622676d8ddef2594c6"
+    },
+    {
+      "ref": "learning/resources/p01-v4-source-14.json",
+      "sha256": "8a2997ec22b0b6e70f8084c85ee3ffee58ee28f6a6f7757647e18eb187c24833"
+    },
+    {
+      "ref": "learning/resources/p01-v4-source-16.json",
+      "sha256": "019a2b2367d4e106088f7725067ce752fc785995396e49658422b60d09689589"
+    },
+    {
+      "ref": "learning/resources/p01-v4-source-17.json",
+      "sha256": "38ffd469287568e3f2cf2247ed9d53532a666ae0da3d57a1c0ab443557c760af"
+    },
+    {
+      "ref": "learning/resources/p01-v4-source-2.json",
+      "sha256": "915f409e9ec5f1944e13f5f773d04f1a3b4029e66312862569bf72a75c2d5126"
+    },
+    {
+      "ref": "learning/resources/p01-v4-source-3.json",
+      "sha256": "57bb0e65c3a9398772e7fd890d40b53b5a35f739520ced6bc85e171064f760e4"
+    },
+    {
+      "ref": "learning/resources/p01-v4-source-8.json",
+      "sha256": "1964d41352a60eff76807fda254115b56ad0eb6f1bb360c7d72831da0906fc95"
+    },
+    {
+      "ref": "learning/resources/p01-v4-source-9.json",
+      "sha256": "44fb677155dc866e9ca2add7b23a8538dfe952ea7881a0aae31e3d10a1f9fac6"
+    },
+    {
+      "ref": "learning/resources/p02-v4-correlation.json",
+      "sha256": "4f7419da94e5d694545f57f1286f02e49a7565e29d9dcc4a0ddc439175401ae9"
+    },
+    {
+      "ref": "learning/resources/p02-v4-hour.json",
+      "sha256": "adac678f6ce69a2e9dd96509ee2b39cc954ee536fac8cecf1e6acc4528055ec6"
+    },
+    {
+      "ref": "learning/resources/p02-v4-input-quality.json",
+      "sha256": "241f79fe7356f9db5a19c55281a07d355b531d29728ac501e8e75ad0778af4ab"
+    },
+    {
+      "ref": "learning/resources/p02-v4-source-1.json",
+      "sha256": "9c244938236fcb4081aa855a44129f949397556a943c6ba3bb2b8858bb46fdbd"
+    },
+    {
+      "ref": "learning/resources/p02-v4-source-10-images.json",
+      "sha256": "5bab4706cc0e71ac55b8efaab94869833f54280bcd3368e9e01747c01cabe7c1"
+    },
+    {
+      "ref": "learning/resources/p02-v4-source-10.json",
+      "sha256": "5ea156ad2d075410751d47945b145d405532b7ddb4b1b36f276bc6a869ca92f8"
+    },
+    {
+      "ref": "learning/resources/p02-v4-source-2-images.json",
+      "sha256": "3bbdcd962eed45f2f77efc9ae00360720262f769463770b3d12551d9c151a1b7"
+    },
+    {
+      "ref": "learning/resources/p02-v4-source-2.json",
+      "sha256": "01903204360ded00601a1a16eeb7c6a5a42a821ebef1c3df4806d5929a100042"
+    },
+    {
+      "ref": "learning/resources/p02-v4-source-3.json",
+      "sha256": "b188261742d55173abea14b72e00408260718786ef4ccbb01ef1865f420c5d23"
+    },
+    {
+      "ref": "learning/resources/p02-v4-source-4.json",
+      "sha256": "a52a3cf79ef9b9193242abec64de61eb3aa3ce317ad5768437b27de8acf2862a"
+    },
+    {
+      "ref": "learning/resources/p02-v4-source-5.json",
+      "sha256": "14e1a99cbbf5190dd7221ee8fc258bcc71e5926b3658a835e39f929b1f21626d"
+    },
+    {
+      "ref": "learning/resources/p02-v4-source-6-images.json",
+      "sha256": "77641ccac5693a6dba5b982c9f95c37b3350937ab7e7b604247bb0b397717ee0"
+    },
+    {
+      "ref": "learning/resources/p02-v4-source-6.json",
+      "sha256": "bbe0510076e068b912c24ec3b3af1780a16f6c5de1ff5ff61fa90b54853e2d48"
+    },
+    {
+      "ref": "learning/resources/p02-v4-source-7-images.json",
+      "sha256": "ff3763e6443abfc4babfe9c4d8a896a87ab1d55da87749662f2e749142c6d2f3"
+    },
+    {
+      "ref": "learning/resources/p02-v4-source-7.json",
+      "sha256": "3b54738409710282f8884ad9a2a2e8232b8e6c81c745ca847b4b01aae3a38503"
+    },
+    {
+      "ref": "learning/resources/p02-v4-source-8.json",
+      "sha256": "a6390014f0d760f5843957a036f2d9190a9f6cd1ff338f151ff90b9d312c65a2"
+    },
+    {
+      "ref": "learning/resources/p02-v4-source-9-images.json",
+      "sha256": "35557772ea4e52a2a2319dad23d227caa75ac73b978905903c85c5fe4a370d37"
+    },
+    {
+      "ref": "learning/resources/p02-v4-source-9.json",
+      "sha256": "700192c26c89ea7a8b8f7d1ccf9fd4513f0b28eb5896f79982db6dd086802b35"
+    },
+    {
+      "ref": "learning/resources/p02-v4-wind-change.json",
+      "sha256": "2aff8a6dccb673484a9c08238ae55950895e7f1449916b6863dc48cefc11ebc6"
+    },
+    {
+      "ref": "learning/resources/p02-v4-windspeed.json",
+      "sha256": "ec73debbbc1da2a70f6e8fa7bed3c1b718d9995553de36e839a46ea50b5a9879"
+    },
+    {
+      "ref": "learning/resources/p03-v4-centers.json",
+      "sha256": "420205be2e6c1651606e09b5b9532ffd9717c41547631c909ac0afa0a1ebaf2f"
+    },
+    {
+      "ref": "learning/resources/p03-v4-cleaning.json",
+      "sha256": "b4b705bd08ad4de072193f7e413723de60df61c9d5954ef5754d8088d082c132"
+    },
+    {
+      "ref": "learning/resources/p03-v4-cluster-sizes.json",
+      "sha256": "ac224193f301adeef58e13883e184fe4095fe0f0af0759c7b601f7e882ed46fb"
+    },
+    {
+      "ref": "learning/resources/p03-v4-input-quality.json",
+      "sha256": "cb688a6f28e7ddf3eb2595223dec962a72c532cbe77d88f99eb2d1f280b5efac"
+    },
+    {
+      "ref": "learning/resources/p03-v4-source-1.json",
+      "sha256": "93e8b9efe7a5f68212021039848c3e4f2221d4e5fc6fbd8ab5d916b3540f91aa"
+    },
+    {
+      "ref": "learning/resources/p03-v4-source-2.json",
+      "sha256": "4a5a66ad5ed5264ed78ae2092026ca03a098a52034282226eb1b990c993121b0"
+    },
+    {
+      "ref": "learning/resources/p03-v4-source-3.json",
+      "sha256": "6ea8a235a7e5ce4187566f103716375b9b525b05f789f0e7328faad0d7111388"
+    },
+    {
+      "ref": "learning/resources/p03-v4-source-4.json",
+      "sha256": "04855e194eb7cd188d26965015c18aee55b46306144cb9a0d10de9047ba1120e"
+    },
+    {
+      "ref": "learning/resources/p03-v4-source-5.json",
+      "sha256": "dcc6dd6e3ea8ab382440f45531a9853e143a6c0a7aa6803974ff26f5c21e3f41"
+    },
+    {
+      "ref": "learning/resources/p03-v4-source-6-images.json",
+      "sha256": "7ea19c834378617cb0abe09feb06e1e47814edf6301cdbd7551712e43ca5103f"
+    },
+    {
+      "ref": "learning/resources/p03-v4-source-6.json",
+      "sha256": "6c606f0ae53d303c42dba955c90e31ce65957b02b6ec54539418acd32ea568ce"
+    },
+    {
+      "ref": "learning/resources/p04-v4-arrival_date_year.json",
+      "sha256": "defad5655aa6c38f69fdfdc20b13fb85d5a08de1d7faa774ac1136babaa55686"
+    },
+    {
+      "ref": "learning/resources/p04-v4-deposit_type.json",
+      "sha256": "f921c888e4fe8cd1b79e74d6694395f68d6998f31e19605a8d5ac6759b21143a"
+    },
+    {
+      "ref": "learning/resources/p04-v4-evidence-12.json",
+      "sha256": "61cbfbb4e1d6938ce6d40728144f7c0985242b81ac44afa76d8b558e484f9b9f"
+    },
+    {
+      "ref": "learning/resources/p04-v4-evidence-15.json",
+      "sha256": "a343f819f2144f96d4ecfc2c06c83b3636c8768cf9d9759c06aa0988538f995b"
+    },
+    {
+      "ref": "learning/resources/p04-v4-evidence-18.json",
+      "sha256": "ba861e522e9bbc2c646e280d00286a1fc61e056fd66bf6f90448e18b7ba4906c"
+    },
+    {
+      "ref": "learning/resources/p04-v4-hotel.json",
+      "sha256": "7c35a15398a74887174188ac7532f65732794664903a242e8328a9628ab88c04"
+    },
+    {
+      "ref": "learning/resources/p04-v4-input-quality.json",
+      "sha256": "67a55f0dc2ce543c5b168add0cf9d1aac2251568ba8c857a0190680cdbc41bfd"
+    },
+    {
+      "ref": "learning/resources/p04-v4-is_repeated_guest.json",
+      "sha256": "81e0502fe813760742f7696a70ce9baf428c959bd3a36b73c0f8f36d48e9840a"
+    },
+    {
+      "ref": "learning/resources/p04-v4-lead_time.json",
+      "sha256": "24d1aacd559209f82d67218f1bed984838b99b37d4ef8e5ac1475d0973c3c66a"
+    },
+    {
+      "ref": "learning/resources/p04-v4-market_segment.json",
+      "sha256": "7d3d4ef673e37921ffbf1083c29bd62142d905b0de98e4462ecdf582a6200890"
+    },
+    {
+      "ref": "learning/resources/p04-v4-source-1.json",
+      "sha256": "faacefe27d923f2eefdc52a02a4919941c74f94d5d5d7bcf681558a0d18aecd8"
+    },
+    {
+      "ref": "learning/resources/p04-v4-source-10-images.json",
+      "sha256": "8417fec2f17fc6f05b420e07e6f33a92ad848a7c2df0f8c18a24f5e490f47bb2"
+    },
+    {
+      "ref": "learning/resources/p04-v4-source-10.json",
+      "sha256": "b9fe53c0ae34ffe22e0307cf92c5f25b0b38e295c677ce3ece7c174dbff35848"
+    },
+    {
+      "ref": "learning/resources/p04-v4-source-11-images.json",
+      "sha256": "e4bf0948c790b1d8ae4060a4b16f4f388ff9dedf079f279d1ca30241a10724b7"
+    },
+    {
+      "ref": "learning/resources/p04-v4-source-11.json",
+      "sha256": "8c92ba5f9920841446a5165c2e1a0bf480f518370d1c2b6307d9cb200131e4ae"
+    },
+    {
+      "ref": "learning/resources/p04-v4-source-13.json",
+      "sha256": "e7ff0eca6ff1220cb8f3c6c7af15ea5be0d0bf66b88b1fc020d842e5b7c9b39e"
+    },
+    {
+      "ref": "learning/resources/p04-v4-source-14.json",
+      "sha256": "65d8329ea02e938b4612f9b20137800b847934d11a79805033255d24cc0ca012"
+    },
+    {
+      "ref": "learning/resources/p04-v4-source-16.json",
+      "sha256": "068b2a5b731095974bf343ccd8d298c82337ba6750605ad522acd12e48d63688"
+    },
+    {
+      "ref": "learning/resources/p04-v4-source-17-images.json",
+      "sha256": "8d28b6f52518ddee1076e4c886029fc6b01e269d2864849837f18e0cbe2a54b4"
+    },
+    {
+      "ref": "learning/resources/p04-v4-source-17.json",
+      "sha256": "3a8e654a3ee6285e18e383394301b59afb8e29bef09a024e03a333e43c2b0c54"
+    },
+    {
+      "ref": "learning/resources/p04-v4-source-19-images.json",
+      "sha256": "d839138e0d018ea8e5c949181a1e77dc0d6f811aad8517299584f9a108c8b29a"
+    },
+    {
+      "ref": "learning/resources/p04-v4-source-2-images.json",
+      "sha256": "447c94a148acbb65c33d9a3c5edceb227ef2c0915b58bcc8415f8779d79e8495"
+    },
+    {
+      "ref": "learning/resources/p04-v4-source-20-images.json",
+      "sha256": "e2e1a5bbd2655c216a4f573c98392d9007d8282074d74e380e2bb4806130d187"
+    },
+    {
+      "ref": "learning/resources/p04-v4-source-21-images.json",
+      "sha256": "31ebb8a5071099e64d84535b0360f64c5afbb03ca7b1f2ad8ac800d89642a42a"
+    },
+    {
+      "ref": "learning/resources/p04-v4-source-22.json",
+      "sha256": "bff11e41ab141352f839c4ff2c029a640bb19ae368c699c34e007d06892e0780"
+    },
+    {
+      "ref": "learning/resources/p04-v4-source-3-images.json",
+      "sha256": "fb38bd9ed2fb973d7d31895f3cbcc93a22faaf9a5a4c9228a0eb8736fa8e5723"
+    },
+    {
+      "ref": "learning/resources/p04-v4-source-3.json",
+      "sha256": "dfb9c6763d3c7fd67b1962e6aa4e9ab2394052c5103c92d3a4de2ece3d1e4908"
+    },
+    {
+      "ref": "learning/resources/p04-v4-source-4-images.json",
+      "sha256": "af8ae42c8c847054f56466b9bcf2d62553cd54063fb177cd864d1e8f00b93746"
+    },
+    {
+      "ref": "learning/resources/p04-v4-source-5-images.json",
+      "sha256": "a3d1affb37d2f7934274bbca4b60d1e5498993c0dbf1c861dfee475bc4a45b09"
+    },
+    {
+      "ref": "learning/resources/p04-v4-source-5.json",
+      "sha256": "4c047cc89bc4c42363061e97d30c9b055e03f544a62175a13ba9236cd5145043"
+    },
+    {
+      "ref": "learning/resources/p04-v4-source-6-images.json",
+      "sha256": "9f275ccb5ea85ab2e74ddcf1e4056d87a7b8b96989531f1aa0689e25c2e52884"
+    },
+    {
+      "ref": "learning/resources/p04-v4-source-7-images.json",
+      "sha256": "c9316877f8f7c03e538eab599a8581e99f56e29ea2a75cab7a969b3d4a63fd68"
+    },
+    {
+      "ref": "learning/resources/p04-v4-source-8-images.json",
+      "sha256": "9b71b9d7030d6c5fae8522abc524d37566aebce6bfe9f741b418a4f5349d72eb"
+    },
+    {
+      "ref": "learning/resources/p04-v4-source-8.json",
+      "sha256": "3f56f22331292970c911a23a5939cea1a870402c92b2bcce367f93274cfd7f46"
+    },
+    {
+      "ref": "learning/resources/p04-v4-source-9-images.json",
+      "sha256": "257c6d55627fdab3f5ca69ffb1ccbc1556ea91520c964936c2410e95e0eb468d"
+    },
+    {
+      "ref": "learning/resources/p04-v4-source-9.json",
+      "sha256": "75de01a27d63c858fcfaa2316f47c44029837d61843eda5bde56c7679bb0332a"
+    },
+    {
+      "ref": "learning/resources/p05-v4-__-0f4371a7.json",
+      "sha256": "1f6c453e290ed0a0012938658aab0bcfabf0ca0fc1aeea7c97931ad7a6f99c84"
+    },
+    {
+      "ref": "learning/resources/p05-v4-__-9c55a439.json",
+      "sha256": "cfcd52a6a62ca2f8cb585645995be5cf34463d5c871bffb23200f1ae865dc4f3"
+    },
+    {
+      "ref": "learning/resources/p05-v4-evidence-1.json",
+      "sha256": "19d1e81ca4d44a4c39f5c6ed1b4d884a6bcc22b6256b3d0aaab7fc9db2052e90"
+    },
+    {
+      "ref": "learning/resources/p05-v4-evidence-11.json",
+      "sha256": "cef44b367418175b1857e4e417b68c9f0fe527f73e323b0e8771c9c9d701647e"
+    },
+    {
+      "ref": "learning/resources/p05-v4-evidence-12.json",
+      "sha256": "c4176dace1287b9dd0b01967ded630bc3d42933a6680e2ff44ed5c15a05d6e1e"
+    },
+    {
+      "ref": "learning/resources/p05-v4-evidence-13.json",
+      "sha256": "1f4962afb39f2c5038cb82b98d59e323c30a135950efb6837023c91814191d34"
+    },
+    {
+      "ref": "learning/resources/p05-v4-evidence-14.json",
+      "sha256": "38635e887f703219453979758f466a7c9e7d9045ee20adc5210902be320a1a73"
+    },
+    {
+      "ref": "learning/resources/p05-v4-evidence-15.json",
+      "sha256": "492ed778d56674ca16897e0bad36f9f75e86526bc5ebc05c227752b4f6c4c974"
+    },
+    {
+      "ref": "learning/resources/p05-v4-evidence-16.json",
+      "sha256": "48e98b067ba39e0f9902a8469f3be68568215728bb0586554f0f531f9504e508"
+    },
+    {
+      "ref": "learning/resources/p05-v4-evidence-18.json",
+      "sha256": "1ee8159fa44ad0fe577a3c96b2c79741c12123f360d2141d983337f37807763d"
+    },
+    {
+      "ref": "learning/resources/p05-v4-evidence-19.json",
+      "sha256": "d6bda638770290728543710d590d62caa78df0d476a3ceb1574f6483cc374a73"
+    },
+    {
+      "ref": "learning/resources/p05-v4-evidence-3.json",
+      "sha256": "9d431487a9830383b6b9775a604b9208cfda731af2b4404874bda36f95ad846c"
+    },
+    {
+      "ref": "learning/resources/p05-v4-input-quality.json",
+      "sha256": "5b30467d920976821138764e863687893d31b8a4c1545d6779e0e9446a2e163a"
+    },
+    {
+      "ref": "learning/resources/p05-v4-region.json",
+      "sha256": "92761d4f93d29cb8871e88d6fa1e93cf0b498fed1f45e415b46bc8f8c2f8fdc4"
+    },
+    {
+      "ref": "learning/resources/p05-v4-source-10.json",
+      "sha256": "d57108f9b754fbbdf55dda77a4dd7d7041671d3ae4db047c3ff8a5ad4e7370ff"
+    },
+    {
+      "ref": "learning/resources/p05-v4-source-17.json",
+      "sha256": "7928af99dfed6c65744f2be3b6dc771e4b28f0fa6e17c2b12e15ae4d89c14d72"
+    },
+    {
+      "ref": "learning/resources/p05-v4-source-2.json",
+      "sha256": "338c56f0da99905d7a12ac06edd186b79abeca9b826f89fec461ff4084636b75"
+    },
+    {
+      "ref": "learning/resources/p05-v4-source-4.json",
+      "sha256": "cbaa2ccc1479b421894361f56b2818aa295e3b58d725ccfe4eeb823cfe737e52"
+    },
+    {
+      "ref": "learning/resources/p05-v4-source-5.json",
+      "sha256": "edcd554b4557cf23c7187bc31e8265fb9f88789505a6c04fb497f3ea73e159d6"
+    },
+    {
+      "ref": "learning/resources/p05-v4-source-6.json",
+      "sha256": "b86e9770cda00c01e9800e5df451cac78d413e2160388bbfc33b86fe40dadca6"
+    },
+    {
+      "ref": "learning/resources/p05-v4-source-7.json",
+      "sha256": "33332ec1565b3aa229de7dc5846f447364f4e36125594404acf3f9f7e26d7ad4"
+    },
+    {
+      "ref": "learning/resources/p05-v4-source-8.json",
+      "sha256": "aec5507c968e39879261bb0535e11055c5a6efd113bef8cace40c6ac481bde28"
+    },
+    {
+      "ref": "learning/resources/p05-v4-source-9.json",
+      "sha256": "0f404f703461be13fbd73162b83b2cc2ad40fb77ce26ba30c24c2b31b6c5b0b1"
+    },
+    {
+      "ref": "learning/resources/p05-v4-top.json",
+      "sha256": "7a5fb20efbfc891a05c732a1c03722f5b4b6445289998f438e2bf9093b0e7cbb"
+    },
+    {
+      "ref": "learning/resources/p05-v4-zero-rule.json",
+      "sha256": "1718fb8aaf0c997142beb2ffb9b3a0efea087367ed891c75a449b7e1daa41095"
+    },
+    {
+      "ref": "learning/resources/p06-v4-athletes.json",
+      "sha256": "523ee3150a6b75d8c324d720c0f63b8e6d5acff52de1e6384cc3378a3d196c91"
+    },
+    {
+      "ref": "learning/resources/p06-v4-evidence-10.json",
+      "sha256": "73d782f366076bada1368ece009f3bc7cf83f47a0b33edafebc9c59829a51978"
+    },
+    {
+      "ref": "learning/resources/p06-v4-evidence-12.json",
+      "sha256": "69b60fc6fa01cd17924347742e9c8e76b6def1552cd13658dcc1dd2f18f0fbca"
+    },
+    {
+      "ref": "learning/resources/p06-v4-evidence-13.json",
+      "sha256": "87c55e5293ba23202e1e6ca758af00fbe89f512e251956edfd9b7266cd0a0b1f"
+    },
+    {
+      "ref": "learning/resources/p06-v4-evidence-14.json",
+      "sha256": "c49dae6559b8c9a824bfc5cba134f47cccaaa651e5d8215acbd291b5c919308d"
+    },
+    {
+      "ref": "learning/resources/p06-v4-evidence-16.json",
+      "sha256": "a52c8a0ba6f0ce46fbe04960c7e358c33d7b82dc67e784396fead2c869f9048c"
+    },
+    {
+      "ref": "learning/resources/p06-v4-evidence-17.json",
+      "sha256": "9205d4fc3f09af55aece10058639cf83b26ddfbf343e766a896ba039ad348b65"
+    },
+    {
+      "ref": "learning/resources/p06-v4-evidence-18.json",
+      "sha256": "a86d276f435d26698c40bb6d772ca7c3c70377d43d1469b89396ccc28e14f39c"
+    },
+    {
+      "ref": "learning/resources/p06-v4-evidence-19.json",
+      "sha256": "f256465cac35d990c24d0028c57d7162ca64b8a95fc6e42dc738bb8a9e8206a4"
+    },
+    {
+      "ref": "learning/resources/p06-v4-evidence-2.json",
+      "sha256": "d98e9dae198285e1381f930af995845e51b7156eac0ef221536d7586ee333411"
+    },
+    {
+      "ref": "learning/resources/p06-v4-evidence-3.json",
+      "sha256": "4fb346f49248a147240efcbbeb33946a678618152c9d404a6bee8a820a28103b"
+    },
+    {
+      "ref": "learning/resources/p06-v4-evidence-4.json",
+      "sha256": "d2825e484a936de57231df6903a0b45cd11f8f21ba4a51b9c37020c8241f9a46"
+    },
+    {
+      "ref": "learning/resources/p06-v4-evidence-5.json",
+      "sha256": "200f737f9602e3268ab1219b6d5c3572113ec01a911a0d4637b73300f934a376"
+    },
+    {
+      "ref": "learning/resources/p06-v4-evidence-6.json",
+      "sha256": "e41abe80d98bd3c35c98f431e13c62b2ab38ddcdb77fc7cfb320163a12bd6388"
+    },
+    {
+      "ref": "learning/resources/p06-v4-evidence-7.json",
+      "sha256": "decd0fc0b6c3fb39512e545c157bdcc8a07befd7430ad05984ded2a07fead2ba"
+    },
+    {
+      "ref": "learning/resources/p06-v4-evidence-8.json",
+      "sha256": "795f1ce0e3b0d8735948a8aa0224dd904f0498954d997dc0de372ff5582b2fef"
+    },
+    {
+      "ref": "learning/resources/p06-v4-evidence-9.json",
+      "sha256": "29d6bb2cbcd85bdb8686a7096c280febf50cf658ea76b432196ae39a434ced1f"
+    },
+    {
+      "ref": "learning/resources/p06-v4-female.json",
+      "sha256": "9f7311077c9f1c68b6dbd8669e2bdce91ae95f7a858f6a431ed5c32a192cb431"
+    },
+    {
+      "ref": "learning/resources/p06-v4-input-quality.json",
+      "sha256": "0fcfd928f812c2d94723d86fde4b85e86b03410dc4c0974dd71789eeecf71ef9"
+    },
+    {
+      "ref": "learning/resources/p06-v4-medals.json",
+      "sha256": "aea74376ff5b3378e9ee11bcb2d0cc60788976ec6c72f538a74a30ee15ed548b"
+    },
+    {
+      "ref": "learning/resources/p06-v4-source-1.json",
+      "sha256": "c7df3b29bf671e65d85ba22d49c022e9109fae234723ef53dae482970cc9879a"
+    },
+    {
+      "ref": "learning/resources/p06-v4-source-11.json",
+      "sha256": "bf266f3fbaa21eb716d894f6eb1cc3b4d57f66c8f4ede17ea1bc75ad9105eb87"
+    },
+    {
+      "ref": "learning/resources/p06-v4-source-15.json",
+      "sha256": "e050e0b0d7d7d471cb6ac0f08eb6fb9c5637ac6136a65f8e1f2794679bc737e4"
+    },
+    {
+      "ref": "learning/resources/p07-v4-__-0d12cbd6.json",
+      "sha256": "49e8c821635b099f3e7c36909267122ec8aa7a00a5d107b69c2c1a9591f79107"
+    },
+    {
+      "ref": "learning/resources/p07-v4-input-quality.json",
+      "sha256": "71fddf3c729dfc2f02ccade0ebf2755cf76894d53b97dd8191210ca3e54b0b8b"
+    },
+    {
+      "ref": "learning/resources/p07-v4-moments.json",
+      "sha256": "e424c07e280525f7a3b7a1d908b37cd1712580a05f38e050f1c111f901b07321"
+    },
+    {
+      "ref": "learning/resources/p07-v4-photos.json",
+      "sha256": "236761b47377989b411cb82e4bfd79faa0a1ad4e1d18a14a13c2b34d68c23559"
+    },
+    {
+      "ref": "learning/resources/p07-v4-source-1.json",
+      "sha256": "7f573c5305bcc8316446a17ec086826f0ca52134e489c657a2ccc46db8c742dd"
+    },
+    {
+      "ref": "learning/resources/p07-v4-source-2.json",
+      "sha256": "042ea821af5fbe33ca2c110c78bb69be980306201ff37043ea3c06c47ba8897f"
+    },
+    {
+      "ref": "learning/resources/p07-v4-source-3.json",
+      "sha256": "33afb13513f4bf0ee4591b2f28e63146226d6264bf806849809b90892674b990"
+    },
+    {
+      "ref": "learning/resources/p07-v4-test-matrix.json",
+      "sha256": "e10f8a02bb105142601be6db6615a9fe23aae5e505017966e17637afd19935e0"
+    },
+    {
+      "ref": "learning/resources/p07-v4-train-matrix.json",
+      "sha256": "3f9099ec9a972a6af9ee64cd29bf2896b0c2eaaf138e612bf8a086b285dc32f3"
+    },
+    {
+      "ref": "learning/resources/p08-v4-____-94846b25.json",
+      "sha256": "bac23e9d980a3f3b6bc07eb93ef723ac0b7bc1e6fd2402d3ae849c1ca899bdb4"
+    },
+    {
+      "ref": "learning/resources/p08-v4-____-c21f6317.json",
+      "sha256": "11e14ea5e9275c5503e4d84a1d08cc0a163c10a8eeab98ac77f03d4f95cf97a5"
+    },
+    {
+      "ref": "learning/resources/p08-v4-evidence-15.json",
+      "sha256": "97851ac5c3f42e98bdf561804383f0e138768e97fee1e1691d8c29022e1a9d99"
+    },
+    {
+      "ref": "learning/resources/p08-v4-evidence-2.json",
+      "sha256": "f1dcf90d78c64be4254dd7aadcbb4a914c2649f18eaf43aecb2fe5d4422cccbb"
+    },
+    {
+      "ref": "learning/resources/p08-v4-evidence-7.json",
+      "sha256": "e15b4ca0f23bcad1d13af2f9fc409b502ed99643c16b0064291cb999a9c05f42"
+    },
+    {
+      "ref": "learning/resources/p08-v4-input-quality.json",
+      "sha256": "846e9aaaea38690c5bcccf2e821e6114b4d57859ac4854867f99991e5e440c8e"
+    },
+    {
+      "ref": "learning/resources/p08-v4-lp-preview.json",
+      "sha256": "31be8e28f71ddb16c9bf5dcc57926b21861c6df3f1c7fdf25c4e0f957cea4a4e"
+    },
+    {
+      "ref": "learning/resources/p08-v4-monthly.json",
+      "sha256": "dd081cf3aa421f75e155ff0fbcc7d8cb77cc23757f0f3e7cf05bd783403b55a0"
+    },
+    {
+      "ref": "learning/resources/p08-v4-repayment.json",
+      "sha256": "89c69b6a1ef5742d463c26053614a73de918d94c046607c93caa1e6c4e35f693"
+    },
+    {
+      "ref": "learning/resources/p08-v4-source-1.json",
+      "sha256": "3d84a9f722a2d0b7f46ea646478b4dfdb321e3baea784b603c143746b1b2e1f2"
+    },
+    {
+      "ref": "learning/resources/p08-v4-source-10-images.json",
+      "sha256": "f281ab3179f270b727637e01aa2367a35d9c9f56aa89499eac0b0c1340f0a537"
+    },
+    {
+      "ref": "learning/resources/p08-v4-source-10.json",
+      "sha256": "a3821d35f9a8895a99f63c9cc77caddc79d44ad12ac2e4fbd9fd3c7cf1c96c80"
+    },
+    {
+      "ref": "learning/resources/p08-v4-source-11-images.json",
+      "sha256": "7e3c8f4b4bd7de634350934eb56a6906a40c92a54deae94d7f190ff3fd20b5a5"
+    },
+    {
+      "ref": "learning/resources/p08-v4-source-11.json",
+      "sha256": "3039ec6ee060471b8dcd66d8cb88b24a23c1958b59a4582a03828e2d6a866237"
+    },
+    {
+      "ref": "learning/resources/p08-v4-source-12-images.json",
+      "sha256": "914d4d26dc0115d7315a0ce73d7937e5250e828332da5927772c4775b08c7aab"
+    },
+    {
+      "ref": "learning/resources/p08-v4-source-12.json",
+      "sha256": "be5c7a3bb48737a1c725f7563ea9086c600fd7016c181d5026da4dec80e2d105"
+    },
+    {
+      "ref": "learning/resources/p08-v4-source-13-images.json",
+      "sha256": "200137f604e5e8f146a5c3c3e0e3b4620400e9b98f9589967d2e1443c140ddd7"
+    },
+    {
+      "ref": "learning/resources/p08-v4-source-14-images.json",
+      "sha256": "badc716c1a90cc1333e914604050e084c53a388dc90a212a970f9c75b92e9d46"
+    },
+    {
+      "ref": "learning/resources/p08-v4-source-14.json",
+      "sha256": "0be3e2c04327c12b0caf318a3e01c03c84fa231efa82e6c04d23cee45bb6ed26"
+    },
+    {
+      "ref": "learning/resources/p08-v4-source-16-images.json",
+      "sha256": "2229ac3cc937b2ed9fa303ff89d3a849a41519abfeffbb7c4d76eaaa32775b61"
+    },
+    {
+      "ref": "learning/resources/p08-v4-source-3-images.json",
+      "sha256": "04edc4e776afa17012c681f99c60044fd77d1a92c79fda6bc41436994cd63a0e"
+    },
+    {
+      "ref": "learning/resources/p08-v4-source-4-images.json",
+      "sha256": "41765ef87376150d95091045621ff0e4ed6839999b1ad570661f297630765ac7"
+    },
+    {
+      "ref": "learning/resources/p08-v4-source-4.json",
+      "sha256": "3deacc6262fc5b03610aaa16357f6e7befd33067dd51c72e09a3a959d3da7266"
+    },
+    {
+      "ref": "learning/resources/p08-v4-source-5-images.json",
+      "sha256": "1d1f704cf6ec9dcb307571624f70a020d11cb6892dbc8bcc0579db43ffce967f"
+    },
+    {
+      "ref": "learning/resources/p08-v4-source-6-images.json",
+      "sha256": "081887e997a3790f1e004c14f7fbaa7b5f6c444115ebe7a5f8c1e615af2d1175"
+    },
+    {
+      "ref": "learning/resources/p08-v4-source-8-images.json",
+      "sha256": "d46d50c015ee5d3652bbb2c89c1bc340aa7a87d5ed3735e0114402d7a9301898"
+    },
+    {
+      "ref": "learning/resources/p08-v4-source-8.json",
+      "sha256": "1f712dd5793fcd2d966de90600168207c6b6a448f213c13d5503a1472c550b56"
+    },
+    {
+      "ref": "learning/resources/p08-v4-source-9-images.json",
+      "sha256": "70201c09938e879749f738149ca69a000d6afe60947ddca26984bb68b64221d4"
+    },
+    {
+      "ref": "learning/resources/p08-v4-source-9.json",
+      "sha256": "c642f342ede1070ffdc360abfa2c1b653adb3bd977015a65092d8891808fd882"
+    },
+    {
+      "ref": "learning/resources/p09-v4-area.json",
+      "sha256": "17d3242e8e5e300c4d5af1921a4deb36d22a808548ab5975f5b147245195acf8"
+    },
+    {
+      "ref": "learning/resources/p09-v4-evidence-3.json",
+      "sha256": "7340572da1eb6aea39bc096d7530951391a3871c7d81bab2c870f989eb4cc8d1"
+    },
+    {
+      "ref": "learning/resources/p09-v4-evidence-4.json",
+      "sha256": "745f92c7a8ca837bb9b6190db43bc7eef367de6d57000f3daa6c60ffc78f6f8d"
+    },
+    {
+      "ref": "learning/resources/p09-v4-evidence-5.json",
+      "sha256": "2d5ae3f7aac1823f60f159c60bdf4ad2b5598c64d9f4dd7e323e1b74308d8ca0"
+    },
+    {
+      "ref": "learning/resources/p09-v4-evidence-6.json",
+      "sha256": "faeb133635716d12e8979571b81c5cb2e33ef1f1594e3b7ada069f6491fe7bcb"
+    },
+    {
+      "ref": "learning/resources/p09-v4-evidence-7.json",
+      "sha256": "d66936c7c941caa5cb5774e1198a3e813ea658cc79924caaf9f9d8e988f17b06"
+    },
+    {
+      "ref": "learning/resources/p09-v4-evidence-8.json",
+      "sha256": "edeec87f85008850d2e052385240134c0a23c6c784be7babb26e89fcaa516d8d"
+    },
+    {
+      "ref": "learning/resources/p09-v4-input-quality.json",
+      "sha256": "186bd39f9e7688391610930629b14093159fdd955d0c9f4608d3035cf3b657f2"
+    },
+    {
+      "ref": "learning/resources/p09-v4-price-area.json",
+      "sha256": "85bfb3dbdcf891aab7be5d09dfc6cf21f836a5244536b7671888ab7369691143"
+    },
+    {
+      "ref": "learning/resources/p09-v4-region-price.json",
+      "sha256": "4c415b34e0bb583c4befa70caeb6080da53db044526f1a293e21eb5dc41dcb0f"
+    },
+    {
+      "ref": "learning/resources/p09-v4-source-1.json",
+      "sha256": "2ef641ba11d0a726464a9b528604171e9847a22d9e313ecae29ca2632dee8496"
+    },
+    {
+      "ref": "learning/resources/p09-v4-source-2.json",
+      "sha256": "e876984e5f64f9804d125c1c06ffad658927257c03d7d46df1c5fa91b8b880c8"
+    },
+    {
+      "ref": "learning/resources/p10-v4-__-4889eebc.json",
+      "sha256": "f52e174b51248ec8a16e7d0dc76986e2a2b05035c76d1d635786c8554aa2f621"
+    },
+    {
+      "ref": "learning/resources/p10-v4-area-price.json",
+      "sha256": "20bb1bf7008f8d77ec53319a7bb21258628599ae5184020cee3d70fcaf4f10b2"
+    },
+    {
+      "ref": "learning/resources/p10-v4-cleaning.json",
+      "sha256": "2e70aa57440dea12c474e0d78bd61d2194849d57e621dc5689cdca7a1778be2b"
+    },
+    {
+      "ref": "learning/resources/p10-v4-evidence-4.json",
+      "sha256": "ccd0b597329a3ea7bb8613f875aa6f9cba4236b909c81e059f3066ee88232de7"
+    },
+    {
+      "ref": "learning/resources/p10-v4-input-quality.json",
+      "sha256": "68e5a800b77ebe6162ffcf433c50fe8e4a161ea38d51814e69f1708eb7a541b3"
+    },
+    {
+      "ref": "learning/resources/p10-v4-source-1.json",
+      "sha256": "9309903209b337a5ec929bf38d09575e1f81313c42ec27543c995531ae94ae29"
+    },
+    {
+      "ref": "learning/resources/p10-v4-source-10.json",
+      "sha256": "0209884acadb67e6e3c47f39a925b26da492d351f82c1484b0b4314e757dce0f"
+    },
+    {
+      "ref": "learning/resources/p10-v4-source-2.json",
+      "sha256": "c7b765f45f30f6b18f3840731710b41a54df880f74dc0b47d3db988757e8edee"
+    },
+    {
+      "ref": "learning/resources/p10-v4-source-3.json",
+      "sha256": "25f118c3eed4c875fdcb06144de0193b8909f54666d7a495bff3ae6cb828f0cf"
+    },
+    {
+      "ref": "learning/resources/p10-v4-source-5-images.json",
+      "sha256": "864f1377252017d09c23b3f5b17080e212ab0522f1e7a9a66194f8e3140232b9"
+    },
+    {
+      "ref": "learning/resources/p10-v4-source-5.json",
+      "sha256": "ba49cc973c595ddf614e6eeaf86af7a1e8d3d5dc23bc75a3805716b5a0c0661f"
+    },
+    {
+      "ref": "learning/resources/p10-v4-source-6-images.json",
+      "sha256": "acd02da200797f39377869e03e5738674bbbbd9f74f6b198e0844665edd4ff62"
+    },
+    {
+      "ref": "learning/resources/p10-v4-source-6.json",
+      "sha256": "3af80d1de561273af3d8efe6a1360953c60ce8e627d74da0be77a82c988296d4"
+    },
+    {
+      "ref": "learning/resources/p10-v4-source-7.json",
+      "sha256": "05ed208d89825b7fe7f4a4f71932fb40903567f8adda1fffad717b56be047c51"
+    },
+    {
+      "ref": "learning/resources/p10-v4-source-8.json",
+      "sha256": "00d2df4bf751cadd8cfb691efddaef51638fc98dc1d88346a63d47949ecb2b9e"
+    },
+    {
+      "ref": "learning/resources/p10-v4-source-9.json",
+      "sha256": "375b07c2e8ef2ddd42d0975408e2e8ae03f8f70bf08ca117d4a31c35afd36f82"
+    },
+    {
+      "ref": "learning/resources/p11-anomaly.json",
+      "sha256": "3d3a15bb10e043cded42d44acea0d8bdee40a906915be28650dd917175fd6905"
+    },
+    {
+      "ref": "learning/resources/p11-area.json",
+      "sha256": "7e7bc3ff8fff0b30cfe3f8125f4e1a950eb2f0efaa87a3b74f649a64341ba084"
+    },
+    {
+      "ref": "learning/resources/p11-change.json",
+      "sha256": "a8dd98d90dff84a7a3760139fe29efdfbccac7f364d696f222aa17a12518146a"
+    },
+    {
+      "ref": "learning/resources/p11-correlation.json",
+      "sha256": "204da3471f7bb4d02a479817bf74df9d79b085445f8fdddf7c784fbc7e5a51ae"
+    },
+    {
+      "ref": "learning/resources/p11-fields.json",
+      "sha256": "3575afe70ee171ae4666073804afa3d0b2467f1a0c9795800cda299a88881588"
+    },
+    {
+      "ref": "learning/resources/p11-preview.json",
+      "sha256": "224d1ffd8ee71fcdb281c6a43914d4e993040a7b96c4644678a711a0f846f66d"
+    },
+    {
+      "ref": "learning/resources/p11-relation.json",
+      "sha256": "7dba164959a5744783cb66f628fbf4594421d5bcd9502044996e791da727be5d"
+    },
+    {
+      "ref": "learning/resources/p11-structure.json",
+      "sha256": "06c6bbcf97a8139416a70ad3421990f54d5a3f6231982a39dc10bd8793a0ee8a"
+    },
+    {
+      "ref": "learning/resources/p11-v4-area.json",
+      "sha256": "49e4134a882f35fcc5ad820a89afba49e1977103c4191e05c38bbd9b80293bff"
+    },
+    {
+      "ref": "learning/resources/p11-v4-hourseSize.json",
+      "sha256": "32f33ada70ced4eeb36b8f2b88580fc2313a10929e7964c3b02e6940e8b740f3"
+    },
+    {
+      "ref": "learning/resources/p11-v4-input-quality.json",
+      "sha256": "3179f44ecaa2d87d1d63a74200ff98e73a72857025fe95f801a942c0d6775dea"
+    },
+    {
+      "ref": "learning/resources/p11-v4-scatter.json",
+      "sha256": "5cf128b02ad35a8deb0a9d4b1dc75c0c31d7cfbd80337b924afb770cbc1eaf7b"
+    },
+    {
+      "ref": "learning/resources/p12-v4-__-bff0b9e4.json",
+      "sha256": "3a3504d6f419e1c510447b34267cb1885ee476e171fe796dd87478d72bc069aa"
+    },
+    {
+      "ref": "learning/resources/p12-v4-____-0bb76771.json",
+      "sha256": "b5c6cf19db49574fd540226ac0da8e0b616718f596bd91f2dfb1dbfd9fe10c7a"
+    },
+    {
+      "ref": "learning/resources/p12-v4-evidence-1.json",
+      "sha256": "685fa8157fefaa656390590bb732b0514a3488936978458e60fb0edb4813b3fd"
+    },
+    {
+      "ref": "learning/resources/p12-v4-evidence-11.json",
+      "sha256": "b801dfbb8881fe3c9e363b26e310ee1dd381f4912b166430a6d4971988bdaf1a"
+    },
+    {
+      "ref": "learning/resources/p12-v4-evidence-12.json",
+      "sha256": "5d6ddcea6d0cab3a4946cfa9b93e7fb3ca6abe1a65feedb890934bfb664f472e"
+    },
+    {
+      "ref": "learning/resources/p12-v4-evidence-20.json",
+      "sha256": "41179900b615eace949d578581b34ca2501d55dd31f5322dfa76f0302552c521"
+    },
+    {
+      "ref": "learning/resources/p12-v4-evidence-6.json",
+      "sha256": "acd6260d9739a4017e07c207028ba981bcd37a7c5f5f48dc0546201f639bd96f"
+    },
+    {
+      "ref": "learning/resources/p12-v4-evidence-9.json",
+      "sha256": "4a9ede6163013bb3c7be1ea681b28538baf48986b1fe47f23d94d87fba90ff59"
+    },
+    {
+      "ref": "learning/resources/p12-v4-input-quality.json",
+      "sha256": "8fa1dafeda4a06baff525afdffa53426669f90997b5d6b4b4e86eddd1606ef1a"
+    },
+    {
+      "ref": "learning/resources/p12-v4-join-audit.json",
+      "sha256": "13dd3eecb0b94ea90b8a84332842ccc45fc7bf7df2e06891d8e7f9e68612dc70"
+    },
+    {
+      "ref": "learning/resources/p12-v4-major.json",
+      "sha256": "76c6aa58357c154bf7ae69c073a7aeddfc25c7523732893125e5b43e53af6b5d"
+    },
+    {
+      "ref": "learning/resources/p12-v4-source-10.json",
+      "sha256": "9560a7f257724137e195b5546f29589e86bba1cf9172565bcc661b43acc99219"
+    },
+    {
+      "ref": "learning/resources/p12-v4-source-13-images.json",
+      "sha256": "e52ebe2b0d8b3d1cdeaaa8476e3e614572baade58782bfea8ce22b047999fb11"
+    },
+    {
+      "ref": "learning/resources/p12-v4-source-13.json",
+      "sha256": "349772818a5d4ca4ec81fabd79ea01154b2bcdbb2c8d5c7b5c80b29be5c32d90"
+    },
+    {
+      "ref": "learning/resources/p12-v4-source-14.json",
+      "sha256": "70cb8d57746a5db747e60022ddf4943e34ba686771ab842623f8c53fb4655c2c"
+    },
+    {
+      "ref": "learning/resources/p12-v4-source-15.json",
+      "sha256": "2b8264427865698737801da36409288f2305fdd04bc577f9413deb3364236976"
+    },
+    {
+      "ref": "learning/resources/p12-v4-source-16.json",
+      "sha256": "dd8c7081dc50adeb6e6a782b83f054796dfba2445008adbd3d7f7ffd666ae35a"
+    },
+    {
+      "ref": "learning/resources/p12-v4-source-17.json",
+      "sha256": "4baadbbef14770108109d8b8f35605991680cd58e8cbea3659ff9da169b76594"
+    },
+    {
+      "ref": "learning/resources/p12-v4-source-18.json",
+      "sha256": "6982b37541a242c43f3f276a986d4c5cf38758e4252da06176c4dc56dcd5412d"
+    },
+    {
+      "ref": "learning/resources/p12-v4-source-19.json",
+      "sha256": "ae8c48f131d6b2427a136610d4fadc8548cde21e0e539977b8da4028feb3b806"
+    },
+    {
+      "ref": "learning/resources/p12-v4-source-2.json",
+      "sha256": "ad17234c29362888d258ee0334e87746a8ceec56a5874f7a36f8d661bc733701"
+    },
+    {
+      "ref": "learning/resources/p12-v4-source-21.json",
+      "sha256": "3c24cc7b248ee673c0451302ac51b2f25201fe542d16ac7e8314e4b2d7ffa472"
+    },
+    {
+      "ref": "learning/resources/p12-v4-source-22.json",
+      "sha256": "407dda0cf345b02fe0a16c0f34bd0efe25b4cdbb3e2ba9ab09981efba4b748d2"
+    },
+    {
+      "ref": "learning/resources/p12-v4-source-3.json",
+      "sha256": "a30a635a564ec633a064dc49cd7fd3602fad8884bf8849c16ae7ff2008002827"
+    },
+    {
+      "ref": "learning/resources/p12-v4-source-4.json",
+      "sha256": "6d321fcd6a240b6559d00d2a82a832519b8189f04182164b1136bc58b3c6ef79"
+    },
+    {
+      "ref": "learning/resources/p12-v4-source-5.json",
+      "sha256": "4a224aa2c62844a8028c65a82b831cff87c1a45142ef9429c4b75c765d687fb6"
+    },
+    {
+      "ref": "learning/resources/p12-v4-source-7.json",
+      "sha256": "2455219141219af1896917c711395f718f90b95e5df5106bd9ddbfcd95a5a757"
+    },
+    {
+      "ref": "learning/resources/p12-v4-source-8.json",
+      "sha256": "1bf1f674b23d0ac1ef4333a1999520ed49f4dbc68940c6f79cfa2384f15fa975"
+    },
+    {
+      "ref": "learning/resources/p13-v4-____-119f5eef.json",
+      "sha256": "cbf55434e4f843648fc9656920bc29ae39e8987abe9972817323c8b49a8ea574"
+    },
+    {
+      "ref": "learning/resources/p13-v4-daily.json",
+      "sha256": "3d3ffb4a3bafa1759becb00cf84325b59586e0e67d2d44723991382f12f4dab1"
+    },
+    {
+      "ref": "learning/resources/p13-v4-evidence-1.json",
+      "sha256": "6bb0cbfd40607b9e188220b21870dd32616825c60b9bf2b3ca427534cb10a863"
+    },
+    {
+      "ref": "learning/resources/p13-v4-evidence-10.json",
+      "sha256": "d41dc9f34f7578a26d72579bca981f21586b78b900be2cffc77e0640ed421e6c"
+    },
+    {
+      "ref": "learning/resources/p13-v4-evidence-12.json",
+      "sha256": "7f5a623e07717d22288b403f2c118cf3ee23f75eec3fd4e678fa2a5927ec33ea"
+    },
+    {
+      "ref": "learning/resources/p13-v4-evidence-13.json",
+      "sha256": "27cf26fa603c4ca8ca0f5e6fc958cf1a586692be57610fcd5511e34e082c3667"
+    },
+    {
+      "ref": "learning/resources/p13-v4-evidence-14.json",
+      "sha256": "499024b30536ad0bf9669130ee8387b76e8ccd88bf9d1b216f092f7f55cd50b5"
+    },
+    {
+      "ref": "learning/resources/p13-v4-evidence-16.json",
+      "sha256": "4ca7ff08be9a1e1b57c029426e1e26266fa7ca9af5c7572fdacd449a7cb70ed4"
+    },
+    {
+      "ref": "learning/resources/p13-v4-evidence-17.json",
+      "sha256": "959de8946c89b69c701c64cd6d508c739b998f5f42e230d67cc1cb36ab3e8538"
+    },
+    {
+      "ref": "learning/resources/p13-v4-evidence-6.json",
+      "sha256": "78798ed9c66c23595658612f8b3769320aad273a6b1858cfaf1e91c4b378649a"
+    },
+    {
+      "ref": "learning/resources/p13-v4-evidence-7.json",
+      "sha256": "295f4dce6b4936f2fced3248667f664e92467abcdf2fad207c7d2e5ae09e2523"
+    },
+    {
+      "ref": "learning/resources/p13-v4-evidence-8.json",
+      "sha256": "5f297e5192ff65606e48d5bddb8b717741e271e801eff111818be149802d2237"
+    },
+    {
+      "ref": "learning/resources/p13-v4-evidence-9.json",
+      "sha256": "d58d0336919c3b1fd9bff1b634081398340b5b00491d77c2c04487dc77386af2"
+    },
+    {
+      "ref": "learning/resources/p13-v4-input-quality.json",
+      "sha256": "49e2b33079c41972f5992ff0ecb55545489167b10f10f8e99cdbad1e5468ce18"
+    },
+    {
+      "ref": "learning/resources/p13-v4-ranking.json",
+      "sha256": "0a2f65b54186d9883ca71b245423ad02b7e2ec41066fa22c625482ea3d639e54"
+    },
+    {
+      "ref": "learning/resources/p13-v4-source-11.json",
+      "sha256": "8205210989f27e40330118b9ca5c5a6c28f6bc90ac72ddd3bd252f989a8523b5"
+    },
+    {
+      "ref": "learning/resources/p13-v4-source-15.json",
+      "sha256": "8ffbcaa36db26b6c3b19d2a78c8b623a9178df2decfd737fa0f1a502e51d8a9a"
+    },
+    {
+      "ref": "learning/resources/p13-v4-source-18.json",
+      "sha256": "c93268fdb9fdfdd317872e6558bda60baa8cac28b35dfe2e3656db0545b07113"
+    },
+    {
+      "ref": "learning/resources/p13-v4-source-2.json",
+      "sha256": "75155618bb4a62701c1d592633483de1fbeb0d41e0dc913812f9ea7ab63a99f0"
+    },
+    {
+      "ref": "learning/resources/p13-v4-source-3.json",
+      "sha256": "442c45d0831220718e05300495a04ebbac9aff59e2a3c35bcb62e08dc3fc4641"
+    },
+    {
+      "ref": "learning/resources/p13-v4-source-4.json",
+      "sha256": "a4e10464dc404874cdbf6c238af6b6bb00c4ef611bcec1cbb96229a088cf5b85"
+    },
+    {
+      "ref": "learning/resources/p13-v4-source-5.json",
+      "sha256": "b9b49bf360cca8ba2524c18ad3722e7884946b867bab872f866e26948f5c9371"
+    },
+    {
+      "ref": "learning/resources/p14-v4-___-0754f9f7.json",
+      "sha256": "d24a20ba833cc3125aea2a4ced799820ed7b1676991752c27917cf0d042af6df"
+    },
+    {
+      "ref": "learning/resources/p14-v4-evidence-1.json",
+      "sha256": "cc0806b7bcd7486c3b5baa54fd5b98f55b8235141ae808d2bd5d710f2ae52b0d"
+    },
+    {
+      "ref": "learning/resources/p14-v4-evidence-3.json",
+      "sha256": "ff0689f75975a28e124d8b9f2f858d5e158837b6eb75b51d69ee35fe43fef651"
+    },
+    {
+      "ref": "learning/resources/p14-v4-evidence-5.json",
+      "sha256": "09f0039bd67c01ebcc1ccbf1c4f0e78dbfb1beebcab4501a4a841c965d908aea"
+    },
+    {
+      "ref": "learning/resources/p14-v4-input-quality.json",
+      "sha256": "eae0c51bc41ab461eef88df47bf3a31a5eb7e29449b593f77608782805382e1e"
+    },
+    {
+      "ref": "learning/resources/p14-v4-source-2.json",
+      "sha256": "b69f7ad52936f1c860adcf472a22e9839250ae573bd67e78972943dd0763e32b"
+    },
+    {
+      "ref": "learning/resources/p14-v4-source-4.json",
+      "sha256": "095f066ecf498fe48466ae2538e4c8b9169e20e49b93bf689be609de4aa6e561"
+    },
+    {
+      "ref": "learning/resources/p14-v4-tokens.json",
+      "sha256": "269eec112d7960c5cb37d1f1dcc531d2aca9d7ff128de6be7fa1a3ae054faa7f"
+    },
+    {
+      "ref": "learning/resources/p14-v4-type.json",
+      "sha256": "3a2bfe00986fd5aee2b4a6f21133b917e08b48d57ab29f7c7e389dda061ba84d"
+    },
+    {
+      "ref": "learning/resources/p14-v6-saved-confusion.json",
+      "sha256": "1775747878adf1dea07632da677fec48236cf434fb7cd95c5f2fc83684d1f53d"
+    },
+    {
+      "ref": "learning/resources/p15-v4-city-level.json",
+      "sha256": "738717ccee8f189dc48a9c6065845f6b4dcfb41689858d0d30f85480fdb75b39"
+    },
+    {
+      "ref": "learning/resources/p15-v4-daily.json",
+      "sha256": "25aa4997133b36249262548d78d4cb26b06d5eb1edab2858f9439bf958474bd2"
+    },
+    {
+      "ref": "learning/resources/p15-v4-evidence-1.json",
+      "sha256": "9c715c5f26d0727dc1931042c2be087eec3897362af581b1d5fcc30b0b335b03"
+    },
+    {
+      "ref": "learning/resources/p15-v4-evidence-11.json",
+      "sha256": "46d4de43656745163b80f8d4450dc87c61521bee50e7b25d6ad065b95c77af9d"
+    },
+    {
+      "ref": "learning/resources/p15-v4-evidence-12.json",
+      "sha256": "a03ebc524b1098e0fd8a9ecf0c1477ea609f85b4eb6487de9f3e1d1b114631fb"
+    },
+    {
+      "ref": "learning/resources/p15-v4-evidence-5.json",
+      "sha256": "70878e3f4cd429d1e4ceb6d84f52ecbbfaa595e5f47fe79becad1ae2da16df58"
+    },
+    {
+      "ref": "learning/resources/p15-v4-evidence-8.json",
+      "sha256": "adecffbcb21fcf152f8728725f6c04e1d0b0de3e6225729831481722eb9b8abc"
+    },
+    {
+      "ref": "learning/resources/p15-v4-input-quality.json",
+      "sha256": "0ccd1747256cf2bb1de67059728b19bf7bc1843a063aa7ebb2a5edd316d7d70b"
+    },
+    {
+      "ref": "learning/resources/p15-v4-source-10.json",
+      "sha256": "05ac954cfb2e85c5f8023ccad81cb7bb60a306f2fd198a82863869a2de5a1480"
+    },
+    {
+      "ref": "learning/resources/p15-v4-source-13.json",
+      "sha256": "5043f9c2223b158350a0e79891d245a91024c11ad26947d6a01cd27fd54fbd2c"
+    },
+    {
+      "ref": "learning/resources/p15-v4-source-2.json",
+      "sha256": "808572b933406b1c7cd296b1e7d8084e33cc9a228780013c30209512f3104824"
+    },
+    {
+      "ref": "learning/resources/p15-v4-source-3.json",
+      "sha256": "5e7d546c64fa687a8dbcf1ad819e56e3388657cf2ee7fc5b16653680faa8f47a"
+    },
+    {
+      "ref": "learning/resources/p15-v4-source-4.json",
+      "sha256": "c4b8d88730af928db97ad23f987955e88a248e0e534d24315b446134fbb5c723"
+    },
+    {
+      "ref": "learning/resources/p15-v4-source-6.json",
+      "sha256": "295c66a86f7c1b147790a1d78871555dce880c6c37b70e79d468ce1ab2d2b22f"
+    },
+    {
+      "ref": "learning/resources/p15-v4-source-7.json",
+      "sha256": "f66444852c20a93a88dfb67985ef9f1038a85140ea4fcf7e7c4ba3a287ee7c63"
+    },
+    {
+      "ref": "learning/resources/p15-v4-source-9.json",
+      "sha256": "b3ac47d1fa033f9879359ef56888be1bbda1ae65293e52ccb531c05460b81d0e"
+    },
+    {
+      "ref": "learning/resources/p15-v4-totals.json",
+      "sha256": "f2dbfaa8b362df8481f5052cd6430c87837e02667122bb7692172ee2c3e5abb5"
+    },
+    {
+      "ref": "learning/resources/p16-v4-coefficients.json",
+      "sha256": "abc9881bde061c87b8a7748209701e5050c1f58be787e1c75b71ccb9c443ca05"
+    },
+    {
+      "ref": "learning/resources/p16-v4-evidence-10.json",
+      "sha256": "a55cfc050bbd44be6be30e37dc10cdf8ac192193af5935ae45aba97dee0d0534"
+    },
+    {
+      "ref": "learning/resources/p16-v4-evidence-3.json",
+      "sha256": "0e61d5093bd28c621ab2b0e3c5c6203e2d8833cb303b3802c92778704572fca8"
+    },
+    {
+      "ref": "learning/resources/p16-v4-input-quality.json",
+      "sha256": "49ed95befcfc1b2c18d1a96fc53065c2c44c2a077f852e68a1fe3df6b1ae6b8a"
+    },
+    {
+      "ref": "learning/resources/p16-v4-rank.json",
+      "sha256": "df2e532ea5ee1a65ec653f673651d70a31ef758a9890ba433e89392ba7dfc6a4"
+    },
+    {
+      "ref": "learning/resources/p16-v4-source-1.json",
+      "sha256": "642cf70027cf35b82e1e4f9e46cad09e1349d1bd53b189165a695bf8a2772425"
+    },
+    {
+      "ref": "learning/resources/p16-v4-source-11-images.json",
+      "sha256": "3edd6c439b26bec7598e8237ef3b9bbaadee197985be2f959c38321e4ac97065"
+    },
+    {
+      "ref": "learning/resources/p16-v4-source-12-images.json",
+      "sha256": "51a458901c198011820ee020cd4131f30ce443270248939461863ac3e19d2d72"
+    },
+    {
+      "ref": "learning/resources/p16-v4-source-13-images.json",
+      "sha256": "3ba5202daf553ed263e3f6aeeaa902cf5b896dd205ce8f98ddc538b22d07aef0"
+    },
+    {
+      "ref": "learning/resources/p16-v4-source-2.json",
+      "sha256": "5125839d8297399af6f395d3fd33ce27a88509518930fc199ee18728671b2cbf"
+    },
+    {
+      "ref": "learning/resources/p16-v4-source-4-images.json",
+      "sha256": "66cb79ed2ee52c7388226e3a51cf4b4f5730d08a2d141cf3f6ff4da64212e208"
+    },
+    {
+      "ref": "learning/resources/p16-v4-source-5-images.json",
+      "sha256": "101c873379cd943f8664c552abbc3c5b9d505e09c519639c2d1756692d7daf19"
+    },
+    {
+      "ref": "learning/resources/p16-v4-source-6-images.json",
+      "sha256": "c886bfd00a104fa0a18572cad7f106b2b9b52e6d28dc6a8e341cda196b4a85f8"
+    },
+    {
+      "ref": "learning/resources/p16-v4-source-7-images.json",
+      "sha256": "54a5632bc10cebf2955b7aaf22a30485513fccd6e334dde1a945ac39cfd90845"
+    },
+    {
+      "ref": "learning/resources/p16-v4-source-8-images.json",
+      "sha256": "baa3764c62787dc5100b775922aa2189f5563ae8eee3005a4055b3b9c8665d8d"
+    },
+    {
+      "ref": "learning/resources/p16-v4-source-9-images.json",
+      "sha256": "3f6ee0e981627b0a8febcea91f2637ab3fe06ffde7f8f660f80ba235d0498968"
+    },
+    {
+      "ref": "learning/resources/p16-v4-time.json",
+      "sha256": "81e7d8f8d02978ff09a7c88ac9b336082ff81477375e573d5513cbde881edf0a"
+    },
+    {
+      "ref": "learning/resources/p17-counts-saved.json",
+      "sha256": "73046d14e68dccc69d0be6f354ad7fe082135854eb80fbdbb2da61e496743697"
+    },
+    {
+      "ref": "learning/resources/p17-counts.json",
+      "sha256": "aea1b5b3db5805d2d07a8c095d8acbacf9acf72e25554c8a7f0c550d25240ccd"
+    },
+    {
+      "ref": "learning/resources/p17-encoding.json",
+      "sha256": "5a3bb4c7581159e3386dabadbafac5cc3b19a3b00d9aa22e2894b08ef3cb6509"
+    },
+    {
+      "ref": "learning/resources/p17-missing.json",
+      "sha256": "fc9204067ed414bbe40a2cf007edc3409abf0f4188aa17711def8f40b77944d9"
+    },
+    {
+      "ref": "learning/resources/p17-preview.json",
+      "sha256": "7d4c70f3b455a6b5c49d3942d459645f1d6a7c0fc3fd4d5e233f36685fab251c"
+    },
+    {
+      "ref": "learning/resources/p17-profile-audit.json",
+      "sha256": "11fbe4def7dc1834188dea63e1d8320aea2db1159ae1c5cb2efbccd57827eedc"
+    },
+    {
+      "ref": "learning/resources/p17-profile-saved.json",
+      "sha256": "a7ce0f78c573923bd717e87750df467b7e6cb8932f396d94f49ef43ae455af52"
+    },
+    {
+      "ref": "learning/resources/p17-scale.json",
+      "sha256": "dbde255eb9a92a01267ffde8ae593c294dd1f13eaeb405fa2e015e983c81d614"
+    },
+    {
+      "ref": "learning/resources/p17-scores-saved.json",
+      "sha256": "50718996a3cd7decc4c7145870e158569081826d2ddad3edb7b542fe70bbe9aa"
+    },
+    {
+      "ref": "learning/resources/p17-scores.json",
+      "sha256": "40bbe085ca50a65c31c13f1e5cf05bd59ed2264ef68b786b05089433bdae6e62"
+    },
+    {
+      "ref": "learning/resources/p17-v4-counts.json",
+      "sha256": "fc8c76715e1e200596b3aa2e6406d7a561f8161926db547069d2aa83b9eb1362"
+    },
+    {
+      "ref": "learning/resources/p17-v4-input-quality.json",
+      "sha256": "f81242982cf2abcd512316fdf75ea05010312b16817270d15568bd37aa1406fc"
+    },
+    {
+      "ref": "learning/resources/p17-v4-labels.json",
+      "sha256": "d949cdc6752d004ff99ef1fda35240a7a33d2be05e67848c8b15a4bebe43954b"
+    },
+    {
+      "ref": "learning/resources/p17-v4-means.json",
+      "sha256": "deba1dad285f4886fc3aa9f9bc4ae5f5ff2ab2023d2d2799d3bea6a04ca6b978"
+    },
+    {
+      "ref": "learning/resources/p17-v4-silhouette.json",
+      "sha256": "e0ecadd6a616ee7e2273bca3c0b4ab646e4840b8725e3fe503cdab6e7387b88e"
+    },
+    {
+      "ref": "learning/resources/p18-v4-_____-ba931ba8.json",
+      "sha256": "7dd2655d5c303753b5f3c41d0de32a1e12628e721ed98f75a1cc9d1a3f363d84"
+    },
+    {
+      "ref": "learning/resources/p18-v4-input-quality.json",
+      "sha256": "974e95a7eda587071f52f011a8d3d5bbde04d10842dd18dd5e3c84fd8515116e"
+    },
+    {
+      "ref": "learning/resources/p18-v4-score.json",
+      "sha256": "d309536b56562060ca2111e7e4b90358b060ca6e7b8614e338ad62941bb2dd13"
+    },
+    {
+      "ref": "learning/resources/p18-v4-sentiment.json",
+      "sha256": "648b96676c01b21d7a4a4b9c657c583d83a90a14134efc6f31b27e77486084f3"
+    },
+    {
+      "ref": "learning/resources/p18-v4-source-1.json",
+      "sha256": "996164b6f1e88e76d9e51ede11735e800ecc3c348d7d984bfceaacf6493b27a5"
+    },
+    {
+      "ref": "learning/resources/p18-v4-source-2.json",
+      "sha256": "c36473a224854e92492acf8c0b07707793f183875965c6eedd5471c15466b00e"
+    },
+    {
+      "ref": "learning/resources/p18-v4-source-3.json",
+      "sha256": "8c6fb34816fa920a081595ccf59a0a02f28a9705602e4924f5a33fc33434d1be"
+    },
+    {
+      "ref": "learning/resources/p18-v4-source-4.json",
+      "sha256": "29e8a13cfa391162207619ff3b7b52b3e74a6d75d46f33e741ac4344a6ac6ed2"
+    },
+    {
+      "ref": "learning/resources/p18-v4-source-5-images.json",
+      "sha256": "3865a7158a8625fe796a42e879108e3b02170f7e062e837f74029dd5c093d4c6"
+    },
+    {
+      "ref": "learning/resources/p18-v4-source-6-images.json",
+      "sha256": "478ea4d0fe0fb403d51b737fa5d01474ac40018839728063d6f0828cfa6e2d5f"
+    },
+    {
+      "ref": "learning/resources/p18-v4-source-7.json",
+      "sha256": "8fa93933a47fdda278a48ddeaf5367f5a59ea240ba646c1205460a4b2472c5e8"
+    },
+    {
+      "ref": "learning/resources/p18-v4-source-8-images.json",
+      "sha256": "2e5dd808929328c927469d40c6bb5251194f24e2253eb87a435706a89bd706bc"
+    },
+    {
+      "ref": "learning/resources/p18-v4-source-8.json",
+      "sha256": "cfc248b8865d429c270f7266506ef9bdca0c55b04b82a424e197b6f279c025a2"
+    },
+    {
+      "ref": "learning/resources/p18-v4-source-9-images.json",
+      "sha256": "2d2f1d294cbcafeae15820a102c2ca880d110fabf441bdbb1c5a99da8afae058"
+    },
+    {
+      "ref": "learning/resources/p18-v4-source-9.json",
+      "sha256": "82a088410c9abadb0b0e6cd26bc566473045acf9718e22ac15361b2b0ff451a8"
+    },
+    {
+      "ref": "learning/resources/p19-v4-category.json",
+      "sha256": "623ce76f5ba5c04b81effba85491bdbc218e356cca02bf59de5a257ddf0ed723"
+    },
+    {
+      "ref": "learning/resources/p19-v4-coverage.json",
+      "sha256": "c54f4260db36b1df6237a02bf1de5360e041c88637673396e5aa4398b4021530"
+    },
+    {
+      "ref": "learning/resources/p19-v4-evidence-1.json",
+      "sha256": "6a374f7ff7f3ff77332429af1a8046ce8d41cf3254812cffa023aeb08ba5c211"
+    },
+    {
+      "ref": "learning/resources/p19-v4-evidence-6.json",
+      "sha256": "54ee2230db745ecd4e19921687b07f8fefadcbba07dab16d972fad537aebaf50"
+    },
+    {
+      "ref": "learning/resources/p19-v4-evidence-7.json",
+      "sha256": "07bc730c95990a0cebf0afd99ad1cd28dee7a1d191c66680f4bd3cb53bc219c2"
+    },
+    {
+      "ref": "learning/resources/p19-v4-input-quality.json",
+      "sha256": "91562a68c6758634ae07db574a8fb0cd8bb79a255e5198a456942e0cbf863bbc"
+    },
+    {
+      "ref": "learning/resources/p19-v4-monthly.json",
+      "sha256": "2fd80f0f44f85894751eb10933b0bde8d72685f6946798f3658472726edd2830"
+    },
+    {
+      "ref": "learning/resources/p19-v4-repurchase.json",
+      "sha256": "6678b5acfbb1fae8ebf4d34a84d41c9e1573a6703f414a3eef20b0c8e4840da1"
+    },
+    {
+      "ref": "learning/resources/p19-v4-source-10-images.json",
+      "sha256": "7f854ca92ef5ce2121868df0e8ddc2a01e417027b3e636f33d6fad30ba1906fe"
+    },
+    {
+      "ref": "learning/resources/p19-v4-source-2.json",
+      "sha256": "d9deb1f0e3a98ae43f67fc189b381b682690d93177bde4563c10dc51616f7366"
+    },
+    {
+      "ref": "learning/resources/p19-v4-source-3-images.json",
+      "sha256": "3a5ecca89a3fee663cb5b7d3bb8193cddb99db54994f5fe44886d4ebc4f59a14"
+    },
+    {
+      "ref": "learning/resources/p19-v4-source-3.json",
+      "sha256": "014eb8b00ac126404fc0a9d0a2f4e5b5aaf4f0bc349a08bdc37897cb88381489"
+    },
+    {
+      "ref": "learning/resources/p19-v4-source-4.json",
+      "sha256": "edd2b0b628073d9301fe0f29c7a697aa8b31722613c41189c9a361f16ef19302"
+    },
+    {
+      "ref": "learning/resources/p19-v4-source-5-images.json",
+      "sha256": "620f3a35d4d6327c5ec32df770413212c089f7b622ca68b42d61167a83610a4e"
+    },
+    {
+      "ref": "learning/resources/p19-v4-source-5.json",
+      "sha256": "c5b896169c0b0231ce6251875d86b273abf8fa99860610ccda8370d6f2d00bb1"
+    },
+    {
+      "ref": "learning/resources/p19-v4-source-8.json",
+      "sha256": "9cce650d47d594185a8e5c537fbe35b040efb5401300fc8fcae8f5574832b6e8"
+    },
+    {
+      "ref": "learning/resources/p19-v4-source-9-images.json",
+      "sha256": "80b89ce102ced69eca5db4aa13430def74ae86a16735c6fc3f59d5150079708e"
+    },
+    {
+      "ref": "learning/resources/p20-v4-cleaning.json",
+      "sha256": "c3e3f3ab61044bd982d04426ab612bbab00b3458ac56f3e39f91a9b2d725b691"
+    },
+    {
+      "ref": "learning/resources/p20-v4-input-quality.json",
+      "sha256": "66ad7cc74d055ce4f43b82b8dac934f441d5fa1f0567a53eb4ca4b6a1a92578b"
+    },
+    {
+      "ref": "learning/resources/p20-v4-main_type.json",
+      "sha256": "e373d72360445ddedf5df79e57f5eb19f03e2fc226eb38243aed287d0a7bbea6"
+    },
+    {
+      "ref": "learning/resources/p20-v4-price-box.json",
+      "sha256": "fb603b69781838e2336ed5869f1a16f4c1563b616ed4b855d52a9ec873c1955b"
+    },
+    {
+      "ref": "learning/resources/p20-v4-price-sale.json",
+      "sha256": "f0d9b68376edb051e10dfdc11d795a317c0c76d0f88ecb8a23e8b3f8784e0bb3"
+    },
+    {
+      "ref": "learning/resources/p20-v4-sku.json",
+      "sha256": "5f68505a92d6d5ec0238067621b89ff5f1661ebe1a401db59078066a5c1310dd"
+    },
+    {
+      "ref": "learning/resources/p20-v4-source-1.json",
+      "sha256": "c8f0719ec99cbbe433ca6d9314d79c02afdcdcb066f039942dee0787ef88c52b"
+    },
+    {
+      "ref": "learning/resources/p20-v4-source-10-images.json",
+      "sha256": "a12fa414190f8c9de2cb0e3abefc5db45958ad4e51392f891dffbfa8847ec038"
+    },
+    {
+      "ref": "learning/resources/p20-v4-source-10.json",
+      "sha256": "10e6d289271b38f456bc0f88fd26c7ad4636bb8683e51e24cab890eec8331cbb"
+    },
+    {
+      "ref": "learning/resources/p20-v4-source-11-images.json",
+      "sha256": "7dfad79d521aa9c3a32bac42f4d49022adcb3a97108bdc35f46698c7964af571"
+    },
+    {
+      "ref": "learning/resources/p20-v4-source-11.json",
+      "sha256": "8ef50b5d442c0826732f3b3e4cb5cda0af7d7081e9016b77004582bbac909ea6"
+    },
+    {
+      "ref": "learning/resources/p20-v4-source-12-images.json",
+      "sha256": "712fdc562a4e3e68da8092c2ea04ced430a23a508379b83f50d5a084b6eede57"
+    },
+    {
+      "ref": "learning/resources/p20-v4-source-13-images.json",
+      "sha256": "772725b44f4d416c1cd5456637f9598013988580b025f825a16cffe76cad155b"
+    },
+    {
+      "ref": "learning/resources/p20-v4-source-2.json",
+      "sha256": "5f7a0777af42d203bf987f2b02173f8e87a848119851413228c48e75b5407f34"
+    },
+    {
+      "ref": "learning/resources/p20-v4-source-3.json",
+      "sha256": "ba74fb2db74d9165830613fba56b6edfece8acf35343a00e78bc1ee666b38fac"
+    },
+    {
+      "ref": "learning/resources/p20-v4-source-4.json",
+      "sha256": "4adacdd4484739d5b40c70e542600a841169b70ea2bcca96c49dd5714ae6ec9b"
+    },
+    {
+      "ref": "learning/resources/p20-v4-source-5.json",
+      "sha256": "1e649cfecb14e4654405fb61fdd6d0e573a3a494de9ee240485ba625de2c876a"
+    },
+    {
+      "ref": "learning/resources/p20-v4-source-6.json",
+      "sha256": "710f74370e2c2454d8e4bbc7c8683a81838f98fde303061f293e33f403b057ac"
+    },
+    {
+      "ref": "learning/resources/p20-v4-source-7-images.json",
+      "sha256": "82117b7cd5d8072e5d9f7dcd66487534ee97719ef390474a0ff631d4ef601eae"
+    },
+    {
+      "ref": "learning/resources/p20-v4-source-8-images.json",
+      "sha256": "89f6409a7e3b9fef53f7fa808015c1fc261cc3988fd550b1d5c5cd90d9a2e669"
+    },
+    {
+      "ref": "learning/resources/p20-v4-source-9-images.json",
+      "sha256": "738bfa965f89e03803c5e48f377995afda27418a5b4c142b1d6ec0473d514063"
+    },
+    {
+      "ref": "learning/resources/p21-a-category.json",
+      "sha256": "f03a466483b48c76b22c5a2549a5a4e1ed1b77240a456346801e3f9767c3dec2"
+    },
+    {
+      "ref": "learning/resources/p21-a-grain.json",
+      "sha256": "bcadd69370c15d49bb6b54afe905c400f9e116c52f817ef0d5eadd1a74ae3cb7"
+    },
+    {
+      "ref": "learning/resources/p21-a-hour.json",
+      "sha256": "adecdb28ceb9fa3ff578683a617d4039a50997fdac28101133b60b6f2fb45b38"
+    },
+    {
+      "ref": "learning/resources/p21-a-order.json",
+      "sha256": "bddbdf6b1b727cca97dedffa452d65801c116dc112450d21a737065deab95264"
+    },
+    {
+      "ref": "learning/resources/p21-a-product.json",
+      "sha256": "4d3f3dd6e39e807a63d6147396c89e41ccb6151f7cdd908b4baf19b04d2ac782"
+    },
+    {
+      "ref": "learning/resources/p21-a-stores.json",
+      "sha256": "435bb5421e30f97f862a3b20800c8195f63eca3bcbcb656b2df2520d9c70955a"
+    },
+    {
+      "ref": "learning/resources/p21-a-types.json",
+      "sha256": "7729f45203379d1968c78c47083fb9f546d958f2c295fbfcbe0df89bdbdf9cfe"
+    },
+    {
+      "ref": "learning/resources/p21-b-attached.json",
+      "sha256": "ceea5a2f446a911f3ac70f9af67b1c468596efadbc3bfe89a65dd6102da53e0d"
+    },
+    {
+      "ref": "learning/resources/p21-b-periods.json",
+      "sha256": "eb60a7f6fba3857c4ca9dd832192657d73d3f44351d36a19556600896cbb0d70"
+    },
+    {
+      "ref": "learning/resources/p21-b-quality.json",
+      "sha256": "6de41220aa1780f819b60474cf974c7362b7d2be545d960982233c706fc5203a"
+    },
+    {
+      "ref": "learning/resources/p21-b-report.json",
+      "sha256": "4588a5b1b5ed22a02e860b7b27c88e001d660aea1d2ba3ea3f388dea5c8ca24a"
+    },
+    {
+      "ref": "learning/resources/p21-b-zero.json",
+      "sha256": "e1d910355c3fb6db505d17f00ba9023aeaaec69e9be16fe6d7ed16e39e7b214f"
+    },
+    {
+      "ref": "learning/resources/p21-v4-hour.json",
+      "sha256": "c45dbb71d710f86172f3bb8af8b8039ebe74cf12817119dd1115047e1975561b"
+    },
+    {
+      "ref": "learning/resources/p21-v4-input-quality.json",
+      "sha256": "f7ba628c917c0e5e0b7f4ec227b56237b3cc115f6a006d6c9adce8e71ff6ff36"
+    },
+    {
+      "ref": "learning/resources/p21-v4-stores.json",
+      "sha256": "b28f93d27427edec449f4eb06b74083c41d4731be1a9c9edeba8c85c80bdad40"
+    },
+    {
+      "ref": "learning/resources/p21-v4-top-2.json",
+      "sha256": "58ee1ee4dcb6b9cec5804cc4cf779abd26583b96e90191de8f415e93f3aa5095"
+    },
+    {
+      "ref": "learning/resources/p21-v4-top-3.json",
+      "sha256": "57caf776cabf2d20672514072f86344c2e81ba7d59d572c4e73acc4860866aae"
+    },
+    {
+      "ref": "learning/resources/p22-v4-coordinates.json",
+      "sha256": "03b9f35df061131cf1c5a3c20a03fe7f1fdc17c498f70f097c6e229099f64ab4"
+    },
+    {
+      "ref": "learning/resources/p22-v4-counts.json",
+      "sha256": "8115afe53e213ed57cd7edf1fbf841eca8893c78febf01ca21294e1344b74b0b"
+    },
+    {
+      "ref": "learning/resources/p22-v4-evidence-10.json",
+      "sha256": "7c3afa8737c04b8dbd46b5d0ef8028102906ed2a31429b3ce80e07b11bd8c1d4"
+    },
+    {
+      "ref": "learning/resources/p22-v4-evidence-6.json",
+      "sha256": "2a09e3c480a6c0deba37f9cbca93e6685315b2902e2113823d74daabe0867891"
+    },
+    {
+      "ref": "learning/resources/p22-v4-evidence-9.json",
+      "sha256": "3c846123aed5022afcb305a373155de6851e5f4c16ccbfb498b66e49378c0fbe"
+    },
+    {
+      "ref": "learning/resources/p22-v4-input-quality.json",
+      "sha256": "ee97513c69d34028df27506cf60aa72d4c3762d301d2aaffffd905e6785ed540"
+    },
+    {
+      "ref": "learning/resources/p22-v4-labels.json",
+      "sha256": "b30fbf276d955bcde929e63930bb606f1eddae83045ee7bcd9574a25f6a9cc14"
+    },
+    {
+      "ref": "learning/resources/p22-v4-source-1.json",
+      "sha256": "2a1342d36848914bf6fb6c48f9656ae2a2cc2dc0b4a49fc08126b6cf9ff3d78e"
+    },
+    {
+      "ref": "learning/resources/p22-v4-source-11.json",
+      "sha256": "5ccf78b869f221b76c1540dde761d47e67f1cf8465fd8c85847bfef2d821859d"
+    },
+    {
+      "ref": "learning/resources/p22-v4-source-12.json",
+      "sha256": "6b8774f39a2acb180f88ea6fc1d3283b1e700d7c4ed08ec45b0e76ccc4e39b79"
+    },
+    {
+      "ref": "learning/resources/p22-v4-source-13.json",
+      "sha256": "03e0aae5ed5b412098053bb30d6da01b47c7d27d7eff132c71b82d782949e55a"
+    },
+    {
+      "ref": "learning/resources/p22-v4-source-14.json",
+      "sha256": "59eb217f22552b879ec9c405cf0dedddfab3d57d44d18b2f7f9a69091f45cce6"
+    },
+    {
+      "ref": "learning/resources/p22-v4-source-15-images.json",
+      "sha256": "7be09cdfc0821ece652e527a4f135a5c9a00b5276efe44631e59f3ec7ef93892"
+    },
+    {
+      "ref": "learning/resources/p22-v4-source-15.json",
+      "sha256": "5508ed6df03179b639bbf148fd08ad13d6a13b72512fdf131e3d9637323aff56"
+    },
+    {
+      "ref": "learning/resources/p22-v4-source-16.json",
+      "sha256": "0f101076cab175728d3a611c62c80da5e29dedf76180e3f28d6f827c8a0f9773"
+    },
+    {
+      "ref": "learning/resources/p22-v4-source-17.json",
+      "sha256": "1630a10a7dfd0a787daed7587dd7d0ba1f30108007ce9d4343e828eebc6b31bf"
+    },
+    {
+      "ref": "learning/resources/p22-v4-source-18.json",
+      "sha256": "402c57fbd14779cab347931f8dee25888e072ebf115613d52b4958ebb5db28ec"
+    },
+    {
+      "ref": "learning/resources/p22-v4-source-2.json",
+      "sha256": "4f782a4217ba2e958d7e6ea6ff4c92b3de54a0c3efbc69c40574f52e94345344"
+    },
+    {
+      "ref": "learning/resources/p22-v4-source-3.json",
+      "sha256": "a2af838c39fd71dbb7a25c62d437031ef29cc0fe92470f268fff4b9f10284d6a"
+    },
+    {
+      "ref": "learning/resources/p22-v4-source-4.json",
+      "sha256": "c917ddf383b2a90183d533b812bf63d04a066d48ecfd78a36715782a0b805220"
+    },
+    {
+      "ref": "learning/resources/p22-v4-source-5.json",
+      "sha256": "d5ecd8e146091d5d418c0f150c45094abd0443755b15d6174ee1ad2f6d701b92"
+    },
+    {
+      "ref": "learning/resources/p22-v4-source-7.json",
+      "sha256": "f81df1f8a8743f2fe5370cee6403e43f8eeea2e693bc812cb17a6775b4f1de74"
+    },
+    {
+      "ref": "learning/resources/p22-v4-source-8.json",
+      "sha256": "4042dccc2c1bb99e4498af2ea442372bf5152b6e5d010d79eb9e250e7a1b5104"
+    },
+    {
+      "ref": "learning/resources/p23-v4-age.json",
+      "sha256": "a1e0febc3d3dc73d700cadbb6b42c9a1220af11362225f46ea920d18540af767"
+    },
+    {
+      "ref": "learning/resources/p23-v4-input-quality.json",
+      "sha256": "670213ba45e7a3bbddca40a74717f17bde194b9f89666e1ac70cad91cdc041b3"
+    },
+    {
+      "ref": "learning/resources/p23-v4-label-share.json",
+      "sha256": "14fa866d9c3bed36eedbaa7eee0d67a686436c0354e04b6913bc5e09941717f0"
+    },
+    {
+      "ref": "learning/resources/p23-v4-matrix.json",
+      "sha256": "bd80f136cf464adf69fc8278be35beb1f467ba2c7f8726fd33fd6fc09a8f3d1f"
+    },
+    {
+      "ref": "learning/resources/p23-v4-metrics.json",
+      "sha256": "e0652cc8c6449e00b3103f2cd8270bd1dddefc72f56241ea0b4b84b5008fcba1"
+    },
+    {
+      "ref": "learning/resources/p23-v4-probabilities.json",
+      "sha256": "ccefd01f84c569c9b8fbf34b424f7604310e70660fc84f387cfb2e0817f49689"
+    },
+    {
+      "ref": "learning/resources/p23-v4-roc.json",
+      "sha256": "df1ade1b5484ad4530eff343e92fbd20af9fe09bcd89a0d9f1d761c9409cbb27"
+    },
+    {
+      "ref": "learning/resources/p23-v4-source-1.json",
+      "sha256": "9746ab22f11d06d147fe1402a0a72ff421d50b972e72f6def7fc941c058af543"
+    },
+    {
+      "ref": "learning/resources/p23-v4-source-10.json",
+      "sha256": "ab76e4671b1a8808702d6f9dfa9fd36d329c9d932131eed16aba26f52c976ac9"
+    },
+    {
+      "ref": "learning/resources/p23-v4-source-11.json",
+      "sha256": "ba3e493ae9adc8a7065a781d3d8438133f8639607bf0c95eb3654c359dc0aa06"
+    },
+    {
+      "ref": "learning/resources/p23-v4-source-12.json",
+      "sha256": "0bf098f1de4fd877d46d6d5881cc5c7e0667e992fb4e1a0ad380ce52ed70a6f0"
+    },
+    {
+      "ref": "learning/resources/p23-v4-source-2.json",
+      "sha256": "bf7d038772a75df8564f3c408640b48f152c4541eea92fe2c839e03c21f0e1df"
+    },
+    {
+      "ref": "learning/resources/p23-v4-source-3.json",
+      "sha256": "db4f302eee8c03db56054e0c523b5164ca56b3bf09e3cc409f68bb411ec3acfb"
+    },
+    {
+      "ref": "learning/resources/p23-v4-source-4.json",
+      "sha256": "2a4104c4815cd37ed529eeed68e4ca4d957adcc4748fc947821bb8d68e92fda2"
+    },
+    {
+      "ref": "learning/resources/p23-v4-source-5-images.json",
+      "sha256": "54db6af427dc43a25a64328e2b689485733d02ed5a83021a203fd52ec05a4a83"
+    },
+    {
+      "ref": "learning/resources/p23-v4-source-5.json",
+      "sha256": "a8ffb6fc7c9e5f95979b38b94fb242f09a2d13502c71d66370f2aa3b22c8a3a1"
+    },
+    {
+      "ref": "learning/resources/p23-v4-source-6-images.json",
+      "sha256": "0d6201d8627886d0e024e8f69ad1e64aec7f30baadb1ea85af33facbc68d1d03"
+    },
+    {
+      "ref": "learning/resources/p23-v4-source-6.json",
+      "sha256": "fdf491f9e4942cfc837684baa3547d967c84a6ae6f049c562be164b5c82efdef"
+    },
+    {
+      "ref": "learning/resources/p23-v4-source-7-images.json",
+      "sha256": "91425ecc755077d95abfcd08891ec86c1c81ef1c2c9124a0a93152d14c7ddd58"
+    },
+    {
+      "ref": "learning/resources/p23-v4-source-7.json",
+      "sha256": "5162a5172e12086658eb1ce26f58b3f9ac38fb2466ebdfb373ef2a1942d0fcd0"
+    },
+    {
+      "ref": "learning/resources/p23-v4-source-8.json",
+      "sha256": "60315e56ca1a019d923911ef54410604bdc40124b5069677d7fc47758be79c82"
+    },
+    {
+      "ref": "learning/resources/p23-v4-source-9.json",
+      "sha256": "0286634e617a796fe70ebb4d96bd60db0e09d047130233ca59045591cde7d868"
+    },
+    {
+      "ref": "learning/resources/p24-v4-age.json",
+      "sha256": "db27f638fb30af5487e3d411821d4fc31c162b9cc481682b1457d930e8680918"
+    },
+    {
+      "ref": "learning/resources/p24-v4-amount-revenue.json",
+      "sha256": "a41d2b76e2887e19f5a520155213461af65c086b52c9d8aaad10039b6979f3b1"
+    },
+    {
+      "ref": "learning/resources/p24-v4-evidence-11.json",
+      "sha256": "c65aa48ecf9926ca02a080d3de024947d9eb7a048fd923a1992c5636bb90a256"
+    },
+    {
+      "ref": "learning/resources/p24-v4-evidence-2.json",
+      "sha256": "a8fc93a3f7a4f7590b4676a319e7e3e8cc4fbb23c20e3c9ace2dfda19361d745"
+    },
+    {
+      "ref": "learning/resources/p24-v4-holdout-scatter.json",
+      "sha256": "bcf3de80dc728dbd8f5208325c5f995c6c7f587b3dff9111684f82a3f1891c11"
+    },
+    {
+      "ref": "learning/resources/p24-v4-holdout.json",
+      "sha256": "a2b68f78a7d7136d489e9b2a1f1ba6fd43f65bf9aee5487320576d7ff4ec9040"
+    },
+    {
+      "ref": "learning/resources/p24-v4-input-quality.json",
+      "sha256": "53f4abe41a5c346b668c7ee22ab88af24561ae43d9c52d3c88079e9d2e4a5b80"
+    },
+    {
+      "ref": "learning/resources/p24-v4-missing.json",
+      "sha256": "9ae06e9741d814b06201497861f6734797596b8de8b61857a720357e67ea57fe"
+    },
+    {
+      "ref": "learning/resources/p24-v4-revenue.json",
+      "sha256": "6b56d0ff58510e9233a5a4a469a513a757ae0c39c4ee26f30e0a887af629dfb8"
+    },
+    {
+      "ref": "learning/resources/p24-v4-source-1.json",
+      "sha256": "552333c7ed73c1f28351bf1a7004f27afa281d65c8e625d5984f2e61b9d9c8a9"
+    },
+    {
+      "ref": "learning/resources/p24-v4-source-10-images.json",
+      "sha256": "6a0eb6bca6d25732e80c6858c41bcc0d176ffd6995484a803634892cda84e474"
+    },
+    {
+      "ref": "learning/resources/p24-v4-source-12.json",
+      "sha256": "3a8692a0eb62c5d10866c38c4887f2ba76f8202387759f29a9227c2d01d2fc84"
+    },
+    {
+      "ref": "learning/resources/p24-v4-source-13.json",
+      "sha256": "ec0e3513a48df6b3e21acd2bb9dc6b6d178c41a72a1c1c44216f7e3786a94028"
+    },
+    {
+      "ref": "learning/resources/p24-v4-source-14.json",
+      "sha256": "a643fa9601a319881e74c02df5ab03390bdc9394d203380c5b8c6433ef5e9554"
+    },
+    {
+      "ref": "learning/resources/p24-v4-source-3-images.json",
+      "sha256": "7a159273433bd95b192bed8862c148d5ccf613db50537d60d46a45b008d96caa"
+    },
+    {
+      "ref": "learning/resources/p24-v4-source-3.json",
+      "sha256": "a8f2530df52c84ddb9621c761196326dec4d1446adcaa9b69c5d815ab253ecab"
+    },
+    {
+      "ref": "learning/resources/p24-v4-source-4.json",
+      "sha256": "193d5f3f8e1e38c524e79add1804982d26140bb589222b9aa0e01371e5b7d8b5"
+    },
+    {
+      "ref": "learning/resources/p24-v4-source-5-images.json",
+      "sha256": "d9c75ace8b7c237e88a13afbd9aadc61e89232770003bad653db12b3061c1c51"
+    },
+    {
+      "ref": "learning/resources/p24-v4-source-5.json",
+      "sha256": "cf0ae38e1e74a00c4fd2ce8142405f292ea25b1e1eaee680c1fbb02aec8c8c57"
+    },
+    {
+      "ref": "learning/resources/p24-v4-source-6-images.json",
+      "sha256": "b75bc77811e9d822ba736e2bde530ecee4c61d0f76970ba80e20a29f7e15087f"
+    },
+    {
+      "ref": "learning/resources/p24-v4-source-6.json",
+      "sha256": "3fb31039a55f194ecf5a5a391190f6ff5bd1c1689370d4cbe90c9b76c96aea9c"
+    },
+    {
+      "ref": "learning/resources/p24-v4-source-7-images.json",
+      "sha256": "06731c6e39d3b625f0f3358bac9fad04ec31f4a4c2edf04d9161b6cb8db7b3da"
+    },
+    {
+      "ref": "learning/resources/p24-v4-source-7.json",
+      "sha256": "bc8ba78447aab1a73026da4b5b7f3c733acc91075d311a96803b3a9a165bc2c8"
+    },
+    {
+      "ref": "learning/resources/p24-v4-source-8-images.json",
+      "sha256": "3c8b9c1a255ee2aed7b2de4b686e5d5ebbab1359f129323de30cd5ecda4115bf"
+    },
+    {
+      "ref": "learning/resources/p24-v4-source-8.json",
+      "sha256": "7036818f3974bd688841ceab6450ba0541650cc49f5299919cde0bfa99d2ebfe"
+    },
+    {
+      "ref": "learning/resources/p24-v4-source-9-images.json",
+      "sha256": "315e31ee27eefb5c6e6f1f14a6d83329a8a29a2553ff6ea4d7856daa6d6f85c9"
+    },
+    {
+      "ref": "learning/resources/p24-v4-source-9.json",
+      "sha256": "04604cd8e2cfc28518947e9e65cb6e32c1779217dcce6931c287bfcf8e142644"
+    },
+    {
+      "ref": "learning/resources/p25-v4-ages.json",
+      "sha256": "520bf5c9ca303e36158448b18d7f9478e7c0c1a1ae7a82fe35f4f4cbd9195131"
+    },
+    {
+      "ref": "learning/resources/p25-v4-evidence-1.json",
+      "sha256": "f2a8d274165c93aaff33549a6e1890d73d2ff80549119bf2c8015b4ca7bdf9de"
+    },
+    {
+      "ref": "learning/resources/p25-v4-evidence-3.json",
+      "sha256": "1f7bcd702f374dc4b37c7f01bfe00d48f60e98ba5c3050b33c722f4ad1cbeac6"
+    },
+    {
+      "ref": "learning/resources/p25-v4-evidence-4.json",
+      "sha256": "24251caf007dc07e0b0daf37cb9b9a4ee3e13484dab18924ad40fa3e11c8dc5c"
+    },
+    {
+      "ref": "learning/resources/p25-v4-evidence-5.json",
+      "sha256": "e681e53f1d23d2d496294d4cf9e826cf29b7ee15f37a4a5b26b28eccd053ae52"
+    },
+    {
+      "ref": "learning/resources/p25-v4-evidence-6.json",
+      "sha256": "5a8af847f1a8b0142f366f677b88436f3deebf51f1a48f248fe6fcf07e52ca8e"
+    },
+    {
+      "ref": "learning/resources/p25-v4-input-quality.json",
+      "sha256": "8e9e76e605cd223ac885afd7ec64757997e541fa06f738da7f6fdae48d7247a9"
+    },
+    {
+      "ref": "learning/resources/p25-v4-population.json",
+      "sha256": "e2f85a25bcfcf0aaa0cfcb7b9e70489be4fb7d74b39f2d264ea49fe35fc7da0d"
+    },
+    {
+      "ref": "learning/resources/p25-v4-source-2.json",
+      "sha256": "6d75401f0d1cffeaba1109803e83394b47a5a982c3a11dbd1f9f1c29e61e4999"
+    },
+    {
+      "ref": "learning/resources/p26-v4-ages.json",
+      "sha256": "ad3f22eece104c39f4cbad5b59c07dda0419796c3d1e7f6fcbfae60ff60c93f7"
+    },
+    {
+      "ref": "learning/resources/p26-v4-aligned.json",
+      "sha256": "e302a30368a2a0fceaf8a586447fea3dd88ceffa158219d1dd02a0f759170010"
+    },
+    {
+      "ref": "learning/resources/p26-v4-correlation.json",
+      "sha256": "a2543478b0e5afd5ef17dea2c41641451b042b3f530ef4b862ebd7aceed1d63f"
+    },
+    {
+      "ref": "learning/resources/p26-v4-evidence-11.json",
+      "sha256": "ea8c042fcca13adeeb0f3b0075a9fe962fba442c710a70c6726b53650c7c14ca"
+    },
+    {
+      "ref": "learning/resources/p26-v4-input-quality.json",
+      "sha256": "0c3fb7e2d8e033fccaf6a5b40b52012443fef3b2b8034eaf7e2d8b834e483c01"
+    },
+    {
+      "ref": "learning/resources/p26-v4-linkage.json",
+      "sha256": "7e7d46c2a2fa34f553ae2df3fb9438f105e65a07cad92e635572d1538f39a0da"
+    },
+    {
+      "ref": "learning/resources/p26-v4-population.json",
+      "sha256": "0fefd243bba9faa6dcc2be482af04fca5943e7d7c1ec24a2a00853dfe2ee53af"
+    },
+    {
+      "ref": "learning/resources/p26-v4-source-1.json",
+      "sha256": "cccad68480732a95cb44665be4676e4a920ac680b43d6d3695b40ee6cde0bd65"
+    },
+    {
+      "ref": "learning/resources/p26-v4-source-10.json",
+      "sha256": "1b8e5e44136b153e6729f2503c2b5a2e64fe268d12dc27c8f401df7bfeccd2ca"
+    },
+    {
+      "ref": "learning/resources/p26-v4-source-12.json",
+      "sha256": "81babcdf7c57d093648428217d32a54ad63e2cbbc4539ff872ab1d95e932637d"
+    },
+    {
+      "ref": "learning/resources/p26-v4-source-13.json",
+      "sha256": "276295a4819bdf6279738a6e0540aa2f0eb70f4f053a958340436063e20a5f42"
+    },
+    {
+      "ref": "learning/resources/p26-v4-source-2.json",
+      "sha256": "8ec9fdb90991739607b5d741bfe0b626252fb80b382a355138dba1eaedac68c7"
+    },
+    {
+      "ref": "learning/resources/p26-v4-source-3.json",
+      "sha256": "61e81af6698764210d66de4b96f2900a5be9e82df8f99a15c97fdd9004f33e14"
+    },
+    {
+      "ref": "learning/resources/p26-v4-source-4.json",
+      "sha256": "f0223d6852057a740b8b43b0fbee0f049936ca05f69fe7ec452fea964e36e349"
+    },
+    {
+      "ref": "learning/resources/p26-v4-source-5.json",
+      "sha256": "ad4fe81665f2a3ccfb6c98e77f4a7978afd27d11786c1d7cc3be184b3a693145"
+    },
+    {
+      "ref": "learning/resources/p26-v4-source-6.json",
+      "sha256": "dbe8c6ae064ae1b23c28d13a89118c6be029d68e4edfc63ef5bdc2884f9bcf27"
+    },
+    {
+      "ref": "learning/resources/p26-v4-source-7.json",
+      "sha256": "19a5a4ce03c6daa495798ccea8fa592a5cc79bff18fdde108059c30ec4c2e825"
+    },
+    {
+      "ref": "learning/resources/p26-v4-source-8.json",
+      "sha256": "7ecb02d1a0ddb15176f793ccc58e279f759bff9b62f31078af4d2d142b64abb1"
+    },
+    {
+      "ref": "learning/resources/p26-v4-source-9-images.json",
+      "sha256": "01bbc2c0e86d66a225fee60831f657fd11d5ab9c16ae3132681e555d1be1c7d2"
+    },
+    {
+      "ref": "learning/resources/p26-v4-source-9.json",
+      "sha256": "387bab4f3ccde06de96c37d65eb420a9cd51dd8e1aa1b203e7d35f236749f57a"
+    },
+    {
+      "ref": "learning/resources/p26-v4-tree.json",
+      "sha256": "fb0e8ad6f9af4cce9c51181d92ff55bd5c5c5e30d301673f9cd7ad491867b1e2"
+    },
+    {
+      "ref": "learning/resources/p26-v4-urban-floating.json",
+      "sha256": "7aadb2d46162970f723a8c04274ea1b5710b31216ad9024ba5ad6a6fd0c4201f"
+    },
+    {
+      "ref": "learning/resources/p27-v4-evidence-1.json",
+      "sha256": "a80948546c28c932a10cb8a42d88eb686aa5701ddb71475f9425d556e5ced7dc"
+    },
+    {
+      "ref": "learning/resources/p27-v4-evidence-2.json",
+      "sha256": "0fb66d68bd9b6e145e698c576f3ae702866855abd3f8ba48a4d5c68a9c311072"
+    },
+    {
+      "ref": "learning/resources/p27-v4-evidence-3.json",
+      "sha256": "23d081a69f86cfbd8026625c2aff650ae4e31feadefe107e191c53a6fa169d58"
+    },
+    {
+      "ref": "learning/resources/p27-v4-evidence-4.json",
+      "sha256": "780229e87060f4159a65bf28f7ef26ec8955aaf76da60377e060d55655db3ce2"
+    },
+    {
+      "ref": "learning/resources/p27-v4-evidence-5.json",
+      "sha256": "f8f6b7dcf8c7ff36b0753b433d87d8bd4f49bf9e16a36875fb750e305f08101e"
+    },
+    {
+      "ref": "learning/resources/p27-v4-evidence-6.json",
+      "sha256": "6653bc59900a5ce6aee78b272b96fd9c82ecb66c6aad6ddff1805fab9bab2d8c"
+    },
+    {
+      "ref": "learning/resources/p27-v4-evidence-7.json",
+      "sha256": "f2f22dd6bf02a3b332e05f597f87d48614672d271f32f23e08c0372bf7e14bdf"
+    },
+    {
+      "ref": "learning/resources/p27-v4-input-quality.json",
+      "sha256": "75d4cebe9019acb13936f1abea6c47d5ef857b654c552f7b54a07214552bc1ba"
+    },
+    {
+      "ref": "learning/resources/p27-v4-marriage.json",
+      "sha256": "81d9dd6499b62282c5bc249321f6049a016b0a8036a4a3c8beefc58565ffd449"
+    },
+    {
+      "ref": "learning/resources/p28-v4-department.json",
+      "sha256": "1341c57e4de968bccec0f5b715e272588ba6ee4d3d99f6be520b612c7d58991a"
+    },
+    {
+      "ref": "learning/resources/p28-v4-evidence-11.json",
+      "sha256": "8de281a6cc594b3a4a43cfeb7eab7051e7361d2e0da50363d4b768e3d15cc580"
+    },
+    {
+      "ref": "learning/resources/p28-v4-evidence-12.json",
+      "sha256": "0c7b58bcff018ab928a8f7cf43ac8bf47d6dc8df28ca3053932c33642bf4501c"
+    },
+    {
+      "ref": "learning/resources/p28-v4-evidence-13.json",
+      "sha256": "3bf07123af92a83d5cb65979ae0746fb1b179e01f395f1acb048902b5d3b1dc0"
+    },
+    {
+      "ref": "learning/resources/p28-v4-evidence-14.json",
+      "sha256": "a614aa881918d61598f93bae5c65270d9743cda0dba262ba48c38f4d353321d8"
+    },
+    {
+      "ref": "learning/resources/p28-v4-evidence-15.json",
+      "sha256": "d298f680eae302fb4ad86337b129a4385dba9228cdbdfcb00b04d188a5d7641a"
+    },
+    {
+      "ref": "learning/resources/p28-v4-evidence-16.json",
+      "sha256": "5931689cd883ab6ba6220929e4e7aad15d18c990062e66cde384c209a23518ef"
+    },
+    {
+      "ref": "learning/resources/p28-v4-evidence-17.json",
+      "sha256": "4c86fe7fc8e67fe0c0259b5fa079f73c2ca4c7ad7b86464d9f3182f8265d299c"
+    },
+    {
+      "ref": "learning/resources/p28-v4-evidence-5.json",
+      "sha256": "e9a2f5323ec4fbe922ad94b1012c95415b748f22686fb7f7b05279e5056db337"
+    },
+    {
+      "ref": "learning/resources/p28-v4-input-quality.json",
+      "sha256": "1fd5c579a3663b05abf6e2e282622c35c5635f45721cc652f0fdfb32bde30f40"
+    },
+    {
+      "ref": "learning/resources/p28-v4-left.json",
+      "sha256": "363783f2f30d76c5ea8787ac83032a023687c8cdc21cb16baaf693bb906bab87"
+    },
+    {
+      "ref": "learning/resources/p28-v4-promotion.json",
+      "sha256": "af19a198e40c18f26515f2e7bf59a72bf2cb855f723e8572a9b242654eb71d60"
+    },
+    {
+      "ref": "learning/resources/p28-v4-salary.json",
+      "sha256": "e9c5dffee4bd8d2bc0aa6ef304d408e8b207e51a885e35f69c293f710ffb85a6"
+    },
+    {
+      "ref": "learning/resources/p28-v4-satisfaction.json",
+      "sha256": "b9d462d80c57c65f7f0b9dd39cbd3bccac6fa315371592b22f8200fb1d9ab0be"
+    },
+    {
+      "ref": "learning/resources/p28-v4-source-1.json",
+      "sha256": "2193378f55cfd46d83a16ea2c6e879585c2846840c17c1ccce77ebd41d2095b3"
+    },
+    {
+      "ref": "learning/resources/p28-v4-source-10-images.json",
+      "sha256": "1081c119cbc3c2db65889676a2b0e5fbee5fd3c55103a1e3711663a96406595a"
+    },
+    {
+      "ref": "learning/resources/p28-v4-source-2.json",
+      "sha256": "6136305e55def378983ea221a0f88c3632369620d95634ce8ccbc612042bdd64"
+    },
+    {
+      "ref": "learning/resources/p28-v4-source-3.json",
+      "sha256": "f56e9c1e711fc1260869bad46d235e5784e23f04a2ab3edc3eebf76c4ffbe114"
+    },
+    {
+      "ref": "learning/resources/p28-v4-source-4.json",
+      "sha256": "f7b968e21e75bcf8eeadbf104788ce5be9318e8a6fa8477452d42340b6340a7f"
+    },
+    {
+      "ref": "learning/resources/p28-v4-source-6.json",
+      "sha256": "ccecc621c939534c823f721295fa5213d971ae0263c5889795d2e4d31ffd4c7e"
+    },
+    {
+      "ref": "learning/resources/p28-v4-source-7.json",
+      "sha256": "4b3c77d772a2728f2ceb35e6e683dc922bcb3500fc76e35ea85491ac2758121f"
+    },
+    {
+      "ref": "learning/resources/p28-v4-source-8.json",
+      "sha256": "2b928b5aeb48421574d36cfa114d6dc1ab3184c3772b597bd73cf913fa4bbcaa"
+    },
+    {
+      "ref": "learning/resources/p28-v4-source-9.json",
+      "sha256": "5683d31298d7816331e7655c0503c974310307c6946a37eeed0bfe4d4a8846c4"
+    },
+    {
+      "ref": "learning/resources/p29-v4-____-7a5cb7d9.json",
+      "sha256": "0e1bde8adb394f9258c7e107c5c73204767f3613d46a915448d05039b20b4c12"
+    },
+    {
+      "ref": "learning/resources/p29-v4-address.json",
+      "sha256": "db97a3dc14c63fd86c196d1e4935e99e6b499e4c5ebf132a45b635cb0fb15d32"
+    },
+    {
+      "ref": "learning/resources/p29-v4-education.json",
+      "sha256": "496c706e59fc60200564090d3bb5331bec2a59e2e96fd45122fa248903db76a4"
+    },
+    {
+      "ref": "learning/resources/p29-v4-evidence-1.json",
+      "sha256": "cefa3476d7de52f5b771884019b0488e01417382a2201e3cdb95ef3b4d661dd7"
+    },
+    {
+      "ref": "learning/resources/p29-v4-experience-box.json",
+      "sha256": "b3697788c455c7f1daf02651c6a1a7d88bec5e51393abf9fc0a5a18f66faa519"
+    },
+    {
+      "ref": "learning/resources/p29-v4-experience.json",
+      "sha256": "599ffc92e60d65c8d027c19a81f0dad39fb6d75e745c88cda93e81827a84fb38"
+    },
+    {
+      "ref": "learning/resources/p29-v4-input-quality.json",
+      "sha256": "0beae7018081ff85537240038286b2b085aced19f6dde465de2a00df5dc7f6a8"
+    },
+    {
+      "ref": "learning/resources/p29-v4-salary-preview.json",
+      "sha256": "a053d8c22e88da5caa228580300a1b436a5fed1a5846a573b49a814a7937e09e"
+    },
+    {
+      "ref": "learning/resources/p29-v4-skills-text.json",
+      "sha256": "9fd6a9e291a513ba9951c75604d5e06f64196a9f22d482e4ad59f48036acc76c"
+    },
+    {
+      "ref": "learning/resources/p29-v4-source-10-images.json",
+      "sha256": "9af2859bc7015b13c0675fcb9885dfbedf1ddae8a545e7faf0667d686f6d57f5"
+    },
+    {
+      "ref": "learning/resources/p29-v4-source-10.json",
+      "sha256": "6e892bc04297f09892d71f6fafebdbd7ab2c12ea16ab6268bc7236f7cad64306"
+    },
+    {
+      "ref": "learning/resources/p29-v4-source-11-images.json",
+      "sha256": "d2d9b84419ec48ceebc2ed8743c7aebfb9d424ff3641ce587ab27d5c60c5268c"
+    },
+    {
+      "ref": "learning/resources/p29-v4-source-2.json",
+      "sha256": "d8c32c4d663c1c962e559f42e3644cb3203b1d1ec3111640d43bb042a25aef6a"
+    },
+    {
+      "ref": "learning/resources/p29-v4-source-3-images.json",
+      "sha256": "a145bc488236798b380f90605e7d1bc399ec73aabe79795823f5d4e61baf6a25"
+    },
+    {
+      "ref": "learning/resources/p29-v4-source-4-images.json",
+      "sha256": "2b81b9c4bc10db1cea6309745b30f43d381714e1484eae93dc6b62d9e6ba5cac"
+    },
+    {
+      "ref": "learning/resources/p29-v4-source-5-images.json",
+      "sha256": "1896f2da8558dcbf7ce6fb5e9affc6972ee1e4c054f024754d68257951f55628"
+    },
+    {
+      "ref": "learning/resources/p29-v4-source-6-images.json",
+      "sha256": "ba4bd942727cba04a64ec0f6b4e0535b430ce1817e8d4815ab77fc54742b5e8d"
+    },
+    {
+      "ref": "learning/resources/p29-v4-source-6.json",
+      "sha256": "ab111af9c54f92ccab61a1e8fe8fd0c2186edf0d1dfe0f3c8c6d6902fa6d1669"
+    },
+    {
+      "ref": "learning/resources/p29-v4-source-7-images.json",
+      "sha256": "51a5306d319436e0017d29ab0ea778453fdaa470d4c49144cb4660b64b59a650"
+    },
+    {
+      "ref": "learning/resources/p29-v4-source-7.json",
+      "sha256": "9947c79974384962a7a64907276bd6eebb0a26a60d25784b861495c3cb029731"
+    },
+    {
+      "ref": "learning/resources/p29-v4-source-8-images.json",
+      "sha256": "2bed9667a3434414e62d6f9468e878badb1d52393960e245ae1059ccdb3e8a0d"
+    },
+    {
+      "ref": "learning/resources/p29-v4-source-8.json",
+      "sha256": "429a316145475f2e74ab94aef072adf760df1b27bab7b5ee61d115fb2c4f2ddc"
+    },
+    {
+      "ref": "learning/resources/p29-v4-source-9-images.json",
+      "sha256": "273fabfe8f7bcaeebbe7421b52b28169254746ebd9b0159caf1d335f4fe1fe2b"
+    },
+    {
+      "ref": "learning/resources/p29-v4-source-9.json",
+      "sha256": "9d48b4293236635e33438d4c9a68235dd2f059a4b0a38542d5fed50cdc42586f"
+    }
+  ],
+  "status": "success",
+  "modelTrainingExecuted": false,
+  "notebookExecution": false,
+  "sourceWrites": false,
+  "checks": {
+    "aRows": 3478,
+    "aOrders": 918,
+    "aExactAmount": "28950.06645",
+    "bRows": 3744,
+    "bAllEmpty": 266,
+    "bCleanRows": 3478,
+    "bPeriods": [
+      [
+        "10412.78007",
+        343,
+        "30.35795938775510204081632653"
+      ],
+      [
+        "9940.97291",
+        315,
+        "31.55864415873015873015873016"
+      ],
+      [
+        "8596.31347",
+        262,
+        "32.81035675572519083969465649"
+      ]
+    ],
+    "bAttachedResultMatches": true,
+    "p11Rows": 18907,
+    "p11CleanRows": 18906,
+    "p17Rows": 889,
+    "p17OneHotColumns": 27,
+    "p17FeatureColumns": 33,
+    "p17SavedCounts": [
+      73,
+      154,
+      313,
+      349
+    ],
+    "p17SavedProfileStatistic": "std, not mean"
+  },
+  "originalModelRerun": false,
+  "codeHashes": [
+    {
+      "path": "analysis/adapters/P01/adapter.py",
+      "sha256": "138abb094cfdfa575013fceda1ea40f2f2d6fc611bbdb74ec8a4ee5cc8d0db6f"
+    },
+    {
+      "path": "analysis/adapters/P02/adapter.py",
+      "sha256": "f2489886a4bd5051b89bbe3a4aa884394e4d2855dd85221fefb669dd461a2220"
+    },
+    {
+      "path": "analysis/adapters/P03/adapter.py",
+      "sha256": "a49994f7ac02ff8c354a5e8d9ae0e5abe6bea276ab2cd83fefec16a935d9189a"
+    },
+    {
+      "path": "analysis/adapters/P04/adapter.py",
+      "sha256": "4dacc59f7f3637594aa730af1460fabb3c7a39fcbe706e054fa1538de386b4d9"
+    },
+    {
+      "path": "analysis/adapters/P05/adapter.py",
+      "sha256": "0bea44248dcedf9eee031f26df80466a323850fbde4d634f7cf5ac18aad5a3fd"
+    },
+    {
+      "path": "analysis/adapters/P06/adapter.py",
+      "sha256": "cd9f3bc1176be9d5fb6b40147d609571be1bb4d21cef28d32b67797213bb8258"
+    },
+    {
+      "path": "analysis/adapters/P07/adapter.py",
+      "sha256": "47a32bd13ab7f18860337baa291cc32f8cabeadabafcd94d9633ae09c1f8b2de"
+    },
+    {
+      "path": "analysis/adapters/P08/adapter.py",
+      "sha256": "62060e2a32a982e2b48c6169d52c4842a56994307a7ef2448cb75a7bf15dd228"
+    },
+    {
+      "path": "analysis/adapters/P09/adapter.py",
+      "sha256": "1fe258d71ccb132f10bea7867edd725ca3a5b9279cdc4db43b544cb73b198b6a"
+    },
+    {
+      "path": "analysis/adapters/P10/adapter.py",
+      "sha256": "c5b404cf5b43c839c7c9b9bc9ad4c69b828264450c6e37369463d336d1d256da"
+    },
+    {
+      "path": "analysis/adapters/P11/adapter.py",
+      "sha256": "74f1b5cad4b3786d70392e248364d398b3758be7b47f0165d837bebd25b64a6e"
+    },
+    {
+      "path": "analysis/adapters/P12/adapter.py",
+      "sha256": "2fe81f35a653168c44de4e777ffad8149334e35899b7de5b32b93fcc420f96e1"
+    },
+    {
+      "path": "analysis/adapters/P13/adapter.py",
+      "sha256": "db2b133e17468bd28c400e63cbfb9347ccb698c1e43f493e9523350e0a750831"
+    },
+    {
+      "path": "analysis/adapters/P14/adapter.py",
+      "sha256": "5407bfbab3444bbc2f0df0c95dd1b0fbcbd229eddc5fb4e7873bdaf8f939949b"
+    },
+    {
+      "path": "analysis/adapters/P15/adapter.py",
+      "sha256": "e8020b83b65a71753d8ccb2122e682cecfb98818c1c2aad1e56a12851d4326c4"
+    },
+    {
+      "path": "analysis/adapters/P16/adapter.py",
+      "sha256": "9a5e3eff70374d9179124c6df82a4ab7db999d3e7cd4a86bee450d0532e4cc65"
+    },
+    {
+      "path": "analysis/adapters/P17/adapter.py",
+      "sha256": "2c0e043f6335beadf9402df0c9b9edcb06240efa5f3e4a6844d988e1bfd4a51c"
+    },
+    {
+      "path": "analysis/adapters/P18/adapter.py",
+      "sha256": "9b3be0e0a06a8b0422289c57536cacdb58d59fa045601c13089a032fea8cc279"
+    },
+    {
+      "path": "analysis/adapters/P19/adapter.py",
+      "sha256": "afbee0f99e210cfdc9b1f5abcb090a163669c4dd9c2f49a23c23bc5bb5f30333"
+    },
+    {
+      "path": "analysis/adapters/P20/adapter.py",
+      "sha256": "b9e60b3369f3f50c9577f8fe69f544a28b02ff98b4d5ca3a2c72d22a275f6f09"
+    },
+    {
+      "path": "analysis/adapters/P21/adapter.py",
+      "sha256": "e96e224c2a033b1c03da47e8e8014bfedba43a3df81c7292f2441fed4cfad5e5"
+    },
+    {
+      "path": "analysis/adapters/P22/adapter.py",
+      "sha256": "349dd71b05102fdc71ed3f7a7c0e1d9670cc9106a27d8d315901a24cec413130"
+    },
+    {
+      "path": "analysis/adapters/P23/adapter.py",
+      "sha256": "1a1e7767b6a486c7e23a44b0e314f2f68ca5c2853d0c638ec6b86962c9a45dd8"
+    },
+    {
+      "path": "analysis/adapters/P24/adapter.py",
+      "sha256": "eadc6521d0303eb5af6eb1d98328656c8687dd9099d0a14c8963bf93a110096c"
+    },
+    {
+      "path": "analysis/adapters/P25/adapter.py",
+      "sha256": "274c8146fd8d52a9aed938c6218ec80f0f2fbeea7fa122b84dea0d7f09c7040d"
+    },
+    {
+      "path": "analysis/adapters/P26/adapter.py",
+      "sha256": "64b0ba5a52888b6d999107f54831cff7e607545265c72487b18ff4539b0df221"
+    },
+    {
+      "path": "analysis/adapters/P27/adapter.py",
+      "sha256": "587be3b671c3983c4e44e215d2c1fad0972b9905f0c885c94e61048e4810e54e"
+    },
+    {
+      "path": "analysis/adapters/P28/adapter.py",
+      "sha256": "a9ef95d4af006a445cb00e0f7bebd009e6a02b1ae7daa36aa1812070410608e3"
+    },
+    {
+      "path": "analysis/adapters/P29/adapter.py",
+      "sha256": "21181d23917ca166aa7cabc49a2c01f0a181e1d347b55d9a899f695afa187971"
+    },
+    {
+      "path": "analysis/adapters/phase3.py",
+      "sha256": "be9f777d2a04c1c1773e5f6ddeeb0d8b2c98f95796743b7eac9703b98a08cb19"
+    },
+    {
+      "path": "analysis/adapters/phase4.py",
+      "sha256": "a0242a7107b170cb30cb8ff1c72cdeac48f2bf39dcc324f4b5aabc76c87df5bd"
+    },
+    {
+      "path": "analysis/adapters/phase4_batch_a.py",
+      "sha256": "c51c16ea88a161332ce101132b6412c6c9ae6596889bf8f0047801064162af15"
+    },
+    {
+      "path": "analysis/adapters/phase4_common.py",
+      "sha256": "ef72f771dc297dee69ce5a5d0e60f74bba0822328e4905e1ae909859984e1a58"
+    },
+    {
+      "path": "analysis/adapters/phase4_evidence.py",
+      "sha256": "119e60cb46858cdffedffcec6b77a295f0bd57bf18ea421b6763b616809892ff"
+    },
+    {
+      "path": "analysis/adapters/phase4_projects.py",
+      "sha256": "65b952c5488189cf828ae36d47d1fc984bea30cbf1e0b56468c0ffd8c1bcaffe"
+    },
+    {
+      "path": "analysis/adapters/phase6_review.py",
+      "sha256": "518521d8c5324dd31b32b251663c5d236bc3b096ea6c666c28fd22fb45895bc5"
+    }
+  ],
+  "parametersByProject": "learning/coverage.json",
+  "requirements": {
+    "path": "analysis/environments/phase4-requirements.txt",
+    "sha256": "68ba3791547ca5d1c91c16eba711ff53f9084c604fecaca94efe72d74294dfe8"
+  },
+  "lastRunProjects": [
+    {
+      "projectId": "P07",
+      "trainedVersions": []
+    }
+  ]
+}

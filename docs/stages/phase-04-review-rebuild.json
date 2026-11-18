@@ -1,0 +1,89 @@
+{
+  "steps": 385,
+  "results": 553,
+  "activeAssets": 681,
+  "listedOutputs": 681,
+  "missingActive": [],
+  "unreferencedManifest": [],
+  "staleCodeHashes": [],
+  "codeHashCount": 35,
+  "coverageResources": {
+    "P01": 25,
+    "P02": 29,
+    "P03": 12,
+    "P04": 50,
+    "P05": 25,
+    "P06": 23,
+    "P07": 12,
+    "P08": 43,
+    "P09": 12,
+    "P10": 19,
+    "P11": 12,
+    "P12": 30,
+    "P13": 22,
+    "P14": 9,
+    "P15": 17,
+    "P16": 28,
+    "P17": 15,
+    "P18": 19,
+    "P19": 24,
+    "P20": 36,
+    "P21": 17,
+    "P22": 25,
+    "P23": 28,
+    "P24": 50,
+    "P25": 9,
+    "P26": 23,
+    "P27": 9,
+    "P28": 24,
+    "P29": 34
+  },
+  "nonOriginalImages": [
+    {
+      "id": "p07-v4-photos",
+      "identity": "teaching-adaptation"
+    }
+  ],
+  "nullCharts": [
+    {
+      "id": "p15-v4-city-level",
+      "type": "bar"
+    }
+  ],
+  "multiMetricCharts": [
+    {
+      "id": "p20-v4-sku",
+      "ys": [
+        "快照行数",
+        "不同商品ID数"
+      ],
+      "unit": "行 / 商品ID"
+    },
+    {
+      "id": "p25-v4-ages",
+      "ys": [
+        "0—14岁",
+        "15—59岁",
+        "60岁及以上"
+      ],
+      "unit": "比例0—1"
+    },
+    {
+      "id": "p26-v4-ages",
+      "ys": [
+        "0—14岁",
+        "15—59岁",
+        "60岁及以上"
+      ],
+      "unit": "比例0—1"
+    }
+  ],
+  "semanticChanges": [
+    "learning/resources/p03-v4-centers.json",
+    "learning/resources/p07-v4-photos.json",
+    "learning/resources/p24-v4-holdout-scatter.json",
+    "learning/resources/p24-v4-holdout.json"
+  ],
+  "imageChanges": [],
+  "stableStepIDs": true
+}

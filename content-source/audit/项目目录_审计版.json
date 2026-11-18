@@ -1,0 +1,1032 @@
+[
+  {
+    "id": "P01",
+    "title": "信用卡欺诈交易预测",
+    "originalDirectory": "交易预测-约600行（EDA数据探索、逻辑回归、决策树、模型调参、模型评估）",
+    "category": "交易与风险识别",
+    "difficulty": "高级",
+    "question": "识别信用卡交易中的欺诈样本，比较采样及类别权重方案。",
+    "verifiedSkills": [
+      "Pandas",
+      "NumPy",
+      "EDA",
+      "Plotly",
+      "Matplotlib",
+      "特征缩放",
+      "类别不平衡",
+      "逻辑回归",
+      "决策树",
+      "网格搜索",
+      "模型评估"
+    ],
+    "methods": "LogisticRegression、DecisionTreeClassifier；RandomOverSampler、SMOTE、SMOTETomek",
+    "sourceNotebooks": [
+      "交易预测-约600行（EDA数据探索、逻辑回归、决策树、模型调参、模型评估）\\信用卡欺诈交易预测.ipynb"
+    ],
+    "sourceCodeRead": true,
+    "pipelineRerun": false,
+    "limitations": "缩放在全量数据上拟合；过采样后再做内部CV有泄漏风险；多处ROC/AUC用硬标签，不能作为完整概率排序AUC；不能把不平衡直接等同于过拟合。",
+    "learningSteps": [
+      "识别少数类与业务代价",
+      "核对PCA匿名字段",
+      "观察金额和时间分布",
+      "追踪缩放和采样边界",
+      "比较采样及权重",
+      "审查ROC输入",
+      "总结漏报误报"
+    ],
+    "exercise": "从保存混淆矩阵计算Recall；设计只在训练折采样的改进实验。"
+  },
+  {
+    "id": "P02",
+    "title": "自行车租赁数量预测",
+    "originalDirectory": "交通出行-共享单车预测租赁数量-约300行（随机森林、支持向量机模型）",
+    "category": "交通出行与旅游",
+    "difficulty": "高级",
+    "question": "根据天气和时间等信息预测共享单车租赁数量。",
+    "verifiedSkills": [
+      "Pandas",
+      "NumPy",
+      "Matplotlib",
+      "Seaborn",
+      "EDA",
+      "特征工程",
+      "随机森林回归",
+      "SVR",
+      "模型评估"
+    ],
+    "methods": "RandomForestRegressor、SVR",
+    "sourceNotebooks": [
+      "交通出行-共享单车预测租赁数量-约300行（随机森林、支持向量机模型）\\自行车租赁数量预测.ipynb"
+    ],
+    "sourceCodeRead": true,
+    "pipelineRerun": false,
+    "limitations": "随机切分不代表未来时间预测；风速处理发生于全量表；未固定森林随机种子；对比折线横轴是测试样本顺序，非真实连续时间。",
+    "learningSteps": [
+      "认识租赁目标",
+      "核对count组成",
+      "观察高峰与天气",
+      "追踪风速替换",
+      "构建时间特征与去泄漏字段",
+      "比较RF和SVR",
+      "解释重要性和时间验证局限"
+    ],
+    "exercise": "解释为何删除casual/registered；设计按日期向后留出的验证方案。"
+  },
+  {
+    "id": "P03",
+    "title": "航空公司客户价值分析",
+    "originalDirectory": "交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）",
+    "category": "交通出行与旅游",
+    "difficulty": "进阶",
+    "question": "用会员关系和乘机行为构建客户价值分群。",
+    "verifiedSkills": [
+      "Pandas",
+      "NumPy",
+      "Matplotlib",
+      "数据清洗",
+      "LRFMC",
+      "Z-score",
+      "KMeans",
+      "雷达图"
+    ],
+    "methods": "KMeans，原代码k=5；LRFMC为业务指标模型",
+    "sourceNotebooks": [
+      "交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）\\航空公司客户价值分析.ipynb"
+    ],
+    "sourceCodeRead": true,
+    "pipelineRerun": false,
+    "limitations": "目录LRFCM与文中LRFMC拼写不一致；R直接取LAST_TO_END，不能照抄说明中的月单位；聚类序号会改变，文中客户编号与中心对应关系须复核；k=5不能仅以指标数证明。",
+    "learningSteps": [
+      "了解会员价值",
+      "阅读44字段字典",
+      "追踪62988到62044的清洗",
+      "逐项计算LRFMC",
+      "比较量纲与标准化",
+      "阅读5群中心",
+      "核对画像及编号"
+    ],
+    "exercise": "手算一位会员的L；用中心值给群体命名，不按编号套用名称。"
+  },
+  {
+    "id": "P04",
+    "title": "全球酒店预订分析与预测",
+    "originalDirectory": "交通旅行-全球酒店预订分析与预测-约550行（数据探索分析、随机森林、XGBoost、逻辑回归）",
+    "category": "交通出行与旅游",
+    "difficulty": "高级",
+    "question": "探索酒店订单取消因素，并比较三个取消预测分类器。",
+    "verifiedSkills": [
+      "Pandas",
+      "NumPy",
+      "Matplotlib",
+      "Seaborn",
+      "EDA",
+      "OrdinalEncoder",
+      "StandardScaler",
+      "随机森林",
+      "XGBoost",
+      "逻辑回归",
+      "ROC"
+    ],
+    "methods": "RandomForestClassifier、XGBClassifier、LogisticRegression",
+    "sourceNotebooks": [
+      "交通旅行-全球酒店预订分析与预测-约550行（数据探索分析、随机森林、XGBoost、逻辑回归）\\全球酒店预订分析与预测.ipynb"
+    ],
+    "sourceCodeRead": true,
+    "pipelineRerun": false,
+    "limitations": "实际arrival_date_year为2015/2016/2017，非文件名2022；编码缩放先于切分；same_assignment等字段在预订时是否可得需确认；取消原因不能从相关性直接归因。",
+    "learningSteps": [
+      "核对预订发生时点",
+      "认识日期范围",
+      "按酒店/渠道观察取消率",
+      "解释派生字段",
+      "审查特征可得性",
+      "比较三个模型",
+      "检查泄漏和结论范围"
+    ],
+    "exercise": "区分预订时可得与事后字段；说明高取消比例不等于押金政策的因果效应。"
+  },
+  {
+    "id": "P05",
+    "title": "旅游景点",
+    "originalDirectory": "交通旅行-热门旅游景点数据分析与可视化-约300行（pandas数据处理、pyecharts可视化、jieba分词）",
+    "category": "交通出行与旅游",
+    "difficulty": "初级",
+    "question": "用景点售卖样本观察热度、价格、星级和地域分布。",
+    "verifiedSkills": [
+      "Pandas",
+      "Pyecharts",
+      "Jieba",
+      "词频",
+      "数据清洗",
+      "分组统计",
+      "地图"
+    ],
+    "methods": "无监督训练或预测模型未实现；Jieba分词用于简介词云",
+    "sourceNotebooks": [
+      "交通旅行-热门旅游景点数据分析与可视化-约300行（pandas数据处理、pyecharts可视化、jieba分词）\\旅游景点.ipynb"
+    ],
+    "sourceCodeRead": true,
+    "pipelineRerun": false,
+    "limitations": "样本门票销量不代表全国实际出游人数；销量0是否删除会改变总体；城市列用于省级映射需核对含义；票价异常值未充分说明。",
+    "learningSteps": [
+      "认识景点样本口径",
+      "核对11字段",
+      "对比剔除零销量",
+      "排序热门景点",
+      "比较省市和星级",
+      "观察票价区间",
+      "解释简介词云及样本局限"
+    ],
+    "exercise": "保留零销量重算分布；比较景区数量与销量的区别。"
+  },
+  {
+    "id": "P06",
+    "title": "120年奥运会数据可视化",
+    "originalDirectory": "体育-数据可视化-约1300行（Pyecharts可视化）",
+    "category": "体育数据分析",
+    "difficulty": "初级",
+    "question": "从参赛、奖牌、运动项目和体质等维度分析奥运历史样本。",
+    "verifiedSkills": [
+      "Pandas",
+      "NumPy",
+      "Pyecharts",
+      "多表合并",
+      "分组聚合",
+      "去重计数",
+      "时间趋势"
+    ],
+    "methods": "没有机器学习模型",
+    "sourceNotebooks": [
+      "体育-数据可视化-约1300行（Pyecharts可视化）\\120年奥运会数据可视化.ipynb"
+    ],
+    "sourceCodeRead": true,
+    "pipelineRerun": false,
+    "limitations": "271116行为运动员参赛事件，非独立运动员数；团体奖牌计数与按Name去重均需审查；包含历史叙述错误风险，教学以数据口径为主；长代码不等于高级算法。",
+    "learningSteps": [
+      "识别参赛事件粒度",
+      "合并NOC",
+      "区分个人与团体奖牌",
+      "切换夏冬奥",
+      "观察参赛和性别趋势",
+      "比较体质均值",
+      "复核国家优势结论"
+    ],
+    "exercise": "比较count、nunique(ID)、nunique(Name)；说明团体奖牌为何可能重复计数。"
+  },
+  {
+    "id": "P07",
+    "title": "基于水色图像的水质评估",
+    "originalDirectory": "其他-基于水色图像的水质评估-约200行（支持向量机）",
+    "category": "环境与水质评估",
+    "difficulty": "高级",
+    "question": "从水色图像颜色矩构造特征并用SVM区分水质类别。",
+    "verifiedSkills": [
+      "Pillow",
+      "NumPy",
+      "Pandas",
+      "Scikit-learn",
+      "颜色矩",
+      "L2归一化",
+      "SVC",
+      "混淆矩阵",
+      "Joblib"
+    ],
+    "methods": "SVC；保存模型svcmodel.pkl",
+    "sourceNotebooks": [
+      "其他-基于水色图像的水质评估-约200行（支持向量机）\\基于水色图像的水质评估.ipynb"
+    ],
+    "sourceCodeRead": true,
+    "pipelineRerun": false,
+    "limitations": "199张图像与203行特征不全匹配，缺4张；picData支路与moment训练支路未证实一一对应；三阶代码用绝对偏差，不能称有符号三阶中心矩；未设置切分种子；模型文件未加载执行。",
+    "learningSteps": [
+      "认识样本命名和缺图",
+      "观察中心裁剪",
+      "计算RGB九特征",
+      "区分两条特征来源",
+      "审查缩放与划分",
+      "阅读SVC及混淆矩阵",
+      "说明水色判断的适用范围"
+    ],
+    "exercise": "对照特征表找缺图；解释绝对三阶偏差与偏度不同。"
+  },
+  {
+    "id": "P08",
+    "title": "拍拍贷平台业务数据分析",
+    "originalDirectory": "平台业务数据分析-约800行（数据探索分析、matplotlib可视化）",
+    "category": "平台业务分析",
+    "difficulty": "高级",
+    "question": "围绕借款人画像、还款、催收及投资记录进行多表业务分析。",
+    "verifiedSkills": [
+      "Pandas",
+      "NumPy",
+      "Matplotlib",
+      "EDA",
+      "多表合并",
+      "数据透视",
+      "日期处理",
+      "累计指标"
+    ],
+    "methods": "无机器学习训练；有基于均值和标准差的业务估算",
+    "sourceNotebooks": [
+      "平台业务数据分析-约800行（数据探索分析、matplotlib可视化）\\拍拍贷平台业务数据分析.ipynb"
+    ],
+    "sourceCodeRead": true,
+    "pipelineRerun": false,
+    "limitations": "LP有3203276行，整表入浏览器不可取；LCIS为多期快照，不能按独立借款重复求和；全表dropna可能删除未还款记录；说明明确仅为业务样本、不代表平台整体；3σ概率保证缺分布前提。",
+    "learningSteps": [
+      "读数据用途和三表粒度",
+      "检查缺失对未还款样本影响",
+      "构建借款画像",
+      "审查资金储备假设",
+      "逐期关联还款",
+      "核对催收率分母",
+      "重建快照收益",
+      "写样本局限"
+    ],
+    "exercise": "说明ListingId在LP中为何不唯一；审查dropna对逾期比例的影响。"
+  },
+  {
+    "id": "P09",
+    "title": "链家房源信息抓取+可视化",
+    "originalDirectory": "房地产-二手房+可视化-约300行（爬虫+pyecharts可视化）",
+    "category": "房地产数据分析",
+    "difficulty": "进阶",
+    "question": "展示链家深圳房源采集思路及房价、户型和标题可视化。",
+    "verifiedSkills": [
+      "Requests",
+      "BeautifulSoup",
+      "lxml",
+      "正则表达式",
+      "Pandas",
+      "Pyecharts",
+      "Jieba",
+      "数据采集"
+    ],
+    "methods": "没有机器学习模型；chromedriver.exe虽附带但主代码未使用Selenium",
+    "sourceNotebooks": [
+      "房地产-二手房+可视化-约300行（爬虫+pyecharts可视化）\\链家房源信息抓取+可视化.ipynb"
+    ],
+    "sourceCodeRead": true,
+    "pipelineRerun": false,
+    "limitations": "未实际联网运行爬虫；网站结构与采集可用性未验证；与P11表结构相同但2个title值不同，不能当完全相同副本；不应要求离线学习时重新采集。",
+    "learningSteps": [
+      "分开采集和分析支路",
+      "阅读地区页解析代码",
+      "追踪字段抽取",
+      "用本地快照学习",
+      "比较区域和小区指标",
+      "解释标题分词",
+      "记录采集时效边界"
+    ],
+    "exercise": "追踪一个字段如何由HTML进入表；检查低样本小区均价为何不稳定。"
+  },
+  {
+    "id": "P10",
+    "title": "二手房房价分析和预测房价",
+    "originalDirectory": "房地产-二手房房价分析和预测-约300行(多元线性回归)",
+    "category": "房地产数据分析",
+    "difficulty": "进阶",
+    "question": "将户型等特征数值化，构建二手房总价线性回归。",
+    "verifiedSkills": [
+      "Pandas",
+      "NumPy",
+      "Matplotlib",
+      "Scikit-learn",
+      "Statsmodels",
+      "One-Hot",
+      "线性回归",
+      "模型评估"
+    ],
+    "methods": "LinearRegression、statsmodels.OLS；单变量及多变量回归、特征组合搜索",
+    "sourceNotebooks": [
+      "房地产-二手房房价分析和预测-约300行(多元线性回归)\\二手房房价分析和预测房价.ipynb"
+    ],
+    "sourceCodeRead": true,
+    "pipelineRerun": false,
+    "limitations": "OLS解释有错误：[0.025,0.975]是95%区间；Std.Err是标准误；特征组合及测试集复用需审查；样本城市及采集期没有可靠独立来源说明。",
+    "learningSteps": [
+      "认识房价目标与单位",
+      "拆分户型",
+      "学习基准类别编码",
+      "面积单变量基线",
+      "多变量评估",
+      "审查OLS文字",
+      "比较特征选择与过拟合",
+      "解释示例价格"
+    ],
+    "exercise": "解释R²不等于正确率；指出回归系数与因果效应的区别。"
+  },
+  {
+    "id": "P11",
+    "title": "链家二手房数据分析",
+    "originalDirectory": "房地产-二手房数据分析-约400行（数据探索分析、matplotlib可视化）",
+    "category": "房地产数据分析",
+    "difficulty": "入门",
+    "question": "用深圳二手房样本完成异常核对和多维度描述分析。",
+    "verifiedSkills": [
+      "Pandas",
+      "NumPy",
+      "Matplotlib",
+      "数据清洗",
+      "EDA",
+      "分组统计"
+    ],
+    "methods": "没有预测模型",
+    "sourceNotebooks": [
+      "房地产-二手房数据分析-约400行（数据探索分析、matplotlib可视化）\\链家二手房数据分析.ipynb"
+    ],
+    "sourceCodeRead": true,
+    "pipelineRerun": false,
+    "limitations": "均价、样本供给分布不能解释购房偏好或因果；原文含700百万等单位错误；为历史样本，不能当当前购房建议。",
+    "learningSteps": [
+      "认识挂牌样本",
+      "读取12列",
+      "调查10871平方米异常",
+      "按区域统计",
+      "比较户型装修朝向",
+      "观察面积与总价",
+      "写有限结论"
+    ],
+    "exercise": "比较剔除异常前后面积均值；把“导致”改写为数据支持的关系描述。"
+  },
+  {
+    "id": "P12",
+    "title": "历年考研分数线数据可视化",
+    "originalDirectory": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）",
+    "category": "教育数据分析",
+    "difficulty": "初级",
+    "question": "整理历年院校专业分数线及2021年调剂信息并展示。",
+    "verifiedSkills": [
+      "Pandas",
+      "NumPy",
+      "Pyecharts",
+      "Jieba",
+      "StyleCloud",
+      "拼接",
+      "数据清洗",
+      "多表连接"
+    ],
+    "methods": "没有机器学习模型",
+    "sourceNotebooks": [
+      "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）\\历年考研分数线数据可视化.ipynb"
+    ],
+    "sourceCodeRead": true,
+    "pipelineRerun": false,
+    "limitations": "文件名“国家分数线”不能证明每行是全国统一线，字段是院校专业层级；747→774显示连接扩行风险；总分“-”等转值规则要单独解释；历史信息非现行报考依据。",
+    "learningSteps": [
+      "核对院校专业粒度",
+      "拼接六份表",
+      "解释去重与缺失规则",
+      "转换分数字符",
+      "按专业画范围",
+      "核对调剂连接扩行",
+      "看省份与发布时间",
+      "说明口径"
+    ],
+    "exercise": "检查school连接键是否唯一；比较专业记录数和去重专业数。"
+  },
+  {
+    "id": "P13",
+    "title": "国产进口电影票房分析",
+    "originalDirectory": "文化娱乐-国产进口电影票房分析（Pyecharts大屏可视化）",
+    "category": "文化娱乐数据分析",
+    "difficulty": "初级",
+    "question": "对国产、进口及全部票房榜进行关联统计和多图展示。",
+    "verifiedSkills": [
+      "Pandas",
+      "NumPy",
+      "Pyecharts",
+      "表格组件",
+      "多表关联",
+      "时间趋势",
+      "单位换算"
+    ],
+    "methods": "无预测模型",
+    "sourceNotebooks": [
+      "文化娱乐-国产进口电影票房分析（Pyecharts大屏可视化）\\国产进口电影票房分析.ipynb"
+    ],
+    "sourceCodeRead": true,
+    "pipelineRerun": false,
+    "limitations": "150行来自三个榜单，不能当150部独立电影；部分趋势表附带但未被核心代码读取；不能把Top50样本外推为整个电影市场。",
+    "learningSteps": [
+      "看清三个榜单",
+      "核对电影主键",
+      "追踪金额单位",
+      "比较国产进口排名",
+      "分析年份与类型",
+      "观察单片30日",
+      "复核大屏指标来源"
+    ],
+    "exercise": "计算榜单间重复电影数；解释累计票房和首周票房不可直接相加。"
+  },
+  {
+    "id": "P14",
+    "title": "微博情感分析",
+    "originalDirectory": "文化娱乐-情感分析-含实验-约150行（分词、朴素贝叶斯模型）",
+    "category": "文化娱乐数据分析",
+    "difficulty": "高级",
+    "question": "对微博文本进行喜悦、愤怒、厌恶、低落四类分类。",
+    "verifiedSkills": [
+      "Pandas",
+      "正则",
+      "Jieba",
+      "CountVectorizer",
+      "Scikit-learn",
+      "Pipeline",
+      "MultinomialNB",
+      "决策树",
+      "交叉验证"
+    ],
+    "methods": "MultinomialNB和DecisionTreeClassifier；词袋特征；Word2Vec仅导入未训练，未见深度学习实现",
+    "sourceNotebooks": [
+      "文化娱乐-情感分析-含实验-约150行（分词、朴素贝叶斯模型）\\数据分析实验源码\\微博情感分析.ipynb"
+    ],
+    "sourceCodeRead": true,
+    "pipelineRerun": false,
+    "limitations": "代码引用1_simplifyweibo.txt但未附，实际另有4_simplifyweibo.txt；可从现成CSV继续；Word报告称深度学习与代码不符，min_df解释也不符；文档与Notebook混淆矩阵不同；最后3×3单位阵是演示，不能冒充真实测试结果。",
+    "learningSteps": [
+      "核对原文缺失和可用CSV",
+      "确认四类映射",
+      "正则去标记与分词",
+      "建立词袋",
+      "NB五折验证",
+      "查看真实4×4矩阵",
+      "决策树对照",
+      "区分演示单位阵"
+    ],
+    "exercise": "计算多数类基线；指出报告“低于40%文档”与min_df=4的区别。"
+  },
+  {
+    "id": "P15",
+    "title": "春节档票房分析",
+    "originalDirectory": "文化娱乐-春节档票房分析（Pyecharts大屏可视化）",
+    "category": "文化娱乐数据分析",
+    "difficulty": "初级",
+    "question": "整理春节档影片、票房大盘和城市等级排片情况。",
+    "verifiedSkills": [
+      "Pandas",
+      "NumPy",
+      "Pyecharts",
+      "Timeline",
+      "单位转换",
+      "分组聚合",
+      "多表合并"
+    ],
+    "methods": "无预测模型",
+    "sourceNotebooks": [
+      "文化娱乐-春节档票房分析（Pyecharts大屏可视化）\\春节档票房分析.ipynb"
+    ],
+    "sourceCodeRead": true,
+    "pipelineRerun": false,
+    "limitations": "旧xls表头含“/万”但原值量级与转换标签不一致，必须核验；标题称七日但底表部分影片有30天；院线/时段等附表未全部用于主流程；城市字段是城市等级而非具体城市。",
+    "learningSteps": [
+      "界定春节档范围",
+      "核对八个工作簿",
+      "审查金额字段单位",
+      "清理混入的元数据行",
+      "比较影片和日趋势",
+      "按城市等级关联排片",
+      "控制轮播",
+      "写可核实结论"
+    ],
+    "exercise": "列出被剔除伪行；核对同片7日与30日指标区别。"
+  },
+  {
+    "id": "P16",
+    "title": "时令蔬菜有哪些",
+    "originalDirectory": "生活日常-时令蔬菜时间序列分析-约600行（matplotlib、seaborn可视化、多元回归）",
+    "category": "日常生活与农产品",
+    "difficulty": "高级",
+    "question": "通过月度批发价研究农产品趋势与季节性。",
+    "verifiedSkills": [
+      "Pandas",
+      "NumPy",
+      "Matplotlib",
+      "Seaborn",
+      "Statsmodels",
+      "时间序列探索",
+      "多元回归",
+      "One-Hot",
+      "热力图"
+    ],
+    "methods": "OLS：时间序号加月份哑变量与常数；未实现ARIMA或专门未来预测",
+    "sourceNotebooks": [
+      "生活日常-时令蔬菜时间序列分析-约600行（matplotlib、seaborn可视化、多元回归）\\时令蔬菜有哪些.ipynb"
+    ],
+    "sourceCodeRead": true,
+    "pipelineRerun": false,
+    "limitations": "文字列举品种数与实际46种需以数据为准；常数+12个月全哑变量造成矩阵奇异；原系数与p值不宜照抄为严谨推断；只有两年观察，低价不等于产量增加或上市季。",
+    "learningSteps": [
+      "认识月度价格和单位",
+      "比较四类曲线",
+      "计算变异系数",
+      "构造趋势月份回归",
+      "检查奇异矩阵",
+      "解读季节热力",
+      "区分价格与生长周期",
+      "设计滚动验证"
+    ],
+    "exercise": "指出哑变量陷阱；设计补充年份后验证季节稳定性的任务。"
+  },
+  {
+    "id": "P17",
+    "title": "聚类分析广告效果",
+    "originalDirectory": "电商-广告投放效果分析-约250行（KMeans聚类、数据分析）",
+    "category": "电商与零售",
+    "difficulty": "进阶",
+    "question": "根据渠道流量、转化和素材属性进行广告渠道分群。",
+    "verifiedSkills": [
+      "Pandas",
+      "NumPy",
+      "Matplotlib",
+      "Seaborn",
+      "OneHotEncoder",
+      "MinMaxScaler",
+      "KMeans",
+      "轮廓系数"
+    ],
+    "methods": "KMeans；搜索k=2到7，原保存k=4",
+    "sourceNotebooks": [
+      "电商-广告投放效果分析-约250行（KMeans聚类、数据分析）\\聚类分析广告效果.ipynb"
+    ],
+    "sourceCodeRead": true,
+    "pipelineRerun": false,
+    "limitations": "原文群体编号、数量与业务描述有错位，平台须绑定实际中心而非照抄；无成本收益字段支撑ROI结论；未固定随机种子。",
+    "learningSteps": [
+      "认识渠道指标",
+      "追踪缺失字段处置",
+      "比较编码前后",
+      "观察缩放改变距离",
+      "读取k与轮廓系数",
+      "检查群体数量",
+      "逐群核对画像"
+    ],
+    "exercise": "解释为何独热而非任意数字编码；核对原结论的簇编号错位。"
+  },
+  {
+    "id": "P18",
+    "title": "京东评论数据情感分析",
+    "originalDirectory": "电商-数据情感分析-约150行（分词、关键词提取、情感分析）",
+    "category": "电商与零售",
+    "difficulty": "进阶",
+    "question": "对京东评论做预训练情感评分、分词及关键词探索。",
+    "verifiedSkills": [
+      "Pandas",
+      "Matplotlib",
+      "NumPy",
+      "SnowNLP",
+      "Jieba",
+      "TF-IDF关键词",
+      "WordCloud"
+    ],
+    "methods": "调用SnowNLP现成情感评分；没有自行训练或独立标注集验证",
+    "sourceNotebooks": [
+      "电商-数据情感分析-约150行（分词、关键词提取、情感分析）\\京东评论数据情感分析.ipynb"
+    ],
+    "sourceCodeRead": true,
+    "pipelineRerun": false,
+    "limitations": "分数不等于经本数据校准的真实概率；阈值分类不是真实人工标签；“未填写”等文本会影响结果；不能从负面词直接推断品控因果。",
+    "learningSteps": [
+      "认识评论与评分字段",
+      "检查默认评论",
+      "查看SnowNLP接口",
+      "解释分数分布",
+      "调整显示阈值口径",
+      "对照整体和消极词",
+      "讨论人工抽样验证"
+    ],
+    "exercise": "抽样比较星级与情感分；说明阈值变化不代表模型重新训练。"
+  },
+  {
+    "id": "P19",
+    "title": "母婴市场消费数据分析",
+    "originalDirectory": "电商-母婴市场消费数据分析-约350行（pyecharts可视化、数据分析）",
+    "category": "电商与零售",
+    "difficulty": "初级",
+    "question": "分析母婴交易的时间变化、复购与品类销量。",
+    "verifiedSkills": [
+      "Pandas",
+      "NumPy",
+      "Pyecharts",
+      "Matplotlib",
+      "Seaborn",
+      "数据清洗",
+      "时间聚合",
+      "复购分析"
+    ],
+    "methods": "无预测模型；背景提到年龄/购买预测，代码未实现",
+    "sourceNotebooks": [
+      "电商-母婴市场消费数据分析-约350行（pyecharts可视化、数据分析）\\母婴市场消费数据分析.ipynb"
+    ],
+    "sourceCodeRead": true,
+    "pipelineRerun": false,
+    "limitations": "两表覆盖不同，婴儿表953人，代码并未实现年龄预测；无单价不能计算营业额；原文将销量称销售额、日期有笔误；节日原因是推测；抽样不支持全国市场规模或质量归因。",
+    "learningSteps": [
+      "辨认两表覆盖",
+      "检查购买量极值",
+      "解释清洗边界",
+      "按月季年对比",
+      "放大节日窗口",
+      "核对复购分母",
+      "按品类总结"
+    ],
+    "exercise": "解释为什么没有销售额；比较按订单行与独立用户定义复购。"
+  },
+  {
+    "id": "P20",
+    "title": "天猫双十一美妆销售数据分析",
+    "originalDirectory": "电商-美妆销售数据分析-约400行（matplotlib可视化、数据分析）",
+    "category": "电商与零售",
+    "difficulty": "初级",
+    "question": "从商品快照比较美妆品牌、品类、价格及销量指标。",
+    "verifiedSkills": [
+      "Pandas",
+      "NumPy",
+      "Matplotlib",
+      "Seaborn",
+      "Jieba",
+      "去重",
+      "缺失处理",
+      "文本规则分类",
+      "EDA"
+    ],
+    "methods": "没有机器学习模型；标题分类为词典规则",
+    "sourceNotebooks": [
+      "电商-美妆销售数据分析-约400行（matplotlib可视化、数据分析）\\天猫双十一美妆销售数据分析.ipynb"
+    ],
+    "sourceCodeRead": true,
+    "pipelineRerun": false,
+    "limitations": "原文27599与表差1；补0会把未知当零；sale_count为快照口径是否可跨天相加未证实；男士专用商品不等于购买者性别；估算金额非核实成交额。",
+    "learningSteps": [
+      "认识商品快照粒度",
+      "对照去重与填空",
+      "追踪词典分类",
+      "审查销售额口径",
+      "比较品牌及品类",
+      "解读价格热度气泡",
+      "讨论时间重复统计"
+    ],
+    "exercise": "比较填0和保留未知的影响；解释男士产品与男性客户的区别。"
+  },
+  {
+    "id": "P21",
+    "title": "超市销售数据分析与报表（两节课程）",
+    "originalDirectory": "电商-超市销售数据分析与报表-约200行（数据透视分析）",
+    "category": "电商与零售",
+    "difficulty": "入门",
+    "question": "用超市交易明细学习分组、透视及月度报表。",
+    "verifiedSkills": [
+      "Pandas",
+      "Matplotlib",
+      "Datetime",
+      "groupby",
+      "pivot_table",
+      "去重",
+      "同比环比",
+      "报表导出"
+    ],
+    "methods": "无机器学习模型",
+    "sourceNotebooks": [
+      "电商-超市销售数据分析与报表-约200行（数据透视分析）\\1、超市销售数据分析.ipynb",
+      "电商-超市销售数据分析与报表-约200行（数据透视分析）\\2、超市销售数据自动化报表.ipynb"
+    ],
+    "sourceCodeRead": true,
+    "pipelineRerun": false,
+    "limitations": "order-14.1有3744行，其中266行7列全空；文件名与保存结果的时期不能互代；结束日期用月末00:00可能漏月末白天交易；去重订单是订单量代理，不能当实测客流人数。",
+    "learningSteps": [
+      "A认识一单多行",
+      "A编码日期读取",
+      "A类别与商品透视",
+      "A金额和门店占比",
+      "A小时订单去重",
+      "B全空行与日期区间",
+      "B三项月指标及同比环比",
+      "B报表解释和练习"
+    ],
+    "exercise": "手算三条明细销售额；解释订单数为何小于明细行数。"
+  },
+  {
+    "id": "P22",
+    "title": "优衣库门店可视化与顾客拜访数据分组",
+    "originalDirectory": "电商-门店可视化与顾客分组-约500行（pyecharts地图可视化、KMeans聚类、大屏可视化）",
+    "category": "电商与零售",
+    "difficulty": "进阶",
+    "question": "用上海80人拜访地点示例展示位置编码、门店分布与地点聚类。",
+    "verifiedSkills": [
+      "Pandas",
+      "NumPy",
+      "Geopy",
+      "Pyecharts",
+      "Matplotlib",
+      "KMeans",
+      "肘部法",
+      "地理可视化"
+    ],
+    "methods": "KMeans：先k=8，再以肘部法讨论k=3",
+    "sourceNotebooks": [
+      "电商-门店可视化与顾客分组-约500行（pyecharts地图可视化、KMeans聚类、大屏可视化）\\优衣库门店可视化与顾客拜访数据分组.ipynb"
+    ],
+    "sourceCodeRead": true,
+    "pipelineRerun": false,
+    "limitations": "剩余拜访次数不是消费或客户价值；经纬度直接欧氏近似；坐标系来源/精度需核对；离线复用uniqlo2并关闭地理服务调用。",
+    "learningSteps": [
+      "区分人/地点/门店",
+      "对比三个地址表",
+      "读取现成坐标",
+      "去重聚合门店",
+      "看地理分布",
+      "80点分组",
+      "肘部法比较",
+      "解释地点分组边界"
+    ],
+    "exercise": "比较44条和40地址；解释聚类中心不是道路最短路线或最优选址。"
+  },
+  {
+    "id": "P23",
+    "title": "预测天猫用户使用优惠券概率较高的客群",
+    "originalDirectory": "电商-预测用户使用优惠券概率较高的客群-约350行（逻辑回归模型、模型评估）",
+    "category": "电商与零售",
+    "difficulty": "进阶",
+    "question": "使用客户及历史优惠券行为拟合优惠券使用分类模型。",
+    "verifiedSkills": [
+      "Pandas",
+      "Matplotlib",
+      "Seaborn",
+      "独热编码",
+      "逻辑回归",
+      "混淆矩阵",
+      "ROC",
+      "模型评估"
+    ],
+    "methods": "LogisticRegression，两轮特征方案",
+    "sourceNotebooks": [
+      "电商-预测用户使用优惠券概率较高的客群-约350行（逻辑回归模型、模型评估）\\预测天猫用户使用优惠券概率较高的客群.ipynb"
+    ],
+    "sourceCodeRead": true,
+    "pipelineRerun": false,
+    "limitations": "测试正类Recall=1/863≈0.116%，高准确率无效；AUC使用训练硬标签；二轮复用旧y_pred_train，不能声称优化后真实AUC；0.116等相关被误写强相关；exp系数是odds倍率而非概率倍率；平台真实来源未经独立验证。",
+    "learningSteps": [
+      "核对业务标签和来源",
+      "观察正类占比",
+      "编码及单变量",
+      "建立LR基线",
+      "逐格读混淆矩阵",
+      "纠正AUC输入与复用",
+      "解释odds与改进方向"
+    ],
+    "exercise": "算全预测不用券基线；从混淆矩阵算Precision/Recall。"
+  },
+  {
+    "id": "P24",
+    "title": "小红书",
+    "originalDirectory": "电商-预测用户消费金额-约500行（线性回归模型、模型评估优化）",
+    "category": "电商与零售",
+    "difficulty": "进阶",
+    "question": "用用户行为特征练习消费金额回归和模型解释。",
+    "verifiedSkills": [
+      "Pandas",
+      "Matplotlib",
+      "Seaborn",
+      "Scikit-learn",
+      "Statsmodels",
+      "缺失处理",
+      "独热编码",
+      "线性回归"
+    ],
+    "methods": "LinearRegression、ols；两套特征拟合",
+    "sourceNotebooks": [
+      "电商-预测用户消费金额-约500行（线性回归模型、模型评估优化）\\小红书.ipynb"
+    ],
+    "sourceCodeRead": true,
+    "pipelineRerun": false,
+    "limitations": "未切分独立测试，指标为拟合内表现；原缺失率输出与本地实读不符，实读gender/engaged各11729缺，age12736缺；均值填充造峰不能据此猜平台默认年龄；名称小红书不是来源证明；系数不代表营销增量因果。",
+    "learningSteps": [
+      "核对8字段与高缺失",
+      "比较填充前后年龄",
+      "探索偏态金额",
+      "检查相关",
+      "拟合与解释误差",
+      "比较低R²两轮",
+      "识别训练内评估",
+      "设计留出验证"
+    ],
+    "exercise": "指出年龄尖峰的来源；说明p值小为何仍可能R²很低。"
+  },
+  {
+    "id": "P25",
+    "title": "第七次全国人口普查-数据可视化",
+    "originalDirectory": "社会科学-人口普查-数据可视化-约750行（Pyecharts可视化、数据分析）",
+    "category": "社会科学与人口",
+    "difficulty": "初级",
+    "question": "整理第七次人口普查表格并展示地区人口结构。",
+    "verifiedSkills": [
+      "Pandas",
+      "Pyecharts",
+      "地图",
+      "条形图",
+      "比例图",
+      "数据清洗"
+    ],
+    "methods": "没有机器学习模型",
+    "sourceNotebooks": [
+      "社会科学-人口普查-数据可视化-约750行（Pyecharts可视化、数据分析）\\第七次全国人口普查-数据可视化.ipynb"
+    ],
+    "sourceCodeRead": true,
+    "pipelineRerun": false,
+    "limitations": "6份CSV含说明行，默认读取行数不等于有效省份数；部分概览为原文/硬编码值，不能伪称由CSV计算；3D地图系列名写GDP但值为人口；性别总量不能推算必然单身人数；65+是60+子集不可重复堆叠。",
+    "learningSteps": [
+      "辨认说明行",
+      "重建真实字段",
+      "核对人数和单位",
+      "比较2010/2020占比",
+      "分省年龄性别教育",
+      "追踪硬编码概览",
+      "审查不当推论"
+    ],
+    "exercise": "识别60+与65+重叠；把GDP错标签修正列入改编稿而非修改原稿。"
+  },
+  {
+    "id": "P26",
+    "title": "关于第七次全国人口普查数据的探索",
+    "originalDirectory": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）",
+    "category": "社会科学与人口",
+    "difficulty": "高级",
+    "question": "融合年龄、教育、GDP、城镇化及流动人口，研究省际年龄结构差异。",
+    "verifiedSkills": [
+      "Pandas",
+      "NumPy",
+      "SciPy",
+      "层次聚类",
+      "Altair",
+      "Pyecharts",
+      "Matplotlib",
+      "相关分析",
+      "多源融合"
+    ],
+    "methods": "scipy.cluster.hierarchy层次聚类；无回归预测",
+    "sourceNotebooks": [
+      "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）\\关于第七次全国人口普查数据的探索.ipynb"
+    ],
+    "sourceCodeRead": true,
+    "pipelineRerun": false,
+    "limitations": "不能只标Pyecharts，该项目确有层次聚类和Altair；流动人口数据部分内嵌代码；31省相关关系不能推出个体行为因果；城镇化缺年阈值编码需复核；地区拼接应显式检查错配。",
+    "learningSteps": [
+      "读取多层表头",
+      "统一省名指标单位",
+      "构造城镇化和流动特征",
+      "检查31省对齐",
+      "理解树状聚类",
+      "比较三组年龄",
+      "解释相关散点",
+      "讨论生态层面局限"
+    ],
+    "exercise": "检查按索引concat的风险；说明省级相关不能推断个人婚育选择。"
+  },
+  {
+    "id": "P27",
+    "title": "婚姻状况分析",
+    "originalDirectory": "社会科学-婚姻状况分析-约200行（plotly可视化、数据分析）",
+    "category": "社会科学与人口",
+    "difficulty": "入门",
+    "question": "用三次普查婚姻状态样本理解年龄性别与婚姻结构变化。",
+    "verifiedSkills": [
+      "Pandas",
+      "Plotly",
+      "groupby",
+      "merge",
+      "pivot",
+      "比例",
+      "交互图"
+    ],
+    "methods": "没有预测模型",
+    "sourceNotebooks": [
+      "社会科学-婚姻状况分析-约200行（plotly可视化、数据分析）\\婚姻状况分析.ipynb"
+    ],
+    "sourceCodeRead": true,
+    "pipelineRerun": false,
+    "limitations": "是抽样横截面状态，不是每年离婚发生率或个人结婚年龄追踪；只能表述样本/普查截面变化；有总体比例读数与年龄范围解释风险。",
+    "learningSteps": [
+      "看懂1224行记录",
+      "计算同年龄性别分母",
+      "2020结构",
+      "对比未婚曲线",
+      "切换2000/2010/2020",
+      "解读离婚与丧偶状态",
+      "写横截面结论"
+    ],
+    "exercise": "比较状态占比与事件率；解释为什么不能推算同一人的婚姻轨迹。"
+  },
+  {
+    "id": "P28",
+    "title": "分析员工过早离职原因",
+    "originalDirectory": "职场-分析员工过早离职原因-约300行（相关性分析、变量分析、plotly可视化）",
+    "category": "职场与人力资源",
+    "difficulty": "初级",
+    "question": "通过员工满意度、部门、工时和薪资探索离职关联。",
+    "verifiedSkills": [
+      "Pandas",
+      "NumPy",
+      "Plotly",
+      "Matplotlib",
+      "Seaborn",
+      "Colorlover",
+      "EDA",
+      "类别编码",
+      "相关分析"
+    ],
+    "methods": "没有训练离职预测模型",
+    "sourceNotebooks": [
+      "职场-分析员工过早离职原因-约300行（相关性分析、变量分析、plotly可视化）\\分析员工过早离职原因.ipynb"
+    ],
+    "sourceCodeRead": true,
+    "pipelineRerun": false,
+    "limitations": "标题“原因”不能代替因果识别；名义部门任意编码后的Pearson不宜解释；原低薪42%离职率需重算，按数据直接核对约29.69%；人数多与离职率高不同。",
+    "learningSteps": [
+      "认识在职离职标签",
+      "校验缺失和类别",
+      "比较群体均值",
+      "审查编码相关",
+      "按部门分母比较",
+      "核对薪资与晋升",
+      "区分原因与关联"
+    ],
+    "exercise": "分别算部门离职人数和率；解释名义编码相关为何不稳定。"
+  },
+  {
+    "id": "P29",
+    "title": "数据分析师岗位分析",
+    "originalDirectory": "职场-数据分析师职位分析-约300行（数据探索分析、matplotlib可视化）",
+    "category": "职场与人力资源",
+    "difficulty": "初级",
+    "question": "从深圳招聘样本分析数据分析师岗位的区域、薪资与技能。",
+    "verifiedSkills": [
+      "Pandas",
+      "NumPy",
+      "Matplotlib",
+      "Seaborn",
+      "Jieba",
+      "WordCloud",
+      "正则",
+      "字符串清理",
+      "EDA"
+    ],
+    "methods": "没有机器学习模型",
+    "sourceNotebooks": [
+      "职场-数据分析师职位分析-约300行（数据探索分析、matplotlib可视化）\\数据分析师岗位分析.ipynb"
+    ],
+    "sourceCodeRead": true,
+    "pipelineRerun": false,
+    "limitations": "原介绍437与实表差1；薪资区间中点不是实际收入；历史样本不能代表当前就业市场；SQL/机器学习等出现在职位文本中，不是该项目使用这些技术的证据。",
+    "learningSteps": [
+      "核对招聘样本及字段",
+      "整理区域行业",
+      "拆薪资区间",
+      "比较经验学历规模",
+      "读箱线图",
+      "分词技能要求",
+      "限定历史样本结论"
+    ],
+    "exercise": "比较区间上下界与中点；解释招聘文本标签和代码技术标签的区别。"
+  }
+]

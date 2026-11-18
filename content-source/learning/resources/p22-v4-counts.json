@@ -1,0 +1,105 @@
+{
+  "schemaVersion": "1.0",
+  "id": "p22-v4-counts",
+  "title": "真实已算k=3/8地点分组数",
+  "kind": "table",
+  "columns": [
+    "k方案",
+    "新簇ID",
+    "行数"
+  ],
+  "rows": [
+    [
+      "3",
+      "0",
+      11
+    ],
+    [
+      "3",
+      "1",
+      66
+    ],
+    [
+      "3",
+      "2",
+      3
+    ],
+    [
+      "8",
+      "0",
+      11
+    ],
+    [
+      "8",
+      "1",
+      2
+    ],
+    [
+      "8",
+      "2",
+      15
+    ],
+    [
+      "8",
+      "3",
+      9
+    ],
+    [
+      "8",
+      "4",
+      40
+    ],
+    [
+      "8",
+      "5",
+      1
+    ],
+    [
+      "8",
+      "6",
+      1
+    ],
+    [
+      "8",
+      "7",
+      1
+    ]
+  ],
+  "text": null,
+  "context": {
+    "identity": "teaching-adaptation",
+    "buildId": "phase4-v1",
+    "createdAt": "2026-11-16T12:58:37.389041+00:00",
+    "inputs": [
+      {
+        "path": "电商-门店可视化与顾客分组-约500行（pyecharts地图可视化、KMeans聚类、大屏可视化）/优衣库门店可视化与顾客拜访数据分组.ipynb",
+        "sha256": "26f251ebfd81462ae1c97061f9dbec49b8ca6ffe35a17ff3b24afab964e78775"
+      },
+      {
+        "path": "电商-门店可视化与顾客分组-约500行（pyecharts地图可视化、KMeans聚类、大屏可视化）/uniqlo2.csv",
+        "sha256": "85134715043965c641062cf78376f6feb7686ae0003a88ac56c88b1f4c95ae41"
+      }
+    ],
+    "note": "只切换已算方案；地点分组不是消费价值",
+    "unit": "拜访地点记录",
+    "sample": null,
+    "modelRerun": true,
+    "modelVersion": "P22-coordinate-k3-k8-v1"
+  },
+  "chart": {
+    "type": "bar",
+    "x": 1,
+    "ys": [
+      2
+    ],
+    "question": "真实已算k=3/8地点分组数",
+    "xLabel": "新簇ID",
+    "yLabel": "拜访地点记录",
+    "denominator": "不涉及比率；展示原量或统计量",
+    "range": "当前输入已说明范围的全量聚合",
+    "filters": "只切换已算方案；地点分组不是消费价值",
+    "nullPolicy": "缺失为null，保留0；不连接缺失点",
+    "interpretation": "对照同源表读取差异；关联不能推出因果或样本外结论。",
+    "filterColumn": 0
+  }
+}

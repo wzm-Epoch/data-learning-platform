@@ -1,0 +1,46 @@
+{
+  "schemaVersion": "1.0",
+  "id": "p24-v4-input-quality",
+  "title": "本项目各输入表的读取与质量核对",
+  "kind": "table",
+  "columns": [
+    "输入文件/工作表",
+    "读取行",
+    "列数",
+    "缺失单元格",
+    "完全重复行"
+  ],
+  "rows": [
+    [
+      "redNew.csv#None",
+      29452,
+      8,
+      36194,
+      1
+    ]
+  ],
+  "text": null,
+  "context": {
+    "identity": "new-precomputed",
+    "buildId": "phase4-v1",
+    "createdAt": "2026-11-16T12:58:37.389041+00:00",
+    "inputs": [
+      {
+        "path": "电商-预测用户消费金额-约500行（线性回归模型、模型评估优化）/小红书.ipynb",
+        "sha256": "40650aad9a7d0c531e29b850ac54b77f0e60ad578779d9023c0838ec9163c3ec"
+      },
+      {
+        "path": "电商-预测用户消费金额-约500行（线性回归模型、模型评估优化）/小红书.py",
+        "sha256": "4dc9d8c79cb86e56964ec4588092499050c552333390a33e6dd1f2d50dc18cbb"
+      },
+      {
+        "path": "电商-预测用户消费金额-约500行（线性回归模型、模型评估优化）/redNew.csv",
+        "sha256": "e1a086141c06fc04ec3a4584b962a486ea270986255a9afeab463beda6727ece"
+      }
+    ],
+    "note": "每张表分别统计；衍生表不当原始独立样本。人口多层表头在专属适配中另行解析。",
+    "unit": "行 / 列 / 单元格",
+    "sample": null,
+    "modelRerun": false
+  }
+}

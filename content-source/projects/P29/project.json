@@ -1,0 +1,218 @@
+{
+  "id": "P29",
+  "title": "数据分析师岗位分析",
+  "originalNames": [
+    "职场-数据分析师职位分析-约300行（数据探索分析、matplotlib可视化）",
+    "数据分析师岗位分析.ipynb"
+  ],
+  "categoryId": "career",
+  "summary": "从深圳招聘样本分析数据分析师岗位的区域、薪资与技能。",
+  "difficulty": "初级",
+  "skillTags": [
+    "Pandas",
+    "NumPy",
+    "Matplotlib",
+    "Seaborn",
+    "Jieba",
+    "WordCloud",
+    "正则",
+    "字符串清理",
+    "EDA"
+  ],
+  "methods": "没有机器学习模型",
+  "sourceRefs": [
+    {
+      "path": "职场-数据分析师职位分析-约300行（数据探索分析、matplotlib可视化）/.ipynb_checkpoints/数据分析师岗位分析-checkpoint.ipynb",
+      "sha256": "c252dd4d617437f6ebbc3ddd1ade593799b6611edee7fa0f361201b523133769",
+      "role": "code"
+    },
+    {
+      "path": "职场-数据分析师职位分析-约300行（数据探索分析、matplotlib可视化）/des.txt",
+      "sha256": "e3590385684393c17e6d9bd25fe88c6ad389a6842ce9e301130621341c6f4d1b",
+      "role": "data"
+    },
+    {
+      "path": "职场-数据分析师职位分析-约300行（数据探索分析、matplotlib可视化）/DT.jpg",
+      "sha256": "a145821e2ffcfb9184e7f252ca783469d6718eca3a3f4a897937852286bb5349",
+      "role": "output"
+    },
+    {
+      "path": "职场-数据分析师职位分析-约300行（数据探索分析、matplotlib可视化）/lagou.csv",
+      "sha256": "6b1daf9e5c5f2af353fa517917889ec4dd482e1c9623e4c141843ffdfd742fda",
+      "role": "data"
+    },
+    {
+      "path": "职场-数据分析师职位分析-约300行（数据探索分析、matplotlib可视化）/SimHei.ttf",
+      "sha256": "0ee6f6723c29dbf427d12d58ffc11d58e9aa89adda0ab6b06468ee765b1eadf8",
+      "role": "other"
+    },
+    {
+      "path": "职场-数据分析师职位分析-约300行（数据探索分析、matplotlib可视化）/数据分析师岗位分析.html",
+      "sha256": "ebfbab8805618aff9de353faca3b25d3bef4aab1fa9c5a5e9c79c76104163c1b",
+      "role": "output"
+    },
+    {
+      "path": "职场-数据分析师职位分析-约300行（数据探索分析、matplotlib可视化）/数据分析师岗位分析.ipynb",
+      "sha256": "612486c97729fe72863ed3f52b813320854acf96710711d4c7d1f67f9cd42e1c",
+      "role": "code"
+    },
+    {
+      "path": "职场-数据分析师职位分析-约300行（数据探索分析、matplotlib可视化）/数据分析师岗位分析.py",
+      "sha256": "9dcdd68cdfd7ed8a3edd4d8b8e9af03b23f49f7edf8b9746af20bd1cd0afea01",
+      "role": "code"
+    }
+  ],
+  "limitations": [
+    "原介绍437与实表差1；薪资区间中点不是实际收入；历史样本不能代表当前就业市场；SQL/机器学习等出现在职位文本中，不是该项目使用这些技术的证据。"
+  ],
+  "lessons": [
+    {
+      "id": "main-analysis",
+      "title": "数据分析师岗位分析",
+      "source": "职场-数据分析师职位分析-约300行（数据探索分析、matplotlib可视化）/数据分析师岗位分析.ipynb"
+    }
+  ],
+  "readiness": {
+    "source": "audited",
+    "course": "not-adapted",
+    "rerun": "not-run",
+    "offline": "not-packaged"
+  },
+  "detailRef": "projects/P29/project.json",
+  "searchKeywords": [
+    "核对招聘样本及字段",
+    "整理区域行业",
+    "拆薪资区间",
+    "比较经验学历规模",
+    "读箱线图",
+    "分词技能要求",
+    "限定历史样本结论"
+  ],
+  "prerequisites": "字符串处理、分组统计、均值与箱线图。",
+  "recommendedProjectIds": [
+    "P11"
+  ],
+  "recommendationNote": "P11。",
+  "schemaVersion": "1.0",
+  "contentVersion": "0.2.0",
+  "learningObjectives": [
+    "从深圳招聘样本分析数据分析师岗位的区域、薪资与技能。 重点掌握Pandas、NumPy、Matplotlib、Seaborn、Jieba、WordCloud、正则、字符串清理、EDA。",
+    "核对招聘样本及字段",
+    "整理区域行业",
+    "拆薪资区间",
+    "比较经验学历规模",
+    "读箱线图",
+    "分词技能要求",
+    "限定历史样本结论"
+  ],
+  "exercise": {
+    "text": "比较区间上下界与中点；解释招聘文本标签和代码技术标签的区别。",
+    "provenance": "已批准路线中新设计的巩固练习；非原文件已有试题",
+    "answerStatus": "参考答案尚未制作"
+  },
+  "datasets": [
+    {
+      "id": "D01-1",
+      "path": "职场-数据分析师职位分析-约300行（数据探索分析、matplotlib可视化）/lagou.csv",
+      "sha256": "6b1daf9e5c5f2af353fa517917889ec4dd482e1c9623e4c141843ffdfd742fda",
+      "sheet": null,
+      "rows": 436,
+      "columns": 10,
+      "encoding": "utf-8-sig",
+      "grain": "待核实；读取行数不等于独立业务实体数",
+      "origin": null,
+      "license": null,
+      "fields": [
+        {
+          "name": "company",
+          "dtype": "str",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P29 / 职场-数据分析师职位分析-约300行（数据探索分析、matplotlib可视化）/lagou.csv"
+        },
+        {
+          "name": "foursquare",
+          "dtype": "str",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P29 / 职场-数据分析师职位分析-约300行（数据探索分析、matplotlib可视化）/lagou.csv"
+        },
+        {
+          "name": "trend",
+          "dtype": "str",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P29 / 职场-数据分析师职位分析-约300行（数据探索分析、matplotlib可视化）/lagou.csv"
+        },
+        {
+          "name": "figure",
+          "dtype": "str",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P29 / 职场-数据分析师职位分析-约300行（数据探索分析、matplotlib可视化）/lagou.csv"
+        },
+        {
+          "name": "job",
+          "dtype": "str",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P29 / 职场-数据分析师职位分析-约300行（数据探索分析、matplotlib可视化）/lagou.csv"
+        },
+        {
+          "name": "salary",
+          "dtype": "str",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P29 / 职场-数据分析师职位分析-约300行（数据探索分析、matplotlib可视化）/lagou.csv"
+        },
+        {
+          "name": "experience",
+          "dtype": "str",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P29 / 职场-数据分析师职位分析-约300行（数据探索分析、matplotlib可视化）/lagou.csv"
+        },
+        {
+          "name": "education",
+          "dtype": "str",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P29 / 职场-数据分析师职位分析-约300行（数据探索分析、matplotlib可视化）/lagou.csv"
+        },
+        {
+          "name": "description",
+          "dtype": "str",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P29 / 职场-数据分析师职位分析-约300行（数据探索分析、matplotlib可视化）/lagou.csv"
+        },
+        {
+          "name": "address",
+          "dtype": "str",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P29 / 职场-数据分析师职位分析-约300行（数据探索分析、matplotlib可视化）/lagou.csv"
+        }
+      ],
+      "teachingMappings": []
+    }
+  ],
+  "scopeNotes": [],
+  "originalWorkflow": "区域→行业→经验学历→薪资区间→规模经验学历箱线→技能词云。",
+  "savedResult": "实表436行；原图本科要求约74.3%，南山区岗位数较多；输出技能词云。",
+  "sourceEvidence": [
+    "01_项目资产盘点.md#P29",
+    "03_完整学习路线.md#P29",
+    "附录B_全数据字段与缺失字典.md#P29"
+  ]
+}

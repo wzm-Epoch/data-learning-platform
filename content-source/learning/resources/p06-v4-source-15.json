@@ -1,0 +1,36 @@
+{
+  "schemaVersion": "1.0",
+  "id": "p06-v4-source-15",
+  "title": "原单元35—35保存输出",
+  "kind": "text",
+  "columns": [],
+  "rows": [],
+  "text": "原单元35\n    ID             Name Sex   Age  Height  Weight           Team  NOC  \\\n10   6  Per Knut Aaland   M  31.0   188.0    75.0  United States  USA   \n11   6  Per Knut Aaland   M  31.0   188.0    75.0  United States  USA   \n12   6  Per Knut Aaland   M  31.0   188.0    75.0  United States  USA   \n13   6  Per Knut Aaland   M  31.0   188.0    75.0  United States  USA   \n14   6  Per Knut Aaland   M  33.0   188.0    75.0  United States  USA   \n\n          Games  Year  Season         City                 Sport  \\\n10  1992 Winter  1992  Winter  Albertville  Cross Country Skiing   \n11  1992 Winter  1992  Winter  Albertville  Cross Country Skiing   \n12  1992 Winter  1992  Winter  Albertville  Cross Country Skiing   \n13  1992 Winter  1992  Winter  Albertville  Cross Country Skiing   \n14  1994 Winter  1994  Winter  Lillehammer  Cross Country Skiing   \n\n                                                Event Medal region notes  \n10           Cross Country Skiing Men's 10 kilometres   NaN    USA   NaN  \n11           Cross Country Skiing Men's 50 kilometres   NaN    USA   NaN  \n12  Cross Country Skiing Men's 10/15 kilometres Pu...   NaN    USA   NaN  \n13  Cross Country Skiing Men's 4 x 10 kilometres R...   NaN    USA   NaN  \n14           Cross Country Skiing Men's 10 kilometres   NaN    USA   NaN  ",
+  "context": {
+    "identity": "original-saved",
+    "buildId": "phase4-v1",
+    "createdAt": "2026-11-16T12:58:37.389041+00:00",
+    "inputs": [
+      {
+        "path": "体育-数据可视化-约1300行（Pyecharts可视化）/120年奥运会数据可视化.ipynb",
+        "sha256": "a243bf8b64b54f72c20d9460defd492205efc3ed3d8fed718b6741e4ff752bdf"
+      },
+      {
+        "path": "体育-数据可视化-约1300行（Pyecharts可视化）/120年奥运会数据可视化.py",
+        "sha256": "73609f83edc275407ef08d11fec0cf717b59f3ba2435593f703ba2c608d2ebe2"
+      },
+      {
+        "path": "体育-数据可视化-约1300行（Pyecharts可视化）/athlete_events.csv",
+        "sha256": "e9f6b1fa97f40e0f071a6de640acb42dd7a100cad67e5e69cab630192fabb089"
+      },
+      {
+        "path": "体育-数据可视化-约1300行（Pyecharts可视化）/noc_regions.csv",
+        "sha256": "ce7f3c272a3d81d07acf5e5eba4cbba77501f9db25d820d862c60aaccf281906"
+      }
+    ],
+    "note": "逐单元只读提取原文本；原运行时间未知，本次时间仅为提取时间。",
+    "unit": "原字段单位；未核实单位不补填",
+    "sample": null,
+    "modelRerun": false
+  }
+}

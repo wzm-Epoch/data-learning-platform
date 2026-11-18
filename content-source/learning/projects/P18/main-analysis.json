@@ -1,0 +1,676 @@
+{
+  "schemaVersion": "1.0",
+  "contentVersion": "0.6.0",
+  "projectId": "P18",
+  "id": "main-analysis",
+  "title": "京东评论数据情感分析",
+  "status": "ready",
+  "steps": [
+    {
+      "id": "source-004-004",
+      "title": "1.1 数据导入 · 单元4—4",
+      "status": "ready",
+      "kind": "analysis",
+      "knowledgeIds": [
+        "Pandas",
+        "Matplotlib",
+        "NumPy",
+        "SnowNLP",
+        "Jieba"
+      ],
+      "explanation": [
+        "本步按原Notebook顺序阅读单元4—4。原保存输出尚未重跑；安装、联网采集、写原文件和模型加载均不会在网页运行。",
+        "read_csv只读取指定CSV；编码、表头和字段需要与输入字典核对。",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：Table of Contents\n1 数据导入及预处理1.1 数据导入1.2 数据描述1.3 数据预处理2 情感分析2.1 情感分2.2 情感分直方图2.3 词云图2.4 关键词提取3 积极评论与消极评论3.1 积极评论与消极评论占比3.2 消极评论分析总结",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：# 1 数据导入及预处理",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：## 1.1 数据导入"
+      ],
+      "teachingCode": "# 原代码仅供阅读，不由网页执行。\n# 本次可运行适配实现见末尾数据实验步骤。",
+      "limitations": [
+        "分数不等于经本数据校准的真实概率；阈值分类不是真实人工标签；“未填写”等文本会影响结果；不能从负面词直接推断品控因果。",
+        "原代码与保存输出保持原身份；新改编计算另列。"
+      ],
+      "codeRefs": [
+        {
+          "path": "电商-数据情感分析-约150行（分词、关键词提取、情感分析）/京东评论数据情感分析.ipynb",
+          "notebookSha256": "6414527f85039d478eee720bd4a03e00565ded4963f373673f2af574e6a817fd",
+          "cell": 4,
+          "code": "import pandas as pd\ndata = pd.read_csv('./京东评论数据.csv')\ndata.head(2)",
+          "codeSha256": "a8bcf393a81678cf628058f0fbd02d6c02afc46789024edeb4ed3f99233cb30d"
+        }
+      ],
+      "inputRefs": [
+        {
+          "path": "电商-数据情感分析-约150行（分词、关键词提取、情感分析）/京东评论数据情感分析.ipynb",
+          "sha256": "6414527f85039d478eee720bd4a03e00565ded4963f373673f2af574e6a817fd"
+        },
+        {
+          "path": "电商-数据情感分析-约150行（分词、关键词提取、情感分析）/京东评论数据情感分析.py",
+          "sha256": "aca2005a974501a6c679afb1374691b7db139c1b8d77bbc2f547c52138d03088"
+        },
+        {
+          "path": "电商-数据情感分析-约150行（分词、关键词提取、情感分析）/京东评论数据.csv",
+          "sha256": "142cbb8443ed879582fdc56d3c728e19b376dce2e8779e65b57718a4d14a1691"
+        }
+      ],
+      "outputRefs": [
+        "learning/resources/p18-v4-source-1.json"
+      ],
+      "exercise": {
+        "prompt": "根据本步单元4—4和保存证据，说明一次变换的输入、输出和一项无法验证的结论。",
+        "hint": "先查看代码中的列选择/过滤/拟合，再核对输出身份和本项目局限。",
+        "checklist": [
+          "准确引用原单元4—4",
+          "指出实际字段或变量与一项真实输出",
+          "把未重跑、资料缺失和统计缺陷分别说明"
+        ],
+        "provenance": "第四阶段教学补充，自评，不代表原文件试题"
+      },
+      "outputTitles": {
+        "learning/resources/p18-v4-source-1.json": "原单元4—4保存输出"
+      }
+    },
+    {
+      "id": "source-006-006",
+      "title": "1.2 数据描述 · 单元6—6",
+      "status": "ready",
+      "kind": "analysis",
+      "knowledgeIds": [
+        "Pandas",
+        "Matplotlib",
+        "NumPy",
+        "SnowNLP",
+        "Jieba"
+      ],
+      "explanation": [
+        "本步按原Notebook顺序阅读单元6—6。原保存输出尚未重跑；安装、联网采集、写原文件和模型加载均不会在网页运行。",
+        "本步展示原变量赋值、查看或配置；变量实际内容以保存输出与本次数据证据为准，不从代码存在推断执行成功。",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：## 1.2 数据描述"
+      ],
+      "teachingCode": "# 原代码仅供阅读，不由网页执行。\n# 本次可运行适配实现见末尾数据实验步骤。",
+      "limitations": [
+        "分数不等于经本数据校准的真实概率；阈值分类不是真实人工标签；“未填写”等文本会影响结果；不能从负面词直接推断品控因果。",
+        "原代码与保存输出保持原身份；新改编计算另列。"
+      ],
+      "codeRefs": [
+        {
+          "path": "电商-数据情感分析-约150行（分词、关键词提取、情感分析）/京东评论数据情感分析.ipynb",
+          "notebookSha256": "6414527f85039d478eee720bd4a03e00565ded4963f373673f2af574e6a817fd",
+          "cell": 6,
+          "code": "data.describe()",
+          "codeSha256": "febca3a92504ff1429d913dd790a7c53df34c8ef31b0257d7cd9f86d149b0f9b"
+        }
+      ],
+      "inputRefs": [
+        {
+          "path": "电商-数据情感分析-约150行（分词、关键词提取、情感分析）/京东评论数据情感分析.ipynb",
+          "sha256": "6414527f85039d478eee720bd4a03e00565ded4963f373673f2af574e6a817fd"
+        },
+        {
+          "path": "电商-数据情感分析-约150行（分词、关键词提取、情感分析）/京东评论数据情感分析.py",
+          "sha256": "aca2005a974501a6c679afb1374691b7db139c1b8d77bbc2f547c52138d03088"
+        },
+        {
+          "path": "电商-数据情感分析-约150行（分词、关键词提取、情感分析）/京东评论数据.csv",
+          "sha256": "142cbb8443ed879582fdc56d3c728e19b376dce2e8779e65b57718a4d14a1691"
+        }
+      ],
+      "outputRefs": [
+        "learning/resources/p18-v4-source-2.json"
+      ],
+      "exercise": {
+        "prompt": "根据本步单元6—6和保存证据，说明一次变换的输入、输出和一项无法验证的结论。",
+        "hint": "先查看代码中的列选择/过滤/拟合，再核对输出身份和本项目局限。",
+        "checklist": [
+          "准确引用原单元6—6",
+          "指出实际字段或变量与一项真实输出",
+          "把未重跑、资料缺失和统计缺陷分别说明"
+        ],
+        "provenance": "第四阶段教学补充，自评，不代表原文件试题"
+      },
+      "outputTitles": {
+        "learning/resources/p18-v4-source-2.json": "原单元6—6保存输出"
+      }
+    },
+    {
+      "id": "source-008-008",
+      "title": "1.3 数据预处理 · 单元8—8",
+      "status": "ready",
+      "kind": "analysis",
+      "knowledgeIds": [
+        "Pandas",
+        "Matplotlib",
+        "NumPy",
+        "SnowNLP",
+        "Jieba"
+      ],
+      "explanation": [
+        "本步按原Notebook顺序阅读单元8—8。原保存输出尚未重跑；安装、联网采集、写原文件和模型加载均不会在网页运行。",
+        "本步展示原变量赋值、查看或配置；变量实际内容以保存输出与本次数据证据为准，不从代码存在推断执行成功。",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：## 1.3 数据预处理"
+      ],
+      "teachingCode": "# 原代码仅供阅读，不由网页执行。\n# 本次可运行适配实现见末尾数据实验步骤。",
+      "limitations": [
+        "分数不等于经本数据校准的真实概率；阈值分类不是真实人工标签；“未填写”等文本会影响结果；不能从负面词直接推断品控因果。",
+        "原代码与保存输出保持原身份；新改编计算另列。"
+      ],
+      "codeRefs": [
+        {
+          "path": "电商-数据情感分析-约150行（分词、关键词提取、情感分析）/京东评论数据情感分析.ipynb",
+          "notebookSha256": "6414527f85039d478eee720bd4a03e00565ded4963f373673f2af574e6a817fd",
+          "cell": 8,
+          "code": "#取出sku_id','content'字段\ndata1 = data[['sku_id','content']]\ndata1.head(10)",
+          "codeSha256": "811219d8c0b03be05455a27d94054f11ae8096f180e6acc1ebcf98c8b2f43aeb"
+        }
+      ],
+      "inputRefs": [
+        {
+          "path": "电商-数据情感分析-约150行（分词、关键词提取、情感分析）/京东评论数据情感分析.ipynb",
+          "sha256": "6414527f85039d478eee720bd4a03e00565ded4963f373673f2af574e6a817fd"
+        },
+        {
+          "path": "电商-数据情感分析-约150行（分词、关键词提取、情感分析）/京东评论数据情感分析.py",
+          "sha256": "aca2005a974501a6c679afb1374691b7db139c1b8d77bbc2f547c52138d03088"
+        },
+        {
+          "path": "电商-数据情感分析-约150行（分词、关键词提取、情感分析）/京东评论数据.csv",
+          "sha256": "142cbb8443ed879582fdc56d3c728e19b376dce2e8779e65b57718a4d14a1691"
+        }
+      ],
+      "outputRefs": [
+        "learning/resources/p18-v4-source-3.json"
+      ],
+      "exercise": {
+        "prompt": "根据本步单元8—8和保存证据，说明一次变换的输入、输出和一项无法验证的结论。",
+        "hint": "先查看代码中的列选择/过滤/拟合，再核对输出身份和本项目局限。",
+        "checklist": [
+          "准确引用原单元8—8",
+          "指出实际字段或变量与一项真实输出",
+          "把未重跑、资料缺失和统计缺陷分别说明"
+        ],
+        "provenance": "第四阶段教学补充，自评，不代表原文件试题"
+      },
+      "outputTitles": {
+        "learning/resources/p18-v4-source-3.json": "原单元8—8保存输出"
+      }
+    },
+    {
+      "id": "source-012-013",
+      "title": "2.1 情感分 · 单元12—13",
+      "status": "ready",
+      "kind": "analysis",
+      "knowledgeIds": [
+        "Pandas",
+        "Matplotlib",
+        "NumPy",
+        "SnowNLP",
+        "Jieba"
+      ],
+      "explanation": [
+        "本步按原Notebook顺序阅读单元12—13。原保存输出尚未重跑；安装、联网采集、写原文件和模型加载均不会在网页运行。",
+        "本步展示原变量赋值、查看或配置；变量实际内容以保存输出与本次数据证据为准，不从代码存在推断执行成功。",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：# 2 情感分析",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：## 2.1 情感分",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：* emotion平均值为0.74，中位数为0.96，25%分位数为0.56，可见不到25%的数据造成了整体均值的较大下移。"
+      ],
+      "teachingCode": "# 原代码仅供阅读，不由网页执行。\n# 本次可运行适配实现见末尾数据实验步骤。",
+      "limitations": [
+        "分数不等于经本数据校准的真实概率；阈值分类不是真实人工标签；“未填写”等文本会影响结果；不能从负面词直接推断品控因果。",
+        "原代码与保存输出保持原身份；新改编计算另列。"
+      ],
+      "codeRefs": [
+        {
+          "path": "电商-数据情感分析-约150行（分词、关键词提取、情感分析）/京东评论数据情感分析.ipynb",
+          "notebookSha256": "6414527f85039d478eee720bd4a03e00565ded4963f373673f2af574e6a817fd",
+          "cell": 12,
+          "code": "from snownlp import SnowNLP\ndata1['emotion'] = data1['content'].apply(lambda x:SnowNLP(x).sentiments)\ndata1.head(10)",
+          "codeSha256": "d24b4a5576898886267f201ff949b9341419f29c1142b7582bfa90a0b272dc26"
+        },
+        {
+          "path": "电商-数据情感分析-约150行（分词、关键词提取、情感分析）/京东评论数据情感分析.ipynb",
+          "notebookSha256": "6414527f85039d478eee720bd4a03e00565ded4963f373673f2af574e6a817fd",
+          "cell": 13,
+          "code": "data1.describe()",
+          "codeSha256": "4920f45611d4a01dbabb2e2829f17585613848d6ac78a77274dce2d38868df08"
+        }
+      ],
+      "inputRefs": [
+        {
+          "path": "电商-数据情感分析-约150行（分词、关键词提取、情感分析）/京东评论数据情感分析.ipynb",
+          "sha256": "6414527f85039d478eee720bd4a03e00565ded4963f373673f2af574e6a817fd"
+        },
+        {
+          "path": "电商-数据情感分析-约150行（分词、关键词提取、情感分析）/京东评论数据情感分析.py",
+          "sha256": "aca2005a974501a6c679afb1374691b7db139c1b8d77bbc2f547c52138d03088"
+        },
+        {
+          "path": "电商-数据情感分析-约150行（分词、关键词提取、情感分析）/京东评论数据.csv",
+          "sha256": "142cbb8443ed879582fdc56d3c728e19b376dce2e8779e65b57718a4d14a1691"
+        }
+      ],
+      "outputRefs": [
+        "learning/resources/p18-v4-source-4.json"
+      ],
+      "exercise": {
+        "prompt": "根据本步单元12—13和保存证据，说明一次变换的输入、输出和一项无法验证的结论。",
+        "hint": "先查看代码中的列选择/过滤/拟合，再核对输出身份和本项目局限。",
+        "checklist": [
+          "准确引用原单元12—13",
+          "指出实际字段或变量与一项真实输出",
+          "把未重跑、资料缺失和统计缺陷分别说明"
+        ],
+        "provenance": "第四阶段教学补充，自评，不代表原文件试题"
+      },
+      "outputTitles": {
+        "learning/resources/p18-v4-source-4.json": "原单元12—13保存输出"
+      }
+    },
+    {
+      "id": "source-016-016",
+      "title": "2.2 情感分直方图 · 单元16—16",
+      "status": "ready",
+      "kind": "analysis",
+      "knowledgeIds": [
+        "Pandas",
+        "Matplotlib",
+        "NumPy",
+        "SnowNLP",
+        "Jieba"
+      ],
+      "explanation": [
+        "本步按原Notebook顺序阅读单元16—16。原保存输出尚未重跑；安装、联网采集、写原文件和模型加载均不会在网页运行。",
+        "绘图参数只控制展示；结论仍须受输入范围与统计口径约束。",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：## 2.2 情感分直方图",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：* 由直方图可见，评论内容两级分化较为严重；\n\n* 3637条评论中有约2200条评论情感分在[0.9，1]区间内；同时，有约500条评论情感分在[0，0.1]区间内。"
+      ],
+      "teachingCode": "# 原代码仅供阅读，不由网页执行。\n# 本次可运行适配实现见末尾数据实验步骤。",
+      "limitations": [
+        "分数不等于经本数据校准的真实概率；阈值分类不是真实人工标签；“未填写”等文本会影响结果；不能从负面词直接推断品控因果。",
+        "原代码与保存输出保持原身份；新改编计算另列。"
+      ],
+      "codeRefs": [
+        {
+          "path": "电商-数据情感分析-约150行（分词、关键词提取、情感分析）/京东评论数据情感分析.ipynb",
+          "notebookSha256": "6414527f85039d478eee720bd4a03e00565ded4963f373673f2af574e6a817fd",
+          "cell": 16,
+          "code": "#情感分直方图\nimport matplotlib.pyplot as plt\nimport numpy as np\n\nplt.rcParams['font.sans-serif']=['SimHei']\nplt.rcParams['axes.unicode_minus'] = False\n\nbins=np.arange(0,1.1,0.1)\nplt.hist(data1['emotion'],bins,color='#4F94CD',alpha=0.9)\nplt.xlim(0,1)\nplt.xlabel('情感分')\nplt.ylabel('数量')\nplt.title('情感分直方图')\n\nplt.show()",
+          "codeSha256": "af45d39402d235f6aef4cc8ef08d2f09d3008bbacc573ab2673709ce79e3b0c5"
+        }
+      ],
+      "inputRefs": [
+        {
+          "path": "电商-数据情感分析-约150行（分词、关键词提取、情感分析）/京东评论数据情感分析.ipynb",
+          "sha256": "6414527f85039d478eee720bd4a03e00565ded4963f373673f2af574e6a817fd"
+        },
+        {
+          "path": "电商-数据情感分析-约150行（分词、关键词提取、情感分析）/京东评论数据情感分析.py",
+          "sha256": "aca2005a974501a6c679afb1374691b7db139c1b8d77bbc2f547c52138d03088"
+        },
+        {
+          "path": "电商-数据情感分析-约150行（分词、关键词提取、情感分析）/京东评论数据.csv",
+          "sha256": "142cbb8443ed879582fdc56d3c728e19b376dce2e8779e65b57718a4d14a1691"
+        }
+      ],
+      "outputRefs": [
+        "learning/resources/p18-v4-source-5-images.json"
+      ],
+      "exercise": {
+        "prompt": "根据本步单元16—16和保存证据，说明一次变换的输入、输出和一项无法验证的结论。",
+        "hint": "先查看代码中的列选择/过滤/拟合，再核对输出身份和本项目局限。",
+        "checklist": [
+          "准确引用原单元16—16",
+          "指出实际字段或变量与一项真实输出",
+          "把未重跑、资料缺失和统计缺陷分别说明"
+        ],
+        "provenance": "第四阶段教学补充，自评，不代表原文件试题"
+      },
+      "outputTitles": {
+        "learning/resources/p18-v4-source-5-images.json": "原单元16—16保存输出 · 原保存图"
+      }
+    },
+    {
+      "id": "source-019-019",
+      "title": "2.3 词云图 · 单元19—19",
+      "status": "ready",
+      "kind": "analysis",
+      "knowledgeIds": [
+        "Pandas",
+        "Matplotlib",
+        "NumPy",
+        "SnowNLP",
+        "Jieba"
+      ],
+      "explanation": [
+        "本步按原Notebook顺序阅读单元19—19。原保存输出尚未重跑；安装、联网采集、写原文件和模型加载均不会在网页运行。",
+        "本步展示原变量赋值、查看或配置；变量实际内容以保存输出与本次数据证据为准，不从代码存在推断执行成功。",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：## 2.3 词云图"
+      ],
+      "teachingCode": "# 原代码仅供阅读，不由网页执行。\n# 本次可运行适配实现见末尾数据实验步骤。",
+      "limitations": [
+        "分数不等于经本数据校准的真实概率；阈值分类不是真实人工标签；“未填写”等文本会影响结果；不能从负面词直接推断品控因果。",
+        "原代码与保存输出保持原身份；新改编计算另列。"
+      ],
+      "codeRefs": [
+        {
+          "path": "电商-数据情感分析-约150行（分词、关键词提取、情感分析）/京东评论数据情感分析.ipynb",
+          "notebookSha256": "6414527f85039d478eee720bd4a03e00565ded4963f373673f2af574e6a817fd",
+          "cell": 19,
+          "code": "from wordcloud import WordCloud\nimport jieba\nw = WordCloud()\ntext = ''\nfor s in data['content']:\n    text += s\ndata_cut = ' '.join(jieba.lcut(text))\n\nw = WordCloud(font_path=\"./SimHei.ttf\",\n                      stopwords=['的','我','了','是','和','都','就','用'],  # 去掉停用词\n                      #max_words=100,\n                      width=2000,\n                      height=1200).generate(data_cut)\n# 保存词云\nw.to_file('词云图.png')\n# 显示词云文件\nplt.imshow(w)\nplt.axis(\"off\")\nplt.show()",
+          "codeSha256": "9ad6d106ea735ce4bb370aaa9fb48597cc44178e5987bf3f8f1a43c8d8fc1c5e"
+        }
+      ],
+      "inputRefs": [
+        {
+          "path": "电商-数据情感分析-约150行（分词、关键词提取、情感分析）/京东评论数据情感分析.ipynb",
+          "sha256": "6414527f85039d478eee720bd4a03e00565ded4963f373673f2af574e6a817fd"
+        },
+        {
+          "path": "电商-数据情感分析-约150行（分词、关键词提取、情感分析）/京东评论数据情感分析.py",
+          "sha256": "aca2005a974501a6c679afb1374691b7db139c1b8d77bbc2f547c52138d03088"
+        },
+        {
+          "path": "电商-数据情感分析-约150行（分词、关键词提取、情感分析）/京东评论数据.csv",
+          "sha256": "142cbb8443ed879582fdc56d3c728e19b376dce2e8779e65b57718a4d14a1691"
+        }
+      ],
+      "outputRefs": [
+        "learning/resources/p18-v4-source-6-images.json"
+      ],
+      "exercise": {
+        "prompt": "根据本步单元19—19和保存证据，说明一次变换的输入、输出和一项无法验证的结论。",
+        "hint": "先查看代码中的列选择/过滤/拟合，再核对输出身份和本项目局限。",
+        "checklist": [
+          "准确引用原单元19—19",
+          "指出实际字段或变量与一项真实输出",
+          "把未重跑、资料缺失和统计缺陷分别说明"
+        ],
+        "provenance": "第四阶段教学补充，自评，不代表原文件试题"
+      },
+      "outputTitles": {
+        "learning/resources/p18-v4-source-6-images.json": "原单元19—19保存输出 · 原保存图"
+      }
+    },
+    {
+      "id": "source-021-021",
+      "title": "2.4 关键词提取 · 单元21—21",
+      "status": "ready",
+      "kind": "analysis",
+      "knowledgeIds": [
+        "Pandas",
+        "Matplotlib",
+        "NumPy",
+        "SnowNLP",
+        "Jieba"
+      ],
+      "explanation": [
+        "本步按原Notebook顺序阅读单元21—21。原保存输出尚未重跑；安装、联网采集、写原文件和模型加载均不会在网页运行。",
+        "本步展示原变量赋值、查看或配置；变量实际内容以保存输出与本次数据证据为准，不从代码存在推断执行成功。",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：## 2.4 关键词提取",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：* 以上关键词显示，消费者比较在意手机的“屏幕”“拍照”“手感”等特性，“华为”“小米”是出现频次最高的两个手机品牌。"
+      ],
+      "teachingCode": "# 原代码仅供阅读，不由网页执行。\n# 本次可运行适配实现见末尾数据实验步骤。",
+      "limitations": [
+        "分数不等于经本数据校准的真实概率；阈值分类不是真实人工标签；“未填写”等文本会影响结果；不能从负面词直接推断品控因果。",
+        "原代码与保存输出保持原身份；新改编计算另列。"
+      ],
+      "codeRefs": [
+        {
+          "path": "电商-数据情感分析-约150行（分词、关键词提取、情感分析）/京东评论数据情感分析.ipynb",
+          "notebookSha256": "6414527f85039d478eee720bd4a03e00565ded4963f373673f2af574e6a817fd",
+          "cell": 21,
+          "code": "#关键词top10\nfrom jieba import analyse \nkey_words = jieba.analyse.extract_tags(sentence=text, topK=10, withWeight=True, allowPOS=())\nkey_words",
+          "codeSha256": "3188d10a1d285be2e460b197fd0804bf05fd148bc245c962d4812c4bed65ebc9"
+        }
+      ],
+      "inputRefs": [
+        {
+          "path": "电商-数据情感分析-约150行（分词、关键词提取、情感分析）/京东评论数据情感分析.ipynb",
+          "sha256": "6414527f85039d478eee720bd4a03e00565ded4963f373673f2af574e6a817fd"
+        },
+        {
+          "path": "电商-数据情感分析-约150行（分词、关键词提取、情感分析）/京东评论数据情感分析.py",
+          "sha256": "aca2005a974501a6c679afb1374691b7db139c1b8d77bbc2f547c52138d03088"
+        },
+        {
+          "path": "电商-数据情感分析-约150行（分词、关键词提取、情感分析）/京东评论数据.csv",
+          "sha256": "142cbb8443ed879582fdc56d3c728e19b376dce2e8779e65b57718a4d14a1691"
+        }
+      ],
+      "outputRefs": [
+        "learning/resources/p18-v4-source-7.json"
+      ],
+      "exercise": {
+        "prompt": "根据本步单元21—21和保存证据，说明一次变换的输入、输出和一项无法验证的结论。",
+        "hint": "先查看代码中的列选择/过滤/拟合，再核对输出身份和本项目局限。",
+        "checklist": [
+          "准确引用原单元21—21",
+          "指出实际字段或变量与一项真实输出",
+          "把未重跑、资料缺失和统计缺陷分别说明"
+        ],
+        "provenance": "第四阶段教学补充，自评，不代表原文件试题"
+      },
+      "outputTitles": {
+        "learning/resources/p18-v4-source-7.json": "原单元21—21保存输出"
+      }
+    },
+    {
+      "id": "source-025-026",
+      "title": "3.1 积极评论与消极评论占比 · 单元25—26",
+      "status": "ready",
+      "kind": "analysis",
+      "knowledgeIds": [
+        "Pandas",
+        "Matplotlib",
+        "NumPy",
+        "SnowNLP",
+        "Jieba"
+      ],
+      "explanation": [
+        "本步按原Notebook顺序阅读单元25—26。原保存输出尚未重跑；安装、联网采集、写原文件和模型加载均不会在网页运行。",
+        "绘图参数只控制展示；结论仍须受输入范围与统计口径约束。",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：# 3 积极评论与消极评论",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：## 3.1 积极评论与消极评论占比"
+      ],
+      "teachingCode": "# 原代码仅供阅读，不由网页执行。\n# 本次可运行适配实现见末尾数据实验步骤。",
+      "limitations": [
+        "分数不等于经本数据校准的真实概率；阈值分类不是真实人工标签；“未填写”等文本会影响结果；不能从负面词直接推断品控因果。",
+        "原代码与保存输出保持原身份；新改编计算另列。"
+      ],
+      "codeRefs": [
+        {
+          "path": "电商-数据情感分析-约150行（分词、关键词提取、情感分析）/京东评论数据情感分析.ipynb",
+          "notebookSha256": "6414527f85039d478eee720bd4a03e00565ded4963f373673f2af574e6a817fd",
+          "cell": 25,
+          "code": "#计算积极评论与消极评论各自的数目\npos = 0\nneg = 0\nfor i in data1['emotion']:\n    if i >= 0.5:\n        pos += 1\n    else:\n        neg += 1\nprint('积极评论，消极评论数目分别为：',pos,neg)\n",
+          "codeSha256": "9d4ffcc999436089e3ca8e2c303e36971421966518a4cb6dd742dc06a7a5aa29"
+        },
+        {
+          "path": "电商-数据情感分析-约150行（分词、关键词提取、情感分析）/京东评论数据情感分析.ipynb",
+          "notebookSha256": "6414527f85039d478eee720bd4a03e00565ded4963f373673f2af574e6a817fd",
+          "cell": 26,
+          "code": "# 积极评论占比\nimport matplotlib.pyplot as plt \n\nplt.rcParams['font.sans-serif']=['SimHei']\nplt.rcParams['axes.unicode_minus'] = False\n\npie_labels='postive','negative'\nplt.pie([pos,neg],labels=pie_labels,autopct='%1.1f%%',shadow=True)\n\nplt.show()",
+          "codeSha256": "dc15559c66dcc4c2e9e41de20376c26f05ef32c32bc386369bb235939a28ed94"
+        }
+      ],
+      "inputRefs": [
+        {
+          "path": "电商-数据情感分析-约150行（分词、关键词提取、情感分析）/京东评论数据情感分析.ipynb",
+          "sha256": "6414527f85039d478eee720bd4a03e00565ded4963f373673f2af574e6a817fd"
+        },
+        {
+          "path": "电商-数据情感分析-约150行（分词、关键词提取、情感分析）/京东评论数据情感分析.py",
+          "sha256": "aca2005a974501a6c679afb1374691b7db139c1b8d77bbc2f547c52138d03088"
+        },
+        {
+          "path": "电商-数据情感分析-约150行（分词、关键词提取、情感分析）/京东评论数据.csv",
+          "sha256": "142cbb8443ed879582fdc56d3c728e19b376dce2e8779e65b57718a4d14a1691"
+        }
+      ],
+      "outputRefs": [
+        "learning/resources/p18-v4-source-8.json",
+        "learning/resources/p18-v4-source-8-images.json"
+      ],
+      "exercise": {
+        "prompt": "根据本步单元25—26和保存证据，说明一次变换的输入、输出和一项无法验证的结论。",
+        "hint": "先查看代码中的列选择/过滤/拟合，再核对输出身份和本项目局限。",
+        "checklist": [
+          "准确引用原单元25—26",
+          "指出实际字段或变量与一项真实输出",
+          "把未重跑、资料缺失和统计缺陷分别说明"
+        ],
+        "provenance": "第四阶段教学补充，自评，不代表原文件试题"
+      },
+      "outputTitles": {
+        "learning/resources/p18-v4-source-8.json": "原单元25—26保存输出",
+        "learning/resources/p18-v4-source-8-images.json": "原单元25—26保存输出 · 原保存图"
+      }
+    },
+    {
+      "id": "source-028-030",
+      "title": "3.2 消极评论分析 · 单元28—30",
+      "status": "ready",
+      "kind": "analysis",
+      "knowledgeIds": [
+        "Pandas",
+        "Matplotlib",
+        "NumPy",
+        "SnowNLP",
+        "Jieba"
+      ],
+      "explanation": [
+        "本步按原Notebook顺序阅读单元28—30。原保存输出尚未重跑；安装、联网采集、写原文件和模型加载均不会在网页运行。",
+        "本步展示原变量赋值、查看或配置；变量实际内容以保存输出与本次数据证据为准，不从代码存在推断执行成功。",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：## 3.2 消极评论分析",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：* 消极评论关键词显示，“屏幕”“快递”“充电”是造成用户体验不佳的几个重要因素；屏幕和充电问题有可能是手机不良品率过高或快递压迫；\n\n* 因此平台应注重提高手机品控，降低不良品率；另外应设法提升发货，配送，派件的效率和质量。"
+      ],
+      "teachingCode": "# 原代码仅供阅读，不由网页执行。\n# 本次可运行适配实现见末尾数据实验步骤。",
+      "limitations": [
+        "分数不等于经本数据校准的真实概率；阈值分类不是真实人工标签；“未填写”等文本会影响结果；不能从负面词直接推断品控因果。",
+        "原代码与保存输出保持原身份；新改编计算另列。"
+      ],
+      "codeRefs": [
+        {
+          "path": "电商-数据情感分析-约150行（分词、关键词提取、情感分析）/京东评论数据情感分析.ipynb",
+          "notebookSha256": "6414527f85039d478eee720bd4a03e00565ded4963f373673f2af574e6a817fd",
+          "cell": 28,
+          "code": "#获取消极评论数据\ndata2=data1[data1['emotion']<0.5]\ndata2.head(10)",
+          "codeSha256": "cf2fdf152a9f8abdafc4893611edd01a5f9437195527addf1afee0bd12514950"
+        },
+        {
+          "path": "电商-数据情感分析-约150行（分词、关键词提取、情感分析）/京东评论数据情感分析.ipynb",
+          "notebookSha256": "6414527f85039d478eee720bd4a03e00565ded4963f373673f2af574e6a817fd",
+          "cell": 29,
+          "code": "#消极评论词云图\ntext2 = ''\nfor s in data2['content']:\n    text2 += s\ndata_cut2 = ' '.join(jieba.lcut(text2))\nw.generate(data_cut2)\nimage = w.to_file('消极评论词云.png')\n\n# 显示词云文件\nplt.imshow(w)\nplt.axis(\"off\")\nplt.show()",
+          "codeSha256": "17ac15c23b64d07af2370c0e48f0a9cac076b1b69ae7de3d311cf320f22f9b13"
+        },
+        {
+          "path": "电商-数据情感分析-约150行（分词、关键词提取、情感分析）/京东评论数据情感分析.ipynb",
+          "notebookSha256": "6414527f85039d478eee720bd4a03e00565ded4963f373673f2af574e6a817fd",
+          "cell": 30,
+          "code": "#消极评论关键词top10\nkey_words = jieba.analyse.extract_tags(sentence=text2, topK=10, withWeight=True, allowPOS=())\nkey_words",
+          "codeSha256": "727282ffc026c2590ddeff410b3d12fd4a4fdf526af5b4aaefd7147d85d2b1a5"
+        }
+      ],
+      "inputRefs": [
+        {
+          "path": "电商-数据情感分析-约150行（分词、关键词提取、情感分析）/京东评论数据情感分析.ipynb",
+          "sha256": "6414527f85039d478eee720bd4a03e00565ded4963f373673f2af574e6a817fd"
+        },
+        {
+          "path": "电商-数据情感分析-约150行（分词、关键词提取、情感分析）/京东评论数据情感分析.py",
+          "sha256": "aca2005a974501a6c679afb1374691b7db139c1b8d77bbc2f547c52138d03088"
+        },
+        {
+          "path": "电商-数据情感分析-约150行（分词、关键词提取、情感分析）/京东评论数据.csv",
+          "sha256": "142cbb8443ed879582fdc56d3c728e19b376dce2e8779e65b57718a4d14a1691"
+        }
+      ],
+      "outputRefs": [
+        "learning/resources/p18-v4-source-9.json",
+        "learning/resources/p18-v4-source-9-images.json"
+      ],
+      "exercise": {
+        "prompt": "根据本步单元28—30和保存证据，说明一次变换的输入、输出和一项无法验证的结论。",
+        "hint": "先查看代码中的列选择/过滤/拟合，再核对输出身份和本项目局限。",
+        "checklist": [
+          "准确引用原单元28—30",
+          "指出实际字段或变量与一项真实输出",
+          "把未重跑、资料缺失和统计缺陷分别说明"
+        ],
+        "provenance": "第四阶段教学补充，自评，不代表原文件试题"
+      },
+      "outputTitles": {
+        "learning/resources/p18-v4-source-9.json": "原单元28—30保存输出",
+        "learning/resources/p18-v4-source-9-images.json": "原单元28—30保存输出 · 原保存图"
+      }
+    },
+    {
+      "id": "phase4-data",
+      "title": "真实数据实验 · 京东评论数据情感分析",
+      "status": "ready",
+      "kind": "analysis",
+      "knowledgeIds": [
+        "Pandas",
+        "Matplotlib",
+        "NumPy",
+        "SnowNLP",
+        "Jieba"
+      ],
+      "explanation": [
+        "对京东评论做预训练情感评分、分词及关键词探索。",
+        "本步运行工程适配器，展示真实输入的质量、专属聚合与图表。清洗、分组和模型边界见代码与每份结果说明。教学代码为本项目经过审查的实现；不会执行原Notebook。",
+        "已实际准备4份结果；请切换结果逐项核对问题、单位、范围、分母、过滤条件和来源身份。"
+      ],
+      "teachingCode": "def p18(p):\n d=p.load();p.counts(d,'score');d['评论字符数']=d.content.fillna('').astype(str).str.len();p.hist(d,'评论字符数')\n # SnowNLP scores are only available as saved output, never reinterpreted as true labels.\n p.add('sentiment','原保存情感阈值计数',['阈值规则','原保存计数'],[['SnowNLP分数≥0.5',2791],['SnowNLP分数<0.5',846]],'数值来自原单元25保存文本；不是人工情感标签，不是本次重跑，分数未经此数据校准。',identity='original-saved',unit='评论')\n assert len(d)==3637;p.checks['savedCountSum']=2791+846\n",
+      "limitations": [
+        "分数不等于经本数据校准的真实概率；阈值分类不是真实人工标签；“未填写”等文本会影响结果；不能从负面词直接推断品控因果。",
+        "新版本不覆盖原保存成绩；所有新训练均在构建清单中单列。"
+      ],
+      "codeRefs": [
+        {
+          "path": "电商-数据情感分析-约150行（分词、关键词提取、情感分析）/京东评论数据情感分析.ipynb",
+          "notebookSha256": "6414527f85039d478eee720bd4a03e00565ded4963f373673f2af574e6a817fd",
+          "cell": 4,
+          "code": "import pandas as pd\ndata = pd.read_csv('./京东评论数据.csv')\ndata.head(2)",
+          "codeSha256": "a8bcf393a81678cf628058f0fbd02d6c02afc46789024edeb4ed3f99233cb30d"
+        }
+      ],
+      "inputRefs": [
+        {
+          "path": "电商-数据情感分析-约150行（分词、关键词提取、情感分析）/京东评论数据情感分析.ipynb",
+          "sha256": "6414527f85039d478eee720bd4a03e00565ded4963f373673f2af574e6a817fd"
+        },
+        {
+          "path": "电商-数据情感分析-约150行（分词、关键词提取、情感分析）/京东评论数据情感分析.py",
+          "sha256": "aca2005a974501a6c679afb1374691b7db139c1b8d77bbc2f547c52138d03088"
+        },
+        {
+          "path": "电商-数据情感分析-约150行（分词、关键词提取、情感分析）/京东评论数据.csv",
+          "sha256": "142cbb8443ed879582fdc56d3c728e19b376dce2e8779e65b57718a4d14a1691"
+        }
+      ],
+      "outputRefs": [
+        "learning/resources/p18-v4-score.json",
+        "learning/resources/p18-v4-_____-ba931ba8.json",
+        "learning/resources/p18-v4-sentiment.json",
+        "learning/resources/p18-v4-input-quality.json"
+      ],
+      "exercise": {
+        "prompt": "抽样比较星级与情感分；说明阈值变化不代表模型重新训练。",
+        "hint": "从同源表取数，写出算式；先核对全量/抽样和原保存/新计算身份。",
+        "checklist": [
+          "列出真实字段、筛选规则和当前样本范围",
+          "用表格复核至少一个频数、比率或模型指标",
+          "指出一个不能由本图推出的结论"
+        ],
+        "provenance": "已批准路线练习与第四阶段核对清单，采用自评"
+      },
+      "outputTitles": {
+        "learning/resources/p18-v4-score.json": "score：记录数与全量比例",
+        "learning/resources/p18-v4-_____-ba931ba8.json": "评论字符数的全量等宽分布",
+        "learning/resources/p18-v4-sentiment.json": "原保存情感阈值计数",
+        "learning/resources/p18-v4-input-quality.json": "本项目各输入表的读取与质量核对"
+      }
+    }
+  ]
+}

@@ -1,0 +1,805 @@
+{
+  "createdAt": "2026-11-17T10:13:49.794Z",
+  "applicationVersion": "0.6.0",
+  "contentVersion": "0.6.0",
+  "projects": [
+    {
+      "id": "P01",
+      "title": "信用卡欺诈交易预测",
+      "course": "已发布内容完整可学",
+      "readySteps": 18,
+      "lessons": 1,
+      "datasets": 1,
+      "source": "audited",
+      "result": "原模型待复现；已提供保存证据和只读核对",
+      "newModels": [],
+      "originalModelRerun": false,
+      "offlineResources": "本地文件存在；浏览器场景另列",
+      "resources": 23,
+      "charts": 4,
+      "codeRefs": 39,
+      "gaps": [],
+      "affectedSteps": [],
+      "originalNames": [
+        "交易预测-约600行（EDA数据探索、逻辑回归、决策树、模型调参、模型评估）",
+        "信用卡欺诈交易预测.ipynb"
+      ]
+    },
+    {
+      "id": "P02",
+      "title": "自行车租赁数量预测",
+      "course": "已发布内容完整可学",
+      "readySteps": 11,
+      "lessons": 1,
+      "datasets": 1,
+      "source": "audited",
+      "result": "原模型待复现；已提供保存证据和只读核对",
+      "newModels": [],
+      "originalModelRerun": false,
+      "offlineResources": "本地文件存在；浏览器场景另列",
+      "resources": 20,
+      "charts": 3,
+      "codeRefs": 39,
+      "gaps": [],
+      "affectedSteps": [],
+      "originalNames": [
+        "交通出行-共享单车预测租赁数量-约300行（随机森林、支持向量机模型）",
+        "自行车租赁数量预测.ipynb"
+      ]
+    },
+    {
+      "id": "P03",
+      "title": "航空公司客户价值分析",
+      "course": "已发布内容完整可学",
+      "readySteps": 7,
+      "lessons": 1,
+      "datasets": 6,
+      "source": "audited",
+      "result": "新教学版本已计算；原模型待复现",
+      "newModels": [
+        "P03-attached-standardized-k5-v1"
+      ],
+      "originalModelRerun": false,
+      "offlineResources": "本地文件存在；浏览器场景另列",
+      "resources": 11,
+      "charts": 2,
+      "codeRefs": 16,
+      "gaps": [],
+      "affectedSteps": [],
+      "originalNames": [
+        "交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）",
+        "航空公司客户价值分析.ipynb"
+      ]
+    },
+    {
+      "id": "P04",
+      "title": "全球酒店预订分析与预测",
+      "course": "已发布内容完整可学",
+      "readySteps": 23,
+      "lessons": 1,
+      "datasets": 1,
+      "source": "audited",
+      "result": "原模型待复现；已提供保存证据和只读核对",
+      "newModels": [],
+      "originalModelRerun": false,
+      "offlineResources": "本地文件存在；浏览器场景另列",
+      "resources": 36,
+      "charts": 6,
+      "codeRefs": 54,
+      "gaps": [],
+      "affectedSteps": [],
+      "originalNames": [
+        "交通旅行-全球酒店预订分析与预测-约550行（数据探索分析、随机森林、XGBoost、逻辑回归）",
+        "全球酒店预订分析与预测.ipynb"
+      ]
+    },
+    {
+      "id": "P05",
+      "title": "旅游景点",
+      "course": "已发布内容完整可学",
+      "readySteps": 20,
+      "lessons": 1,
+      "datasets": 1,
+      "source": "audited",
+      "result": "只读结果已核对；无新增训练",
+      "newModels": [],
+      "originalModelRerun": false,
+      "offlineResources": "本地文件存在；浏览器场景另列",
+      "resources": 25,
+      "charts": 4,
+      "codeRefs": 25,
+      "gaps": [],
+      "affectedSteps": [],
+      "originalNames": [
+        "交通旅行-热门旅游景点数据分析与可视化-约300行（pandas数据处理、pyecharts可视化、jieba分词）",
+        "旅游景点.ipynb"
+      ]
+    },
+    {
+      "id": "P06",
+      "title": "120年奥运会数据可视化",
+      "course": "已发布内容完整可学",
+      "readySteps": 20,
+      "lessons": 1,
+      "datasets": 2,
+      "source": "audited",
+      "result": "只读结果已核对；无新增训练",
+      "newModels": [],
+      "originalModelRerun": false,
+      "offlineResources": "本地文件存在；浏览器场景另列",
+      "resources": 23,
+      "charts": 3,
+      "codeRefs": 25,
+      "gaps": [],
+      "affectedSteps": [],
+      "originalNames": [
+        "体育-数据可视化-约1300行（Pyecharts可视化）",
+        "120年奥运会数据可视化.ipynb"
+      ]
+    },
+    {
+      "id": "P07",
+      "title": "基于水色图像的水质评估",
+      "course": "部分可学",
+      "readySteps": 4,
+      "lessons": 1,
+      "datasets": 4,
+      "source": "known-gaps",
+      "result": "原模型待复现；已提供保存证据和只读核对",
+      "newModels": [],
+      "originalModelRerun": false,
+      "offlineResources": "本地文件存在；浏览器场景另列",
+      "resources": 9,
+      "charts": 3,
+      "codeRefs": 9,
+      "gaps": [
+        "全量图像到moment特征端到端：203行特征仅附199图；缺失1_42.jpg,2_38.jpg,3_10.jpg,3_11.jpg；两特征支路未证实一一对应"
+      ],
+      "affectedSteps": [
+        "source-009-012",
+        "source-014-017",
+        "source-019-019",
+        "phase4-data"
+      ],
+      "originalNames": [
+        "其他-基于水色图像的水质评估-约200行（支持向量机）",
+        "基于水色图像的水质评估.ipynb"
+      ]
+    },
+    {
+      "id": "P08",
+      "title": "拍拍贷平台业务数据分析",
+      "course": "部分可学",
+      "readySteps": 17,
+      "lessons": 1,
+      "datasets": 5,
+      "source": "audited",
+      "result": "只读结果已核对；无新增训练",
+      "newModels": [],
+      "originalModelRerun": false,
+      "offlineResources": "本地文件存在；浏览器场景另列",
+      "resources": 29,
+      "charts": 4,
+      "codeRefs": 29,
+      "gaps": [
+        "原复杂还款收益流程独立复现：已开放原保存代码/图及全量安全聚合；原多表回款收益计算未完整重跑，不将快照金额直接求和"
+      ],
+      "affectedSteps": [],
+      "originalNames": [
+        "平台业务数据分析-约800行（数据探索分析、matplotlib可视化）",
+        "拍拍贷平台业务数据分析.ipynb"
+      ]
+    },
+    {
+      "id": "P09",
+      "title": "链家房源信息抓取+可视化",
+      "course": "部分可学",
+      "readySteps": 9,
+      "lessons": 1,
+      "datasets": 1,
+      "source": "audited",
+      "result": "只读结果已核对；无新增训练",
+      "newModels": [],
+      "originalModelRerun": false,
+      "offlineResources": "本地文件存在；浏览器场景另列",
+      "resources": 12,
+      "charts": 3,
+      "codeRefs": 19,
+      "gaps": [
+        "重新联网采集：离线主线使用本地shenzhen.csv，当前采集网站与可用性未验证；联网步骤仅供阅读"
+      ],
+      "affectedSteps": [],
+      "originalNames": [
+        "房地产-二手房+可视化-约300行（爬虫+pyecharts可视化）",
+        "链家房源信息抓取+可视化.ipynb"
+      ]
+    },
+    {
+      "id": "P10",
+      "title": "二手房房价分析和预测房价",
+      "course": "已发布内容完整可学",
+      "readySteps": 11,
+      "lessons": 1,
+      "datasets": 1,
+      "source": "audited",
+      "result": "原模型待复现；已提供保存证据和只读核对",
+      "newModels": [],
+      "originalModelRerun": false,
+      "offlineResources": "本地文件存在；浏览器场景另列",
+      "resources": 16,
+      "charts": 2,
+      "codeRefs": 37,
+      "gaps": [],
+      "affectedSteps": [],
+      "originalNames": [
+        "房地产-二手房房价分析和预测-约300行(多元线性回归)",
+        "二手房房价分析和预测房价.ipynb"
+      ]
+    },
+    {
+      "id": "P11",
+      "title": "链家二手房数据分析",
+      "course": "已发布内容完整可学",
+      "readySteps": 8,
+      "lessons": 1,
+      "datasets": 1,
+      "source": "audited",
+      "result": "只读结果已核对；无新增训练",
+      "newModels": [],
+      "originalModelRerun": false,
+      "offlineResources": "本地文件存在；浏览器场景另列",
+      "resources": 12,
+      "charts": 3,
+      "codeRefs": 21,
+      "gaps": [],
+      "affectedSteps": [],
+      "originalNames": [
+        "房地产-二手房数据分析-约400行（数据探索分析、matplotlib可视化）",
+        "链家二手房数据分析.ipynb"
+      ]
+    },
+    {
+      "id": "P12",
+      "title": "历年考研分数线数据可视化",
+      "course": "已发布内容完整可学",
+      "readySteps": 23,
+      "lessons": 1,
+      "datasets": 8,
+      "source": "audited",
+      "result": "只读结果已核对；无新增训练",
+      "newModels": [],
+      "originalModelRerun": false,
+      "offlineResources": "本地文件存在；浏览器场景另列",
+      "resources": 28,
+      "charts": 3,
+      "codeRefs": 48,
+      "gaps": [],
+      "affectedSteps": [],
+      "originalNames": [
+        "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）",
+        "历年考研分数线数据可视化.ipynb"
+      ]
+    },
+    {
+      "id": "P13",
+      "title": "国产进口电影票房分析",
+      "course": "已发布内容完整可学",
+      "readySteps": 19,
+      "lessons": 1,
+      "datasets": 4,
+      "source": "audited",
+      "result": "只读结果已核对；无新增训练",
+      "newModels": [],
+      "originalModelRerun": false,
+      "offlineResources": "本地文件存在；浏览器场景另列",
+      "resources": 22,
+      "charts": 3,
+      "codeRefs": 33,
+      "gaps": [],
+      "affectedSteps": [],
+      "originalNames": [
+        "文化娱乐-国产进口电影票房分析（Pyecharts大屏可视化）",
+        "国产进口电影票房分析.ipynb"
+      ]
+    },
+    {
+      "id": "P14",
+      "title": "微博情感分析",
+      "course": "部分可学",
+      "readySteps": 6,
+      "lessons": 1,
+      "datasets": 1,
+      "source": "known-gaps",
+      "result": "原模型待复现；已提供保存证据和只读核对",
+      "newModels": [],
+      "originalModelRerun": false,
+      "offlineResources": "本地文件存在；浏览器场景另列",
+      "resources": 10,
+      "charts": 4,
+      "codeRefs": 10,
+      "gaps": [
+        "原文转CSV：代码引用1_simplifyweibo.txt缺失；不以4_simplifyweibo.txt替代；现成data.csv后续步骤可学"
+      ],
+      "affectedSteps": [],
+      "originalNames": [
+        "文化娱乐-情感分析-含实验-约150行（分词、朴素贝叶斯模型）",
+        "微博情感分析.ipynb"
+      ]
+    },
+    {
+      "id": "P15",
+      "title": "春节档票房分析",
+      "course": "部分可学",
+      "readySteps": 14,
+      "lessons": 1,
+      "datasets": 8,
+      "source": "audited",
+      "result": "只读结果已核对；无新增训练",
+      "newModels": [],
+      "originalModelRerun": false,
+      "offlineResources": "本地文件存在；浏览器场景另列",
+      "resources": 17,
+      "charts": 3,
+      "codeRefs": 34,
+      "gaps": [
+        "旧xls票房单位解释：表头“/万”与原除数/改名存在矛盾；已开放原物理值与代码，不能给出未经核实单位的换算结论"
+      ],
+      "affectedSteps": [],
+      "originalNames": [
+        "文化娱乐-春节档票房分析（Pyecharts大屏可视化）",
+        "春节档票房分析.ipynb"
+      ]
+    },
+    {
+      "id": "P16",
+      "title": "时令蔬菜有哪些",
+      "course": "已发布内容完整可学",
+      "readySteps": 14,
+      "lessons": 1,
+      "datasets": 1,
+      "source": "audited",
+      "result": "新教学版本已计算；原模型待复现",
+      "newModels": [
+        "P16-drop-first-month-v1"
+      ],
+      "originalModelRerun": false,
+      "offlineResources": "本地文件存在；浏览器场景另列",
+      "resources": 17,
+      "charts": 1,
+      "codeRefs": 26,
+      "gaps": [],
+      "affectedSteps": [],
+      "originalNames": [
+        "生活日常-时令蔬菜时间序列分析-约600行（matplotlib、seaborn可视化、多元回归）",
+        "时令蔬菜有哪些.ipynb"
+      ]
+    },
+    {
+      "id": "P17",
+      "title": "聚类分析广告效果",
+      "course": "已发布内容完整可学",
+      "readySteps": 8,
+      "lessons": 1,
+      "datasets": 1,
+      "source": "audited",
+      "result": "新教学版本已计算；原模型待复现",
+      "newModels": [
+        "P17-seed100-ninit10-v1"
+      ],
+      "originalModelRerun": false,
+      "offlineResources": "本地文件存在；浏览器场景另列",
+      "resources": 15,
+      "charts": 2,
+      "codeRefs": 21,
+      "gaps": [],
+      "affectedSteps": [
+        "profile-audit"
+      ],
+      "originalNames": [
+        "电商-广告投放效果分析-约250行（KMeans聚类、数据分析）",
+        "聚类分析广告效果.ipynb"
+      ]
+    },
+    {
+      "id": "P18",
+      "title": "京东评论数据情感分析",
+      "course": "已发布内容完整可学",
+      "readySteps": 10,
+      "lessons": 1,
+      "datasets": 1,
+      "source": "audited",
+      "result": "只读结果已核对；无新增训练",
+      "newModels": [],
+      "originalModelRerun": false,
+      "offlineResources": "本地文件存在；浏览器场景另列",
+      "resources": 15,
+      "charts": 2,
+      "codeRefs": 14,
+      "gaps": [],
+      "affectedSteps": [],
+      "originalNames": [
+        "电商-数据情感分析-约150行（分词、关键词提取、情感分析）",
+        "京东评论数据情感分析.ipynb"
+      ]
+    },
+    {
+      "id": "P19",
+      "title": "母婴市场消费数据分析",
+      "course": "已发布内容完整可学",
+      "readySteps": 11,
+      "lessons": 1,
+      "datasets": 2,
+      "source": "audited",
+      "result": "只读结果已核对；无新增训练",
+      "newModels": [],
+      "originalModelRerun": false,
+      "offlineResources": "本地文件存在；浏览器场景另列",
+      "resources": 17,
+      "charts": 3,
+      "codeRefs": 39,
+      "gaps": [],
+      "affectedSteps": [],
+      "originalNames": [
+        "电商-母婴市场消费数据分析-约350行（pyecharts可视化、数据分析）",
+        "母婴市场消费数据分析.ipynb"
+      ]
+    },
+    {
+      "id": "P20",
+      "title": "天猫双十一美妆销售数据分析",
+      "course": "已发布内容完整可学",
+      "readySteps": 14,
+      "lessons": 1,
+      "datasets": 2,
+      "source": "audited",
+      "result": "只读结果已核对；无新增训练",
+      "newModels": [],
+      "originalModelRerun": false,
+      "offlineResources": "本地文件存在；浏览器场景另列",
+      "resources": 21,
+      "charts": 4,
+      "codeRefs": 40,
+      "gaps": [],
+      "affectedSteps": [
+        "source-005-007",
+        "source-010-011",
+        "source-013-018",
+        "source-020-024",
+        "source-025-028",
+        "source-030-030",
+        "source-032-032",
+        "source-035-035",
+        "source-038-044",
+        "source-046-048",
+        "source-051-055",
+        "source-058-059",
+        "source-062-062",
+        "phase4-data"
+      ],
+      "originalNames": [
+        "电商-美妆销售数据分析-约400行（matplotlib可视化、数据分析）",
+        "天猫双十一美妆销售数据分析.ipynb"
+      ]
+    },
+    {
+      "id": "P21",
+      "title": "超市销售数据分析与报表（两节课程）",
+      "course": "已发布内容完整可学",
+      "readySteps": 12,
+      "lessons": 2,
+      "datasets": 3,
+      "source": "audited",
+      "result": "只读结果已核对；无新增训练",
+      "newModels": [],
+      "originalModelRerun": false,
+      "offlineResources": "本地文件存在；浏览器场景另列",
+      "resources": 17,
+      "charts": 4,
+      "codeRefs": 23,
+      "gaps": [],
+      "affectedSteps": [
+        "b-quality"
+      ],
+      "originalNames": [
+        "电商-超市销售数据分析与报表-约200行（数据透视分析）",
+        "1、超市销售数据分析.ipynb",
+        "2、超市销售数据自动化报表.ipynb"
+      ]
+    },
+    {
+      "id": "P22",
+      "title": "优衣库门店可视化与顾客拜访数据分组",
+      "course": "已发布内容完整可学",
+      "readySteps": 19,
+      "lessons": 1,
+      "datasets": 3,
+      "source": "audited",
+      "result": "新教学版本已计算；原模型待复现",
+      "newModels": [
+        "P22-coordinate-k3-k8-v1"
+      ],
+      "originalModelRerun": false,
+      "offlineResources": "本地文件存在；浏览器场景另列",
+      "resources": 23,
+      "charts": 2,
+      "codeRefs": 31,
+      "gaps": [],
+      "affectedSteps": [],
+      "originalNames": [
+        "电商-门店可视化与顾客分组-约500行（pyecharts地图可视化、KMeans聚类、大屏可视化）",
+        "优衣库门店可视化与顾客拜访数据分组.ipynb"
+      ]
+    },
+    {
+      "id": "P23",
+      "title": "预测天猫用户使用优惠券概率较高的客群",
+      "course": "已发布内容完整可学",
+      "readySteps": 13,
+      "lessons": 1,
+      "datasets": 1,
+      "source": "audited",
+      "result": "新教学版本已计算；原模型待复现",
+      "newModels": [
+        "P23-stratified-probability-v1"
+      ],
+      "originalModelRerun": false,
+      "offlineResources": "本地文件存在；浏览器场景另列",
+      "resources": 22,
+      "charts": 4,
+      "codeRefs": 36,
+      "gaps": [],
+      "affectedSteps": [],
+      "originalNames": [
+        "电商-预测用户使用优惠券概率较高的客群-约350行（逻辑回归模型、模型评估）",
+        "预测天猫用户使用优惠券概率较高的客群.ipynb"
+      ]
+    },
+    {
+      "id": "P24",
+      "title": "小红书",
+      "course": "已发布内容完整可学",
+      "readySteps": 15,
+      "lessons": 1,
+      "datasets": 1,
+      "source": "audited",
+      "result": "新教学版本已计算；原模型待复现",
+      "newModels": [
+        "P24-holdout-train-imputer-v1"
+      ],
+      "originalModelRerun": false,
+      "offlineResources": "本地文件存在；浏览器场景另列",
+      "resources": 27,
+      "charts": 4,
+      "codeRefs": 54,
+      "gaps": [],
+      "affectedSteps": [
+        "source-009-015",
+        "source-016-017",
+        "source-022-029",
+        "source-030-030",
+        "source-033-037",
+        "source-038-043",
+        "source-045-049",
+        "source-051-054",
+        "source-057-064",
+        "source-065-069",
+        "source-071-071",
+        "source-073-074",
+        "source-076-078",
+        "source-081-083",
+        "phase4-data"
+      ],
+      "originalNames": [
+        "电商-预测用户消费金额-约500行（线性回归模型、模型评估优化）",
+        "小红书.ipynb"
+      ]
+    },
+    {
+      "id": "P25",
+      "title": "第七次全国人口普查-数据可视化",
+      "course": "已发布内容完整可学",
+      "readySteps": 7,
+      "lessons": 1,
+      "datasets": 6,
+      "source": "audited",
+      "result": "只读结果已核对；无新增训练",
+      "newModels": [],
+      "originalModelRerun": false,
+      "offlineResources": "本地文件存在；浏览器场景另列",
+      "resources": 9,
+      "charts": 2,
+      "codeRefs": 17,
+      "gaps": [],
+      "affectedSteps": [],
+      "originalNames": [
+        "社会科学-人口普查-数据可视化-约750行（Pyecharts可视化、数据分析）",
+        "第七次全国人口普查-数据可视化.ipynb"
+      ]
+    },
+    {
+      "id": "P26",
+      "title": "关于第七次全国人口普查数据的探索",
+      "course": "已发布内容完整可学",
+      "readySteps": 14,
+      "lessons": 1,
+      "datasets": 10,
+      "source": "audited",
+      "result": "新教学版本已计算；原模型待复现",
+      "newModels": [
+        "P26-age-ward-v1"
+      ],
+      "originalModelRerun": false,
+      "offlineResources": "本地文件存在；浏览器场景另列",
+      "resources": 22,
+      "charts": 5,
+      "codeRefs": 28,
+      "gaps": [],
+      "affectedSteps": [],
+      "originalNames": [
+        "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）",
+        "关于第七次全国人口普查数据的探索.ipynb"
+      ]
+    },
+    {
+      "id": "P27",
+      "title": "婚姻状况分析",
+      "course": "已发布内容完整可学",
+      "readySteps": 8,
+      "lessons": 1,
+      "datasets": 1,
+      "source": "audited",
+      "result": "只读结果已核对；无新增训练",
+      "newModels": [],
+      "originalModelRerun": false,
+      "offlineResources": "本地文件存在；浏览器场景另列",
+      "resources": 9,
+      "charts": 1,
+      "codeRefs": 14,
+      "gaps": [],
+      "affectedSteps": [],
+      "originalNames": [
+        "社会科学-婚姻状况分析-约200行（plotly可视化、数据分析）",
+        "婚姻状况分析.ipynb"
+      ]
+    },
+    {
+      "id": "P28",
+      "title": "分析员工过早离职原因",
+      "course": "已发布内容完整可学",
+      "readySteps": 18,
+      "lessons": 1,
+      "datasets": 1,
+      "source": "audited",
+      "result": "只读结果已核对；无新增训练",
+      "newModels": [],
+      "originalModelRerun": false,
+      "offlineResources": "本地文件存在；浏览器场景另列",
+      "resources": 23,
+      "charts": 5,
+      "codeRefs": 37,
+      "gaps": [],
+      "affectedSteps": [],
+      "originalNames": [
+        "职场-分析员工过早离职原因-约300行（相关性分析、变量分析、plotly可视化）",
+        "分析员工过早离职原因.ipynb"
+      ]
+    },
+    {
+      "id": "P29",
+      "title": "数据分析师岗位分析",
+      "course": "已发布内容完整可学",
+      "readySteps": 12,
+      "lessons": 1,
+      "datasets": 1,
+      "source": "audited",
+      "result": "只读结果已核对；无新增训练",
+      "newModels": [],
+      "originalModelRerun": false,
+      "offlineResources": "本地文件存在；浏览器场景另列",
+      "resources": 24,
+      "charts": 6,
+      "codeRefs": 21,
+      "gaps": [],
+      "affectedSteps": [],
+      "originalNames": [
+        "职场-数据分析师职位分析-约300行（数据探索分析、matplotlib可视化）",
+        "数据分析师岗位分析.ipynb"
+      ]
+    }
+  ],
+  "errors": [],
+  "documents": [
+    {
+      "name": "00_阅读入口与最终建议.md",
+      "bytes": 2162,
+      "sha256": "71fe9c3525e1a0d83762ad2ba05942b14eb83e5e08afa2deda7fe31cd0976302",
+      "lines": 26
+    },
+    {
+      "name": "01_项目资产盘点.md",
+      "bytes": 100635,
+      "sha256": "c3491b0422e59f5f3010556d979b0515f836705a984910cfab7f026f144e532e",
+      "lines": 1321
+    },
+    {
+      "name": "02_项目分类体系.md",
+      "bytes": 7291,
+      "sha256": "36f1d3e1ce443323a895f8b81945f8c2d1cbed0a3d9cf7c930aad73d886f85dc",
+      "lines": 134
+    },
+    {
+      "name": "03_完整学习路线.md",
+      "bytes": 59329,
+      "sha256": "3fc5d309097b0b4ee0b0b1dab256c5e9bd09a4a75480731a3bc6702311ca75f1",
+      "lines": 838
+    },
+    {
+      "name": "04_网站信息架构与视觉规范.md",
+      "bytes": 6331,
+      "sha256": "119dc0c75ccaae657e2d6687b30bef6c98cdbb5bc83e5a12cf41ad6e5683c87d",
+      "lines": 61
+    },
+    {
+      "name": "05_单项目学习页面设计.md",
+      "bytes": 5717,
+      "sha256": "e6434453b6a218dd17233127429b795bd9dea9523a1fd29bc9c12eb1968e47c9",
+      "lines": 46
+    },
+    {
+      "name": "06_可视化与交互设计.md",
+      "bytes": 20440,
+      "sha256": "85f1d55f84cecf2ae308644e0e1016218da9e0531cf4177402451e009405936d",
+      "lines": 321
+    },
+    {
+      "name": "07_技术架构设计.md",
+      "bytes": 9081,
+      "sha256": "d207f02f9359003b6c10fcf5597d0722897f8c2fad74c5121c861768ebbf6ae7",
+      "lines": 80
+    },
+    {
+      "name": "08_项目目录与元数据规范.md",
+      "bytes": 9576,
+      "sha256": "96dfd021e1d4b71d9313ed51ee81b86ae8112270f0eaf4c18cb5ef606f9d9017",
+      "lines": 127
+    },
+    {
+      "name": "09_开发实施路线与验收.md",
+      "bytes": 6358,
+      "sha256": "733fa8f5a83f9babc18d3de786c7c6176c2bb5bbf8290bad210cc6f245c39841",
+      "lines": 55
+    },
+    {
+      "name": "附录A_424文件清单.md",
+      "bytes": 80096,
+      "sha256": "5ddfca6045c3c57ffd2fcb1d04c9f82b3eb7cb470a8bb5ce4becb83fa86f5d0d",
+      "lines": 939
+    },
+    {
+      "name": "附录B_全数据字段与缺失字典.md",
+      "bytes": 48143,
+      "sha256": "a8ab3e08be85e929c1b71d7f6dc595ad081993adf9855a7f65632157c87dde96",
+      "lines": 2261
+    }
+  ],
+  "counts": {
+    "projects": 29,
+    "categories": 12,
+    "lessons": 30,
+    "steps": 385,
+    "charts": 95
+  },
+  "device": {
+    "platform": "win32",
+    "release": "10.0.26200",
+    "arch": "x64",
+    "cpu": "Intel(R) Core(TM) i9-14900HX",
+    "logicalCpus": 32,
+    "totalMemory": 16890322944,
+    "node": "v24.18.0"
+  },
+  "inventory": {
+    "files": 756,
+    "bytes": 26902330
+  }
+}

@@ -1,0 +1,1092 @@
+{
+  "id": "P03",
+  "title": "航空公司客户价值分析",
+  "originalNames": [
+    "交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）",
+    "航空公司客户价值分析.ipynb"
+  ],
+  "categoryId": "travel",
+  "summary": "用会员关系和乘机行为构建客户价值分群。",
+  "difficulty": "进阶",
+  "skillTags": [
+    "Pandas",
+    "NumPy",
+    "Matplotlib",
+    "数据清洗",
+    "LRFMC",
+    "Z-score",
+    "KMeans",
+    "雷达图"
+  ],
+  "methods": "KMeans，原代码k=5；LRFMC为业务指标模型",
+  "sourceRefs": [
+    {
+      "path": "交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/.ipynb_checkpoints/航空公司客户价值分析-checkpoint.ipynb",
+      "sha256": "bd72cf9fd918950642968c14f6021b77caeef58df86b4df65564c546279bbbb8",
+      "role": "code"
+    },
+    {
+      "path": "交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/data/air_data.csv",
+      "sha256": "afcba77fc852376966a1026c4d991323b0e7cd7f26bdc975582080a93b6161eb",
+      "role": "data"
+    },
+    {
+      "path": "交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/tmp/data_cleaned.csv",
+      "sha256": "e3455c8ebab78f5bf4e3972761783fd0e6fe33a47d9344d94a62f017deda8fe3",
+      "role": "data"
+    },
+    {
+      "path": "交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/tmp/data_stand.csv",
+      "sha256": "6cf52be39fe13b24ffe49abbfe090f5240e98023adb5947c0f7d5c20364736f8",
+      "role": "data"
+    },
+    {
+      "path": "交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/tmp/data_stipu.csv",
+      "sha256": "e7089dd0578664aca02f40184d60800992be2bcab0c7d2e38856f3221cb26c4b",
+      "role": "data"
+    },
+    {
+      "path": "交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/tmp/explore.xlsx",
+      "sha256": "9876e3b4f6b70179ef76b7b402179263defc91e32b1f96e80a700cdb2a4d3dd2",
+      "role": "data"
+    },
+    {
+      "path": "交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/客户信息属性说明.xls",
+      "sha256": "dd4a690ed7d91b0f1a92903c936df53a86534038b02245b55f84a8dd4e2cee8c",
+      "role": "data"
+    },
+    {
+      "path": "交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/航空公司客户价值分析.ipynb",
+      "sha256": "bd72cf9fd918950642968c14f6021b77caeef58df86b4df65564c546279bbbb8",
+      "role": "code"
+    }
+  ],
+  "limitations": [
+    "目录LRFCM与文中LRFMC拼写不一致；R直接取LAST_TO_END，不能照抄说明中的月单位；聚类序号会改变，文中客户编号与中心对应关系须复核；k=5不能仅以指标数证明。"
+  ],
+  "lessons": [
+    {
+      "id": "main-analysis",
+      "title": "航空公司客户价值分析",
+      "source": "交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/航空公司客户价值分析.ipynb"
+    }
+  ],
+  "readiness": {
+    "source": "audited",
+    "course": "not-adapted",
+    "rerun": "not-run",
+    "offline": "not-packaged"
+  },
+  "detailRef": "projects/P03/project.json",
+  "searchKeywords": [
+    "了解会员价值",
+    "阅读44字段字典",
+    "追踪62988到62044的清洗",
+    "逐项计算LRFMC",
+    "比较量纲与标准化",
+    "阅读5群中心",
+    "核对画像及编号"
+  ],
+  "prerequisites": "Pandas筛选、标准差、距离、无监督学习。",
+  "recommendedProjectIds": [
+    "P17"
+  ],
+  "recommendationNote": "P17。",
+  "schemaVersion": "1.0",
+  "contentVersion": "0.2.0",
+  "learningObjectives": [
+    "用会员关系和乘机行为构建客户价值分群。 重点掌握Pandas、NumPy、Matplotlib、数据清洗、LRFMC、Z-score、KMeans、雷达图。",
+    "了解会员价值",
+    "阅读44字段字典",
+    "追踪62988到62044的清洗",
+    "逐项计算LRFMC",
+    "比较量纲与标准化",
+    "阅读5群中心",
+    "核对画像及编号"
+  ],
+  "exercise": {
+    "text": "手算一位会员的L；用中心值给群体命名，不按编号套用名称。",
+    "provenance": "已批准路线中新设计的巩固练习；非原文件已有试题",
+    "answerStatus": "参考答案尚未制作"
+  },
+  "datasets": [
+    {
+      "id": "D01-1",
+      "path": "交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/data/air_data.csv",
+      "sha256": "afcba77fc852376966a1026c4d991323b0e7cd7f26bdc975582080a93b6161eb",
+      "sheet": null,
+      "rows": 62988,
+      "columns": 44,
+      "encoding": "utf-8-sig",
+      "grain": "待核实；读取行数不等于独立业务实体数",
+      "origin": null,
+      "license": null,
+      "fields": [
+        {
+          "name": "MEMBER_NO",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": "会员卡号",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P03 / 交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/data/air_data.csv；语义来源：客户信息属性说明.xls / 变量含义（原字典声明）"
+        },
+        {
+          "name": "FFP_DATE",
+          "dtype": "str",
+          "missing": 0,
+          "meaning": "入会时间；办理会员卡的开始的时间",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P03 / 交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/data/air_data.csv；语义来源：客户信息属性说明.xls / 变量含义（原字典声明）"
+        },
+        {
+          "name": "FIRST_FLIGHT_DATE",
+          "dtype": "str",
+          "missing": 0,
+          "meaning": "第一次飞行日期",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P03 / 交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/data/air_data.csv；语义来源：客户信息属性说明.xls / 变量含义（原字典声明）"
+        },
+        {
+          "name": "GENDER",
+          "dtype": "str",
+          "missing": 3,
+          "meaning": "性别",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P03 / 交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/data/air_data.csv；语义来源：客户信息属性说明.xls / 变量含义（原字典声明）"
+        },
+        {
+          "name": "FFP_TIER",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": "会员卡级别",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P03 / 交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/data/air_data.csv；语义来源：客户信息属性说明.xls / 变量含义（原字典声明）"
+        },
+        {
+          "name": "WORK_CITY",
+          "dtype": "str",
+          "missing": 2269,
+          "meaning": "工作地城市",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P03 / 交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/data/air_data.csv；语义来源：客户信息属性说明.xls / 变量含义（原字典声明）"
+        },
+        {
+          "name": "WORK_PROVINCE",
+          "dtype": "str",
+          "missing": 3248,
+          "meaning": "工作地所在省份",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P03 / 交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/data/air_data.csv；语义来源：客户信息属性说明.xls / 变量含义（原字典声明）"
+        },
+        {
+          "name": "WORK_COUNTRY",
+          "dtype": "str",
+          "missing": 26,
+          "meaning": "工作地所在国家",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P03 / 交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/data/air_data.csv；语义来源：客户信息属性说明.xls / 变量含义（原字典声明）"
+        },
+        {
+          "name": "AGE",
+          "dtype": "float64",
+          "missing": 420,
+          "meaning": "年龄",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P03 / 交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/data/air_data.csv；语义来源：客户信息属性说明.xls / 变量含义（原字典声明）"
+        },
+        {
+          "name": "LOAD_TIME",
+          "dtype": "str",
+          "missing": 0,
+          "meaning": "观测窗口的结束时间；选取样本的时间宽度，距离现在最近的时间。",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P03 / 交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/data/air_data.csv；语义来源：客户信息属性说明.xls / 变量含义（原字典声明）"
+        },
+        {
+          "name": "FLIGHT_COUNT",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": "飞行次数；频数",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P03 / 交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/data/air_data.csv；语义来源：客户信息属性说明.xls / 变量含义（原字典声明）"
+        },
+        {
+          "name": "BP_SUM",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": "观测窗口总基本积分；航空公里的里程就相当于积分，积累一定分数可以兑换奖品和免费里程。",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P03 / 交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/data/air_data.csv；语义来源：客户信息属性说明.xls / 变量含义（原字典声明）"
+        },
+        {
+          "name": "EP_SUM_YR_1",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": "第一年精英资格积分",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P03 / 交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/data/air_data.csv；语义来源：客户信息属性说明.xls / 变量含义（原字典声明）"
+        },
+        {
+          "name": "EP_SUM_YR_2",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": "第二年精英资格积分",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P03 / 交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/data/air_data.csv；语义来源：客户信息属性说明.xls / 变量含义（原字典声明）"
+        },
+        {
+          "name": "SUM_YR_1",
+          "dtype": "float64",
+          "missing": 551,
+          "meaning": "第一年总票价",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P03 / 交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/data/air_data.csv；语义来源：客户信息属性说明.xls / 变量含义（原字典声明）"
+        },
+        {
+          "name": "SUM_YR_2",
+          "dtype": "float64",
+          "missing": 138,
+          "meaning": "第二年总票价",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P03 / 交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/data/air_data.csv；语义来源：客户信息属性说明.xls / 变量含义（原字典声明）"
+        },
+        {
+          "name": "SEG_KM_SUM",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": "观测窗口总飞行公里数",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P03 / 交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/data/air_data.csv；语义来源：客户信息属性说明.xls / 变量含义（原字典声明）"
+        },
+        {
+          "name": "WEIGHTED_SEG_KM",
+          "dtype": "float64",
+          "missing": 0,
+          "meaning": "观测窗口总加权飞行公里数（Σ舱位折扣×航段距离）",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P03 / 交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/data/air_data.csv；语义来源：客户信息属性说明.xls / 变量含义（原字典声明）"
+        },
+        {
+          "name": "LAST_FLIGHT_DATE",
+          "dtype": "str",
+          "missing": 0,
+          "meaning": "末次飞行日期；最后一次飞行时间",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P03 / 交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/data/air_data.csv；语义来源：客户信息属性说明.xls / 变量含义（原字典声明）"
+        },
+        {
+          "name": "AVG_FLIGHT_COUNT",
+          "dtype": "float64",
+          "missing": 0,
+          "meaning": "观测窗口季度平均飞行次数",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P03 / 交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/data/air_data.csv；语义来源：客户信息属性说明.xls / 变量含义（原字典声明）"
+        },
+        {
+          "name": "AVG_BP_SUM",
+          "dtype": "float64",
+          "missing": 0,
+          "meaning": "观测窗口季度平均基本积分累积",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P03 / 交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/data/air_data.csv；语义来源：客户信息属性说明.xls / 变量含义（原字典声明）"
+        },
+        {
+          "name": "BEGIN_TO_FIRST",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": "观察窗口内第一次乘机时间至MAX（观察窗口始端，入会时间）时长",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P03 / 交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/data/air_data.csv；语义来源：客户信息属性说明.xls / 变量含义（原字典声明）"
+        },
+        {
+          "name": "LAST_TO_END",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": "最后一次乘机时间至观察窗口末端时长",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P03 / 交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/data/air_data.csv；语义来源：客户信息属性说明.xls / 变量含义（原字典声明）"
+        },
+        {
+          "name": "AVG_INTERVAL",
+          "dtype": "float64",
+          "missing": 0,
+          "meaning": "平均乘机时间间隔",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P03 / 交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/data/air_data.csv；语义来源：客户信息属性说明.xls / 变量含义（原字典声明）"
+        },
+        {
+          "name": "MAX_INTERVAL",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": "观察窗口内最大乘机间隔",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P03 / 交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/data/air_data.csv；语义来源：客户信息属性说明.xls / 变量含义（原字典声明）"
+        },
+        {
+          "name": "ADD_POINTS_SUM_YR_1",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": "观测窗口中第1年其他积分（合作伙伴、促销、外航转入等）",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P03 / 交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/data/air_data.csv；语义来源：客户信息属性说明.xls / 变量含义（原字典声明）"
+        },
+        {
+          "name": "ADD_POINTS_SUM_YR_2",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": "观测窗口中第2年其他积分（合作伙伴、促销、外航转入等）",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P03 / 交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/data/air_data.csv；语义来源：客户信息属性说明.xls / 变量含义（原字典声明）"
+        },
+        {
+          "name": "EXCHANGE_COUNT",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": "积分兑换次数",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P03 / 交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/data/air_data.csv；语义来源：客户信息属性说明.xls / 变量含义（原字典声明）"
+        },
+        {
+          "name": "avg_discount",
+          "dtype": "float64",
+          "missing": 0,
+          "meaning": "平均折扣率",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P03 / 交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/data/air_data.csv；语义来源：客户信息属性说明.xls / 变量含义（原字典声明）"
+        },
+        {
+          "name": "P1Y_Flight_Count",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": "第1年乘机次数",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P03 / 交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/data/air_data.csv；语义来源：客户信息属性说明.xls / 变量含义（原字典声明）"
+        },
+        {
+          "name": "L1Y_Flight_Count",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": "第2年乘机次数",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P03 / 交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/data/air_data.csv；语义来源：客户信息属性说明.xls / 变量含义（原字典声明）"
+        },
+        {
+          "name": "P1Y_BP_SUM",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": "第1年里程积分",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P03 / 交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/data/air_data.csv；语义来源：客户信息属性说明.xls / 变量含义（原字典声明）"
+        },
+        {
+          "name": "L1Y_BP_SUM",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": "第2年里程积分",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P03 / 交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/data/air_data.csv；语义来源：客户信息属性说明.xls / 变量含义（原字典声明）"
+        },
+        {
+          "name": "EP_SUM",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": "观测窗口总精英积分",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P03 / 交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/data/air_data.csv；语义来源：客户信息属性说明.xls / 变量含义（原字典声明）"
+        },
+        {
+          "name": "ADD_Point_SUM",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": "观测窗口中其他积分（合作伙伴、促销、外航转入等）",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P03 / 交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/data/air_data.csv；语义来源：客户信息属性说明.xls / 变量含义（原字典声明）"
+        },
+        {
+          "name": "Eli_Add_Point_Sum",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": "非乘机积分总和",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P03 / 交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/data/air_data.csv；语义来源：客户信息属性说明.xls / 变量含义（原字典声明）"
+        },
+        {
+          "name": "L1Y_ELi_Add_Points",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": "第2年非乘机积分总和",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P03 / 交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/data/air_data.csv；语义来源：客户信息属性说明.xls / 变量含义（原字典声明）"
+        },
+        {
+          "name": "Points_Sum",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": "总累计积分",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P03 / 交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/data/air_data.csv；语义来源：客户信息属性说明.xls / 变量含义（原字典声明）"
+        },
+        {
+          "name": "L1Y_Points_Sum",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": "第2年观测窗口总累计积分",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P03 / 交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/data/air_data.csv；语义来源：客户信息属性说明.xls / 变量含义（原字典声明）"
+        },
+        {
+          "name": "Ration_L1Y_Flight_Count",
+          "dtype": "float64",
+          "missing": 0,
+          "meaning": "第2年的乘机次数比率",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P03 / 交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/data/air_data.csv；语义来源：客户信息属性说明.xls / 变量含义（原字典声明）"
+        },
+        {
+          "name": "Ration_P1Y_Flight_Count",
+          "dtype": "float64",
+          "missing": 0,
+          "meaning": "第1年的乘机次数比率",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P03 / 交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/data/air_data.csv；语义来源：客户信息属性说明.xls / 变量含义（原字典声明）"
+        },
+        {
+          "name": "Ration_P1Y_BPS",
+          "dtype": "float64",
+          "missing": 0,
+          "meaning": "第1年里程积分占最近两年积分比例",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P03 / 交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/data/air_data.csv；语义来源：客户信息属性说明.xls / 变量含义（原字典声明）"
+        },
+        {
+          "name": "Ration_L1Y_BPS",
+          "dtype": "float64",
+          "missing": 0,
+          "meaning": "第2年里程积分占最近两年积分比例",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P03 / 交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/data/air_data.csv；语义来源：客户信息属性说明.xls / 变量含义（原字典声明）"
+        },
+        {
+          "name": "Point_NotFlight",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": "非乘机的积分变动次数",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P03 / 交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/data/air_data.csv；语义来源：客户信息属性说明.xls / 变量含义（原字典声明）"
+        }
+      ],
+      "teachingMappings": []
+    },
+    {
+      "id": "D02-1",
+      "path": "交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/tmp/data_cleaned.csv",
+      "sha256": "e3455c8ebab78f5bf4e3972761783fd0e6fe33a47d9344d94a62f017deda8fe3",
+      "sheet": null,
+      "rows": 62044,
+      "columns": 45,
+      "encoding": "utf-8-sig",
+      "grain": "待核实；读取行数不等于独立业务实体数",
+      "origin": null,
+      "license": null,
+      "fields": [
+        {
+          "name": "Unnamed: 0",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P03 / 交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/tmp/data_cleaned.csv"
+        },
+        {
+          "name": "MEMBER_NO",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": "会员卡号",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P03 / 交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/tmp/data_cleaned.csv；语义来源：客户信息属性说明.xls / 变量含义（原字典声明）"
+        },
+        {
+          "name": "FFP_DATE",
+          "dtype": "str",
+          "missing": 0,
+          "meaning": "入会时间；办理会员卡的开始的时间",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P03 / 交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/tmp/data_cleaned.csv；语义来源：客户信息属性说明.xls / 变量含义（原字典声明）"
+        },
+        {
+          "name": "FIRST_FLIGHT_DATE",
+          "dtype": "str",
+          "missing": 0,
+          "meaning": "第一次飞行日期",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P03 / 交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/tmp/data_cleaned.csv；语义来源：客户信息属性说明.xls / 变量含义（原字典声明）"
+        },
+        {
+          "name": "GENDER",
+          "dtype": "str",
+          "missing": 3,
+          "meaning": "性别",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P03 / 交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/tmp/data_cleaned.csv；语义来源：客户信息属性说明.xls / 变量含义（原字典声明）"
+        },
+        {
+          "name": "FFP_TIER",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": "会员卡级别",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P03 / 交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/tmp/data_cleaned.csv；语义来源：客户信息属性说明.xls / 变量含义（原字典声明）"
+        },
+        {
+          "name": "WORK_CITY",
+          "dtype": "str",
+          "missing": 2253,
+          "meaning": "工作地城市",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P03 / 交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/tmp/data_cleaned.csv；语义来源：客户信息属性说明.xls / 变量含义（原字典声明）"
+        },
+        {
+          "name": "WORK_PROVINCE",
+          "dtype": "str",
+          "missing": 3213,
+          "meaning": "工作地所在省份",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P03 / 交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/tmp/data_cleaned.csv；语义来源：客户信息属性说明.xls / 变量含义（原字典声明）"
+        },
+        {
+          "name": "WORK_COUNTRY",
+          "dtype": "str",
+          "missing": 26,
+          "meaning": "工作地所在国家",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P03 / 交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/tmp/data_cleaned.csv；语义来源：客户信息属性说明.xls / 变量含义（原字典声明）"
+        },
+        {
+          "name": "AGE",
+          "dtype": "float64",
+          "missing": 412,
+          "meaning": "年龄",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P03 / 交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/tmp/data_cleaned.csv；语义来源：客户信息属性说明.xls / 变量含义（原字典声明）"
+        },
+        {
+          "name": "LOAD_TIME",
+          "dtype": "str",
+          "missing": 0,
+          "meaning": "观测窗口的结束时间；选取样本的时间宽度，距离现在最近的时间。",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P03 / 交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/tmp/data_cleaned.csv；语义来源：客户信息属性说明.xls / 变量含义（原字典声明）"
+        },
+        {
+          "name": "FLIGHT_COUNT",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": "飞行次数；频数",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P03 / 交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/tmp/data_cleaned.csv；语义来源：客户信息属性说明.xls / 变量含义（原字典声明）"
+        },
+        {
+          "name": "BP_SUM",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": "观测窗口总基本积分；航空公里的里程就相当于积分，积累一定分数可以兑换奖品和免费里程。",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P03 / 交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/tmp/data_cleaned.csv；语义来源：客户信息属性说明.xls / 变量含义（原字典声明）"
+        },
+        {
+          "name": "EP_SUM_YR_1",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": "第一年精英资格积分",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P03 / 交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/tmp/data_cleaned.csv；语义来源：客户信息属性说明.xls / 变量含义（原字典声明）"
+        },
+        {
+          "name": "EP_SUM_YR_2",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": "第二年精英资格积分",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P03 / 交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/tmp/data_cleaned.csv；语义来源：客户信息属性说明.xls / 变量含义（原字典声明）"
+        },
+        {
+          "name": "SUM_YR_1",
+          "dtype": "float64",
+          "missing": 0,
+          "meaning": "第一年总票价",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P03 / 交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/tmp/data_cleaned.csv；语义来源：客户信息属性说明.xls / 变量含义（原字典声明）"
+        },
+        {
+          "name": "SUM_YR_2",
+          "dtype": "float64",
+          "missing": 0,
+          "meaning": "第二年总票价",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P03 / 交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/tmp/data_cleaned.csv；语义来源：客户信息属性说明.xls / 变量含义（原字典声明）"
+        },
+        {
+          "name": "SEG_KM_SUM",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": "观测窗口总飞行公里数",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P03 / 交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/tmp/data_cleaned.csv；语义来源：客户信息属性说明.xls / 变量含义（原字典声明）"
+        },
+        {
+          "name": "WEIGHTED_SEG_KM",
+          "dtype": "float64",
+          "missing": 0,
+          "meaning": "观测窗口总加权飞行公里数（Σ舱位折扣×航段距离）",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P03 / 交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/tmp/data_cleaned.csv；语义来源：客户信息属性说明.xls / 变量含义（原字典声明）"
+        },
+        {
+          "name": "LAST_FLIGHT_DATE",
+          "dtype": "str",
+          "missing": 0,
+          "meaning": "末次飞行日期；最后一次飞行时间",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P03 / 交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/tmp/data_cleaned.csv；语义来源：客户信息属性说明.xls / 变量含义（原字典声明）"
+        },
+        {
+          "name": "AVG_FLIGHT_COUNT",
+          "dtype": "float64",
+          "missing": 0,
+          "meaning": "观测窗口季度平均飞行次数",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P03 / 交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/tmp/data_cleaned.csv；语义来源：客户信息属性说明.xls / 变量含义（原字典声明）"
+        },
+        {
+          "name": "AVG_BP_SUM",
+          "dtype": "float64",
+          "missing": 0,
+          "meaning": "观测窗口季度平均基本积分累积",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P03 / 交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/tmp/data_cleaned.csv；语义来源：客户信息属性说明.xls / 变量含义（原字典声明）"
+        },
+        {
+          "name": "BEGIN_TO_FIRST",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": "观察窗口内第一次乘机时间至MAX（观察窗口始端，入会时间）时长",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P03 / 交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/tmp/data_cleaned.csv；语义来源：客户信息属性说明.xls / 变量含义（原字典声明）"
+        },
+        {
+          "name": "LAST_TO_END",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": "最后一次乘机时间至观察窗口末端时长",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P03 / 交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/tmp/data_cleaned.csv；语义来源：客户信息属性说明.xls / 变量含义（原字典声明）"
+        },
+        {
+          "name": "AVG_INTERVAL",
+          "dtype": "float64",
+          "missing": 0,
+          "meaning": "平均乘机时间间隔",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P03 / 交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/tmp/data_cleaned.csv；语义来源：客户信息属性说明.xls / 变量含义（原字典声明）"
+        },
+        {
+          "name": "MAX_INTERVAL",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": "观察窗口内最大乘机间隔",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P03 / 交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/tmp/data_cleaned.csv；语义来源：客户信息属性说明.xls / 变量含义（原字典声明）"
+        },
+        {
+          "name": "ADD_POINTS_SUM_YR_1",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": "观测窗口中第1年其他积分（合作伙伴、促销、外航转入等）",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P03 / 交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/tmp/data_cleaned.csv；语义来源：客户信息属性说明.xls / 变量含义（原字典声明）"
+        },
+        {
+          "name": "ADD_POINTS_SUM_YR_2",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": "观测窗口中第2年其他积分（合作伙伴、促销、外航转入等）",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P03 / 交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/tmp/data_cleaned.csv；语义来源：客户信息属性说明.xls / 变量含义（原字典声明）"
+        },
+        {
+          "name": "EXCHANGE_COUNT",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": "积分兑换次数",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P03 / 交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/tmp/data_cleaned.csv；语义来源：客户信息属性说明.xls / 变量含义（原字典声明）"
+        },
+        {
+          "name": "avg_discount",
+          "dtype": "float64",
+          "missing": 0,
+          "meaning": "平均折扣率",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P03 / 交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/tmp/data_cleaned.csv；语义来源：客户信息属性说明.xls / 变量含义（原字典声明）"
+        },
+        {
+          "name": "P1Y_Flight_Count",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": "第1年乘机次数",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P03 / 交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/tmp/data_cleaned.csv；语义来源：客户信息属性说明.xls / 变量含义（原字典声明）"
+        },
+        {
+          "name": "L1Y_Flight_Count",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": "第2年乘机次数",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P03 / 交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/tmp/data_cleaned.csv；语义来源：客户信息属性说明.xls / 变量含义（原字典声明）"
+        },
+        {
+          "name": "P1Y_BP_SUM",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": "第1年里程积分",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P03 / 交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/tmp/data_cleaned.csv；语义来源：客户信息属性说明.xls / 变量含义（原字典声明）"
+        },
+        {
+          "name": "L1Y_BP_SUM",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": "第2年里程积分",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P03 / 交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/tmp/data_cleaned.csv；语义来源：客户信息属性说明.xls / 变量含义（原字典声明）"
+        },
+        {
+          "name": "EP_SUM",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": "观测窗口总精英积分",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P03 / 交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/tmp/data_cleaned.csv；语义来源：客户信息属性说明.xls / 变量含义（原字典声明）"
+        },
+        {
+          "name": "ADD_Point_SUM",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": "观测窗口中其他积分（合作伙伴、促销、外航转入等）",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P03 / 交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/tmp/data_cleaned.csv；语义来源：客户信息属性说明.xls / 变量含义（原字典声明）"
+        },
+        {
+          "name": "Eli_Add_Point_Sum",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": "非乘机积分总和",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P03 / 交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/tmp/data_cleaned.csv；语义来源：客户信息属性说明.xls / 变量含义（原字典声明）"
+        },
+        {
+          "name": "L1Y_ELi_Add_Points",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": "第2年非乘机积分总和",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P03 / 交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/tmp/data_cleaned.csv；语义来源：客户信息属性说明.xls / 变量含义（原字典声明）"
+        },
+        {
+          "name": "Points_Sum",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": "总累计积分",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P03 / 交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/tmp/data_cleaned.csv；语义来源：客户信息属性说明.xls / 变量含义（原字典声明）"
+        },
+        {
+          "name": "L1Y_Points_Sum",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": "第2年观测窗口总累计积分",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P03 / 交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/tmp/data_cleaned.csv；语义来源：客户信息属性说明.xls / 变量含义（原字典声明）"
+        },
+        {
+          "name": "Ration_L1Y_Flight_Count",
+          "dtype": "float64",
+          "missing": 0,
+          "meaning": "第2年的乘机次数比率",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P03 / 交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/tmp/data_cleaned.csv；语义来源：客户信息属性说明.xls / 变量含义（原字典声明）"
+        },
+        {
+          "name": "Ration_P1Y_Flight_Count",
+          "dtype": "float64",
+          "missing": 0,
+          "meaning": "第1年的乘机次数比率",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P03 / 交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/tmp/data_cleaned.csv；语义来源：客户信息属性说明.xls / 变量含义（原字典声明）"
+        },
+        {
+          "name": "Ration_P1Y_BPS",
+          "dtype": "float64",
+          "missing": 0,
+          "meaning": "第1年里程积分占最近两年积分比例",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P03 / 交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/tmp/data_cleaned.csv；语义来源：客户信息属性说明.xls / 变量含义（原字典声明）"
+        },
+        {
+          "name": "Ration_L1Y_BPS",
+          "dtype": "float64",
+          "missing": 0,
+          "meaning": "第2年里程积分占最近两年积分比例",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P03 / 交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/tmp/data_cleaned.csv；语义来源：客户信息属性说明.xls / 变量含义（原字典声明）"
+        },
+        {
+          "name": "Point_NotFlight",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": "非乘机的积分变动次数",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P03 / 交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/tmp/data_cleaned.csv；语义来源：客户信息属性说明.xls / 变量含义（原字典声明）"
+        }
+      ],
+      "teachingMappings": []
+    },
+    {
+      "id": "D03-1",
+      "path": "交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/tmp/data_stand.csv",
+      "sha256": "6cf52be39fe13b24ffe49abbfe090f5240e98023adb5947c0f7d5c20364736f8",
+      "sheet": null,
+      "rows": 62044,
+      "columns": 6,
+      "encoding": "utf-8-sig",
+      "grain": "待核实；读取行数不等于独立业务实体数",
+      "origin": null,
+      "license": null,
+      "fields": [
+        {
+          "name": "Unnamed: 0",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P03 / 交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/tmp/data_stand.csv"
+        },
+        {
+          "name": "zR",
+          "dtype": "float64",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P03 / 交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/tmp/data_stand.csv"
+        },
+        {
+          "name": "zF",
+          "dtype": "float64",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P03 / 交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/tmp/data_stand.csv"
+        },
+        {
+          "name": "zM",
+          "dtype": "float64",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P03 / 交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/tmp/data_stand.csv"
+        },
+        {
+          "name": "zC",
+          "dtype": "float64",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P03 / 交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/tmp/data_stand.csv"
+        },
+        {
+          "name": "zL",
+          "dtype": "float64",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P03 / 交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/tmp/data_stand.csv"
+        }
+      ],
+      "teachingMappings": []
+    },
+    {
+      "id": "D04-1",
+      "path": "交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/tmp/data_stipu.csv",
+      "sha256": "e7089dd0578664aca02f40184d60800992be2bcab0c7d2e38856f3221cb26c4b",
+      "sheet": null,
+      "rows": 62044,
+      "columns": 7,
+      "encoding": "utf-8-sig",
+      "grain": "待核实；读取行数不等于独立业务实体数",
+      "origin": null,
+      "license": null,
+      "fields": [
+        {
+          "name": "Unnamed: 0",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P03 / 交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/tmp/data_stipu.csv"
+        },
+        {
+          "name": "FFP_DATE",
+          "dtype": "str",
+          "missing": 0,
+          "meaning": "入会时间；办理会员卡的开始的时间",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P03 / 交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/tmp/data_stipu.csv；语义来源：客户信息属性说明.xls / 变量含义（原字典声明）"
+        },
+        {
+          "name": "LOAD_TIME",
+          "dtype": "str",
+          "missing": 0,
+          "meaning": "观测窗口的结束时间；选取样本的时间宽度，距离现在最近的时间。",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P03 / 交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/tmp/data_stipu.csv；语义来源：客户信息属性说明.xls / 变量含义（原字典声明）"
+        },
+        {
+          "name": "avg_discount",
+          "dtype": "float64",
+          "missing": 0,
+          "meaning": "平均折扣率",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P03 / 交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/tmp/data_stipu.csv；语义来源：客户信息属性说明.xls / 变量含义（原字典声明）"
+        },
+        {
+          "name": "FLIGHT_COUNT",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": "飞行次数；频数",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P03 / 交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/tmp/data_stipu.csv；语义来源：客户信息属性说明.xls / 变量含义（原字典声明）"
+        },
+        {
+          "name": "SEG_KM_SUM",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": "观测窗口总飞行公里数",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P03 / 交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/tmp/data_stipu.csv；语义来源：客户信息属性说明.xls / 变量含义（原字典声明）"
+        },
+        {
+          "name": "LAST_TO_END",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": "最后一次乘机时间至观察窗口末端时长",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P03 / 交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/tmp/data_stipu.csv；语义来源：客户信息属性说明.xls / 变量含义（原字典声明）"
+        }
+      ],
+      "teachingMappings": []
+    },
+    {
+      "id": "D05-1",
+      "path": "交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/tmp/explore.xlsx",
+      "sha256": "9876e3b4f6b70179ef76b7b402179263defc91e32b1f96e80a700cdb2a4d3dd2",
+      "sheet": "Sheet1",
+      "rows": 44,
+      "columns": 4,
+      "encoding": null,
+      "grain": "待核实；读取行数不等于独立业务实体数",
+      "origin": null,
+      "license": null,
+      "fields": [
+        {
+          "name": "Unnamed: 0",
+          "dtype": "str",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P03 / 交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/tmp/explore.xlsx / Sheet1"
+        },
+        {
+          "name": "空值数",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P03 / 交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/tmp/explore.xlsx / Sheet1"
+        },
+        {
+          "name": "最大值",
+          "dtype": "float64",
+          "missing": 8,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P03 / 交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/tmp/explore.xlsx / Sheet1"
+        },
+        {
+          "name": "最小值",
+          "dtype": "float64",
+          "missing": 8,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P03 / 交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/tmp/explore.xlsx / Sheet1"
+        }
+      ],
+      "teachingMappings": []
+    },
+    {
+      "id": "D06-1",
+      "path": "交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/客户信息属性说明.xls",
+      "sha256": "dd4a690ed7d91b0f1a92903c936df53a86534038b02245b55f84a8dd4e2cee8c",
+      "sheet": "变量含义",
+      "rows": 46,
+      "columns": 4,
+      "encoding": null,
+      "grain": "待核实；读取行数不等于独立业务实体数",
+      "origin": null,
+      "license": null,
+      "fields": [
+        {
+          "name": "属性中文",
+          "dtype": "str",
+          "missing": 2,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P03 / 交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/客户信息属性说明.xls / 变量含义"
+        },
+        {
+          "name": "属性英文",
+          "dtype": "str",
+          "missing": 2,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P03 / 交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/客户信息属性说明.xls / 变量含义"
+        },
+        {
+          "name": "备注",
+          "dtype": "str",
+          "missing": 41,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P03 / 交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/客户信息属性说明.xls / 变量含义"
+        },
+        {
+          "name": "Unnamed: 3",
+          "dtype": "object",
+          "missing": 46,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P03 / 交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/客户信息属性说明.xls / 变量含义"
+        }
+      ],
+      "teachingMappings": []
+    }
+  ],
+  "scopeNotes": [],
+  "originalWorkflow": "探索导表→清洗→属性规约→LRFMC构造→标准化→5群聚类→雷达画像。",
+  "savedResult": "原附清洗表62044行；保存5个聚类中心并给出重要保持/发展/挽留、一般、低价值客户的解释。",
+  "sourceEvidence": [
+    "01_项目资产盘点.md#P03",
+    "03_完整学习路线.md#P03",
+    "附录B_全数据字段与缺失字典.md#P03"
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "schemaVersion": "1.0",
+  "id": "p07-v4-photos",
+  "title": "附带水色照片的只读格式转换",
+  "kind": "image",
+  "columns": [],
+  "rows": [],
+  "text": null,
+  "context": {
+    "identity": "teaching-adaptation",
+    "buildId": "phase4-v1",
+    "createdAt": "2026-11-16T13:05:46.028718+00:00",
+    "inputs": [
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/基于水色图像的水质评估.ipynb",
+        "sha256": "57b74242352e27f5f5d047334e5c845781e17b898cec79b0783e352a5f38e480"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/moment.csv",
+        "sha256": "99c91f5cd8b38c6867e03d922dab7abedb4ddb2fb3cd68b37c5774637b2c13dc"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/1_1.jpg",
+        "sha256": "d48f6cc1eba2b2970fc66732ff6a8687decb6ee051546a3110f261cb8e2beab7"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/1_10.jpg",
+        "sha256": "b7e30758c066a8de1792f09a01b48e21cd08c66739ada83882924cdb2af85f47"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/1_11.jpg",
+        "sha256": "1716dd10a17a80c752b8eed57714fc3e1f9e40657afd883d43739b13c28ebebb"
+      }
+    ],
+    "note": "按原资产顺序前3张，原JPEG解码为本地PNG用于预览；不补缺失图，不声称生成训练预测。",
+    "unit": "原字段单位；未核实单位不补填",
+    "sample": "原资产顺序前3张 / 附带199张照片",
+    "modelRerun": false
+  },
+  "images": [
+    "learning/assets/p07-source-0.png",
+    "learning/assets/p07-source-1.png",
+    "learning/assets/p07-source-2.png"
+  ]
+}

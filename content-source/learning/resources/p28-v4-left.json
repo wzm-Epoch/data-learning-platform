@@ -1,0 +1,63 @@
+{
+  "schemaVersion": "1.0",
+  "id": "p28-v4-left",
+  "title": "left：记录数与全量比例",
+  "kind": "table",
+  "columns": [
+    "left",
+    "记录数",
+    "全量比例"
+  ],
+  "rows": [
+    [
+      "0",
+      11428,
+      0.761917461164078
+    ],
+    [
+      "1",
+      3571,
+      0.238082538835922
+    ]
+  ],
+  "text": null,
+  "context": {
+    "identity": "new-precomputed",
+    "buildId": "phase4-v1",
+    "createdAt": "2026-11-16T12:58:37.389041+00:00",
+    "inputs": [
+      {
+        "path": "职场-分析员工过早离职原因-约300行（相关性分析、变量分析、plotly可视化）/分析员工过早离职原因.ipynb",
+        "sha256": "9bf9cfcf11d11ed4dae94f8309a2d06aed0000ed3002fff5333d64d2de0e0184"
+      },
+      {
+        "path": "职场-分析员工过早离职原因-约300行（相关性分析、变量分析、plotly可视化）/分析员工过早离职原因.py",
+        "sha256": "3de51cc2b00d540e2634ea337ea0cb6c53f9973a549afcc820a0724de78e431d"
+      },
+      {
+        "path": "职场-分析员工过早离职原因-约300行（相关性分析、变量分析、plotly可视化）/HR_comma_sep.csv",
+        "sha256": "2510e274a90547f34c7b0db5a4ab70282c2710eb54252f14921bf980b81a928c"
+      }
+    ],
+    "note": "全量14999行，最多展示前50类别；缺失单列，0是有效取值",
+    "unit": "记录数",
+    "sample": null,
+    "modelRerun": false
+  },
+  "chart": {
+    "type": "bar",
+    "x": 0,
+    "ys": [
+      1
+    ],
+    "question": "left：记录数与全量比例",
+    "xLabel": "left",
+    "yLabel": "记录数",
+    "denominator": "当前输入全部14999行；隐藏类别不改变比例分母",
+    "range": "当前输入已说明范围的全量聚合",
+    "filters": "全量14999行，最多展示前50类别；缺失单列，0是有效取值",
+    "nullPolicy": "缺失为null，保留0；不连接缺失点",
+    "interpretation": "对照同源表读取差异；关联不能推出因果或样本外结论。",
+    "filterColumn": 0
+  }
+}

@@ -1,0 +1,119 @@
+{
+  "projectId": "P17",
+  "batch": "A",
+  "status": "available-content-open",
+  "lessonCount": 1,
+  "readySteps": 8,
+  "inputRefs": [
+    {
+      "path": "电商-广告投放效果分析-约250行（KMeans聚类、数据分析）/ad_performance.csv",
+      "sha256": "4f767d4f273ae2745ac84a9791d2e3d81bdee37a26d1ca82fa4d8a9a5f3003fb"
+    },
+    {
+      "path": "电商-广告投放效果分析-约250行（KMeans聚类、数据分析）/聚类分析广告效果.ipynb",
+      "sha256": "ad88e032b91ce55504f1a19bc8e1ddb2a8829edc69cab6b2569cdbde39edd6b7"
+    },
+    {
+      "path": "电商-广告投放效果分析-约250行（KMeans聚类、数据分析）/聚类分析广告效果.py",
+      "sha256": "d9d3c4c55eea4c26a15c1cc652b2e7793f294ad7f7697f7ce793985a402860b1"
+    }
+  ],
+  "resources": [
+    "learning/resources/p17-counts-saved.json",
+    "learning/resources/p17-counts.json",
+    "learning/resources/p17-encoding.json",
+    "learning/resources/p17-missing.json",
+    "learning/resources/p17-preview.json",
+    "learning/resources/p17-profile-audit.json",
+    "learning/resources/p17-profile-saved.json",
+    "learning/resources/p17-scale.json",
+    "learning/resources/p17-scores-saved.json",
+    "learning/resources/p17-scores.json",
+    "learning/resources/p17-v4-counts.json",
+    "learning/resources/p17-v4-input-quality.json",
+    "learning/resources/p17-v4-labels.json",
+    "learning/resources/p17-v4-means.json",
+    "learning/resources/p17-v4-silhouette.json"
+  ],
+  "transforms": [
+    {
+      "input": "电商-广告投放效果分析-约250行（KMeans聚类、数据分析）/ad_performance.csv",
+      "sheet": null,
+      "readRows": 889,
+      "columns": [
+        "渠道代号",
+        "日均UV",
+        "平均注册率",
+        "平均搜索量",
+        "访问深度",
+        "平均停留时间",
+        "订单转化率",
+        "投放总时间",
+        "素材类型",
+        "广告类型",
+        "合作方式",
+        "广告尺寸",
+        "广告卖点"
+      ],
+      "missing": {
+        "渠道代号": 0,
+        "日均UV": 0,
+        "平均注册率": 0,
+        "平均搜索量": 0,
+        "访问深度": 0,
+        "平均停留时间": 2,
+        "订单转化率": 0,
+        "投放总时间": 0,
+        "素材类型": 0,
+        "广告类型": 0,
+        "合作方式": 0,
+        "广告尺寸": 0,
+        "广告卖点": 0
+      },
+      "readerOptions": {}
+    }
+  ],
+  "checks": {
+    "rows": 889,
+    "features": 33,
+    "kValues": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "countSums": {
+      "2": 889,
+      "3": 889,
+      "4": 889,
+      "5": 889,
+      "6": 889,
+      "7": 889
+    }
+  },
+  "models": [
+    {
+      "version": "P17-seed100-ninit10-v1",
+      "method": "KMeans",
+      "seed": 100,
+      "n_init": 10,
+      "k": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "preprocess": "6数值MinMax+27独热；删除平均停留时间；不含渠道ID",
+      "fitRows": 889,
+      "features": 33
+    }
+  ],
+  "blocked": [],
+  "originalModelRerun": false,
+  "savedOutputIdentity": "original-saved; extraction time only; original execution time unknown",
+  "validation": "adapter assertions passed; schema/production/browser tracked separately"
+}

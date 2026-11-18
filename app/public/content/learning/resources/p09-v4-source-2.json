@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1.0",
+  "id": "p09-v4-source-2",
+  "title": "原单元11—13保存输出",
+  "kind": "text",
+  "columns": [],
+  "rows": [],
+  "text": "原单元13\n  area                       title community position    tax  total_price  \\\n0  罗湖区   满五红本， 户型方正朝南，自住装修保养好，花园社区      金城华庭       螺岭  房本满五年        710.0   \n1  罗湖区  7号线洪湖站前59万平洪湖公园后京基水贝*2个万象城      洪湖东岸       翠竹  房本满五年        408.0   \n2  罗湖区   《供电南苑。复式三层四房户型》万象城，地理位置优越      供电南苑      万象城  房本满五年        850.0   \n3  罗湖区   不用明额 满两年红本 高层东南三房 有钥匙随时可看      翡翠公寓       翠竹  房本满五年        360.0   \n4  罗湖区              都市名园 2室1厅 370万      都市名园      万象城    NaN        370.0   \n\n   unit_price hourseType  hourseSize direction fitment  \n0     79552.0       3室1厅       89.25         南      精装  \n1     54736.0       3室1厅       74.54         西      精装  \n2     67649.0       4室1厅      125.65         西      简装  \n3     60627.0       3室2厅       59.38         南      精装  \n4     48259.0       2室1厅       76.67        东北      简装  ",
+  "context": {
+    "identity": "original-saved",
+    "buildId": "phase4-v1",
+    "createdAt": "2026-11-16T12:58:37.389041+00:00",
+    "inputs": [
+      {
+        "path": "房地产-二手房+可视化-约300行（爬虫+pyecharts可视化）/链家房源信息抓取+可视化.ipynb",
+        "sha256": "d3e01d5238a9e6cce1ea838100c7e068bf50acf793ff19463efef283a71bfd29"
+      },
+      {
+        "path": "房地产-二手房+可视化-约300行（爬虫+pyecharts可视化）/链家房源信息抓取+可视化.py",
+        "sha256": "dfcbce69d878829b69b369564f8ada8f8027da3cf4d7d3a3d6c93c77ab0693a2"
+      },
+      {
+        "path": "房地产-二手房+可视化-约300行（爬虫+pyecharts可视化）/shenzhen.csv",
+        "sha256": "fcf600064559278beeedb0b5e70d1de42d60ad64347ad2f485da5b167308bcc7"
+      }
+    ],
+    "note": "逐单元只读提取原文本；原运行时间未知，本次时间仅为提取时间。",
+    "unit": "原字段单位；未核实单位不补填",
+    "sample": null,
+    "modelRerun": false
+  }
+}

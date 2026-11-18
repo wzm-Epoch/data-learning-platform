@@ -1,0 +1,5 @@
+
+> data-learning-platform@0.6.0 verify:sources
+> python scripts/verify-sources.py
+
+{"checked": 424, "hashMismatches": [], "addedFiles": [], "missingFiles": [], "sourceReadOnly": true}

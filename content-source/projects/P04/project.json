@@ -1,0 +1,378 @@
+{
+  "id": "P04",
+  "title": "全球酒店预订分析与预测",
+  "originalNames": [
+    "交通旅行-全球酒店预订分析与预测-约550行（数据探索分析、随机森林、XGBoost、逻辑回归）",
+    "全球酒店预订分析与预测.ipynb"
+  ],
+  "categoryId": "travel",
+  "summary": "探索酒店订单取消因素，并比较三个取消预测分类器。",
+  "difficulty": "高级",
+  "skillTags": [
+    "Pandas",
+    "NumPy",
+    "Matplotlib",
+    "Seaborn",
+    "EDA",
+    "OrdinalEncoder",
+    "StandardScaler",
+    "随机森林",
+    "XGBoost",
+    "逻辑回归",
+    "ROC"
+  ],
+  "methods": "RandomForestClassifier、XGBClassifier、LogisticRegression",
+  "sourceRefs": [
+    {
+      "path": "交通旅行-全球酒店预订分析与预测-约550行（数据探索分析、随机森林、XGBoost、逻辑回归）/.ipynb_checkpoints/全球酒店预订分析与预测-checkpoint.ipynb",
+      "sha256": "f1166bb78198277c9bd5a0bbf360ce9b452a23b39733dfde5b7e6acb55fdee42",
+      "role": "code"
+    },
+    {
+      "path": "交通旅行-全球酒店预订分析与预测-约550行（数据探索分析、随机森林、XGBoost、逻辑回归）/2022_hotel_bookings.csv",
+      "sha256": "ab2a3bfa58522e3a6310ae941303e1beeecb1c86960d538140525cee01578683",
+      "role": "data"
+    },
+    {
+      "path": "交通旅行-全球酒店预订分析与预测-约550行（数据探索分析、随机森林、XGBoost、逻辑回归）/全球酒店预订分析与预测.html",
+      "sha256": "7df26237e0bfce033263da5492222d1e2f7dec30c608d93f51aefe924d02ab71",
+      "role": "output"
+    },
+    {
+      "path": "交通旅行-全球酒店预订分析与预测-约550行（数据探索分析、随机森林、XGBoost、逻辑回归）/全球酒店预订分析与预测.ipynb",
+      "sha256": "f1166bb78198277c9bd5a0bbf360ce9b452a23b39733dfde5b7e6acb55fdee42",
+      "role": "code"
+    }
+  ],
+  "limitations": [
+    "实际arrival_date_year为2015/2016/2017，非文件名2022；编码缩放先于切分；same_assignment等字段在预订时是否可得需确认；取消原因不能从相关性直接归因。"
+  ],
+  "lessons": [
+    {
+      "id": "main-analysis",
+      "title": "全球酒店预订分析与预测",
+      "source": "交通旅行-全球酒店预订分析与预测-约550行（数据探索分析、随机森林、XGBoost、逻辑回归）/全球酒店预订分析与预测.ipynb"
+    }
+  ],
+  "readiness": {
+    "source": "audited",
+    "course": "not-adapted",
+    "rerun": "not-run",
+    "offline": "not-packaged"
+  },
+  "detailRef": "projects/P04/project.json",
+  "searchKeywords": [
+    "核对预订发生时点",
+    "认识日期范围",
+    "按酒店/渠道观察取消率",
+    "解释派生字段",
+    "审查特征可得性",
+    "比较三个模型",
+    "检查泄漏和结论范围"
+  ],
+  "prerequisites": "分类、编码、缩放、训练测试边界、ROC。",
+  "recommendedProjectIds": [
+    "P23"
+  ],
+  "recommendationNote": "P23。",
+  "schemaVersion": "1.0",
+  "contentVersion": "0.2.0",
+  "learningObjectives": [
+    "探索酒店订单取消因素，并比较三个取消预测分类器。 重点掌握Pandas、NumPy、Matplotlib、Seaborn、EDA、OrdinalEncoder、StandardScaler、随机森林、XGBoost、逻辑回归、ROC。",
+    "核对预订发生时点",
+    "认识日期范围",
+    "按酒店/渠道观察取消率",
+    "解释派生字段",
+    "审查特征可得性",
+    "比较三个模型",
+    "检查泄漏和结论范围"
+  ],
+  "exercise": {
+    "text": "区分预订时可得与事后字段；说明高取消比例不等于押金政策的因果效应。",
+    "provenance": "已批准路线中新设计的巩固练习；非原文件已有试题",
+    "answerStatus": "参考答案尚未制作"
+  },
+  "datasets": [
+    {
+      "id": "D01-1",
+      "path": "交通旅行-全球酒店预订分析与预测-约550行（数据探索分析、随机森林、XGBoost、逻辑回归）/2022_hotel_bookings.csv",
+      "sha256": "ab2a3bfa58522e3a6310ae941303e1beeecb1c86960d538140525cee01578683",
+      "sheet": null,
+      "rows": 119390,
+      "columns": 32,
+      "encoding": "utf-8-sig",
+      "grain": "酒店预订记录",
+      "origin": null,
+      "license": null,
+      "fields": [
+        {
+          "name": "hotel",
+          "dtype": "str",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P04 / 交通旅行-全球酒店预订分析与预测-约550行（数据探索分析、随机森林、XGBoost、逻辑回归）/2022_hotel_bookings.csv"
+        },
+        {
+          "name": "is_canceled",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P04 / 交通旅行-全球酒店预订分析与预测-约550行（数据探索分析、随机森林、XGBoost、逻辑回归）/2022_hotel_bookings.csv"
+        },
+        {
+          "name": "lead_time",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P04 / 交通旅行-全球酒店预订分析与预测-约550行（数据探索分析、随机森林、XGBoost、逻辑回归）/2022_hotel_bookings.csv"
+        },
+        {
+          "name": "arrival_date_year",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P04 / 交通旅行-全球酒店预订分析与预测-约550行（数据探索分析、随机森林、XGBoost、逻辑回归）/2022_hotel_bookings.csv"
+        },
+        {
+          "name": "arrival_date_month",
+          "dtype": "str",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P04 / 交通旅行-全球酒店预订分析与预测-约550行（数据探索分析、随机森林、XGBoost、逻辑回归）/2022_hotel_bookings.csv"
+        },
+        {
+          "name": "arrival_date_week_number",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P04 / 交通旅行-全球酒店预订分析与预测-约550行（数据探索分析、随机森林、XGBoost、逻辑回归）/2022_hotel_bookings.csv"
+        },
+        {
+          "name": "arrival_date_day_of_month",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P04 / 交通旅行-全球酒店预订分析与预测-约550行（数据探索分析、随机森林、XGBoost、逻辑回归）/2022_hotel_bookings.csv"
+        },
+        {
+          "name": "stays_in_weekend_nights",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P04 / 交通旅行-全球酒店预订分析与预测-约550行（数据探索分析、随机森林、XGBoost、逻辑回归）/2022_hotel_bookings.csv"
+        },
+        {
+          "name": "stays_in_week_nights",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P04 / 交通旅行-全球酒店预订分析与预测-约550行（数据探索分析、随机森林、XGBoost、逻辑回归）/2022_hotel_bookings.csv"
+        },
+        {
+          "name": "adults",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P04 / 交通旅行-全球酒店预订分析与预测-约550行（数据探索分析、随机森林、XGBoost、逻辑回归）/2022_hotel_bookings.csv"
+        },
+        {
+          "name": "children",
+          "dtype": "float64",
+          "missing": 4,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P04 / 交通旅行-全球酒店预订分析与预测-约550行（数据探索分析、随机森林、XGBoost、逻辑回归）/2022_hotel_bookings.csv"
+        },
+        {
+          "name": "babies",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P04 / 交通旅行-全球酒店预订分析与预测-约550行（数据探索分析、随机森林、XGBoost、逻辑回归）/2022_hotel_bookings.csv"
+        },
+        {
+          "name": "meal",
+          "dtype": "str",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P04 / 交通旅行-全球酒店预订分析与预测-约550行（数据探索分析、随机森林、XGBoost、逻辑回归）/2022_hotel_bookings.csv"
+        },
+        {
+          "name": "country",
+          "dtype": "str",
+          "missing": 488,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P04 / 交通旅行-全球酒店预订分析与预测-约550行（数据探索分析、随机森林、XGBoost、逻辑回归）/2022_hotel_bookings.csv"
+        },
+        {
+          "name": "market_segment",
+          "dtype": "str",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P04 / 交通旅行-全球酒店预订分析与预测-约550行（数据探索分析、随机森林、XGBoost、逻辑回归）/2022_hotel_bookings.csv"
+        },
+        {
+          "name": "distribution_channel",
+          "dtype": "str",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P04 / 交通旅行-全球酒店预订分析与预测-约550行（数据探索分析、随机森林、XGBoost、逻辑回归）/2022_hotel_bookings.csv"
+        },
+        {
+          "name": "is_repeated_guest",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P04 / 交通旅行-全球酒店预订分析与预测-约550行（数据探索分析、随机森林、XGBoost、逻辑回归）/2022_hotel_bookings.csv"
+        },
+        {
+          "name": "previous_cancellations",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P04 / 交通旅行-全球酒店预订分析与预测-约550行（数据探索分析、随机森林、XGBoost、逻辑回归）/2022_hotel_bookings.csv"
+        },
+        {
+          "name": "previous_bookings_not_canceled",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P04 / 交通旅行-全球酒店预订分析与预测-约550行（数据探索分析、随机森林、XGBoost、逻辑回归）/2022_hotel_bookings.csv"
+        },
+        {
+          "name": "reserved_room_type",
+          "dtype": "str",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P04 / 交通旅行-全球酒店预订分析与预测-约550行（数据探索分析、随机森林、XGBoost、逻辑回归）/2022_hotel_bookings.csv"
+        },
+        {
+          "name": "assigned_room_type",
+          "dtype": "str",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P04 / 交通旅行-全球酒店预订分析与预测-约550行（数据探索分析、随机森林、XGBoost、逻辑回归）/2022_hotel_bookings.csv"
+        },
+        {
+          "name": "booking_changes",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P04 / 交通旅行-全球酒店预订分析与预测-约550行（数据探索分析、随机森林、XGBoost、逻辑回归）/2022_hotel_bookings.csv"
+        },
+        {
+          "name": "deposit_type",
+          "dtype": "str",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P04 / 交通旅行-全球酒店预订分析与预测-约550行（数据探索分析、随机森林、XGBoost、逻辑回归）/2022_hotel_bookings.csv"
+        },
+        {
+          "name": "agent",
+          "dtype": "float64",
+          "missing": 16340,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P04 / 交通旅行-全球酒店预订分析与预测-约550行（数据探索分析、随机森林、XGBoost、逻辑回归）/2022_hotel_bookings.csv"
+        },
+        {
+          "name": "company",
+          "dtype": "float64",
+          "missing": 112593,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P04 / 交通旅行-全球酒店预订分析与预测-约550行（数据探索分析、随机森林、XGBoost、逻辑回归）/2022_hotel_bookings.csv"
+        },
+        {
+          "name": "days_in_waiting_list",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P04 / 交通旅行-全球酒店预订分析与预测-约550行（数据探索分析、随机森林、XGBoost、逻辑回归）/2022_hotel_bookings.csv"
+        },
+        {
+          "name": "customer_type",
+          "dtype": "str",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P04 / 交通旅行-全球酒店预订分析与预测-约550行（数据探索分析、随机森林、XGBoost、逻辑回归）/2022_hotel_bookings.csv"
+        },
+        {
+          "name": "adr",
+          "dtype": "float64",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P04 / 交通旅行-全球酒店预订分析与预测-约550行（数据探索分析、随机森林、XGBoost、逻辑回归）/2022_hotel_bookings.csv"
+        },
+        {
+          "name": "required_car_parking_spaces",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P04 / 交通旅行-全球酒店预订分析与预测-约550行（数据探索分析、随机森林、XGBoost、逻辑回归）/2022_hotel_bookings.csv"
+        },
+        {
+          "name": "total_of_special_requests",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P04 / 交通旅行-全球酒店预订分析与预测-约550行（数据探索分析、随机森林、XGBoost、逻辑回归）/2022_hotel_bookings.csv"
+        },
+        {
+          "name": "reservation_status",
+          "dtype": "str",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P04 / 交通旅行-全球酒店预订分析与预测-约550行（数据探索分析、随机森林、XGBoost、逻辑回归）/2022_hotel_bookings.csv"
+        },
+        {
+          "name": "reservation_status_date",
+          "dtype": "str",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P04 / 交通旅行-全球酒店预订分析与预测-约550行（数据探索分析、随机森林、XGBoost、逻辑回归）/2022_hotel_bookings.csv"
+        }
+      ],
+      "teachingMappings": []
+    }
+  ],
+  "scopeNotes": [
+    "已只读核对 arrival_date_year：2015—2017。文件名2022不是实际数据年份。"
+  ],
+  "originalWorkflow": "十类业务EDA→类别与连续特征处理→相关检查→切分→三模型训练→ROC与报告。",
+  "savedResult": "原保存RF准确率0.887894、AUC0.954030；XGBoost准确率0.873261；LR准确率0.796083。",
+  "sourceEvidence": [
+    "01_项目资产盘点.md#P04",
+    "03_完整学习路线.md#P04",
+    "附录B_全数据字段与缺失字典.md#P04"
+  ]
+}

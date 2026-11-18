@@ -1,0 +1,1504 @@
+{
+  "schemaVersion": "1.0",
+  "contentVersion": "0.6.0",
+  "projectId": "P26",
+  "id": "main-analysis",
+  "title": "关于第七次全国人口普查数据的探索",
+  "status": "ready",
+  "steps": [
+    {
+      "id": "source-006-006",
+      "title": "准备阶段 · 单元6—6",
+      "status": "ready",
+      "kind": "analysis",
+      "knowledgeIds": [
+        "Pandas",
+        "NumPy",
+        "SciPy",
+        "层次聚类",
+        "Altair"
+      ],
+      "explanation": [
+        "本步按原Notebook顺序阅读单元6—6。原保存输出尚未重跑；安装、联网采集、写原文件和模型加载均不会在网页运行。",
+        "read_csv只读取指定CSV；编码、表头和字段需要与输入字典核对。",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：## 项目介绍\n\n\n人口是影响地区发展的重要因素。不同地区的人口年龄结构不仅是本地区社会发展的一个体现，也是其未来发展的基础。对其了解有助于我们更好得理解社会的变化，对社会发展有更正确的认识。  \n\n本次从第7次人口普查数据的地区（省份）之间的人口年龄结构出发，分析人口年龄结构的差异及其影响因素。  \n\n结论：\n\n- 第 7 次人口普查数据统计的2020年中国各地区（省份）的人口年龄结构，将人口分为14岁以下、15到59岁、60岁以上三个年龄段，根据年龄结构的相似度可以各个地区分为三组：  \n\t- 第 1 组：人口年龄结构特点是**低高高**，大致是 1:7:2。包括北京、天津、上海、浙江、东北三省和内蒙古。  \n\t- 第 2 组：人口年龄结构特点是**高低高**，大致是 2:6:2。包括以华北和华中为主的省份。  \n\t- 第 3 组：人口年龄结构特点特点是**高高低**，大致是 2:7:1。包括西藏、新疆、青海、广东、福建、海南等省份。  \n- 地区间的人口年龄结构和地区经济发展水平相关性不高。  \n- 14岁以下人口年龄比例差异主要受到城市化进程的影响。城市化水平越高，进度越早，则这部分人口年龄比例越容易较少。  \n- 15-59岁之间人口年龄比例差异主要受到流动人口的影响。流动人口比例越大，则这部分人口年龄比例越容易更高。",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：涉及到的数据：\n\n- 主数据，第七次全国人口普查数据  \n\t- 各地区人口年龄构成  \n\t- 各地区平均受教育年限  \n\t- 各地区人口  \n- 额外数据  \n\t- 各地区2020年GDP，来自国家统计局-数据查询  \n\t- 各地区城市化数据，来自国家统计局-数据查询和统计年鉴  \n\t- 各地区人口流动数据，来自国家统计局-统计年鉴",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：## 准备阶段  \n### 包导入和年龄结构数据加载"
+      ],
+      "teachingCode": "# 原代码仅供阅读，不由网页执行。\n# 本次可运行适配实现见末尾数据实验步骤。",
+      "limitations": [
+        "不能只标Pyecharts，该项目确有层次聚类和Altair；流动人口数据部分内嵌代码；31省相关关系不能推出个体行为因果；城镇化缺年阈值编码需复核；地区拼接应显式检查错配。",
+        "原代码与保存输出保持原身份；新改编计算另列。"
+      ],
+      "codeRefs": [
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/关于第七次全国人口普查数据的探索.ipynb",
+          "notebookSha256": "128dafa808c53033d8c300b682ae8cf67a8c77279b6c34db6385dfd70f0800a0",
+          "cell": 6,
+          "code": "import pandas as pd\nimport numpy as np\nimport altair as alt\nfrom pyecharts.globals import CurrentConfig, NotebookType,OnlineHostType\nCurrentConfig.NOTEBOOK_TYPE = NotebookType.JUPYTER_NOTEBOOK\n\nage_dist_data_path  = \"./data/各地区人口年龄构成.csv\"\nraw_age_df = pd.read_csv(age_dist_data_path, skiprows=2)\nraw_age_df.head(50)",
+          "codeSha256": "8e9eb670c17138cd78f569e1a4c2d35a798efe9737ad8fb73a26d60ba198b005"
+        }
+      ],
+      "inputRefs": [
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/关于第七次全国人口普查数据的探索.ipynb",
+          "sha256": "128dafa808c53033d8c300b682ae8cf67a8c77279b6c34db6385dfd70f0800a0"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/关于第七次全国人口普查数据的探索.py",
+          "sha256": "f0b7b07826be934cb9990546e3d13461b3434415fbe864b63389492587edbe35"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/各地区人口年龄构成.csv",
+          "sha256": "ab4bdab96f351ac920e48f2467cfad4f0d7aa97c10c23fabce16003ca173734e"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/各地区人口.csv",
+          "sha256": "e54df53ebcf223d5932943a9ad53b66df3d6d6798d2ee47333b0777236510bd2"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/分省年度GDP数据.csv",
+          "sha256": "40a058b7d851eb3aa3aeb25ed7e92f0410eb94eff01503b2e72c17180c51a3d7"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/2005-2019年中国各地区城镇人口数量.csv",
+          "sha256": "42396462dd8849b48ff4c236f0d47555151085772564da0dbcd69210b3f567ee"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/2001-2020中国各地区常住人口数量.csv",
+          "sha256": "2177221892c12f7e7d5488db7495efe0228a6c5cb1b34b87370790f6b97803d5"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/2000年中国各地区城乡人口分布.csv",
+          "sha256": "010b8352eaad3195fa9cc3c1bb00dd7eb138ec9b97b86e42d6ff1b4d0cfb5c49"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/全国人口年龄构成.csv",
+          "sha256": "55abc6661dbfcc66fe0d69563ecb794b6e34447c36d272f680073391e68e6a15"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/各地区15岁及以上人口平均受教育年限.csv",
+          "sha256": "d438f7270713be4b25b5bb0ffbf11086c1e6e93fb15f0df73f267a22acf063f1"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/各地区性别构成.csv",
+          "sha256": "2d70917d4b26bb515186d140625a24c68c3a4cd35e01000c3c56c456ab98e750"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/各地区每10万人口中拥有的各类受教育程度人数.csv",
+          "sha256": "5f06777bf301ef73779f5173ad08f5900bef85ad6e01613a7e05132a316a9c91"
+        }
+      ],
+      "outputRefs": [
+        "learning/resources/p26-v4-source-1.json"
+      ],
+      "exercise": {
+        "prompt": "根据本步单元6—6和保存证据，说明一次变换的输入、输出和一项无法验证的结论。",
+        "hint": "先查看代码中的列选择/过滤/拟合，再核对输出身份和本项目局限。",
+        "checklist": [
+          "准确引用原单元6—6",
+          "指出实际字段或变量与一项真实输出",
+          "把未重跑、资料缺失和统计缺陷分别说明"
+        ],
+        "provenance": "第四阶段教学补充，自评，不代表原文件试题"
+      },
+      "outputTitles": {
+        "learning/resources/p26-v4-source-1.json": "原单元6—6保存输出"
+      }
+    },
+    {
+      "id": "source-009-010",
+      "title": "年龄结构数据的预处理 · 单元9—10",
+      "status": "ready",
+      "kind": "analysis",
+      "knowledgeIds": [
+        "Pandas",
+        "NumPy",
+        "SciPy",
+        "层次聚类",
+        "Altair"
+      ],
+      "explanation": [
+        "本步按原Notebook顺序阅读单元9—10。原保存输出尚未重跑；安装、联网采集、写原文件和模型加载均不会在网页运行。",
+        "本步展示原变量赋值、查看或配置；变量实际内容以保存输出与本次数据证据为准，不从代码存在推断执行成功。",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：### 年龄结构数据的预处理  \n\n- 字段重命名  \n- 数值处理"
+      ],
+      "teachingCode": "# 原代码仅供阅读，不由网页执行。\n# 本次可运行适配实现见末尾数据实验步骤。",
+      "limitations": [
+        "不能只标Pyecharts，该项目确有层次聚类和Altair；流动人口数据部分内嵌代码；31省相关关系不能推出个体行为因果；城镇化缺年阈值编码需复核；地区拼接应显式检查错配。",
+        "原代码与保存输出保持原身份；新改编计算另列。"
+      ],
+      "codeRefs": [
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/关于第七次全国人口普查数据的探索.ipynb",
+          "notebookSha256": "128dafa808c53033d8c300b682ae8cf67a8c77279b6c34db6385dfd70f0800a0",
+          "cell": 9,
+          "code": "column_name_map = {\n    \"Unnamed: 0\":\"region\",\n    \"0—14 岁\":\"a14-\",\n    \"15—59 岁  \":\"a15_59\",\n    \"60  岁及以上 \":\"a60+\",\n    \"其中：65 岁及以上 \":\"a65+\",\n}\n\nage_df = raw_age_df.rename(column_name_map,axis=1)\nage_df[\"a65+\"] = age_df[\"a65+\"].astype(np.float64)\nage_df[[\"a14-\",\"a15_59\",\"a60+\",\"a65+\"]] = age_df[[\"a14-\",\"a15_59\",\"a60+\",\"a65+\"]]/100",
+          "codeSha256": "e794d01d133f3f8f80c7eac34db9725682b8535a06fe9c47974a4aeaa6085116"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/关于第七次全国人口普查数据的探索.ipynb",
+          "notebookSha256": "128dafa808c53033d8c300b682ae8cf67a8c77279b6c34db6385dfd70f0800a0",
+          "cell": 10,
+          "code": "import re\n\ndef parse_region(x):\n    _x = re.sub(r\"[\\W\\d]\",\"\",x)\n    if _x[:3] in [\"黑龙江\",\"内蒙古\"]:\n        return _x[:3]\n    else:\n        return _x[:2]\n\nassert parse_region(\"广 东\") == \"广东\"\nassert parse_region(\"全 国[1]\") == \"全国\"\nassert parse_region(\"黑龙江省\") == \"黑龙江\"\nassert parse_region(\"广西壮族自治区\") == \"广西\"\n\nage_df[\"region\"] = age_df[\"region\"].map(parse_region)\n\n# age_df[age_df[\"region\"] != \"全国\"].describe()\nage_df.head()",
+          "codeSha256": "dcae8a51dd15d1e89f54c35c4a2960848ef39f37480e038e07734c74521e1694"
+        }
+      ],
+      "inputRefs": [
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/关于第七次全国人口普查数据的探索.ipynb",
+          "sha256": "128dafa808c53033d8c300b682ae8cf67a8c77279b6c34db6385dfd70f0800a0"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/关于第七次全国人口普查数据的探索.py",
+          "sha256": "f0b7b07826be934cb9990546e3d13461b3434415fbe864b63389492587edbe35"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/各地区人口年龄构成.csv",
+          "sha256": "ab4bdab96f351ac920e48f2467cfad4f0d7aa97c10c23fabce16003ca173734e"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/各地区人口.csv",
+          "sha256": "e54df53ebcf223d5932943a9ad53b66df3d6d6798d2ee47333b0777236510bd2"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/分省年度GDP数据.csv",
+          "sha256": "40a058b7d851eb3aa3aeb25ed7e92f0410eb94eff01503b2e72c17180c51a3d7"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/2005-2019年中国各地区城镇人口数量.csv",
+          "sha256": "42396462dd8849b48ff4c236f0d47555151085772564da0dbcd69210b3f567ee"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/2001-2020中国各地区常住人口数量.csv",
+          "sha256": "2177221892c12f7e7d5488db7495efe0228a6c5cb1b34b87370790f6b97803d5"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/2000年中国各地区城乡人口分布.csv",
+          "sha256": "010b8352eaad3195fa9cc3c1bb00dd7eb138ec9b97b86e42d6ff1b4d0cfb5c49"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/全国人口年龄构成.csv",
+          "sha256": "55abc6661dbfcc66fe0d69563ecb794b6e34447c36d272f680073391e68e6a15"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/各地区15岁及以上人口平均受教育年限.csv",
+          "sha256": "d438f7270713be4b25b5bb0ffbf11086c1e6e93fb15f0df73f267a22acf063f1"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/各地区性别构成.csv",
+          "sha256": "2d70917d4b26bb515186d140625a24c68c3a4cd35e01000c3c56c456ab98e750"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/各地区每10万人口中拥有的各类受教育程度人数.csv",
+          "sha256": "5f06777bf301ef73779f5173ad08f5900bef85ad6e01613a7e05132a316a9c91"
+        }
+      ],
+      "outputRefs": [
+        "learning/resources/p26-v4-source-2.json"
+      ],
+      "exercise": {
+        "prompt": "根据本步单元9—10和保存证据，说明一次变换的输入、输出和一项无法验证的结论。",
+        "hint": "先查看代码中的列选择/过滤/拟合，再核对输出身份和本项目局限。",
+        "checklist": [
+          "准确引用原单元9—10",
+          "指出实际字段或变量与一项真实输出",
+          "把未重跑、资料缺失和统计缺陷分别说明"
+        ],
+        "provenance": "第四阶段教学补充，自评，不代表原文件试题"
+      },
+      "outputTitles": {
+        "learning/resources/p26-v4-source-2.json": "原单元9—10保存输出"
+      }
+    },
+    {
+      "id": "source-012-013",
+      "title": "教育数据的引入 · 单元12—13",
+      "status": "ready",
+      "kind": "analysis",
+      "knowledgeIds": [
+        "Pandas",
+        "NumPy",
+        "SciPy",
+        "层次聚类",
+        "Altair"
+      ],
+      "explanation": [
+        "本步按原Notebook顺序阅读单元12—13。原保存输出尚未重跑；安装、联网采集、写原文件和模型加载均不会在网页运行。",
+        "read_csv只读取指定CSV；编码、表头和字段需要与输入字典核对。",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：### 教育数据的引入"
+      ],
+      "teachingCode": "# 原代码仅供阅读，不由网页执行。\n# 本次可运行适配实现见末尾数据实验步骤。",
+      "limitations": [
+        "不能只标Pyecharts，该项目确有层次聚类和Altair；流动人口数据部分内嵌代码；31省相关关系不能推出个体行为因果；城镇化缺年阈值编码需复核；地区拼接应显式检查错配。",
+        "原代码与保存输出保持原身份；新改编计算另列。"
+      ],
+      "codeRefs": [
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/关于第七次全国人口普查数据的探索.ipynb",
+          "notebookSha256": "128dafa808c53033d8c300b682ae8cf67a8c77279b6c34db6385dfd70f0800a0",
+          "cell": 12,
+          "code": "edu_data_path = \"./data/各地区每10万人口中拥有的各类受教育程度人数.csv\"\n\nedu_raw_df = pd.read_csv(edu_data_path,skiprows=1)\nedu_raw_df.head()",
+          "codeSha256": "e9c5c1a2cc2880a6bafe02c5109a6820847ba4738f5fb032848ee5be7c1225ab"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/关于第七次全国人口普查数据的探索.ipynb",
+          "notebookSha256": "128dafa808c53033d8c300b682ae8cf67a8c77279b6c34db6385dfd70f0800a0",
+          "cell": 13,
+          "code": "edu_df = edu_raw_df.copy()\nedu_df.columns = [\"region\",\"edu_college\",\"edu_senior\",\"edu_junior\",\"edu_primary\"]\n\nedu_df[\"region\"] = edu_df[\"region\"].map(parse_region)\n\ndivide_base = 100000\nedu_df[[\"edu_college\",\"edu_senior\",\"edu_junior\",\"edu_primary\"]] = edu_df[[\"edu_college\",\"edu_senior\",\"edu_junior\",\"edu_primary\"]]/divide_base\n\nedu_df.head()",
+          "codeSha256": "8216e773ce5367ac840a50e7e1a62b29946e527d6b74815a3adcca86f5a92cd5"
+        }
+      ],
+      "inputRefs": [
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/关于第七次全国人口普查数据的探索.ipynb",
+          "sha256": "128dafa808c53033d8c300b682ae8cf67a8c77279b6c34db6385dfd70f0800a0"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/关于第七次全国人口普查数据的探索.py",
+          "sha256": "f0b7b07826be934cb9990546e3d13461b3434415fbe864b63389492587edbe35"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/各地区人口年龄构成.csv",
+          "sha256": "ab4bdab96f351ac920e48f2467cfad4f0d7aa97c10c23fabce16003ca173734e"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/各地区人口.csv",
+          "sha256": "e54df53ebcf223d5932943a9ad53b66df3d6d6798d2ee47333b0777236510bd2"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/分省年度GDP数据.csv",
+          "sha256": "40a058b7d851eb3aa3aeb25ed7e92f0410eb94eff01503b2e72c17180c51a3d7"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/2005-2019年中国各地区城镇人口数量.csv",
+          "sha256": "42396462dd8849b48ff4c236f0d47555151085772564da0dbcd69210b3f567ee"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/2001-2020中国各地区常住人口数量.csv",
+          "sha256": "2177221892c12f7e7d5488db7495efe0228a6c5cb1b34b87370790f6b97803d5"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/2000年中国各地区城乡人口分布.csv",
+          "sha256": "010b8352eaad3195fa9cc3c1bb00dd7eb138ec9b97b86e42d6ff1b4d0cfb5c49"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/全国人口年龄构成.csv",
+          "sha256": "55abc6661dbfcc66fe0d69563ecb794b6e34447c36d272f680073391e68e6a15"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/各地区15岁及以上人口平均受教育年限.csv",
+          "sha256": "d438f7270713be4b25b5bb0ffbf11086c1e6e93fb15f0df73f267a22acf063f1"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/各地区性别构成.csv",
+          "sha256": "2d70917d4b26bb515186d140625a24c68c3a4cd35e01000c3c56c456ab98e750"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/各地区每10万人口中拥有的各类受教育程度人数.csv",
+          "sha256": "5f06777bf301ef73779f5173ad08f5900bef85ad6e01613a7e05132a316a9c91"
+        }
+      ],
+      "outputRefs": [
+        "learning/resources/p26-v4-source-3.json"
+      ],
+      "exercise": {
+        "prompt": "根据本步单元12—13和保存证据，说明一次变换的输入、输出和一项无法验证的结论。",
+        "hint": "先查看代码中的列选择/过滤/拟合，再核对输出身份和本项目局限。",
+        "checklist": [
+          "准确引用原单元12—13",
+          "指出实际字段或变量与一项真实输出",
+          "把未重跑、资料缺失和统计缺陷分别说明"
+        ],
+        "provenance": "第四阶段教学补充，自评，不代表原文件试题"
+      },
+      "outputTitles": {
+        "learning/resources/p26-v4-source-3.json": "原单元12—13保存输出"
+      }
+    },
+    {
+      "id": "source-015-016",
+      "title": "人口总数数据的引入 · 单元15—16",
+      "status": "ready",
+      "kind": "analysis",
+      "knowledgeIds": [
+        "Pandas",
+        "NumPy",
+        "SciPy",
+        "层次聚类",
+        "Altair"
+      ],
+      "explanation": [
+        "本步按原Notebook顺序阅读单元15—16。原保存输出尚未重跑；安装、联网采集、写原文件和模型加载均不会在网页运行。",
+        "read_csv只读取指定CSV；编码、表头和字段需要与输入字典核对。",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：### 人口总数数据的引入"
+      ],
+      "teachingCode": "# 原代码仅供阅读，不由网页执行。\n# 本次可运行适配实现见末尾数据实验步骤。",
+      "limitations": [
+        "不能只标Pyecharts，该项目确有层次聚类和Altair；流动人口数据部分内嵌代码；31省相关关系不能推出个体行为因果；城镇化缺年阈值编码需复核；地区拼接应显式检查错配。",
+        "原代码与保存输出保持原身份；新改编计算另列。"
+      ],
+      "codeRefs": [
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/关于第七次全国人口普查数据的探索.ipynb",
+          "notebookSha256": "128dafa808c53033d8c300b682ae8cf67a8c77279b6c34db6385dfd70f0800a0",
+          "cell": 15,
+          "code": "pop_data_path = \"./data/各地区人口.csv\"\n\npop_raw_df = pd.read_csv(pop_data_path,skiprows=2)\n# pop_raw_df.head(10)",
+          "codeSha256": "f19c660bb0ca9ea8ff320724a3f9f21956fa7f4571e0cdd2c58aabd86a4da45d"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/关于第七次全国人口普查数据的探索.ipynb",
+          "notebookSha256": "128dafa808c53033d8c300b682ae8cf67a8c77279b6c34db6385dfd70f0800a0",
+          "cell": 16,
+          "code": "pop_df = pop_raw_df.copy()\nnew_pop_df_columns = [\"region\",'population','pop_percent_2020','pop_percent_2010']\nif len(pop_df.columns) == 4:\n    pop_df.columns = new_pop_df_columns\n    pop_df.drop(['pop_percent_2020','pop_percent_2010'],axis=1,inplace=True)\npop_df[\"region\"] = pop_df[\"region\"].map(parse_region)\n\npop_df = pop_df[pop_df[\"region\"] != \"现役\"]\npop_df",
+          "codeSha256": "d05c1d02915eccaed1bdb73d62f29162c3437d0cfc2bf5cb6d88a7c5625a2af7"
+        }
+      ],
+      "inputRefs": [
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/关于第七次全国人口普查数据的探索.ipynb",
+          "sha256": "128dafa808c53033d8c300b682ae8cf67a8c77279b6c34db6385dfd70f0800a0"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/关于第七次全国人口普查数据的探索.py",
+          "sha256": "f0b7b07826be934cb9990546e3d13461b3434415fbe864b63389492587edbe35"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/各地区人口年龄构成.csv",
+          "sha256": "ab4bdab96f351ac920e48f2467cfad4f0d7aa97c10c23fabce16003ca173734e"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/各地区人口.csv",
+          "sha256": "e54df53ebcf223d5932943a9ad53b66df3d6d6798d2ee47333b0777236510bd2"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/分省年度GDP数据.csv",
+          "sha256": "40a058b7d851eb3aa3aeb25ed7e92f0410eb94eff01503b2e72c17180c51a3d7"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/2005-2019年中国各地区城镇人口数量.csv",
+          "sha256": "42396462dd8849b48ff4c236f0d47555151085772564da0dbcd69210b3f567ee"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/2001-2020中国各地区常住人口数量.csv",
+          "sha256": "2177221892c12f7e7d5488db7495efe0228a6c5cb1b34b87370790f6b97803d5"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/2000年中国各地区城乡人口分布.csv",
+          "sha256": "010b8352eaad3195fa9cc3c1bb00dd7eb138ec9b97b86e42d6ff1b4d0cfb5c49"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/全国人口年龄构成.csv",
+          "sha256": "55abc6661dbfcc66fe0d69563ecb794b6e34447c36d272f680073391e68e6a15"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/各地区15岁及以上人口平均受教育年限.csv",
+          "sha256": "d438f7270713be4b25b5bb0ffbf11086c1e6e93fb15f0df73f267a22acf063f1"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/各地区性别构成.csv",
+          "sha256": "2d70917d4b26bb515186d140625a24c68c3a4cd35e01000c3c56c456ab98e750"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/各地区每10万人口中拥有的各类受教育程度人数.csv",
+          "sha256": "5f06777bf301ef73779f5173ad08f5900bef85ad6e01613a7e05132a316a9c91"
+        }
+      ],
+      "outputRefs": [
+        "learning/resources/p26-v4-source-4.json"
+      ],
+      "exercise": {
+        "prompt": "根据本步单元15—16和保存证据，说明一次变换的输入、输出和一项无法验证的结论。",
+        "hint": "先查看代码中的列选择/过滤/拟合，再核对输出身份和本项目局限。",
+        "checklist": [
+          "准确引用原单元15—16",
+          "指出实际字段或变量与一项真实输出",
+          "把未重跑、资料缺失和统计缺陷分别说明"
+        ],
+        "provenance": "第四阶段教学补充，自评，不代表原文件试题"
+      },
+      "outputTitles": {
+        "learning/resources/p26-v4-source-4.json": "原单元15—16保存输出"
+      }
+    },
+    {
+      "id": "source-018-019",
+      "title": "GDP数据的引入 · 单元18—19",
+      "status": "ready",
+      "kind": "analysis",
+      "knowledgeIds": [
+        "Pandas",
+        "NumPy",
+        "SciPy",
+        "层次聚类",
+        "Altair"
+      ],
+      "explanation": [
+        "本步按原Notebook顺序阅读单元18—19。原保存输出尚未重跑；安装、联网采集、写原文件和模型加载均不会在网页运行。",
+        "read_csv只读取指定CSV；编码、表头和字段需要与输入字典核对。",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：### GDP数据的引入"
+      ],
+      "teachingCode": "# 原代码仅供阅读，不由网页执行。\n# 本次可运行适配实现见末尾数据实验步骤。",
+      "limitations": [
+        "不能只标Pyecharts，该项目确有层次聚类和Altair；流动人口数据部分内嵌代码；31省相关关系不能推出个体行为因果；城镇化缺年阈值编码需复核；地区拼接应显式检查错配。",
+        "原代码与保存输出保持原身份；新改编计算另列。"
+      ],
+      "codeRefs": [
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/关于第七次全国人口普查数据的探索.ipynb",
+          "notebookSha256": "128dafa808c53033d8c300b682ae8cf67a8c77279b6c34db6385dfd70f0800a0",
+          "cell": 18,
+          "code": "gdp_data_path = \"./data/分省年度GDP数据.csv\"\n\ngdp_raw_df = pd.read_csv(gdp_data_path)\n# gdp_raw_df.head()",
+          "codeSha256": "b0639dc00531241c5a2eacb96dbd5dbc8641b360f550cedc28de3064ea3595cb"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/关于第七次全国人口普查数据的探索.ipynb",
+          "notebookSha256": "128dafa808c53033d8c300b682ae8cf67a8c77279b6c34db6385dfd70f0800a0",
+          "cell": 19,
+          "code": "gdp_df = gdp_raw_df.loc[:,[\"地区\",\"2020年\"]]\ngdp_df.columns = [\"region\", \"gdp\"]\n# GDP的单位：亿元\ngdp_df[\"region\"] = gdp_df[\"region\"].map(parse_region)\ngdp_df ",
+          "codeSha256": "5879e0ac6ff7f955af04958c92e4ed12fd17a28dc9f28076c574e7e3f6e8cd8b"
+        }
+      ],
+      "inputRefs": [
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/关于第七次全国人口普查数据的探索.ipynb",
+          "sha256": "128dafa808c53033d8c300b682ae8cf67a8c77279b6c34db6385dfd70f0800a0"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/关于第七次全国人口普查数据的探索.py",
+          "sha256": "f0b7b07826be934cb9990546e3d13461b3434415fbe864b63389492587edbe35"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/各地区人口年龄构成.csv",
+          "sha256": "ab4bdab96f351ac920e48f2467cfad4f0d7aa97c10c23fabce16003ca173734e"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/各地区人口.csv",
+          "sha256": "e54df53ebcf223d5932943a9ad53b66df3d6d6798d2ee47333b0777236510bd2"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/分省年度GDP数据.csv",
+          "sha256": "40a058b7d851eb3aa3aeb25ed7e92f0410eb94eff01503b2e72c17180c51a3d7"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/2005-2019年中国各地区城镇人口数量.csv",
+          "sha256": "42396462dd8849b48ff4c236f0d47555151085772564da0dbcd69210b3f567ee"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/2001-2020中国各地区常住人口数量.csv",
+          "sha256": "2177221892c12f7e7d5488db7495efe0228a6c5cb1b34b87370790f6b97803d5"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/2000年中国各地区城乡人口分布.csv",
+          "sha256": "010b8352eaad3195fa9cc3c1bb00dd7eb138ec9b97b86e42d6ff1b4d0cfb5c49"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/全国人口年龄构成.csv",
+          "sha256": "55abc6661dbfcc66fe0d69563ecb794b6e34447c36d272f680073391e68e6a15"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/各地区15岁及以上人口平均受教育年限.csv",
+          "sha256": "d438f7270713be4b25b5bb0ffbf11086c1e6e93fb15f0df73f267a22acf063f1"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/各地区性别构成.csv",
+          "sha256": "2d70917d4b26bb515186d140625a24c68c3a4cd35e01000c3c56c456ab98e750"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/各地区每10万人口中拥有的各类受教育程度人数.csv",
+          "sha256": "5f06777bf301ef73779f5173ad08f5900bef85ad6e01613a7e05132a316a9c91"
+        }
+      ],
+      "outputRefs": [
+        "learning/resources/p26-v4-source-5.json"
+      ],
+      "exercise": {
+        "prompt": "根据本步单元18—19和保存证据，说明一次变换的输入、输出和一项无法验证的结论。",
+        "hint": "先查看代码中的列选择/过滤/拟合，再核对输出身份和本项目局限。",
+        "checklist": [
+          "准确引用原单元18—19",
+          "指出实际字段或变量与一项真实输出",
+          "把未重跑、资料缺失和统计缺陷分别说明"
+        ],
+        "provenance": "第四阶段教学补充，自评，不代表原文件试题"
+      },
+      "outputTitles": {
+        "learning/resources/p26-v4-source-5.json": "原单元18—19保存输出"
+      }
+    },
+    {
+      "id": "source-021-023",
+      "title": "城市化数据的引入 · 单元21—23",
+      "status": "ready",
+      "kind": "analysis",
+      "knowledgeIds": [
+        "Pandas",
+        "NumPy",
+        "SciPy",
+        "层次聚类",
+        "Altair"
+      ],
+      "explanation": [
+        "本步按原Notebook顺序阅读单元21—23。原保存输出尚未重跑；安装、联网采集、写原文件和模型加载均不会在网页运行。",
+        "read_csv只读取指定CSV；编码、表头和字段需要与输入字典核对。",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：### 城市化数据的引入  \n\n- 计算2019年，2010年，2000年三个年份的城镇化水平  \n- 计算该城市城市化水平首次突破50%，60%，70%的年份距近的年份"
+      ],
+      "teachingCode": "# 原代码仅供阅读，不由网页执行。\n# 本次可运行适配实现见末尾数据实验步骤。",
+      "limitations": [
+        "不能只标Pyecharts，该项目确有层次聚类和Altair；流动人口数据部分内嵌代码；31省相关关系不能推出个体行为因果；城镇化缺年阈值编码需复核；地区拼接应显式检查错配。",
+        "原代码与保存输出保持原身份；新改编计算另列。"
+      ],
+      "codeRefs": [
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/关于第七次全国人口普查数据的探索.ipynb",
+          "notebookSha256": "128dafa808c53033d8c300b682ae8cf67a8c77279b6c34db6385dfd70f0800a0",
+          "cell": 21,
+          "code": "city_pop_data_path = \"./data/2005-2019年中国各地区城镇人口数量.csv\"\nresidential_pop_data_path = \"./data/2001-2020中国各地区常住人口数量.csv\"\ncity_pop_2000_data_path = \"./data/2000年中国各地区城乡人口分布.csv\"\n\ncity_pop_df = pd.read_csv(city_pop_data_path)\nres_pop_df = pd.read_csv(residential_pop_data_path)\ncity_pop_2000_df = pd.read_csv(city_pop_2000_data_path)\n\nselected_years = [f\"{year}年\" for year in range(2005,2020)]\n\nurbanization_df_05_19 = city_pop_df.set_index(\"地区\")[selected_years]/res_pop_df.set_index(\"地区\")[selected_years]\nurbanization_df_05_19.index.name = \"region\"\nurbanization_df_05_19.index = map(parse_region,urbanization_df_05_19.index.values)\nurbanization_df_05_19\n\ncity_pop_2000_mdf = city_pop_2000_df.assign(\n    region = city_pop_2000_df[\"地区\"].map(parse_region),\n    _2000 = city_pop_2000_df[\"城镇人口比例\"] / 100\n).set_index(\"region\")[[\"_2000\"]].rename({\"_2000\":\"2000年\"},axis=1)\n\nurbanization_df = pd.concat([city_pop_2000_mdf,urbanization_df_05_19],axis=1).round(4)\n# urbanization_df",
+          "codeSha256": "d7c12b9f45775d9a07d71bfc80c681c5adcba9630734e325e947b6ced0403d54"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/关于第七次全国人口普查数据的探索.ipynb",
+          "notebookSha256": "128dafa808c53033d8c300b682ae8cf67a8c77279b6c34db6385dfd70f0800a0",
+          "cell": 22,
+          "code": "urba_first_over_year = pd.concat(\n    [(urbanization_df>percent).T.apply(lambda x:x[x==True].index.min())\n for percent in [0.4,0.5,0.6,0.7]],axis=1)\n\nurbs_over_year_columns = [\"urba_over_40\",\"urba_over_50\",\"urba_over_60\",\"urba_over_70\"]\nurba_first_over_year.columns = urbs_over_year_columns\n\ndef parse_urba_over_year(year):\n    if isinstance(year,str):\n        return (2020 - int(year.replace(\"年\",\"\")))/20\n    else:\n        return np.NaN\nfor column in urbs_over_year_columns:\n    urba_first_over_year[column] = urba_first_over_year[column].map(parse_urba_over_year)\n# urba_first_over_year\n# urbanization_df.columns.min()",
+          "codeSha256": "7e2e51db55b2c5c9f3a12c360c778776069191f436962c40960b30d660bc76a0"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/关于第七次全国人口普查数据的探索.ipynb",
+          "notebookSha256": "128dafa808c53033d8c300b682ae8cf67a8c77279b6c34db6385dfd70f0800a0",
+          "cell": 23,
+          "code": "urba_year_column_map = {\n    \"2000年\":\"urba_2000\",\n\"2005年\":\"urba_2005\",\n\"2010年\":\"urba_2010\",\n\"2015年\":\"urba_2015\",\n\"2019年\":\"urba_2019\",\n}\n\nurba_info_df = pd.concat([\n    urbanization_df[urba_year_column_map.keys()].rename(urba_year_column_map,axis=1),\n    urba_first_over_year],axis=1)\nurba_info_df",
+          "codeSha256": "6f4733c4a2852c2b72ca2dfb38e6a1f7f6c169b2e20d608bb5a28f13b89b8bc8"
+        }
+      ],
+      "inputRefs": [
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/关于第七次全国人口普查数据的探索.ipynb",
+          "sha256": "128dafa808c53033d8c300b682ae8cf67a8c77279b6c34db6385dfd70f0800a0"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/关于第七次全国人口普查数据的探索.py",
+          "sha256": "f0b7b07826be934cb9990546e3d13461b3434415fbe864b63389492587edbe35"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/各地区人口年龄构成.csv",
+          "sha256": "ab4bdab96f351ac920e48f2467cfad4f0d7aa97c10c23fabce16003ca173734e"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/各地区人口.csv",
+          "sha256": "e54df53ebcf223d5932943a9ad53b66df3d6d6798d2ee47333b0777236510bd2"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/分省年度GDP数据.csv",
+          "sha256": "40a058b7d851eb3aa3aeb25ed7e92f0410eb94eff01503b2e72c17180c51a3d7"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/2005-2019年中国各地区城镇人口数量.csv",
+          "sha256": "42396462dd8849b48ff4c236f0d47555151085772564da0dbcd69210b3f567ee"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/2001-2020中国各地区常住人口数量.csv",
+          "sha256": "2177221892c12f7e7d5488db7495efe0228a6c5cb1b34b87370790f6b97803d5"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/2000年中国各地区城乡人口分布.csv",
+          "sha256": "010b8352eaad3195fa9cc3c1bb00dd7eb138ec9b97b86e42d6ff1b4d0cfb5c49"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/全国人口年龄构成.csv",
+          "sha256": "55abc6661dbfcc66fe0d69563ecb794b6e34447c36d272f680073391e68e6a15"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/各地区15岁及以上人口平均受教育年限.csv",
+          "sha256": "d438f7270713be4b25b5bb0ffbf11086c1e6e93fb15f0df73f267a22acf063f1"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/各地区性别构成.csv",
+          "sha256": "2d70917d4b26bb515186d140625a24c68c3a4cd35e01000c3c56c456ab98e750"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/各地区每10万人口中拥有的各类受教育程度人数.csv",
+          "sha256": "5f06777bf301ef73779f5173ad08f5900bef85ad6e01613a7e05132a316a9c91"
+        }
+      ],
+      "outputRefs": [
+        "learning/resources/p26-v4-source-6.json"
+      ],
+      "exercise": {
+        "prompt": "根据本步单元21—23和保存证据，说明一次变换的输入、输出和一项无法验证的结论。",
+        "hint": "先查看代码中的列选择/过滤/拟合，再核对输出身份和本项目局限。",
+        "checklist": [
+          "准确引用原单元21—23",
+          "指出实际字段或变量与一项真实输出",
+          "把未重跑、资料缺失和统计缺陷分别说明"
+        ],
+        "provenance": "第四阶段教学补充，自评，不代表原文件试题"
+      },
+      "outputTitles": {
+        "learning/resources/p26-v4-source-6.json": "原单元21—23保存输出"
+      }
+    },
+    {
+      "id": "source-025-025",
+      "title": "流动人口数据的引入 · 单元25—25",
+      "status": "ready",
+      "kind": "analysis",
+      "knowledgeIds": [
+        "Pandas",
+        "NumPy",
+        "SciPy",
+        "层次聚类",
+        "Altair"
+      ],
+      "explanation": [
+        "本步按原Notebook顺序阅读单元25—25。原保存输出尚未重跑；安装、联网采集、写原文件和模型加载均不会在网页运行。",
+        "read_csv只读取指定CSV；编码、表头和字段需要与输入字典核对。",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：### 流动人口数据的引入"
+      ],
+      "teachingCode": "# 原代码仅供阅读，不由网页执行。\n# 本次可运行适配实现见末尾数据实验步骤。",
+      "limitations": [
+        "不能只标Pyecharts，该项目确有层次聚类和Altair；流动人口数据部分内嵌代码；31省相关关系不能推出个体行为因果；城镇化缺年阈值编码需复核；地区拼接应显式检查错配。",
+        "原代码与保存输出保持原身份；新改编计算另列。"
+      ],
+      "codeRefs": [
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/关于第七次全国人口普查数据的探索.ipynb",
+          "notebookSha256": "128dafa808c53033d8c300b682ae8cf67a8c77279b6c34db6385dfd70f0800a0",
+          "cell": 25,
+          "code": "from io import StringIO\n\n# 数据来自国家统计年鉴2021\nfloating_pop_data_txt = '''\n地区\t省内\t省外\n北京市\t4991158\t8418418\n天津市\t2944879\t3534816\n河北省\t16620369\t3155272\n山西省\t11270656\t1620518\n内蒙古自治区\t9776541\t1686420\n辽宁省\t12822813\t2847308\n吉林省\t9349212\t1001471\n黑龙江省\t10720408\t829176\n上海市\t4654606\t10479652\n江苏省\t19671338\t10308610\n浙江省\t13921361\t16186454\n安徽省\t16549409\t1550509\n福建省\t11574735\t4889876\n江西省\t12241920\t1279014\n山东省\t23897755\t4129007\n河南省\t24365959\t1273646\n湖北省\t16226947\t2249614\n湖南省\t15998284\t1577563\n广东省\t31012976\t29622110\n广西壮族自治区\t11879397\t1359384\n海南省\t2410018\t1088143\n重庆市\t10902860\t2193575\n四川省\t25233163\t2590041\n贵州省\t10548217\t1146546\n云南省\t9978920\t2230394\n西藏自治区\t624011\t407121\n陕西省\t11333383\t1933712\n甘肃省\t6586817\t765648\n青海省\t1653356\t417304\n宁夏回族自治区\t2687551\t675119\n新疆维吾尔自治区\t5476334\t3390712\n'''\n\nfloating_pop_df = pd.read_csv(StringIO(floating_pop_data_txt),sep=\"\\t\")\nfloating_pop_df = floating_pop_df.assign(\n    region=floating_pop_df[\"地区\"].map(parse_region),\n).rename(\n    {\n        \"省内\":\"floating_pop_inside\",\n        \"省外\":\"floating_pop_outside\"\n    },\n    axis=1\n)[[\"floating_pop_inside\",\"floating_pop_outside\",\"region\"]].set_index(\"region\")\n\nfloating_pop_df",
+          "codeSha256": "1116825eb0c940e23c5d2decc3f8a169e758d77ef105784ef4482e7b0d31ccb2"
+        }
+      ],
+      "inputRefs": [
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/关于第七次全国人口普查数据的探索.ipynb",
+          "sha256": "128dafa808c53033d8c300b682ae8cf67a8c77279b6c34db6385dfd70f0800a0"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/关于第七次全国人口普查数据的探索.py",
+          "sha256": "f0b7b07826be934cb9990546e3d13461b3434415fbe864b63389492587edbe35"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/各地区人口年龄构成.csv",
+          "sha256": "ab4bdab96f351ac920e48f2467cfad4f0d7aa97c10c23fabce16003ca173734e"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/各地区人口.csv",
+          "sha256": "e54df53ebcf223d5932943a9ad53b66df3d6d6798d2ee47333b0777236510bd2"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/分省年度GDP数据.csv",
+          "sha256": "40a058b7d851eb3aa3aeb25ed7e92f0410eb94eff01503b2e72c17180c51a3d7"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/2005-2019年中国各地区城镇人口数量.csv",
+          "sha256": "42396462dd8849b48ff4c236f0d47555151085772564da0dbcd69210b3f567ee"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/2001-2020中国各地区常住人口数量.csv",
+          "sha256": "2177221892c12f7e7d5488db7495efe0228a6c5cb1b34b87370790f6b97803d5"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/2000年中国各地区城乡人口分布.csv",
+          "sha256": "010b8352eaad3195fa9cc3c1bb00dd7eb138ec9b97b86e42d6ff1b4d0cfb5c49"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/全国人口年龄构成.csv",
+          "sha256": "55abc6661dbfcc66fe0d69563ecb794b6e34447c36d272f680073391e68e6a15"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/各地区15岁及以上人口平均受教育年限.csv",
+          "sha256": "d438f7270713be4b25b5bb0ffbf11086c1e6e93fb15f0df73f267a22acf063f1"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/各地区性别构成.csv",
+          "sha256": "2d70917d4b26bb515186d140625a24c68c3a4cd35e01000c3c56c456ab98e750"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/各地区每10万人口中拥有的各类受教育程度人数.csv",
+          "sha256": "5f06777bf301ef73779f5173ad08f5900bef85ad6e01613a7e05132a316a9c91"
+        }
+      ],
+      "outputRefs": [
+        "learning/resources/p26-v4-source-7.json"
+      ],
+      "exercise": {
+        "prompt": "根据本步单元25—25和保存证据，说明一次变换的输入、输出和一项无法验证的结论。",
+        "hint": "先查看代码中的列选择/过滤/拟合，再核对输出身份和本项目局限。",
+        "checklist": [
+          "准确引用原单元25—25",
+          "指出实际字段或变量与一项真实输出",
+          "把未重跑、资料缺失和统计缺陷分别说明"
+        ],
+        "provenance": "第四阶段教学补充，自评，不代表原文件试题"
+      },
+      "outputTitles": {
+        "learning/resources/p26-v4-source-7.json": "原单元25—25保存输出"
+      }
+    },
+    {
+      "id": "source-028-028",
+      "title": "数据聚合 · 单元28—28",
+      "status": "ready",
+      "kind": "analysis",
+      "knowledgeIds": [
+        "Pandas",
+        "NumPy",
+        "SciPy",
+        "层次聚类",
+        "Altair"
+      ],
+      "explanation": [
+        "本步按原Notebook顺序阅读单元28—28。原保存输出尚未重跑；安装、联网采集、写原文件和模型加载均不会在网页运行。",
+        "本步展示原变量赋值、查看或配置；变量实际内容以保存输出与本次数据证据为准，不从代码存在推断执行成功。",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：### 数据聚合"
+      ],
+      "teachingCode": "# 原代码仅供阅读，不由网页执行。\n# 本次可运行适配实现见末尾数据实验步骤。",
+      "limitations": [
+        "不能只标Pyecharts，该项目确有层次聚类和Altair；流动人口数据部分内嵌代码；31省相关关系不能推出个体行为因果；城镇化缺年阈值编码需复核；地区拼接应显式检查错配。",
+        "原代码与保存输出保持原身份；新改编计算另列。"
+      ],
+      "codeRefs": [
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/关于第七次全国人口普查数据的探索.ipynb",
+          "notebookSha256": "128dafa808c53033d8c300b682ae8cf67a8c77279b6c34db6385dfd70f0800a0",
+          "cell": 28,
+          "code": "# df = pd.merge(pd.merge(pd.merge(age_df,edu_df,on=\"region\"),pop_df,on=\"region\"),gdp_df,on=\"region\")\ndf = pd.concat([\n    age_df.set_index(\"region\"), \n    pop_df.set_index(\"region\"),\n    gdp_df.set_index(\"region\"),\n    edu_df.set_index(\"region\"),\n    urba_info_df,\n    floating_pop_df],axis=1).drop(\"全国\")\nassert len(df.index) == 31\n\ndf = df.assign(\n    gdp_avg = df[\"gdp\"] * 10000 / df[\"population\"],\n    floating_inside_rate = df[\"floating_pop_inside\"]/df[\"population\"],\n    floating_outside_rate = df[\"floating_pop_outside\"]/df[\"population\"],\n    floating_rate = (df[\"floating_pop_inside\"] + df[\"floating_pop_outside\"])/df[\"population\"]\n)\ndf.index.name = \"region\"\ndf.head(10)",
+          "codeSha256": "6cd7ea86d9fb9914215b3a156835597b5c3b020d238d65460290df38879e9cc2"
+        }
+      ],
+      "inputRefs": [
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/关于第七次全国人口普查数据的探索.ipynb",
+          "sha256": "128dafa808c53033d8c300b682ae8cf67a8c77279b6c34db6385dfd70f0800a0"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/关于第七次全国人口普查数据的探索.py",
+          "sha256": "f0b7b07826be934cb9990546e3d13461b3434415fbe864b63389492587edbe35"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/各地区人口年龄构成.csv",
+          "sha256": "ab4bdab96f351ac920e48f2467cfad4f0d7aa97c10c23fabce16003ca173734e"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/各地区人口.csv",
+          "sha256": "e54df53ebcf223d5932943a9ad53b66df3d6d6798d2ee47333b0777236510bd2"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/分省年度GDP数据.csv",
+          "sha256": "40a058b7d851eb3aa3aeb25ed7e92f0410eb94eff01503b2e72c17180c51a3d7"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/2005-2019年中国各地区城镇人口数量.csv",
+          "sha256": "42396462dd8849b48ff4c236f0d47555151085772564da0dbcd69210b3f567ee"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/2001-2020中国各地区常住人口数量.csv",
+          "sha256": "2177221892c12f7e7d5488db7495efe0228a6c5cb1b34b87370790f6b97803d5"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/2000年中国各地区城乡人口分布.csv",
+          "sha256": "010b8352eaad3195fa9cc3c1bb00dd7eb138ec9b97b86e42d6ff1b4d0cfb5c49"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/全国人口年龄构成.csv",
+          "sha256": "55abc6661dbfcc66fe0d69563ecb794b6e34447c36d272f680073391e68e6a15"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/各地区15岁及以上人口平均受教育年限.csv",
+          "sha256": "d438f7270713be4b25b5bb0ffbf11086c1e6e93fb15f0df73f267a22acf063f1"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/各地区性别构成.csv",
+          "sha256": "2d70917d4b26bb515186d140625a24c68c3a4cd35e01000c3c56c456ab98e750"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/各地区每10万人口中拥有的各类受教育程度人数.csv",
+          "sha256": "5f06777bf301ef73779f5173ad08f5900bef85ad6e01613a7e05132a316a9c91"
+        }
+      ],
+      "outputRefs": [
+        "learning/resources/p26-v4-source-8.json"
+      ],
+      "exercise": {
+        "prompt": "根据本步单元28—28和保存证据，说明一次变换的输入、输出和一项无法验证的结论。",
+        "hint": "先查看代码中的列选择/过滤/拟合，再核对输出身份和本项目局限。",
+        "checklist": [
+          "准确引用原单元28—28",
+          "指出实际字段或变量与一项真实输出",
+          "把未重跑、资料缺失和统计缺陷分别说明"
+        ],
+        "provenance": "第四阶段教学补充，自评，不代表原文件试题"
+      },
+      "outputTitles": {
+        "learning/resources/p26-v4-source-8.json": "原单元28—28保存输出"
+      }
+    },
+    {
+      "id": "source-032-037",
+      "title": "分析阶段 · 单元32—37",
+      "status": "ready",
+      "kind": "analysis",
+      "knowledgeIds": [
+        "Pandas",
+        "NumPy",
+        "SciPy",
+        "层次聚类",
+        "Altair"
+      ],
+      "explanation": [
+        "本步按原Notebook顺序阅读单元32—37。原保存输出尚未重跑；安装、联网采集、写原文件和模型加载均不会在网页运行。",
+        "绘图参数只控制展示；结论仍须受输入范围与统计口径约束。",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：### 指标说明  \n\n- `region`：地区，不包括香港、澳门、台湾省在内的31个中国省份  \n- `a14-`：年龄小于等于14岁的人口比例  \n- `a15_59`：年龄在14岁到59岁的人口比例  \n- `a60+`：年龄大于等于60岁的人口比例  \n- `a65+`：年龄大于等于65岁的人口比例  \n- `edu_college`：教育水平为大学（含大专及以上）的人口比例  \n- `edu_senior`：教育水平为高中（含中专）的人口比例  \n- `edu_junior`：教育水平为初中的人口比例  \n- `edu_primary`：教育水平为小学的人口比例  \n- `population`：人口数，单位为人  \n- `gdp`：国民生产总值，单位为亿元  \n- `gdp_avg`：人均国民生产总值，单位为万元  \n- `urba_2000`：2000年的城市化比例  \n- `urba_2005`：2005年的城市化比例  \n- `urba_2010`：2010年的城市化比例  \n- `urba_2015`：2015年的城市化比例  \n- `urba_2019`：2019年的城市化比例  \n- `urba_over_40`：城市化比例首次超过40%的年份的距今系数，0-1之间  \n- `urba_over_50`：城市化比例首次超过50%的年份的距今系数，0-1之间  \n- `urba_over_60`：城市化比例首次超过60%的年份的距今系数，0-1之间  \n- `urba_over_70`：城市化比例首次超过60%的年份的距今系数，0-1之间  \n- `floating_inside_rate`：来自省内的人户分离人口比例  \n- `floating_outside_rate`：来自省外的人户分离（流动人口）比例  \n- `floating_rate`：人户分离人口比例  \n\n城市化比例首次超过x%的年份的距今系数 = (2020 - 城市化比例首次超过x%的年份)/20，因为城市化数据只包括2000到2019之间的数据  \n\n除了城市化率利用了早年数据，其他数据的统计对象年份皆为 2020年",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：## 分析阶段  \n\n### 基于人口年龄结构的差异性，可以将中国各地区分为哪几组？  \n\n基于层次聚类的地区分组",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：上图中，在谱系树中越接近，则二者之间的人口年龄结构接近。  \n\n基于谱系树的第三层级，可以将各地区分为三组。"
+      ],
+      "teachingCode": "# 原代码仅供阅读，不由网页执行。\n# 本次可运行适配实现见末尾数据实验步骤。",
+      "limitations": [
+        "不能只标Pyecharts，该项目确有层次聚类和Altair；流动人口数据部分内嵌代码；31省相关关系不能推出个体行为因果；城镇化缺年阈值编码需复核；地区拼接应显式检查错配。",
+        "原代码与保存输出保持原身份；新改编计算另列。"
+      ],
+      "codeRefs": [
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/关于第七次全国人口普查数据的探索.ipynb",
+          "notebookSha256": "128dafa808c53033d8c300b682ae8cf67a8c77279b6c34db6385dfd70f0800a0",
+          "cell": 32,
+          "code": "font1 = {'family' : 'Times New Roman',\n'weight' : 'normal',\n'size'   : 16,\n}\nfrom pylab import mpl\n# 设置中文显示字体\nmpl.rcParams[\"font.sans-serif\"] = [\"SimHei\"]",
+          "codeSha256": "5ad7cad897d54e54992e9f126a6ab4d4c3f96e0c3dfeceeef8c164d43d7be7d7"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/关于第七次全国人口普查数据的探索.ipynb",
+          "notebookSha256": "128dafa808c53033d8c300b682ae8cf67a8c77279b6c34db6385dfd70f0800a0",
+          "cell": 33,
+          "code": "from scipy.cluster import hierarchy\nfrom matplotlib import pyplot as plt\n\ndef draw_dendrogram(data, featureNames):\n    model = hierarchy.linkage(data, \"ward\")\n    # print(c)\n    plt.figure(figsize=(16, 9))\n    plt.title(\"地区之间的年龄结构层次聚类图\")\n    plt.xlabel(\"distance\",font1)\n    plt.ylabel(\"keyword\")\n    hierarchy.dendrogram(\n        model,\n        leaf_rotation=0,\n        leaf_font_size=8.0,\n        labels=featureNames,\n        orientation=\"right\",\n    )\n    plt.show()\n    return model\n\nmodel = draw_dendrogram(df[[\"a14-\",\"a15_59\",\"a60+\"]].values.tolist(),df.index.values.tolist())",
+          "codeSha256": "7a2b599de3cfa35084b8849b55a80a90ff03687a1d4d8e44c77e248cf9951d10"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/关于第七次全国人口普查数据的探索.ipynb",
+          "notebookSha256": "128dafa808c53033d8c300b682ae8cf67a8c77279b6c34db6385dfd70f0800a0",
+          "cell": 35,
+          "code": "from scipy.cluster import hierarchy\n\ngdf = df.assign(\n    group = hierarchy.cut_tree(model,3)+1\n).sort_values(\"group\")",
+          "codeSha256": "9ffa2c6ca2c6ccb9e22f6864807e75eac19705050472b6027360a3d6e16a9bfc"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/关于第七次全国人口普查数据的探索.ipynb",
+          "notebookSha256": "128dafa808c53033d8c300b682ae8cf67a8c77279b6c34db6385dfd70f0800a0",
+          "cell": 36,
+          "code": "dictcode = {'北京': '北京市',\n '天津': '天津市',\n '河北': '河北省',\n '山西': '山西省',\n '内蒙古': '内蒙古自治区',\n '辽宁': '辽宁省',\n '吉林': '吉林省',\n '黑龙江': '黑龙江省',\n '上海': '上海市',\n '江苏': '江苏省',\n '浙江': '浙江省',\n '安徽': '安徽省',\n '福建': '福建省',\n '江西': '江西省',\n '山东': '山东省',\n '河南': '河南省',\n '湖北': '湖北省',\n '湖南': '湖南省',\n '广东': '广东省',\n '广西': '广西壮族自治区',\n '海南': '海南省',\n '重庆': '重庆市',\n '四川': '四川省',\n '贵州': '贵州省',\n '云南': '云南省',\n '西藏': '西藏自治区',\n '陕西': '陕西省',\n '甘肃': '甘肃省',\n '青海': '青海省',\n '宁夏': '宁夏回族自治区',\n '新疆': '新疆维吾尔自治区'}",
+          "codeSha256": "f4aef51186dd6f91bca4b1b023fe654132d51aa23936540d6c96d162751512f2"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/关于第七次全国人口普查数据的探索.ipynb",
+          "notebookSha256": "128dafa808c53033d8c300b682ae8cf67a8c77279b6c34db6385dfd70f0800a0",
+          "cell": 37,
+          "code": "[dictcode[x] for x in gdf.index.values]",
+          "codeSha256": "82c3ddf18e79ce7f2d0c2dec5371385bde8c5e5e84f6a4fa4736652e93cd4a91"
+        }
+      ],
+      "inputRefs": [
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/关于第七次全国人口普查数据的探索.ipynb",
+          "sha256": "128dafa808c53033d8c300b682ae8cf67a8c77279b6c34db6385dfd70f0800a0"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/关于第七次全国人口普查数据的探索.py",
+          "sha256": "f0b7b07826be934cb9990546e3d13461b3434415fbe864b63389492587edbe35"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/各地区人口年龄构成.csv",
+          "sha256": "ab4bdab96f351ac920e48f2467cfad4f0d7aa97c10c23fabce16003ca173734e"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/各地区人口.csv",
+          "sha256": "e54df53ebcf223d5932943a9ad53b66df3d6d6798d2ee47333b0777236510bd2"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/分省年度GDP数据.csv",
+          "sha256": "40a058b7d851eb3aa3aeb25ed7e92f0410eb94eff01503b2e72c17180c51a3d7"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/2005-2019年中国各地区城镇人口数量.csv",
+          "sha256": "42396462dd8849b48ff4c236f0d47555151085772564da0dbcd69210b3f567ee"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/2001-2020中国各地区常住人口数量.csv",
+          "sha256": "2177221892c12f7e7d5488db7495efe0228a6c5cb1b34b87370790f6b97803d5"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/2000年中国各地区城乡人口分布.csv",
+          "sha256": "010b8352eaad3195fa9cc3c1bb00dd7eb138ec9b97b86e42d6ff1b4d0cfb5c49"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/全国人口年龄构成.csv",
+          "sha256": "55abc6661dbfcc66fe0d69563ecb794b6e34447c36d272f680073391e68e6a15"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/各地区15岁及以上人口平均受教育年限.csv",
+          "sha256": "d438f7270713be4b25b5bb0ffbf11086c1e6e93fb15f0df73f267a22acf063f1"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/各地区性别构成.csv",
+          "sha256": "2d70917d4b26bb515186d140625a24c68c3a4cd35e01000c3c56c456ab98e750"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/各地区每10万人口中拥有的各类受教育程度人数.csv",
+          "sha256": "5f06777bf301ef73779f5173ad08f5900bef85ad6e01613a7e05132a316a9c91"
+        }
+      ],
+      "outputRefs": [
+        "learning/resources/p26-v4-source-9.json",
+        "learning/resources/p26-v4-source-9-images.json"
+      ],
+      "exercise": {
+        "prompt": "根据本步单元32—37和保存证据，说明一次变换的输入、输出和一项无法验证的结论。",
+        "hint": "先查看代码中的列选择/过滤/拟合，再核对输出身份和本项目局限。",
+        "checklist": [
+          "准确引用原单元32—37",
+          "指出实际字段或变量与一项真实输出",
+          "把未重跑、资料缺失和统计缺陷分别说明"
+        ],
+        "provenance": "第四阶段教学补充，自评，不代表原文件试题"
+      },
+      "outputTitles": {
+        "learning/resources/p26-v4-source-9.json": "原单元32—37保存输出",
+        "learning/resources/p26-v4-source-9-images.json": "原单元32—37保存输出 · 原保存图"
+      }
+    },
+    {
+      "id": "source-038-040",
+      "title": "分析阶段 · 单元38—40",
+      "status": "ready",
+      "kind": "analysis",
+      "knowledgeIds": [
+        "Pandas",
+        "NumPy",
+        "SciPy",
+        "层次聚类",
+        "Altair"
+      ],
+      "explanation": [
+        "本步按原Notebook顺序阅读单元38—40。原保存输出尚未重跑；安装、联网采集、写原文件和模型加载均不会在网页运行。",
+        "groupby先定义分组键，再计算聚合；count、size与nunique的计数粒度不同。",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：三组的地理分布情况  \n\n- 第1组：绿色  \n- 第2组：黄色  \n- 第3组：红色",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：上图是不同组的平均人口年龄结构，可以看到  \n\n- 第 1 组：人口年龄结构特点是**低高高**，大致是 1:7:2。既有北京、天津、上海、浙江等经济发达地区，也有东北三省和内蒙古。  \n- 第 2 组：人口年龄结构特点是**高低高**，大致是 2:6:2。以华北和华中为主的省份。  \n- 第 3 组：人口年龄结构特点特点是**高高低**，大致是 2:7:1。既有西藏、新疆、青海、甘肃、云南等西部省份，也有广东、福建、海南等东南部省份。  \n\n虽然被归为同一个组，但是同组的不同地区的经济发展水平、自然地理环境都有着较大的差异。下面探索与人口年龄结构差异有关的影响因素。"
+      ],
+      "teachingCode": "# 原代码仅供阅读，不由网页执行。\n# 本次可运行适配实现见末尾数据实验步骤。",
+      "limitations": [
+        "不能只标Pyecharts，该项目确有层次聚类和Altair；流动人口数据部分内嵌代码；31省相关关系不能推出个体行为因果；城镇化缺年阈值编码需复核；地区拼接应显式检查错配。",
+        "原代码与保存输出保持原身份；新改编计算另列。"
+      ],
+      "codeRefs": [
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/关于第七次全国人口普查数据的探索.ipynb",
+          "notebookSha256": "128dafa808c53033d8c300b682ae8cf67a8c77279b6c34db6385dfd70f0800a0",
+          "cell": 38,
+          "code": "from pyecharts import options as opts\nfrom pyecharts.charts import Map\n\nc = (\n    Map()\n    .add(\"分组\", [list(z) for z in zip([dictcode[x] for x in gdf.index.values], gdf[\"group\"].values * 1.0)], \"china\")\n    .set_global_opts(\n        title_opts=opts.TitleOpts(title=\"中国人口年龄结构分组地图\"),\n        visualmap_opts=opts.VisualMapOpts(max_=3),\n    )\n)\nc.render('中国人口年龄结构分组地图.html')\nc.render_notebook()",
+          "codeSha256": "3d727291652ba61452adde6ee93e8037e643968c49921fa1e0e90387451f08ad"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/关于第七次全国人口普查数据的探索.ipynb",
+          "notebookSha256": "128dafa808c53033d8c300b682ae8cf67a8c77279b6c34db6385dfd70f0800a0",
+          "cell": 40,
+          "code": "\ngdf_summary = gdf.groupby(\"group\").agg(\n    a14=(\"a14-\",\"mean\"),\n    a15_59=(\"a15_59\",\"mean\"),\n    a60=(\"a60+\",\"mean\"),\n).round(2)\n\nalt.Chart(gdf_summary.stack().reset_index().rename({\"level_1\":\"metric\",0:\"value\"},axis=1)).mark_bar().encode(\n    x=\"metric\",\n    y=\"value\",\n    tooltip=[\"metric:O\",\"value:Q\"]\n).properties(\n    width=200\n).facet(\n    column=\"group\"\n)",
+          "codeSha256": "9ce0a740293adbd3995451c654470d7614e4f383baa1387d81c47384b9d17042"
+        }
+      ],
+      "inputRefs": [
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/关于第七次全国人口普查数据的探索.ipynb",
+          "sha256": "128dafa808c53033d8c300b682ae8cf67a8c77279b6c34db6385dfd70f0800a0"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/关于第七次全国人口普查数据的探索.py",
+          "sha256": "f0b7b07826be934cb9990546e3d13461b3434415fbe864b63389492587edbe35"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/各地区人口年龄构成.csv",
+          "sha256": "ab4bdab96f351ac920e48f2467cfad4f0d7aa97c10c23fabce16003ca173734e"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/各地区人口.csv",
+          "sha256": "e54df53ebcf223d5932943a9ad53b66df3d6d6798d2ee47333b0777236510bd2"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/分省年度GDP数据.csv",
+          "sha256": "40a058b7d851eb3aa3aeb25ed7e92f0410eb94eff01503b2e72c17180c51a3d7"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/2005-2019年中国各地区城镇人口数量.csv",
+          "sha256": "42396462dd8849b48ff4c236f0d47555151085772564da0dbcd69210b3f567ee"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/2001-2020中国各地区常住人口数量.csv",
+          "sha256": "2177221892c12f7e7d5488db7495efe0228a6c5cb1b34b87370790f6b97803d5"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/2000年中国各地区城乡人口分布.csv",
+          "sha256": "010b8352eaad3195fa9cc3c1bb00dd7eb138ec9b97b86e42d6ff1b4d0cfb5c49"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/全国人口年龄构成.csv",
+          "sha256": "55abc6661dbfcc66fe0d69563ecb794b6e34447c36d272f680073391e68e6a15"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/各地区15岁及以上人口平均受教育年限.csv",
+          "sha256": "d438f7270713be4b25b5bb0ffbf11086c1e6e93fb15f0df73f267a22acf063f1"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/各地区性别构成.csv",
+          "sha256": "2d70917d4b26bb515186d140625a24c68c3a4cd35e01000c3c56c456ab98e750"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/各地区每10万人口中拥有的各类受教育程度人数.csv",
+          "sha256": "5f06777bf301ef73779f5173ad08f5900bef85ad6e01613a7e05132a316a9c91"
+        }
+      ],
+      "outputRefs": [
+        "learning/resources/p26-v4-source-10.json"
+      ],
+      "exercise": {
+        "prompt": "根据本步单元38—40和保存证据，说明一次变换的输入、输出和一项无法验证的结论。",
+        "hint": "先查看代码中的列选择/过滤/拟合，再核对输出身份和本项目局限。",
+        "checklist": [
+          "准确引用原单元38—40",
+          "指出实际字段或变量与一项真实输出",
+          "把未重跑、资料缺失和统计缺陷分别说明"
+        ],
+        "provenance": "第四阶段教学补充，自评，不代表原文件试题"
+      },
+      "outputTitles": {
+        "learning/resources/p26-v4-source-10.json": "原单元38—40保存输出"
+      }
+    },
+    {
+      "id": "source-043-043",
+      "title": "对于人口年龄结构的影响因素可能有哪些？ · 单元43—43",
+      "status": "ready",
+      "kind": "analysis",
+      "knowledgeIds": [
+        "Pandas",
+        "NumPy",
+        "SciPy",
+        "层次聚类",
+        "Altair"
+      ],
+      "explanation": [
+        "本步按原Notebook顺序阅读单元43—43。原保存输出尚未重跑；安装、联网采集、写原文件和模型加载均不会在网页运行。",
+        "corr描述数值相关；ID和任意名义编码不能直接用于实质解释。",
+        "绘图参数只控制展示；结论仍须受输入范围与统计口径约束。",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：### 对于人口年龄结构的影响因素可能有哪些？  \n通过相关性来观察",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：通过对不同年龄结构比例和教育水平、人均GDP、城市化进度、流动人口比例等数据的相关性，发现：  \n\n- 14岁以下人口比例和城市化进度有着较高的相关系数。其中和**城市化比例超过50%的年份的距今系数**的相关系数达到 -0.81。也就是城市化水平越早达到50%，该地区的14岁以下人口比例越可能较低。  \n- 15到59岁人口比例和流动人口比例有着较高的相关系数，其中人户分离比例的相关系数达到0.69。  \n- 60岁以上人口比例和城市化进度有着较高的相关系数，其中与2019年的城市化水平相关系数为0.62。  \n- 人口年龄结构和人均GDP的相关性不高。对于14岁以下年龄的人口比例的相关系数只有-0.53，对于60岁以上年龄的人口比例的相关系数只有0.29。  \n\n结合人口结构变化的一些逻辑，我们对人口年龄结构的差异给出分析结果：  \n\n- 14岁以下人口年龄比例差异主要受到城市化进展的影响。城市化水平越高，进度越早，则这部分人口年龄比例更容易较少。城市化通过影响人们的婚姻和生育观念影响了儿童人口的数量。  \n- 15-59岁之间人口年龄比例差异主要受到流动人口的影响。流动人口比例越大，则对这部分人口年龄比例会更高。流动人口体现了地区在吸引其他地区人口，特别是目前以经济因素为主导的人口流动下，会吸引更多的劳动力人口。"
+      ],
+      "teachingCode": "# 原代码仅供阅读，不由网页执行。\n# 本次可运行适配实现见末尾数据实验步骤。",
+      "limitations": [
+        "不能只标Pyecharts，该项目确有层次聚类和Altair；流动人口数据部分内嵌代码；31省相关关系不能推出个体行为因果；城镇化缺年阈值编码需复核；地区拼接应显式检查错配。",
+        "原代码与保存输出保持原身份；新改编计算另列。"
+      ],
+      "codeRefs": [
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/关于第七次全国人口普查数据的探索.ipynb",
+          "notebookSha256": "128dafa808c53033d8c300b682ae8cf67a8c77279b6c34db6385dfd70f0800a0",
+          "cell": 43,
+          "code": "# import seaborn as sns\ncorr = df.drop([\"floating_pop_inside\",\"floating_pop_outside\"],axis=1).corr().round(2)\ncorr.style.background_gradient(cmap='YlOrRd')\n# Set up the matplotlib figure\n",
+          "codeSha256": "e9f28424aa057ed51f605bfe99f6a78bc5c2d502c152e056542e4fd1639d2916"
+        }
+      ],
+      "inputRefs": [
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/关于第七次全国人口普查数据的探索.ipynb",
+          "sha256": "128dafa808c53033d8c300b682ae8cf67a8c77279b6c34db6385dfd70f0800a0"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/关于第七次全国人口普查数据的探索.py",
+          "sha256": "f0b7b07826be934cb9990546e3d13461b3434415fbe864b63389492587edbe35"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/各地区人口年龄构成.csv",
+          "sha256": "ab4bdab96f351ac920e48f2467cfad4f0d7aa97c10c23fabce16003ca173734e"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/各地区人口.csv",
+          "sha256": "e54df53ebcf223d5932943a9ad53b66df3d6d6798d2ee47333b0777236510bd2"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/分省年度GDP数据.csv",
+          "sha256": "40a058b7d851eb3aa3aeb25ed7e92f0410eb94eff01503b2e72c17180c51a3d7"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/2005-2019年中国各地区城镇人口数量.csv",
+          "sha256": "42396462dd8849b48ff4c236f0d47555151085772564da0dbcd69210b3f567ee"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/2001-2020中国各地区常住人口数量.csv",
+          "sha256": "2177221892c12f7e7d5488db7495efe0228a6c5cb1b34b87370790f6b97803d5"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/2000年中国各地区城乡人口分布.csv",
+          "sha256": "010b8352eaad3195fa9cc3c1bb00dd7eb138ec9b97b86e42d6ff1b4d0cfb5c49"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/全国人口年龄构成.csv",
+          "sha256": "55abc6661dbfcc66fe0d69563ecb794b6e34447c36d272f680073391e68e6a15"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/各地区15岁及以上人口平均受教育年限.csv",
+          "sha256": "d438f7270713be4b25b5bb0ffbf11086c1e6e93fb15f0df73f267a22acf063f1"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/各地区性别构成.csv",
+          "sha256": "2d70917d4b26bb515186d140625a24c68c3a4cd35e01000c3c56c456ab98e750"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/各地区每10万人口中拥有的各类受教育程度人数.csv",
+          "sha256": "5f06777bf301ef73779f5173ad08f5900bef85ad6e01613a7e05132a316a9c91"
+        }
+      ],
+      "outputRefs": [
+        "learning/resources/p26-v4-evidence-11.json"
+      ],
+      "exercise": {
+        "prompt": "根据本步单元43—43和保存证据，说明一次变换的输入、输出和一项无法验证的结论。",
+        "hint": "先查看代码中的列选择/过滤/拟合，再核对输出身份和本项目局限。",
+        "checklist": [
+          "准确引用原单元43—43",
+          "指出实际字段或变量与一项真实输出",
+          "把未重跑、资料缺失和统计缺陷分别说明"
+        ],
+        "provenance": "第四阶段教学补充，自评，不代表原文件试题"
+      },
+      "outputTitles": {
+        "learning/resources/p26-v4-evidence-11.json": "原单元43—43的执行证据边界"
+      }
+    },
+    {
+      "id": "source-047-047",
+      "title": "城市化进度对于人口年龄结构影响的观察 · 单元47—47",
+      "status": "ready",
+      "kind": "analysis",
+      "knowledgeIds": [
+        "Pandas",
+        "NumPy",
+        "SciPy",
+        "层次聚类",
+        "Altair"
+      ],
+      "explanation": [
+        "本步按原Notebook顺序阅读单元47—47。原保存输出尚未重跑；安装、联网采集、写原文件和模型加载均不会在网页运行。",
+        "本步展示原变量赋值、查看或配置；变量实际内容以保存输出与本次数据证据为准，不从代码存在推断执行成功。",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：### 城市化进度对于人口年龄结构影响的观察",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：上图的横坐标为城市化比例超过50%的年份的距今系数，也就是 (2020 - 城市化首次比例超过50%的年份)/20，数值越大则越早实现城市化比例超过50%。纵坐标为年龄小于等于14岁的人口比例。  \n\n可以看到  \n\n- 第1组地区的特点是14岁以下人口比例较少，且普遍是城市化较早突破50%的地区。"
+      ],
+      "teachingCode": "# 原代码仅供阅读，不由网页执行。\n# 本次可运行适配实现见末尾数据实验步骤。",
+      "limitations": [
+        "不能只标Pyecharts，该项目确有层次聚类和Altair；流动人口数据部分内嵌代码；31省相关关系不能推出个体行为因果；城镇化缺年阈值编码需复核；地区拼接应显式检查错配。",
+        "原代码与保存输出保持原身份；新改编计算另列。"
+      ],
+      "codeRefs": [
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/关于第七次全国人口普查数据的探索.ipynb",
+          "notebookSha256": "128dafa808c53033d8c300b682ae8cf67a8c77279b6c34db6385dfd70f0800a0",
+          "cell": 47,
+          "code": "alt.Chart(gdf.reset_index()).mark_point().encode(\n    x=\"urba_over_50\",\n    y=\"a14-\",\n    color=\"group:N\",\n    tooltip=[\"region:N\",\"urba_over_50:Q\",\"a14-:Q\"]\n).properties(\n    title=\"城市化进度与14岁以下人口年龄结构比例的关系\"\n)",
+          "codeSha256": "3b7878a6f9a3a11473132bde409790dc43f98064d1088a84b938560855b4c477"
+        }
+      ],
+      "inputRefs": [
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/关于第七次全国人口普查数据的探索.ipynb",
+          "sha256": "128dafa808c53033d8c300b682ae8cf67a8c77279b6c34db6385dfd70f0800a0"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/关于第七次全国人口普查数据的探索.py",
+          "sha256": "f0b7b07826be934cb9990546e3d13461b3434415fbe864b63389492587edbe35"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/各地区人口年龄构成.csv",
+          "sha256": "ab4bdab96f351ac920e48f2467cfad4f0d7aa97c10c23fabce16003ca173734e"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/各地区人口.csv",
+          "sha256": "e54df53ebcf223d5932943a9ad53b66df3d6d6798d2ee47333b0777236510bd2"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/分省年度GDP数据.csv",
+          "sha256": "40a058b7d851eb3aa3aeb25ed7e92f0410eb94eff01503b2e72c17180c51a3d7"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/2005-2019年中国各地区城镇人口数量.csv",
+          "sha256": "42396462dd8849b48ff4c236f0d47555151085772564da0dbcd69210b3f567ee"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/2001-2020中国各地区常住人口数量.csv",
+          "sha256": "2177221892c12f7e7d5488db7495efe0228a6c5cb1b34b87370790f6b97803d5"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/2000年中国各地区城乡人口分布.csv",
+          "sha256": "010b8352eaad3195fa9cc3c1bb00dd7eb138ec9b97b86e42d6ff1b4d0cfb5c49"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/全国人口年龄构成.csv",
+          "sha256": "55abc6661dbfcc66fe0d69563ecb794b6e34447c36d272f680073391e68e6a15"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/各地区15岁及以上人口平均受教育年限.csv",
+          "sha256": "d438f7270713be4b25b5bb0ffbf11086c1e6e93fb15f0df73f267a22acf063f1"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/各地区性别构成.csv",
+          "sha256": "2d70917d4b26bb515186d140625a24c68c3a4cd35e01000c3c56c456ab98e750"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/各地区每10万人口中拥有的各类受教育程度人数.csv",
+          "sha256": "5f06777bf301ef73779f5173ad08f5900bef85ad6e01613a7e05132a316a9c91"
+        }
+      ],
+      "outputRefs": [
+        "learning/resources/p26-v4-source-12.json"
+      ],
+      "exercise": {
+        "prompt": "根据本步单元47—47和保存证据，说明一次变换的输入、输出和一项无法验证的结论。",
+        "hint": "先查看代码中的列选择/过滤/拟合，再核对输出身份和本项目局限。",
+        "checklist": [
+          "准确引用原单元47—47",
+          "指出实际字段或变量与一项真实输出",
+          "把未重跑、资料缺失和统计缺陷分别说明"
+        ],
+        "provenance": "第四阶段教学补充，自评，不代表原文件试题"
+      },
+      "outputTitles": {
+        "learning/resources/p26-v4-source-12.json": "原单元47—47保存输出"
+      }
+    },
+    {
+      "id": "source-050-050",
+      "title": "流动人口对于人口年龄结构影响的观察 · 单元50—50",
+      "status": "ready",
+      "kind": "analysis",
+      "knowledgeIds": [
+        "Pandas",
+        "NumPy",
+        "SciPy",
+        "层次聚类",
+        "Altair"
+      ],
+      "explanation": [
+        "本步按原Notebook顺序阅读单元50—50。原保存输出尚未重跑；安装、联网采集、写原文件和模型加载均不会在网页运行。",
+        "本步展示原变量赋值、查看或配置；变量实际内容以保存输出与本次数据证据为准，不从代码存在推断执行成功。",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：### 流动人口对于人口年龄结构影响的观察"
+      ],
+      "teachingCode": "# 原代码仅供阅读，不由网页执行。\n# 本次可运行适配实现见末尾数据实验步骤。",
+      "limitations": [
+        "不能只标Pyecharts，该项目确有层次聚类和Altair；流动人口数据部分内嵌代码；31省相关关系不能推出个体行为因果；城镇化缺年阈值编码需复核；地区拼接应显式检查错配。",
+        "原代码与保存输出保持原身份；新改编计算另列。"
+      ],
+      "codeRefs": [
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/关于第七次全国人口普查数据的探索.ipynb",
+          "notebookSha256": "128dafa808c53033d8c300b682ae8cf67a8c77279b6c34db6385dfd70f0800a0",
+          "cell": 50,
+          "code": "alt.Chart(gdf.reset_index()).mark_point().encode(\n    alt.Y(\"a15_59\",scale=alt.Scale(domain=[0.5,0.7])),\n    x=\"floating_outside_rate\",\n    color=\"group:N\",\n    tooltip=[\"region:O\",\"floating_outside_rate:Q\",\"a14-:Q\"]\n).properties(\n    title=\"流动人口比例与15岁到59岁之间人口年龄结构比例的关系\"\n)",
+          "codeSha256": "bab1cee6317b6f83c28d41097152077551a9a000f27ecd7f9b50dc97aed978dc"
+        }
+      ],
+      "inputRefs": [
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/关于第七次全国人口普查数据的探索.ipynb",
+          "sha256": "128dafa808c53033d8c300b682ae8cf67a8c77279b6c34db6385dfd70f0800a0"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/关于第七次全国人口普查数据的探索.py",
+          "sha256": "f0b7b07826be934cb9990546e3d13461b3434415fbe864b63389492587edbe35"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/各地区人口年龄构成.csv",
+          "sha256": "ab4bdab96f351ac920e48f2467cfad4f0d7aa97c10c23fabce16003ca173734e"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/各地区人口.csv",
+          "sha256": "e54df53ebcf223d5932943a9ad53b66df3d6d6798d2ee47333b0777236510bd2"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/分省年度GDP数据.csv",
+          "sha256": "40a058b7d851eb3aa3aeb25ed7e92f0410eb94eff01503b2e72c17180c51a3d7"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/2005-2019年中国各地区城镇人口数量.csv",
+          "sha256": "42396462dd8849b48ff4c236f0d47555151085772564da0dbcd69210b3f567ee"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/2001-2020中国各地区常住人口数量.csv",
+          "sha256": "2177221892c12f7e7d5488db7495efe0228a6c5cb1b34b87370790f6b97803d5"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/2000年中国各地区城乡人口分布.csv",
+          "sha256": "010b8352eaad3195fa9cc3c1bb00dd7eb138ec9b97b86e42d6ff1b4d0cfb5c49"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/全国人口年龄构成.csv",
+          "sha256": "55abc6661dbfcc66fe0d69563ecb794b6e34447c36d272f680073391e68e6a15"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/各地区15岁及以上人口平均受教育年限.csv",
+          "sha256": "d438f7270713be4b25b5bb0ffbf11086c1e6e93fb15f0df73f267a22acf063f1"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/各地区性别构成.csv",
+          "sha256": "2d70917d4b26bb515186d140625a24c68c3a4cd35e01000c3c56c456ab98e750"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/各地区每10万人口中拥有的各类受教育程度人数.csv",
+          "sha256": "5f06777bf301ef73779f5173ad08f5900bef85ad6e01613a7e05132a316a9c91"
+        }
+      ],
+      "outputRefs": [
+        "learning/resources/p26-v4-source-13.json"
+      ],
+      "exercise": {
+        "prompt": "根据本步单元50—50和保存证据，说明一次变换的输入、输出和一项无法验证的结论。",
+        "hint": "先查看代码中的列选择/过滤/拟合，再核对输出身份和本项目局限。",
+        "checklist": [
+          "准确引用原单元50—50",
+          "指出实际字段或变量与一项真实输出",
+          "把未重跑、资料缺失和统计缺陷分别说明"
+        ],
+        "provenance": "第四阶段教学补充，自评，不代表原文件试题"
+      },
+      "outputTitles": {
+        "learning/resources/p26-v4-source-13.json": "原单元50—50保存输出"
+      }
+    },
+    {
+      "id": "phase4-data",
+      "title": "真实数据实验 · 关于第七次全国人口普查数据的探索",
+      "status": "ready",
+      "kind": "analysis",
+      "knowledgeIds": [
+        "Pandas",
+        "NumPy",
+        "SciPy",
+        "层次聚类",
+        "Altair"
+      ],
+      "explanation": [
+        "融合年龄、教育、GDP、城镇化及流动人口，研究省际年龄结构差异。",
+        "本步运行工程适配器，展示真实输入的质量、专属聚合与图表。清洗、分组和模型边界见代码与每份结果说明。教学代码为本项目经过审查的实现；不会执行原Notebook。",
+        "已实际准备8份结果；请切换结果逐项核对问题、单位、范围、分母、过滤条件和来源身份。"
+      ],
+      "teachingCode": "def population(p):\n def region(v):\n  v=re.sub(r'[\\W\\d_]','',str(v));return v[:3] if v.startswith(('黑龙江','内蒙古')) else v[:2]\n raw=p.load('各地区人口年龄构成.csv');age=raw.iloc[2:].copy();age.columns=['地区','0—14岁','15—59岁','60岁及以上','其中65岁及以上'];age['地区']=age.地区.map(region)\n for c in age.columns[1:]:age[c]=pd.to_numeric(age[c].astype(str).str.strip(),errors='coerce')/100\n age=age.dropna().set_index('地区');provinces=age.drop(index='全国',errors='ignore');assert len(provinces)==31 and provinces.index.is_unique\n assert np.allclose(provinces.iloc[:,:3].sum(axis=1),1,atol=.0002);assert (provinces.iloc[:,3]<=provinces.iloc[:,2]).all()\n p.chart('ages','各省三段互斥年龄比例',provinces.iloc[:,:3].reset_index(),ys=[1,2,3],filtercol=0,unit='比例0—1',denominator='各省全部人口；65+包含在60+内，不重复相加',note='人口年龄CSV剔除两说明行后按真实列序重建字段')\n pop=p.load('各地区人口.csv').iloc[2:].copy();pop.columns=['地区','人口数','2020占比','2010占比'];pop['地区']=pop.地区.map(region);pop['人口数']=pd.to_numeric(pop.人口数,errors='coerce');pop=pop.dropna(subset=['人口数']).set_index('地区')\n p.chart('population','各省人口数（同源地图降级）',pop.loc[provinces.index,['人口数']].reset_index(),kind='map',fallback='bar',unit='人（原物理表）',note='只有31省，不含全国总计与说明行；地图依赖未核验时使用同源条形图')\n p.checks.update(provinces=31,ageExclusive=True,age65Subset=True)\n if p.id=='P25':return\n from scipy.cluster.hierarchy import linkage,cut_tree,to_tree\n z=linkage(provinces.iloc[:,:3].values,method='ward');labels=cut_tree(z,n_clusters=3).ravel()+1\n def tree(node):return {'name':provinces.index[node.id] if node.is_leaf() else f'Ward距离 {node.dist:.6f}','value':float(node.dist),'children':[] if node.is_leaf() else [tree(node.left),tree(node.right)]}\n version='P26-age-ward-v1';p.models.append({'version':version,'method':'Ward Euclidean on 3 mutually exclusive age proportions','rows':31,'features':list(provinces.columns[:3]),'clusters':3,'seed':None})\n p.chart('tree','31省年龄结构Ward层次树',pd.DataFrame({'省份':provinces.index,'新群组':labels}),kind='tree',tree=tree(to_tree(z)),unit='Ward合并距离（节点文字）',model=version,note='树形只展示合并拓扑；横向位置不是距离刻度；真实距离见节点文字与合并表')\n p.frame('linkage','真实Ward合并序列',pd.DataFrame(z,columns=['左节点ID','右节点ID','合并距离','叶子数']),'前31节点为原省份顺序，后续内部节点从31递增；不伪造树高。',identity='teaching-adaptation',model=version)\n combined=provinces.copy();combined['人口数']=pop.loc[provinces.index,'人口数'];gdp=p.load('分省年度GDP数据.csv').set_index('地区')['2020年'];gdp.index=gdp.index.map(region);combined['2020GDP亿元']=gdp\n city=p.load('2005-2019年中国各地区城镇人口数量.csv').set_index('地区')['2019年'];res=p.load('2001-2020中国各地区常住人口数量.csv').set_index('地区')['2019年'];urban=city/res;urban.index=urban.index.map(region);combined['2019城镇化比例']=urban\n txt=next(ast.literal_eval(n.value) for n in ast.walk(ast.parse(''.join(p.nb['cells'][24]['source']))) if isinstance(n,ast.Assign) and any(isinstance(t,ast.Name) and t.id=='floating_pop_data_txt' for t in n.targets));floating=pd.read_csv(io.StringIO(txt),sep='\\t');floating.columns=['地区','省内','省外'];floating['地区']=floating.地区.map(region);floating=floating.set_index('地区');combined['省外流动人口比例']=floating['省外']/combined.人口数\n assert combined.notna().all().all();p.frame('aligned','31省多源实际对齐表',combined.reset_index(),'按规范化省名一对一对齐；GDP亿元、人口人、城镇比例分母来自对应2019常住人口；流动表为原单元25内嵌表。',unit='各列已注明')\n p.scatter(combined,'2019城镇化比例','省外流动人口比例','urban-floating');p.corr(combined,['0—14岁','15—59岁','60岁及以上','2019城镇化比例','省外流动人口比例']);p.checks['alignedRows']=len(combined)\n",
+      "limitations": [
+        "不能只标Pyecharts，该项目确有层次聚类和Altair；流动人口数据部分内嵌代码；31省相关关系不能推出个体行为因果；城镇化缺年阈值编码需复核；地区拼接应显式检查错配。",
+        "新版本不覆盖原保存成绩；所有新训练均在构建清单中单列。"
+      ],
+      "codeRefs": [
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/关于第七次全国人口普查数据的探索.ipynb",
+          "notebookSha256": "128dafa808c53033d8c300b682ae8cf67a8c77279b6c34db6385dfd70f0800a0",
+          "cell": 6,
+          "code": "import pandas as pd\nimport numpy as np\nimport altair as alt\nfrom pyecharts.globals import CurrentConfig, NotebookType,OnlineHostType\nCurrentConfig.NOTEBOOK_TYPE = NotebookType.JUPYTER_NOTEBOOK\n\nage_dist_data_path  = \"./data/各地区人口年龄构成.csv\"\nraw_age_df = pd.read_csv(age_dist_data_path, skiprows=2)\nraw_age_df.head(50)",
+          "codeSha256": "8e9eb670c17138cd78f569e1a4c2d35a798efe9737ad8fb73a26d60ba198b005"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/关于第七次全国人口普查数据的探索.ipynb",
+          "notebookSha256": "128dafa808c53033d8c300b682ae8cf67a8c77279b6c34db6385dfd70f0800a0",
+          "cell": 12,
+          "code": "edu_data_path = \"./data/各地区每10万人口中拥有的各类受教育程度人数.csv\"\n\nedu_raw_df = pd.read_csv(edu_data_path,skiprows=1)\nedu_raw_df.head()",
+          "codeSha256": "e9c5c1a2cc2880a6bafe02c5109a6820847ba4738f5fb032848ee5be7c1225ab"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/关于第七次全国人口普查数据的探索.ipynb",
+          "notebookSha256": "128dafa808c53033d8c300b682ae8cf67a8c77279b6c34db6385dfd70f0800a0",
+          "cell": 15,
+          "code": "pop_data_path = \"./data/各地区人口.csv\"\n\npop_raw_df = pd.read_csv(pop_data_path,skiprows=2)\n# pop_raw_df.head(10)",
+          "codeSha256": "f19c660bb0ca9ea8ff320724a3f9f21956fa7f4571e0cdd2c58aabd86a4da45d"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/关于第七次全国人口普查数据的探索.ipynb",
+          "notebookSha256": "128dafa808c53033d8c300b682ae8cf67a8c77279b6c34db6385dfd70f0800a0",
+          "cell": 18,
+          "code": "gdp_data_path = \"./data/分省年度GDP数据.csv\"\n\ngdp_raw_df = pd.read_csv(gdp_data_path)\n# gdp_raw_df.head()",
+          "codeSha256": "b0639dc00531241c5a2eacb96dbd5dbc8641b360f550cedc28de3064ea3595cb"
+        }
+      ],
+      "inputRefs": [
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/关于第七次全国人口普查数据的探索.ipynb",
+          "sha256": "128dafa808c53033d8c300b682ae8cf67a8c77279b6c34db6385dfd70f0800a0"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/关于第七次全国人口普查数据的探索.py",
+          "sha256": "f0b7b07826be934cb9990546e3d13461b3434415fbe864b63389492587edbe35"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/各地区人口年龄构成.csv",
+          "sha256": "ab4bdab96f351ac920e48f2467cfad4f0d7aa97c10c23fabce16003ca173734e"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/各地区人口.csv",
+          "sha256": "e54df53ebcf223d5932943a9ad53b66df3d6d6798d2ee47333b0777236510bd2"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/分省年度GDP数据.csv",
+          "sha256": "40a058b7d851eb3aa3aeb25ed7e92f0410eb94eff01503b2e72c17180c51a3d7"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/2005-2019年中国各地区城镇人口数量.csv",
+          "sha256": "42396462dd8849b48ff4c236f0d47555151085772564da0dbcd69210b3f567ee"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/2001-2020中国各地区常住人口数量.csv",
+          "sha256": "2177221892c12f7e7d5488db7495efe0228a6c5cb1b34b87370790f6b97803d5"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/2000年中国各地区城乡人口分布.csv",
+          "sha256": "010b8352eaad3195fa9cc3c1bb00dd7eb138ec9b97b86e42d6ff1b4d0cfb5c49"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/全国人口年龄构成.csv",
+          "sha256": "55abc6661dbfcc66fe0d69563ecb794b6e34447c36d272f680073391e68e6a15"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/各地区15岁及以上人口平均受教育年限.csv",
+          "sha256": "d438f7270713be4b25b5bb0ffbf11086c1e6e93fb15f0df73f267a22acf063f1"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/各地区性别构成.csv",
+          "sha256": "2d70917d4b26bb515186d140625a24c68c3a4cd35e01000c3c56c456ab98e750"
+        },
+        {
+          "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/各地区每10万人口中拥有的各类受教育程度人数.csv",
+          "sha256": "5f06777bf301ef73779f5173ad08f5900bef85ad6e01613a7e05132a316a9c91"
+        }
+      ],
+      "outputRefs": [
+        "learning/resources/p26-v4-ages.json",
+        "learning/resources/p26-v4-population.json",
+        "learning/resources/p26-v4-tree.json",
+        "learning/resources/p26-v4-linkage.json",
+        "learning/resources/p26-v4-aligned.json",
+        "learning/resources/p26-v4-urban-floating.json",
+        "learning/resources/p26-v4-correlation.json",
+        "learning/resources/p26-v4-input-quality.json"
+      ],
+      "exercise": {
+        "prompt": "检查按索引concat的风险；说明省级相关不能推断个人婚育选择。",
+        "hint": "从同源表取数，写出算式；先核对全量/抽样和原保存/新计算身份。",
+        "checklist": [
+          "列出真实字段、筛选规则和当前样本范围",
+          "用表格复核至少一个频数、比率或模型指标",
+          "指出一个不能由本图推出的结论"
+        ],
+        "provenance": "已批准路线练习与第四阶段核对清单，采用自评"
+      },
+      "outputTitles": {
+        "learning/resources/p26-v4-ages.json": "各省三段互斥年龄比例",
+        "learning/resources/p26-v4-population.json": "各省人口数（同源地图降级）",
+        "learning/resources/p26-v4-tree.json": "31省年龄结构Ward层次树",
+        "learning/resources/p26-v4-linkage.json": "真实Ward合并序列",
+        "learning/resources/p26-v4-aligned.json": "31省多源实际对齐表",
+        "learning/resources/p26-v4-urban-floating.json": "2019城镇化比例与省外流动人口比例的关系",
+        "learning/resources/p26-v4-correlation.json": "指定数值字段的Pearson相关",
+        "learning/resources/p26-v4-input-quality.json": "本项目各输入表的读取与质量核对"
+      }
+    }
+  ]
+}

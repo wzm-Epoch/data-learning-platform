@@ -1,0 +1,85 @@
+{
+  "projectId": "P16",
+  "batch": "D",
+  "status": "available-content-open",
+  "lessonCount": 1,
+  "readySteps": 14,
+  "inputRefs": [
+    {
+      "path": "生活日常-时令蔬菜时间序列分析-约600行（matplotlib、seaborn可视化、多元回归）/wholesale_price_of_agricultural_products.csv",
+      "sha256": "f297941e77606fd53c6fa644e5b53ccd5fe005e09e86aca33c103cc2ca29eacd"
+    },
+    {
+      "path": "生活日常-时令蔬菜时间序列分析-约600行（matplotlib、seaborn可视化、多元回归）/时令蔬菜有哪些.ipynb",
+      "sha256": "470915ad6aeefbf6ccbbbbdab0004971fd91f7f9ccc628a7b42ed7e01a0c724a"
+    }
+  ],
+  "resources": [
+    "learning/assets/p16-cell14-0.png",
+    "learning/assets/p16-cell17-0.png",
+    "learning/assets/p16-cell20-0.png",
+    "learning/assets/p16-cell23-0.png",
+    "learning/assets/p16-cell26-0.png",
+    "learning/assets/p16-cell33-0.png",
+    "learning/assets/p16-cell39-0.png",
+    "learning/assets/p16-cell41-0.png",
+    "learning/assets/p16-cell43-1.png",
+    "learning/assets/p16-cell46-0.png",
+    "learning/assets/p16-cell48-0.png",
+    "learning/resources/p16-v4-coefficients.json",
+    "learning/resources/p16-v4-evidence-10.json",
+    "learning/resources/p16-v4-evidence-3.json",
+    "learning/resources/p16-v4-input-quality.json",
+    "learning/resources/p16-v4-rank.json",
+    "learning/resources/p16-v4-source-1.json",
+    "learning/resources/p16-v4-source-11-images.json",
+    "learning/resources/p16-v4-source-12-images.json",
+    "learning/resources/p16-v4-source-13-images.json",
+    "learning/resources/p16-v4-source-2.json",
+    "learning/resources/p16-v4-source-4-images.json",
+    "learning/resources/p16-v4-source-5-images.json",
+    "learning/resources/p16-v4-source-6-images.json",
+    "learning/resources/p16-v4-source-7-images.json",
+    "learning/resources/p16-v4-source-8-images.json",
+    "learning/resources/p16-v4-source-9-images.json",
+    "learning/resources/p16-v4-time.json"
+  ],
+  "transforms": [
+    {
+      "input": "生活日常-时令蔬菜时间序列分析-约600行（matplotlib、seaborn可视化、多元回归）/wholesale_price_of_agricultural_products.csv",
+      "sheet": null,
+      "readRows": 1104,
+      "columns": [
+        "year_month",
+        "product",
+        "price",
+        "category"
+      ],
+      "missing": {
+        "year_month": 0,
+        "product": 0,
+        "price": 0,
+        "category": 0
+      },
+      "readerOptions": {}
+    }
+  ],
+  "checks": {
+    "products": 46,
+    "allFullRank": true
+  },
+  "models": [
+    {
+      "version": "P16-drop-first-month-v1",
+      "method": "OLS const + trend + 11 month dummies",
+      "baseline": "首月类别",
+      "trainScope": "全量描述性拟合，不是预测验证",
+      "products": 46,
+      "seed": null
+    }
+  ],
+  "blocked": [],
+  "originalModelRerun": false,
+  "savedOutputIdentity": "original-saved; extraction time only; original execution time unknown",
+  "validation": "adapter assertions passed; schema/production/browser tracked separately"
+}

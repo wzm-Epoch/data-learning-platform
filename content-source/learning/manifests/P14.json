@@ -1,0 +1,68 @@
+{
+  "projectId": "P14",
+  "batch": "D",
+  "status": "partial-source-gaps",
+  "lessonCount": 1,
+  "readySteps": 6,
+  "inputRefs": [
+    {
+      "path": "文化娱乐-情感分析-含实验-约150行（分词、朴素贝叶斯模型）/数据分析实验源码/data/data.csv",
+      "sha256": "1042efeb053116242156ee24a8b18ce22875396752eea5eb30751d46a25d8b3c"
+    },
+    {
+      "path": "文化娱乐-情感分析-含实验-约150行（分词、朴素贝叶斯模型）/数据分析实验源码/微博情感分析.ipynb",
+      "sha256": "7994e4bdf4be4e71f06fdc4cab368640ef83b19847ad8ddcbad54e34a126ba94"
+    }
+  ],
+  "resources": [
+    "learning/resources/p14-v4-___-0754f9f7.json",
+    "learning/resources/p14-v4-evidence-1.json",
+    "learning/resources/p14-v4-evidence-3.json",
+    "learning/resources/p14-v4-evidence-5.json",
+    "learning/resources/p14-v4-input-quality.json",
+    "learning/resources/p14-v4-source-2.json",
+    "learning/resources/p14-v4-source-4.json",
+    "learning/resources/p14-v4-tokens.json",
+    "learning/resources/p14-v4-type.json",
+    "learning/resources/p14-v6-saved-confusion.json"
+  ],
+  "transforms": [
+    {
+      "input": "文化娱乐-情感分析-含实验-约150行（分词、朴素贝叶斯模型）/数据分析实验源码/data/data.csv",
+      "sheet": null,
+      "readRows": 266525,
+      "columns": [
+        "text",
+        "type"
+      ],
+      "missing": {
+        "text": 0,
+        "type": 0
+      },
+      "readerOptions": {}
+    }
+  ],
+  "checks": {
+    "csvRows": 266525,
+    "labels": {
+      "0": 159801,
+      "2": 44198,
+      "1": 41415,
+      "3": 21111
+    },
+    "sparseShape": [
+      266525,
+      30000
+    ]
+  },
+  "models": [],
+  "blocked": [
+    {
+      "step": "原文转CSV",
+      "reason": "代码引用1_simplifyweibo.txt缺失；不以4_simplifyweibo.txt替代；现成data.csv后续步骤可学"
+    }
+  ],
+  "originalModelRerun": false,
+  "savedOutputIdentity": "original-saved; extraction time only; original execution time unknown",
+  "validation": "adapter assertions passed; schema/production/browser tracked separately"
+}

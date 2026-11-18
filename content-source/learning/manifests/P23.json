@@ -1,0 +1,131 @@
+{
+  "projectId": "P23",
+  "batch": "A",
+  "status": "available-content-open",
+  "lessonCount": 1,
+  "readySteps": 13,
+  "inputRefs": [
+    {
+      "path": "电商-预测用户使用优惠券概率较高的客群-约350行（逻辑回归模型、模型评估）/tianmao.csv",
+      "sha256": "89e8ce6a9e14bb2aac1d28fb150644544212e88acf3a152757c6f547b9b1a3f0"
+    },
+    {
+      "path": "电商-预测用户使用优惠券概率较高的客群-约350行（逻辑回归模型、模型评估）/预测天猫用户使用优惠券概率较高的客群.ipynb",
+      "sha256": "30fe7dee501aa066e11b65470a6ddcc0d6b33f84fe89d6a76aaa6aca75623099"
+    },
+    {
+      "path": "电商-预测用户使用优惠券概率较高的客群-约350行（逻辑回归模型、模型评估）/预测天猫用户使用优惠券概率较高的客群.py",
+      "sha256": "c19078cd43e1390f30a543729c1479cb5b6765519eee1f92a90f50c18a3ce37a"
+    }
+  ],
+  "resources": [
+    "learning/assets/p23-cell24-1.png",
+    "learning/assets/p23-cell26-1.png",
+    "learning/assets/p23-cell28-1.png",
+    "learning/assets/p23-cell30-2.png",
+    "learning/assets/p23-cell35-0.png",
+    "learning/assets/p23-cell39-2.png",
+    "learning/resources/p23-v4-age.json",
+    "learning/resources/p23-v4-input-quality.json",
+    "learning/resources/p23-v4-label-share.json",
+    "learning/resources/p23-v4-matrix.json",
+    "learning/resources/p23-v4-metrics.json",
+    "learning/resources/p23-v4-probabilities.json",
+    "learning/resources/p23-v4-roc.json",
+    "learning/resources/p23-v4-source-1.json",
+    "learning/resources/p23-v4-source-10.json",
+    "learning/resources/p23-v4-source-11.json",
+    "learning/resources/p23-v4-source-12.json",
+    "learning/resources/p23-v4-source-2.json",
+    "learning/resources/p23-v4-source-3.json",
+    "learning/resources/p23-v4-source-4.json",
+    "learning/resources/p23-v4-source-5-images.json",
+    "learning/resources/p23-v4-source-5.json",
+    "learning/resources/p23-v4-source-6-images.json",
+    "learning/resources/p23-v4-source-6.json",
+    "learning/resources/p23-v4-source-7-images.json",
+    "learning/resources/p23-v4-source-7.json",
+    "learning/resources/p23-v4-source-8.json",
+    "learning/resources/p23-v4-source-9.json"
+  ],
+  "transforms": [
+    {
+      "input": "电商-预测用户使用优惠券概率较高的客群-约350行（逻辑回归模型、模型评估）/tianmao.csv",
+      "sheet": null,
+      "readRows": 25317,
+      "columns": [
+        "ID",
+        "age",
+        "job",
+        "marital",
+        "default",
+        "returned",
+        "loan",
+        "coupon_used_in_last6_month",
+        "coupon_used_in_last_month",
+        "coupon_ind"
+      ],
+      "missing": {
+        "ID": 0,
+        "age": 0,
+        "job": 0,
+        "marital": 0,
+        "default": 0,
+        "returned": 0,
+        "loan": 0,
+        "coupon_used_in_last6_month": 0,
+        "coupon_used_in_last_month": 0,
+        "coupon_ind": 0
+      },
+      "readerOptions": {}
+    }
+  ],
+  "checks": {
+    "trainRows": 17721,
+    "testRows": 7596,
+    "overlap": 0,
+    "probabilityAUC": 0.6845685969959225,
+    "matrix": [
+      [
+        6702,
+        6
+      ],
+      [
+        886,
+        2
+      ]
+    ],
+    "probabilityCount": 7596,
+    "positiveTotal": 2961
+  },
+  "models": [
+    {
+      "version": "P23-stratified-probability-v1",
+      "method": "StandardScaler(train only) + LogisticRegression",
+      "features": [
+        "coupon_used_in_last_month",
+        "returned",
+        "loan",
+        "coupon_used_in_last6_month",
+        "default",
+        "age"
+      ],
+      "seed": 100,
+      "test_size": 0.3,
+      "stratify": "coupon_ind",
+      "trainRows": 17721,
+      "testRows": 7596,
+      "trainIndexSha256": "17a8ebc58afe37b7fd849bf3fff89c0325428eacd51251f6fea3f6ee0bf9555d",
+      "testIndexSha256": "54af92f3adefc053503efc6aeb3ec50182809fb658bd6ee502d2a858d8f61603",
+      "trainTestIntersection": 0,
+      "max_iter": 3000,
+      "C": 1,
+      "class_weight": null,
+      "solver": "lbfgs"
+    }
+  ],
+  "blocked": [],
+  "originalModelRerun": false,
+  "savedOutputIdentity": "original-saved; extraction time only; original execution time unknown",
+  "validation": "adapter assertions passed; schema/production/browser tracked separately"
+}

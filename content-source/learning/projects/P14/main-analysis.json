@@ -1,0 +1,403 @@
+{
+  "schemaVersion": "1.0",
+  "contentVersion": "0.6.0",
+  "projectId": "P14",
+  "id": "main-analysis",
+  "title": "微博情感分析",
+  "status": "ready",
+  "steps": [
+    {
+      "id": "source-005-005",
+      "title": "数据预处理 · 单元5—5",
+      "status": "ready",
+      "kind": "analysis",
+      "knowledgeIds": [
+        "Pandas",
+        "正则",
+        "Jieba",
+        "CountVectorizer",
+        "Scikit-learn"
+      ],
+      "explanation": [
+        "本步按原Notebook顺序阅读单元5—5。原保存输出尚未重跑；安装、联网采集、写原文件和模型加载均不会在网页运行。",
+        "本步展示原变量赋值、查看或配置；变量实际内容以保存输出与本次数据证据为准，不从代码存在推断执行成功。",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：Table of Contents\n数据预处理分词特征提取建立朴素贝叶斯模型参考",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：安装包：\n\npip install gensim -i https://pypi.tuna.tsinghua.edu.cn/simple/\n\npip install nltk -i https://pypi.tuna.tsinghua.edu.cn/simple/",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：## 数据预处理",
+        "原文转表引用1_simplifyweibo.txt缺失，4_simplifyweibo.txt不作为替身。只开放来源阅读与现成CSV后续分析；最后3×3单位阵是演示，不是测试成绩。"
+      ],
+      "teachingCode": "# 原代码仅供阅读，不由网页执行。\n# 本次可运行适配实现见末尾数据实验步骤。",
+      "limitations": [
+        "代码引用1_simplifyweibo.txt但未附，实际另有4_simplifyweibo.txt；可从现成CSV继续；Word报告称深度学习与代码不符，min_df解释也不符；文档与Notebook混淆矩阵不同；最后3×3单位阵是演示，不能冒充真实测试结果。",
+        "原代码与保存输出保持原身份；新改编计算另列。"
+      ],
+      "codeRefs": [
+        {
+          "path": "文化娱乐-情感分析-含实验-约150行（分词、朴素贝叶斯模型）/数据分析实验源码/微博情感分析.ipynb",
+          "notebookSha256": "7994e4bdf4be4e71f06fdc4cab368640ef83b19847ad8ddcbad54e34a126ba94",
+          "cell": 5,
+          "code": "#把记事本中的数据去掉词语的词性重新写入csv文件，并且标记好分类\nimport re\nimport pandas as pd\ndef proc_text(text):\n    pos_words=[]\n    pos_list=[]\n    type_list = []\n    for file in text:\n        with open(file,encoding='UTF-8') as f:\n            line = f.readline()\n            while(line):\n                line = line.strip('\\n')\n                line=re.sub('/[a-zA-Z]+', '',line).replace(\" \",\"\")\n                pos_list.append(line)\n                type_list.append(int(file[7]))\n                line = f.readline()\n    dataframe = pd.DataFrame({'text': pos_list, 'type': type_list})\n    dataframe.to_csv(\"./data/data.csv\", index=False, sep=',',encoding=\"utf_8_sig\")\ntexts_list =['./data/0_simplifyweibo.txt','./data/1_simplifyweibo.txt','./data/2_simplifyweibo.txt','./data/3_simplifyweibo.txt']\nproc_text(texts_list)",
+          "codeSha256": "0add00161a727028e0487ac1cfcf5506114af9a0518655ce58b451fd5503b90c"
+        }
+      ],
+      "inputRefs": [
+        {
+          "path": "文化娱乐-情感分析-含实验-约150行（分词、朴素贝叶斯模型）/数据分析实验源码/微博情感分析.ipynb",
+          "sha256": "7994e4bdf4be4e71f06fdc4cab368640ef83b19847ad8ddcbad54e34a126ba94"
+        },
+        {
+          "path": "文化娱乐-情感分析-含实验-约150行（分词、朴素贝叶斯模型）/数据分析实验源码/data/data.csv",
+          "sha256": "1042efeb053116242156ee24a8b18ce22875396752eea5eb30751d46a25d8b3c"
+        }
+      ],
+      "outputRefs": [
+        "learning/resources/p14-v4-evidence-1.json"
+      ],
+      "exercise": {
+        "prompt": "根据本步单元5—5和保存证据，说明一次变换的输入、输出和一项无法验证的结论。",
+        "hint": "先查看代码中的列选择/过滤/拟合，再核对输出身份和本项目局限。",
+        "checklist": [
+          "准确引用原单元5—5",
+          "指出实际字段或变量与一项真实输出",
+          "把未重跑、资料缺失和统计缺陷分别说明"
+        ],
+        "provenance": "第四阶段教学补充，自评，不代表原文件试题"
+      },
+      "outputTitles": {
+        "learning/resources/p14-v4-evidence-1.json": "原单元5—5的执行证据边界"
+      }
+    },
+    {
+      "id": "source-008-008",
+      "title": "分词 · 单元8—8",
+      "status": "ready",
+      "kind": "analysis",
+      "knowledgeIds": [
+        "Pandas",
+        "正则",
+        "Jieba",
+        "CountVectorizer",
+        "Scikit-learn"
+      ],
+      "explanation": [
+        "本步按原Notebook顺序阅读单元8—8。原保存输出尚未重跑；安装、联网采集、写原文件和模型加载均不会在网页运行。",
+        "read_csv只读取指定CSV；编码、表头和字段需要与输入字典核对。",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：## 分词",
+        "原文转表引用1_simplifyweibo.txt缺失，4_simplifyweibo.txt不作为替身。只开放来源阅读与现成CSV后续分析；最后3×3单位阵是演示，不是测试成绩。"
+      ],
+      "teachingCode": "# 原代码仅供阅读，不由网页执行。\n# 本次可运行适配实现见末尾数据实验步骤。",
+      "limitations": [
+        "代码引用1_simplifyweibo.txt但未附，实际另有4_simplifyweibo.txt；可从现成CSV继续；Word报告称深度学习与代码不符，min_df解释也不符；文档与Notebook混淆矩阵不同；最后3×3单位阵是演示，不能冒充真实测试结果。",
+        "原代码与保存输出保持原身份；新改编计算另列。"
+      ],
+      "codeRefs": [
+        {
+          "path": "文化娱乐-情感分析-含实验-约150行（分词、朴素贝叶斯模型）/数据分析实验源码/微博情感分析.ipynb",
+          "notebookSha256": "7994e4bdf4be4e71f06fdc4cab368640ef83b19847ad8ddcbad54e34a126ba94",
+          "cell": 8,
+          "code": "import re\nimport jieba\nfrom gensim.models import word2vec\n# from nltk.classify import NaiveBayesClassifier\nfrom sklearn import naive_bayes\nfrom sklearn.model_selection import train_test_split\nfrom sklearn.feature_extraction.text import CountVectorizer\nimport pandas as pd\n\n\ndef chinese_word_cut(mytext):\n    return \" \".join(jieba.cut(mytext))\n\n#把停用词转换为一个列表存储\ndef get_custom_stopwords(stop_words_file):\n    with open(stop_words_file) as f:\n        stopwords = f.read()\n    stopwords_list = stopwords.split('\\n')\n    custom_stopwords_list = [i for i in stopwords_list]\n    return custom_stopwords_list\n\ndf = pd.read_csv('./data/data.csv')\nX = df[['text']]\ny = df.type\n\n#对评论语句进行分词\nX['cut_text'] = X.text.apply(chinese_word_cut)\nprint(X['cut_text'][0:10])",
+          "codeSha256": "313704f089fbb947718c6b739f69379fdba002d039a7f060cac78f82f9c23654"
+        }
+      ],
+      "inputRefs": [
+        {
+          "path": "文化娱乐-情感分析-含实验-约150行（分词、朴素贝叶斯模型）/数据分析实验源码/微博情感分析.ipynb",
+          "sha256": "7994e4bdf4be4e71f06fdc4cab368640ef83b19847ad8ddcbad54e34a126ba94"
+        },
+        {
+          "path": "文化娱乐-情感分析-含实验-约150行（分词、朴素贝叶斯模型）/数据分析实验源码/data/data.csv",
+          "sha256": "1042efeb053116242156ee24a8b18ce22875396752eea5eb30751d46a25d8b3c"
+        }
+      ],
+      "outputRefs": [
+        "learning/resources/p14-v4-source-2.json"
+      ],
+      "exercise": {
+        "prompt": "根据本步单元8—8和保存证据，说明一次变换的输入、输出和一项无法验证的结论。",
+        "hint": "先查看代码中的列选择/过滤/拟合，再核对输出身份和本项目局限。",
+        "checklist": [
+          "准确引用原单元8—8",
+          "指出实际字段或变量与一项真实输出",
+          "把未重跑、资料缺失和统计缺陷分别说明"
+        ],
+        "provenance": "第四阶段教学补充，自评，不代表原文件试题"
+      },
+      "outputTitles": {
+        "learning/resources/p14-v4-source-2.json": "原单元8—8保存输出"
+      }
+    },
+    {
+      "id": "source-010-010",
+      "title": "特征提取 · 单元10—10",
+      "status": "ready",
+      "kind": "analysis",
+      "knowledgeIds": [
+        "Pandas",
+        "正则",
+        "Jieba",
+        "CountVectorizer",
+        "Scikit-learn"
+      ],
+      "explanation": [
+        "本步按原Notebook顺序阅读单元10—10。原保存输出尚未重跑；安装、联网采集、写原文件和模型加载均不会在网页运行。",
+        "本步展示原变量赋值、查看或配置；变量实际内容以保存输出与本次数据证据为准，不从代码存在推断执行成功。",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：## 特征提取",
+        "原文转表引用1_simplifyweibo.txt缺失，4_simplifyweibo.txt不作为替身。只开放来源阅读与现成CSV后续分析；最后3×3单位阵是演示，不是测试成绩。"
+      ],
+      "teachingCode": "# 原代码仅供阅读，不由网页执行。\n# 本次可运行适配实现见末尾数据实验步骤。",
+      "limitations": [
+        "代码引用1_simplifyweibo.txt但未附，实际另有4_simplifyweibo.txt；可从现成CSV继续；Word报告称深度学习与代码不符，min_df解释也不符；文档与Notebook混淆矩阵不同；最后3×3单位阵是演示，不能冒充真实测试结果。",
+        "原代码与保存输出保持原身份；新改编计算另列。"
+      ],
+      "codeRefs": [
+        {
+          "path": "文化娱乐-情感分析-含实验-约150行（分词、朴素贝叶斯模型）/数据分析实验源码/微博情感分析.ipynb",
+          "notebookSha256": "7994e4bdf4be4e71f06fdc4cab368640ef83b19847ad8ddcbad54e34a126ba94",
+          "cell": 10,
+          "code": "#分隔训练集和测试集，训练集为90%，测试集为10%\nX_train, X_test, y_train, y_test = train_test_split(X, y,test_size=0.1, random_state=0)\nstop_words_file = './data/停用词.txt'\n#停用词列表\nstopwords = get_custom_stopwords(stop_words_file)\n# 在超过这一比例的文档中出现的关键词（过于平凡），去除掉。\nmax_df = 0.9\n# 在低于这一数量的文档中出现的关键词（过于独特），去除掉。\nmin_df = 4 \n#特征提取，使用 CountVectorizer向量化工具，它依据词语出现频率转化向量。\n#特征提取使用“一袋子词”（bag of words）模型。一袋子词模型不考虑词语的出现顺序，\n#也不考虑词语和前后词语之间的连接。每个词都被当作一个独立的特征来看待。可能会因为没有联系上下文到达效果不如人意。\nvect = CountVectorizer(max_df = max_df,min_df = min_df,token_pattern=u'(?u)\\\\b[^\\\\d\\\\W]\\\\w+\\\\b',stop_words=stopwords)",
+          "codeSha256": "9f163003f6042f333a8fa3849aa97d2fedd4304a4a5833d04283c8c890a7e6de"
+        }
+      ],
+      "inputRefs": [
+        {
+          "path": "文化娱乐-情感分析-含实验-约150行（分词、朴素贝叶斯模型）/数据分析实验源码/微博情感分析.ipynb",
+          "sha256": "7994e4bdf4be4e71f06fdc4cab368640ef83b19847ad8ddcbad54e34a126ba94"
+        },
+        {
+          "path": "文化娱乐-情感分析-含实验-约150行（分词、朴素贝叶斯模型）/数据分析实验源码/data/data.csv",
+          "sha256": "1042efeb053116242156ee24a8b18ce22875396752eea5eb30751d46a25d8b3c"
+        }
+      ],
+      "outputRefs": [
+        "learning/resources/p14-v4-evidence-3.json"
+      ],
+      "exercise": {
+        "prompt": "根据本步单元10—10和保存证据，说明一次变换的输入、输出和一项无法验证的结论。",
+        "hint": "先查看代码中的列选择/过滤/拟合，再核对输出身份和本项目局限。",
+        "checklist": [
+          "准确引用原单元10—10",
+          "指出实际字段或变量与一项真实输出",
+          "把未重跑、资料缺失和统计缺陷分别说明"
+        ],
+        "provenance": "第四阶段教学补充，自评，不代表原文件试题"
+      },
+      "outputTitles": {
+        "learning/resources/p14-v4-evidence-3.json": "原单元10—10的执行证据边界"
+      }
+    },
+    {
+      "id": "source-012-017",
+      "title": "建立朴素贝叶斯模型 · 单元12—17",
+      "status": "ready",
+      "kind": "modeling",
+      "knowledgeIds": [
+        "Pandas",
+        "正则",
+        "Jieba",
+        "CountVectorizer",
+        "Scikit-learn"
+      ],
+      "explanation": [
+        "本步按原Notebook顺序阅读单元12—17。原保存输出尚未重跑；安装、联网采集、写原文件和模型加载均不会在网页运行。",
+        "fit拟合对象状态；是否仅在训练数据拟合决定评估边界。",
+        "predict给出类别或预测量；概率排序需要predict_proba或decision_function。",
+        "corr描述数值相关；ID和任意名义编码不能直接用于实质解释。",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：## 建立朴素贝叶斯模型",
+        "原文转表引用1_simplifyweibo.txt缺失，4_simplifyweibo.txt不作为替身。只开放来源阅读与现成CSV后续分析；最后3×3单位阵是演示，不是测试成绩。"
+      ],
+      "teachingCode": "# 原代码仅供阅读，不由网页执行。\n# 本次可运行适配实现见末尾数据实验步骤。",
+      "limitations": [
+        "代码引用1_simplifyweibo.txt但未附，实际另有4_simplifyweibo.txt；可从现成CSV继续；Word报告称深度学习与代码不符，min_df解释也不符；文档与Notebook混淆矩阵不同；最后3×3单位阵是演示，不能冒充真实测试结果。",
+        "原代码与保存输出保持原身份；新改编计算另列。"
+      ],
+      "codeRefs": [
+        {
+          "path": "文化娱乐-情感分析-含实验-约150行（分词、朴素贝叶斯模型）/数据分析实验源码/微博情感分析.ipynb",
+          "notebookSha256": "7994e4bdf4be4e71f06fdc4cab368640ef83b19847ad8ddcbad54e34a126ba94",
+          "cell": 12,
+          "code": "from sklearn.naive_bayes import MultinomialNB\nfrom sklearn.pipeline import make_pipeline\n#分类模型，采用朴素贝叶斯\nnb = MultinomialNB()\n#利用管道(pipeline)把vect 和 nb 串联起来\npipe = make_pipeline(vect, nb)\n#查看模型的工作步骤\n#pipe.steps",
+          "codeSha256": "f15ae1d3aab9c150317d7b0f8c77f4e47520befafc52f933ecae9c457d63ca45"
+        },
+        {
+          "path": "文化娱乐-情感分析-含实验-约150行（分词、朴素贝叶斯模型）/数据分析实验源码/微博情感分析.ipynb",
+          "notebookSha256": "7994e4bdf4be4e71f06fdc4cab368640ef83b19847ad8ddcbad54e34a126ba94",
+          "cell": 13,
+          "code": "#把训练集内容输入，做k折交叉验证，算出模型分类准确率的均值。\n#cv的值代表k，初始训练样本分成k份，其中（k-1）份被用作训练集，剩下一份被用作评估集，这样一共可以对分类器做k次训练，并且得到k个训练结果。\nfrom sklearn.model_selection import cross_val_score\ncross_val_score(pipe, X_train.cut_text, y_train, cv=5, scoring='accuracy').mean()",
+          "codeSha256": "f44a73cdcdb26265b39a20120746c7740e1802ccb05f3bcb42a3e46239aeb481"
+        },
+        {
+          "path": "文化娱乐-情感分析-含实验-约150行（分词、朴素贝叶斯模型）/数据分析实验源码/微博情感分析.ipynb",
+          "notebookSha256": "7994e4bdf4be4e71f06fdc4cab368640ef83b19847ad8ddcbad54e34a126ba94",
+          "cell": 14,
+          "code": "#使用用训练集，把模型拟合出来\npipe.fit(X_train.cut_text, y_train)\n#在测试集上，对情感分类标记进行预测。\nresult=pipe.predict(X_test.cut_text)\n#查看测试集上前五十个的预测结果\nprint(result[0:50])",
+          "codeSha256": "5f38288419645e73cf720287ad302068361fe8cd019165f6d7ff506c937ddee8"
+        },
+        {
+          "path": "文化娱乐-情感分析-含实验-约150行（分词、朴素贝叶斯模型）/数据分析实验源码/微博情感分析.ipynb",
+          "notebookSha256": "7994e4bdf4be4e71f06fdc4cab368640ef83b19847ad8ddcbad54e34a126ba94",
+          "cell": 15,
+          "code": "#使用scikit-learn给我们提供的模型性能测度工具，帮助我们为预测结果和实际情况进行对比\nfrom sklearn import tree\nfrom sklearn import metrics\nTR = tree.DecisionTreeClassifier(criterion='entropy') \ncorretcRate=metrics.accuracy_score(y_test,result)\nprint(\"对测试集的预测结果的正确率：\",corretcRate)\nconfusionMatrix=metrics.confusion_matrix(y_test, result)\nprint(\"混淆矩阵：\\n\",confusionMatrix)",
+          "codeSha256": "8ad12c6e1eca3c5e4806c25771cb9f7e3cd2c3c43713a6e1e418cfce7b23f74f"
+        },
+        {
+          "path": "文化娱乐-情感分析-含实验-约150行（分词、朴素贝叶斯模型）/数据分析实验源码/微博情感分析.ipynb",
+          "notebookSha256": "7994e4bdf4be4e71f06fdc4cab368640ef83b19847ad8ddcbad54e34a126ba94",
+          "cell": 17,
+          "code": "from sklearn.pipeline import make_pipeline\nfrom sklearn import tree\nTR = tree.DecisionTreeClassifier(criterion='entropy') \n\npipe = make_pipeline(vect, TR)\nfrom sklearn.model_selection import cross_val_score\n\npipe.fit(X_train.cut_text, y_train)\nresult=pipe.predict(X_test.cut_text)\n\nfrom sklearn import metrics\ncorretcRate=metrics.accuracy_score(y_test,result)\nprint(\"对测试集的预测结果的正确率：\",corretcRate)\nconfusionMatrix=metrics.confusion_matrix(y_test, result)\nprint(\"混淆矩阵：\\n\",confusionMatrix)",
+          "codeSha256": "833e2bd733cdfdf0644c2c2d91da61f008230e248d0db21aff7a5f3d699e3935"
+        }
+      ],
+      "inputRefs": [
+        {
+          "path": "文化娱乐-情感分析-含实验-约150行（分词、朴素贝叶斯模型）/数据分析实验源码/微博情感分析.ipynb",
+          "sha256": "7994e4bdf4be4e71f06fdc4cab368640ef83b19847ad8ddcbad54e34a126ba94"
+        },
+        {
+          "path": "文化娱乐-情感分析-含实验-约150行（分词、朴素贝叶斯模型）/数据分析实验源码/data/data.csv",
+          "sha256": "1042efeb053116242156ee24a8b18ce22875396752eea5eb30751d46a25d8b3c"
+        }
+      ],
+      "outputRefs": [
+        "learning/resources/p14-v4-source-4.json",
+        "learning/resources/p14-v6-saved-confusion.json"
+      ],
+      "exercise": {
+        "prompt": "根据本步单元12—17和保存证据，说明一次变换的输入、输出和一项无法验证的结论。",
+        "hint": "先查看代码中的列选择/过滤/拟合，再核对输出身份和本项目局限。",
+        "checklist": [
+          "准确引用原单元12—17",
+          "指出实际字段或变量与一项真实输出",
+          "把未重跑、资料缺失和统计缺陷分别说明"
+        ],
+        "provenance": "第四阶段教学补充，自评，不代表原文件试题"
+      },
+      "outputTitles": {
+        "learning/resources/p14-v4-source-4.json": "原单元12—17保存输出",
+        "learning/resources/p14-v6-saved-confusion.json": "原保存真实四分类测试混淆矩阵（4×4）"
+      }
+    },
+    {
+      "id": "source-018-018",
+      "title": "建立朴素贝叶斯模型 · 单元18—18",
+      "status": "ready",
+      "kind": "analysis",
+      "knowledgeIds": [
+        "Pandas",
+        "正则",
+        "Jieba",
+        "CountVectorizer",
+        "Scikit-learn"
+      ],
+      "explanation": [
+        "本步按原Notebook顺序阅读单元18—18。原保存输出尚未重跑；安装、联网采集、写原文件和模型加载均不会在网页运行。",
+        "本步展示原变量赋值、查看或配置；变量实际内容以保存输出与本次数据证据为准，不从代码存在推断执行成功。",
+        "原文转表引用1_simplifyweibo.txt缺失，4_simplifyweibo.txt不作为替身。只开放来源阅读与现成CSV后续分析；最后3×3单位阵是演示，不是测试成绩。"
+      ],
+      "teachingCode": "# 原代码仅供阅读，不由网页执行。\n# 本次可运行适配实现见末尾数据实验步骤。",
+      "limitations": [
+        "代码引用1_simplifyweibo.txt但未附，实际另有4_simplifyweibo.txt；可从现成CSV继续；Word报告称深度学习与代码不符，min_df解释也不符；文档与Notebook混淆矩阵不同；最后3×3单位阵是演示，不能冒充真实测试结果。",
+        "原代码与保存输出保持原身份；新改编计算另列。"
+      ],
+      "codeRefs": [
+        {
+          "path": "文化娱乐-情感分析-含实验-约150行（分词、朴素贝叶斯模型）/数据分析实验源码/微博情感分析.ipynb",
+          "notebookSha256": "7994e4bdf4be4e71f06fdc4cab368640ef83b19847ad8ddcbad54e34a126ba94",
+          "cell": 18,
+          "code": "print(result[:10])\nprint(y_test[:10])\nconfusionMatrix=metrics.confusion_matrix([1,2,3], [1,2,3])\nprint(\"混淆矩阵：\\n\",confusionMatrix)",
+          "codeSha256": "7ad11f67bee768bd5d97c6140d03634c24646e084d948d18ad3274613aeeb65b"
+        }
+      ],
+      "inputRefs": [
+        {
+          "path": "文化娱乐-情感分析-含实验-约150行（分词、朴素贝叶斯模型）/数据分析实验源码/微博情感分析.ipynb",
+          "sha256": "7994e4bdf4be4e71f06fdc4cab368640ef83b19847ad8ddcbad54e34a126ba94"
+        },
+        {
+          "path": "文化娱乐-情感分析-含实验-约150行（分词、朴素贝叶斯模型）/数据分析实验源码/data/data.csv",
+          "sha256": "1042efeb053116242156ee24a8b18ce22875396752eea5eb30751d46a25d8b3c"
+        }
+      ],
+      "outputRefs": [
+        "learning/resources/p14-v4-evidence-5.json"
+      ],
+      "exercise": {
+        "prompt": "根据本步单元18—18和保存证据，说明一次变换的输入、输出和一项无法验证的结论。",
+        "hint": "先查看代码中的列选择/过滤/拟合，再核对输出身份和本项目局限。",
+        "checklist": [
+          "准确引用原单元18—18",
+          "指出实际字段或变量与一项真实输出",
+          "把未重跑、资料缺失和统计缺陷分别说明"
+        ],
+        "provenance": "第四阶段教学补充，自评，不代表原文件试题"
+      },
+      "outputTitles": {
+        "learning/resources/p14-v4-evidence-5.json": "原单元18—18的执行证据边界"
+      }
+    },
+    {
+      "id": "phase4-data",
+      "title": "真实数据实验 · 微博情感分析",
+      "status": "ready",
+      "kind": "analysis",
+      "knowledgeIds": [
+        "Pandas",
+        "正则",
+        "Jieba",
+        "CountVectorizer",
+        "Scikit-learn"
+      ],
+      "explanation": [
+        "对微博文本进行喜悦、愤怒、厌恶、低落四类分类。",
+        "本步运行工程适配器，展示真实输入的质量、专属聚合与图表。清洗、分组和模型边界见代码与每份结果说明。教学代码为本项目经过审查的实现；不会执行原Notebook。",
+        "已实际准备4份结果；请切换结果逐项核对问题、单位、范围、分母、过滤条件和来源身份。",
+        "受阻步骤：原文转CSV；原因：代码引用1_simplifyweibo.txt缺失；不以4_simplifyweibo.txt替代；现成data.csv后续步骤可学"
+      ],
+      "teachingCode": "def p14(p):\n d=p.load();p.counts(d,'type');d['字符数']=d.text.fillna('').str.len();p.hist(d,'字符数')\n from sklearn.feature_extraction.text import CountVectorizer\n # The CSV is not tokenized. Character bigrams are explicitly a new descriptive variant.\n vect=CountVectorizer(analyzer='char',ngram_range=(2,2),min_df=4,max_df=.9,max_features=30000);X=vect.fit_transform(d.text.fillna(''))\n values=np.asarray(X.sum(axis=0)).ravel();idx=np.argsort(-values,kind='stable')[:30];p.chart('tokens','现成CSV的字符二元组频次（非分词）',pd.DataFrame({'字符二元组':vect.get_feature_names_out()[idx],'出现次数':values[idx]}),note='教学描述版本：字符相邻二元组，不是Jieba词频或原模型重现；min_df=4表示至少4篇文档出现',unit='字符二元组次数')\n p.blocks.append({'step':'原文转CSV','reason':'代码引用1_simplifyweibo.txt缺失；不以4_simplifyweibo.txt替代；现成data.csv后续步骤可学'})\n p.checks.update(csvRows=len(d),labels={str(k):int(v) for k,v in d.type.value_counts().items()},sparseShape=list(X.shape))\n",
+      "limitations": [
+        "代码引用1_simplifyweibo.txt但未附，实际另有4_simplifyweibo.txt；可从现成CSV继续；Word报告称深度学习与代码不符，min_df解释也不符；文档与Notebook混淆矩阵不同；最后3×3单位阵是演示，不能冒充真实测试结果。",
+        "新版本不覆盖原保存成绩；所有新训练均在构建清单中单列。"
+      ],
+      "codeRefs": [
+        {
+          "path": "文化娱乐-情感分析-含实验-约150行（分词、朴素贝叶斯模型）/数据分析实验源码/微博情感分析.ipynb",
+          "notebookSha256": "7994e4bdf4be4e71f06fdc4cab368640ef83b19847ad8ddcbad54e34a126ba94",
+          "cell": 8,
+          "code": "import re\nimport jieba\nfrom gensim.models import word2vec\n# from nltk.classify import NaiveBayesClassifier\nfrom sklearn import naive_bayes\nfrom sklearn.model_selection import train_test_split\nfrom sklearn.feature_extraction.text import CountVectorizer\nimport pandas as pd\n\n\ndef chinese_word_cut(mytext):\n    return \" \".join(jieba.cut(mytext))\n\n#把停用词转换为一个列表存储\ndef get_custom_stopwords(stop_words_file):\n    with open(stop_words_file) as f:\n        stopwords = f.read()\n    stopwords_list = stopwords.split('\\n')\n    custom_stopwords_list = [i for i in stopwords_list]\n    return custom_stopwords_list\n\ndf = pd.read_csv('./data/data.csv')\nX = df[['text']]\ny = df.type\n\n#对评论语句进行分词\nX['cut_text'] = X.text.apply(chinese_word_cut)\nprint(X['cut_text'][0:10])",
+          "codeSha256": "313704f089fbb947718c6b739f69379fdba002d039a7f060cac78f82f9c23654"
+        }
+      ],
+      "inputRefs": [
+        {
+          "path": "文化娱乐-情感分析-含实验-约150行（分词、朴素贝叶斯模型）/数据分析实验源码/微博情感分析.ipynb",
+          "sha256": "7994e4bdf4be4e71f06fdc4cab368640ef83b19847ad8ddcbad54e34a126ba94"
+        },
+        {
+          "path": "文化娱乐-情感分析-含实验-约150行（分词、朴素贝叶斯模型）/数据分析实验源码/data/data.csv",
+          "sha256": "1042efeb053116242156ee24a8b18ce22875396752eea5eb30751d46a25d8b3c"
+        }
+      ],
+      "outputRefs": [
+        "learning/resources/p14-v4-type.json",
+        "learning/resources/p14-v4-___-0754f9f7.json",
+        "learning/resources/p14-v4-tokens.json",
+        "learning/resources/p14-v4-input-quality.json"
+      ],
+      "exercise": {
+        "prompt": "计算多数类基线；指出报告“低于40%文档”与min_df=4的区别。",
+        "hint": "从同源表取数，写出算式；先核对全量/抽样和原保存/新计算身份。",
+        "checklist": [
+          "列出真实字段、筛选规则和当前样本范围",
+          "用表格复核至少一个频数、比率或模型指标",
+          "指出一个不能由本图推出的结论"
+        ],
+        "provenance": "已批准路线练习与第四阶段核对清单，采用自评"
+      },
+      "outputTitles": {
+        "learning/resources/p14-v4-type.json": "type：记录数与全量比例",
+        "learning/resources/p14-v4-___-0754f9f7.json": "字符数的全量等宽分布",
+        "learning/resources/p14-v4-tokens.json": "现成CSV的字符二元组频次（非分词）",
+        "learning/resources/p14-v4-input-quality.json": "本项目各输入表的读取与质量核对"
+      }
+    }
+  ]
+}

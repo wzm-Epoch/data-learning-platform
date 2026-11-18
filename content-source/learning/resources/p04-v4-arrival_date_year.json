@@ -1,0 +1,64 @@
+{
+  "schemaVersion": "1.0",
+  "id": "p04-v4-arrival_date_year",
+  "title": "arrival_date_year：记录数与全量比例",
+  "kind": "table",
+  "columns": [
+    "arrival_date_year",
+    "记录数",
+    "全量比例"
+  ],
+  "rows": [
+    [
+      "2016",
+      56707,
+      0.474972778289639
+    ],
+    [
+      "2017",
+      40687,
+      0.340790685987101
+    ],
+    [
+      "2015",
+      21996,
+      0.18423653572326
+    ]
+  ],
+  "text": null,
+  "context": {
+    "identity": "new-precomputed",
+    "buildId": "phase4-v1",
+    "createdAt": "2026-11-16T12:58:37.389041+00:00",
+    "inputs": [
+      {
+        "path": "交通旅行-全球酒店预订分析与预测-约550行（数据探索分析、随机森林、XGBoost、逻辑回归）/全球酒店预订分析与预测.ipynb",
+        "sha256": "f1166bb78198277c9bd5a0bbf360ce9b452a23b39733dfde5b7e6acb55fdee42"
+      },
+      {
+        "path": "交通旅行-全球酒店预订分析与预测-约550行（数据探索分析、随机森林、XGBoost、逻辑回归）/2022_hotel_bookings.csv",
+        "sha256": "ab2a3bfa58522e3a6310ae941303e1beeecb1c86960d538140525cee01578683"
+      }
+    ],
+    "note": "全量119390行，最多展示前50类别；缺失单列，0是有效取值",
+    "unit": "记录数",
+    "sample": null,
+    "modelRerun": false
+  },
+  "chart": {
+    "type": "bar",
+    "x": 0,
+    "ys": [
+      1
+    ],
+    "question": "arrival_date_year：记录数与全量比例",
+    "xLabel": "arrival_date_year",
+    "yLabel": "记录数",
+    "denominator": "当前输入全部119390行；隐藏类别不改变比例分母",
+    "range": "当前输入已说明范围的全量聚合",
+    "filters": "全量119390行，最多展示前50类别；缺失单列，0是有效取值",
+    "nullPolicy": "缺失为null，保留0；不连接缺失点",
+    "interpretation": "对照同源表读取差异；关联不能推出因果或样本外结论。",
+    "filterColumn": 0
+  }
+}

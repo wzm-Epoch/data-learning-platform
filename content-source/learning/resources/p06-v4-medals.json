@@ -1,0 +1,257 @@
+{
+  "schemaVersion": "1.0",
+  "id": "p06-v4-medals",
+  "title": "按国家、届次、项目去重的奖牌计数",
+  "kind": "table",
+  "columns": [
+    "Season",
+    "region",
+    "按国家赛事奖牌去重数"
+  ],
+  "rows": [
+    [
+      "Summer",
+      "USA",
+      2544
+    ],
+    [
+      "Summer",
+      "Russia",
+      1577
+    ],
+    [
+      "Summer",
+      "Germany",
+      1389
+    ],
+    [
+      "Summer",
+      "UK",
+      892
+    ],
+    [
+      "Summer",
+      "France",
+      770
+    ],
+    [
+      "Summer",
+      "Italy",
+      608
+    ],
+    [
+      "Summer",
+      "China",
+      545
+    ],
+    [
+      "Summer",
+      "Australia",
+      518
+    ],
+    [
+      "Summer",
+      "Sweden",
+      513
+    ],
+    [
+      "Summer",
+      "Hungary",
+      504
+    ],
+    [
+      "Summer",
+      "Japan",
+      437
+    ],
+    [
+      "Winter",
+      "Germany",
+      377
+    ],
+    [
+      "Winter",
+      "Russia",
+      339
+    ],
+    [
+      "Winter",
+      "Norway",
+      319
+    ],
+    [
+      "Summer",
+      "Finland",
+      310
+    ],
+    [
+      "Summer",
+      "Canada",
+      305
+    ],
+    [
+      "Summer",
+      "Romania",
+      303
+    ],
+    [
+      "Summer",
+      "Netherlands",
+      297
+    ],
+    [
+      "Summer",
+      "Poland",
+      290
+    ],
+    [
+      "Winter",
+      "USA",
+      279
+    ],
+    [
+      "Summer",
+      "South Korea",
+      263
+    ],
+    [
+      "Winter",
+      "Austria",
+      218
+    ],
+    [
+      "Summer",
+      "Bulgaria",
+      217
+    ],
+    [
+      "Summer",
+      "Cuba",
+      214
+    ],
+    [
+      "Summer",
+      "Denmark",
+      210
+    ],
+    [
+      "Winter",
+      "Canada",
+      170
+    ],
+    [
+      "Winter",
+      "Finland",
+      161
+    ],
+    [
+      "Winter",
+      "Sweden",
+      144
+    ],
+    [
+      "Winter",
+      "Switzerland",
+      137
+    ],
+    [
+      "Winter",
+      "Italy",
+      114
+    ],
+    [
+      "Winter",
+      "Netherlands",
+      110
+    ],
+    [
+      "Winter",
+      "France",
+      109
+    ],
+    [
+      "Winter",
+      "China",
+      53
+    ],
+    [
+      "Winter",
+      "South Korea",
+      53
+    ],
+    [
+      "Winter",
+      "Czech Republic",
+      49
+    ],
+    [
+      "Winter",
+      "Japan",
+      45
+    ],
+    [
+      "Winter",
+      "UK",
+      27
+    ],
+    [
+      "Winter",
+      "Poland",
+      20
+    ],
+    [
+      "Winter",
+      "Slovenia",
+      15
+    ],
+    [
+      "Winter",
+      "Belarus",
+      15
+    ]
+  ],
+  "text": null,
+  "context": {
+    "identity": "new-precomputed",
+    "buildId": "phase4-v1",
+    "createdAt": "2026-11-16T12:58:37.389041+00:00",
+    "inputs": [
+      {
+        "path": "体育-数据可视化-约1300行（Pyecharts可视化）/120年奥运会数据可视化.ipynb",
+        "sha256": "a243bf8b64b54f72c20d9460defd492205efc3ed3d8fed718b6741e4ff752bdf"
+      },
+      {
+        "path": "体育-数据可视化-约1300行（Pyecharts可视化）/120年奥运会数据可视化.py",
+        "sha256": "73609f83edc275407ef08d11fec0cf717b59f3ba2435593f703ba2c608d2ebe2"
+      },
+      {
+        "path": "体育-数据可视化-约1300行（Pyecharts可视化）/athlete_events.csv",
+        "sha256": "e9f6b1fa97f40e0f071a6de640acb42dd7a100cad67e5e69cab630192fabb089"
+      },
+      {
+        "path": "体育-数据可视化-约1300行（Pyecharts可视化）/noc_regions.csv",
+        "sha256": "ce7f3c272a3d81d07acf5e5eba4cbba77501f9db25d820d862c60aaccf281906"
+      }
+    ],
+    "note": "按Year/Season/region/Medal/Event去重；团体只计一次，可能同赛事同国多获奖者，故不冒充官方完整奖牌榜",
+    "unit": "原项目赛事口径的奖牌数",
+    "sample": null,
+    "modelRerun": false
+  },
+  "chart": {
+    "type": "bar",
+    "x": 1,
+    "ys": [
+      2
+    ],
+    "question": "按国家、届次、项目去重的奖牌计数",
+    "xLabel": "region",
+    "yLabel": "原项目赛事口径的奖牌数",
+    "denominator": "不涉及比率；展示原量或统计量",
+    "range": "当前输入已说明范围的全量聚合",
+    "filters": "按Year/Season/region/Medal/Event去重；团体只计一次，可能同赛事同国多获奖者，故不冒充官方完整奖牌榜",
+    "nullPolicy": "缺失为null，保留0；不连接缺失点",
+    "interpretation": "对照同源表读取差异；关联不能推出因果或样本外结论。",
+    "filterColumn": 0
+  }
+}

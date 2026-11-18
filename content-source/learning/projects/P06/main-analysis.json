@@ -1,0 +1,1407 @@
+{
+  "schemaVersion": "1.0",
+  "contentVersion": "0.6.0",
+  "projectId": "P06",
+  "id": "main-analysis",
+  "title": "120年奥运会数据可视化",
+  "status": "ready",
+  "steps": [
+    {
+      "id": "source-005-006",
+      "title": "导入库 & 数据 · 单元5—6",
+      "status": "ready",
+      "kind": "analysis",
+      "knowledgeIds": [
+        "Pandas",
+        "NumPy",
+        "Pyecharts",
+        "多表合并",
+        "分组聚合"
+      ],
+      "explanation": [
+        "本步按原Notebook顺序阅读单元5—6。原保存输出尚未重跑；安装、联网采集、写原文件和模型加载均不会在网页运行。",
+        "read_csv只读取指定CSV；编码、表头和字段需要与输入字典核对。",
+        "JsCode是原Pyecharts脚本；平台只展示代码，不求值或执行。",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：Table of Contents\n1&nbsp;&nbsp;项目介绍2&nbsp;&nbsp;导入库 &amp; 数据3&nbsp;&nbsp;累计奖牌数3.1&nbsp;&nbsp;各国夏奥会累计奖牌数3.2&nbsp;&nbsp;各国冬奥会累计奖牌数4&nbsp;&nbsp;各项运动产生金牌数5&nbsp;&nbsp;运动员层面5.1&nbsp;&nbsp;历年参赛人数趋势5.2&nbsp;&nbsp;历年女性运动员占比趋势5.3&nbsp;&nbsp;获得金牌最多的运动员5.4&nbsp;&nbsp;获得金牌/奖牌比例5.5&nbsp;&nbsp;运动员平均体质数据6&nbsp;&nbsp;🇨🇳中国奥运会表现6.1&nbsp;&nbsp;历届奥运会参赛人数6.2&nbsp;&nbsp;历届奥运会奖牌数6.3&nbsp;&nbsp;优势项目7&nbsp;&nbsp;🇺🇸美国奥运会表现7.1&nbsp;&nbsp;历届奥运会参加人数7.2&nbsp;&nbsp;历届奥运会获得奖牌数7.3&nbsp;&nbsp;优势项目8&nbsp;&nbsp;被单个国家统治的奥运会项目",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：### 项目介绍",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：* 受疫情影响，2020东京奥运会将延期至2021年举行；\n\n* 虽然延期，但此次奥运会依旧会沿用「2020东京奥运会」这个名称；\n\n* **这也将是奥运会历史上首次延期**（1916年、1940年、1944年曾因一战，二战停办）；\n\n\n------\n\n***本项目将会从以下角度来呈现奥运会历史：***\n1. 各国累计奖牌数；\n\n2. 各项运动产生金牌数\n\n3. 运动员层面\n\t\n\t* 参赛人数趋势\n\t\n\t* 女性参赛比例趋势\n\t\n\t* 获得金牌最多的运动员\n\t\n\t* 获得奖牌/金牌比例\n\t\n\t* 各项目运动员平均体质数据\n\n4. 主要国家表现\n\t* 🇨🇳中国表现\n\t\n\t* 🇺🇸美国表现\n\t\n5. **被单个国家统治的奥运会项目**",
+        "原文把1924冬奥举办地写成慕尼黑有误，应为法国霞慕尼（Chamonix）；核对依据：IOC官方FAQ，https://www.olympics.com/ioc/faq/history-and-origin-of-the-games/when-were-the-first-olympic-winter-games-held。原文奖牌榜也受赛事去重口径限制。"
+      ],
+      "teachingCode": "# 原代码仅供阅读，不由网页执行。\n# 本次可运行适配实现见末尾数据实验步骤。",
+      "limitations": [
+        "271116行为运动员参赛事件，非独立运动员数；团体奖牌计数与按Name去重均需审查；包含历史叙述错误风险，教学以数据口径为主；长代码不等于高级算法。",
+        "原代码与保存输出保持原身份；新改编计算另列。"
+      ],
+      "codeRefs": [
+        {
+          "path": "体育-数据可视化-约1300行（Pyecharts可视化）/120年奥运会数据可视化.ipynb",
+          "notebookSha256": "a243bf8b64b54f72c20d9460defd492205efc3ed3d8fed718b6741e4ff752bdf",
+          "cell": 5,
+          "code": "import pandas as pd\nimport numpy as np\nimport pyecharts\nfrom pyecharts.charts import *\nfrom pyecharts import options as opts\nfrom pyecharts.commons.utils import JsCode",
+          "codeSha256": "8952dc397037c80e452df9c28ca3a4c41f8c17d51479f4a37b98fc05eef165f4"
+        },
+        {
+          "path": "体育-数据可视化-约1300行（Pyecharts可视化）/120年奥运会数据可视化.ipynb",
+          "notebookSha256": "a243bf8b64b54f72c20d9460defd492205efc3ed3d8fed718b6741e4ff752bdf",
+          "cell": 6,
+          "code": "athlete_data = pd.read_csv('./athlete_events.csv')\nnoc_region = pd.read_csv('./noc_regions.csv')\n\n# 关联代表国家\ndata = pd.merge(athlete_data, noc_region, on='NOC', how='left')\ndata.head()",
+          "codeSha256": "724f955f94d4bd0210194fc81a302cee8f9d9e9303b15d76805b0cef08a1aa98"
+        }
+      ],
+      "inputRefs": [
+        {
+          "path": "体育-数据可视化-约1300行（Pyecharts可视化）/120年奥运会数据可视化.ipynb",
+          "sha256": "a243bf8b64b54f72c20d9460defd492205efc3ed3d8fed718b6741e4ff752bdf"
+        },
+        {
+          "path": "体育-数据可视化-约1300行（Pyecharts可视化）/120年奥运会数据可视化.py",
+          "sha256": "73609f83edc275407ef08d11fec0cf717b59f3ba2435593f703ba2c608d2ebe2"
+        },
+        {
+          "path": "体育-数据可视化-约1300行（Pyecharts可视化）/athlete_events.csv",
+          "sha256": "e9f6b1fa97f40e0f071a6de640acb42dd7a100cad67e5e69cab630192fabb089"
+        },
+        {
+          "path": "体育-数据可视化-约1300行（Pyecharts可视化）/noc_regions.csv",
+          "sha256": "ce7f3c272a3d81d07acf5e5eba4cbba77501f9db25d820d862c60aaccf281906"
+        }
+      ],
+      "outputRefs": [
+        "learning/resources/p06-v4-source-1.json"
+      ],
+      "exercise": {
+        "prompt": "根据本步单元5—6和保存证据，说明一次变换的输入、输出和一项无法验证的结论。",
+        "hint": "先查看代码中的列选择/过滤/拟合，再核对输出身份和本项目局限。",
+        "checklist": [
+          "准确引用原单元5—6",
+          "指出实际字段或变量与一项真实输出",
+          "把未重跑、资料缺失和统计缺陷分别说明"
+        ],
+        "provenance": "第四阶段教学补充，自评，不代表原文件试题"
+      },
+      "outputTitles": {
+        "learning/resources/p06-v4-source-1.json": "原单元5—6保存输出"
+      }
+    },
+    {
+      "id": "source-008-009",
+      "title": "累计奖牌数 · 单元8—9",
+      "status": "ready",
+      "kind": "analysis",
+      "knowledgeIds": [
+        "Pandas",
+        "NumPy",
+        "Pyecharts",
+        "多表合并",
+        "分组聚合"
+      ],
+      "explanation": [
+        "本步按原Notebook顺序阅读单元8—9。原保存输出尚未重跑；安装、联网采集、写原文件和模型加载均不会在网页运行。",
+        "groupby先定义分组键，再计算聚合；count、size与nunique的计数粒度不同。",
+        "fillna改变缺失值含义；未知与0必须分别解释。",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：### 累计奖牌数\n夏季奥运会 & 冬季奥运会分别统计\n* 夏季奥运会开始于1896年雅典奥运会；\n\n* 冬季奥运会开始于1924年慕尼黑冬奥会；",
+        "原文把1924冬奥举办地写成慕尼黑有误，应为法国霞慕尼（Chamonix）；核对依据：IOC官方FAQ，https://www.olympics.com/ioc/faq/history-and-origin-of-the-games/when-were-the-first-olympic-winter-games-held。原文奖牌榜也受赛事去重口径限制。"
+      ],
+      "teachingCode": "# 原代码仅供阅读，不由网页执行。\n# 本次可运行适配实现见末尾数据实验步骤。",
+      "limitations": [
+        "271116行为运动员参赛事件，非独立运动员数；团体奖牌计数与按Name去重均需审查；包含历史叙述错误风险，教学以数据口径为主；长代码不等于高级算法。",
+        "原代码与保存输出保持原身份；新改编计算另列。"
+      ],
+      "codeRefs": [
+        {
+          "path": "体育-数据可视化-约1300行（Pyecharts可视化）/120年奥运会数据可视化.ipynb",
+          "notebookSha256": "a243bf8b64b54f72c20d9460defd492205efc3ed3d8fed718b6741e4ff752bdf",
+          "cell": 8,
+          "code": "medal_data = data.groupby(['Year', 'Season', 'region', \n                                        'Medal'])['Event'].nunique().reset_index()\nmedal_data.columns = ['Year', 'Season', 'region', 'Medal', 'Nums']                                      \nmedal_data = medal_data.sort_values(by=\"Year\" , ascending=True) \n",
+          "codeSha256": "0ccbab2fa9d6ec588bfedbd94b51925ec0aed458bd04e46519ac9d35042466e2"
+        },
+        {
+          "path": "体育-数据可视化-约1300行（Pyecharts可视化）/120年奥运会数据可视化.ipynb",
+          "notebookSha256": "a243bf8b64b54f72c20d9460defd492205efc3ed3d8fed718b6741e4ff752bdf",
+          "cell": 9,
+          "code": "def medal_stat(year, season='Summer'):\n    t_data = medal_data[(medal_data['Year'] <= year) & (medal_data['Season'] == season)]\n    t_data = t_data.groupby(['region', 'Medal'])['Nums'].sum().reset_index()\n    t_data = t_data.set_index(['region', 'Medal']).unstack().reset_index().fillna(0, inplace=False)\n    t_data = sorted([(row['region'][0], int(row['Nums']['Gold']), int(row['Nums']['Silver']), int(row['Nums']['Bronze'])) \n                                for _, row in t_data.iterrows()], key=lambda x: x[1]+x[2]+x[3], reverse=True)[:20] \n    return t_data",
+          "codeSha256": "556fa3918af9e6a27d2720b4773e8480a29344cae652f1263b58c752da1b97b2"
+        }
+      ],
+      "inputRefs": [
+        {
+          "path": "体育-数据可视化-约1300行（Pyecharts可视化）/120年奥运会数据可视化.ipynb",
+          "sha256": "a243bf8b64b54f72c20d9460defd492205efc3ed3d8fed718b6741e4ff752bdf"
+        },
+        {
+          "path": "体育-数据可视化-约1300行（Pyecharts可视化）/120年奥运会数据可视化.py",
+          "sha256": "73609f83edc275407ef08d11fec0cf717b59f3ba2435593f703ba2c608d2ebe2"
+        },
+        {
+          "path": "体育-数据可视化-约1300行（Pyecharts可视化）/athlete_events.csv",
+          "sha256": "e9f6b1fa97f40e0f071a6de640acb42dd7a100cad67e5e69cab630192fabb089"
+        },
+        {
+          "path": "体育-数据可视化-约1300行（Pyecharts可视化）/noc_regions.csv",
+          "sha256": "ce7f3c272a3d81d07acf5e5eba4cbba77501f9db25d820d862c60aaccf281906"
+        }
+      ],
+      "outputRefs": [
+        "learning/resources/p06-v4-evidence-2.json"
+      ],
+      "exercise": {
+        "prompt": "根据本步单元8—9和保存证据，说明一次变换的输入、输出和一项无法验证的结论。",
+        "hint": "先查看代码中的列选择/过滤/拟合，再核对输出身份和本项目局限。",
+        "checklist": [
+          "准确引用原单元8—9",
+          "指出实际字段或变量与一项真实输出",
+          "把未重跑、资料缺失和统计缺陷分别说明"
+        ],
+        "provenance": "第四阶段教学补充，自评，不代表原文件试题"
+      },
+      "outputTitles": {
+        "learning/resources/p06-v4-evidence-2.json": "原单元8—9的执行证据边界"
+      }
+    },
+    {
+      "id": "source-011-011",
+      "title": "各国夏奥会累计奖牌数 · 单元11—11",
+      "status": "ready",
+      "kind": "analysis",
+      "knowledgeIds": [
+        "Pandas",
+        "NumPy",
+        "Pyecharts",
+        "多表合并",
+        "分组聚合"
+      ],
+      "explanation": [
+        "本步按原Notebook顺序阅读单元11—11。原保存输出尚未重跑；安装、联网采集、写原文件和模型加载均不会在网页运行。",
+        "JsCode是原Pyecharts脚本；平台只展示代码，不求值或执行。",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：#### 各国夏奥会累计奖牌数\n\n* 截止2016年夏季奥运会，**美俄分别获得了2544和1577枚奖牌**，位列一二位；\n\n* **中国由于参加奥运会时间较晚，截止2016年累计获得了545枚奖牌**，位列第七位；",
+        "原文把1924冬奥举办地写成慕尼黑有误，应为法国霞慕尼（Chamonix）；核对依据：IOC官方FAQ，https://www.olympics.com/ioc/faq/history-and-origin-of-the-games/when-were-the-first-olympic-winter-games-held。原文奖牌榜也受赛事去重口径限制。"
+      ],
+      "teachingCode": "# 原代码仅供阅读，不由网页执行。\n# 本次可运行适配实现见末尾数据实验步骤。",
+      "limitations": [
+        "271116行为运动员参赛事件，非独立运动员数；团体奖牌计数与按Name去重均需审查；包含历史叙述错误风险，教学以数据口径为主；长代码不等于高级算法。",
+        "原代码与保存输出保持原身份；新改编计算另列。"
+      ],
+      "codeRefs": [
+        {
+          "path": "体育-数据可视化-约1300行（Pyecharts可视化）/120年奥运会数据可视化.ipynb",
+          "notebookSha256": "a243bf8b64b54f72c20d9460defd492205efc3ed3d8fed718b6741e4ff752bdf",
+          "cell": 11,
+          "code": "year_list = sorted(list(set(medal_data['Year'].to_list())), reverse=True)\n\ntl = Timeline(init_opts=opts.InitOpts(theme='dark', width='1000px', height='1000px'))\ntl.add_schema(is_timeline_show=True,is_rewind_play=True, is_inverse=False,\n             label_opts=opts.LabelOpts(is_show=False))\n\nfor year in year_list:\n    t_data = medal_stat(year)[::-1]\n    bar = (\n        Bar(init_opts=opts.InitOpts())\n            .add_xaxis([x[0] for x in t_data])\n           .add_yaxis(\"铜牌🥉\", [x[3] for x in t_data], \n                        stack='stack1',\n                        itemstyle_opts=opts.ItemStyleOpts(border_color='rgb(220,220,220)',color='rgb(218,165,32)'))\n            .add_yaxis(\"银牌🥈\", [x[2] for x in t_data], \n                        stack='stack1',\n                        itemstyle_opts=opts.ItemStyleOpts(border_color='rgb(220,220,220)',color='rgb(192,192,192)'))\n            .add_yaxis(\"金牌🏅️\", [x[1] for x in t_data], \n                        stack='stack1',\n                        itemstyle_opts=opts.ItemStyleOpts(border_color='rgb(220,220,220)',color='rgb(255,215,0)'))\n            .set_series_opts(label_opts=opts.LabelOpts(is_show=True, \n                                                       position='insideRight',\n                                                       font_style='italic'),)\n            .set_global_opts(\n                title_opts=opts.TitleOpts(title=\"各国累计奖牌数（夏季奥运会）\"),\n                xaxis_opts=opts.AxisOpts(axislabel_opts=opts.LabelOpts(rotate=45)),\n                legend_opts=opts.LegendOpts(is_show=True),\n                graphic_opts=[opts.GraphicGroup(graphic_item=opts.GraphicItem(\n                                                   rotation=JsCode(\"Math.PI / 4\"),\n                                                   bounding=\"raw\",\n                                                   right=110,\n                                                   bottom=110,\n                                                   z=100),\n                                               children=[\n                                                   opts.GraphicRect(\n                                                       graphic_item=opts.GraphicItem(\n                                                           left=\"center\", top=\"center\", z=100\n                                                       ),\n                                                       graphic_shape_opts=opts.GraphicShapeOpts(\n                                                           width=400, height=50\n                                                       ),\n                                                       graphic_basicstyle_opts=opts.GraphicBasicStyleOpts(\n                                                           fill=\"rgba(0,0,0,0.3)\"\n                                                       ),\n                                                   ),\n                                                   opts.GraphicText(\n                                                       graphic_item=opts.GraphicItem(\n                                                           left=\"center\", top=\"center\", z=100\n                                                       ),\n                                                       graphic_textstyle_opts=opts.GraphicTextStyleOpts(\n                                                           text=year,\n                                                           font=\"bold 26px Microsoft YaHei\",\n                                                           graphic_basicstyle_opts=opts.GraphicBasicStyleOpts(\n                                                               fill=\"#fff\"\n                                                           ),\n                                                       ),\n                                                   ),\n                                               ],\n                                            )\n                                    ],)\n        .reversal_axis())\n    tl.add(bar, year)\n\ntl.render_notebook()\n",
+          "codeSha256": "ac135cb8b4c6fe29d1ab83f90efe4497b85248625ee6aa76aa1ef36a1bf91531"
+        }
+      ],
+      "inputRefs": [
+        {
+          "path": "体育-数据可视化-约1300行（Pyecharts可视化）/120年奥运会数据可视化.ipynb",
+          "sha256": "a243bf8b64b54f72c20d9460defd492205efc3ed3d8fed718b6741e4ff752bdf"
+        },
+        {
+          "path": "体育-数据可视化-约1300行（Pyecharts可视化）/120年奥运会数据可视化.py",
+          "sha256": "73609f83edc275407ef08d11fec0cf717b59f3ba2435593f703ba2c608d2ebe2"
+        },
+        {
+          "path": "体育-数据可视化-约1300行（Pyecharts可视化）/athlete_events.csv",
+          "sha256": "e9f6b1fa97f40e0f071a6de640acb42dd7a100cad67e5e69cab630192fabb089"
+        },
+        {
+          "path": "体育-数据可视化-约1300行（Pyecharts可视化）/noc_regions.csv",
+          "sha256": "ce7f3c272a3d81d07acf5e5eba4cbba77501f9db25d820d862c60aaccf281906"
+        }
+      ],
+      "outputRefs": [
+        "learning/resources/p06-v4-evidence-3.json"
+      ],
+      "exercise": {
+        "prompt": "根据本步单元11—11和保存证据，说明一次变换的输入、输出和一项无法验证的结论。",
+        "hint": "先查看代码中的列选择/过滤/拟合，再核对输出身份和本项目局限。",
+        "checklist": [
+          "准确引用原单元11—11",
+          "指出实际字段或变量与一项真实输出",
+          "把未重跑、资料缺失和统计缺陷分别说明"
+        ],
+        "provenance": "第四阶段教学补充，自评，不代表原文件试题"
+      },
+      "outputTitles": {
+        "learning/resources/p06-v4-evidence-3.json": "原单元11—11的执行证据边界"
+      }
+    },
+    {
+      "id": "source-013-013",
+      "title": "各国冬奥会累计奖牌数 · 单元13—13",
+      "status": "ready",
+      "kind": "analysis",
+      "knowledgeIds": [
+        "Pandas",
+        "NumPy",
+        "Pyecharts",
+        "多表合并",
+        "分组聚合"
+      ],
+      "explanation": [
+        "本步按原Notebook顺序阅读单元13—13。原保存输出尚未重跑；安装、联网采集、写原文件和模型加载均不会在网页运行。",
+        "JsCode是原Pyecharts脚本；平台只展示代码，不求值或执行。",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：#### 各国冬奥会累计奖牌数",
+        "原文把1924冬奥举办地写成慕尼黑有误，应为法国霞慕尼（Chamonix）；核对依据：IOC官方FAQ，https://www.olympics.com/ioc/faq/history-and-origin-of-the-games/when-were-the-first-olympic-winter-games-held。原文奖牌榜也受赛事去重口径限制。"
+      ],
+      "teachingCode": "# 原代码仅供阅读，不由网页执行。\n# 本次可运行适配实现见末尾数据实验步骤。",
+      "limitations": [
+        "271116行为运动员参赛事件，非独立运动员数；团体奖牌计数与按Name去重均需审查；包含历史叙述错误风险，教学以数据口径为主；长代码不等于高级算法。",
+        "原代码与保存输出保持原身份；新改编计算另列。"
+      ],
+      "codeRefs": [
+        {
+          "path": "体育-数据可视化-约1300行（Pyecharts可视化）/120年奥运会数据可视化.ipynb",
+          "notebookSha256": "a243bf8b64b54f72c20d9460defd492205efc3ed3d8fed718b6741e4ff752bdf",
+          "cell": 13,
+          "code": "year_list = sorted(list(set(medal_data['Year'][medal_data.Season=='Winter'].to_list())), reverse=True)\n\ntl = Timeline(init_opts=opts.InitOpts(theme='dark', width='1000px', height='1000px'))\ntl.add_schema(is_timeline_show=True,is_rewind_play=True, is_inverse=False,\n             label_opts=opts.LabelOpts(is_show=False))\n\nfor year in year_list:\n    t_data = medal_stat(year, 'Winter')[::-1]\n    bar = (\n        Bar(init_opts=opts.InitOpts(theme='dark'))\n            .add_xaxis([x[0] for x in t_data])\n            .add_yaxis(\"铜牌🥉\", [x[3] for x in t_data], \n                        stack='stack1',\n                        itemstyle_opts=opts.ItemStyleOpts(border_color='rgb(220,220,220)',color='rgb(218,165,32)'))\n            .add_yaxis(\"银牌🥈\", [x[2] for x in t_data], \n                        stack='stack1',\n                        itemstyle_opts=opts.ItemStyleOpts(border_color='rgb(220,220,220)',color='rgb(192,192,192)'))\n            .add_yaxis(\"金牌🏅️\", [x[1] for x in t_data], \n                        stack='stack1',\n                        itemstyle_opts=opts.ItemStyleOpts(border_color='rgb(220,220,220)',color='rgb(255,215,0)'))\n            .set_series_opts(label_opts=opts.LabelOpts(is_show=True, \n                                                       position='insideRight',\n                                                       font_style='italic'),)\n            .set_global_opts(\n                title_opts=opts.TitleOpts(title=\"各国累计奖牌数（冬季奥运会）\"),\n                xaxis_opts=opts.AxisOpts(axislabel_opts=opts.LabelOpts(rotate=45)),\n                legend_opts=opts.LegendOpts(is_show=True),\n                graphic_opts=[opts.GraphicGroup(graphic_item=opts.GraphicItem(\n                                                   rotation=JsCode(\"Math.PI / 4\"),\n                                                   bounding=\"raw\",\n                                                   right=110,\n                                                   bottom=110,\n                                                   z=100),\n                                               children=[\n                                                   opts.GraphicRect(\n                                                       graphic_item=opts.GraphicItem(\n                                                           left=\"center\", top=\"center\", z=100\n                                                       ),\n                                                       graphic_shape_opts=opts.GraphicShapeOpts(\n                                                           width=400, height=50\n                                                       ),\n                                                       graphic_basicstyle_opts=opts.GraphicBasicStyleOpts(\n                                                           fill=\"rgba(0,0,0,0.3)\"\n                                                       ),\n                                                   ),\n                                                   opts.GraphicText(\n                                                       graphic_item=opts.GraphicItem(\n                                                           left=\"center\", top=\"center\", z=100\n                                                       ),\n                                                       graphic_textstyle_opts=opts.GraphicTextStyleOpts(\n                                                           text='截止{}'.format(year),\n                                                           font=\"bold 26px Microsoft YaHei\",\n                                                           graphic_basicstyle_opts=opts.GraphicBasicStyleOpts(\n                                                               fill=\"#fff\"\n                                                           ),\n                                                       ),\n                                                   ),\n                                               ],\n                                            )\n                                    ],)\n            .reversal_axis())\n    tl.add(bar, year)\n\ntl.render_notebook()\n",
+          "codeSha256": "f758cda094b740710d3534780ff351b9109b0d25289be324c621dffca02b0cd8"
+        }
+      ],
+      "inputRefs": [
+        {
+          "path": "体育-数据可视化-约1300行（Pyecharts可视化）/120年奥运会数据可视化.ipynb",
+          "sha256": "a243bf8b64b54f72c20d9460defd492205efc3ed3d8fed718b6741e4ff752bdf"
+        },
+        {
+          "path": "体育-数据可视化-约1300行（Pyecharts可视化）/120年奥运会数据可视化.py",
+          "sha256": "73609f83edc275407ef08d11fec0cf717b59f3ba2435593f703ba2c608d2ebe2"
+        },
+        {
+          "path": "体育-数据可视化-约1300行（Pyecharts可视化）/athlete_events.csv",
+          "sha256": "e9f6b1fa97f40e0f071a6de640acb42dd7a100cad67e5e69cab630192fabb089"
+        },
+        {
+          "path": "体育-数据可视化-约1300行（Pyecharts可视化）/noc_regions.csv",
+          "sha256": "ce7f3c272a3d81d07acf5e5eba4cbba77501f9db25d820d862c60aaccf281906"
+        }
+      ],
+      "outputRefs": [
+        "learning/resources/p06-v4-evidence-4.json"
+      ],
+      "exercise": {
+        "prompt": "根据本步单元13—13和保存证据，说明一次变换的输入、输出和一项无法验证的结论。",
+        "hint": "先查看代码中的列选择/过滤/拟合，再核对输出身份和本项目局限。",
+        "checklist": [
+          "准确引用原单元13—13",
+          "指出实际字段或变量与一项真实输出",
+          "把未重跑、资料缺失和统计缺陷分别说明"
+        ],
+        "provenance": "第四阶段教学补充，自评，不代表原文件试题"
+      },
+      "outputTitles": {
+        "learning/resources/p06-v4-evidence-4.json": "原单元13—13的执行证据边界"
+      }
+    },
+    {
+      "id": "source-015-015",
+      "title": "各项运动产生金牌数 · 单元15—15",
+      "status": "ready",
+      "kind": "analysis",
+      "knowledgeIds": [
+        "Pandas",
+        "NumPy",
+        "Pyecharts",
+        "多表合并",
+        "分组聚合"
+      ],
+      "explanation": [
+        "本步按原Notebook顺序阅读单元15—15。原保存输出尚未重跑；安装、联网采集、写原文件和模型加载均不会在网页运行。",
+        "groupby先定义分组键，再计算聚合；count、size与nunique的计数粒度不同。",
+        "JsCode是原Pyecharts脚本；平台只展示代码，不求值或执行。",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：### 各项运动产生金牌数\n基于2016年夏奥会和2014年冬奥会统计；\n\n* 🏃**田径 & 游泳是大项，在2016年夏奥会上分别产生了47和34枚金牌；**",
+        "原文把1924冬奥举办地写成慕尼黑有误，应为法国霞慕尼（Chamonix）；核对依据：IOC官方FAQ，https://www.olympics.com/ioc/faq/history-and-origin-of-the-games/when-were-the-first-olympic-winter-games-held。原文奖牌榜也受赛事去重口径限制。"
+      ],
+      "teachingCode": "# 原代码仅供阅读，不由网页执行。\n# 本次可运行适配实现见末尾数据实验步骤。",
+      "limitations": [
+        "271116行为运动员参赛事件，非独立运动员数；团体奖牌计数与按Name去重均需审查；包含历史叙述错误风险，教学以数据口径为主；长代码不等于高级算法。",
+        "原代码与保存输出保持原身份；新改编计算另列。"
+      ],
+      "codeRefs": [
+        {
+          "path": "体育-数据可视化-约1300行（Pyecharts可视化）/120年奥运会数据可视化.ipynb",
+          "notebookSha256": "a243bf8b64b54f72c20d9460defd492205efc3ed3d8fed718b6741e4ff752bdf",
+          "cell": 15,
+          "code": "background_color_js = \"\"\"new echarts.graphic.RadialGradient(0.5, 0.5, 1, [{\n                                        offset: 0,\n                                        color: '#696969'\n                                    }, {\n                                        offset: 1,\n                                        color: '#000000'\n                                    }])\"\"\"\n\ntab = Tab()\ntemp = data[(data['Medal']=='Gold') & (data['Year']==2016) & (data['Season']=='Summer')]\n\nevent_medal = temp.groupby(['Sport'])['Event'].nunique().reset_index()\nevent_medal.columns = ['Sport', 'Nums']                                      \nevent_medal = event_medal.sort_values(by=\"Nums\" , ascending=False) \n\n\npie = (Pie(init_opts=opts.InitOpts(bg_color=JsCode(background_color_js), width='1000px', height='800px'))\n       .add('金牌🏅️', [(row['Sport'], row['Nums']) for _, row in event_medal.iterrows()],\n            radius=[\"30%\", \"75%\"],\n            rosetype=\"radius\")\n       .set_global_opts(title_opts=opts.TitleOpts(title=\"2016年夏季奥运会各项运动产生金牌占比\", \n                                                  pos_left=\"center\",\n                                                  title_textstyle_opts=opts.TextStyleOpts(color=\"white\", font_size=20),     ),\n                        legend_opts=opts.LegendOpts(is_show=False))\n       .set_series_opts(label_opts=opts.LabelOpts(formatter=\"{b}: {d}%\"),\n                        tooltip_opts=opts.TooltipOpts(trigger=\"item\", formatter=\"{a} <br/>{b}: {c} ({d}%)\"),)\n      )\ntab.add(pie, '2016年夏奥会')\n\ntemp = data[(data['Medal']=='Gold') & (data['Year']==2014) & (data['Season']=='Winter')]\n\nevent_medal = temp.groupby(['Sport'])['Event'].nunique().reset_index()\nevent_medal.columns = ['Sport', 'Nums']                                      \nevent_medal = event_medal.sort_values(by=\"Nums\" , ascending=False) \n\n\npie = (Pie(init_opts=opts.InitOpts(bg_color=JsCode(background_color_js), width='1000px', height='800px'))\n       .add('金牌🏅️', [(row['Sport'], row['Nums']) for _, row in event_medal.iterrows()],\n            radius=[\"30%\", \"75%\"],\n            rosetype=\"radius\")\n       .set_global_opts(title_opts=opts.TitleOpts(title=\"2014年冬季奥运会各项运动产生金牌占比\", \n                                                  pos_left=\"center\",\n                                                  title_textstyle_opts=opts.TextStyleOpts(color=\"white\", font_size=20),     ),\n                        legend_opts=opts.LegendOpts(is_show=False))\n       .set_series_opts(label_opts=opts.LabelOpts(formatter=\"{b}: {d}%\"),\n                        tooltip_opts=opts.TooltipOpts(trigger=\"item\", formatter=\"{a} <br/>{b}: {c} ({d}%)\"\n        ),)\n      )\ntab.add(pie, '2014年冬奥会')\ntab.render_notebook()",
+          "codeSha256": "d794ac7185db6925089924c88f42a989e2a2f26e571b29ec0dba95b327e6e932"
+        }
+      ],
+      "inputRefs": [
+        {
+          "path": "体育-数据可视化-约1300行（Pyecharts可视化）/120年奥运会数据可视化.ipynb",
+          "sha256": "a243bf8b64b54f72c20d9460defd492205efc3ed3d8fed718b6741e4ff752bdf"
+        },
+        {
+          "path": "体育-数据可视化-约1300行（Pyecharts可视化）/120年奥运会数据可视化.py",
+          "sha256": "73609f83edc275407ef08d11fec0cf717b59f3ba2435593f703ba2c608d2ebe2"
+        },
+        {
+          "path": "体育-数据可视化-约1300行（Pyecharts可视化）/athlete_events.csv",
+          "sha256": "e9f6b1fa97f40e0f071a6de640acb42dd7a100cad67e5e69cab630192fabb089"
+        },
+        {
+          "path": "体育-数据可视化-约1300行（Pyecharts可视化）/noc_regions.csv",
+          "sha256": "ce7f3c272a3d81d07acf5e5eba4cbba77501f9db25d820d862c60aaccf281906"
+        }
+      ],
+      "outputRefs": [
+        "learning/resources/p06-v4-evidence-5.json"
+      ],
+      "exercise": {
+        "prompt": "根据本步单元15—15和保存证据，说明一次变换的输入、输出和一项无法验证的结论。",
+        "hint": "先查看代码中的列选择/过滤/拟合，再核对输出身份和本项目局限。",
+        "checklist": [
+          "准确引用原单元15—15",
+          "指出实际字段或变量与一项真实输出",
+          "把未重跑、资料缺失和统计缺陷分别说明"
+        ],
+        "provenance": "第四阶段教学补充，自评，不代表原文件试题"
+      },
+      "outputTitles": {
+        "learning/resources/p06-v4-evidence-5.json": "原单元15—15的执行证据边界"
+      }
+    },
+    {
+      "id": "source-017-017",
+      "title": "运动员层面 · 单元17—17",
+      "status": "ready",
+      "kind": "analysis",
+      "knowledgeIds": [
+        "Pandas",
+        "NumPy",
+        "Pyecharts",
+        "多表合并",
+        "分组聚合"
+      ],
+      "explanation": [
+        "本步按原Notebook顺序阅读单元17—17。原保存输出尚未重跑；安装、联网采集、写原文件和模型加载均不会在网页运行。",
+        "groupby先定义分组键，再计算聚合；count、size与nunique的计数粒度不同。",
+        "JsCode是原Pyecharts脚本；平台只展示代码，不求值或执行。",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：### 运动员层面\n\n#### 历年参赛人数趋势\n\n* 从人数来看，每届夏奥会参赛人数都是冬奥会的4-5倍；\n\n* 整体参赛人数是上涨趋势，但由于历史原因也出现过波动，如**1980年莫斯科奥运会层遭遇65个国家抵制**；",
+        "原文把1924冬奥举办地写成慕尼黑有误，应为法国霞慕尼（Chamonix）；核对依据：IOC官方FAQ，https://www.olympics.com/ioc/faq/history-and-origin-of-the-games/when-were-the-first-olympic-winter-games-held。原文奖牌榜也受赛事去重口径限制。"
+      ],
+      "teachingCode": "# 原代码仅供阅读，不由网页执行。\n# 本次可运行适配实现见末尾数据实验步骤。",
+      "limitations": [
+        "271116行为运动员参赛事件，非独立运动员数；团体奖牌计数与按Name去重均需审查；包含历史叙述错误风险，教学以数据口径为主；长代码不等于高级算法。",
+        "原代码与保存输出保持原身份；新改编计算另列。"
+      ],
+      "codeRefs": [
+        {
+          "path": "体育-数据可视化-约1300行（Pyecharts可视化）/120年奥运会数据可视化.ipynb",
+          "notebookSha256": "a243bf8b64b54f72c20d9460defd492205efc3ed3d8fed718b6741e4ff752bdf",
+          "cell": 17,
+          "code": "athlete = data.groupby(['Year', 'Season'])['Name'].nunique().reset_index()\nathlete.columns = ['Year', 'Season', 'Nums']                                      \nathlete = athlete.sort_values(by=\"Year\" , ascending=True) \n\nx_list, y1_list, y2_list = [], [], []\n\nfor _, row in athlete.iterrows():\n    x_list.append(str(row['Year']))\n    if row['Season'] == 'Summer':\n        y1_list.append(row['Nums'])\n        y2_list.append(None)\n    else:\n        y2_list.append(row['Nums'])\n        y1_list.append(None)\n\nbackground_color_js = (\n    \"new echarts.graphic.LinearGradient(1, 1, 0, 0, \"\n    \"[{offset: 0, color: '#008B8B'}, {offset: 1, color: '#FF6347'}], false)\"\n)\n\n       \nline = (\n    Line(init_opts=opts.InitOpts(bg_color=JsCode(background_color_js), width='1000px', height='600px'))\n    .add_xaxis(x_list)\n    .add_yaxis(\"夏季奥运会\", \n        y1_list, \n        is_smooth=True, \n        is_connect_nones=True,\n        symbol=\"circle\",\n        symbol_size=6,\n        linestyle_opts=opts.LineStyleOpts(color=\"#fff\"),\n        label_opts=opts.LabelOpts(is_show=False, position=\"top\", color=\"white\"),\n        itemstyle_opts=opts.ItemStyleOpts(\n            color=\"green\", border_color=\"#fff\", border_width=3),\n        tooltip_opts=opts.TooltipOpts(is_show=True))\n    .add_yaxis(\"冬季季奥运会\", \n        y2_list, \n        is_smooth=True, \n        is_connect_nones=True, \n        symbol=\"circle\",\n        symbol_size=6,\n        linestyle_opts=opts.LineStyleOpts(color=\"#FF4500\"),\n        label_opts=opts.LabelOpts(is_show=False, position=\"top\", color=\"white\"),\n        itemstyle_opts=opts.ItemStyleOpts(\n            color=\"red\", border_color=\"#fff\", border_width=3),\n        tooltip_opts=opts.TooltipOpts(is_show=True))\n    .set_series_opts(\n        markarea_opts=opts.MarkAreaOpts(\n            label_opts=opts.LabelOpts(is_show=True, position=\"bottom\", color=\"white\"),\n            data=[\n                opts.MarkAreaItem(name=\"第一次世界大战\", x=(1914, 1918)),\n                opts.MarkAreaItem(name=\"第二次世界大战\", x=(1939, 1945)),\n            ]\n        )\n    )\n    .set_global_opts(title_opts=opts.TitleOpts(title=\"历届奥运会参赛人数\",\n                                                pos_left=\"center\",\n                                                title_textstyle_opts=opts.TextStyleOpts(color=\"white\", font_size=20),),\n                     legend_opts=opts.LegendOpts(is_show=True, pos_top='5%',\n                                                 textstyle_opts=opts.TextStyleOpts(color=\"white\", font_size=12)),\n                     xaxis_opts=opts.AxisOpts(type_=\"value\",\n                                                min_=1904,\n                                                max_=2016,\n                                                boundary_gap=False,\n                                                axislabel_opts=opts.LabelOpts(margin=30, color=\"#ffffff63\",\n                                                                              formatter=JsCode(\"\"\"function (value) \n                                                                               {return value+'年';}\"\"\")),\n                                                axisline_opts=opts.AxisLineOpts(is_show=False),\n                                                axistick_opts=opts.AxisTickOpts(\n                                                    is_show=True,\n                                                    length=25,\n                                                    linestyle_opts=opts.LineStyleOpts(color=\"#ffffff1f\"),\n                                                ),\n                                                splitline_opts=opts.SplitLineOpts(\n                                                    is_show=True, linestyle_opts=opts.LineStyleOpts(color=\"#ffffff1f\")\n                                                ),\n                                            ),\n                    yaxis_opts=opts.AxisOpts(\n                                            type_=\"value\",\n                                            position=\"right\",\n                                            axislabel_opts=opts.LabelOpts(margin=20, color=\"#ffffff63\"),\n                                            axisline_opts=opts.AxisLineOpts(\n                                                linestyle_opts=opts.LineStyleOpts(width=2, color=\"#fff\")\n                                            ),\n                                            axistick_opts=opts.AxisTickOpts(\n                                                is_show=True,\n                                                length=15,\n                                                linestyle_opts=opts.LineStyleOpts(color=\"#ffffff1f\"),\n                                            ),\n                                            splitline_opts=opts.SplitLineOpts(\n                                                is_show=True, linestyle_opts=opts.LineStyleOpts(color=\"#ffffff1f\")\n                                            ),\n                                        ),)\n)\n\nline.render_notebook()",
+          "codeSha256": "bafe14bbfd3f3523096a59131fe0a83b68b6ce592ba32582985053f20ee29e0b"
+        }
+      ],
+      "inputRefs": [
+        {
+          "path": "体育-数据可视化-约1300行（Pyecharts可视化）/120年奥运会数据可视化.ipynb",
+          "sha256": "a243bf8b64b54f72c20d9460defd492205efc3ed3d8fed718b6741e4ff752bdf"
+        },
+        {
+          "path": "体育-数据可视化-约1300行（Pyecharts可视化）/120年奥运会数据可视化.py",
+          "sha256": "73609f83edc275407ef08d11fec0cf717b59f3ba2435593f703ba2c608d2ebe2"
+        },
+        {
+          "path": "体育-数据可视化-约1300行（Pyecharts可视化）/athlete_events.csv",
+          "sha256": "e9f6b1fa97f40e0f071a6de640acb42dd7a100cad67e5e69cab630192fabb089"
+        },
+        {
+          "path": "体育-数据可视化-约1300行（Pyecharts可视化）/noc_regions.csv",
+          "sha256": "ce7f3c272a3d81d07acf5e5eba4cbba77501f9db25d820d862c60aaccf281906"
+        }
+      ],
+      "outputRefs": [
+        "learning/resources/p06-v4-evidence-6.json"
+      ],
+      "exercise": {
+        "prompt": "根据本步单元17—17和保存证据，说明一次变换的输入、输出和一项无法验证的结论。",
+        "hint": "先查看代码中的列选择/过滤/拟合，再核对输出身份和本项目局限。",
+        "checklist": [
+          "准确引用原单元17—17",
+          "指出实际字段或变量与一项真实输出",
+          "把未重跑、资料缺失和统计缺陷分别说明"
+        ],
+        "provenance": "第四阶段教学补充，自评，不代表原文件试题"
+      },
+      "outputTitles": {
+        "learning/resources/p06-v4-evidence-6.json": "原单元17—17的执行证据边界"
+      }
+    },
+    {
+      "id": "source-019-019",
+      "title": "历年女性运动员占比趋势 · 单元19—19",
+      "status": "ready",
+      "kind": "analysis",
+      "knowledgeIds": [
+        "Pandas",
+        "NumPy",
+        "Pyecharts",
+        "多表合并",
+        "分组聚合"
+      ],
+      "explanation": [
+        "本步按原Notebook顺序阅读单元19—19。原保存输出尚未重跑；安装、联网采集、写原文件和模型加载均不会在网页运行。",
+        "groupby先定义分组键，再计算聚合；count、size与nunique的计数粒度不同。",
+        "JsCode是原Pyecharts脚本；平台只展示代码，不求值或执行。",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：#### 历年女性运动员占比趋势\n\n一开始奥运会基本是「男人的运动」，女性运动员仅为个位数，到近几届奥运会男女参赛人数基本趋于相等；",
+        "原文把1924冬奥举办地写成慕尼黑有误，应为法国霞慕尼（Chamonix）；核对依据：IOC官方FAQ，https://www.olympics.com/ioc/faq/history-and-origin-of-the-games/when-were-the-first-olympic-winter-games-held。原文奖牌榜也受赛事去重口径限制。"
+      ],
+      "teachingCode": "# 原代码仅供阅读，不由网页执行。\n# 本次可运行适配实现见末尾数据实验步骤。",
+      "limitations": [
+        "271116行为运动员参赛事件，非独立运动员数；团体奖牌计数与按Name去重均需审查；包含历史叙述错误风险，教学以数据口径为主；长代码不等于高级算法。",
+        "原代码与保存输出保持原身份；新改编计算另列。"
+      ],
+      "codeRefs": [
+        {
+          "path": "体育-数据可视化-约1300行（Pyecharts可视化）/120年奥运会数据可视化.ipynb",
+          "notebookSha256": "a243bf8b64b54f72c20d9460defd492205efc3ed3d8fed718b6741e4ff752bdf",
+          "cell": 19,
+          "code": "# 历年男性运动员人数\nm_data = data[data.Sex=='M'].groupby(['Year', 'Season'])['Name'].nunique().reset_index()\nm_data.columns = ['Year', 'Season', 'M-Nums']                                      \nm_data = m_data.sort_values(by=\"Year\" , ascending=True) \n\n# 历年女性运动员人数\nf_data = data[data.Sex=='F'].groupby(['Year', 'Season'])['Name'].nunique().reset_index()\nf_data.columns = ['Year', 'Season', 'F-Nums']                                      \nf_data = f_data.sort_values(by=\"Year\" , ascending=True) \n\nt_data = pd.merge(m_data, f_data, on=['Year', 'Season'])\nt_data['F-rate'] = round(t_data['F-Nums'] / (t_data['F-Nums']  + t_data['M-Nums'] ), 4)\n\n\nx_list, y1_list, y2_list = [], [], []\n\nfor _, row in t_data.iterrows():\n    x_list.append(str(row['Year']))\n    if row['Season'] == 'Summer':\n        y1_list.append(row['F-rate'])\n        y2_list.append(None)\n    else:\n        y2_list.append(row['F-rate'])\n        y1_list.append(None)\n\nbackground_color_js = (\n    \"new echarts.graphic.LinearGradient(0, 0, 0, 1, \"\n    \"[{offset: 0, color: '#008B8B'}, {offset: 1, color: '#FF6347'}], false)\"\n)\n\n       \nline = (\n    Line(init_opts=opts.InitOpts(bg_color=JsCode(background_color_js), width='1000px', height='600px'))\n    .add_xaxis(x_list)\n    .add_yaxis(\"夏季奥运会\", \n        y1_list, \n        is_smooth=True, \n        is_connect_nones=True,\n        symbol=\"circle\",\n        symbol_size=6,\n        linestyle_opts=opts.LineStyleOpts(color=\"#fff\"),\n        label_opts=opts.LabelOpts(is_show=False, position=\"top\", color=\"white\"),\n        itemstyle_opts=opts.ItemStyleOpts(color=\"green\", border_color=\"#fff\", border_width=3),\n        tooltip_opts=opts.TooltipOpts(is_show=True),)\n    .add_yaxis(\"冬季季奥运会\", \n        y2_list, \n        is_smooth=True, \n        is_connect_nones=True, \n        symbol=\"circle\",\n        symbol_size=6,\n        linestyle_opts=opts.LineStyleOpts(color=\"#FF4500\"),\n        label_opts=opts.LabelOpts(is_show=False, position=\"top\", color=\"white\"),\n        itemstyle_opts=opts.ItemStyleOpts(color=\"red\", border_color=\"#fff\", border_width=3),\n        tooltip_opts=opts.TooltipOpts(is_show=True),)\n    .set_series_opts(tooltip_opts=opts.TooltipOpts(trigger=\"item\", formatter=JsCode(\"\"\"function (params) \n                                                                           {return params.data[0]+ '年: ' + Number(params.data[1])*100 +'%';}\"\"\")),)\n    .set_global_opts(title_opts=opts.TitleOpts(title=\"历届奥运会参赛女性占比趋势\",\n                                                pos_left=\"center\",\n                                                title_textstyle_opts=opts.TextStyleOpts(color=\"white\", font_size=20),),\n                     legend_opts=opts.LegendOpts(is_show=True, pos_top='5%',\n                                                 textstyle_opts=opts.TextStyleOpts(color=\"white\", font_size=12)),\n                     xaxis_opts=opts.AxisOpts(type_=\"value\",\n                                                min_=1904,\n                                                max_=2016,\n                                                boundary_gap=False,\n                                                axislabel_opts=opts.LabelOpts(margin=30, color=\"#ffffff63\",\n                                                                              formatter=JsCode(\"\"\"function (value) \n                                                                               {return value+'年';}\"\"\")),\n                                                axisline_opts=opts.AxisLineOpts(is_show=False),\n                                                axistick_opts=opts.AxisTickOpts(\n                                                    is_show=True,\n                                                    length=25,\n                                                    linestyle_opts=opts.LineStyleOpts(color=\"#ffffff1f\"),\n                                                ),\n                                                splitline_opts=opts.SplitLineOpts(\n                                                    is_show=True, linestyle_opts=opts.LineStyleOpts(color=\"#ffffff1f\")\n                                                ),\n                                            ),\n                    yaxis_opts=opts.AxisOpts(\n                                            type_=\"value\",\n                                            position=\"right\",\n                                            axislabel_opts=opts.LabelOpts(margin=20, color=\"#ffffff63\",\n                                                                          formatter=JsCode(\"\"\"function (value) \n                                                                           {return Number(value *100)+'%';}\"\"\")),\n                                            axisline_opts=opts.AxisLineOpts(\n                                                linestyle_opts=opts.LineStyleOpts(width=2, color=\"#fff\")\n                                            ),\n                                            axistick_opts=opts.AxisTickOpts(\n                                                is_show=True,\n                                                length=15,\n                                                linestyle_opts=opts.LineStyleOpts(color=\"#ffffff1f\"),\n                                            ),\n                                            splitline_opts=opts.SplitLineOpts(\n                                                is_show=True, linestyle_opts=opts.LineStyleOpts(color=\"#ffffff1f\")\n                                            ),\n                                        ),)\n)\n\nline.render_notebook()",
+          "codeSha256": "08d546f03cfc669d547cb76f89f4bc5a6375cba9551b1e004d1f71a31a35fbca"
+        }
+      ],
+      "inputRefs": [
+        {
+          "path": "体育-数据可视化-约1300行（Pyecharts可视化）/120年奥运会数据可视化.ipynb",
+          "sha256": "a243bf8b64b54f72c20d9460defd492205efc3ed3d8fed718b6741e4ff752bdf"
+        },
+        {
+          "path": "体育-数据可视化-约1300行（Pyecharts可视化）/120年奥运会数据可视化.py",
+          "sha256": "73609f83edc275407ef08d11fec0cf717b59f3ba2435593f703ba2c608d2ebe2"
+        },
+        {
+          "path": "体育-数据可视化-约1300行（Pyecharts可视化）/athlete_events.csv",
+          "sha256": "e9f6b1fa97f40e0f071a6de640acb42dd7a100cad67e5e69cab630192fabb089"
+        },
+        {
+          "path": "体育-数据可视化-约1300行（Pyecharts可视化）/noc_regions.csv",
+          "sha256": "ce7f3c272a3d81d07acf5e5eba4cbba77501f9db25d820d862c60aaccf281906"
+        }
+      ],
+      "outputRefs": [
+        "learning/resources/p06-v4-evidence-7.json"
+      ],
+      "exercise": {
+        "prompt": "根据本步单元19—19和保存证据，说明一次变换的输入、输出和一项无法验证的结论。",
+        "hint": "先查看代码中的列选择/过滤/拟合，再核对输出身份和本项目局限。",
+        "checklist": [
+          "准确引用原单元19—19",
+          "指出实际字段或变量与一项真实输出",
+          "把未重跑、资料缺失和统计缺陷分别说明"
+        ],
+        "provenance": "第四阶段教学补充，自评，不代表原文件试题"
+      },
+      "outputTitles": {
+        "learning/resources/p06-v4-evidence-7.json": "原单元19—19的执行证据边界"
+      }
+    },
+    {
+      "id": "source-021-021",
+      "title": "获得金牌最多的运动员 · 单元21—21",
+      "status": "ready",
+      "kind": "analysis",
+      "knowledgeIds": [
+        "Pandas",
+        "NumPy",
+        "Pyecharts",
+        "多表合并",
+        "分组聚合"
+      ],
+      "explanation": [
+        "本步按原Notebook顺序阅读单元21—21。原保存输出尚未重跑；安装、联网采集、写原文件和模型加载均不会在网页运行。",
+        "groupby先定义分组键，再计算聚合；count、size与nunique的计数粒度不同。",
+        "JsCode是原Pyecharts脚本；平台只展示代码，不求值或执行。",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：#### 获得金牌最多的运动员\n\n* 排在第一的是美国泳坛名将「**菲尔普斯**」，截止2016年奥运会总共获得了**23**枚金牌；\n\n* 博尔特累计获得8枚奥运会金牌；",
+        "原文把1924冬奥举办地写成慕尼黑有误，应为法国霞慕尼（Chamonix）；核对依据：IOC官方FAQ，https://www.olympics.com/ioc/faq/history-and-origin-of-the-games/when-were-the-first-olympic-winter-games-held。原文奖牌榜也受赛事去重口径限制。"
+      ],
+      "teachingCode": "# 原代码仅供阅读，不由网页执行。\n# 本次可运行适配实现见末尾数据实验步骤。",
+      "limitations": [
+        "271116行为运动员参赛事件，非独立运动员数；团体奖牌计数与按Name去重均需审查；包含历史叙述错误风险，教学以数据口径为主；长代码不等于高级算法。",
+        "原代码与保存输出保持原身份；新改编计算另列。"
+      ],
+      "codeRefs": [
+        {
+          "path": "体育-数据可视化-约1300行（Pyecharts可视化）/120年奥运会数据可视化.ipynb",
+          "notebookSha256": "a243bf8b64b54f72c20d9460defd492205efc3ed3d8fed718b6741e4ff752bdf",
+          "cell": 21,
+          "code": "temp = data[(data['Medal']=='Gold')]\n\nathlete = temp.groupby(['Name'])['Medal'].count().reset_index()\nathlete.columns = ['Name', 'Nums']                                      \nathlete = athlete.sort_values(by=\"Nums\" , ascending=True)\n\n\nbackground_color_js = (\n    \"new echarts.graphic.LinearGradient(0, 0, 1, 1, \"\n    \"[{offset: 0, color: '#008B8B'}, {offset: 1, color: '#FF6347'}], false)\"\n)\n\npb = (\n    PictorialBar(init_opts=opts.InitOpts(bg_color=JsCode(background_color_js), width='1000px', height='800px'))\n    .add_xaxis([x.replace(' ','\\n') for x in athlete['Name'].tail(10).tolist()])\n    .add_yaxis(\n        \"\",\n        athlete['Nums'].tail(10).tolist(),\n        label_opts=opts.LabelOpts(is_show=False),\n        symbol_size=25,\n        symbol_repeat='fixed',\n        symbol_offset=[0, 0],\n        is_symbol_clip=True,\n        symbol='image://https://cdn.kesci.com/upload/image/q8f8otrlfc.png')\n    .reversal_axis()\n    .set_global_opts(\n        title_opts=opts.TitleOpts(title=\"获得金牌数量最多的运动员\", pos_left='center',\n                                  title_textstyle_opts=opts.TextStyleOpts(color=\"white\", font_size=20),),\n        xaxis_opts=opts.AxisOpts(is_show=False,),\n        yaxis_opts=opts.AxisOpts(\n            axistick_opts=opts.AxisTickOpts(is_show=False),\n            axisline_opts=opts.AxisLineOpts(\n                linestyle_opts=opts.LineStyleOpts(opacity=0)\n            ),\n        ),\n    ))\n\npb.render_notebook()",
+          "codeSha256": "d385132e945c0f8be2354a665ebc7f8e3f63ac42f68a517f6612974815b2e7ab"
+        }
+      ],
+      "inputRefs": [
+        {
+          "path": "体育-数据可视化-约1300行（Pyecharts可视化）/120年奥运会数据可视化.ipynb",
+          "sha256": "a243bf8b64b54f72c20d9460defd492205efc3ed3d8fed718b6741e4ff752bdf"
+        },
+        {
+          "path": "体育-数据可视化-约1300行（Pyecharts可视化）/120年奥运会数据可视化.py",
+          "sha256": "73609f83edc275407ef08d11fec0cf717b59f3ba2435593f703ba2c608d2ebe2"
+        },
+        {
+          "path": "体育-数据可视化-约1300行（Pyecharts可视化）/athlete_events.csv",
+          "sha256": "e9f6b1fa97f40e0f071a6de640acb42dd7a100cad67e5e69cab630192fabb089"
+        },
+        {
+          "path": "体育-数据可视化-约1300行（Pyecharts可视化）/noc_regions.csv",
+          "sha256": "ce7f3c272a3d81d07acf5e5eba4cbba77501f9db25d820d862c60aaccf281906"
+        }
+      ],
+      "outputRefs": [
+        "learning/resources/p06-v4-evidence-8.json"
+      ],
+      "exercise": {
+        "prompt": "根据本步单元21—21和保存证据，说明一次变换的输入、输出和一项无法验证的结论。",
+        "hint": "先查看代码中的列选择/过滤/拟合，再核对输出身份和本项目局限。",
+        "checklist": [
+          "准确引用原单元21—21",
+          "指出实际字段或变量与一项真实输出",
+          "把未重跑、资料缺失和统计缺陷分别说明"
+        ],
+        "provenance": "第四阶段教学补充，自评，不代表原文件试题"
+      },
+      "outputTitles": {
+        "learning/resources/p06-v4-evidence-8.json": "原单元21—21的执行证据边界"
+      }
+    },
+    {
+      "id": "source-023-023",
+      "title": "获得金牌/奖牌比例 · 单元23—23",
+      "status": "ready",
+      "kind": "analysis",
+      "knowledgeIds": [
+        "Pandas",
+        "NumPy",
+        "Pyecharts",
+        "多表合并",
+        "分组聚合"
+      ],
+      "explanation": [
+        "本步按原Notebook顺序阅读单元23—23。原保存输出尚未重跑；安装、联网采集、写原文件和模型加载均不会在网页运行。",
+        "JsCode是原Pyecharts脚本；平台只展示代码，不求值或执行。",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：#### 获得金牌/奖牌比例\n\n看菲尔普斯拿金牌拿到手软，但实际上想获得一块金牌的难度高吗？\n\n* **整个奥运会（包括夏季，冬季奥运会）历史上参赛人数为134732，获得过金牌的运动员只有10413，占比7.7%;**\n\n* 获得过奖牌（包括金银铜）的运动员有28202人，占比20.93%；",
+        "原文把1924冬奥举办地写成慕尼黑有误，应为法国霞慕尼（Chamonix）；核对依据：IOC官方FAQ，https://www.olympics.com/ioc/faq/history-and-origin-of-the-games/when-were-the-first-olympic-winter-games-held。原文奖牌榜也受赛事去重口径限制。"
+      ],
+      "teachingCode": "# 原代码仅供阅读，不由网页执行。\n# 本次可运行适配实现见末尾数据实验步骤。",
+      "limitations": [
+        "271116行为运动员参赛事件，非独立运动员数；团体奖牌计数与按Name去重均需审查；包含历史叙述错误风险，教学以数据口径为主；长代码不等于高级算法。",
+        "原代码与保存输出保持原身份；新改编计算另列。"
+      ],
+      "codeRefs": [
+        {
+          "path": "体育-数据可视化-约1300行（Pyecharts可视化）/120年奥运会数据可视化.ipynb",
+          "notebookSha256": "a243bf8b64b54f72c20d9460defd492205efc3ed3d8fed718b6741e4ff752bdf",
+          "cell": 23,
+          "code": "\ntotal_athlete = len(set(data['Name']))\nmedal_athlete = len(set(data['Name'][data['Medal'].isin(['Gold', 'Silver', 'Bronze'])]))\ngold_athlete = len(set(data['Name'][data['Medal']=='Gold']))\n\n\n\n\nl1 = Liquid(init_opts=opts.InitOpts(theme='dark', width='1000px', height='800px'))\nl1.add(\"获得奖牌\", [medal_athlete/total_athlete], \n            center=[\"70%\", \"50%\"],\n            label_opts=opts.LabelOpts(font_size=50,\n                formatter=JsCode(\n                    \"\"\"function (param) {\n                            return (Math.floor(param.value * 10000) / 100) + '%';\n                        }\"\"\"),\n                position=\"inside\",\n            ))\nl1.set_global_opts(title_opts=opts.TitleOpts(title=\"获得过奖牌比例\", pos_left='62%', pos_top='8%'))\nl1.set_series_opts(tooltip_opts=opts.TooltipOpts(is_show=False))\n\nl2 = Liquid(init_opts=opts.InitOpts(theme='dark', width='1000px', height='800px'))\nl2.add(\"获得金牌\",\n        [gold_athlete/total_athlete],\n        center=[\"25%\", \"50%\"],\n        label_opts=opts.LabelOpts(font_size=50,\n            formatter=JsCode(\n                \"\"\"function (param) {\n                        return (Math.floor(param.value * 10000) / 100) + '%';\n                    }\"\"\"),\n            position=\"inside\",\n        ),)\nl2.set_global_opts(title_opts=opts.TitleOpts(title=\"获得过金牌比例\", pos_left='17%', pos_top='8%'))\nl2.set_series_opts(tooltip_opts=opts.TooltipOpts(is_show=False))\n\n\ngrid = Grid().add(l1, grid_opts=opts.GridOpts()).add(l2, grid_opts=opts.GridOpts())\ngrid.render_notebook()",
+          "codeSha256": "26636fa6aa9c8a7aa9bab813aaa29776901f954dc4b1bf27f677be12fd35977b"
+        }
+      ],
+      "inputRefs": [
+        {
+          "path": "体育-数据可视化-约1300行（Pyecharts可视化）/120年奥运会数据可视化.ipynb",
+          "sha256": "a243bf8b64b54f72c20d9460defd492205efc3ed3d8fed718b6741e4ff752bdf"
+        },
+        {
+          "path": "体育-数据可视化-约1300行（Pyecharts可视化）/120年奥运会数据可视化.py",
+          "sha256": "73609f83edc275407ef08d11fec0cf717b59f3ba2435593f703ba2c608d2ebe2"
+        },
+        {
+          "path": "体育-数据可视化-约1300行（Pyecharts可视化）/athlete_events.csv",
+          "sha256": "e9f6b1fa97f40e0f071a6de640acb42dd7a100cad67e5e69cab630192fabb089"
+        },
+        {
+          "path": "体育-数据可视化-约1300行（Pyecharts可视化）/noc_regions.csv",
+          "sha256": "ce7f3c272a3d81d07acf5e5eba4cbba77501f9db25d820d862c60aaccf281906"
+        }
+      ],
+      "outputRefs": [
+        "learning/resources/p06-v4-evidence-9.json"
+      ],
+      "exercise": {
+        "prompt": "根据本步单元23—23和保存证据，说明一次变换的输入、输出和一项无法验证的结论。",
+        "hint": "先查看代码中的列选择/过滤/拟合，再核对输出身份和本项目局限。",
+        "checklist": [
+          "准确引用原单元23—23",
+          "指出实际字段或变量与一项真实输出",
+          "把未重跑、资料缺失和统计缺陷分别说明"
+        ],
+        "provenance": "第四阶段教学补充，自评，不代表原文件试题"
+      },
+      "outputTitles": {
+        "learning/resources/p06-v4-evidence-9.json": "原单元23—23的执行证据边界"
+      }
+    },
+    {
+      "id": "source-025-025",
+      "title": "运动员平均体质数据 · 单元25—25",
+      "status": "ready",
+      "kind": "analysis",
+      "knowledgeIds": [
+        "Pandas",
+        "NumPy",
+        "Pyecharts",
+        "多表合并",
+        "分组聚合"
+      ],
+      "explanation": [
+        "本步按原Notebook顺序阅读单元25—25。原保存输出尚未重跑；安装、联网采集、写原文件和模型加载均不会在网页运行。",
+        "groupby先定义分组键，再计算聚合；count、size与nunique的计数粒度不同。",
+        "dropna会删除缺失行/列；删除前后的行数和选择偏差需要检查。",
+        "JsCode是原Pyecharts脚本；平台只展示代码，不求值或执行。",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：#### 运动员平均体质数据\n\n根据不同的运动项目进行统计\n* 运动员平均身高最高的项目是**篮球**，女子平均身高达182cm，男子平均身高达到194cm；\n\n* 在男子项目中，运动员平均体重最大的项目是**拔河**，平均体重达到96kg（拔河自第七届奥运会后已取消）；\n\n* 运动员平均年龄最大的项目是**Art competition**（自行百度这奇怪的项目），平均年龄46岁，除此之外便是**马术和射击**，男子平均年龄分别为34.4岁和34.2岁，女子平均年龄34.22岁和29.12s岁；",
+        "原文把1924冬奥举办地写成慕尼黑有误，应为法国霞慕尼（Chamonix）；核对依据：IOC官方FAQ，https://www.olympics.com/ioc/faq/history-and-origin-of-the-games/when-were-the-first-olympic-winter-games-held。原文奖牌榜也受赛事去重口径限制。"
+      ],
+      "teachingCode": "# 原代码仅供阅读，不由网页执行。\n# 本次可运行适配实现见末尾数据实验步骤。",
+      "limitations": [
+        "271116行为运动员参赛事件，非独立运动员数；团体奖牌计数与按Name去重均需审查；包含历史叙述错误风险，教学以数据口径为主；长代码不等于高级算法。",
+        "原代码与保存输出保持原身份；新改编计算另列。"
+      ],
+      "codeRefs": [
+        {
+          "path": "体育-数据可视化-约1300行（Pyecharts可视化）/120年奥运会数据可视化.ipynb",
+          "notebookSha256": "a243bf8b64b54f72c20d9460defd492205efc3ed3d8fed718b6741e4ff752bdf",
+          "cell": 25,
+          "code": "tool_js = \"\"\"function (param) {return param.data[2] +'<br/>' \n            +'平均体重： '+Number(param.data[0]).toFixed(2)+' kg<br/>'\n            +'平均身高： '+Number(param.data[1]).toFixed(2)+' cm<br/>'\n            +'平均年龄： '+Number(param.data[3]).toFixed(2);}\"\"\"\n\nbackground_color_js = (\n    \"new echarts.graphic.LinearGradient(1, 0, 0, 1, \"\n    \"[{offset: 0, color: '#008B8B'}, {offset: 1, color: '#FF6347'}], false)\"\n)\n\n\ntemp_data = data[data['Sex']=='M'].groupby(['Sport'])['Age', 'Height', 'Weight'].mean().reset_index().dropna(how='any')\n\nscatter = (Scatter(init_opts=opts.InitOpts(bg_color=JsCode(background_color_js), width='1000px', height='600px'))\n           .add_xaxis(temp_data['Weight'].tolist())\n           .add_yaxis(\"男性\", [[row['Height'], row['Sport'], row['Age']] for _, row in temp_data.iterrows()],\n                      # 渐变效果实现部分\n                      color=JsCode(\"\"\"new echarts.graphic.RadialGradient(0.4, 0.3, 1, [{\n                                        offset: 0,\n                                        color: 'rgb(129, 227, 238)'\n                                    }, {\n                                        offset: 1,\n                                        color: 'rgb(25, 183, 207)'\n                                    }])\"\"\"))\n           .set_series_opts(label_opts=opts.LabelOpts(is_show=False))\n           .set_global_opts(\n               title_opts=opts.TitleOpts(title=\"各项目运动员平均升高体重年龄\",pos_left=\"center\",\n                                         title_textstyle_opts=opts.TextStyleOpts(color=\"white\", font_size=20)),\n               legend_opts=opts.LegendOpts(is_show=True, pos_top='5%',\n                                           textstyle_opts=opts.TextStyleOpts(color=\"white\", font_size=12)),\n               tooltip_opts = opts.TooltipOpts(formatter=JsCode(tool_js)),\n               xaxis_opts=opts.AxisOpts(\n                   name='体重/kg',\n                   # 设置坐标轴为数值类型\n                   type_=\"value\", \n                   is_scale=True,\n                   # 显示分割线\n                   axislabel_opts=opts.LabelOpts(margin=30, color=\"white\"),\n                   axisline_opts=opts.AxisLineOpts(is_show=True, linestyle_opts=opts.LineStyleOpts(color=\"#ffffff1f\")),\n                   axistick_opts=opts.AxisTickOpts(is_show=True, length=25,\n                                                   linestyle_opts=opts.LineStyleOpts(color=\"#ffffff1f\")),\n                   splitline_opts=opts.SplitLineOpts(is_show=True, linestyle_opts=opts.LineStyleOpts(color=\"#ffffff1f\")\n                                                )),\n               yaxis_opts=opts.AxisOpts(\n                   name='身高/cm',\n                   # 设置坐标轴为数值类型\n                   type_=\"value\",\n                   # 默认为False表示起始为0\n                   is_scale=True,\n                   axislabel_opts=opts.LabelOpts(margin=30, color=\"white\"),\n                   axisline_opts=opts.AxisLineOpts(is_show=True, linestyle_opts=opts.LineStyleOpts(color=\"#ffffff1f\")),\n                   axistick_opts=opts.AxisTickOpts(is_show=True, length=25,\n                                                   linestyle_opts=opts.LineStyleOpts(color=\"#ffffff1f\")),\n                   splitline_opts=opts.SplitLineOpts(is_show=True, linestyle_opts=opts.LineStyleOpts(color=\"#ffffff1f\")\n                                                )),\n               visualmap_opts=opts.VisualMapOpts(is_show=False, type_='size', range_size=[5,50], min_=10, max_=40)\n    ))\n\ntemp_data = data[data['Sex']=='F'].groupby(['Sport'])['Age', 'Height', 'Weight'].mean().reset_index().dropna(how='any')\n    \nscatter1 = (Scatter()\n           .add_xaxis(temp_data['Weight'].tolist())\n           .add_yaxis(\"女性\", [[row['Height'], row['Sport'], row['Age']] for _, row in temp_data.iterrows()],\n                     itemstyle_opts=opts.ItemStyleOpts(\n                         color=JsCode(\"\"\"new echarts.graphic.RadialGradient(0.4, 0.3, 1, [{\n                                        offset: 0,\n                                        color: 'rgb(251, 118, 123)'\n                                    }, {\n                                        offset: 1,\n                                        color: 'rgb(204, 46, 72)'\n                                    }])\"\"\")))\n           .set_series_opts(label_opts=opts.LabelOpts(is_show=False))\n        )\nscatter.overlap(scatter1)\nscatter.render_notebook() \n",
+          "codeSha256": "6ceda860105b96038585e8eb570f1cfca329102b3b684d5e18ef2e6f0c45b582"
+        }
+      ],
+      "inputRefs": [
+        {
+          "path": "体育-数据可视化-约1300行（Pyecharts可视化）/120年奥运会数据可视化.ipynb",
+          "sha256": "a243bf8b64b54f72c20d9460defd492205efc3ed3d8fed718b6741e4ff752bdf"
+        },
+        {
+          "path": "体育-数据可视化-约1300行（Pyecharts可视化）/120年奥运会数据可视化.py",
+          "sha256": "73609f83edc275407ef08d11fec0cf717b59f3ba2435593f703ba2c608d2ebe2"
+        },
+        {
+          "path": "体育-数据可视化-约1300行（Pyecharts可视化）/athlete_events.csv",
+          "sha256": "e9f6b1fa97f40e0f071a6de640acb42dd7a100cad67e5e69cab630192fabb089"
+        },
+        {
+          "path": "体育-数据可视化-约1300行（Pyecharts可视化）/noc_regions.csv",
+          "sha256": "ce7f3c272a3d81d07acf5e5eba4cbba77501f9db25d820d862c60aaccf281906"
+        }
+      ],
+      "outputRefs": [
+        "learning/resources/p06-v4-evidence-10.json"
+      ],
+      "exercise": {
+        "prompt": "根据本步单元25—25和保存证据，说明一次变换的输入、输出和一项无法验证的结论。",
+        "hint": "先查看代码中的列选择/过滤/拟合，再核对输出身份和本项目局限。",
+        "checklist": [
+          "准确引用原单元25—25",
+          "指出实际字段或变量与一项真实输出",
+          "把未重跑、资料缺失和统计缺陷分别说明"
+        ],
+        "provenance": "第四阶段教学补充，自评，不代表原文件试题"
+      },
+      "outputTitles": {
+        "learning/resources/p06-v4-evidence-10.json": "原单元25—25的执行证据边界"
+      }
+    },
+    {
+      "id": "source-027-027",
+      "title": "🇨🇳中国奥运会表现 · 单元27—27",
+      "status": "ready",
+      "kind": "analysis",
+      "knowledgeIds": [
+        "Pandas",
+        "NumPy",
+        "Pyecharts",
+        "多表合并",
+        "分组聚合"
+      ],
+      "explanation": [
+        "本步按原Notebook顺序阅读单元27—27。原保存输出尚未重跑；安装、联网采集、写原文件和模型加载均不会在网页运行。",
+        "本步展示原变量赋值、查看或配置；变量实际内容以保存输出与本次数据证据为准，不从代码存在推断执行成功。",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：### 🇨🇳中国奥运会表现",
+        "原文把1924冬奥举办地写成慕尼黑有误，应为法国霞慕尼（Chamonix）；核对依据：IOC官方FAQ，https://www.olympics.com/ioc/faq/history-and-origin-of-the-games/when-were-the-first-olympic-winter-games-held。原文奖牌榜也受赛事去重口径限制。"
+      ],
+      "teachingCode": "# 原代码仅供阅读，不由网页执行。\n# 本次可运行适配实现见末尾数据实验步骤。",
+      "limitations": [
+        "271116行为运动员参赛事件，非独立运动员数；团体奖牌计数与按Name去重均需审查；包含历史叙述错误风险，教学以数据口径为主；长代码不等于高级算法。",
+        "原代码与保存输出保持原身份；新改编计算另列。"
+      ],
+      "codeRefs": [
+        {
+          "path": "体育-数据可视化-约1300行（Pyecharts可视化）/120年奥运会数据可视化.ipynb",
+          "notebookSha256": "a243bf8b64b54f72c20d9460defd492205efc3ed3d8fed718b6741e4ff752bdf",
+          "cell": 27,
+          "code": "CN_data = data[data.region=='China']\nCN_data.head()",
+          "codeSha256": "52239f18b98ca96b3c8733174ce3ba821bf1a61453cf721dc61656fd6774bcd0"
+        }
+      ],
+      "inputRefs": [
+        {
+          "path": "体育-数据可视化-约1300行（Pyecharts可视化）/120年奥运会数据可视化.ipynb",
+          "sha256": "a243bf8b64b54f72c20d9460defd492205efc3ed3d8fed718b6741e4ff752bdf"
+        },
+        {
+          "path": "体育-数据可视化-约1300行（Pyecharts可视化）/120年奥运会数据可视化.py",
+          "sha256": "73609f83edc275407ef08d11fec0cf717b59f3ba2435593f703ba2c608d2ebe2"
+        },
+        {
+          "path": "体育-数据可视化-约1300行（Pyecharts可视化）/athlete_events.csv",
+          "sha256": "e9f6b1fa97f40e0f071a6de640acb42dd7a100cad67e5e69cab630192fabb089"
+        },
+        {
+          "path": "体育-数据可视化-约1300行（Pyecharts可视化）/noc_regions.csv",
+          "sha256": "ce7f3c272a3d81d07acf5e5eba4cbba77501f9db25d820d862c60aaccf281906"
+        }
+      ],
+      "outputRefs": [
+        "learning/resources/p06-v4-source-11.json"
+      ],
+      "exercise": {
+        "prompt": "根据本步单元27—27和保存证据，说明一次变换的输入、输出和一项无法验证的结论。",
+        "hint": "先查看代码中的列选择/过滤/拟合，再核对输出身份和本项目局限。",
+        "checklist": [
+          "准确引用原单元27—27",
+          "指出实际字段或变量与一项真实输出",
+          "把未重跑、资料缺失和统计缺陷分别说明"
+        ],
+        "provenance": "第四阶段教学补充，自评，不代表原文件试题"
+      },
+      "outputTitles": {
+        "learning/resources/p06-v4-source-11.json": "原单元27—27保存输出"
+      }
+    },
+    {
+      "id": "source-029-029",
+      "title": "历届奥运会参赛人数 · 单元29—29",
+      "status": "ready",
+      "kind": "analysis",
+      "knowledgeIds": [
+        "Pandas",
+        "NumPy",
+        "Pyecharts",
+        "多表合并",
+        "分组聚合"
+      ],
+      "explanation": [
+        "本步按原Notebook顺序阅读单元29—29。原保存输出尚未重跑；安装、联网采集、写原文件和模型加载均不会在网页运行。",
+        "groupby先定义分组键，再计算聚合；count、size与nunique的计数粒度不同。",
+        "JsCode是原Pyecharts脚本；平台只展示代码，不求值或执行。",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：#### 历届奥运会参赛人数",
+        "原文把1924冬奥举办地写成慕尼黑有误，应为法国霞慕尼（Chamonix）；核对依据：IOC官方FAQ，https://www.olympics.com/ioc/faq/history-and-origin-of-the-games/when-were-the-first-olympic-winter-games-held。原文奖牌榜也受赛事去重口径限制。"
+      ],
+      "teachingCode": "# 原代码仅供阅读，不由网页执行。\n# 本次可运行适配实现见末尾数据实验步骤。",
+      "limitations": [
+        "271116行为运动员参赛事件，非独立运动员数；团体奖牌计数与按Name去重均需审查；包含历史叙述错误风险，教学以数据口径为主；长代码不等于高级算法。",
+        "原代码与保存输出保持原身份；新改编计算另列。"
+      ],
+      "codeRefs": [
+        {
+          "path": "体育-数据可视化-约1300行（Pyecharts可视化）/120年奥运会数据可视化.ipynb",
+          "notebookSha256": "a243bf8b64b54f72c20d9460defd492205efc3ed3d8fed718b6741e4ff752bdf",
+          "cell": 29,
+          "code": "background_color_js = (\n    \"new echarts.graphic.LinearGradient(1, 0, 0, 1, \"\n    \"[{offset: 0, color: '#008B8B'}, {offset: 1, color: '#FF6347'}], false)\"\n)\n\n\n\nathlete = CN_data.groupby(['Year', 'Season'])['Name'].nunique().reset_index()\nathlete.columns = ['Year', 'Season', 'Nums']                                      \nathlete = athlete.sort_values(by=\"Year\" , ascending=False) \n\n\n        \ns_bar = (\n        Bar(init_opts=opts.InitOpts(theme='dark', width='1000px', height='300px'))\n        .add_xaxis([row['Year'] for _, row in athlete[athlete.Season=='Summer'].iterrows()])\n        .add_yaxis(\"参赛人数\", [row['Nums'] for _, row in athlete[athlete.Season=='Summer'].iterrows()],\n                  category_gap='40%',\n                  itemstyle_opts=opts.ItemStyleOpts(\n                                border_color='rgb(220,220,220)',\n                                color=JsCode(\"\"\"new echarts.graphic.LinearGradient(0, 0, 0, 1, \n                                             [{\n                                                 offset: 1,\n                                                 color: '#00BFFF'\n                                             }, {\n                                                 offset: 0,\n                                                 color: '#32CD32'\n                                             }])\"\"\")))\n        .set_series_opts(label_opts=opts.LabelOpts(is_show=True, \n                                                position='top',\n                                                font_style='italic'))\n        .set_global_opts(\n            title_opts=opts.TitleOpts(title=\"中国历年奥运会参赛人数-夏奥会\", pos_left='center'),\n            xaxis_opts=opts.AxisOpts(axislabel_opts=opts.LabelOpts(rotate=45)),\n            legend_opts=opts.LegendOpts(is_show=False),\n            yaxis_opts=opts.AxisOpts(axislabel_opts=opts.LabelOpts(margin=20, color=\"#ffffff63\")),\n            graphic_opts=[\n            opts.GraphicImage(\n                graphic_item=opts.GraphicItem(\n                    id_=\"logo\", right=0, top=0, z=-10, bounding=\"raw\", origin=[75, 75]\n                ),\n                graphic_imagestyle_opts=opts.GraphicImageStyleOpts(\n                    image=\"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1586619952245&di=981a36305048f93eec791980acc99cf7&imgtype=0&src=http%3A%2F%2Fimg5.mtime.cn%2Fmg%2F2017%2F01%2F06%2F172210.42721559.jpg\",\n                    width=1000,\n                    height=600,\n                    opacity=0.6,),\n            )\n        ],)\n        )\n\n        \nw_bar = (\n        Bar(init_opts=opts.InitOpts(theme='dark',width='1000px', height='300px'))\n        .add_xaxis([row['Year'] for _, row in athlete[athlete.Season=='Winter'].iterrows()])\n        .add_yaxis(\"参赛人数\", [row['Nums'] for _, row in athlete[athlete.Season=='Winter'].iterrows()],\n                  category_gap='50%',\n                  itemstyle_opts=opts.ItemStyleOpts(\n                                border_color='rgb(220,220,220)',\n                                color=JsCode(\"\"\"new echarts.graphic.LinearGradient(0, 0, 0, 1, \n                                             [{\n                                                 offset: 1,\n                                                 color: '#00BFFF'\n                                             }, {\n                                                 offset: 0.8,\n                                                 color: '#FFC0CB'\n                                             }, {\n                                                 offset: 0,\n                                                 color: '#40E0D0'\n                                             }])\"\"\")))\n        .set_series_opts(label_opts=opts.LabelOpts(is_show=True, \n                                                position='top',\n                                                font_style='italic'))\n        .set_global_opts(\n            title_opts=opts.TitleOpts(title=\"中国历年奥运会参赛人数-冬奥会\", pos_left='center'),\n            xaxis_opts=opts.AxisOpts(axislabel_opts=opts.LabelOpts(rotate=45)),\n            legend_opts=opts.LegendOpts(is_show=False),\n            yaxis_opts=opts.AxisOpts(axislabel_opts=opts.LabelOpts(margin=20, color=\"#ffffff63\")),\n            graphic_opts=[\n            opts.GraphicImage(\n                graphic_item=opts.GraphicItem(\n                    id_=\"logo\", right=0, top=-300, z=-10, bounding=\"raw\", origin=[75, 75]\n                ),\n                graphic_imagestyle_opts=opts.GraphicImageStyleOpts(\n                    image=\"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1586619952245&di=981a36305048f93eec791980acc99cf7&imgtype=0&src=http%3A%2F%2Fimg5.mtime.cn%2Fmg%2F2017%2F01%2F06%2F172210.42721559.jpg\",\n                    width=1000,\n                    height=600,\n                    opacity=0.6,),\n            )\n        ],)\n        )\n\n\npage = (\n    Page()\n    .add(s_bar,)\n    .add(w_bar,)\n)\npage.render_notebook()",
+          "codeSha256": "86ae9f93ed431bfb82e5491815e37e8b75f8245898047d9e99b9675f725ab729"
+        }
+      ],
+      "inputRefs": [
+        {
+          "path": "体育-数据可视化-约1300行（Pyecharts可视化）/120年奥运会数据可视化.ipynb",
+          "sha256": "a243bf8b64b54f72c20d9460defd492205efc3ed3d8fed718b6741e4ff752bdf"
+        },
+        {
+          "path": "体育-数据可视化-约1300行（Pyecharts可视化）/120年奥运会数据可视化.py",
+          "sha256": "73609f83edc275407ef08d11fec0cf717b59f3ba2435593f703ba2c608d2ebe2"
+        },
+        {
+          "path": "体育-数据可视化-约1300行（Pyecharts可视化）/athlete_events.csv",
+          "sha256": "e9f6b1fa97f40e0f071a6de640acb42dd7a100cad67e5e69cab630192fabb089"
+        },
+        {
+          "path": "体育-数据可视化-约1300行（Pyecharts可视化）/noc_regions.csv",
+          "sha256": "ce7f3c272a3d81d07acf5e5eba4cbba77501f9db25d820d862c60aaccf281906"
+        }
+      ],
+      "outputRefs": [
+        "learning/resources/p06-v4-evidence-12.json"
+      ],
+      "exercise": {
+        "prompt": "根据本步单元29—29和保存证据，说明一次变换的输入、输出和一项无法验证的结论。",
+        "hint": "先查看代码中的列选择/过滤/拟合，再核对输出身份和本项目局限。",
+        "checklist": [
+          "准确引用原单元29—29",
+          "指出实际字段或变量与一项真实输出",
+          "把未重跑、资料缺失和统计缺陷分别说明"
+        ],
+        "provenance": "第四阶段教学补充，自评，不代表原文件试题"
+      },
+      "outputTitles": {
+        "learning/resources/p06-v4-evidence-12.json": "原单元29—29的执行证据边界"
+      }
+    },
+    {
+      "id": "source-031-031",
+      "title": "历届奥运会奖牌数 · 单元31—31",
+      "status": "ready",
+      "kind": "analysis",
+      "knowledgeIds": [
+        "Pandas",
+        "NumPy",
+        "Pyecharts",
+        "多表合并",
+        "分组聚合"
+      ],
+      "explanation": [
+        "本步按原Notebook顺序阅读单元31—31。原保存输出尚未重跑；安装、联网采集、写原文件和模型加载均不会在网页运行。",
+        "groupby先定义分组键，再计算聚合；count、size与nunique的计数粒度不同。",
+        "JsCode是原Pyecharts脚本；平台只展示代码，不求值或执行。",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：#### 历届奥运会奖牌数",
+        "原文把1924冬奥举办地写成慕尼黑有误，应为法国霞慕尼（Chamonix）；核对依据：IOC官方FAQ，https://www.olympics.com/ioc/faq/history-and-origin-of-the-games/when-were-the-first-olympic-winter-games-held。原文奖牌榜也受赛事去重口径限制。"
+      ],
+      "teachingCode": "# 原代码仅供阅读，不由网页执行。\n# 本次可运行适配实现见末尾数据实验步骤。",
+      "limitations": [
+        "271116行为运动员参赛事件，非独立运动员数；团体奖牌计数与按Name去重均需审查；包含历史叙述错误风险，教学以数据口径为主；长代码不等于高级算法。",
+        "原代码与保存输出保持原身份；新改编计算另列。"
+      ],
+      "codeRefs": [
+        {
+          "path": "体育-数据可视化-约1300行（Pyecharts可视化）/120年奥运会数据可视化.ipynb",
+          "notebookSha256": "a243bf8b64b54f72c20d9460defd492205efc3ed3d8fed718b6741e4ff752bdf",
+          "cell": 31,
+          "code": "background_color_js = (\n    \"new echarts.graphic.LinearGradient(1, 0, 0, 1, \"\n    \"[{offset: 0, color: '#008B8B'}, {offset: 1, color: '#FF6347'}], false)\"\n)\n\n\n\nCN_medals = CN_data.groupby(['Year', 'Season', 'Medal'])['Event'].nunique().reset_index()\nCN_medals.columns = ['Year', 'Season', 'Medal', 'Nums']                                      \nCN_medals = CN_medals.sort_values(by=\"Year\" , ascending=False) \n\n\n        \ns_bar = (\n        Bar(init_opts=opts.InitOpts(theme='dark', width='1000px', height='300px'))\n        .add_xaxis(sorted(list(set([row['Year'] for _, row in CN_medals[CN_medals.Season=='Summer'].iterrows()])), reverse=True))\n        .add_yaxis(\"金牌\", [row['Nums'] for _, row in CN_medals[(CN_medals.Season=='Summer') & (CN_medals.Medal=='Gold')].iterrows()],\n                  category_gap='20%',\n                  itemstyle_opts=opts.ItemStyleOpts(\n                                border_color='rgb(220,220,220)',\n                                color=JsCode(\"\"\"new echarts.graphic.LinearGradient(0, 0, 0, 1, \n                                             [{\n                                                 offset: 0,\n                                                 color: '#FFD700'\n                                             }, {\n                                                 offset: 1,\n                                                 color: '#FFFFF0'\n                                             }])\"\"\")))\n        .add_yaxis(\"银牌\", [row['Nums'] for _, row in CN_medals[(CN_medals.Season=='Summer') & (CN_medals.Medal=='Silver')].iterrows()],\n                  category_gap='20%',\n                  itemstyle_opts=opts.ItemStyleOpts(\n                                border_color='rgb(220,220,220)',\n                                color=JsCode(\"\"\"new echarts.graphic.LinearGradient(0, 0, 0, 1, \n                                             [{\n                                                 offset: 0,\n                                                 color: '#C0C0C0'\n                                             }, {\n                                                 offset: 1,\n                                                 color: '#FFFFF0'\n                                             }])\"\"\")))\n        .add_yaxis(\"铜牌\", [row['Nums'] for _, row in CN_medals[(CN_medals.Season=='Summer') & (CN_medals.Medal=='Bronze')].iterrows()],\n                  category_gap='20%',\n                  itemstyle_opts=opts.ItemStyleOpts(\n                                border_color='rgb(220,220,220)',\n                                color=JsCode(\"\"\"new echarts.graphic.LinearGradient(0, 0, 0, 1, \n                                             [{\n                                                 offset: 0,\n                                                 color: '#DAA520'\n                                             }, {\n                                                 offset: 1,\n                                                 color: '#FFFFF0'\n                                             }])\"\"\")))\n        .set_series_opts(label_opts=opts.LabelOpts(is_show=True, \n                                                position='top',\n                                                font_style='italic'))\n        .set_global_opts(\n            title_opts=opts.TitleOpts(title=\"中国历年奥运会获得奖牌数数-夏奥会\", pos_left='center'),\n            xaxis_opts=opts.AxisOpts(axislabel_opts=opts.LabelOpts(rotate=45)),\n            legend_opts=opts.LegendOpts(is_show=False),\n            yaxis_opts=opts.AxisOpts(axislabel_opts=opts.LabelOpts(margin=20, color=\"#ffffff63\")),\n            graphic_opts=[\n            opts.GraphicImage(\n                graphic_item=opts.GraphicItem(\n                    id_=\"logo\", right=0, top=0, z=-10, bounding=\"raw\", origin=[75, 75]\n                ),\n                graphic_imagestyle_opts=opts.GraphicImageStyleOpts(\n                    image=\"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1586619952245&di=981a36305048f93eec791980acc99cf7&imgtype=0&src=http%3A%2F%2Fimg5.mtime.cn%2Fmg%2F2017%2F01%2F06%2F172210.42721559.jpg\",\n                    width=1000,\n                    height=600,\n                    opacity=0.6,),\n            )\n        ],)\n        )\n\n        \nw_bar = (\n        Bar(init_opts=opts.InitOpts(theme='dark', width='1000px', height='300px'))\n        .add_xaxis(sorted(list(set([row['Year'] for _, row in CN_medals[CN_medals.Season=='Winter'].iterrows()])), reverse=True))\n        .add_yaxis(\"金牌\", [row['Nums'] for _, row in CN_medals[(CN_medals.Season=='Winter') & (CN_medals.Medal=='Gold')].iterrows()],\n                  category_gap='20%',\n                  itemstyle_opts=opts.ItemStyleOpts(\n                                border_color='rgb(220,220,220)',\n                                color=JsCode(\"\"\"new echarts.graphic.LinearGradient(0, 0, 0, 1, \n                                             [{\n                                                 offset: 0,\n                                                 color: '#FFD700'\n                                             }, {\n                                                 offset: 1,\n                                                 color: '#FFFFF0'\n                                             }])\"\"\")))\n        .add_yaxis(\"银牌\", [row['Nums'] for _, row in CN_medals[(CN_medals.Season=='Winter') & (CN_medals.Medal=='Silver')].iterrows()],\n                  category_gap='20%',\n                  itemstyle_opts=opts.ItemStyleOpts(\n                                border_color='rgb(220,220,220)',\n                                color=JsCode(\"\"\"new echarts.graphic.LinearGradient(0, 0, 0, 1, \n                                             [{\n                                                 offset: 0,\n                                                 color: '#C0C0C0'\n                                             }, {\n                                                 offset: 1,\n                                                 color: '#FFFFF0'\n                                             }])\"\"\")))\n        .add_yaxis(\"铜牌\", [row['Nums'] for _, row in CN_medals[(CN_medals.Season=='Winter') & (CN_medals.Medal=='Bronze')].iterrows()],\n                  category_gap='20%',\n                  itemstyle_opts=opts.ItemStyleOpts(\n                                border_color='rgb(220,220,220)',\n                                color=JsCode(\"\"\"new echarts.graphic.LinearGradient(0, 0, 0, 1, \n                                             [{\n                                                 offset: 0,\n                                                 color: '#DAA520'\n                                             }, {\n                                                 offset: 1,\n                                                 color: '#FFFFF0'\n                                             }])\"\"\")))\n        .set_series_opts(label_opts=opts.LabelOpts(is_show=True, \n                                                position='top',\n                                                font_style='italic'))\n        .set_global_opts(\n            title_opts=opts.TitleOpts(title=\"中国历年奥运会获得奖牌数-冬奥会\", pos_left='center'),\n            xaxis_opts=opts.AxisOpts(axislabel_opts=opts.LabelOpts(rotate=45)),\n            legend_opts=opts.LegendOpts(is_show=False),\n            yaxis_opts=opts.AxisOpts(axislabel_opts=opts.LabelOpts(margin=20, color=\"#ffffff63\")),\n            graphic_opts=[\n            opts.GraphicImage(\n                graphic_item=opts.GraphicItem(\n                    id_=\"logo\", right=0, top=-300, z=-10, bounding=\"raw\", origin=[75, 75]\n                ),\n                graphic_imagestyle_opts=opts.GraphicImageStyleOpts(\n                    image=\"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1586619952245&di=981a36305048f93eec791980acc99cf7&imgtype=0&src=http%3A%2F%2Fimg5.mtime.cn%2Fmg%2F2017%2F01%2F06%2F172210.42721559.jpg\",\n                    width=1000,\n                    height=600,\n                    opacity=0.6,),\n            )\n        ],)\n        )\n\n\npage = (\n    Page()\n    .add(s_bar,)\n    .add(w_bar,)\n)\npage.render_notebook()",
+          "codeSha256": "e2dac981572720f0b6bbeb85bec2e8dedeb0f3ae8aa56eb47ab39b5d5b825413"
+        }
+      ],
+      "inputRefs": [
+        {
+          "path": "体育-数据可视化-约1300行（Pyecharts可视化）/120年奥运会数据可视化.ipynb",
+          "sha256": "a243bf8b64b54f72c20d9460defd492205efc3ed3d8fed718b6741e4ff752bdf"
+        },
+        {
+          "path": "体育-数据可视化-约1300行（Pyecharts可视化）/120年奥运会数据可视化.py",
+          "sha256": "73609f83edc275407ef08d11fec0cf717b59f3ba2435593f703ba2c608d2ebe2"
+        },
+        {
+          "path": "体育-数据可视化-约1300行（Pyecharts可视化）/athlete_events.csv",
+          "sha256": "e9f6b1fa97f40e0f071a6de640acb42dd7a100cad67e5e69cab630192fabb089"
+        },
+        {
+          "path": "体育-数据可视化-约1300行（Pyecharts可视化）/noc_regions.csv",
+          "sha256": "ce7f3c272a3d81d07acf5e5eba4cbba77501f9db25d820d862c60aaccf281906"
+        }
+      ],
+      "outputRefs": [
+        "learning/resources/p06-v4-evidence-13.json"
+      ],
+      "exercise": {
+        "prompt": "根据本步单元31—31和保存证据，说明一次变换的输入、输出和一项无法验证的结论。",
+        "hint": "先查看代码中的列选择/过滤/拟合，再核对输出身份和本项目局限。",
+        "checklist": [
+          "准确引用原单元31—31",
+          "指出实际字段或变量与一项真实输出",
+          "把未重跑、资料缺失和统计缺陷分别说明"
+        ],
+        "provenance": "第四阶段教学补充，自评，不代表原文件试题"
+      },
+      "outputTitles": {
+        "learning/resources/p06-v4-evidence-13.json": "原单元31—31的执行证据边界"
+      }
+    },
+    {
+      "id": "source-033-033",
+      "title": "优势项目 · 单元33—33",
+      "status": "ready",
+      "kind": "analysis",
+      "knowledgeIds": [
+        "Pandas",
+        "NumPy",
+        "Pyecharts",
+        "多表合并",
+        "分组聚合"
+      ],
+      "explanation": [
+        "本步按原Notebook顺序阅读单元33—33。原保存输出尚未重跑；安装、联网采集、写原文件和模型加载均不会在网页运行。",
+        "groupby先定义分组键，再计算聚合；count、size与nunique的计数粒度不同。",
+        "JsCode是原Pyecharts脚本；平台只展示代码，不求值或执行。",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：#### 优势项目\n**跳水，体操，射击，举重，乒乓球，羽毛球**",
+        "原文把1924冬奥举办地写成慕尼黑有误，应为法国霞慕尼（Chamonix）；核对依据：IOC官方FAQ，https://www.olympics.com/ioc/faq/history-and-origin-of-the-games/when-were-the-first-olympic-winter-games-held。原文奖牌榜也受赛事去重口径限制。"
+      ],
+      "teachingCode": "# 原代码仅供阅读，不由网页执行。\n# 本次可运行适配实现见末尾数据实验步骤。",
+      "limitations": [
+        "271116行为运动员参赛事件，非独立运动员数；团体奖牌计数与按Name去重均需审查；包含历史叙述错误风险，教学以数据口径为主；长代码不等于高级算法。",
+        "原代码与保存输出保持原身份；新改编计算另列。"
+      ],
+      "codeRefs": [
+        {
+          "path": "体育-数据可视化-约1300行（Pyecharts可视化）/120年奥运会数据可视化.ipynb",
+          "notebookSha256": "a243bf8b64b54f72c20d9460defd492205efc3ed3d8fed718b6741e4ff752bdf",
+          "cell": 33,
+          "code": "background_color_js = (\n    \"new echarts.graphic.LinearGradient(1, 0, 0, 1, \"\n    \"[{offset: 0.5, color: '#FFC0CB'}, {offset: 1, color: '#F0FFFF'}, {offset: 0, color: '#EE82EE'}], false)\"\n)\n\n\nCN_events = CN_data[CN_data.Medal=='Gold'].groupby(['Year', 'Sport'])['Event'].nunique().reset_index()\nCN_events = CN_events.groupby(['Sport'])['Event'].sum().reset_index()\nCN_events.columns = ['Sport', 'Nums']                                      \n\ndata_pair = [(row['Sport'], row['Nums']) for _, row in CN_events.iterrows()]\n\nwc = (WordCloud(init_opts=opts.InitOpts(bg_color=JsCode(background_color_js), width='1000px', height='600px'))\n     .add(\"\", data_pair,word_size_range=[30, 80])\n     .set_global_opts(title_opts=opts.TitleOpts(title=\"中国获得过金牌运动项目\",pos_left=\"center\",\n                                         title_textstyle_opts=opts.TextStyleOpts(color=\"white\", font_size=20)))\n)\n\nwc.render_notebook()",
+          "codeSha256": "0ea9a3927f7e541ac626ecbfe4bee8be18c512ada3a7c5660fbfa46d2ceea20c"
+        }
+      ],
+      "inputRefs": [
+        {
+          "path": "体育-数据可视化-约1300行（Pyecharts可视化）/120年奥运会数据可视化.ipynb",
+          "sha256": "a243bf8b64b54f72c20d9460defd492205efc3ed3d8fed718b6741e4ff752bdf"
+        },
+        {
+          "path": "体育-数据可视化-约1300行（Pyecharts可视化）/120年奥运会数据可视化.py",
+          "sha256": "73609f83edc275407ef08d11fec0cf717b59f3ba2435593f703ba2c608d2ebe2"
+        },
+        {
+          "path": "体育-数据可视化-约1300行（Pyecharts可视化）/athlete_events.csv",
+          "sha256": "e9f6b1fa97f40e0f071a6de640acb42dd7a100cad67e5e69cab630192fabb089"
+        },
+        {
+          "path": "体育-数据可视化-约1300行（Pyecharts可视化）/noc_regions.csv",
+          "sha256": "ce7f3c272a3d81d07acf5e5eba4cbba77501f9db25d820d862c60aaccf281906"
+        }
+      ],
+      "outputRefs": [
+        "learning/resources/p06-v4-evidence-14.json"
+      ],
+      "exercise": {
+        "prompt": "根据本步单元33—33和保存证据，说明一次变换的输入、输出和一项无法验证的结论。",
+        "hint": "先查看代码中的列选择/过滤/拟合，再核对输出身份和本项目局限。",
+        "checklist": [
+          "准确引用原单元33—33",
+          "指出实际字段或变量与一项真实输出",
+          "把未重跑、资料缺失和统计缺陷分别说明"
+        ],
+        "provenance": "第四阶段教学补充，自评，不代表原文件试题"
+      },
+      "outputTitles": {
+        "learning/resources/p06-v4-evidence-14.json": "原单元33—33的执行证据边界"
+      }
+    },
+    {
+      "id": "source-035-035",
+      "title": "🇺🇸美国奥运会表现 · 单元35—35",
+      "status": "ready",
+      "kind": "analysis",
+      "knowledgeIds": [
+        "Pandas",
+        "NumPy",
+        "Pyecharts",
+        "多表合并",
+        "分组聚合"
+      ],
+      "explanation": [
+        "本步按原Notebook顺序阅读单元35—35。原保存输出尚未重跑；安装、联网采集、写原文件和模型加载均不会在网页运行。",
+        "本步展示原变量赋值、查看或配置；变量实际内容以保存输出与本次数据证据为准，不从代码存在推断执行成功。",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：### 🇺🇸美国奥运会表现",
+        "原文把1924冬奥举办地写成慕尼黑有误，应为法国霞慕尼（Chamonix）；核对依据：IOC官方FAQ，https://www.olympics.com/ioc/faq/history-and-origin-of-the-games/when-were-the-first-olympic-winter-games-held。原文奖牌榜也受赛事去重口径限制。"
+      ],
+      "teachingCode": "# 原代码仅供阅读，不由网页执行。\n# 本次可运行适配实现见末尾数据实验步骤。",
+      "limitations": [
+        "271116行为运动员参赛事件，非独立运动员数；团体奖牌计数与按Name去重均需审查；包含历史叙述错误风险，教学以数据口径为主；长代码不等于高级算法。",
+        "原代码与保存输出保持原身份；新改编计算另列。"
+      ],
+      "codeRefs": [
+        {
+          "path": "体育-数据可视化-约1300行（Pyecharts可视化）/120年奥运会数据可视化.ipynb",
+          "notebookSha256": "a243bf8b64b54f72c20d9460defd492205efc3ed3d8fed718b6741e4ff752bdf",
+          "cell": 35,
+          "code": "USA_data = data[data.region=='USA']\nUSA_data.head()",
+          "codeSha256": "bd3a2ccdb4e1d27fa4efb52139c43ff9052690e84b98c53a428bb26504e909fe"
+        }
+      ],
+      "inputRefs": [
+        {
+          "path": "体育-数据可视化-约1300行（Pyecharts可视化）/120年奥运会数据可视化.ipynb",
+          "sha256": "a243bf8b64b54f72c20d9460defd492205efc3ed3d8fed718b6741e4ff752bdf"
+        },
+        {
+          "path": "体育-数据可视化-约1300行（Pyecharts可视化）/120年奥运会数据可视化.py",
+          "sha256": "73609f83edc275407ef08d11fec0cf717b59f3ba2435593f703ba2c608d2ebe2"
+        },
+        {
+          "path": "体育-数据可视化-约1300行（Pyecharts可视化）/athlete_events.csv",
+          "sha256": "e9f6b1fa97f40e0f071a6de640acb42dd7a100cad67e5e69cab630192fabb089"
+        },
+        {
+          "path": "体育-数据可视化-约1300行（Pyecharts可视化）/noc_regions.csv",
+          "sha256": "ce7f3c272a3d81d07acf5e5eba4cbba77501f9db25d820d862c60aaccf281906"
+        }
+      ],
+      "outputRefs": [
+        "learning/resources/p06-v4-source-15.json"
+      ],
+      "exercise": {
+        "prompt": "根据本步单元35—35和保存证据，说明一次变换的输入、输出和一项无法验证的结论。",
+        "hint": "先查看代码中的列选择/过滤/拟合，再核对输出身份和本项目局限。",
+        "checklist": [
+          "准确引用原单元35—35",
+          "指出实际字段或变量与一项真实输出",
+          "把未重跑、资料缺失和统计缺陷分别说明"
+        ],
+        "provenance": "第四阶段教学补充，自评，不代表原文件试题"
+      },
+      "outputTitles": {
+        "learning/resources/p06-v4-source-15.json": "原单元35—35保存输出"
+      }
+    },
+    {
+      "id": "source-037-037",
+      "title": "历届奥运会参加人数 · 单元37—37",
+      "status": "ready",
+      "kind": "analysis",
+      "knowledgeIds": [
+        "Pandas",
+        "NumPy",
+        "Pyecharts",
+        "多表合并",
+        "分组聚合"
+      ],
+      "explanation": [
+        "本步按原Notebook顺序阅读单元37—37。原保存输出尚未重跑；安装、联网采集、写原文件和模型加载均不会在网页运行。",
+        "groupby先定义分组键，再计算聚合；count、size与nunique的计数粒度不同。",
+        "JsCode是原Pyecharts脚本；平台只展示代码，不求值或执行。",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：#### 历届奥运会参加人数",
+        "原文把1924冬奥举办地写成慕尼黑有误，应为法国霞慕尼（Chamonix）；核对依据：IOC官方FAQ，https://www.olympics.com/ioc/faq/history-and-origin-of-the-games/when-were-the-first-olympic-winter-games-held。原文奖牌榜也受赛事去重口径限制。"
+      ],
+      "teachingCode": "# 原代码仅供阅读，不由网页执行。\n# 本次可运行适配实现见末尾数据实验步骤。",
+      "limitations": [
+        "271116行为运动员参赛事件，非独立运动员数；团体奖牌计数与按Name去重均需审查；包含历史叙述错误风险，教学以数据口径为主；长代码不等于高级算法。",
+        "原代码与保存输出保持原身份；新改编计算另列。"
+      ],
+      "codeRefs": [
+        {
+          "path": "体育-数据可视化-约1300行（Pyecharts可视化）/120年奥运会数据可视化.ipynb",
+          "notebookSha256": "a243bf8b64b54f72c20d9460defd492205efc3ed3d8fed718b6741e4ff752bdf",
+          "cell": 37,
+          "code": "background_color_js = (\n    \"new echarts.graphic.LinearGradient(1, 0, 0, 1, \"\n    \"[{offset: 0, color: '#008B8B'}, {offset: 1, color: '#FF6347'}], false)\"\n)\n\n\n\nathlete = USA_data.groupby(['Year', 'Season'])['Name'].nunique().reset_index()\nathlete.columns = ['Year', 'Season', 'Nums']                                      \nathlete = athlete.sort_values(by=\"Year\" , ascending=False) \n\n\n        \ns_bar = (\n        Bar(init_opts=opts.InitOpts(theme='dark', width='1000px', height='300px'))\n        .add_xaxis([row['Year'] for _, row in athlete[athlete.Season=='Summer'].iterrows()])\n        .add_yaxis(\"参赛人数\", [row['Nums'] for _, row in athlete[athlete.Season=='Summer'].iterrows()],\n                  category_gap='40%',\n                  itemstyle_opts=opts.ItemStyleOpts(\n                                border_color='rgb(220,220,220)',\n                                color=JsCode(\"\"\"new echarts.graphic.LinearGradient(0, 0, 0, 1, \n                                             [{\n                                                 offset: 1,\n                                                 color: '#00BFFF'\n                                             }, {\n                                                 offset: 0,\n                                                 color: '#32CD32'\n                                             }])\"\"\")))\n        .set_series_opts(label_opts=opts.LabelOpts(is_show=True, \n                                                position='top',\n                                                font_style='italic'))\n        .set_global_opts(\n            title_opts=opts.TitleOpts(title=\"美国历年奥运会参赛人数-夏奥会\", pos_left='center'),\n            xaxis_opts=opts.AxisOpts(axislabel_opts=opts.LabelOpts(rotate=45)),\n            legend_opts=opts.LegendOpts(is_show=False),\n            yaxis_opts=opts.AxisOpts(axislabel_opts=opts.LabelOpts(margin=20, color=\"#ffffff63\")),\n            graphic_opts=[\n            opts.GraphicImage(\n                graphic_item=opts.GraphicItem(\n                    id_=\"logo\", right=0, top=0, z=-10, bounding=\"raw\", origin=[75, 75]\n                ),\n                graphic_imagestyle_opts=opts.GraphicImageStyleOpts(\n                    image=\"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1586619952245&di=981a36305048f93eec791980acc99cf7&imgtype=0&src=http%3A%2F%2Fimg5.mtime.cn%2Fmg%2F2017%2F01%2F06%2F172210.42721559.jpg\",\n                    width=1000,\n                    height=600,\n                    opacity=0.6,),\n            )\n        ],)\n        )\n\n        \nw_bar = (\n        Bar(init_opts=opts.InitOpts(theme='dark',width='1000px', height='300px'))\n        .add_xaxis([row['Year'] for _, row in athlete[athlete.Season=='Winter'].iterrows()])\n        .add_yaxis(\"参赛人数\", [row['Nums'] for _, row in athlete[athlete.Season=='Winter'].iterrows()],\n                  category_gap='50%',\n                  itemstyle_opts=opts.ItemStyleOpts(\n                                border_color='rgb(220,220,220)',\n                                color=JsCode(\"\"\"new echarts.graphic.LinearGradient(0, 0, 0, 1, \n                                             [{\n                                                 offset: 1,\n                                                 color: '#00BFFF'\n                                             }, {\n                                                 offset: 0.8,\n                                                 color: '#FFC0CB'\n                                             }, {\n                                                 offset: 0,\n                                                 color: '#40E0D0'\n                                             }])\"\"\")))\n        .set_series_opts(label_opts=opts.LabelOpts(is_show=True, \n                                                position='top',\n                                                font_style='italic'))\n        .set_global_opts(\n            title_opts=opts.TitleOpts(title=\"美国历年奥运会参赛人数-冬奥会\", pos_left='center'),\n            xaxis_opts=opts.AxisOpts(axislabel_opts=opts.LabelOpts(rotate=45)),\n            legend_opts=opts.LegendOpts(is_show=False),\n            yaxis_opts=opts.AxisOpts(axislabel_opts=opts.LabelOpts(margin=20, color=\"#ffffff63\")),\n            graphic_opts=[\n            opts.GraphicImage(\n                graphic_item=opts.GraphicItem(\n                    id_=\"logo\", right=0, top=-300, z=-10, bounding=\"raw\", origin=[75, 75]\n                ),\n                graphic_imagestyle_opts=opts.GraphicImageStyleOpts(\n                    image=\"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1586619952245&di=981a36305048f93eec791980acc99cf7&imgtype=0&src=http%3A%2F%2Fimg5.mtime.cn%2Fmg%2F2017%2F01%2F06%2F172210.42721559.jpg\",\n                    width=1000,\n                    height=600,\n                    opacity=0.6,),\n            )\n        ],)\n        )\n\n\npage = (\n    Page()\n    .add(s_bar,)\n    .add(w_bar,)\n)\npage.render_notebook()",
+          "codeSha256": "b2452d2dcc213af590bf2856c1cb42ba7c9550906a1d25ea349dff13ea608739"
+        }
+      ],
+      "inputRefs": [
+        {
+          "path": "体育-数据可视化-约1300行（Pyecharts可视化）/120年奥运会数据可视化.ipynb",
+          "sha256": "a243bf8b64b54f72c20d9460defd492205efc3ed3d8fed718b6741e4ff752bdf"
+        },
+        {
+          "path": "体育-数据可视化-约1300行（Pyecharts可视化）/120年奥运会数据可视化.py",
+          "sha256": "73609f83edc275407ef08d11fec0cf717b59f3ba2435593f703ba2c608d2ebe2"
+        },
+        {
+          "path": "体育-数据可视化-约1300行（Pyecharts可视化）/athlete_events.csv",
+          "sha256": "e9f6b1fa97f40e0f071a6de640acb42dd7a100cad67e5e69cab630192fabb089"
+        },
+        {
+          "path": "体育-数据可视化-约1300行（Pyecharts可视化）/noc_regions.csv",
+          "sha256": "ce7f3c272a3d81d07acf5e5eba4cbba77501f9db25d820d862c60aaccf281906"
+        }
+      ],
+      "outputRefs": [
+        "learning/resources/p06-v4-evidence-16.json"
+      ],
+      "exercise": {
+        "prompt": "根据本步单元37—37和保存证据，说明一次变换的输入、输出和一项无法验证的结论。",
+        "hint": "先查看代码中的列选择/过滤/拟合，再核对输出身份和本项目局限。",
+        "checklist": [
+          "准确引用原单元37—37",
+          "指出实际字段或变量与一项真实输出",
+          "把未重跑、资料缺失和统计缺陷分别说明"
+        ],
+        "provenance": "第四阶段教学补充，自评，不代表原文件试题"
+      },
+      "outputTitles": {
+        "learning/resources/p06-v4-evidence-16.json": "原单元37—37的执行证据边界"
+      }
+    },
+    {
+      "id": "source-039-039",
+      "title": "历届奥运会获得奖牌数 · 单元39—39",
+      "status": "ready",
+      "kind": "analysis",
+      "knowledgeIds": [
+        "Pandas",
+        "NumPy",
+        "Pyecharts",
+        "多表合并",
+        "分组聚合"
+      ],
+      "explanation": [
+        "本步按原Notebook顺序阅读单元39—39。原保存输出尚未重跑；安装、联网采集、写原文件和模型加载均不会在网页运行。",
+        "groupby先定义分组键，再计算聚合；count、size与nunique的计数粒度不同。",
+        "JsCode是原Pyecharts脚本；平台只展示代码，不求值或执行。",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：#### 历届奥运会获得奖牌数",
+        "原文把1924冬奥举办地写成慕尼黑有误，应为法国霞慕尼（Chamonix）；核对依据：IOC官方FAQ，https://www.olympics.com/ioc/faq/history-and-origin-of-the-games/when-were-the-first-olympic-winter-games-held。原文奖牌榜也受赛事去重口径限制。"
+      ],
+      "teachingCode": "# 原代码仅供阅读，不由网页执行。\n# 本次可运行适配实现见末尾数据实验步骤。",
+      "limitations": [
+        "271116行为运动员参赛事件，非独立运动员数；团体奖牌计数与按Name去重均需审查；包含历史叙述错误风险，教学以数据口径为主；长代码不等于高级算法。",
+        "原代码与保存输出保持原身份；新改编计算另列。"
+      ],
+      "codeRefs": [
+        {
+          "path": "体育-数据可视化-约1300行（Pyecharts可视化）/120年奥运会数据可视化.ipynb",
+          "notebookSha256": "a243bf8b64b54f72c20d9460defd492205efc3ed3d8fed718b6741e4ff752bdf",
+          "cell": 39,
+          "code": "background_color_js = (\n    \"new echarts.graphic.LinearGradient(1, 0, 0, 1, \"\n    \"[{offset: 0, color: '#008B8B'}, {offset: 1, color: '#FF6347'}], false)\"\n)\n\n\n\nmedals = USA_data.groupby(['Year', 'Season', 'Medal'])['Event'].nunique().reset_index()\nmedals.columns = ['Year', 'Season', 'Medal', 'Nums']                                      \nmedals = medals.sort_values(by=\"Year\" , ascending=False) \n\n\n        \ns_bar = (\n        Bar(init_opts=opts.InitOpts(theme='dark', width='1000px', height='300px'))\n        .add_xaxis(sorted(list(set([row['Year'] for _, row in medals[medals.Season=='Summer'].iterrows()])), reverse=True))\n        .add_yaxis(\"金牌\", [row['Nums'] for _, row in medals[(medals.Season=='Summer') & (medals.Medal=='Gold')].iterrows()],\n                  category_gap='20%',\n                  itemstyle_opts=opts.ItemStyleOpts(\n                                border_color='rgb(220,220,220)',\n                                color=JsCode(\"\"\"new echarts.graphic.LinearGradient(0, 0, 0, 1, \n                                             [{\n                                                 offset: 0,\n                                                 color: '#FFD700'\n                                             }, {\n                                                 offset: 1,\n                                                 color: '#FFFFF0'\n                                             }])\"\"\")))\n        .add_yaxis(\"银牌\", [row['Nums'] for _, row in medals[(medals.Season=='Summer') & (medals.Medal=='Silver')].iterrows()],\n                  category_gap='20%',\n                  itemstyle_opts=opts.ItemStyleOpts(\n                                border_color='rgb(220,220,220)',\n                                color=JsCode(\"\"\"new echarts.graphic.LinearGradient(0, 0, 0, 1, \n                                             [{\n                                                 offset: 0,\n                                                 color: '#C0C0C0'\n                                             }, {\n                                                 offset: 1,\n                                                 color: '#FFFFF0'\n                                             }])\"\"\")))\n        .add_yaxis(\"铜牌\", [row['Nums'] for _, row in medals[(medals.Season=='Summer') & (medals.Medal=='Bronze')].iterrows()],\n                  category_gap='20%',\n                  itemstyle_opts=opts.ItemStyleOpts(\n                                border_color='rgb(220,220,220)',\n                                color=JsCode(\"\"\"new echarts.graphic.LinearGradient(0, 0, 0, 1, \n                                             [{\n                                                 offset: 0,\n                                                 color: '#DAA520'\n                                             }, {\n                                                 offset: 1,\n                                                 color: '#FFFFF0'\n                                             }])\"\"\")))\n        .set_series_opts(label_opts=opts.LabelOpts(is_show=True, \n                                                position='top',\n                                                font_style='italic'))\n        .set_global_opts(\n            title_opts=opts.TitleOpts(title=\"美国历年奥运会获得奖牌数数-夏奥会\", pos_left='center'),\n            xaxis_opts=opts.AxisOpts(axislabel_opts=opts.LabelOpts(rotate=45)),\n            legend_opts=opts.LegendOpts(is_show=False),\n            yaxis_opts=opts.AxisOpts(axislabel_opts=opts.LabelOpts(margin=20, color=\"#ffffff63\")),\n            graphic_opts=[\n            opts.GraphicImage(\n                graphic_item=opts.GraphicItem(\n                    id_=\"logo\", right=0, top=0, z=-10, bounding=\"raw\", origin=[75, 75]\n                ),\n                graphic_imagestyle_opts=opts.GraphicImageStyleOpts(\n                    image=\"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1586619952245&di=981a36305048f93eec791980acc99cf7&imgtype=0&src=http%3A%2F%2Fimg5.mtime.cn%2Fmg%2F2017%2F01%2F06%2F172210.42721559.jpg\",\n                    width=1000,\n                    height=600,\n                    opacity=0.6,),\n            )\n        ],)\n        )\n\n        \nw_bar = (\n        Bar(init_opts=opts.InitOpts(theme='dark', width='1000px', height='300px'))\n        .add_xaxis(sorted(list(set([row['Year'] for _, row in medals[medals.Season=='Winter'].iterrows()])), reverse=True))\n        .add_yaxis(\"金牌\", [row['Nums'] for _, row in medals[(medals.Season=='Winter') & (medals.Medal=='Gold')].iterrows()],\n                  category_gap='20%',\n                  itemstyle_opts=opts.ItemStyleOpts(\n                                border_color='rgb(220,220,220)',\n                                color=JsCode(\"\"\"new echarts.graphic.LinearGradient(0, 0, 0, 1, \n                                             [{\n                                                 offset: 0,\n                                                 color: '#FFD700'\n                                             }, {\n                                                 offset: 1,\n                                                 color: '#FFFFF0'\n                                             }])\"\"\")))\n        .add_yaxis(\"银牌\", [row['Nums'] for _, row in medals[(medals.Season=='Winter') & (medals.Medal=='Silver')].iterrows()],\n                  category_gap='20%',\n                  itemstyle_opts=opts.ItemStyleOpts(\n                                border_color='rgb(220,220,220)',\n                                color=JsCode(\"\"\"new echarts.graphic.LinearGradient(0, 0, 0, 1, \n                                             [{\n                                                 offset: 0,\n                                                 color: '#C0C0C0'\n                                             }, {\n                                                 offset: 1,\n                                                 color: '#FFFFF0'\n                                             }])\"\"\")))\n        .add_yaxis(\"铜牌\", [row['Nums'] for _, row in medals[(medals.Season=='Winter') & (medals.Medal=='Bronze')].iterrows()],\n                  category_gap='20%',\n                  itemstyle_opts=opts.ItemStyleOpts(\n                                border_color='rgb(220,220,220)',\n                                color=JsCode(\"\"\"new echarts.graphic.LinearGradient(0, 0, 0, 1, \n                                             [{\n                                                 offset: 0,\n                                                 color: '#DAA520'\n                                             }, {\n                                                 offset: 1,\n                                                 color: '#FFFFF0'\n                                             }])\"\"\")))\n        .set_series_opts(label_opts=opts.LabelOpts(is_show=True, \n                                                position='top',\n                                                font_style='italic'))\n        .set_global_opts(\n            title_opts=opts.TitleOpts(title=\"美国历年奥运会获得奖牌数-冬奥会\", pos_left='center'),\n            xaxis_opts=opts.AxisOpts(axislabel_opts=opts.LabelOpts(rotate=45)),\n            legend_opts=opts.LegendOpts(is_show=False),\n            yaxis_opts=opts.AxisOpts(axislabel_opts=opts.LabelOpts(margin=20, color=\"#ffffff63\")),\n            graphic_opts=[\n            opts.GraphicImage(\n                graphic_item=opts.GraphicItem(\n                    id_=\"logo\", right=0, top=-300, z=-10, bounding=\"raw\", origin=[75, 75]\n                ),\n                graphic_imagestyle_opts=opts.GraphicImageStyleOpts(\n                    image=\"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1586619952245&di=981a36305048f93eec791980acc99cf7&imgtype=0&src=http%3A%2F%2Fimg5.mtime.cn%2Fmg%2F2017%2F01%2F06%2F172210.42721559.jpg\",\n                    width=1000,\n                    height=600,\n                    opacity=0.6,),\n            )\n        ],)\n        )\n\n\npage = (\n    Page()\n    .add(s_bar,)\n    .add(w_bar,)\n)\npage.render_notebook()",
+          "codeSha256": "9a318275bf3738afdad8f73de96c3eb4236cdaaf81068282e4dd5f3819c085d9"
+        }
+      ],
+      "inputRefs": [
+        {
+          "path": "体育-数据可视化-约1300行（Pyecharts可视化）/120年奥运会数据可视化.ipynb",
+          "sha256": "a243bf8b64b54f72c20d9460defd492205efc3ed3d8fed718b6741e4ff752bdf"
+        },
+        {
+          "path": "体育-数据可视化-约1300行（Pyecharts可视化）/120年奥运会数据可视化.py",
+          "sha256": "73609f83edc275407ef08d11fec0cf717b59f3ba2435593f703ba2c608d2ebe2"
+        },
+        {
+          "path": "体育-数据可视化-约1300行（Pyecharts可视化）/athlete_events.csv",
+          "sha256": "e9f6b1fa97f40e0f071a6de640acb42dd7a100cad67e5e69cab630192fabb089"
+        },
+        {
+          "path": "体育-数据可视化-约1300行（Pyecharts可视化）/noc_regions.csv",
+          "sha256": "ce7f3c272a3d81d07acf5e5eba4cbba77501f9db25d820d862c60aaccf281906"
+        }
+      ],
+      "outputRefs": [
+        "learning/resources/p06-v4-evidence-17.json"
+      ],
+      "exercise": {
+        "prompt": "根据本步单元39—39和保存证据，说明一次变换的输入、输出和一项无法验证的结论。",
+        "hint": "先查看代码中的列选择/过滤/拟合，再核对输出身份和本项目局限。",
+        "checklist": [
+          "准确引用原单元39—39",
+          "指出实际字段或变量与一项真实输出",
+          "把未重跑、资料缺失和统计缺陷分别说明"
+        ],
+        "provenance": "第四阶段教学补充，自评，不代表原文件试题"
+      },
+      "outputTitles": {
+        "learning/resources/p06-v4-evidence-17.json": "原单元39—39的执行证据边界"
+      }
+    },
+    {
+      "id": "source-041-041",
+      "title": "优势项目 · 单元41—41",
+      "status": "ready",
+      "kind": "analysis",
+      "knowledgeIds": [
+        "Pandas",
+        "NumPy",
+        "Pyecharts",
+        "多表合并",
+        "分组聚合"
+      ],
+      "explanation": [
+        "本步按原Notebook顺序阅读单元41—41。原保存输出尚未重跑；安装、联网采集、写原文件和模型加载均不会在网页运行。",
+        "groupby先定义分组键，再计算聚合；count、size与nunique的计数粒度不同。",
+        "JsCode是原Pyecharts脚本；平台只展示代码，不求值或执行。",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：#### 优势项目\n\n**田径，游泳**",
+        "原文把1924冬奥举办地写成慕尼黑有误，应为法国霞慕尼（Chamonix）；核对依据：IOC官方FAQ，https://www.olympics.com/ioc/faq/history-and-origin-of-the-games/when-were-the-first-olympic-winter-games-held。原文奖牌榜也受赛事去重口径限制。"
+      ],
+      "teachingCode": "# 原代码仅供阅读，不由网页执行。\n# 本次可运行适配实现见末尾数据实验步骤。",
+      "limitations": [
+        "271116行为运动员参赛事件，非独立运动员数；团体奖牌计数与按Name去重均需审查；包含历史叙述错误风险，教学以数据口径为主；长代码不等于高级算法。",
+        "原代码与保存输出保持原身份；新改编计算另列。"
+      ],
+      "codeRefs": [
+        {
+          "path": "体育-数据可视化-约1300行（Pyecharts可视化）/120年奥运会数据可视化.ipynb",
+          "notebookSha256": "a243bf8b64b54f72c20d9460defd492205efc3ed3d8fed718b6741e4ff752bdf",
+          "cell": 41,
+          "code": "background_color_js = (\n    \"new echarts.graphic.LinearGradient(1, 0, 0, 1, \"\n    \"[{offset: 0.5, color: '#FFC0CB'}, {offset: 1, color: '#F0FFFF'}, {offset: 0, color: '#EE82EE'}], false)\"\n)\n\n\nevents = USA_data[USA_data.Medal=='Gold'].groupby(['Year', 'Sport'])['Event'].nunique().reset_index()\nevents = events.groupby(['Sport'])['Event'].sum().reset_index()\nevents.columns = ['Sport', 'Nums']                                      \n\ndata_pair = [(row['Sport'], row['Nums']) for _, row in events.iterrows()]\n\nwc = (WordCloud(init_opts=opts.InitOpts(bg_color=JsCode(background_color_js), width='1000px', height='600px'))\n     .add(\"\", data_pair,word_size_range=[30, 80])\n     .set_global_opts(title_opts=opts.TitleOpts(title=\"美国获得过金牌运动项目\",pos_left=\"center\",\n                                         title_textstyle_opts=opts.TextStyleOpts(color=\"white\", font_size=20)))\n)\n\nwc.render_notebook()",
+          "codeSha256": "06cd7b1a05928743d1035890bb4cd7dc31ad9e234e6b37b738d9737213c87c8f"
+        }
+      ],
+      "inputRefs": [
+        {
+          "path": "体育-数据可视化-约1300行（Pyecharts可视化）/120年奥运会数据可视化.ipynb",
+          "sha256": "a243bf8b64b54f72c20d9460defd492205efc3ed3d8fed718b6741e4ff752bdf"
+        },
+        {
+          "path": "体育-数据可视化-约1300行（Pyecharts可视化）/120年奥运会数据可视化.py",
+          "sha256": "73609f83edc275407ef08d11fec0cf717b59f3ba2435593f703ba2c608d2ebe2"
+        },
+        {
+          "path": "体育-数据可视化-约1300行（Pyecharts可视化）/athlete_events.csv",
+          "sha256": "e9f6b1fa97f40e0f071a6de640acb42dd7a100cad67e5e69cab630192fabb089"
+        },
+        {
+          "path": "体育-数据可视化-约1300行（Pyecharts可视化）/noc_regions.csv",
+          "sha256": "ce7f3c272a3d81d07acf5e5eba4cbba77501f9db25d820d862c60aaccf281906"
+        }
+      ],
+      "outputRefs": [
+        "learning/resources/p06-v4-evidence-18.json"
+      ],
+      "exercise": {
+        "prompt": "根据本步单元41—41和保存证据，说明一次变换的输入、输出和一项无法验证的结论。",
+        "hint": "先查看代码中的列选择/过滤/拟合，再核对输出身份和本项目局限。",
+        "checklist": [
+          "准确引用原单元41—41",
+          "指出实际字段或变量与一项真实输出",
+          "把未重跑、资料缺失和统计缺陷分别说明"
+        ],
+        "provenance": "第四阶段教学补充，自评，不代表原文件试题"
+      },
+      "outputTitles": {
+        "learning/resources/p06-v4-evidence-18.json": "原单元41—41的执行证据边界"
+      }
+    },
+    {
+      "id": "source-043-043",
+      "title": "被单个国家统治的奥运会项目 · 单元43—43",
+      "status": "ready",
+      "kind": "analysis",
+      "knowledgeIds": [
+        "Pandas",
+        "NumPy",
+        "Pyecharts",
+        "多表合并",
+        "分组聚合"
+      ],
+      "explanation": [
+        "本步按原Notebook顺序阅读单元43—43。原保存输出尚未重跑；安装、联网采集、写原文件和模型加载均不会在网页运行。",
+        "groupby先定义分组键，再计算聚合；count、size与nunique的计数粒度不同。",
+        "JsCode是原Pyecharts脚本；平台只展示代码，不求值或执行。",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：### 被单个国家统治的奥运会项目\n很多运动长期以来一直是被某个国家统治，譬如我们熟知的中国🇨🇳的乒乓球，美国🇺🇸的篮球；\n\n此次筛选了近5届奥运会（2000年悉尼奥运会之后）上**累计产生10枚金牌以上且存在单个国家「夺金率」超过50%的项目**；\n* **俄罗斯🇷🇺包揽了2000年以后花样游泳 & 艺术体操两个项目上所有的20枚金牌；**\n\n* **中国🇨🇳在乒乓球项目上获得了2000年之后10枚金牌中的9枚，丢失金牌的一次是在04年雅典奥运会男单项目上；**\n\n* 美国🇺🇸在篮球项目上同样获得了过去10枚金牌中的9枚，丢失金牌的一次同样在04年，男篮半决赛中输给了阿根廷，最终获得铜牌；\n\n* **跳水项目上，中国🇨🇳获得了过去40枚金牌中的31枚，梦之队名不虚传；**\n\n* 射箭项目上，韩国🇰🇷获得了过去20枚金牌中的15枚；\n\n* **羽毛球项目上，中国🇨🇳获得了过去25枚金牌中的17枚**；\n\n* 沙滩排球项目上，美国🇺🇸获得了过去10枚金牌中的5枚；",
+        "原文把1924冬奥举办地写成慕尼黑有误，应为法国霞慕尼（Chamonix）；核对依据：IOC官方FAQ，https://www.olympics.com/ioc/faq/history-and-origin-of-the-games/when-were-the-first-olympic-winter-games-held。原文奖牌榜也受赛事去重口径限制。"
+      ],
+      "teachingCode": "# 原代码仅供阅读，不由网页执行。\n# 本次可运行适配实现见末尾数据实验步骤。",
+      "limitations": [
+        "271116行为运动员参赛事件，非独立运动员数；团体奖牌计数与按Name去重均需审查；包含历史叙述错误风险，教学以数据口径为主；长代码不等于高级算法。",
+        "原代码与保存输出保持原身份；新改编计算另列。"
+      ],
+      "codeRefs": [
+        {
+          "path": "体育-数据可视化-约1300行（Pyecharts可视化）/120年奥运会数据可视化.ipynb",
+          "notebookSha256": "a243bf8b64b54f72c20d9460defd492205efc3ed3d8fed718b6741e4ff752bdf",
+          "cell": 43,
+          "code": "f1 = lambda x:max(x['Event']) / sum(x['Event'])\nf2 = lambda x: x.sort_values('Event', ascending=False).head(1)\n\nt_data = data[(data.Medal=='Gold') & (data.Year>=2000) &(data.Season=='Summer')].groupby(['Year', 'Sport', 'region'])['Event'].nunique().reset_index()\nt_data = t_data.groupby(['Sport', 'region'])['Event'].sum().reset_index()\nt1 = t_data.groupby(['Sport']).apply(f2).reset_index(drop=True)\nt2 = t_data.groupby(['Sport'])['Event'].sum().reset_index()\nt_data = pd.merge(t1, t2, on='Sport', how='inner')\nt_data['gold_rate'] = t_data.Event_x/ t_data.Event_y\nt_data = t_data.sort_values('gold_rate', ascending=False).reset_index(drop=True)\n\nt_data = t_data[(t_data.gold_rate>=0.5) & (t_data.Event_y>=10)]\n\n\n\nbackground_color_js = (\n    \"new echarts.graphic.LinearGradient(1, 0, 0, 1, \"\n    \"[{offset: 0, color: '#008B8B'}, {offset: 1, color: '#FF6347'}], false)\"\n)\n\nfn = \"\"\"\n    function(params) {\n        if(params.name == '其他国家')\n            return '\\\\n\\\\n\\\\n' + params.name + ' : ' + params.value ;\n        return params.seriesName+ '\\\\n' + params.name + ' : ' + params.value;\n    }\n    \"\"\"\n\n\ndef new_label_opts():\n    return opts.LabelOpts(formatter=JsCode(fn), position=\"center\")\n\n\npie = Pie(init_opts=opts.InitOpts(theme='dark', width='1000px', height='1000px'))\nidx = 0\n\nfor _, row in t_data.iterrows():\n    \n    if idx % 2 == 0:\n        x = 30\n        y = int(idx/2) * 22 + 18\n    else:\n        x = 70\n        y = int(idx/2) * 22 + 18\n    idx += 1\n    pos_x = str(x)+'%'\n    pos_y = str(y)+'%'\n    pie.add(\n            row['Sport'],\n            [[row['region'], row['Event_x']], ['其他国家', row['Event_y']-row['Event_x']]],\n            center=[pos_x, pos_y],\n            radius=[70, 100],\n            label_opts=new_label_opts(),)\n    \npie.set_global_opts(\n        title_opts=opts.TitleOpts(title=\"被单个国家统治的项目\",\n                                  subtitle='统计周期：2000年悉尼奥运会起',\n                                  pos_left=\"center\",\n                                  title_textstyle_opts=opts.TextStyleOpts(color=\"white\", font_size=20)),\n        legend_opts=opts.LegendOpts(is_show=False),\n    )\n\n\npie.render_notebook()",
+          "codeSha256": "f8a10e538c563f911528f42f1671092104a9ec056ffc793f07a2f5f4c0111614"
+        }
+      ],
+      "inputRefs": [
+        {
+          "path": "体育-数据可视化-约1300行（Pyecharts可视化）/120年奥运会数据可视化.ipynb",
+          "sha256": "a243bf8b64b54f72c20d9460defd492205efc3ed3d8fed718b6741e4ff752bdf"
+        },
+        {
+          "path": "体育-数据可视化-约1300行（Pyecharts可视化）/120年奥运会数据可视化.py",
+          "sha256": "73609f83edc275407ef08d11fec0cf717b59f3ba2435593f703ba2c608d2ebe2"
+        },
+        {
+          "path": "体育-数据可视化-约1300行（Pyecharts可视化）/athlete_events.csv",
+          "sha256": "e9f6b1fa97f40e0f071a6de640acb42dd7a100cad67e5e69cab630192fabb089"
+        },
+        {
+          "path": "体育-数据可视化-约1300行（Pyecharts可视化）/noc_regions.csv",
+          "sha256": "ce7f3c272a3d81d07acf5e5eba4cbba77501f9db25d820d862c60aaccf281906"
+        }
+      ],
+      "outputRefs": [
+        "learning/resources/p06-v4-evidence-19.json"
+      ],
+      "exercise": {
+        "prompt": "根据本步单元43—43和保存证据，说明一次变换的输入、输出和一项无法验证的结论。",
+        "hint": "先查看代码中的列选择/过滤/拟合，再核对输出身份和本项目局限。",
+        "checklist": [
+          "准确引用原单元43—43",
+          "指出实际字段或变量与一项真实输出",
+          "把未重跑、资料缺失和统计缺陷分别说明"
+        ],
+        "provenance": "第四阶段教学补充，自评，不代表原文件试题"
+      },
+      "outputTitles": {
+        "learning/resources/p06-v4-evidence-19.json": "原单元43—43的执行证据边界"
+      }
+    },
+    {
+      "id": "phase4-data",
+      "title": "真实数据实验 · 120年奥运会数据可视化",
+      "status": "ready",
+      "kind": "analysis",
+      "knowledgeIds": [
+        "Pandas",
+        "NumPy",
+        "Pyecharts",
+        "多表合并",
+        "分组聚合"
+      ],
+      "explanation": [
+        "从参赛、奖牌、运动项目和体质等维度分析奥运历史样本。",
+        "本步运行工程适配器，展示真实输入的质量、专属聚合与图表。清洗、分组和模型边界见代码与每份结果说明。教学代码为本项目经过审查的实现；不会执行原Notebook。",
+        "已实际准备4份结果；请切换结果逐项核对问题、单位、范围、分母、过滤条件和来源身份。"
+      ],
+      "teachingCode": "def p06(p):\n d=p.load('athlete_events.csv');noc=p.load('noc_regions.csv');assert noc.NOC.is_unique\n merged=d.merge(noc,on='NOC',how='left',validate='many_to_one');assert len(merged)==len(d)\n medal=merged.dropna(subset=['Medal']).drop_duplicates(['Year','Season','region','Medal','Event'])\n g=medal.groupby(['Season','region']).size().rename('按国家赛事奖牌去重数').reset_index();g=g.sort_values('按国家赛事奖牌去重数',ascending=False).groupby('Season',group_keys=False).head(20)\n p.chart('medals','按国家、届次、项目去重的奖牌计数',g,x=1,ys=[2],filtercol=0,unit='原项目赛事口径的奖牌数',note='按Year/Season/region/Medal/Event去重；团体只计一次，可能同赛事同国多获奖者，故不冒充官方完整奖牌榜')\n g=merged.groupby(['Season','Year'])['ID'].nunique().reset_index(name='不同运动员ID数');p.chart('athletes','夏冬奥历年参赛运动员数',g,kind='line',x=1,ys=[2],filtercol=0,unit='运动员ID',note='按ID去重；同一运动员不同届可重复参赛，不是生涯总人数')\n f=merged.drop_duplicates(['Season','Year','ID']);g=f.groupby(['Season','Year']).Sex.agg(总人数='size',女性人数=lambda s:int((s=='F').sum())).reset_index();g['女性比例']=g.女性人数/g.总人数\n p.chart('female','历届女性参赛比例',g,kind='line',x=1,ys=[4],filtercol=0,unit='比例0—1',denominator='同Season和Year的不同ID数',note='先按届次与运动员ID去重再算比例')\n p.checks.update(mergeRows=len(merged),inputRows=len(d),nocUnique=True)\n",
+      "limitations": [
+        "271116行为运动员参赛事件，非独立运动员数；团体奖牌计数与按Name去重均需审查；包含历史叙述错误风险，教学以数据口径为主；长代码不等于高级算法。",
+        "新版本不覆盖原保存成绩；所有新训练均在构建清单中单列。"
+      ],
+      "codeRefs": [
+        {
+          "path": "体育-数据可视化-约1300行（Pyecharts可视化）/120年奥运会数据可视化.ipynb",
+          "notebookSha256": "a243bf8b64b54f72c20d9460defd492205efc3ed3d8fed718b6741e4ff752bdf",
+          "cell": 6,
+          "code": "athlete_data = pd.read_csv('./athlete_events.csv')\nnoc_region = pd.read_csv('./noc_regions.csv')\n\n# 关联代表国家\ndata = pd.merge(athlete_data, noc_region, on='NOC', how='left')\ndata.head()",
+          "codeSha256": "724f955f94d4bd0210194fc81a302cee8f9d9e9303b15d76805b0cef08a1aa98"
+        },
+        {
+          "path": "体育-数据可视化-约1300行（Pyecharts可视化）/120年奥运会数据可视化.ipynb",
+          "notebookSha256": "a243bf8b64b54f72c20d9460defd492205efc3ed3d8fed718b6741e4ff752bdf",
+          "cell": 8,
+          "code": "medal_data = data.groupby(['Year', 'Season', 'region', \n                                        'Medal'])['Event'].nunique().reset_index()\nmedal_data.columns = ['Year', 'Season', 'region', 'Medal', 'Nums']                                      \nmedal_data = medal_data.sort_values(by=\"Year\" , ascending=True) \n",
+          "codeSha256": "0ccbab2fa9d6ec588bfedbd94b51925ec0aed458bd04e46519ac9d35042466e2"
+        },
+        {
+          "path": "体育-数据可视化-约1300行（Pyecharts可视化）/120年奥运会数据可视化.ipynb",
+          "notebookSha256": "a243bf8b64b54f72c20d9460defd492205efc3ed3d8fed718b6741e4ff752bdf",
+          "cell": 9,
+          "code": "def medal_stat(year, season='Summer'):\n    t_data = medal_data[(medal_data['Year'] <= year) & (medal_data['Season'] == season)]\n    t_data = t_data.groupby(['region', 'Medal'])['Nums'].sum().reset_index()\n    t_data = t_data.set_index(['region', 'Medal']).unstack().reset_index().fillna(0, inplace=False)\n    t_data = sorted([(row['region'][0], int(row['Nums']['Gold']), int(row['Nums']['Silver']), int(row['Nums']['Bronze'])) \n                                for _, row in t_data.iterrows()], key=lambda x: x[1]+x[2]+x[3], reverse=True)[:20] \n    return t_data",
+          "codeSha256": "556fa3918af9e6a27d2720b4773e8480a29344cae652f1263b58c752da1b97b2"
+        },
+        {
+          "path": "体育-数据可视化-约1300行（Pyecharts可视化）/120年奥运会数据可视化.ipynb",
+          "notebookSha256": "a243bf8b64b54f72c20d9460defd492205efc3ed3d8fed718b6741e4ff752bdf",
+          "cell": 15,
+          "code": "background_color_js = \"\"\"new echarts.graphic.RadialGradient(0.5, 0.5, 1, [{\n                                        offset: 0,\n                                        color: '#696969'\n                                    }, {\n                                        offset: 1,\n                                        color: '#000000'\n                                    }])\"\"\"\n\ntab = Tab()\ntemp = data[(data['Medal']=='Gold') & (data['Year']==2016) & (data['Season']=='Summer')]\n\nevent_medal = temp.groupby(['Sport'])['Event'].nunique().reset_index()\nevent_medal.columns = ['Sport', 'Nums']                                      \nevent_medal = event_medal.sort_values(by=\"Nums\" , ascending=False) \n\n\npie = (Pie(init_opts=opts.InitOpts(bg_color=JsCode(background_color_js), width='1000px', height='800px'))\n       .add('金牌🏅️', [(row['Sport'], row['Nums']) for _, row in event_medal.iterrows()],\n            radius=[\"30%\", \"75%\"],\n            rosetype=\"radius\")\n       .set_global_opts(title_opts=opts.TitleOpts(title=\"2016年夏季奥运会各项运动产生金牌占比\", \n                                                  pos_left=\"center\",\n                                                  title_textstyle_opts=opts.TextStyleOpts(color=\"white\", font_size=20),     ),\n                        legend_opts=opts.LegendOpts(is_show=False))\n       .set_series_opts(label_opts=opts.LabelOpts(formatter=\"{b}: {d}%\"),\n                        tooltip_opts=opts.TooltipOpts(trigger=\"item\", formatter=\"{a} <br/>{b}: {c} ({d}%)\"),)\n      )\ntab.add(pie, '2016年夏奥会')\n\ntemp = data[(data['Medal']=='Gold') & (data['Year']==2014) & (data['Season']=='Winter')]\n\nevent_medal = temp.groupby(['Sport'])['Event'].nunique().reset_index()\nevent_medal.columns = ['Sport', 'Nums']                                      \nevent_medal = event_medal.sort_values(by=\"Nums\" , ascending=False) \n\n\npie = (Pie(init_opts=opts.InitOpts(bg_color=JsCode(background_color_js), width='1000px', height='800px'))\n       .add('金牌🏅️', [(row['Sport'], row['Nums']) for _, row in event_medal.iterrows()],\n            radius=[\"30%\", \"75%\"],\n            rosetype=\"radius\")\n       .set_global_opts(title_opts=opts.TitleOpts(title=\"2014年冬季奥运会各项运动产生金牌占比\", \n                                                  pos_left=\"center\",\n                                                  title_textstyle_opts=opts.TextStyleOpts(color=\"white\", font_size=20),     ),\n                        legend_opts=opts.LegendOpts(is_show=False))\n       .set_series_opts(label_opts=opts.LabelOpts(formatter=\"{b}: {d}%\"),\n                        tooltip_opts=opts.TooltipOpts(trigger=\"item\", formatter=\"{a} <br/>{b}: {c} ({d}%)\"\n        ),)\n      )\ntab.add(pie, '2014年冬奥会')\ntab.render_notebook()",
+          "codeSha256": "d794ac7185db6925089924c88f42a989e2a2f26e571b29ec0dba95b327e6e932"
+        }
+      ],
+      "inputRefs": [
+        {
+          "path": "体育-数据可视化-约1300行（Pyecharts可视化）/120年奥运会数据可视化.ipynb",
+          "sha256": "a243bf8b64b54f72c20d9460defd492205efc3ed3d8fed718b6741e4ff752bdf"
+        },
+        {
+          "path": "体育-数据可视化-约1300行（Pyecharts可视化）/120年奥运会数据可视化.py",
+          "sha256": "73609f83edc275407ef08d11fec0cf717b59f3ba2435593f703ba2c608d2ebe2"
+        },
+        {
+          "path": "体育-数据可视化-约1300行（Pyecharts可视化）/athlete_events.csv",
+          "sha256": "e9f6b1fa97f40e0f071a6de640acb42dd7a100cad67e5e69cab630192fabb089"
+        },
+        {
+          "path": "体育-数据可视化-约1300行（Pyecharts可视化）/noc_regions.csv",
+          "sha256": "ce7f3c272a3d81d07acf5e5eba4cbba77501f9db25d820d862c60aaccf281906"
+        }
+      ],
+      "outputRefs": [
+        "learning/resources/p06-v4-medals.json",
+        "learning/resources/p06-v4-athletes.json",
+        "learning/resources/p06-v4-female.json",
+        "learning/resources/p06-v4-input-quality.json"
+      ],
+      "exercise": {
+        "prompt": "比较count、nunique(ID)、nunique(Name)；说明团体奖牌为何可能重复计数。",
+        "hint": "从同源表取数，写出算式；先核对全量/抽样和原保存/新计算身份。",
+        "checklist": [
+          "列出真实字段、筛选规则和当前样本范围",
+          "用表格复核至少一个频数、比率或模型指标",
+          "指出一个不能由本图推出的结论"
+        ],
+        "provenance": "已批准路线练习与第四阶段核对清单，采用自评"
+      },
+      "outputTitles": {
+        "learning/resources/p06-v4-medals.json": "按国家、届次、项目去重的奖牌计数",
+        "learning/resources/p06-v4-athletes.json": "夏冬奥历年参赛运动员数",
+        "learning/resources/p06-v4-female.json": "历届女性参赛比例",
+        "learning/resources/p06-v4-input-quality.json": "本项目各输入表的读取与质量核对"
+      }
+    }
+  ]
+}

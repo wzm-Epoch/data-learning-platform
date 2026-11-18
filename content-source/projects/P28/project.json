@@ -1,0 +1,203 @@
+{
+  "id": "P28",
+  "title": "分析员工过早离职原因",
+  "originalNames": [
+    "职场-分析员工过早离职原因-约300行（相关性分析、变量分析、plotly可视化）",
+    "分析员工过早离职原因.ipynb"
+  ],
+  "categoryId": "career",
+  "summary": "通过员工满意度、部门、工时和薪资探索离职关联。",
+  "difficulty": "初级",
+  "skillTags": [
+    "Pandas",
+    "NumPy",
+    "Plotly",
+    "Matplotlib",
+    "Seaborn",
+    "Colorlover",
+    "EDA",
+    "类别编码",
+    "相关分析"
+  ],
+  "methods": "没有训练离职预测模型",
+  "sourceRefs": [
+    {
+      "path": "职场-分析员工过早离职原因-约300行（相关性分析、变量分析、plotly可视化）/.ipynb_checkpoints/分析员工过早离职原因-checkpoint.ipynb",
+      "sha256": "9bf9cfcf11d11ed4dae94f8309a2d06aed0000ed3002fff5333d64d2de0e0184",
+      "role": "code"
+    },
+    {
+      "path": "职场-分析员工过早离职原因-约300行（相关性分析、变量分析、plotly可视化）/HR_comma_sep.csv",
+      "sha256": "2510e274a90547f34c7b0db5a4ab70282c2710eb54252f14921bf980b81a928c",
+      "role": "data"
+    },
+    {
+      "path": "职场-分析员工过早离职原因-约300行（相关性分析、变量分析、plotly可视化）/分析员工过早离职原因.html",
+      "sha256": "c6d37850644a76967efa3680aa0887667b21a687cd8d20e7d46aecf34e709719",
+      "role": "output"
+    },
+    {
+      "path": "职场-分析员工过早离职原因-约300行（相关性分析、变量分析、plotly可视化）/分析员工过早离职原因.ipynb",
+      "sha256": "9bf9cfcf11d11ed4dae94f8309a2d06aed0000ed3002fff5333d64d2de0e0184",
+      "role": "code"
+    },
+    {
+      "path": "职场-分析员工过早离职原因-约300行（相关性分析、变量分析、plotly可视化）/分析员工过早离职原因.py",
+      "sha256": "3de51cc2b00d540e2634ea337ea0cb6c53f9973a549afcc820a0724de78e431d",
+      "role": "code"
+    }
+  ],
+  "limitations": [
+    "标题“原因”不能代替因果识别；名义部门任意编码后的Pearson不宜解释；原低薪42%离职率需重算，按数据直接核对约29.69%；人数多与离职率高不同。"
+  ],
+  "lessons": [
+    {
+      "id": "main-analysis",
+      "title": "分析员工过早离职原因",
+      "source": "职场-分析员工过早离职原因-约300行（相关性分析、变量分析、plotly可视化）/分析员工过早离职原因.ipynb"
+    }
+  ],
+  "readiness": {
+    "source": "audited",
+    "course": "not-adapted",
+    "rerun": "not-run",
+    "offline": "not-packaged"
+  },
+  "detailRef": "projects/P28/project.json",
+  "searchKeywords": [
+    "认识在职离职标签",
+    "校验缺失和类别",
+    "比较群体均值",
+    "审查编码相关",
+    "按部门分母比较",
+    "核对薪资与晋升",
+    "区分原因与关联"
+  ],
+  "prerequisites": "groupby、条件比例、相关性、类别变量。",
+  "recommendedProjectIds": [
+    "P27"
+  ],
+  "recommendationNote": "P27。",
+  "schemaVersion": "1.0",
+  "contentVersion": "0.2.0",
+  "learningObjectives": [
+    "通过员工满意度、部门、工时和薪资探索离职关联。 重点掌握Pandas、NumPy、Plotly、Matplotlib、Seaborn、Colorlover、EDA、类别编码、相关分析。",
+    "认识在职离职标签",
+    "校验缺失和类别",
+    "比较群体均值",
+    "审查编码相关",
+    "按部门分母比较",
+    "核对薪资与晋升",
+    "区分原因与关联"
+  ],
+  "exercise": {
+    "text": "分别算部门离职人数和率；解释名义编码相关为何不稳定。",
+    "provenance": "已批准路线中新设计的巩固练习；非原文件已有试题",
+    "answerStatus": "参考答案尚未制作"
+  },
+  "datasets": [
+    {
+      "id": "D01-1",
+      "path": "职场-分析员工过早离职原因-约300行（相关性分析、变量分析、plotly可视化）/HR_comma_sep.csv",
+      "sha256": "2510e274a90547f34c7b0db5a4ab70282c2710eb54252f14921bf980b81a928c",
+      "sheet": null,
+      "rows": 14999,
+      "columns": 10,
+      "encoding": "utf-8-sig",
+      "grain": "待核实；读取行数不等于独立业务实体数",
+      "origin": null,
+      "license": null,
+      "fields": [
+        {
+          "name": "satisfaction_level",
+          "dtype": "float64",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P28 / 职场-分析员工过早离职原因-约300行（相关性分析、变量分析、plotly可视化）/HR_comma_sep.csv"
+        },
+        {
+          "name": "last_evaluation",
+          "dtype": "float64",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P28 / 职场-分析员工过早离职原因-约300行（相关性分析、变量分析、plotly可视化）/HR_comma_sep.csv"
+        },
+        {
+          "name": "number_project",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P28 / 职场-分析员工过早离职原因-约300行（相关性分析、变量分析、plotly可视化）/HR_comma_sep.csv"
+        },
+        {
+          "name": "average_montly_hours",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P28 / 职场-分析员工过早离职原因-约300行（相关性分析、变量分析、plotly可视化）/HR_comma_sep.csv"
+        },
+        {
+          "name": "time_spend_company",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P28 / 职场-分析员工过早离职原因-约300行（相关性分析、变量分析、plotly可视化）/HR_comma_sep.csv"
+        },
+        {
+          "name": "Work_accident",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P28 / 职场-分析员工过早离职原因-约300行（相关性分析、变量分析、plotly可视化）/HR_comma_sep.csv"
+        },
+        {
+          "name": "left",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P28 / 职场-分析员工过早离职原因-约300行（相关性分析、变量分析、plotly可视化）/HR_comma_sep.csv"
+        },
+        {
+          "name": "promotion_last_5years",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P28 / 职场-分析员工过早离职原因-约300行（相关性分析、变量分析、plotly可视化）/HR_comma_sep.csv"
+        },
+        {
+          "name": "sales",
+          "dtype": "str",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P28 / 职场-分析员工过早离职原因-约300行（相关性分析、变量分析、plotly可视化）/HR_comma_sep.csv"
+        },
+        {
+          "name": "salary",
+          "dtype": "str",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P28 / 职场-分析员工过早离职原因-约300行（相关性分析、变量分析、plotly可视化）/HR_comma_sep.csv"
+        }
+      ],
+      "teachingMappings": []
+    }
+  ],
+  "scopeNotes": [],
+  "originalWorkflow": "数据检查→类别编码→在离职描述→相关→部门薪资工龄工时晋升对比→建议。",
+  "savedResult": "保存14999名员工的描述图；sales离职人数1014、technical697等为原输出描述。",
+  "sourceEvidence": [
+    "01_项目资产盘点.md#P28",
+    "03_完整学习路线.md#P28",
+    "附录B_全数据字段与缺失字典.md#P28"
+  ]
+}

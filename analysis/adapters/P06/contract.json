@@ -1,0 +1,118 @@
+{
+  "projectId": "P06",
+  "batch": "B",
+  "status": "available-content-open",
+  "lessonCount": 1,
+  "readySteps": 20,
+  "inputRefs": [
+    {
+      "path": "体育-数据可视化-约1300行（Pyecharts可视化）/120年奥运会数据可视化.ipynb",
+      "sha256": "a243bf8b64b54f72c20d9460defd492205efc3ed3d8fed718b6741e4ff752bdf"
+    },
+    {
+      "path": "体育-数据可视化-约1300行（Pyecharts可视化）/120年奥运会数据可视化.py",
+      "sha256": "73609f83edc275407ef08d11fec0cf717b59f3ba2435593f703ba2c608d2ebe2"
+    },
+    {
+      "path": "体育-数据可视化-约1300行（Pyecharts可视化）/athlete_events.csv",
+      "sha256": "e9f6b1fa97f40e0f071a6de640acb42dd7a100cad67e5e69cab630192fabb089"
+    },
+    {
+      "path": "体育-数据可视化-约1300行（Pyecharts可视化）/noc_regions.csv",
+      "sha256": "ce7f3c272a3d81d07acf5e5eba4cbba77501f9db25d820d862c60aaccf281906"
+    }
+  ],
+  "resources": [
+    "learning/resources/p06-v4-athletes.json",
+    "learning/resources/p06-v4-evidence-10.json",
+    "learning/resources/p06-v4-evidence-12.json",
+    "learning/resources/p06-v4-evidence-13.json",
+    "learning/resources/p06-v4-evidence-14.json",
+    "learning/resources/p06-v4-evidence-16.json",
+    "learning/resources/p06-v4-evidence-17.json",
+    "learning/resources/p06-v4-evidence-18.json",
+    "learning/resources/p06-v4-evidence-19.json",
+    "learning/resources/p06-v4-evidence-2.json",
+    "learning/resources/p06-v4-evidence-3.json",
+    "learning/resources/p06-v4-evidence-4.json",
+    "learning/resources/p06-v4-evidence-5.json",
+    "learning/resources/p06-v4-evidence-6.json",
+    "learning/resources/p06-v4-evidence-7.json",
+    "learning/resources/p06-v4-evidence-8.json",
+    "learning/resources/p06-v4-evidence-9.json",
+    "learning/resources/p06-v4-female.json",
+    "learning/resources/p06-v4-input-quality.json",
+    "learning/resources/p06-v4-medals.json",
+    "learning/resources/p06-v4-source-1.json",
+    "learning/resources/p06-v4-source-11.json",
+    "learning/resources/p06-v4-source-15.json"
+  ],
+  "transforms": [
+    {
+      "input": "体育-数据可视化-约1300行（Pyecharts可视化）/athlete_events.csv",
+      "sheet": null,
+      "readRows": 271116,
+      "columns": [
+        "ID",
+        "Name",
+        "Sex",
+        "Age",
+        "Height",
+        "Weight",
+        "Team",
+        "NOC",
+        "Games",
+        "Year",
+        "Season",
+        "City",
+        "Sport",
+        "Event",
+        "Medal"
+      ],
+      "missing": {
+        "ID": 0,
+        "Name": 0,
+        "Sex": 0,
+        "Age": 9474,
+        "Height": 60171,
+        "Weight": 62875,
+        "Team": 0,
+        "NOC": 0,
+        "Games": 0,
+        "Year": 0,
+        "Season": 0,
+        "City": 0,
+        "Sport": 0,
+        "Event": 0,
+        "Medal": 231333
+      },
+      "readerOptions": {}
+    },
+    {
+      "input": "体育-数据可视化-约1300行（Pyecharts可视化）/noc_regions.csv",
+      "sheet": null,
+      "readRows": 230,
+      "columns": [
+        "NOC",
+        "region",
+        "notes"
+      ],
+      "missing": {
+        "NOC": 0,
+        "region": 3,
+        "notes": 209
+      },
+      "readerOptions": {}
+    }
+  ],
+  "checks": {
+    "mergeRows": 271116,
+    "inputRows": 271116,
+    "nocUnique": true
+  },
+  "models": [],
+  "blocked": [],
+  "originalModelRerun": false,
+  "savedOutputIdentity": "original-saved; extraction time only; original execution time unknown",
+  "validation": "adapter assertions passed; schema/production/browser tracked separately"
+}

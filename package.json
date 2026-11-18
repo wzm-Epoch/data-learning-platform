@@ -1,0 +1,40 @@
+{
+  "name": "data-learning-platform",
+  "version": "0.6.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --config app/vite.config.ts --host 127.0.0.1 --port 5173 --strictPort",
+    "catalog": "node scripts/generate-catalog.mjs",
+    "typecheck": "tsc --noEmit",
+    "build": "npm run catalog && npm run typecheck && vite build --config app/vite.config.ts",
+    "start": "node scripts/serve.mjs",
+    "test": "node --test tests/catalog.test.mjs tests/phase2.test.mjs tests/phase3.test.mjs tests/phase4.test.mjs tests/phase4-review.test.mjs tests/phase5.test.mjs tests/phase6.test.mjs",
+    "verify:sources": "python scripts/verify-sources.py",
+    "test:production": "node --test tests/production.test.mjs tests/phase4-production.test.mjs tests/phase5-production.test.mjs tests/phase6-production.test.mjs",
+    "content:prepare": "python -X utf8 scripts/prepare-phase2.py",
+    "lessons:prepare": "python -X utf8 analysis/adapters/phase3.py",
+    "phase4:prepare": "python -X utf8 analysis/adapters/phase4.py",
+    "test:phase5": "node --test tests/phase5.test.mjs",
+    "phase6:prepare": "python -X utf8 analysis/adapters/phase6_review.py",
+    "audit:final": "node scripts/phase6-audit.mjs",
+    "check:final": "node scripts/final-checks.mjs"
+  },
+  "dependencies": {
+    "echarts": "6.1.0",
+    "lucide-react": "1.73.0",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "react-router-dom": "7.18.5",
+    "zod": "4.6.7"
+  },
+  "devDependencies": {
+    "@types/node": "26.6.6",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "@vitejs/plugin-react": "6.3.0",
+    "prettier": "3.10.1",
+    "typescript": "7.0.2",
+    "vite": "8.3.8"
+  }
+}

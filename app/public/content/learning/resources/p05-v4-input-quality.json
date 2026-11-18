@@ -1,0 +1,42 @@
+{
+  "schemaVersion": "1.0",
+  "id": "p05-v4-input-quality",
+  "title": "本项目各输入表的读取与质量核对",
+  "kind": "table",
+  "columns": [
+    "输入文件/工作表",
+    "读取行",
+    "列数",
+    "缺失单元格",
+    "完全重复行"
+  ],
+  "rows": [
+    [
+      "旅游景点.xlsx#Sheet1",
+      2443,
+      11,
+      1574,
+      0
+    ]
+  ],
+  "text": null,
+  "context": {
+    "identity": "new-precomputed",
+    "buildId": "phase4-v1",
+    "createdAt": "2026-11-16T12:58:37.389041+00:00",
+    "inputs": [
+      {
+        "path": "交通旅行-热门旅游景点数据分析与可视化-约300行（pandas数据处理、pyecharts可视化、jieba分词）/旅游景点.ipynb",
+        "sha256": "4ab8708fdc7c3f7f984c34f9b01447432de17eb6ac04cc753ca8cec760db7c2d"
+      },
+      {
+        "path": "交通旅行-热门旅游景点数据分析与可视化-约300行（pandas数据处理、pyecharts可视化、jieba分词）/旅游景点.xlsx",
+        "sha256": "cbecb48e3276d3a64fd37ceae4a2fe4352b14ebed6db3af49f6b713d4e9e2fdd"
+      }
+    ],
+    "note": "每张表分别统计；衍生表不当原始独立样本。人口多层表头在专属适配中另行解析。",
+    "unit": "行 / 列 / 单元格",
+    "sample": null,
+    "modelRerun": false
+  }
+}

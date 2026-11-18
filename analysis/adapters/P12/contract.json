@@ -1,0 +1,346 @@
+{
+  "projectId": "P12",
+  "batch": "B",
+  "status": "available-content-open",
+  "lessonCount": 1,
+  "readySteps": 23,
+  "inputRefs": [
+    {
+      "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/历年考研分数线数据可视化.ipynb",
+      "sha256": "c9831348a3ef1a14841eb4795a3c3fbee5ec366b73fda5fbdaaa6dc58d1e552e"
+    },
+    {
+      "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/历年考研分数线数据可视化.py",
+      "sha256": "bebb16f3fdf7b72aa7c3558d1481ce1dae8911bc60178b26589e7ad113dd1417"
+    },
+    {
+      "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/大学信息2021new.xlsx",
+      "sha256": "d818cb1ad3889fce546b37eea1ef9c9e2cc08b5b19317f0d42da29713d57629c"
+    },
+    {
+      "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(1).csv",
+      "sha256": "50c7796c19a865a3678ae923daf5eed10aaa6b321ce7b494278ad241b7b917d6"
+    },
+    {
+      "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(2).csv",
+      "sha256": "6bcddbf2cc251ea04020314c77f80866d6973eed098f2fb1da8bc01b8b2b6557"
+    },
+    {
+      "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(3).csv",
+      "sha256": "7543dd1beb75aea06f6ef7a3a1cedcce2cb624282d25b0a637c183ccd70b3b8d"
+    },
+    {
+      "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(4).csv",
+      "sha256": "30139bc9966041cfb5aa43f1fe1361a290c9c913d8823699bacca82228997e89"
+    },
+    {
+      "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(5).csv",
+      "sha256": "22bcf3325c35670271d2007faab97296abd98a216fbb77542d5c9ac326a683bb"
+    },
+    {
+      "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(6).csv",
+      "sha256": "87c5d0c9fa2cd3303086d8d1e0f83941e21d7525ae33a30d336f1ec67727d4e9"
+    },
+    {
+      "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研调剂数据-3.08.xlsx",
+      "sha256": "0318a005e1c31c90febfd4b86bda4908b512b35275154d44176cba8aed7e7d9a"
+    }
+  ],
+  "resources": [
+    "learning/assets/p12-cell36-0.png",
+    "learning/assets/p12-cell38-0.png",
+    "learning/resources/p12-v4-__-bff0b9e4.json",
+    "learning/resources/p12-v4-____-0bb76771.json",
+    "learning/resources/p12-v4-evidence-1.json",
+    "learning/resources/p12-v4-evidence-11.json",
+    "learning/resources/p12-v4-evidence-12.json",
+    "learning/resources/p12-v4-evidence-20.json",
+    "learning/resources/p12-v4-evidence-6.json",
+    "learning/resources/p12-v4-evidence-9.json",
+    "learning/resources/p12-v4-input-quality.json",
+    "learning/resources/p12-v4-join-audit.json",
+    "learning/resources/p12-v4-major.json",
+    "learning/resources/p12-v4-source-10.json",
+    "learning/resources/p12-v4-source-13-images.json",
+    "learning/resources/p12-v4-source-13.json",
+    "learning/resources/p12-v4-source-14.json",
+    "learning/resources/p12-v4-source-15.json",
+    "learning/resources/p12-v4-source-16.json",
+    "learning/resources/p12-v4-source-17.json",
+    "learning/resources/p12-v4-source-18.json",
+    "learning/resources/p12-v4-source-19.json",
+    "learning/resources/p12-v4-source-2.json",
+    "learning/resources/p12-v4-source-21.json",
+    "learning/resources/p12-v4-source-22.json",
+    "learning/resources/p12-v4-source-3.json",
+    "learning/resources/p12-v4-source-4.json",
+    "learning/resources/p12-v4-source-5.json",
+    "learning/resources/p12-v4-source-7.json",
+    "learning/resources/p12-v4-source-8.json"
+  ],
+  "transforms": [
+    {
+      "input": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(1).csv",
+      "sheet": null,
+      "readRows": 20000,
+      "columns": [
+        "年份",
+        "学校名称_链接",
+        "学校名称",
+        "院系名称_链接",
+        "院系名称",
+        "专业代码",
+        "专业名称_链接",
+        "专业名称",
+        "总分",
+        "政治__管综",
+        "外语",
+        "业务课_一",
+        "业务课_二"
+      ],
+      "missing": {
+        "年份": 0,
+        "学校名称_链接": 0,
+        "学校名称": 1,
+        "院系名称_链接": 0,
+        "院系名称": 55,
+        "专业代码": 1,
+        "专业名称_链接": 0,
+        "专业名称": 0,
+        "总分": 0,
+        "政治__管综": 0,
+        "外语": 0,
+        "业务课_一": 0,
+        "业务课_二": 0
+      },
+      "readerOptions": {}
+    },
+    {
+      "input": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(2).csv",
+      "sheet": null,
+      "readRows": 20000,
+      "columns": [
+        "年份",
+        "学校名称_链接",
+        "学校名称",
+        "院系名称_链接",
+        "院系名称",
+        "专业代码",
+        "专业名称_链接",
+        "专业名称",
+        "总分",
+        "政治__管综",
+        "外语",
+        "业务课_一",
+        "业务课_二"
+      ],
+      "missing": {
+        "年份": 0,
+        "学校名称_链接": 0,
+        "学校名称": 0,
+        "院系名称_链接": 0,
+        "院系名称": 49,
+        "专业代码": 0,
+        "专业名称_链接": 0,
+        "专业名称": 0,
+        "总分": 0,
+        "政治__管综": 0,
+        "外语": 0,
+        "业务课_一": 0,
+        "业务课_二": 0
+      },
+      "readerOptions": {}
+    },
+    {
+      "input": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(3).csv",
+      "sheet": null,
+      "readRows": 20000,
+      "columns": [
+        "年份",
+        "学校名称_链接",
+        "学校名称",
+        "院系名称_链接",
+        "院系名称",
+        "专业代码",
+        "专业名称_链接",
+        "专业名称",
+        "总分",
+        "政治__管综",
+        "外语",
+        "业务课_一",
+        "业务课_二"
+      ],
+      "missing": {
+        "年份": 0,
+        "学校名称_链接": 0,
+        "学校名称": 0,
+        "院系名称_链接": 0,
+        "院系名称": 9,
+        "专业代码": 0,
+        "专业名称_链接": 0,
+        "专业名称": 0,
+        "总分": 0,
+        "政治__管综": 0,
+        "外语": 0,
+        "业务课_一": 0,
+        "业务课_二": 0
+      },
+      "readerOptions": {}
+    },
+    {
+      "input": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(4).csv",
+      "sheet": null,
+      "readRows": 20000,
+      "columns": [
+        "年份",
+        "学校名称_链接",
+        "学校名称",
+        "院系名称_链接",
+        "院系名称",
+        "专业代码",
+        "专业名称_链接",
+        "专业名称",
+        "总分",
+        "政治__管综",
+        "外语",
+        "业务课_一",
+        "业务课_二"
+      ],
+      "missing": {
+        "年份": 0,
+        "学校名称_链接": 0,
+        "学校名称": 0,
+        "院系名称_链接": 0,
+        "院系名称": 21,
+        "专业代码": 0,
+        "专业名称_链接": 0,
+        "专业名称": 0,
+        "总分": 0,
+        "政治__管综": 0,
+        "外语": 0,
+        "业务课_一": 0,
+        "业务课_二": 0
+      },
+      "readerOptions": {}
+    },
+    {
+      "input": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(5).csv",
+      "sheet": null,
+      "readRows": 20000,
+      "columns": [
+        "年份",
+        "学校名称_链接",
+        "学校名称",
+        "院系名称_链接",
+        "院系名称",
+        "专业代码",
+        "专业名称_链接",
+        "专业名称",
+        "总分",
+        "政治__管综",
+        "外语",
+        "业务课_一",
+        "业务课_二"
+      ],
+      "missing": {
+        "年份": 0,
+        "学校名称_链接": 0,
+        "学校名称": 0,
+        "院系名称_链接": 0,
+        "院系名称": 5,
+        "专业代码": 99,
+        "专业名称_链接": 0,
+        "专业名称": 0,
+        "总分": 0,
+        "政治__管综": 0,
+        "外语": 0,
+        "业务课_一": 0,
+        "业务课_二": 0
+      },
+      "readerOptions": {}
+    },
+    {
+      "input": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(6).csv",
+      "sheet": null,
+      "readRows": 864,
+      "columns": [
+        "年份",
+        "学校名称_链接",
+        "学校名称",
+        "院系名称_链接",
+        "院系名称",
+        "专业代码",
+        "专业名称_链接",
+        "专业名称",
+        "总分",
+        "政治__管综",
+        "外语",
+        "业务课_一",
+        "业务课_二"
+      ],
+      "missing": {
+        "年份": 0,
+        "学校名称_链接": 0,
+        "学校名称": 0,
+        "院系名称_链接": 0,
+        "院系名称": 0,
+        "专业代码": 3,
+        "专业名称_链接": 0,
+        "专业名称": 0,
+        "总分": 0,
+        "政治__管综": 0,
+        "外语": 0,
+        "业务课_一": 0,
+        "业务课_二": 0
+      },
+      "readerOptions": {}
+    },
+    {
+      "input": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/大学信息2021new.xlsx",
+      "sheet": "Sheet1",
+      "readRows": 747,
+      "columns": [
+        "school",
+        "school_type",
+        "school_attr",
+        "province"
+      ],
+      "missing": {
+        "school": 0,
+        "school_type": 219,
+        "school_attr": 216,
+        "province": 0
+      },
+      "readerOptions": {}
+    },
+    {
+      "input": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研调剂数据-3.08.xlsx",
+      "sheet": "Sheet1",
+      "readRows": 747,
+      "columns": [
+        "school",
+        "name",
+        "title",
+        "url",
+        "time"
+      ],
+      "missing": {
+        "school": 0,
+        "name": 10,
+        "title": 0,
+        "url": 0,
+        "time": 0
+      },
+      "readerOptions": {}
+    }
+  ],
+  "checks": {
+    "raw": 100864,
+    "clean": 100563
+  },
+  "models": [],
+  "blocked": [],
+  "originalModelRerun": false,
+  "savedOutputIdentity": "original-saved; extraction time only; original execution time unknown",
+  "validation": "adapter assertions passed; schema/production/browser tracked separately"
+}

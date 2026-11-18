@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1.0",
+  "id": "p24-v4-source-14",
+  "title": "原单元81—83保存输出",
+  "kind": "text",
+  "columns": [],
+  "rows": [],
+  "text": "原单元81\nLinearRegression()\n\n原单元82\n945.0664751321227\n352.6020358581733\n\n\n原单元83\n                            OLS Regression Results                            \n==============================================================================\nDep. Variable:                      y   R-squared:                       0.031\nModel:                            OLS   Adj. R-squared:                  0.031\nMethod:                 Least Squares   F-statistic:                     238.2\nDate:                Mon, 12 Jun 2023   Prob (F-statistic):          1.07e-201\nTime:                        01:01:20   Log-Likelihood:            -2.4357e+05\nNo. Observations:               29452   AIC:                         4.872e+05\nDf Residuals:                   29447   BIC:                         4.872e+05\nDf Model:                           4                                         \nCovariance Type:            nonrobust                                         \n==============================================================================\n                 coef    std err          t      P>|t|      [0.025      0.975]\n------------------------------------------------------------------------------\nIntercept    186.8375     12.038     15.521      0.000     163.243     210.432\nx[0]           0.0684      0.002     28.933      0.000       0.064       0.073\nx[1]          62.6521     27.177      2.305      0.021       9.383     115.921\nx[2]           8.9856      1.084      8.286      0.000       6.860      11.111\nx[3]         -31.0249     15.268     -2.032      0.042     -60.951      -1.099\n==============================================================================\nOmnibus:                    96681.439   Durbin-Watson:                   1.966\nProb(Omnibus):                  0.000   Jarque-Bera (JB):      35177656558.902\nSkew:                          56.085   Prob(JB):                         0.00\nKurtosis:                    5355.866   Cond. No.                     1.65e+04\n==============================================================================\n\nNotes:\n[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.\n[2] The condition number is large, 1.65e+04. This might indicate that there are\nstrong multicollinearity or other numerical problems.\n",
+  "context": {
+    "identity": "original-saved",
+    "buildId": "phase4-v1",
+    "createdAt": "2026-11-16T12:58:37.389041+00:00",
+    "inputs": [
+      {
+        "path": "电商-预测用户消费金额-约500行（线性回归模型、模型评估优化）/小红书.ipynb",
+        "sha256": "40650aad9a7d0c531e29b850ac54b77f0e60ad578779d9023c0838ec9163c3ec"
+      },
+      {
+        "path": "电商-预测用户消费金额-约500行（线性回归模型、模型评估优化）/小红书.py",
+        "sha256": "4dc9d8c79cb86e56964ec4588092499050c552333390a33e6dd1f2d50dc18cbb"
+      },
+      {
+        "path": "电商-预测用户消费金额-约500行（线性回归模型、模型评估优化）/redNew.csv",
+        "sha256": "e1a086141c06fc04ec3a4584b962a486ea270986255a9afeab463beda6727ece"
+      }
+    ],
+    "note": "逐单元只读提取原文本；原运行时间未知，本次时间仅为提取时间。",
+    "unit": "原字段单位；未核实单位不补填",
+    "sample": null,
+    "modelRerun": false
+  }
+}

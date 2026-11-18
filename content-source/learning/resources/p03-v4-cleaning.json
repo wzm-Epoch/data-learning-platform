@@ -1,0 +1,52 @@
+{
+  "schemaVersion": "1.0",
+  "id": "p03-v4-cleaning",
+  "title": "原表与原附清洗表的行数差",
+  "kind": "table",
+  "columns": [
+    "表",
+    "行数"
+  ],
+  "rows": [
+    [
+      "原表",
+      62988
+    ],
+    [
+      "原附清洗表",
+      62044
+    ],
+    [
+      "差额",
+      944
+    ]
+  ],
+  "text": null,
+  "context": {
+    "identity": "teaching-adaptation",
+    "buildId": "phase4-v1",
+    "createdAt": "2026-11-16T12:58:37.389041+00:00",
+    "inputs": [
+      {
+        "path": "交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/航空公司客户价值分析.ipynb",
+        "sha256": "bd72cf9fd918950642968c14f6021b77caeef58df86b4df65564c546279bbbb8"
+      },
+      {
+        "path": "交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/data/air_data.csv",
+        "sha256": "afcba77fc852376966a1026c4d991323b0e7cd7f26bdc975582080a93b6161eb"
+      },
+      {
+        "path": "交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/tmp/data_cleaned.csv",
+        "sha256": "e3455c8ebab78f5bf4e3972761783fd0e6fe33a47d9344d94a62f017deda8fe3"
+      },
+      {
+        "path": "交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/tmp/data_stand.csv",
+        "sha256": "6cf52be39fe13b24ffe49abbfe090f5240e98023adb5947c0f7d5c20364736f8"
+      }
+    ],
+    "note": "只读比较原附表，完整清洗规则见原单元8；不声称仅靠行数证明逐行一致。",
+    "unit": "行",
+    "sample": null,
+    "modelRerun": false
+  }
+}

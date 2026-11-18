@@ -1,0 +1,183 @@
+{
+  "projectId": "P07",
+  "batch": "E",
+  "status": "partial-source-gaps",
+  "lessonCount": 1,
+  "readySteps": 4,
+  "inputRefs": [
+    {
+      "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/1_1.jpg",
+      "sha256": "d48f6cc1eba2b2970fc66732ff6a8687decb6ee051546a3110f261cb8e2beab7"
+    },
+    {
+      "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/1_10.jpg",
+      "sha256": "b7e30758c066a8de1792f09a01b48e21cd08c66739ada83882924cdb2af85f47"
+    },
+    {
+      "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/1_11.jpg",
+      "sha256": "1716dd10a17a80c752b8eed57714fc3e1f9e40657afd883d43739b13c28ebebb"
+    },
+    {
+      "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/moment.csv",
+      "sha256": "99c91f5cd8b38c6867e03d922dab7abedb4ddb2fb3cd68b37c5774637b2c13dc"
+    },
+    {
+      "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/picData.xlsx",
+      "sha256": "61a56aa27ed02bc2820133c989c70c88102424de8f9529a2e6658a3ee0f541dc"
+    },
+    {
+      "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/test.xlsx",
+      "sha256": "246a6f8888d6c39461beafa86a8ebb53a44739cbd76bb3b057d7c51836973f26"
+    },
+    {
+      "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/train.xlsx",
+      "sha256": "86cf5cc2c929b8581d1ab5178eef029fbf14d109420cdd1f4a216f3f13ef2799"
+    },
+    {
+      "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/基于水色图像的水质评估.ipynb",
+      "sha256": "57b74242352e27f5f5d047334e5c845781e17b898cec79b0783e352a5f38e480"
+    }
+  ],
+  "resources": [
+    "learning/assets/p07-source-0.png",
+    "learning/assets/p07-source-1.png",
+    "learning/assets/p07-source-2.png",
+    "learning/resources/p07-v4-__-0d12cbd6.json",
+    "learning/resources/p07-v4-input-quality.json",
+    "learning/resources/p07-v4-moments.json",
+    "learning/resources/p07-v4-photos.json",
+    "learning/resources/p07-v4-source-1.json",
+    "learning/resources/p07-v4-source-2.json",
+    "learning/resources/p07-v4-source-3.json",
+    "learning/resources/p07-v4-test-matrix.json",
+    "learning/resources/p07-v4-train-matrix.json"
+  ],
+  "transforms": [
+    {
+      "input": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/moment.csv",
+      "sheet": null,
+      "readRows": 203,
+      "columns": [
+        "类别",
+        "序号",
+        "R通道一阶矩",
+        "G通道一阶矩",
+        "B通道一阶矩",
+        "R通道二阶矩",
+        "G通道二阶矩",
+        "B通道二阶矩",
+        "R通道三阶矩",
+        "G通道三阶矩",
+        "B通道三阶矩"
+      ],
+      "missing": {
+        "类别": 0,
+        "序号": 0,
+        "R通道一阶矩": 0,
+        "G通道一阶矩": 0,
+        "B通道一阶矩": 0,
+        "R通道二阶矩": 0,
+        "G通道二阶矩": 0,
+        "B通道二阶矩": 0,
+        "R通道三阶矩": 0,
+        "G通道三阶矩": 0,
+        "B通道三阶矩": 0
+      },
+      "readerOptions": {}
+    },
+    {
+      "input": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/train.xlsx",
+      "sheet": "Sheet1",
+      "readRows": 5,
+      "columns": [
+        "Unnamed: 0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "missing": {
+        "Unnamed: 0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0
+      },
+      "readerOptions": {}
+    },
+    {
+      "input": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/test.xlsx",
+      "sheet": "Sheet1",
+      "readRows": 5,
+      "columns": [
+        "Unnamed: 0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "missing": {
+        "Unnamed: 0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0
+      },
+      "readerOptions": {}
+    },
+    {
+      "input": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/picData.xlsx",
+      "sheet": "Sheet1",
+      "readRows": 203,
+      "columns": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "type"
+      ],
+      "missing": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "type": 0
+      },
+      "readerOptions": {}
+    }
+  ],
+  "checks": {
+    "features": 203,
+    "photos": 199,
+    "missing": [
+      "1_42.jpg",
+      "2_38.jpg",
+      "3_10.jpg",
+      "3_11.jpg"
+    ]
+  },
+  "models": [],
+  "blocked": [
+    {
+      "step": "全量图像到moment特征端到端",
+      "reason": "203行特征仅附199图；缺失1_42.jpg,2_38.jpg,3_10.jpg,3_11.jpg；两特征支路未证实一一对应"
+    }
+  ],
+  "originalModelRerun": false,
+  "savedOutputIdentity": "original-saved; extraction time only; original execution time unknown",
+  "validation": "adapter assertions passed; schema/production/browser tracked separately"
+}

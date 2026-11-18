@@ -1,0 +1,25 @@
+
+> data-learning-platform@0.6.0 test:production
+> node --test tests/production.test.mjs tests/phase4-production.test.mjs tests/phase5-production.test.mjs tests/phase6-production.test.mjs
+
+Active resources checked via loopback 682 including PNG 128
+✔ all active result and original PNG bytes match the served build manifest (9883.6348ms)
+Emitted JS/CSS chunks verified 7
+✔ every emitted JS/CSS chunk is local and reachable including the lazy chart engine (63.0403ms)
+✔ formal origin serves versioned progress manifest with local valid stable IDs (34.0783ms)
+✔ temporary fault injection pages excluded from final delivery (23.8993ms)
+✔ final distribution excludes all phase6 instrumentation and phase5 fault helpers (69.569ms)
+✔ current published course has real saved P14 matrix with exact provenance and current metadata (6.8791ms)
+Local assets verified: 6
+✔ production serves HTML, CSS, JS modules and catalog via loopback only (112.2368ms)
+✔ occupied port exits with explicit error instead of switching origin (81.6441ms)
+✔ all 29 production project packages and knowledge index resolve by stable references (435.7319ms)
+✔ all production learning lessons and ready-step result files are accessible (8295.6453ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 10
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 15021.8386

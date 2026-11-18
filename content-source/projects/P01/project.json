@@ -1,0 +1,374 @@
+{
+  "id": "P01",
+  "title": "信用卡欺诈交易预测",
+  "originalNames": [
+    "交易预测-约600行（EDA数据探索、逻辑回归、决策树、模型调参、模型评估）",
+    "信用卡欺诈交易预测.ipynb"
+  ],
+  "categoryId": "risk",
+  "summary": "识别信用卡交易中的欺诈样本，比较采样及类别权重方案。",
+  "difficulty": "高级",
+  "skillTags": [
+    "Pandas",
+    "NumPy",
+    "EDA",
+    "Plotly",
+    "Matplotlib",
+    "特征缩放",
+    "类别不平衡",
+    "逻辑回归",
+    "决策树",
+    "网格搜索",
+    "模型评估"
+  ],
+  "methods": "LogisticRegression、DecisionTreeClassifier；RandomOverSampler、SMOTE、SMOTETomek",
+  "sourceRefs": [
+    {
+      "path": "交易预测-约600行（EDA数据探索、逻辑回归、决策树、模型调参、模型评估）/.ipynb_checkpoints/信用卡欺诈交易预测-checkpoint.ipynb",
+      "sha256": "eb6889e92c8d196892da1b3b80727fc9bf1ba21f8d751f5515c99b6cea182b34",
+      "role": "code"
+    },
+    {
+      "path": "交易预测-约600行（EDA数据探索、逻辑回归、决策树、模型调参、模型评估）/creditcardfraud.csv",
+      "sha256": "76274b691b16a6c49d3f159c883398e03ccd6d1ee12d9d8ee38f4b4b98551a89",
+      "role": "data"
+    },
+    {
+      "path": "交易预测-约600行（EDA数据探索、逻辑回归、决策树、模型调参、模型评估）/信用卡欺诈交易预测.html",
+      "sha256": "af0111ffb9199e158aad9b8765afef779d44233cdb045fc999a208538a3b7f6b",
+      "role": "output"
+    },
+    {
+      "path": "交易预测-约600行（EDA数据探索、逻辑回归、决策树、模型调参、模型评估）/信用卡欺诈交易预测.ipynb",
+      "sha256": "b84b7a8568ec364841c8cf8ff81a79addfdd1ebb39eefd6b8dd5c77bd3a5684f",
+      "role": "code"
+    },
+    {
+      "path": "交易预测-约600行（EDA数据探索、逻辑回归、决策树、模型调参、模型评估）/信用卡欺诈交易预测.py",
+      "sha256": "1b2bc2e44354a2e9a8c37d5a260f6b77c00f305d8f9f1eb18ebda4957092e20e",
+      "role": "code"
+    }
+  ],
+  "limitations": [
+    "缩放在全量数据上拟合；过采样后再做内部CV有泄漏风险；多处ROC/AUC用硬标签，不能作为完整概率排序AUC；不能把不平衡直接等同于过拟合。"
+  ],
+  "lessons": [
+    {
+      "id": "main-analysis",
+      "title": "信用卡欺诈交易预测",
+      "source": "交易预测-约600行（EDA数据探索、逻辑回归、决策树、模型调参、模型评估）/信用卡欺诈交易预测.ipynb"
+    }
+  ],
+  "readiness": {
+    "source": "audited",
+    "course": "not-adapted",
+    "rerun": "not-run",
+    "offline": "not-packaged"
+  },
+  "detailRef": "projects/P01/project.json",
+  "searchKeywords": [
+    "识别少数类与业务代价",
+    "核对PCA匿名字段",
+    "观察金额和时间分布",
+    "追踪缩放和采样边界",
+    "比较采样及权重",
+    "审查ROC输入",
+    "总结漏报误报"
+  ],
+  "prerequisites": "分类、概率、分层划分、交叉验证、混淆矩阵。",
+  "recommendedProjectIds": [
+    "P23",
+    "P04"
+  ],
+  "recommendationNote": "P23、P04。",
+  "schemaVersion": "1.0",
+  "contentVersion": "0.2.0",
+  "learningObjectives": [
+    "识别信用卡交易中的欺诈样本，比较采样及类别权重方案。 重点掌握Pandas、NumPy、EDA、Plotly、Matplotlib、特征缩放、类别不平衡、逻辑回归、决策树、网格搜索、模型评估。",
+    "识别少数类与业务代价",
+    "核对PCA匿名字段",
+    "观察金额和时间分布",
+    "追踪缩放和采样边界",
+    "比较采样及权重",
+    "审查ROC输入",
+    "总结漏报误报"
+  ],
+  "exercise": {
+    "text": "从保存混淆矩阵计算Recall；设计只在训练折采样的改进实验。",
+    "provenance": "已批准路线中新设计的巩固练习；非原文件已有试题",
+    "answerStatus": "参考答案尚未制作"
+  },
+  "datasets": [
+    {
+      "id": "D01-1",
+      "path": "交易预测-约600行（EDA数据探索、逻辑回归、决策树、模型调参、模型评估）/creditcardfraud.csv",
+      "sha256": "76274b691b16a6c49d3f159c883398e03ccd6d1ee12d9d8ee38f4b4b98551a89",
+      "sheet": null,
+      "rows": 284807,
+      "columns": 31,
+      "encoding": "utf-8-sig",
+      "grain": "待核实；读取行数不等于独立业务实体数",
+      "origin": null,
+      "license": null,
+      "fields": [
+        {
+          "name": "Time",
+          "dtype": "float64",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P01 / 交易预测-约600行（EDA数据探索、逻辑回归、决策树、模型调参、模型评估）/creditcardfraud.csv"
+        },
+        {
+          "name": "V1",
+          "dtype": "float64",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P01 / 交易预测-约600行（EDA数据探索、逻辑回归、决策树、模型调参、模型评估）/creditcardfraud.csv"
+        },
+        {
+          "name": "V2",
+          "dtype": "float64",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P01 / 交易预测-约600行（EDA数据探索、逻辑回归、决策树、模型调参、模型评估）/creditcardfraud.csv"
+        },
+        {
+          "name": "V3",
+          "dtype": "float64",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P01 / 交易预测-约600行（EDA数据探索、逻辑回归、决策树、模型调参、模型评估）/creditcardfraud.csv"
+        },
+        {
+          "name": "V4",
+          "dtype": "float64",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P01 / 交易预测-约600行（EDA数据探索、逻辑回归、决策树、模型调参、模型评估）/creditcardfraud.csv"
+        },
+        {
+          "name": "V5",
+          "dtype": "float64",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P01 / 交易预测-约600行（EDA数据探索、逻辑回归、决策树、模型调参、模型评估）/creditcardfraud.csv"
+        },
+        {
+          "name": "V6",
+          "dtype": "float64",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P01 / 交易预测-约600行（EDA数据探索、逻辑回归、决策树、模型调参、模型评估）/creditcardfraud.csv"
+        },
+        {
+          "name": "V7",
+          "dtype": "float64",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P01 / 交易预测-约600行（EDA数据探索、逻辑回归、决策树、模型调参、模型评估）/creditcardfraud.csv"
+        },
+        {
+          "name": "V8",
+          "dtype": "float64",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P01 / 交易预测-约600行（EDA数据探索、逻辑回归、决策树、模型调参、模型评估）/creditcardfraud.csv"
+        },
+        {
+          "name": "V9",
+          "dtype": "float64",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P01 / 交易预测-约600行（EDA数据探索、逻辑回归、决策树、模型调参、模型评估）/creditcardfraud.csv"
+        },
+        {
+          "name": "V10",
+          "dtype": "float64",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P01 / 交易预测-约600行（EDA数据探索、逻辑回归、决策树、模型调参、模型评估）/creditcardfraud.csv"
+        },
+        {
+          "name": "V11",
+          "dtype": "float64",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P01 / 交易预测-约600行（EDA数据探索、逻辑回归、决策树、模型调参、模型评估）/creditcardfraud.csv"
+        },
+        {
+          "name": "V12",
+          "dtype": "float64",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P01 / 交易预测-约600行（EDA数据探索、逻辑回归、决策树、模型调参、模型评估）/creditcardfraud.csv"
+        },
+        {
+          "name": "V13",
+          "dtype": "float64",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P01 / 交易预测-约600行（EDA数据探索、逻辑回归、决策树、模型调参、模型评估）/creditcardfraud.csv"
+        },
+        {
+          "name": "V14",
+          "dtype": "float64",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P01 / 交易预测-约600行（EDA数据探索、逻辑回归、决策树、模型调参、模型评估）/creditcardfraud.csv"
+        },
+        {
+          "name": "V15",
+          "dtype": "float64",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P01 / 交易预测-约600行（EDA数据探索、逻辑回归、决策树、模型调参、模型评估）/creditcardfraud.csv"
+        },
+        {
+          "name": "V16",
+          "dtype": "float64",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P01 / 交易预测-约600行（EDA数据探索、逻辑回归、决策树、模型调参、模型评估）/creditcardfraud.csv"
+        },
+        {
+          "name": "V17",
+          "dtype": "float64",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P01 / 交易预测-约600行（EDA数据探索、逻辑回归、决策树、模型调参、模型评估）/creditcardfraud.csv"
+        },
+        {
+          "name": "V18",
+          "dtype": "float64",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P01 / 交易预测-约600行（EDA数据探索、逻辑回归、决策树、模型调参、模型评估）/creditcardfraud.csv"
+        },
+        {
+          "name": "V19",
+          "dtype": "float64",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P01 / 交易预测-约600行（EDA数据探索、逻辑回归、决策树、模型调参、模型评估）/creditcardfraud.csv"
+        },
+        {
+          "name": "V20",
+          "dtype": "float64",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P01 / 交易预测-约600行（EDA数据探索、逻辑回归、决策树、模型调参、模型评估）/creditcardfraud.csv"
+        },
+        {
+          "name": "V21",
+          "dtype": "float64",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P01 / 交易预测-约600行（EDA数据探索、逻辑回归、决策树、模型调参、模型评估）/creditcardfraud.csv"
+        },
+        {
+          "name": "V22",
+          "dtype": "float64",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P01 / 交易预测-约600行（EDA数据探索、逻辑回归、决策树、模型调参、模型评估）/creditcardfraud.csv"
+        },
+        {
+          "name": "V23",
+          "dtype": "float64",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P01 / 交易预测-约600行（EDA数据探索、逻辑回归、决策树、模型调参、模型评估）/creditcardfraud.csv"
+        },
+        {
+          "name": "V24",
+          "dtype": "float64",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P01 / 交易预测-约600行（EDA数据探索、逻辑回归、决策树、模型调参、模型评估）/creditcardfraud.csv"
+        },
+        {
+          "name": "V25",
+          "dtype": "float64",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P01 / 交易预测-约600行（EDA数据探索、逻辑回归、决策树、模型调参、模型评估）/creditcardfraud.csv"
+        },
+        {
+          "name": "V26",
+          "dtype": "float64",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P01 / 交易预测-约600行（EDA数据探索、逻辑回归、决策树、模型调参、模型评估）/creditcardfraud.csv"
+        },
+        {
+          "name": "V27",
+          "dtype": "float64",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P01 / 交易预测-约600行（EDA数据探索、逻辑回归、决策树、模型调参、模型评估）/creditcardfraud.csv"
+        },
+        {
+          "name": "V28",
+          "dtype": "float64",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P01 / 交易预测-约600行（EDA数据探索、逻辑回归、决策树、模型调参、模型评估）/creditcardfraud.csv"
+        },
+        {
+          "name": "Amount",
+          "dtype": "float64",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P01 / 交易预测-约600行（EDA数据探索、逻辑回归、决策树、模型调参、模型评估）/creditcardfraud.csv"
+        },
+        {
+          "name": "Class",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P01 / 交易预测-约600行（EDA数据探索、逻辑回归、决策树、模型调参、模型评估）/creditcardfraud.csv"
+        }
+      ],
+      "teachingMappings": []
+    }
+  ],
+  "scopeNotes": [],
+  "originalWorkflow": "交易分布→缩放→分层切分→三种采样→逻辑回归调参→权重调整→决策树→评估。",
+  "savedResult": "原保存输出：284807笔中492笔欺诈；加权逻辑回归Recall约0.797、Precision约0.756。",
+  "sourceEvidence": [
+    "01_项目资产盘点.md#P01",
+    "03_完整学习路线.md#P01",
+    "附录B_全数据字段与缺失字典.md#P01"
+  ]
+}

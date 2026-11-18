@@ -1,0 +1,35 @@
+{
+  "createdAt": "2026-11-17T10:13:49.825Z",
+  "results": [
+    {
+      "name": "build",
+      "exitCode": 0,
+      "elapsedMs": 5046,
+      "log": "docs/acceptance/logs/build.txt"
+    },
+    {
+      "name": "tests",
+      "exitCode": 0,
+      "elapsedMs": 4467,
+      "log": "docs/acceptance/logs/tests.txt"
+    },
+    {
+      "name": "production",
+      "exitCode": 0,
+      "elapsedMs": 15299,
+      "log": "docs/acceptance/logs/production.txt"
+    },
+    {
+      "name": "source-integrity",
+      "exitCode": 0,
+      "elapsedMs": 20096,
+      "log": "docs/acceptance/logs/source-integrity.txt"
+    },
+    {
+      "name": "content-audit",
+      "exitCode": 0,
+      "elapsedMs": 1118,
+      "log": "docs/acceptance/logs/content-audit.txt"
+    }
+  ]
+}

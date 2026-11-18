@@ -1,0 +1,213 @@
+{
+  "id": "P11",
+  "title": "链家二手房数据分析",
+  "originalNames": [
+    "房地产-二手房数据分析-约400行（数据探索分析、matplotlib可视化）",
+    "链家二手房数据分析.ipynb"
+  ],
+  "categoryId": "property",
+  "summary": "用深圳二手房样本完成异常核对和多维度描述分析。",
+  "difficulty": "入门",
+  "skillTags": [
+    "Pandas",
+    "NumPy",
+    "Matplotlib",
+    "数据清洗",
+    "EDA",
+    "分组统计"
+  ],
+  "methods": "没有预测模型",
+  "sourceRefs": [
+    {
+      "path": "房地产-二手房数据分析-约400行（数据探索分析、matplotlib可视化）/.ipynb_checkpoints/链家二手房数据分析-checkpoint.ipynb",
+      "sha256": "acad26c9cb4fa911fd8a0eaaf3ff393fbfa191134bb6f75745a0ff455d59a384",
+      "role": "code"
+    },
+    {
+      "path": "房地产-二手房数据分析-约400行（数据探索分析、matplotlib可视化）/shenzhen.csv",
+      "sha256": "607ca9622c8f38317738c7c401e81b88533137862db0cb50455b0a818da85a22",
+      "role": "data"
+    },
+    {
+      "path": "房地产-二手房数据分析-约400行（数据探索分析、matplotlib可视化）/链家二手房数据分析.html",
+      "sha256": "eac876b053b2cca77eaa339d83e7462a3a1f81f5593a2146841ce7d904259389",
+      "role": "output"
+    },
+    {
+      "path": "房地产-二手房数据分析-约400行（数据探索分析、matplotlib可视化）/链家二手房数据分析.ipynb",
+      "sha256": "acad26c9cb4fa911fd8a0eaaf3ff393fbfa191134bb6f75745a0ff455d59a384",
+      "role": "code"
+    }
+  ],
+  "limitations": [
+    "均价、样本供给分布不能解释购房偏好或因果；原文含700百万等单位错误；为历史样本，不能当当前购房建议。"
+  ],
+  "lessons": [
+    {
+      "id": "main-analysis",
+      "title": "链家二手房数据分析",
+      "source": "房地产-二手房数据分析-约400行（数据探索分析、matplotlib可视化）/链家二手房数据分析.ipynb"
+    }
+  ],
+  "readiness": {
+    "source": "audited",
+    "course": "not-adapted",
+    "rerun": "not-run",
+    "offline": "not-packaged"
+  },
+  "detailRef": "projects/P11/project.json",
+  "searchKeywords": [
+    "认识挂牌样本",
+    "读取12列",
+    "调查10871平方米异常",
+    "按区域统计",
+    "比较户型装修朝向",
+    "观察面积与总价",
+    "写有限结论"
+  ],
+  "prerequisites": "Python变量与列表、CSV读取、均值与比例。",
+  "recommendedProjectIds": [
+    "P21"
+  ],
+  "recommendationNote": "P21。",
+  "schemaVersion": "1.0",
+  "contentVersion": "0.2.0",
+  "learningObjectives": [
+    "用深圳二手房样本完成异常核对和多维度描述分析。 重点掌握Pandas、NumPy、Matplotlib、数据清洗、EDA、分组统计。",
+    "认识挂牌样本",
+    "读取12列",
+    "调查10871平方米异常",
+    "按区域统计",
+    "比较户型装修朝向",
+    "观察面积与总价",
+    "写有限结论"
+  ],
+  "exercise": {
+    "text": "比较剔除异常前后面积均值；把“导致”改写为数据支持的关系描述。",
+    "provenance": "已批准路线中新设计的巩固练习；非原文件已有试题",
+    "answerStatus": "课程内已提供提示与核对清单，采用自评，不自动判卷"
+  },
+  "datasets": [
+    {
+      "id": "D01-1",
+      "path": "房地产-二手房数据分析-约400行（数据探索分析、matplotlib可视化）/shenzhen.csv",
+      "sha256": "607ca9622c8f38317738c7c401e81b88533137862db0cb50455b0a818da85a22",
+      "sheet": null,
+      "rows": 18907,
+      "columns": 12,
+      "encoding": "utf-8-sig",
+      "grain": "待核实；读取行数不等于独立业务实体数",
+      "origin": null,
+      "license": null,
+      "fields": [
+        {
+          "name": "Unnamed: 0",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P11 / 房地产-二手房数据分析-约400行（数据探索分析、matplotlib可视化）/shenzhen.csv"
+        },
+        {
+          "name": "area",
+          "dtype": "str",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P11 / 房地产-二手房数据分析-约400行（数据探索分析、matplotlib可视化）/shenzhen.csv"
+        },
+        {
+          "name": "title",
+          "dtype": "str",
+          "missing": 8,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P11 / 房地产-二手房数据分析-约400行（数据探索分析、matplotlib可视化）/shenzhen.csv"
+        },
+        {
+          "name": "community",
+          "dtype": "str",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P11 / 房地产-二手房数据分析-约400行（数据探索分析、matplotlib可视化）/shenzhen.csv"
+        },
+        {
+          "name": "position",
+          "dtype": "str",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P11 / 房地产-二手房数据分析-约400行（数据探索分析、matplotlib可视化）/shenzhen.csv"
+        },
+        {
+          "name": "tax",
+          "dtype": "str",
+          "missing": 8196,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P11 / 房地产-二手房数据分析-约400行（数据探索分析、matplotlib可视化）/shenzhen.csv"
+        },
+        {
+          "name": "total_price",
+          "dtype": "float64",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P11 / 房地产-二手房数据分析-约400行（数据探索分析、matplotlib可视化）/shenzhen.csv"
+        },
+        {
+          "name": "unit_price",
+          "dtype": "float64",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P11 / 房地产-二手房数据分析-约400行（数据探索分析、matplotlib可视化）/shenzhen.csv"
+        },
+        {
+          "name": "hourseType",
+          "dtype": "str",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P11 / 房地产-二手房数据分析-约400行（数据探索分析、matplotlib可视化）/shenzhen.csv"
+        },
+        {
+          "name": "hourseSize",
+          "dtype": "float64",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P11 / 房地产-二手房数据分析-约400行（数据探索分析、matplotlib可视化）/shenzhen.csv"
+        },
+        {
+          "name": "direction",
+          "dtype": "str",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P11 / 房地产-二手房数据分析-约400行（数据探索分析、matplotlib可视化）/shenzhen.csv"
+        },
+        {
+          "name": "fitment",
+          "dtype": "str",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P11 / 房地产-二手房数据分析-约400行（数据探索分析、matplotlib可视化）/shenzhen.csv"
+        }
+      ],
+      "teachingMappings": []
+    }
+  ],
+  "scopeNotes": [
+    "P09与P11的深圳表存在title差异，分别保留原路径与哈希，不能直接覆盖为同一版本。"
+  ],
+  "originalWorkflow": "读表→异常调查→18907到18906→房源结构→区域/地段均价→面积总价→总结。",
+  "savedResult": "原保存剔除1条异常；南山区均价较高、坪山区较低；房屋面积与总价呈正向关系。",
+  "sourceEvidence": [
+    "01_项目资产盘点.md#P11",
+    "03_完整学习路线.md#P11",
+    "附录B_全数据字段与缺失字典.md#P11"
+  ]
+}

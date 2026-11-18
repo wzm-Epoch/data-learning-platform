@@ -1,0 +1,3122 @@
+[
+  {
+    "id": "P01",
+    "title": "信用卡欺诈交易预测",
+    "originalNames": [
+      "交易预测-约600行（EDA数据探索、逻辑回归、决策树、模型调参、模型评估）",
+      "信用卡欺诈交易预测.ipynb"
+    ],
+    "categoryId": "risk",
+    "summary": "识别信用卡交易中的欺诈样本，比较采样及类别权重方案。",
+    "difficulty": "高级",
+    "skillTags": [
+      "Pandas",
+      "NumPy",
+      "EDA",
+      "Plotly",
+      "Matplotlib",
+      "特征缩放",
+      "类别不平衡",
+      "逻辑回归",
+      "决策树",
+      "网格搜索",
+      "模型评估"
+    ],
+    "methods": "LogisticRegression、DecisionTreeClassifier；RandomOverSampler、SMOTE、SMOTETomek",
+    "sourceRefs": [
+      {
+        "path": "交易预测-约600行（EDA数据探索、逻辑回归、决策树、模型调参、模型评估）/.ipynb_checkpoints/信用卡欺诈交易预测-checkpoint.ipynb",
+        "sha256": "eb6889e92c8d196892da1b3b80727fc9bf1ba21f8d751f5515c99b6cea182b34",
+        "role": "code"
+      },
+      {
+        "path": "交易预测-约600行（EDA数据探索、逻辑回归、决策树、模型调参、模型评估）/creditcardfraud.csv",
+        "sha256": "76274b691b16a6c49d3f159c883398e03ccd6d1ee12d9d8ee38f4b4b98551a89",
+        "role": "data"
+      },
+      {
+        "path": "交易预测-约600行（EDA数据探索、逻辑回归、决策树、模型调参、模型评估）/信用卡欺诈交易预测.html",
+        "sha256": "af0111ffb9199e158aad9b8765afef779d44233cdb045fc999a208538a3b7f6b",
+        "role": "output"
+      },
+      {
+        "path": "交易预测-约600行（EDA数据探索、逻辑回归、决策树、模型调参、模型评估）/信用卡欺诈交易预测.ipynb",
+        "sha256": "b84b7a8568ec364841c8cf8ff81a79addfdd1ebb39eefd6b8dd5c77bd3a5684f",
+        "role": "code"
+      },
+      {
+        "path": "交易预测-约600行（EDA数据探索、逻辑回归、决策树、模型调参、模型评估）/信用卡欺诈交易预测.py",
+        "sha256": "1b2bc2e44354a2e9a8c37d5a260f6b77c00f305d8f9f1eb18ebda4957092e20e",
+        "role": "code"
+      }
+    ],
+    "limitations": [
+      "缩放在全量数据上拟合；过采样后再做内部CV有泄漏风险；多处ROC/AUC用硬标签，不能作为完整概率排序AUC；不能把不平衡直接等同于过拟合。"
+    ],
+    "lessons": [],
+    "readiness": {
+      "source": "audited",
+      "course": "not-adapted",
+      "rerun": "not-run",
+      "offline": "not-packaged"
+    }
+  },
+  {
+    "id": "P02",
+    "title": "自行车租赁数量预测",
+    "originalNames": [
+      "交通出行-共享单车预测租赁数量-约300行（随机森林、支持向量机模型）",
+      "自行车租赁数量预测.ipynb"
+    ],
+    "categoryId": "travel",
+    "summary": "根据天气和时间等信息预测共享单车租赁数量。",
+    "difficulty": "高级",
+    "skillTags": [
+      "Pandas",
+      "NumPy",
+      "Matplotlib",
+      "Seaborn",
+      "EDA",
+      "特征工程",
+      "随机森林回归",
+      "SVR",
+      "模型评估"
+    ],
+    "methods": "RandomForestRegressor、SVR",
+    "sourceRefs": [
+      {
+        "path": "交通出行-共享单车预测租赁数量-约300行（随机森林、支持向量机模型）/.ipynb_checkpoints/自行车租赁数量预测-checkpoint.ipynb",
+        "sha256": "5d7bfa900fd3c472a9a4dd3e2fd241a940046dfdae12874866e1bc2633501530",
+        "role": "code"
+      },
+      {
+        "path": "交通出行-共享单车预测租赁数量-约300行（随机森林、支持向量机模型）/train.csv",
+        "sha256": "11671d46ae41bf0df77d3d25268f4cb87683f3a33e4a54adf1bb3b24ee538cad",
+        "role": "data"
+      },
+      {
+        "path": "交通出行-共享单车预测租赁数量-约300行（随机森林、支持向量机模型）/特征重要性可视化.png",
+        "sha256": "1c25b56f4725527b44732af67f7f8585336376b21931837f19f643d91ce3ba7c",
+        "role": "output"
+      },
+      {
+        "path": "交通出行-共享单车预测租赁数量-约300行（随机森林、支持向量机模型）/自行车租赁数量预测.html",
+        "sha256": "b6512b04ec21feeca286dcee0760e021516609a8d8acc00b3bdd8ef4f506da9f",
+        "role": "output"
+      },
+      {
+        "path": "交通出行-共享单车预测租赁数量-约300行（随机森林、支持向量机模型）/自行车租赁数量预测.ipynb",
+        "sha256": "5d7bfa900fd3c472a9a4dd3e2fd241a940046dfdae12874866e1bc2633501530",
+        "role": "code"
+      },
+      {
+        "path": "交通出行-共享单车预测租赁数量-约300行（随机森林、支持向量机模型）/随机森林预测结果.png",
+        "sha256": "ececf00b7647080b959ae1760f96dbd0f6d06947ce36db3693655a6f1ec059ba",
+        "role": "output"
+      }
+    ],
+    "limitations": [
+      "随机切分不代表未来时间预测；风速处理发生于全量表；未固定森林随机种子；对比折线横轴是测试样本顺序，非真实连续时间。"
+    ],
+    "lessons": [],
+    "readiness": {
+      "source": "audited",
+      "course": "not-adapted",
+      "rerun": "not-run",
+      "offline": "not-packaged"
+    }
+  },
+  {
+    "id": "P03",
+    "title": "航空公司客户价值分析",
+    "originalNames": [
+      "交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）",
+      "航空公司客户价值分析.ipynb"
+    ],
+    "categoryId": "travel",
+    "summary": "用会员关系和乘机行为构建客户价值分群。",
+    "difficulty": "进阶",
+    "skillTags": [
+      "Pandas",
+      "NumPy",
+      "Matplotlib",
+      "数据清洗",
+      "LRFMC",
+      "Z-score",
+      "KMeans",
+      "雷达图"
+    ],
+    "methods": "KMeans，原代码k=5；LRFMC为业务指标模型",
+    "sourceRefs": [
+      {
+        "path": "交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/.ipynb_checkpoints/航空公司客户价值分析-checkpoint.ipynb",
+        "sha256": "bd72cf9fd918950642968c14f6021b77caeef58df86b4df65564c546279bbbb8",
+        "role": "code"
+      },
+      {
+        "path": "交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/data/air_data.csv",
+        "sha256": "afcba77fc852376966a1026c4d991323b0e7cd7f26bdc975582080a93b6161eb",
+        "role": "data"
+      },
+      {
+        "path": "交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/tmp/data_cleaned.csv",
+        "sha256": "e3455c8ebab78f5bf4e3972761783fd0e6fe33a47d9344d94a62f017deda8fe3",
+        "role": "data"
+      },
+      {
+        "path": "交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/tmp/data_stand.csv",
+        "sha256": "6cf52be39fe13b24ffe49abbfe090f5240e98023adb5947c0f7d5c20364736f8",
+        "role": "data"
+      },
+      {
+        "path": "交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/tmp/data_stipu.csv",
+        "sha256": "e7089dd0578664aca02f40184d60800992be2bcab0c7d2e38856f3221cb26c4b",
+        "role": "data"
+      },
+      {
+        "path": "交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/tmp/explore.xlsx",
+        "sha256": "9876e3b4f6b70179ef76b7b402179263defc91e32b1f96e80a700cdb2a4d3dd2",
+        "role": "data"
+      },
+      {
+        "path": "交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/客户信息属性说明.xls",
+        "sha256": "dd4a690ed7d91b0f1a92903c936df53a86534038b02245b55f84a8dd4e2cee8c",
+        "role": "data"
+      },
+      {
+        "path": "交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/航空公司客户价值分析.ipynb",
+        "sha256": "bd72cf9fd918950642968c14f6021b77caeef58df86b4df65564c546279bbbb8",
+        "role": "code"
+      }
+    ],
+    "limitations": [
+      "目录LRFCM与文中LRFMC拼写不一致；R直接取LAST_TO_END，不能照抄说明中的月单位；聚类序号会改变，文中客户编号与中心对应关系须复核；k=5不能仅以指标数证明。"
+    ],
+    "lessons": [],
+    "readiness": {
+      "source": "audited",
+      "course": "not-adapted",
+      "rerun": "not-run",
+      "offline": "not-packaged"
+    }
+  },
+  {
+    "id": "P04",
+    "title": "全球酒店预订分析与预测",
+    "originalNames": [
+      "交通旅行-全球酒店预订分析与预测-约550行（数据探索分析、随机森林、XGBoost、逻辑回归）",
+      "全球酒店预订分析与预测.ipynb"
+    ],
+    "categoryId": "travel",
+    "summary": "探索酒店订单取消因素，并比较三个取消预测分类器。",
+    "difficulty": "高级",
+    "skillTags": [
+      "Pandas",
+      "NumPy",
+      "Matplotlib",
+      "Seaborn",
+      "EDA",
+      "OrdinalEncoder",
+      "StandardScaler",
+      "随机森林",
+      "XGBoost",
+      "逻辑回归",
+      "ROC"
+    ],
+    "methods": "RandomForestClassifier、XGBClassifier、LogisticRegression",
+    "sourceRefs": [
+      {
+        "path": "交通旅行-全球酒店预订分析与预测-约550行（数据探索分析、随机森林、XGBoost、逻辑回归）/.ipynb_checkpoints/全球酒店预订分析与预测-checkpoint.ipynb",
+        "sha256": "f1166bb78198277c9bd5a0bbf360ce9b452a23b39733dfde5b7e6acb55fdee42",
+        "role": "code"
+      },
+      {
+        "path": "交通旅行-全球酒店预订分析与预测-约550行（数据探索分析、随机森林、XGBoost、逻辑回归）/2022_hotel_bookings.csv",
+        "sha256": "ab2a3bfa58522e3a6310ae941303e1beeecb1c86960d538140525cee01578683",
+        "role": "data"
+      },
+      {
+        "path": "交通旅行-全球酒店预订分析与预测-约550行（数据探索分析、随机森林、XGBoost、逻辑回归）/全球酒店预订分析与预测.html",
+        "sha256": "7df26237e0bfce033263da5492222d1e2f7dec30c608d93f51aefe924d02ab71",
+        "role": "output"
+      },
+      {
+        "path": "交通旅行-全球酒店预订分析与预测-约550行（数据探索分析、随机森林、XGBoost、逻辑回归）/全球酒店预订分析与预测.ipynb",
+        "sha256": "f1166bb78198277c9bd5a0bbf360ce9b452a23b39733dfde5b7e6acb55fdee42",
+        "role": "code"
+      }
+    ],
+    "limitations": [
+      "实际arrival_date_year为2015/2016/2017，非文件名2022；编码缩放先于切分；same_assignment等字段在预订时是否可得需确认；取消原因不能从相关性直接归因。"
+    ],
+    "lessons": [],
+    "readiness": {
+      "source": "audited",
+      "course": "not-adapted",
+      "rerun": "not-run",
+      "offline": "not-packaged"
+    }
+  },
+  {
+    "id": "P05",
+    "title": "旅游景点",
+    "originalNames": [
+      "交通旅行-热门旅游景点数据分析与可视化-约300行（pandas数据处理、pyecharts可视化、jieba分词）",
+      "旅游景点.ipynb"
+    ],
+    "categoryId": "travel",
+    "summary": "用景点售卖样本观察热度、价格、星级和地域分布。",
+    "difficulty": "初级",
+    "skillTags": [
+      "Pandas",
+      "Pyecharts",
+      "Jieba",
+      "词频",
+      "数据清洗",
+      "分组统计",
+      "地图"
+    ],
+    "methods": "无监督训练或预测模型未实现；Jieba分词用于简介词云",
+    "sourceRefs": [
+      {
+        "path": "交通旅行-热门旅游景点数据分析与可视化-约300行（pandas数据处理、pyecharts可视化、jieba分词）/.ipynb_checkpoints/旅游景点-checkpoint.ipynb",
+        "sha256": "4ab8708fdc7c3f7f984c34f9b01447432de17eb6ac04cc753ca8cec760db7c2d",
+        "role": "code"
+      },
+      {
+        "path": "交通旅行-热门旅游景点数据分析与可视化-约300行（pandas数据处理、pyecharts可视化、jieba分词）/stopwords.txt",
+        "sha256": "5fd84f3325c3b300f96dd59ce07f1f28b44707147f09543ff44706f7c71621ea",
+        "role": "data"
+      },
+      {
+        "path": "交通旅行-热门旅游景点数据分析与可视化-约300行（pandas数据处理、pyecharts可视化、jieba分词）/旅游景点.html",
+        "sha256": "aee394e701414e160858bbc159d7c6e445c2badee3494181eda820b8d50b8ba0",
+        "role": "output"
+      },
+      {
+        "path": "交通旅行-热门旅游景点数据分析与可视化-约300行（pandas数据处理、pyecharts可视化、jieba分词）/旅游景点.ipynb",
+        "sha256": "4ab8708fdc7c3f7f984c34f9b01447432de17eb6ac04cc753ca8cec760db7c2d",
+        "role": "code"
+      },
+      {
+        "path": "交通旅行-热门旅游景点数据分析与可视化-约300行（pandas数据处理、pyecharts可视化、jieba分词）/旅游景点.xlsx",
+        "sha256": "cbecb48e3276d3a64fd37ceae4a2fe4352b14ebed6db3af49f6b713d4e9e2fdd",
+        "role": "data"
+      },
+      {
+        "path": "交通旅行-热门旅游景点数据分析与可视化-约300行（pandas数据处理、pyecharts可视化、jieba分词）/此电脑.lnk",
+        "sha256": "bda9e782e145154c8bb9e656f3a2563f02854c4c44a332447c42250a3fe7751e",
+        "role": "other"
+      }
+    ],
+    "limitations": [
+      "样本门票销量不代表全国实际出游人数；销量0是否删除会改变总体；城市列用于省级映射需核对含义；票价异常值未充分说明。"
+    ],
+    "lessons": [],
+    "readiness": {
+      "source": "audited",
+      "course": "not-adapted",
+      "rerun": "not-run",
+      "offline": "not-packaged"
+    }
+  },
+  {
+    "id": "P06",
+    "title": "120年奥运会数据可视化",
+    "originalNames": [
+      "体育-数据可视化-约1300行（Pyecharts可视化）",
+      "120年奥运会数据可视化.ipynb"
+    ],
+    "categoryId": "sport",
+    "summary": "从参赛、奖牌、运动项目和体质等维度分析奥运历史样本。",
+    "difficulty": "初级",
+    "skillTags": [
+      "Pandas",
+      "NumPy",
+      "Pyecharts",
+      "多表合并",
+      "分组聚合",
+      "去重计数",
+      "时间趋势"
+    ],
+    "methods": "没有机器学习模型",
+    "sourceRefs": [
+      {
+        "path": "体育-数据可视化-约1300行（Pyecharts可视化）/.ipynb_checkpoints/120年奥运会数据可视化-checkpoint.ipynb",
+        "sha256": "a243bf8b64b54f72c20d9460defd492205efc3ed3d8fed718b6741e4ff752bdf",
+        "role": "code"
+      },
+      {
+        "path": "体育-数据可视化-约1300行（Pyecharts可视化）/120年奥运会数据可视化.html",
+        "sha256": "9467d8a98d9d8d59063a275abcb9d3c6b574895f56e02a70b3388b84c3c048f0",
+        "role": "output"
+      },
+      {
+        "path": "体育-数据可视化-约1300行（Pyecharts可视化）/120年奥运会数据可视化.ipynb",
+        "sha256": "a243bf8b64b54f72c20d9460defd492205efc3ed3d8fed718b6741e4ff752bdf",
+        "role": "code"
+      },
+      {
+        "path": "体育-数据可视化-约1300行（Pyecharts可视化）/120年奥运会数据可视化.py",
+        "sha256": "73609f83edc275407ef08d11fec0cf717b59f3ba2435593f703ba2c608d2ebe2",
+        "role": "code"
+      },
+      {
+        "path": "体育-数据可视化-约1300行（Pyecharts可视化）/athlete_events.csv",
+        "sha256": "e9f6b1fa97f40e0f071a6de640acb42dd7a100cad67e5e69cab630192fabb089",
+        "role": "data"
+      },
+      {
+        "path": "体育-数据可视化-约1300行（Pyecharts可视化）/noc_regions.csv",
+        "sha256": "ce7f3c272a3d81d07acf5e5eba4cbba77501f9db25d820d862c60aaccf281906",
+        "role": "data"
+      }
+    ],
+    "limitations": [
+      "271116行为运动员参赛事件，非独立运动员数；团体奖牌计数与按Name去重均需审查；包含历史叙述错误风险，教学以数据口径为主；长代码不等于高级算法。"
+    ],
+    "lessons": [],
+    "readiness": {
+      "source": "audited",
+      "course": "not-adapted",
+      "rerun": "not-run",
+      "offline": "not-packaged"
+    }
+  },
+  {
+    "id": "P07",
+    "title": "基于水色图像的水质评估",
+    "originalNames": [
+      "其他-基于水色图像的水质评估-约200行（支持向量机）",
+      "基于水色图像的水质评估.ipynb"
+    ],
+    "categoryId": "environment",
+    "summary": "从水色图像颜色矩构造特征并用SVM区分水质类别。",
+    "difficulty": "高级",
+    "skillTags": [
+      "Pillow",
+      "NumPy",
+      "Pandas",
+      "Scikit-learn",
+      "颜色矩",
+      "L2归一化",
+      "SVC",
+      "混淆矩阵",
+      "Joblib"
+    ],
+    "methods": "SVC；保存模型svcmodel.pkl",
+    "sourceRefs": [
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/.ipynb_checkpoints/基于水色图像的水质评估.ipynb",
+        "sha256": "57b74242352e27f5f5d047334e5c845781e17b898cec79b0783e352a5f38e480",
+        "role": "code"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/1_1.jpg",
+        "sha256": "d48f6cc1eba2b2970fc66732ff6a8687decb6ee051546a3110f261cb8e2beab7",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/1_10.jpg",
+        "sha256": "b7e30758c066a8de1792f09a01b48e21cd08c66739ada83882924cdb2af85f47",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/1_11.jpg",
+        "sha256": "1716dd10a17a80c752b8eed57714fc3e1f9e40657afd883d43739b13c28ebebb",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/1_12.jpg",
+        "sha256": "8b652a3eefbbe2174b3f06ce742a0a86c68ceed27d2edb4ece3739a4fd1e5f8b",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/1_13.jpg",
+        "sha256": "6fe4c188c70308a1995604e725803b35379674a6f2caa4a4e5400bff369493c4",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/1_14.jpg",
+        "sha256": "4562c1d1286488cdb509048aaa39ab8373660268e52308a5b7410697360dbc12",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/1_15.jpg",
+        "sha256": "bd0a1933eb8b8822eeeff7b26b208b5363c72cee8a1c2d7d790fe4684711a2b1",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/1_16.jpg",
+        "sha256": "d67bfe7ee497c01e7f4b3650d509b37d759423c0f65fd181d5e0d039df73b42e",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/1_17.jpg",
+        "sha256": "db4bb229ce98c0f1e62104ba32e92506773bc8f93febf330df9ba3077c990c5b",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/1_18.jpg",
+        "sha256": "c7ff013998d29f7f270735559033f64213c4f3f09aabb2defdfce13433cdf293",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/1_19.jpg",
+        "sha256": "40351a9570037bdd5aba312e2bf343f80b72a3d1b95c673cab575fed457aaa54",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/1_2.jpg",
+        "sha256": "5472234a1d3e62c46cb49af7f9876fb840b47f52936cc0cd9307705e2ce26c48",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/1_20.jpg",
+        "sha256": "17bd911eb38f7251024830673e82c79ce0b1a08842c7088122d87c9f82ab8ee9",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/1_21.jpg",
+        "sha256": "7e9de414d9d6ab46f8911d47284db2fab50f896994a096504645d8a2bd730f0d",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/1_22.jpg",
+        "sha256": "85bf9d7a88c2e54bc2b314eb23dc16516b7e0ca2ee097698570053ba23602799",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/1_23.jpg",
+        "sha256": "20a2770d25f5a5557fd1eb0df5a1b5520508f6895c7e42ed085aa93c6a7faae0",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/1_24.jpg",
+        "sha256": "764a94431db4ce599d0005c0cc099a1f6e9640fd35d56f5e22466a39b04280f3",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/1_25.jpg",
+        "sha256": "d46e8b0a87f44a88e3442cbc58179de591c0d82aee513e6f561ce033ef93e72b",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/1_26.jpg",
+        "sha256": "d6e0716f9fac4b30297a1fbf3f98714c6226cb617dfe11b8f9953cbcb9c2dbcd",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/1_27.jpg",
+        "sha256": "191989d9f2a350bb9d78a701ad33720400c4ec39310a045ab4d448c5e8a3f28e",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/1_28.jpg",
+        "sha256": "3df0684ae9caf2dbd7616da9b2838c55c59479675ffd318fb60bca64967f21e8",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/1_29.jpg",
+        "sha256": "be3b6e269c168c0afde5e219a938e2ee23e74c69eff6f5c3f104d11d34c9f218",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/1_3.jpg",
+        "sha256": "4cf4303d4cb8cd4b9b1eccf5a8200b3fcba69d9c2ff41228b4ea091932f1df07",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/1_30.jpg",
+        "sha256": "70a576e6841cb4235efad7ce8766164c0645ebe0e9c10ec83534c22e78b45d34",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/1_31.jpg",
+        "sha256": "ebeda6fc01b7af33adebecd41372f3d675c64af3b3c1b6633d70449eb410f840",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/1_32.jpg",
+        "sha256": "8ddfe10804682d5944ad66f9dff221aea513d617c89acd22aa1d61f2e8da201e",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/1_33.jpg",
+        "sha256": "b3a5f4197557dbbab268eb5ffbb1bff4653017e187018e051f50d877ae74500e",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/1_34.jpg",
+        "sha256": "3d6f2d4664c16f23365a33063d32b5c00be2939776d512ebe2abf824541e7f6c",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/1_35.jpg",
+        "sha256": "bdb828353e7853c60260bb0557d31c9a49be8202a3b21d55821f63b163b1121e",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/1_36.jpg",
+        "sha256": "c5e9984a82c44dc30a5ca4e6df7632ae74e0028c363795e1402b22955d011721",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/1_37.jpg",
+        "sha256": "c11f436b380090fd1dce9db89ccd07c8a6941f4dc8d94e5af8e273482318e007",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/1_38.jpg",
+        "sha256": "0a79d728971e738b205ed6ecf339ade551bc94cd34c295f58ab5103b31ace5a2",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/1_39.jpg",
+        "sha256": "b2c9e0ae394dbd30d63eb5161354c5486e1f6fa105c784ee1d30202613a37828",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/1_4.jpg",
+        "sha256": "5b67e7ce6daca6fef584f133cd066e41cea6ee291afa63b6c65e4b72be7d62d5",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/1_40.jpg",
+        "sha256": "a7de154df82353c83a34472c4d202d86cbb02aa8845f288cab33f653662fa326",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/1_41.jpg",
+        "sha256": "31a46ff55e959fcdd7cdcc6bb36f0402c9bc36a141ada6f4daa7f6c7ed74ffb5",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/1_43.jpg",
+        "sha256": "42ba53352be8a58afbf761334aebc6e41ae3062ae2ed5c7c55a21fdc5fe92282",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/1_44.jpg",
+        "sha256": "85970a6dd6089667d48c34342f2d05f3dcb19f6078d58f86fa602f99b4ca4ba7",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/1_45.jpg",
+        "sha256": "bc1f05fcb1e6f6a855b510311b9b3a27592e28e4f001d149e553526a2bb7ee3f",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/1_46.jpg",
+        "sha256": "d4ba5407c60da724a44a183ff67f6630417fbec62111740dd0352cc8bdcb3e76",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/1_47.jpg",
+        "sha256": "181f9ceb105a3079b7632695a06f0920d0678b3a8901fd8d39ca5eaa59d772ed",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/1_48.jpg",
+        "sha256": "ff82d0b88df60868430d18d3ca1d29383f097b5761e611f4c5885f98ddef3846",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/1_49.jpg",
+        "sha256": "a990ea645ba160ffe8c296bc6e79230ab59a1787c31d1f74881c0e8c3a6a00d3",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/1_5.jpg",
+        "sha256": "23dca0ce2e69441e478285e075cc4ce712417dac33f0ce2fe3477a172bba1d78",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/1_50.jpg",
+        "sha256": "ed6a09890ff8649a3779dc6e601d54da37a24830e9728b804167f72ad4c0dfc3",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/1_51.jpg",
+        "sha256": "deafbe6fb966c4851a6d4d16d4a4b8133ffb077fbbe5a23e88fa5a3fb16731b4",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/1_6.jpg",
+        "sha256": "6870b7102f5ad8107bb909f21906f2af6415a8478e4142517af4818178063092",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/1_7.jpg",
+        "sha256": "f8fafea8debd69b74616bd4284399b74bf60f963837908466e6be6a633897b4a",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/1_8.jpg",
+        "sha256": "c248a3cee7d8a7f9eaf9a74fc028768ddbd125c0d2959da3c21eafc8b5c5aaed",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/1_9.jpg",
+        "sha256": "da7352337a888321779d71a07c6c3dd6c68658a6cbab36c79fea517a9030db8c",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/2_1.jpg",
+        "sha256": "7bc806ce6498c7210c8d767c201da5fb26d9d1c26c3a7b03b2cde7de42816375",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/2_10.jpg",
+        "sha256": "e4be3b0f13d347bba530bdfffe64c393b6c96310c78a350c5a1a599de4416eab",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/2_11.jpg",
+        "sha256": "f448b312d20d4488c45b80851e53adcfdc6b9d00330821a9a8d3ee85bc55f73f",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/2_12.jpg",
+        "sha256": "942e217abd7df5be48f66e89b7af73237898da70c31b393e37305f460a1b0396",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/2_13.jpg",
+        "sha256": "96056b9b254ceabf1ed6b74ca5453b5d0e9de8c84269d77611a6b915823e1876",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/2_14.jpg",
+        "sha256": "03776893030f88a1374bc68664e463376479d83674ca2a4efe74226b734e46e4",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/2_15.jpg",
+        "sha256": "e05339e65877251d8b3d384192fa8d0f5d781c02b9e18907deaac7d39fb42e97",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/2_16.jpg",
+        "sha256": "c206a9394faa287a3c31ba90b044f23f40521605e638cddb299840cfee1c599e",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/2_17.jpg",
+        "sha256": "a80a08d5eeac7168bd555d436e52fb86b4017ff463b1b1786cac193543dccc95",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/2_18.jpg",
+        "sha256": "91a2b582d0f12f90fce06cd565c8c36df75f73b0459e1066f8e27f7e313dd42a",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/2_19.jpg",
+        "sha256": "907adf88a708a861e0029098d8156bb4524421b14a5b091496878320ff84ace4",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/2_2.jpg",
+        "sha256": "1a2e44715724c96f8df1406e5671d964260c5ac93cf788cd4dbbc7860b61d7e4",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/2_20.jpg",
+        "sha256": "96cd07677e11676065643ff39e88743900fd36abce58ff38b969f86c32b10cf4",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/2_21.jpg",
+        "sha256": "9aec69ad7588ca5c7bd14a628e2eb7f2c3843c85361377c50c26c55f05e27370",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/2_22.jpg",
+        "sha256": "4b4c383e679e6751d27dabd22e59a9855848642684bd18fed490e946a6a91a6f",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/2_23.jpg",
+        "sha256": "0707dea051a882afefcf48da7b26bded253ed60a4ccecdbd61c37aa1b447526e",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/2_24.jpg",
+        "sha256": "fdfb8c4201e910fa1eb386427aefc1a2bccc09c939986fba0d40dae1202e9e14",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/2_25.jpg",
+        "sha256": "ba80a395b082b3903abbe394526d973e215fc7cb045d866f7c8dc0abbe5a0837",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/2_26.jpg",
+        "sha256": "b1bb40ae2ab048b7ed8cdc498181e565ca64be40368105b7a3072238810e6f04",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/2_27.jpg",
+        "sha256": "a2c792c70882e86de344e0507da3ca327bf1e664c1fbbe86c7b603b37c829584",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/2_28.jpg",
+        "sha256": "426e9dd55db11d9d01f09f7193acbdfa10a510b22734273cc8ff9dc9ca146b0a",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/2_29.jpg",
+        "sha256": "d4308eb738da6c522d6a85750d04cf42ea03a111e9b9c702a4270d7b45216d8d",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/2_3.jpg",
+        "sha256": "4ec493f1ce603e14e2534c08a5437bef26af9b0ede253c935b85c241978552f2",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/2_30.jpg",
+        "sha256": "ed9abf11757e93f48cceecc0a62ba5ff257eee54580d829dbab760806e671c90",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/2_31.jpg",
+        "sha256": "111abfc5d55c3ba991c83a87d5bf6a2d288e8da90f945cb5d7c60b0d8af5d4a9",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/2_32.jpg",
+        "sha256": "94b0d382d29d5fd548b522fc2257d16bfca322ddbd8c06968a5b41adef631c78",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/2_33.jpg",
+        "sha256": "3b85c9c8c071255cc369c4a838f65ae56eac19d7b25578ca5188cd1727bf4d22",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/2_34.jpg",
+        "sha256": "f79f3919dc069f0893d74948a0b4f2b9fb295a81fcecc28be8d88b94e29a7f8a",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/2_35.jpg",
+        "sha256": "63be7e3719ec49fc776efc8df6e40d00539c081f24958ee70c345b5b5daa31de",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/2_36.jpg",
+        "sha256": "bcc21ba3177a16aa8d73ff126fe491ee3aa485603a80e057bb950c35e3b1b7c3",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/2_37.jpg",
+        "sha256": "efd348d29d9a4b9a8cdfdf8125436bd0544ac29be9ffd227ddd5aea4004979d3",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/2_39.jpg",
+        "sha256": "30e61cc34d6aa492c18658b0e3244e5605feaeddc76173642c32de815feafcb3",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/2_4.jpg",
+        "sha256": "2c0fa5dc31a080bd3aafe5341b8d441dec1e10da20dedf93f0dc8d9ab46535da",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/2_40.jpg",
+        "sha256": "4abde9fc93da497a9b3f9283b7c68bd8d53ee27d996218e4d6d241eb7d9e105c",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/2_41.jpg",
+        "sha256": "89532bcc2587e1f0fa6663d12d8eabe94d9ca9aeeffcd3cf75ffddb5de04c10f",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/2_42.jpg",
+        "sha256": "ae2986192783a1bedb380e9f5121267c897478d9aac9b6cddb82331e3ef27a0d",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/2_43.jpg",
+        "sha256": "8a72e1a0a99b71fa461f61d829082d6b37659e8303d9ef3a7928278237a9d22b",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/2_44.jpg",
+        "sha256": "e571bb6c0bffb8db6bd046c42c0be8c5cee53657c563bdefe3e0d886287ba128",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/2_5.jpg",
+        "sha256": "26d0a46e6ea31aa9cc4d708bf4a00739ed687f280046f57dc7b11c98f32d4535",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/2_6.jpg",
+        "sha256": "fc59e401f5a3324a9c912f02a5c7257d0dd381987984813a6065113849257929",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/2_7.jpg",
+        "sha256": "6571fb0549624c56041224c464c0c200ea895e2060d606a9489a04519d5eb9ed",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/2_8.jpg",
+        "sha256": "0d0cf4f81737dc960eb21fd1be53439343637ba5b1f35c0e70ce5081f36cd854",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/2_9.jpg",
+        "sha256": "bcf2c6892984b34daa43f28969bffec345c74115eb46872d54e2eeccbe2b24ef",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/3_1.jpg",
+        "sha256": "cce8a15e82e4556804876ddc7a37d30d0c15285b2a835c83fd2087a43c6fb190",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/3_12.jpg",
+        "sha256": "788aac12da14b04a393c96fb3708cf08a6725ed046feff279548bc3c6e1d3df5",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/3_13.jpg",
+        "sha256": "dba568fd207da69294e5eb95f8bb67e9ace33ce1999a0f6eaafd25bf8a129143",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/3_14.jpg",
+        "sha256": "01223836952a832d63a00334fd13795e1e0fcf2c6c3129a9d654e9d9fd51a75d",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/3_15.jpg",
+        "sha256": "39d8c9e6fe5a041c915bf83579c11e942f0b508d076c005eb9120a4b58f4b0c1",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/3_16.jpg",
+        "sha256": "9f2fb8480f49627ca0c4db90bf6b22dbfd93681f64e5ed4b412b63dcec9a7198",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/3_17.jpg",
+        "sha256": "ff4f2d47b2c2df91a51420d1570936ad9932beeb2b0801907b0a5c6ad84ac577",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/3_18.jpg",
+        "sha256": "73299cc33e9af3bea5400d3024065a1fc27607eeee0a75aebbde5c2308c3bc2c",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/3_19.jpg",
+        "sha256": "b0d5256b0dadcfea2f4ca8c325d48464010deab86f0bcf30d795b02db5daeae8",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/3_2.jpg",
+        "sha256": "67c28e1534bd413394020da5df27d7cb7e7a4341e07b82b03f29287a90c7a6e0",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/3_20.jpg",
+        "sha256": "3f6ab79e465f1e02c285ae274e0b5aa5244deb91bff41aa71ae4b5a3e85e8af1",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/3_21.jpg",
+        "sha256": "773b6595ebb3986a27125b1e6bbae60d29e7d14edb6f85f735e343d2e46b7603",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/3_22.jpg",
+        "sha256": "f5127139fd613ba1d98f9958fb16edf02eb7a8c0cc0da54ba012ae5193bb15cf",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/3_23.jpg",
+        "sha256": "40892d96f5ff626b1e9a9b27c0c0a8c956dbf5133a89b9251bc1a6fc6d6df444",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/3_24.jpg",
+        "sha256": "3ea16737ecebd15e489b709bf7054f6a8243040e957aaeb29b4d701966f51c57",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/3_25.jpg",
+        "sha256": "df68942d2d24fe0db482181d5978dd2f478c31a3cf3beed3d4643d20f05a4a75",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/3_26.jpg",
+        "sha256": "8a8892cb77a04484df711ccd05b0766370a6d91c141e1aafb186a20f547307bd",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/3_27.jpg",
+        "sha256": "57a25c2a136b36a6e02ebfdc1b9fc1d64d500314ef103af587da3b69fee8a146",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/3_28.jpg",
+        "sha256": "b42969077e91ea4e9b95103804a2de139d9ca3c5c5ffa794c78bda7951d076c8",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/3_29.jpg",
+        "sha256": "31db6a13fdb4efc62cc63af7c28b203afc986fff96e18f409681539eb6ccd43d",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/3_3.jpg",
+        "sha256": "b01db7adea05fecce522071dd0e5e1fb5d533fd72eb363f66cb5ab451b97a518",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/3_30.jpg",
+        "sha256": "2ef630afcfdc34397783690cfc3cefb82fcbe8502d7215e386c0be0ba0f7d571",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/3_31.jpg",
+        "sha256": "986ce94fa48fcd4a5bea9b76f29047104cf30128898cd47096e3bd30d6264976",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/3_32.jpg",
+        "sha256": "74a610c5f4fd6c33c3ff3134c3c5e2ae07318bd0115d173d6893d66a4fc0a1a3",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/3_33.jpg",
+        "sha256": "6877737cb0497abc1ea34eaa23f92c979d4947e03c09a94ab368138e9b6fc106",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/3_34.jpg",
+        "sha256": "b6138a312a0699359b4a084a6e796402bfbf0a6a04d63dcbfedf2f69453e11b3",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/3_35.jpg",
+        "sha256": "9be24ea6611259f8859bce64228296c8c75fabdb4f3c77f8ddae6d610a59c28d",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/3_36.jpg",
+        "sha256": "666de1c280864c987780c1765fa46e2200f1e0a65f237c989390f6cfd2ad0f4d",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/3_37.jpg",
+        "sha256": "3c98fc841b7cc78057ca9f00541008f6f12a71845a41e472b4359dccec3897d9",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/3_38.jpg",
+        "sha256": "af44217cb08f4298632b9d1a1dd4194a6345d22ac1b5cec8001280acc8e0414b",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/3_39.jpg",
+        "sha256": "621b2e06b58f689c7220740d2a82e8b9e1cf451ceeb2a4052f2efcb4782995b0",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/3_4.jpg",
+        "sha256": "ba047046cfc1dcd005930ecfda9a4fdbff15e3cab655ac54f5b1bf04e54f1ef0",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/3_40.jpg",
+        "sha256": "f5be570c2e88f2593261282ff567d21cc518dd695185b4f65336bd98d38593fc",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/3_41.jpg",
+        "sha256": "5f7dd280b12ec4899e6dcb37bc014f80ff27b76d4e5083b8031bdfc6f9a636e3",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/3_42.jpg",
+        "sha256": "c691b6e37435a1b4ca2d62b66de2a4da6238881537fb29712ee4a15099137bf4",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/3_43.jpg",
+        "sha256": "3a630508460cf9e20e1684d53858a9780ac7f914c1facc4be60b5bc4fd409a75",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/3_44.jpg",
+        "sha256": "52a84733884d131e459077c00c9aef7cfaafa1fa284db12e85ca59f90ceb5eee",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/3_45.jpg",
+        "sha256": "ab32f445e701f60ffbd192ac63c6eee5f305d4ce07bc8496e975aa99fbfddc9e",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/3_46.jpg",
+        "sha256": "bf54d8803c38f525e3d7ddcfc98205d42f8398034a28ea3416f17f82ceb41312",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/3_47.jpg",
+        "sha256": "d36e9e96757f4fcd922e338ebd5a6246e63381713d0d8928df14f97bc0f690e6",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/3_48.jpg",
+        "sha256": "4b5f3a749395604387080fefcb7da5282951586145d3f2c4d5fc042622625736",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/3_49.jpg",
+        "sha256": "843c594ab722879743f90a1d16610f7cb766000b54bdffda8b5a0193b6c6663b",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/3_5.jpg",
+        "sha256": "9d48a9a09f2837f7f2aeb220603f5fbd628c2904d1ee221df93dfddaa8c0231d",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/3_50.jpg",
+        "sha256": "054e05448e616a40bca1191de81b20ad034fbd765c160b1fc6d76207a494d728",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/3_51.jpg",
+        "sha256": "790a1f2064b6faa3fdbd25f3e919a1f312167bce0e03e004e4e2d0d1c94ba97b",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/3_52.jpg",
+        "sha256": "38ab2f803df776b07dab4a8c2d8f06ded3468e57d9f0247315f3de60d6658b45",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/3_53.jpg",
+        "sha256": "555816591fae74a39ae6fd7dffea58526742cb0a0456b2f45ba4728e6ec8ed29",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/3_54.jpg",
+        "sha256": "e7559dc6ca65ff85c972443920f23d5b846085735d22822b6679488e951eb8fb",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/3_55.jpg",
+        "sha256": "3d7473a0dae1367909e54623f8b4add016111123b46f4b821a2e1d8fcd8cb967",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/3_56.jpg",
+        "sha256": "4e1c51fba88912190ab43a8fa2b26dec833b5d1f6410270001eb58710ba3e4dd",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/3_57.jpg",
+        "sha256": "c41ee45842dae7f8f5c656da3ff0231946c2c2fc00bed636f419c7721be2b0b5",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/3_58.jpg",
+        "sha256": "fa05483ba4456f9952bdc12e31d3f61ebbe81171c9225623597f887f414da23f",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/3_59.jpg",
+        "sha256": "a16280f2d8369cbf2d1987f05d821f15cd411df305ea2ffcba9db081af91b443",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/3_6.jpg",
+        "sha256": "e1174a145b1cd87a49fa1637c0184919b3eafa42c97d747ae40ef8cbe1e59949",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/3_60.jpg",
+        "sha256": "e1d18229f9576f31cdadcd40f72c2a199e293e743435468c4eb6128e3b8e00d1",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/3_61.jpg",
+        "sha256": "c2441040a5da205fa9d166a40d8c080c9adac86f03ee78fefde2aa1213e2a6de",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/3_62.jpg",
+        "sha256": "de7e2d6779495eadd7837872b4c28673893b5aa9c96fe8582d69597ae58de0d4",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/3_63.jpg",
+        "sha256": "c15988d11aa93a82edefe9dc1e6d61d90365d15465a735ff1081f342ed4ce9a8",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/3_64.jpg",
+        "sha256": "00cba58094e51b851db0dfd327e7222c0e312322b3a0760989c9f861385a85e5",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/3_65.jpg",
+        "sha256": "e19a8b7292a9745b4e16305f640acef95a00da096870a89d26d28db4bec97e74",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/3_66.jpg",
+        "sha256": "3cb5a244b8d23d56fe7658943fc809901d40d2127f9d48e548fb665da235b43b",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/3_67.jpg",
+        "sha256": "b6333045f64db75dd8abe45dae6b0cdaaa97777f6a399671001c1cf7bd46a968",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/3_68.jpg",
+        "sha256": "f9accea460d627709053a5a1442a63124252084e8b1f6c5ff8d1a0fc2de968be",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/3_69.jpg",
+        "sha256": "c6538bba1e17287c984478062baae4d0a64183a6c075ddb9c911634a25dc6246",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/3_7.jpg",
+        "sha256": "a38abb715844498361a279c7902029d66d4a33c8e8aceeed96267b493c4327d8",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/3_70.jpg",
+        "sha256": "28cc9e612ee8ebcbab74444cf1b44bdd0888fd4b3f1a87bfd28426ae16c0287e",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/3_71.jpg",
+        "sha256": "40c81dc8d9e883cb8444cc7d29d5fb25b535d635c45e77a10e5b984f5a04b936",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/3_72.jpg",
+        "sha256": "9a4dc2be9aa0ff1979d4e456b47d104c997d3b092427b6c815f919d4497ecd63",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/3_73.jpg",
+        "sha256": "1eaed64cfc356471a8e82368fe64e84f123cd3141bcb687886351fc520ef6143",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/3_74.jpg",
+        "sha256": "99a108e907baf4135d919da90a9405fdc94f3de8a71b4bd46c3c51958a20cdec",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/3_75.jpg",
+        "sha256": "b2717118f05f7963cbcaeb7dfa19629c5b13c6c65af00c1d7b798c7442471360",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/3_76.jpg",
+        "sha256": "92398790fbedc4b569c95ee88e8c1d2db191efb424d4722ecb72712dffda87b3",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/3_77.jpg",
+        "sha256": "350173d42022624519382db7ddf40a6119e021df9b1f309b4ca6bf28af45922d",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/3_78.jpg",
+        "sha256": "c01e238f7f8ae3be3ba131099566b64038d8afa668ddc0a943c07b6a3b55f726",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/3_8.jpg",
+        "sha256": "43b418efae9a8a05dbfd92a7e2c56535aace0fc11cafeb171422e2569ffa99ae",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/3_9.jpg",
+        "sha256": "9de9f68987ffbabd068910f1dbde95f4ab17a5a48d754e9b5be2f6d02a35c027",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/4_1.jpg",
+        "sha256": "68237611fcec385ed86c00df9ef6b41171b7de25802305d098c9847760b993e7",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/4_10.jpg",
+        "sha256": "86b24f34ac2aac52b09d69a3e56d7f1a1719b0cae4cb37a936bf9a5360fa742e",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/4_11.jpg",
+        "sha256": "279e78bb3744e3dadcb7867c6fad50439d5580335de11bfce53349ff8bdd57a9",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/4_12.jpg",
+        "sha256": "2eb4a139f34f4182bbe74de1df195dc9cea89e342376871a769916a6689ee753",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/4_13.jpg",
+        "sha256": "85b4173be8fd9e35acfe09facccc90d7813ad50a0e7b463fbcda1e0eedaef7f9",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/4_14.jpg",
+        "sha256": "61073e1a478fdfa3734871143782ffd7941a961b0f778dd4b0a3f8339edfa1fa",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/4_15.jpg",
+        "sha256": "922a5f99405d3eadda7c964f574a2808e9e79d6e4ab6bebd01ee7b0a53b0ffeb",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/4_16.jpg",
+        "sha256": "b89239da2dad4a8e29b8949fd501b235b7baeb8cbfc3ece29b27f31731e79a84",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/4_17.jpg",
+        "sha256": "899c456f0159fff1b4c0f5d6ec96671273ce69056fe7fd4e4407c5d2fd96aaa9",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/4_18.jpg",
+        "sha256": "045dda594ab9d11245bbf0129c827dbf33f02eecb28954438bdba2c7aa6f6bcf",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/4_19.jpg",
+        "sha256": "1b1152ebcd45f4e0989a71e91f06090ee4565de26833b421ac7c225deed18e93",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/4_2.jpg",
+        "sha256": "805053f3313d7d82085691bdf0b419c9868446fb14f910a20d557691d9296c72",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/4_20.jpg",
+        "sha256": "bcdf261444a55f8fa035ed916844aa53dc38a0a8b7b238785a5e5327a93dfd81",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/4_21.jpg",
+        "sha256": "9d29067be53588ef4aab549da27fd1a9e6e5e153bf3449ee4374316feee9edf0",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/4_22.jpg",
+        "sha256": "ac5734217565f450fa1da1e99bd0e340a2d0619bf9b9f04bcd5d031ab6b3a08c",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/4_23.jpg",
+        "sha256": "8b6ee2f5627a004449d61a255d42cf8ded8afb6f46625874a297089d8f71cd82",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/4_24.jpg",
+        "sha256": "a37d63ab45bf9991a7bcfefc019812e7b573e8122606c70464daceaf8be98257",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/4_3.jpg",
+        "sha256": "9fb9aa2a0a5900201483ff63a1b8257a9bddce42aaa70b890520fa9fe2ac4e25",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/4_4.jpg",
+        "sha256": "12aac04049822c84879170e0a938f5060171ac76cd76fc43e338a604f27e3b9c",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/4_5.jpg",
+        "sha256": "7598771a67d9b155d0f7b281279592ddaa992ea57782805f036456012686ee6a",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/4_6.jpg",
+        "sha256": "78dffbf561533a6cd4e6f9fb2dca6e690285876151ce39b68e1ecfc94d6656b1",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/4_7.jpg",
+        "sha256": "cc00854b8f3ac044c0d2fb9c483b50259eb2b8e5b1aa99f0413f7c589f3ba6dd",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/4_8.jpg",
+        "sha256": "095fb8bd88e689764caec77182bb014eaeb94fc1a2ce2ee728d6a056fab29906",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/4_9.jpg",
+        "sha256": "db8a25b9a7d0417e221a3fcfe33121e8745efb41118a58bd02e8c54035edd7bc",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/5_1.jpg",
+        "sha256": "9287bff061844a6e8fc65d334981b6b8941f5fa762ed0a6f233a7c2d821820b7",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/5_2.jpg",
+        "sha256": "54d413199a17d8280388c95988f7238187ec1f85c9620c5a24e3e5775556337a",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/5_3.jpg",
+        "sha256": "a021977edbe0e39ceb4689fa8c72509c9c92fde4d36945864179aea82b0f1edd",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/5_4.jpg",
+        "sha256": "7f0de5c477dd3e57e8339a4dc29c02a32ec9f2fc04f3a7add984767853faac76",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/5_5.jpg",
+        "sha256": "23fc5dd39e69893982a0a58bf9ddf48de6d4ad7c63b1df35fd0a3feba69e51f8",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/5_6.jpg",
+        "sha256": "9e981e31c374d06dfeeea3b6a11dff8aa6c2c16164322b68df095ee1db393f41",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/moment.csv",
+        "sha256": "99c91f5cd8b38c6867e03d922dab7abedb4ddb2fb3cd68b37c5774637b2c13dc",
+        "role": "data"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/picData.xlsx",
+        "sha256": "61a56aa27ed02bc2820133c989c70c88102424de8f9529a2e6658a3ee0f541dc",
+        "role": "data"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/test.xlsx",
+        "sha256": "246a6f8888d6c39461beafa86a8ebb53a44739cbd76bb3b057d7c51836973f26",
+        "role": "data"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/train.xlsx",
+        "sha256": "86cf5cc2c929b8581d1ab5178eef029fbf14d109420cdd1f4a216f3f13ef2799",
+        "role": "data"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/svcmodel.pkl",
+        "sha256": "21a19ec297f347dc0e6c2988b7474232f15392a5ea8749ea290d1ccaa5a2ee55",
+        "role": "other"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/基于水色图像的水质评估.html",
+        "sha256": "3dfa27f3e7fad88f25e40b43482b9d012ed1072f53b66c347a264fdffa368014",
+        "role": "output"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/基于水色图像的水质评估.ipynb",
+        "sha256": "57b74242352e27f5f5d047334e5c845781e17b898cec79b0783e352a5f38e480",
+        "role": "code"
+      }
+    ],
+    "limitations": [
+      "199张图像与203行特征不全匹配，缺4张；picData支路与moment训练支路未证实一一对应；三阶代码用绝对偏差，不能称有符号三阶中心矩；未设置切分种子；模型文件未加载执行。"
+    ],
+    "lessons": [],
+    "readiness": {
+      "source": "known-gaps",
+      "course": "not-adapted",
+      "rerun": "not-run",
+      "offline": "not-packaged"
+    }
+  },
+  {
+    "id": "P08",
+    "title": "拍拍贷平台业务数据分析",
+    "originalNames": [
+      "平台业务数据分析-约800行（数据探索分析、matplotlib可视化）",
+      "拍拍贷平台业务数据分析.ipynb"
+    ],
+    "categoryId": "platform",
+    "summary": "围绕借款人画像、还款、催收及投资记录进行多表业务分析。",
+    "difficulty": "高级",
+    "skillTags": [
+      "Pandas",
+      "NumPy",
+      "Matplotlib",
+      "EDA",
+      "多表合并",
+      "数据透视",
+      "日期处理",
+      "累计指标"
+    ],
+    "methods": "无机器学习训练；有基于均值和标准差的业务估算",
+    "sourceRefs": [
+      {
+        "path": "平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/.ipynb_checkpoints/拍拍贷平台业务数据分析-checkpoint.ipynb",
+        "sha256": "f421af2e53cab7866906b27945ba8388efe6650cee8ca5a366afdc88a5658a0c",
+        "role": "code"
+      },
+      {
+        "path": "平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LC.csv",
+        "sha256": "8c51d53301c2f4d11daea2f9c9dc68f2f805b8837b833db9bc097f995911617c",
+        "role": "data"
+      },
+      {
+        "path": "平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCIS.csv",
+        "sha256": "a135299d5205043e02e51463cd8214b2bfe693c9ba2acea6e184405d199c84e7",
+        "role": "data"
+      },
+      {
+        "path": "平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCIS数据字典.xlsx",
+        "sha256": "827ce47e5272489a4f87bf80c4592dfd47015744adafcab93fbee195f9a4405d",
+        "role": "data"
+      },
+      {
+        "path": "平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCLP数据字典.xlsx",
+        "sha256": "d11e035d7044ef2ad846613625de0457a218580538e5ceca7b753d6aab1110ac",
+        "role": "data"
+      },
+      {
+        "path": "平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LP.csv",
+        "sha256": "ae448c257c3acadd512839a2e7e8a6456baa2adb07481eedfea07ccbe20cc4ad",
+        "role": "data"
+      },
+      {
+        "path": "平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/readme.txt",
+        "sha256": "e65d57028ad675218742f23898238904fd506b6466c6f8817903cb0311fbfa6f",
+        "role": "data"
+      },
+      {
+        "path": "平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/数据说明.docx",
+        "sha256": "224f73b93f52ed1bd8393c88558a722a2d6b542584b17e14c2ee2bbdd02e8450",
+        "role": "other"
+      },
+      {
+        "path": "平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/拍拍贷平台业务数据分析.html",
+        "sha256": "62e8d4c40e1daa95f364c1a81e4ec1a27dd9e4435e9d924dd191e8e19095bb70",
+        "role": "output"
+      },
+      {
+        "path": "平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/拍拍贷平台业务数据分析.ipynb",
+        "sha256": "3ea7579b35438896bb838f4ecc960bafc50d7a5ca422023098086a66aa5b5a7b",
+        "role": "code"
+      },
+      {
+        "path": "平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/拍拍贷平台业务数据分析.py",
+        "sha256": "444eae1e8c7e3f2884613cad0c07e2aafae1b33bbf056abd77fc5022f856ecd2",
+        "role": "code"
+      }
+    ],
+    "limitations": [
+      "LP有3203276行，整表入浏览器不可取；LCIS为多期快照，不能按独立借款重复求和；全表dropna可能删除未还款记录；说明明确仅为业务样本、不代表平台整体；3σ概率保证缺分布前提。"
+    ],
+    "lessons": [],
+    "readiness": {
+      "source": "audited",
+      "course": "not-adapted",
+      "rerun": "not-run",
+      "offline": "not-packaged"
+    }
+  },
+  {
+    "id": "P09",
+    "title": "链家房源信息抓取+可视化",
+    "originalNames": [
+      "房地产-二手房+可视化-约300行（爬虫+pyecharts可视化）",
+      "链家房源信息抓取+可视化.ipynb"
+    ],
+    "categoryId": "property",
+    "summary": "展示链家深圳房源采集思路及房价、户型和标题可视化。",
+    "difficulty": "进阶",
+    "skillTags": [
+      "Requests",
+      "BeautifulSoup",
+      "lxml",
+      "正则表达式",
+      "Pandas",
+      "Pyecharts",
+      "Jieba",
+      "数据采集"
+    ],
+    "methods": "没有机器学习模型；chromedriver.exe虽附带但主代码未使用Selenium",
+    "sourceRefs": [
+      {
+        "path": "房地产-二手房+可视化-约300行（爬虫+pyecharts可视化）/.ipynb_checkpoints/链家房源信息抓取+可视化-checkpoint.ipynb",
+        "sha256": "d3e01d5238a9e6cce1ea838100c7e068bf50acf793ff19463efef283a71bfd29",
+        "role": "code"
+      },
+      {
+        "path": "房地产-二手房+可视化-约300行（爬虫+pyecharts可视化）/chromedriver.exe",
+        "sha256": "93af100505b192263d8dba3b9d735e8ba803ce58c45f0b1bee9efe53a3ec831b",
+        "role": "other"
+      },
+      {
+        "path": "房地产-二手房+可视化-约300行（爬虫+pyecharts可视化）/map.html",
+        "sha256": "a0e74bb48d541f512f819f0487e1246bd206007419b4380f533e1b1f3ebd91f5",
+        "role": "output"
+      },
+      {
+        "path": "房地产-二手房+可视化-约300行（爬虫+pyecharts可视化）/shenzhen.csv",
+        "sha256": "fcf600064559278beeedb0b5e70d1de42d60ad64347ad2f485da5b167308bcc7",
+        "role": "data"
+      },
+      {
+        "path": "房地产-二手房+可视化-约300行（爬虫+pyecharts可视化）/图片.docx",
+        "sha256": "c076b240350d9807933297ed8c5372acbbde0c32f2864bc2bdca8c5536c5a112",
+        "role": "other"
+      },
+      {
+        "path": "房地产-二手房+可视化-约300行（爬虫+pyecharts可视化）/如何更改为其他地市抓取数据进行分析.docx",
+        "sha256": "448ab01d6bd318ac803ea742026f533b9848fdcbaaa136c5eebac60adc4d990a",
+        "role": "other"
+      },
+      {
+        "path": "房地产-二手房+可视化-约300行（爬虫+pyecharts可视化）/链家房源信息抓取+可视化.html",
+        "sha256": "c30ca53050472108b0a7240bff056033cdd574ce23296c0e843bcaf797a78071",
+        "role": "output"
+      },
+      {
+        "path": "房地产-二手房+可视化-约300行（爬虫+pyecharts可视化）/链家房源信息抓取+可视化.ipynb",
+        "sha256": "d3e01d5238a9e6cce1ea838100c7e068bf50acf793ff19463efef283a71bfd29",
+        "role": "code"
+      },
+      {
+        "path": "房地产-二手房+可视化-约300行（爬虫+pyecharts可视化）/链家房源信息抓取+可视化.py",
+        "sha256": "dfcbce69d878829b69b369564f8ada8f8027da3cf4d7d3a3d6c93c77ab0693a2",
+        "role": "code"
+      }
+    ],
+    "limitations": [
+      "未实际联网运行爬虫；网站结构与采集可用性未验证；与P11表结构相同但2个title值不同，不能当完全相同副本；不应要求离线学习时重新采集。"
+    ],
+    "lessons": [],
+    "readiness": {
+      "source": "audited",
+      "course": "not-adapted",
+      "rerun": "not-run",
+      "offline": "not-packaged"
+    }
+  },
+  {
+    "id": "P10",
+    "title": "二手房房价分析和预测房价",
+    "originalNames": [
+      "房地产-二手房房价分析和预测-约300行(多元线性回归)",
+      "二手房房价分析和预测房价.ipynb"
+    ],
+    "categoryId": "property",
+    "summary": "将户型等特征数值化，构建二手房总价线性回归。",
+    "difficulty": "进阶",
+    "skillTags": [
+      "Pandas",
+      "NumPy",
+      "Matplotlib",
+      "Scikit-learn",
+      "Statsmodels",
+      "One-Hot",
+      "线性回归",
+      "模型评估"
+    ],
+    "methods": "LinearRegression、statsmodels.OLS；单变量及多变量回归、特征组合搜索",
+    "sourceRefs": [
+      {
+        "path": "房地产-二手房房价分析和预测-约300行(多元线性回归)/.ipynb_checkpoints/二手房房价分析和预测房价-checkpoint.ipynb",
+        "sha256": "caf6d6c3c48cce8585ee6470fe71cea841c0022abcbf6841f3678be4521323f2",
+        "role": "code"
+      },
+      {
+        "path": "房地产-二手房房价分析和预测-约300行(多元线性回归)/data.png",
+        "sha256": "8449adc765c9442325b8921c26b27edb3c855b39c4af1aca0af8f1e69c551701",
+        "role": "output"
+      },
+      {
+        "path": "房地产-二手房房价分析和预测-约300行(多元线性回归)/house_information.csv",
+        "sha256": "91ed525f82fb2f74add0bc00173c8d4599759dc448dc1c242de1c9b0de4263d5",
+        "role": "data"
+      },
+      {
+        "path": "房地产-二手房房价分析和预测-约300行(多元线性回归)/二手房房价分析和预测房价.html",
+        "sha256": "1a93fec4973e4d34dd4291b3602b158947912338056584e7635e0396f04a773d",
+        "role": "output"
+      },
+      {
+        "path": "房地产-二手房房价分析和预测-约300行(多元线性回归)/二手房房价分析和预测房价.ipynb",
+        "sha256": "caf6d6c3c48cce8585ee6470fe71cea841c0022abcbf6841f3678be4521323f2",
+        "role": "code"
+      },
+      {
+        "path": "房地产-二手房房价分析和预测-约300行(多元线性回归)/二手房房价分析和预测房价.py",
+        "sha256": "95959ec33bde8fedf9c1ba1e8b7582592038548e8c9986e73d7297213dc7e7c6",
+        "role": "code"
+      }
+    ],
+    "limitations": [
+      "OLS解释有错误：[0.025,0.975]是95%区间；Std.Err是标准误；特征组合及测试集复用需审查；样本城市及采集期没有可靠独立来源说明。"
+    ],
+    "lessons": [],
+    "readiness": {
+      "source": "audited",
+      "course": "not-adapted",
+      "rerun": "not-run",
+      "offline": "not-packaged"
+    }
+  },
+  {
+    "id": "P11",
+    "title": "链家二手房数据分析",
+    "originalNames": [
+      "房地产-二手房数据分析-约400行（数据探索分析、matplotlib可视化）",
+      "链家二手房数据分析.ipynb"
+    ],
+    "categoryId": "property",
+    "summary": "用深圳二手房样本完成异常核对和多维度描述分析。",
+    "difficulty": "入门",
+    "skillTags": [
+      "Pandas",
+      "NumPy",
+      "Matplotlib",
+      "数据清洗",
+      "EDA",
+      "分组统计"
+    ],
+    "methods": "没有预测模型",
+    "sourceRefs": [
+      {
+        "path": "房地产-二手房数据分析-约400行（数据探索分析、matplotlib可视化）/.ipynb_checkpoints/链家二手房数据分析-checkpoint.ipynb",
+        "sha256": "acad26c9cb4fa911fd8a0eaaf3ff393fbfa191134bb6f75745a0ff455d59a384",
+        "role": "code"
+      },
+      {
+        "path": "房地产-二手房数据分析-约400行（数据探索分析、matplotlib可视化）/shenzhen.csv",
+        "sha256": "607ca9622c8f38317738c7c401e81b88533137862db0cb50455b0a818da85a22",
+        "role": "data"
+      },
+      {
+        "path": "房地产-二手房数据分析-约400行（数据探索分析、matplotlib可视化）/链家二手房数据分析.html",
+        "sha256": "eac876b053b2cca77eaa339d83e7462a3a1f81f5593a2146841ce7d904259389",
+        "role": "output"
+      },
+      {
+        "path": "房地产-二手房数据分析-约400行（数据探索分析、matplotlib可视化）/链家二手房数据分析.ipynb",
+        "sha256": "acad26c9cb4fa911fd8a0eaaf3ff393fbfa191134bb6f75745a0ff455d59a384",
+        "role": "code"
+      }
+    ],
+    "limitations": [
+      "均价、样本供给分布不能解释购房偏好或因果；原文含700百万等单位错误；为历史样本，不能当当前购房建议。"
+    ],
+    "lessons": [],
+    "readiness": {
+      "source": "audited",
+      "course": "not-adapted",
+      "rerun": "not-run",
+      "offline": "not-packaged"
+    }
+  },
+  {
+    "id": "P12",
+    "title": "历年考研分数线数据可视化",
+    "originalNames": [
+      "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）",
+      "历年考研分数线数据可视化.ipynb"
+    ],
+    "categoryId": "education",
+    "summary": "整理历年院校专业分数线及2021年调剂信息并展示。",
+    "difficulty": "初级",
+    "skillTags": [
+      "Pandas",
+      "NumPy",
+      "Pyecharts",
+      "Jieba",
+      "StyleCloud",
+      "拼接",
+      "数据清洗",
+      "多表连接"
+    ],
+    "methods": "没有机器学习模型",
+    "sourceRefs": [
+      {
+        "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/.ipynb_checkpoints/历年考研分数线数据可视化-checkpoint.ipynb",
+        "sha256": "c9831348a3ef1a14841eb4795a3c3fbee5ec366b73fda5fbdaaa6dc58d1e552e",
+        "role": "code"
+      },
+      {
+        "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/SimHei.ttf",
+        "sha256": "0ee6f6723c29dbf427d12d58ffc11d58e9aa89adda0ab6b06468ee765b1eadf8",
+        "role": "other"
+      },
+      {
+        "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/历年考研分数线数据可视化.html",
+        "sha256": "5ddf3831b8a7fee3130a9a275c63f11915086a424cd403a0752e85a7bf974b85",
+        "role": "output"
+      },
+      {
+        "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/历年考研分数线数据可视化.ipynb",
+        "sha256": "c9831348a3ef1a14841eb4795a3c3fbee5ec366b73fda5fbdaaa6dc58d1e552e",
+        "role": "code"
+      },
+      {
+        "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/历年考研分数线数据可视化.py",
+        "sha256": "bebb16f3fdf7b72aa7c3558d1481ce1dae8911bc60178b26589e7ad113dd1417",
+        "role": "code"
+      },
+      {
+        "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/大学信息2021new.xlsx",
+        "sha256": "d818cb1ad3889fce546b37eea1ef9c9e2cc08b5b19317f0d42da29713d57629c",
+        "role": "data"
+      },
+      {
+        "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(1).csv",
+        "sha256": "50c7796c19a865a3678ae923daf5eed10aaa6b321ce7b494278ad241b7b917d6",
+        "role": "data"
+      },
+      {
+        "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(2).csv",
+        "sha256": "6bcddbf2cc251ea04020314c77f80866d6973eed098f2fb1da8bc01b8b2b6557",
+        "role": "data"
+      },
+      {
+        "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(3).csv",
+        "sha256": "7543dd1beb75aea06f6ef7a3a1cedcce2cb624282d25b0a637c183ccd70b3b8d",
+        "role": "data"
+      },
+      {
+        "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(4).csv",
+        "sha256": "30139bc9966041cfb5aa43f1fe1361a290c9c913d8823699bacca82228997e89",
+        "role": "data"
+      },
+      {
+        "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(5).csv",
+        "sha256": "22bcf3325c35670271d2007faab97296abd98a216fbb77542d5c9ac326a683bb",
+        "role": "data"
+      },
+      {
+        "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(6).csv",
+        "sha256": "87c5d0c9fa2cd3303086d8d1e0f83941e21d7525ae33a30d336f1ec67727d4e9",
+        "role": "data"
+      },
+      {
+        "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研调剂数据-3.08.xlsx",
+        "sha256": "0318a005e1c31c90febfd4b86bda4908b512b35275154d44176cba8aed7e7d9a",
+        "role": "data"
+      },
+      {
+        "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/词云图1.png",
+        "sha256": "ee8f1ad53787edb209ac54348024d4ec176167f67d6b9e309d63e7e191fc5232",
+        "role": "output"
+      },
+      {
+        "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/词云图2.png",
+        "sha256": "0824330845f063813cb4902b1fd7608c6ea7d45c7d9cbc9191b06a08fab6f8e0",
+        "role": "output"
+      }
+    ],
+    "limitations": [
+      "文件名“国家分数线”不能证明每行是全国统一线，字段是院校专业层级；747→774显示连接扩行风险；总分“-”等转值规则要单独解释；历史信息非现行报考依据。"
+    ],
+    "lessons": [],
+    "readiness": {
+      "source": "audited",
+      "course": "not-adapted",
+      "rerun": "not-run",
+      "offline": "not-packaged"
+    }
+  },
+  {
+    "id": "P13",
+    "title": "国产进口电影票房分析",
+    "originalNames": [
+      "文化娱乐-国产进口电影票房分析（Pyecharts大屏可视化）",
+      "国产进口电影票房分析.ipynb"
+    ],
+    "categoryId": "culture",
+    "summary": "对国产、进口及全部票房榜进行关联统计和多图展示。",
+    "difficulty": "初级",
+    "skillTags": [
+      "Pandas",
+      "NumPy",
+      "Pyecharts",
+      "表格组件",
+      "多表关联",
+      "时间趋势",
+      "单位换算"
+    ],
+    "methods": "无预测模型",
+    "sourceRefs": [
+      {
+        "path": "文化娱乐-国产进口电影票房分析（Pyecharts大屏可视化）/.ipynb_checkpoints/国产进口电影票房分析.ipynb",
+        "sha256": "76d4713a436c730d38b1f620c0d2c51aa784a50c1b5276d8734d0d6ab02c058d",
+        "role": "code"
+      },
+      {
+        "path": "文化娱乐-国产进口电影票房分析（Pyecharts大屏可视化）/chart_config.json",
+        "sha256": "ca3cc154c39f836806642bf59d0dfe2d34122eaa225a917c79c7bb14caae4075",
+        "role": "other"
+      },
+      {
+        "path": "文化娱乐-国产进口电影票房分析（Pyecharts大屏可视化）/test.html",
+        "sha256": "6a87bb7eb2673ec3f1cee6c5c4174534cb15527e5e5ba16e83b8b66c422ef497",
+        "role": "output"
+      },
+      {
+        "path": "文化娱乐-国产进口电影票房分析（Pyecharts大屏可视化）/国产进口电影票房分析.html",
+        "sha256": "23b112c0e74c2773e304be558f9a0fe641d6ae62fdf5c63ae5cff144bbc46548",
+        "role": "output"
+      },
+      {
+        "path": "文化娱乐-国产进口电影票房分析（Pyecharts大屏可视化）/国产进口电影票房分析.ipynb",
+        "sha256": "76d4713a436c730d38b1f620c0d2c51aa784a50c1b5276d8734d0d6ab02c058d",
+        "role": "code"
+      },
+      {
+        "path": "文化娱乐-国产进口电影票房分析（Pyecharts大屏可视化）/大屏展示1.html",
+        "sha256": "b47e57fdf18a0b99ec26ce6758ad7a267949fadc47869c7fef3752d6c232b75d",
+        "role": "output"
+      },
+      {
+        "path": "文化娱乐-国产进口电影票房分析（Pyecharts大屏可视化）/电影票房三十日时段详情.xlsx",
+        "sha256": "aaafac38878ea9d8961050e8ccb573411f091fe479ca639c1aea1aa1744bbe12",
+        "role": "data"
+      },
+      {
+        "path": "文化娱乐-国产进口电影票房分析（Pyecharts大屏可视化）/电影票房三十日时段趋势数据.xlsx",
+        "sha256": "1460d62f759e58c9df0597f11c7db66735ebfc050e622713761774da5d96c20a",
+        "role": "data"
+      },
+      {
+        "path": "文化娱乐-国产进口电影票房分析（Pyecharts大屏可视化）/电影票房表现概览.xlsx",
+        "sha256": "dcc0a445a76c685cc9b46f21df048ae1546ffe8a29b0777a84d254379bcf0096",
+        "role": "data"
+      },
+      {
+        "path": "文化娱乐-国产进口电影票房分析（Pyecharts大屏可视化）/票房榜.xlsx",
+        "sha256": "1c38523aeb55c46b7df881d3919becadd4be29aa47deed5784bf1297c5f6f946",
+        "role": "data"
+      }
+    ],
+    "limitations": [
+      "150行来自三个榜单，不能当150部独立电影；部分趋势表附带但未被核心代码读取；不能把Top50样本外推为整个电影市场。"
+    ],
+    "lessons": [],
+    "readiness": {
+      "source": "audited",
+      "course": "not-adapted",
+      "rerun": "not-run",
+      "offline": "not-packaged"
+    }
+  },
+  {
+    "id": "P14",
+    "title": "微博情感分析",
+    "originalNames": [
+      "文化娱乐-情感分析-含实验-约150行（分词、朴素贝叶斯模型）",
+      "微博情感分析.ipynb"
+    ],
+    "categoryId": "culture",
+    "summary": "对微博文本进行喜悦、愤怒、厌恶、低落四类分类。",
+    "difficulty": "高级",
+    "skillTags": [
+      "Pandas",
+      "正则",
+      "Jieba",
+      "CountVectorizer",
+      "Scikit-learn",
+      "Pipeline",
+      "MultinomialNB",
+      "决策树",
+      "交叉验证"
+    ],
+    "methods": "MultinomialNB和DecisionTreeClassifier；词袋特征；Word2Vec仅导入未训练，未见深度学习实现",
+    "sourceRefs": [
+      {
+        "path": "文化娱乐-情感分析-含实验-约150行（分词、朴素贝叶斯模型）/数据分析实验报告.doc",
+        "sha256": "4643b13d0c60a52e96cb91824454aa3271e828a116058ed12de3a6f78159e793",
+        "role": "other"
+      },
+      {
+        "path": "文化娱乐-情感分析-含实验-约150行（分词、朴素贝叶斯模型）/数据分析实验源码/.ipynb_checkpoints/微博情感分析-checkpoint.ipynb",
+        "sha256": "7994e4bdf4be4e71f06fdc4cab368640ef83b19847ad8ddcbad54e34a126ba94",
+        "role": "code"
+      },
+      {
+        "path": "文化娱乐-情感分析-含实验-约150行（分词、朴素贝叶斯模型）/数据分析实验源码/data/.ipynb_checkpoints/Untitled-checkpoint.ipynb",
+        "sha256": "188143f20ba64ead32853235735c589180056b6c7c47541744479767de696e37",
+        "role": "code"
+      },
+      {
+        "path": "文化娱乐-情感分析-含实验-约150行（分词、朴素贝叶斯模型）/数据分析实验源码/data/0_simplifyweibo.txt",
+        "sha256": "ffde7c1f137a7a44c8417c37ff9a4b787d49c145a4c9e7d26a11ced6e184e452",
+        "role": "data"
+      },
+      {
+        "path": "文化娱乐-情感分析-含实验-约150行（分词、朴素贝叶斯模型）/数据分析实验源码/data/2_simplifyweibo.txt",
+        "sha256": "687e3fc8a20d554a40d9cec538a6740ffa55d2139e5a2de0cd263f9285631ca9",
+        "role": "data"
+      },
+      {
+        "path": "文化娱乐-情感分析-含实验-约150行（分词、朴素贝叶斯模型）/数据分析实验源码/data/3_simplifyweibo.txt",
+        "sha256": "e1a0b367fdb84c135ef554d053fce5a6b03d0c42fc6d7ec3e88a0509d83dd2a9",
+        "role": "data"
+      },
+      {
+        "path": "文化娱乐-情感分析-含实验-约150行（分词、朴素贝叶斯模型）/数据分析实验源码/data/4_simplifyweibo.txt",
+        "sha256": "5cc82e79c0416174c579714e4c9e41220a4a834bf6bcaf5f0965194305a71e04",
+        "role": "data"
+      },
+      {
+        "path": "文化娱乐-情感分析-含实验-约150行（分词、朴素贝叶斯模型）/数据分析实验源码/data/data.csv",
+        "sha256": "1042efeb053116242156ee24a8b18ce22875396752eea5eb30751d46a25d8b3c",
+        "role": "data"
+      },
+      {
+        "path": "文化娱乐-情感分析-含实验-约150行（分词、朴素贝叶斯模型）/数据分析实验源码/data/停用词.txt",
+        "sha256": "af83e5913302aedc50fab42a881de28171fabe14eed8736f6a55fe78be3e7513",
+        "role": "data"
+      },
+      {
+        "path": "文化娱乐-情感分析-含实验-约150行（分词、朴素贝叶斯模型）/数据分析实验源码/微博情感分析.html",
+        "sha256": "db5267bc7fc2ac60bee150046b46613f7b7b249e182af6e33185db923747ac18",
+        "role": "output"
+      },
+      {
+        "path": "文化娱乐-情感分析-含实验-约150行（分词、朴素贝叶斯模型）/数据分析实验源码/微博情感分析.ipynb",
+        "sha256": "7994e4bdf4be4e71f06fdc4cab368640ef83b19847ad8ddcbad54e34a126ba94",
+        "role": "code"
+      }
+    ],
+    "limitations": [
+      "代码引用1_simplifyweibo.txt但未附，实际另有4_simplifyweibo.txt；可从现成CSV继续；Word报告称深度学习与代码不符，min_df解释也不符；文档与Notebook混淆矩阵不同；最后3×3单位阵是演示，不能冒充真实测试结果。"
+    ],
+    "lessons": [],
+    "readiness": {
+      "source": "known-gaps",
+      "course": "not-adapted",
+      "rerun": "not-run",
+      "offline": "not-packaged"
+    }
+  },
+  {
+    "id": "P15",
+    "title": "春节档票房分析",
+    "originalNames": [
+      "文化娱乐-春节档票房分析（Pyecharts大屏可视化）",
+      "春节档票房分析.ipynb"
+    ],
+    "categoryId": "culture",
+    "summary": "整理春节档影片、票房大盘和城市等级排片情况。",
+    "difficulty": "初级",
+    "skillTags": [
+      "Pandas",
+      "NumPy",
+      "Pyecharts",
+      "Timeline",
+      "单位转换",
+      "分组聚合",
+      "多表合并"
+    ],
+    "methods": "无预测模型",
+    "sourceRefs": [
+      {
+        "path": "文化娱乐-春节档票房分析（Pyecharts大屏可视化）/.ipynb_checkpoints/春节档票房分析-checkpoint.ipynb",
+        "sha256": "0e34c777bbbb63ca6d0a849712d9b1f7967f78f4ef809e84e99a8506efd75d10",
+        "role": "code"
+      },
+      {
+        "path": "文化娱乐-春节档票房分析（Pyecharts大屏可视化）/chart_config.json",
+        "sha256": "2a6b6e8acbad2144b8473aed636578545985a0d9c7021189f7982a9ded139471",
+        "role": "other"
+      },
+      {
+        "path": "文化娱乐-春节档票房分析（Pyecharts大屏可视化）/test.html",
+        "sha256": "91a1299a2983a000ce9c236f7d867accaa8a64f6f0d915c22f5356da1b97c0a0",
+        "role": "output"
+      },
+      {
+        "path": "文化娱乐-春节档票房分析（Pyecharts大屏可视化）/大屏展示1.html",
+        "sha256": "12aafe10b99c8289689225c36d7173168fde1e39d7e2e764d0ed1fcc0b63a1f5",
+        "role": "output"
+      },
+      {
+        "path": "文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-排片地域分布（场次）-top10影片.xlsx",
+        "sha256": "a4835d2355a994a5cf7f40e22053d2793d5c14761cb8474a603fe4a7e9c57389",
+        "role": "data"
+      },
+      {
+        "path": "文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-排片场次分布（场次）-top10影片.xlsx",
+        "sha256": "5ad74390a3465cb233c56dde7f957b5addfcc7f292aff9a6c684d3a709e5a0e2",
+        "role": "data"
+      },
+      {
+        "path": "文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-排片统计（场次）-top10影片.xlsx",
+        "sha256": "3f80027f7f6593e7af02dbd064bcef4cafc50d12532148afddc5667866594904",
+        "role": "data"
+      },
+      {
+        "path": "文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-排片院线分布（场次）-top10影片.xlsx",
+        "sha256": "541b0d5675f7320f725d2314d3324e5d968cfc1eba3bd6c078daaaa835489a6e",
+        "role": "data"
+      },
+      {
+        "path": "文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-电影票房三十日时段详情.xls",
+        "sha256": "eb438315805b41886b99d019c4bc29514306995cdf3faed2cbb431e2574e1554",
+        "role": "data"
+      },
+      {
+        "path": "文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-电影票房三十日时段趋势数据.xlsx",
+        "sha256": "b3423598041e90de61fff3d154ba2e09aeea6a291999549ccf6ec600a6fc6a79",
+        "role": "data"
+      },
+      {
+        "path": "文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-电影票房表现概览.xlsx",
+        "sha256": "cde413d249940fa7751aea7a934b75ddb3af35cee5afd396ecee32614bda45b4",
+        "role": "data"
+      },
+      {
+        "path": "文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-票房详情.xlsx",
+        "sha256": "ca6a7a8a97c92aca9b4d1095a48355a5a17771d100fe99ce177faba39e0d76ac",
+        "role": "data"
+      },
+      {
+        "path": "文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档票房分析.html",
+        "sha256": "f38c99c2f42bf0a457fefb26daaae47cbe7d55cf024debf984e8045b6eab55d2",
+        "role": "output"
+      },
+      {
+        "path": "文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档票房分析.ipynb",
+        "sha256": "0e34c777bbbb63ca6d0a849712d9b1f7967f78f4ef809e84e99a8506efd75d10",
+        "role": "code"
+      }
+    ],
+    "limitations": [
+      "旧xls表头含“/万”但原值量级与转换标签不一致，必须核验；标题称七日但底表部分影片有30天；院线/时段等附表未全部用于主流程；城市字段是城市等级而非具体城市。"
+    ],
+    "lessons": [],
+    "readiness": {
+      "source": "audited",
+      "course": "not-adapted",
+      "rerun": "not-run",
+      "offline": "not-packaged"
+    }
+  },
+  {
+    "id": "P16",
+    "title": "时令蔬菜有哪些",
+    "originalNames": [
+      "生活日常-时令蔬菜时间序列分析-约600行（matplotlib、seaborn可视化、多元回归）",
+      "时令蔬菜有哪些.ipynb"
+    ],
+    "categoryId": "daily",
+    "summary": "通过月度批发价研究农产品趋势与季节性。",
+    "difficulty": "高级",
+    "skillTags": [
+      "Pandas",
+      "NumPy",
+      "Matplotlib",
+      "Seaborn",
+      "Statsmodels",
+      "时间序列探索",
+      "多元回归",
+      "One-Hot",
+      "热力图"
+    ],
+    "methods": "OLS：时间序号加月份哑变量与常数；未实现ARIMA或专门未来预测",
+    "sourceRefs": [
+      {
+        "path": "生活日常-时令蔬菜时间序列分析-约600行（matplotlib、seaborn可视化、多元回归）/.ipynb_checkpoints/时令蔬菜有哪些-checkpoint.ipynb",
+        "sha256": "d94046f895899f1034b2349d6f014b700c244b9479a84481302b9aeaaaf8fe5c",
+        "role": "code"
+      },
+      {
+        "path": "生活日常-时令蔬菜时间序列分析-约600行（matplotlib、seaborn可视化、多元回归）/wholesale_price_of_agricultural_products.csv",
+        "sha256": "f297941e77606fd53c6fa644e5b53ccd5fe005e09e86aca33c103cc2ca29eacd",
+        "role": "data"
+      },
+      {
+        "path": "生活日常-时令蔬菜时间序列分析-约600行（matplotlib、seaborn可视化、多元回归）/时令蔬菜有哪些.html",
+        "sha256": "b686c592ddfccd5ca70f74c522b414c22a33197af32f776271c1778434952441",
+        "role": "output"
+      },
+      {
+        "path": "生活日常-时令蔬菜时间序列分析-约600行（matplotlib、seaborn可视化、多元回归）/时令蔬菜有哪些.ipynb",
+        "sha256": "470915ad6aeefbf6ccbbbbdab0004971fd91f7f9ccc628a7b42ed7e01a0c724a",
+        "role": "code"
+      }
+    ],
+    "limitations": [
+      "文字列举品种数与实际46种需以数据为准；常数+12个月全哑变量造成矩阵奇异；原系数与p值不宜照抄为严谨推断；只有两年观察，低价不等于产量增加或上市季。"
+    ],
+    "lessons": [],
+    "readiness": {
+      "source": "audited",
+      "course": "not-adapted",
+      "rerun": "not-run",
+      "offline": "not-packaged"
+    }
+  },
+  {
+    "id": "P17",
+    "title": "聚类分析广告效果",
+    "originalNames": [
+      "电商-广告投放效果分析-约250行（KMeans聚类、数据分析）",
+      "聚类分析广告效果.ipynb"
+    ],
+    "categoryId": "commerce",
+    "summary": "根据渠道流量、转化和素材属性进行广告渠道分群。",
+    "difficulty": "进阶",
+    "skillTags": [
+      "Pandas",
+      "NumPy",
+      "Matplotlib",
+      "Seaborn",
+      "OneHotEncoder",
+      "MinMaxScaler",
+      "KMeans",
+      "轮廓系数"
+    ],
+    "methods": "KMeans；搜索k=2到7，原保存k=4",
+    "sourceRefs": [
+      {
+        "path": "电商-广告投放效果分析-约250行（KMeans聚类、数据分析）/.ipynb_checkpoints/聚类分析广告效果-checkpoint.ipynb",
+        "sha256": "ad88e032b91ce55504f1a19bc8e1ddb2a8829edc69cab6b2569cdbde39edd6b7",
+        "role": "code"
+      },
+      {
+        "path": "电商-广告投放效果分析-约250行（KMeans聚类、数据分析）/ad_performance.csv",
+        "sha256": "4f767d4f273ae2745ac84a9791d2e3d81bdee37a26d1ca82fa4d8a9a5f3003fb",
+        "role": "data"
+      },
+      {
+        "path": "电商-广告投放效果分析-约250行（KMeans聚类、数据分析）/聚类分析广告效果.html",
+        "sha256": "171e7b08d19c68ce8c657f07d37ee826b9f5d6a1b867cbb97743a08f2204f654",
+        "role": "output"
+      },
+      {
+        "path": "电商-广告投放效果分析-约250行（KMeans聚类、数据分析）/聚类分析广告效果.ipynb",
+        "sha256": "ad88e032b91ce55504f1a19bc8e1ddb2a8829edc69cab6b2569cdbde39edd6b7",
+        "role": "code"
+      },
+      {
+        "path": "电商-广告投放效果分析-约250行（KMeans聚类、数据分析）/聚类分析广告效果.py",
+        "sha256": "d9d3c4c55eea4c26a15c1cc652b2e7793f294ad7f7697f7ce793985a402860b1",
+        "role": "code"
+      }
+    ],
+    "limitations": [
+      "原文群体编号、数量与业务描述有错位，平台须绑定实际中心而非照抄；无成本收益字段支撑ROI结论；未固定随机种子。"
+    ],
+    "lessons": [],
+    "readiness": {
+      "source": "audited",
+      "course": "not-adapted",
+      "rerun": "not-run",
+      "offline": "not-packaged"
+    }
+  },
+  {
+    "id": "P18",
+    "title": "京东评论数据情感分析",
+    "originalNames": [
+      "电商-数据情感分析-约150行（分词、关键词提取、情感分析）",
+      "京东评论数据情感分析.ipynb"
+    ],
+    "categoryId": "commerce",
+    "summary": "对京东评论做预训练情感评分、分词及关键词探索。",
+    "difficulty": "进阶",
+    "skillTags": [
+      "Pandas",
+      "Matplotlib",
+      "NumPy",
+      "SnowNLP",
+      "Jieba",
+      "TF-IDF关键词",
+      "WordCloud"
+    ],
+    "methods": "调用SnowNLP现成情感评分；没有自行训练或独立标注集验证",
+    "sourceRefs": [
+      {
+        "path": "电商-数据情感分析-约150行（分词、关键词提取、情感分析）/.ipynb_checkpoints/京东评论数据情感分析-checkpoint.ipynb",
+        "sha256": "6414527f85039d478eee720bd4a03e00565ded4963f373673f2af574e6a817fd",
+        "role": "code"
+      },
+      {
+        "path": "电商-数据情感分析-约150行（分词、关键词提取、情感分析）/SimHei.ttf",
+        "sha256": "0ee6f6723c29dbf427d12d58ffc11d58e9aa89adda0ab6b06468ee765b1eadf8",
+        "role": "other"
+      },
+      {
+        "path": "电商-数据情感分析-约150行（分词、关键词提取、情感分析）/京东评论数据.csv",
+        "sha256": "142cbb8443ed879582fdc56d3c728e19b376dce2e8779e65b57718a4d14a1691",
+        "role": "data"
+      },
+      {
+        "path": "电商-数据情感分析-约150行（分词、关键词提取、情感分析）/京东评论数据情感分析.html",
+        "sha256": "95f8e4fec8b3912de1c3b610a5f9ca0f1fa0326dce90d1f2a7f7222fc87449db",
+        "role": "output"
+      },
+      {
+        "path": "电商-数据情感分析-约150行（分词、关键词提取、情感分析）/京东评论数据情感分析.ipynb",
+        "sha256": "6414527f85039d478eee720bd4a03e00565ded4963f373673f2af574e6a817fd",
+        "role": "code"
+      },
+      {
+        "path": "电商-数据情感分析-约150行（分词、关键词提取、情感分析）/京东评论数据情感分析.py",
+        "sha256": "aca2005a974501a6c679afb1374691b7db139c1b8d77bbc2f547c52138d03088",
+        "role": "code"
+      },
+      {
+        "path": "电商-数据情感分析-约150行（分词、关键词提取、情感分析）/消极评论词云.png",
+        "sha256": "87ad595133a690bae7e4ba343d189346f14da38c5844e274711ca9799c8633cc",
+        "role": "output"
+      },
+      {
+        "path": "电商-数据情感分析-约150行（分词、关键词提取、情感分析）/词云图.png",
+        "sha256": "a6fdc2129eaea4aa42d428fcae04755a4a4ed4c2920951a72e850561ac517ed7",
+        "role": "output"
+      }
+    ],
+    "limitations": [
+      "分数不等于经本数据校准的真实概率；阈值分类不是真实人工标签；“未填写”等文本会影响结果；不能从负面词直接推断品控因果。"
+    ],
+    "lessons": [],
+    "readiness": {
+      "source": "audited",
+      "course": "not-adapted",
+      "rerun": "not-run",
+      "offline": "not-packaged"
+    }
+  },
+  {
+    "id": "P19",
+    "title": "母婴市场消费数据分析",
+    "originalNames": [
+      "电商-母婴市场消费数据分析-约350行（pyecharts可视化、数据分析）",
+      "母婴市场消费数据分析.ipynb"
+    ],
+    "categoryId": "commerce",
+    "summary": "分析母婴交易的时间变化、复购与品类销量。",
+    "difficulty": "初级",
+    "skillTags": [
+      "Pandas",
+      "NumPy",
+      "Pyecharts",
+      "Matplotlib",
+      "Seaborn",
+      "数据清洗",
+      "时间聚合",
+      "复购分析"
+    ],
+    "methods": "无预测模型；背景提到年龄/购买预测，代码未实现",
+    "sourceRefs": [
+      {
+        "path": "电商-母婴市场消费数据分析-约350行（pyecharts可视化、数据分析）/(sample)sam_tianchi_mum_baby.csv",
+        "sha256": "cef56ed5cc1c92041855c6b10c24b7d7871d0da0ea41565a101a5f7c4eceb471",
+        "role": "data"
+      },
+      {
+        "path": "电商-母婴市场消费数据分析-约350行（pyecharts可视化、数据分析）/(sample)sam_tianchi_mum_baby_trade_history.csv",
+        "sha256": "496284641c52e105d2b68fb4fff9996f1f56a472ef48a9c991a178fa2cc36986",
+        "role": "data"
+      },
+      {
+        "path": "电商-母婴市场消费数据分析-约350行（pyecharts可视化、数据分析）/.ipynb_checkpoints/母婴市场消费数据分析-checkpoint.ipynb",
+        "sha256": "4e8243d4bf1a207860192e64196ac04e3ab42a602f5a74e651ab76c2fd2f7068",
+        "role": "code"
+      },
+      {
+        "path": "电商-母婴市场消费数据分析-约350行（pyecharts可视化、数据分析）/render.html",
+        "sha256": "04801566fb93cfc289feb62176e85ea66eb711e8924c777471b79fe06f22fee6",
+        "role": "output"
+      },
+      {
+        "path": "电商-母婴市场消费数据分析-约350行（pyecharts可视化、数据分析）/母婴市场消费数据分析.html",
+        "sha256": "7e7491da73433c0cc66f40ac4396f12d67eaa0d995e23ed894da35bbbd5c4984",
+        "role": "output"
+      },
+      {
+        "path": "电商-母婴市场消费数据分析-约350行（pyecharts可视化、数据分析）/母婴市场消费数据分析.ipynb",
+        "sha256": "4e8243d4bf1a207860192e64196ac04e3ab42a602f5a74e651ab76c2fd2f7068",
+        "role": "code"
+      }
+    ],
+    "limitations": [
+      "两表覆盖不同，婴儿表953人，代码并未实现年龄预测；无单价不能计算营业额；原文将销量称销售额、日期有笔误；节日原因是推测；抽样不支持全国市场规模或质量归因。"
+    ],
+    "lessons": [],
+    "readiness": {
+      "source": "audited",
+      "course": "not-adapted",
+      "rerun": "not-run",
+      "offline": "not-packaged"
+    }
+  },
+  {
+    "id": "P20",
+    "title": "天猫双十一美妆销售数据分析",
+    "originalNames": [
+      "电商-美妆销售数据分析-约400行（matplotlib可视化、数据分析）",
+      "天猫双十一美妆销售数据分析.ipynb"
+    ],
+    "categoryId": "commerce",
+    "summary": "从商品快照比较美妆品牌、品类、价格及销量指标。",
+    "difficulty": "初级",
+    "skillTags": [
+      "Pandas",
+      "NumPy",
+      "Matplotlib",
+      "Seaborn",
+      "Jieba",
+      "去重",
+      "缺失处理",
+      "文本规则分类",
+      "EDA"
+    ],
+    "methods": "没有机器学习模型；标题分类为词典规则",
+    "sourceRefs": [
+      {
+        "path": "电商-美妆销售数据分析-约400行（matplotlib可视化、数据分析）/.ipynb_checkpoints/天猫双十一美妆销售数据分析-checkpoint.ipynb",
+        "sha256": "39640958b201474a19653da92c3ebc3addaad5dc2c00c7f7456c2874527e83ca",
+        "role": "code"
+      },
+      {
+        "path": "电商-美妆销售数据分析-约400行（matplotlib可视化、数据分析）/clean_beautymakeup.xlsx",
+        "sha256": "f398094083c48722d719ab29b6b6359e0032c642b7169a4e7f8aeb3c5c635223",
+        "role": "data"
+      },
+      {
+        "path": "电商-美妆销售数据分析-约400行（matplotlib可视化、数据分析）/双十一淘宝美妆数据.csv",
+        "sha256": "46acea03e8b133a00cd682a7fdda825fca7027feee60c4aa6a4ea80ea0d1d32f",
+        "role": "data"
+      },
+      {
+        "path": "电商-美妆销售数据分析-约400行（matplotlib可视化、数据分析）/天猫双十一美妆销售数据分析.html",
+        "sha256": "23ed2e0579f450acc6bf67e0ca36fb69aaf3b61792c65bef9a58ff1035326e64",
+        "role": "output"
+      },
+      {
+        "path": "电商-美妆销售数据分析-约400行（matplotlib可视化、数据分析）/天猫双十一美妆销售数据分析.ipynb",
+        "sha256": "39640958b201474a19653da92c3ebc3addaad5dc2c00c7f7456c2874527e83ca",
+        "role": "code"
+      },
+      {
+        "path": "电商-美妆销售数据分析-约400行（matplotlib可视化、数据分析）/天猫双十一美妆销售数据分析.py",
+        "sha256": "6f11add1e4f03bb97eb741d1f6fad21089f7237713878cf726ac4eed91bf6bc2",
+        "role": "code"
+      }
+    ],
+    "limitations": [
+      "原文27599与表差1；补0会把未知当零；sale_count为快照口径是否可跨天相加未证实；男士专用商品不等于购买者性别；估算金额非核实成交额。"
+    ],
+    "lessons": [],
+    "readiness": {
+      "source": "audited",
+      "course": "not-adapted",
+      "rerun": "not-run",
+      "offline": "not-packaged"
+    }
+  },
+  {
+    "id": "P21",
+    "title": "超市销售数据分析与报表（两节课程）",
+    "originalNames": [
+      "电商-超市销售数据分析与报表-约200行（数据透视分析）",
+      "1、超市销售数据分析.ipynb",
+      "2、超市销售数据自动化报表.ipynb"
+    ],
+    "categoryId": "commerce",
+    "summary": "用超市交易明细学习分组、透视及月度报表。",
+    "difficulty": "入门",
+    "skillTags": [
+      "Pandas",
+      "Matplotlib",
+      "Datetime",
+      "groupby",
+      "pivot_table",
+      "去重",
+      "同比环比",
+      "报表导出"
+    ],
+    "methods": "无机器学习模型",
+    "sourceRefs": [
+      {
+        "path": "电商-超市销售数据分析与报表-约200行（数据透视分析）/.ipynb_checkpoints/1、超市销售数据分析-checkpoint.ipynb",
+        "sha256": "9daf640dafc9cd923fd98713a73ee06e932b2db8efa13ba0781394908d23e2f4",
+        "role": "code"
+      },
+      {
+        "path": "电商-超市销售数据分析与报表-约200行（数据透视分析）/.ipynb_checkpoints/2、超市销售数据自动化报表-checkpoint.ipynb",
+        "sha256": "67f79a5d288e92ef0f7ba8aee2405b81b930891c7654673c875cf661116694ff",
+        "role": "code"
+      },
+      {
+        "path": "电商-超市销售数据分析与报表-约200行（数据透视分析）/1、超市销售数据分析.html",
+        "sha256": "7861938bc57e8027360305a3b46295cc685faf606fb127e5534e897fb3c79299",
+        "role": "output"
+      },
+      {
+        "path": "电商-超市销售数据分析与报表-约200行（数据透视分析）/1、超市销售数据分析.ipynb",
+        "sha256": "9daf640dafc9cd923fd98713a73ee06e932b2db8efa13ba0781394908d23e2f4",
+        "role": "code"
+      },
+      {
+        "path": "电商-超市销售数据分析与报表-约200行（数据透视分析）/2、超市销售数据自动化报表.html",
+        "sha256": "e09a0cec17c551658e380a3745a8826c79c9945a363c31e648e1d800897b47d2",
+        "role": "output"
+      },
+      {
+        "path": "电商-超市销售数据分析与报表-约200行（数据透视分析）/2、超市销售数据自动化报表.ipynb",
+        "sha256": "67f79a5d288e92ef0f7ba8aee2405b81b930891c7654673c875cf661116694ff",
+        "role": "code"
+      },
+      {
+        "path": "电商-超市销售数据分析与报表-约200行（数据透视分析）/ChatGPT-数据分析大纲.txt",
+        "sha256": "7784bfc2448d4b2e50646e85c60c75ffb424b52f85cfadbbda34b564423c3a95",
+        "role": "data"
+      },
+      {
+        "path": "电商-超市销售数据分析与报表-约200行（数据透视分析）/order-14.1.csv",
+        "sha256": "ad338a62062f41470ae982c94e1bf5c8ab1c4c23aba88537f78563d0af8fe3b8",
+        "role": "data"
+      },
+      {
+        "path": "电商-超市销售数据分析与报表-约200行（数据透视分析）/order-14.3.csv",
+        "sha256": "8b681f21749942dda8dac1cf7b8b8fa468942207872c8eae225de47936587a58",
+        "role": "data"
+      },
+      {
+        "path": "电商-超市销售数据分析与报表-约200行（数据透视分析）/order.csv",
+        "sha256": "7125126eeef71db20ada51c7d5ab3efa5a4222a121b8aac77a79e4f0608a3399",
+        "role": "data"
+      }
+    ],
+    "limitations": [
+      "order-14.1有3744行，其中266行7列全空；文件名与保存结果的时期不能互代；结束日期用月末00:00可能漏月末白天交易；去重订单是订单量代理，不能当实测客流人数。"
+    ],
+    "lessons": [
+      {
+        "id": "sales-explore",
+        "title": "超市销售数据分析"
+      },
+      {
+        "id": "monthly-report",
+        "title": "超市销售数据自动化报表"
+      }
+    ],
+    "readiness": {
+      "source": "audited",
+      "course": "not-adapted",
+      "rerun": "not-run",
+      "offline": "not-packaged"
+    }
+  },
+  {
+    "id": "P22",
+    "title": "优衣库门店可视化与顾客拜访数据分组",
+    "originalNames": [
+      "电商-门店可视化与顾客分组-约500行（pyecharts地图可视化、KMeans聚类、大屏可视化）",
+      "优衣库门店可视化与顾客拜访数据分组.ipynb"
+    ],
+    "categoryId": "commerce",
+    "summary": "用上海80人拜访地点示例展示位置编码、门店分布与地点聚类。",
+    "difficulty": "进阶",
+    "skillTags": [
+      "Pandas",
+      "NumPy",
+      "Geopy",
+      "Pyecharts",
+      "Matplotlib",
+      "KMeans",
+      "肘部法",
+      "地理可视化"
+    ],
+    "methods": "KMeans：先k=8，再以肘部法讨论k=3",
+    "sourceRefs": [
+      {
+        "path": "电商-门店可视化与顾客分组-约500行（pyecharts地图可视化、KMeans聚类、大屏可视化）/.ipynb_checkpoints/优衣库门店可视化与顾客拜访数据分组-checkpoint.ipynb",
+        "sha256": "26f251ebfd81462ae1c97061f9dbec49b8ca6ffe35a17ff3b24afab964e78775",
+        "role": "code"
+      },
+      {
+        "path": "电商-门店可视化与顾客分组-约500行（pyecharts地图可视化、KMeans聚类、大屏可视化）/chart_config.json",
+        "sha256": "17b7b15989eee45834259d58dfcd95fc954710822223127a399d2bccd9116195",
+        "role": "other"
+      },
+      {
+        "path": "电商-门店可视化与顾客分组-约500行（pyecharts地图可视化、KMeans聚类、大屏可视化）/test.html",
+        "sha256": "7f1984981a04e2e27aab8185c56fd2ce62bf86197d31fd0df4445c78cbfd0299",
+        "role": "output"
+      },
+      {
+        "path": "电商-门店可视化与顾客分组-约500行（pyecharts地图可视化、KMeans聚类、大屏可视化）/uniqlo.csv",
+        "sha256": "a0472c1a06c803e83d4825478febe7a57a0b4a90a950a260895ebbcdefa9336d",
+        "role": "data"
+      },
+      {
+        "path": "电商-门店可视化与顾客分组-约500行（pyecharts地图可视化、KMeans聚类、大屏可视化）/uniqlo1.csv",
+        "sha256": "d8550e05409876826907185b51627b9a46aa1ef92366ea75d7e45cb865f5cd43",
+        "role": "data"
+      },
+      {
+        "path": "电商-门店可视化与顾客分组-约500行（pyecharts地图可视化、KMeans聚类、大屏可视化）/uniqlo2.csv",
+        "sha256": "85134715043965c641062cf78376f6feb7686ae0003a88ac56c88b1f4c95ae41",
+        "role": "data"
+      },
+      {
+        "path": "电商-门店可视化与顾客分组-约500行（pyecharts地图可视化、KMeans聚类、大屏可视化）/优衣库门店可视化与顾客拜访数据分组.ipynb",
+        "sha256": "26f251ebfd81462ae1c97061f9dbec49b8ca6ffe35a17ff3b24afab964e78775",
+        "role": "code"
+      },
+      {
+        "path": "电商-门店可视化与顾客分组-约500行（pyecharts地图可视化、KMeans聚类、大屏可视化）/大屏展示1.html",
+        "sha256": "49c5a8d8d1d9f022982554ae0f1c2e428b2102a558e547f68ce4e7c6888a11e1",
+        "role": "output"
+      }
+    ],
+    "limitations": [
+      "剩余拜访次数不是消费或客户价值；经纬度直接欧氏近似；坐标系来源/精度需核对；离线复用uniqlo2并关闭地理服务调用。"
+    ],
+    "lessons": [],
+    "readiness": {
+      "source": "audited",
+      "course": "not-adapted",
+      "rerun": "not-run",
+      "offline": "not-packaged"
+    }
+  },
+  {
+    "id": "P23",
+    "title": "预测天猫用户使用优惠券概率较高的客群",
+    "originalNames": [
+      "电商-预测用户使用优惠券概率较高的客群-约350行（逻辑回归模型、模型评估）",
+      "预测天猫用户使用优惠券概率较高的客群.ipynb"
+    ],
+    "categoryId": "commerce",
+    "summary": "使用客户及历史优惠券行为拟合优惠券使用分类模型。",
+    "difficulty": "进阶",
+    "skillTags": [
+      "Pandas",
+      "Matplotlib",
+      "Seaborn",
+      "独热编码",
+      "逻辑回归",
+      "混淆矩阵",
+      "ROC",
+      "模型评估"
+    ],
+    "methods": "LogisticRegression，两轮特征方案",
+    "sourceRefs": [
+      {
+        "path": "电商-预测用户使用优惠券概率较高的客群-约350行（逻辑回归模型、模型评估）/.ipynb_checkpoints/预测天猫用户使用优惠券概率较高的客群-checkpoint.ipynb",
+        "sha256": "30fe7dee501aa066e11b65470a6ddcc0d6b33f84fe89d6a76aaa6aca75623099",
+        "role": "code"
+      },
+      {
+        "path": "电商-预测用户使用优惠券概率较高的客群-约350行（逻辑回归模型、模型评估）/tianmao.csv",
+        "sha256": "89e8ce6a9e14bb2aac1d28fb150644544212e88acf3a152757c6f547b9b1a3f0",
+        "role": "data"
+      },
+      {
+        "path": "电商-预测用户使用优惠券概率较高的客群-约350行（逻辑回归模型、模型评估）/预测天猫用户使用优惠券概率较高的客群.html",
+        "sha256": "8e1746a71671e2d05091069eb2d6f6bda7df7bc8d1c94812badb4abf2c892452",
+        "role": "output"
+      },
+      {
+        "path": "电商-预测用户使用优惠券概率较高的客群-约350行（逻辑回归模型、模型评估）/预测天猫用户使用优惠券概率较高的客群.ipynb",
+        "sha256": "30fe7dee501aa066e11b65470a6ddcc0d6b33f84fe89d6a76aaa6aca75623099",
+        "role": "code"
+      },
+      {
+        "path": "电商-预测用户使用优惠券概率较高的客群-约350行（逻辑回归模型、模型评估）/预测天猫用户使用优惠券概率较高的客群.py",
+        "sha256": "c19078cd43e1390f30a543729c1479cb5b6765519eee1f92a90f50c18a3ce37a",
+        "role": "code"
+      }
+    ],
+    "limitations": [
+      "测试正类Recall=1/863≈0.116%，高准确率无效；AUC使用训练硬标签；二轮复用旧y_pred_train，不能声称优化后真实AUC；0.116等相关被误写强相关；exp系数是odds倍率而非概率倍率；平台真实来源未经独立验证。"
+    ],
+    "lessons": [],
+    "readiness": {
+      "source": "audited",
+      "course": "not-adapted",
+      "rerun": "not-run",
+      "offline": "not-packaged"
+    }
+  },
+  {
+    "id": "P24",
+    "title": "小红书",
+    "originalNames": [
+      "电商-预测用户消费金额-约500行（线性回归模型、模型评估优化）",
+      "小红书.ipynb"
+    ],
+    "categoryId": "commerce",
+    "summary": "用用户行为特征练习消费金额回归和模型解释。",
+    "difficulty": "进阶",
+    "skillTags": [
+      "Pandas",
+      "Matplotlib",
+      "Seaborn",
+      "Scikit-learn",
+      "Statsmodels",
+      "缺失处理",
+      "独热编码",
+      "线性回归"
+    ],
+    "methods": "LinearRegression、ols；两套特征拟合",
+    "sourceRefs": [
+      {
+        "path": "电商-预测用户消费金额-约500行（线性回归模型、模型评估优化）/.ipynb_checkpoints/小红书-checkpoint.ipynb",
+        "sha256": "40650aad9a7d0c531e29b850ac54b77f0e60ad578779d9023c0838ec9163c3ec",
+        "role": "code"
+      },
+      {
+        "path": "电商-预测用户消费金额-约500行（线性回归模型、模型评估优化）/redNew.csv",
+        "sha256": "e1a086141c06fc04ec3a4584b962a486ea270986255a9afeab463beda6727ece",
+        "role": "data"
+      },
+      {
+        "path": "电商-预测用户消费金额-约500行（线性回归模型、模型评估优化）/statsmodels-0.12.2-cp37-none-win_amd64.whl",
+        "sha256": "93273aa1c31caf59bcce9790ca4c3f54fdc45a37c61084d06f1ba4fbe56e7752",
+        "role": "other"
+      },
+      {
+        "path": "电商-预测用户消费金额-约500行（线性回归模型、模型评估优化）/statsmodels-0.13.5-cp39-cp39-win_amd64.whl",
+        "sha256": "2ff331e508f2d1a53d3a188305477f4cf05cd8c52beb6483885eb3d51c8be3ad",
+        "role": "other"
+      },
+      {
+        "path": "电商-预测用户消费金额-约500行（线性回归模型、模型评估优化）/小红书.html",
+        "sha256": "879c8c42246ac5dcdc3be9fc0a0c9136e40655702eaed49b1e00ed2e5e05bb4b",
+        "role": "output"
+      },
+      {
+        "path": "电商-预测用户消费金额-约500行（线性回归模型、模型评估优化）/小红书.ipynb",
+        "sha256": "40650aad9a7d0c531e29b850ac54b77f0e60ad578779d9023c0838ec9163c3ec",
+        "role": "code"
+      },
+      {
+        "path": "电商-预测用户消费金额-约500行（线性回归模型、模型评估优化）/小红书.py",
+        "sha256": "4dc9d8c79cb86e56964ec4588092499050c552333390a33e6dd1f2d50dc18cbb",
+        "role": "code"
+      },
+      {
+        "path": "电商-预测用户消费金额-约500行（线性回归模型、模型评估优化）/小红书营销渠道效果预测分析.png",
+        "sha256": "44750726e77e377a633043947af8efffc3d4b60fee7f4bcd0e89f364b4b9f5e2",
+        "role": "output"
+      }
+    ],
+    "limitations": [
+      "未切分独立测试，指标为拟合内表现；原缺失率输出与本地实读不符，实读gender/engaged各11729缺，age12736缺；均值填充造峰不能据此猜平台默认年龄；名称小红书不是来源证明；系数不代表营销增量因果。"
+    ],
+    "lessons": [],
+    "readiness": {
+      "source": "audited",
+      "course": "not-adapted",
+      "rerun": "not-run",
+      "offline": "not-packaged"
+    }
+  },
+  {
+    "id": "P25",
+    "title": "第七次全国人口普查-数据可视化",
+    "originalNames": [
+      "社会科学-人口普查-数据可视化-约750行（Pyecharts可视化、数据分析）",
+      "第七次全国人口普查-数据可视化.ipynb"
+    ],
+    "categoryId": "society",
+    "summary": "整理第七次人口普查表格并展示地区人口结构。",
+    "difficulty": "初级",
+    "skillTags": [
+      "Pandas",
+      "Pyecharts",
+      "地图",
+      "条形图",
+      "比例图",
+      "数据清洗"
+    ],
+    "methods": "没有机器学习模型",
+    "sourceRefs": [
+      {
+        "path": "社会科学-人口普查-数据可视化-约750行（Pyecharts可视化、数据分析）/.ipynb_checkpoints/第七次全国人口普查-数据可视化-checkpoint.ipynb",
+        "sha256": "d8dbf08ea73d90493c2aa06cc84d7d444946929d426fdf078da098266e85bcc6",
+        "role": "code"
+      },
+      {
+        "path": "社会科学-人口普查-数据可视化-约750行（Pyecharts可视化、数据分析）/canyon.hdr",
+        "sha256": "b209189c626fb1cc7821ab3439653272352545f62cc637667eeb17eea91dd5a5",
+        "role": "other"
+      },
+      {
+        "path": "社会科学-人口普查-数据可视化-约750行（Pyecharts可视化、数据分析）/data/全国人口年龄构成.csv",
+        "sha256": "55abc6661dbfcc66fe0d69563ecb794b6e34447c36d272f680073391e68e6a15",
+        "role": "data"
+      },
+      {
+        "path": "社会科学-人口普查-数据可视化-约750行（Pyecharts可视化、数据分析）/data/各地区15岁及以上人口平均受教育年限.csv",
+        "sha256": "d438f7270713be4b25b5bb0ffbf11086c1e6e93fb15f0df73f267a22acf063f1",
+        "role": "data"
+      },
+      {
+        "path": "社会科学-人口普查-数据可视化-约750行（Pyecharts可视化、数据分析）/data/各地区人口.csv",
+        "sha256": "e54df53ebcf223d5932943a9ad53b66df3d6d6798d2ee47333b0777236510bd2",
+        "role": "data"
+      },
+      {
+        "path": "社会科学-人口普查-数据可视化-约750行（Pyecharts可视化、数据分析）/data/各地区人口年龄构成.csv",
+        "sha256": "ab4bdab96f351ac920e48f2467cfad4f0d7aa97c10c23fabce16003ca173734e",
+        "role": "data"
+      },
+      {
+        "path": "社会科学-人口普查-数据可视化-约750行（Pyecharts可视化、数据分析）/data/各地区性别构成.csv",
+        "sha256": "2d70917d4b26bb515186d140625a24c68c3a4cd35e01000c3c56c456ab98e750",
+        "role": "data"
+      },
+      {
+        "path": "社会科学-人口普查-数据可视化-约750行（Pyecharts可视化、数据分析）/data/各地区每10万人口中拥有的各类受教育程度人数.csv",
+        "sha256": "5f06777bf301ef73779f5173ad08f5900bef85ad6e01613a7e05132a316a9c91",
+        "role": "data"
+      },
+      {
+        "path": "社会科学-人口普查-数据可视化-约750行（Pyecharts可视化、数据分析）/第七次全国人口普查-数据可视化.html",
+        "sha256": "89777ddfcd095d05856838dd44a4703d4e598c42e04e35ab63ca5365043e3b96",
+        "role": "output"
+      },
+      {
+        "path": "社会科学-人口普查-数据可视化-约750行（Pyecharts可视化、数据分析）/第七次全国人口普查-数据可视化.ipynb",
+        "sha256": "d8dbf08ea73d90493c2aa06cc84d7d444946929d426fdf078da098266e85bcc6",
+        "role": "code"
+      },
+      {
+        "path": "社会科学-人口普查-数据可视化-约750行（Pyecharts可视化、数据分析）/第七次全国人口普查-数据可视化.py",
+        "sha256": "7c73df2a24115c3089a9d99819b2c14472a5fdc2088d52c76b9fefaad92beca5",
+        "role": "code"
+      }
+    ],
+    "limitations": [
+      "6份CSV含说明行，默认读取行数不等于有效省份数；部分概览为原文/硬编码值，不能伪称由CSV计算；3D地图系列名写GDP但值为人口；性别总量不能推算必然单身人数；65+是60+子集不可重复堆叠。"
+    ],
+    "lessons": [],
+    "readiness": {
+      "source": "audited",
+      "course": "not-adapted",
+      "rerun": "not-run",
+      "offline": "not-packaged"
+    }
+  },
+  {
+    "id": "P26",
+    "title": "关于第七次全国人口普查数据的探索",
+    "originalNames": [
+      "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）",
+      "关于第七次全国人口普查数据的探索.ipynb"
+    ],
+    "categoryId": "society",
+    "summary": "融合年龄、教育、GDP、城镇化及流动人口，研究省际年龄结构差异。",
+    "difficulty": "高级",
+    "skillTags": [
+      "Pandas",
+      "NumPy",
+      "SciPy",
+      "层次聚类",
+      "Altair",
+      "Pyecharts",
+      "Matplotlib",
+      "相关分析",
+      "多源融合"
+    ],
+    "methods": "scipy.cluster.hierarchy层次聚类；无回归预测",
+    "sourceRefs": [
+      {
+        "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/.ipynb_checkpoints/关于第七次全国人口普查数据的探索-checkpoint.ipynb",
+        "sha256": "128dafa808c53033d8c300b682ae8cf67a8c77279b6c34db6385dfd70f0800a0",
+        "role": "code"
+      },
+      {
+        "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/2000年中国各地区城乡人口分布.csv",
+        "sha256": "010b8352eaad3195fa9cc3c1bb00dd7eb138ec9b97b86e42d6ff1b4d0cfb5c49",
+        "role": "data"
+      },
+      {
+        "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/2001-2020中国各地区常住人口数量.csv",
+        "sha256": "2177221892c12f7e7d5488db7495efe0228a6c5cb1b34b87370790f6b97803d5",
+        "role": "data"
+      },
+      {
+        "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/2005-2019年中国各地区城镇人口数量.csv",
+        "sha256": "42396462dd8849b48ff4c236f0d47555151085772564da0dbcd69210b3f567ee",
+        "role": "data"
+      },
+      {
+        "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/全国人口年龄构成.csv",
+        "sha256": "55abc6661dbfcc66fe0d69563ecb794b6e34447c36d272f680073391e68e6a15",
+        "role": "data"
+      },
+      {
+        "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/分省年度GDP数据.csv",
+        "sha256": "40a058b7d851eb3aa3aeb25ed7e92f0410eb94eff01503b2e72c17180c51a3d7",
+        "role": "data"
+      },
+      {
+        "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/各地区15岁及以上人口平均受教育年限.csv",
+        "sha256": "d438f7270713be4b25b5bb0ffbf11086c1e6e93fb15f0df73f267a22acf063f1",
+        "role": "data"
+      },
+      {
+        "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/各地区人口.csv",
+        "sha256": "e54df53ebcf223d5932943a9ad53b66df3d6d6798d2ee47333b0777236510bd2",
+        "role": "data"
+      },
+      {
+        "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/各地区人口年龄构成.csv",
+        "sha256": "ab4bdab96f351ac920e48f2467cfad4f0d7aa97c10c23fabce16003ca173734e",
+        "role": "data"
+      },
+      {
+        "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/各地区性别构成.csv",
+        "sha256": "2d70917d4b26bb515186d140625a24c68c3a4cd35e01000c3c56c456ab98e750",
+        "role": "data"
+      },
+      {
+        "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/各地区每10万人口中拥有的各类受教育程度人数.csv",
+        "sha256": "5f06777bf301ef73779f5173ad08f5900bef85ad6e01613a7e05132a316a9c91",
+        "role": "data"
+      },
+      {
+        "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/关于第七次全国人口普查数据的探索.html",
+        "sha256": "57c56217489234873dd7eab21c366fef59d06bce16c8afd59ab4ab229404a241",
+        "role": "output"
+      },
+      {
+        "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/关于第七次全国人口普查数据的探索.ipynb",
+        "sha256": "128dafa808c53033d8c300b682ae8cf67a8c77279b6c34db6385dfd70f0800a0",
+        "role": "code"
+      },
+      {
+        "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/关于第七次全国人口普查数据的探索.py",
+        "sha256": "f0b7b07826be934cb9990546e3d13461b3434415fbe864b63389492587edbe35",
+        "role": "code"
+      }
+    ],
+    "limitations": [
+      "不能只标Pyecharts，该项目确有层次聚类和Altair；流动人口数据部分内嵌代码；31省相关关系不能推出个体行为因果；城镇化缺年阈值编码需复核；地区拼接应显式检查错配。"
+    ],
+    "lessons": [],
+    "readiness": {
+      "source": "audited",
+      "course": "not-adapted",
+      "rerun": "not-run",
+      "offline": "not-packaged"
+    }
+  },
+  {
+    "id": "P27",
+    "title": "婚姻状况分析",
+    "originalNames": [
+      "社会科学-婚姻状况分析-约200行（plotly可视化、数据分析）",
+      "婚姻状况分析.ipynb"
+    ],
+    "categoryId": "society",
+    "summary": "用三次普查婚姻状态样本理解年龄性别与婚姻结构变化。",
+    "difficulty": "入门",
+    "skillTags": [
+      "Pandas",
+      "Plotly",
+      "groupby",
+      "merge",
+      "pivot",
+      "比例",
+      "交互图"
+    ],
+    "methods": "没有预测模型",
+    "sourceRefs": [
+      {
+        "path": "社会科学-婚姻状况分析-约200行（plotly可视化、数据分析）/.ipynb_checkpoints/婚姻状况分析-checkpoint.ipynb",
+        "sha256": "fa44b9dec0d390587ba511eb17e693b4994a0dd7ff3a73457f432972a567addd",
+        "role": "code"
+      },
+      {
+        "path": "社会科学-婚姻状况分析-约200行（plotly可视化、数据分析）/人口普查婚姻状态2000-2020.csv",
+        "sha256": "c849d4f2cc59db77a1d73b79e670cd4cb95b5e1c6c4b513d5da475f3ddbe2049",
+        "role": "data"
+      },
+      {
+        "path": "社会科学-婚姻状况分析-约200行（plotly可视化、数据分析）/婚姻状况分析.html",
+        "sha256": "723761172e9124d21991d7bfc040295640b3f059f48ba17bcf1098c7caa7b013",
+        "role": "output"
+      },
+      {
+        "path": "社会科学-婚姻状况分析-约200行（plotly可视化、数据分析）/婚姻状况分析.ipynb",
+        "sha256": "fa44b9dec0d390587ba511eb17e693b4994a0dd7ff3a73457f432972a567addd",
+        "role": "code"
+      }
+    ],
+    "limitations": [
+      "是抽样横截面状态，不是每年离婚发生率或个人结婚年龄追踪；只能表述样本/普查截面变化；有总体比例读数与年龄范围解释风险。"
+    ],
+    "lessons": [],
+    "readiness": {
+      "source": "audited",
+      "course": "not-adapted",
+      "rerun": "not-run",
+      "offline": "not-packaged"
+    }
+  },
+  {
+    "id": "P28",
+    "title": "分析员工过早离职原因",
+    "originalNames": [
+      "职场-分析员工过早离职原因-约300行（相关性分析、变量分析、plotly可视化）",
+      "分析员工过早离职原因.ipynb"
+    ],
+    "categoryId": "career",
+    "summary": "通过员工满意度、部门、工时和薪资探索离职关联。",
+    "difficulty": "初级",
+    "skillTags": [
+      "Pandas",
+      "NumPy",
+      "Plotly",
+      "Matplotlib",
+      "Seaborn",
+      "Colorlover",
+      "EDA",
+      "类别编码",
+      "相关分析"
+    ],
+    "methods": "没有训练离职预测模型",
+    "sourceRefs": [
+      {
+        "path": "职场-分析员工过早离职原因-约300行（相关性分析、变量分析、plotly可视化）/.ipynb_checkpoints/分析员工过早离职原因-checkpoint.ipynb",
+        "sha256": "9bf9cfcf11d11ed4dae94f8309a2d06aed0000ed3002fff5333d64d2de0e0184",
+        "role": "code"
+      },
+      {
+        "path": "职场-分析员工过早离职原因-约300行（相关性分析、变量分析、plotly可视化）/HR_comma_sep.csv",
+        "sha256": "2510e274a90547f34c7b0db5a4ab70282c2710eb54252f14921bf980b81a928c",
+        "role": "data"
+      },
+      {
+        "path": "职场-分析员工过早离职原因-约300行（相关性分析、变量分析、plotly可视化）/分析员工过早离职原因.html",
+        "sha256": "c6d37850644a76967efa3680aa0887667b21a687cd8d20e7d46aecf34e709719",
+        "role": "output"
+      },
+      {
+        "path": "职场-分析员工过早离职原因-约300行（相关性分析、变量分析、plotly可视化）/分析员工过早离职原因.ipynb",
+        "sha256": "9bf9cfcf11d11ed4dae94f8309a2d06aed0000ed3002fff5333d64d2de0e0184",
+        "role": "code"
+      },
+      {
+        "path": "职场-分析员工过早离职原因-约300行（相关性分析、变量分析、plotly可视化）/分析员工过早离职原因.py",
+        "sha256": "3de51cc2b00d540e2634ea337ea0cb6c53f9973a549afcc820a0724de78e431d",
+        "role": "code"
+      }
+    ],
+    "limitations": [
+      "标题“原因”不能代替因果识别；名义部门任意编码后的Pearson不宜解释；原低薪42%离职率需重算，按数据直接核对约29.69%；人数多与离职率高不同。"
+    ],
+    "lessons": [],
+    "readiness": {
+      "source": "audited",
+      "course": "not-adapted",
+      "rerun": "not-run",
+      "offline": "not-packaged"
+    }
+  },
+  {
+    "id": "P29",
+    "title": "数据分析师岗位分析",
+    "originalNames": [
+      "职场-数据分析师职位分析-约300行（数据探索分析、matplotlib可视化）",
+      "数据分析师岗位分析.ipynb"
+    ],
+    "categoryId": "career",
+    "summary": "从深圳招聘样本分析数据分析师岗位的区域、薪资与技能。",
+    "difficulty": "初级",
+    "skillTags": [
+      "Pandas",
+      "NumPy",
+      "Matplotlib",
+      "Seaborn",
+      "Jieba",
+      "WordCloud",
+      "正则",
+      "字符串清理",
+      "EDA"
+    ],
+    "methods": "没有机器学习模型",
+    "sourceRefs": [
+      {
+        "path": "职场-数据分析师职位分析-约300行（数据探索分析、matplotlib可视化）/.ipynb_checkpoints/数据分析师岗位分析-checkpoint.ipynb",
+        "sha256": "c252dd4d617437f6ebbc3ddd1ade593799b6611edee7fa0f361201b523133769",
+        "role": "code"
+      },
+      {
+        "path": "职场-数据分析师职位分析-约300行（数据探索分析、matplotlib可视化）/des.txt",
+        "sha256": "e3590385684393c17e6d9bd25fe88c6ad389a6842ce9e301130621341c6f4d1b",
+        "role": "data"
+      },
+      {
+        "path": "职场-数据分析师职位分析-约300行（数据探索分析、matplotlib可视化）/DT.jpg",
+        "sha256": "a145821e2ffcfb9184e7f252ca783469d6718eca3a3f4a897937852286bb5349",
+        "role": "output"
+      },
+      {
+        "path": "职场-数据分析师职位分析-约300行（数据探索分析、matplotlib可视化）/lagou.csv",
+        "sha256": "6b1daf9e5c5f2af353fa517917889ec4dd482e1c9623e4c141843ffdfd742fda",
+        "role": "data"
+      },
+      {
+        "path": "职场-数据分析师职位分析-约300行（数据探索分析、matplotlib可视化）/SimHei.ttf",
+        "sha256": "0ee6f6723c29dbf427d12d58ffc11d58e9aa89adda0ab6b06468ee765b1eadf8",
+        "role": "other"
+      },
+      {
+        "path": "职场-数据分析师职位分析-约300行（数据探索分析、matplotlib可视化）/数据分析师岗位分析.html",
+        "sha256": "ebfbab8805618aff9de353faca3b25d3bef4aab1fa9c5a5e9c79c76104163c1b",
+        "role": "output"
+      },
+      {
+        "path": "职场-数据分析师职位分析-约300行（数据探索分析、matplotlib可视化）/数据分析师岗位分析.ipynb",
+        "sha256": "612486c97729fe72863ed3f52b813320854acf96710711d4c7d1f67f9cd42e1c",
+        "role": "code"
+      },
+      {
+        "path": "职场-数据分析师职位分析-约300行（数据探索分析、matplotlib可视化）/数据分析师岗位分析.py",
+        "sha256": "9dcdd68cdfd7ed8a3edd4d8b8e9af03b23f49f7edf8b9746af20bd1cd0afea01",
+        "role": "code"
+      }
+    ],
+    "limitations": [
+      "原介绍437与实表差1；薪资区间中点不是实际收入；历史样本不能代表当前就业市场；SQL/机器学习等出现在职位文本中，不是该项目使用这些技术的证据。"
+    ],
+    "lessons": [],
+    "readiness": {
+      "source": "audited",
+      "course": "not-adapted",
+      "rerun": "not-run",
+      "offline": "not-packaged"
+    }
+  }
+]

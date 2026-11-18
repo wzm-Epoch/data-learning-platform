@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1.0",
+  "id": "p28-v4-evidence-13",
+  "title": "原单元45—46的执行证据边界",
+  "kind": "text",
+  "columns": [],
+  "rows": [],
+  "text": "这些单元没有可安全独立提取的数值或PNG输出。原HTML/Plotly对象不会当脚本执行；原变量或预测数组未另存时，不能补造ROC、残差或错分样本。可在本课数据实验步骤查看已实际导出的同源数据。",
+  "context": {
+    "identity": "teaching-adaptation",
+    "buildId": "phase4-v1",
+    "createdAt": "2026-11-16T12:58:37.389041+00:00",
+    "inputs": [
+      {
+        "path": "职场-分析员工过早离职原因-约300行（相关性分析、变量分析、plotly可视化）/分析员工过早离职原因.ipynb",
+        "sha256": "9bf9cfcf11d11ed4dae94f8309a2d06aed0000ed3002fff5333d64d2de0e0184"
+      },
+      {
+        "path": "职场-分析员工过早离职原因-约300行（相关性分析、变量分析、plotly可视化）/分析员工过早离职原因.py",
+        "sha256": "3de51cc2b00d540e2634ea337ea0cb6c53f9973a549afcc820a0724de78e431d"
+      },
+      {
+        "path": "职场-分析员工过早离职原因-约300行（相关性分析、变量分析、plotly可视化）/HR_comma_sep.csv",
+        "sha256": "2510e274a90547f34c7b0db5a4ab70282c2710eb54252f14921bf980b81a928c"
+      }
+    ],
+    "note": "教学说明，不是原程序执行结果。",
+    "unit": "原字段单位；未核实单位不补填",
+    "sample": null,
+    "modelRerun": false
+  }
+}

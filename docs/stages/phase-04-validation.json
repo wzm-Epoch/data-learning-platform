@@ -1,0 +1,61 @@
+{
+  "build": "passed: schema + TypeScript + Vite",
+  "regressions": {
+    "passed": 29,
+    "failed": 0
+  },
+  "production": {
+    "passed": 6,
+    "failed": 0,
+    "activeResultAndPNG": 681,
+    "emittedJSAndCSS": 8
+  },
+  "originalSources": {
+    "checked": 424,
+    "hashMismatches": [],
+    "addedFiles": [],
+    "missingFiles": [],
+    "sourceReadOnly": true
+  },
+  "browser": {
+    "firstBatch": [
+      "P21 exact figures and category filter",
+      "P11 scatter",
+      "P17 computed k=4",
+      "P23 true test probability thresholds 0 and 1"
+    ],
+    "extended": [
+      "P03 signed radar",
+      "P16 time filter 24 to 3 rows",
+      "P26 actual tree and merge distance labels",
+      "P21 click CDLG bar selects exact table row"
+    ],
+    "requestedDesktop": [
+      1440,
+      1000
+    ],
+    "actualDesktopCSSWidth": 1600,
+    "requestedMobile": [
+      390,
+      844
+    ],
+    "actualMobileCSSWidth": 433,
+    "mobileClientWidth": 416,
+    "mobileScrollWidth": 416,
+    "allChartRenderSmoke": {
+      "passed": 94,
+      "failed": 0,
+      "scope": "matching result title + visible canvas + no region alert; not exhaustive interaction or visual correctness proof"
+    },
+    "reviewFaultInjection": "p21-v4-stores.json temporary rename: local error; code available; restore and retry successful; category 3->1->3",
+    "reviewPhotoIdentity": "P07 converted preview and 3/199 sample visibly correct"
+  },
+  "notExecuted": [
+    "system disconnected cold start",
+    "cross-browser complete audit",
+    "all chart interactions exhaustively tested",
+    "performance benchmark"
+  ],
+  "phase5Started": false,
+  "reviewDate": "2026-11-17"
+}

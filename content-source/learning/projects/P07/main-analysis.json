@@ -1,0 +1,389 @@
+{
+  "schemaVersion": "1.0",
+  "contentVersion": "0.6.0",
+  "projectId": "P07",
+  "id": "main-analysis",
+  "title": "基于水色图像的水质评估",
+  "status": "ready",
+  "steps": [
+    {
+      "id": "source-009-012",
+      "title": "数据特征提取 · 单元9—12",
+      "status": "ready",
+      "kind": "analysis",
+      "knowledgeIds": [
+        "Pillow",
+        "NumPy",
+        "Pandas",
+        "Scikit-learn",
+        "颜色矩"
+      ],
+      "explanation": [
+        "本步按原Notebook顺序阅读单元9—12。原保存输出尚未重跑；安装、联网采集、写原文件和模型加载均不会在网页运行。",
+        "本步展示原变量赋值、查看或配置；变量实际内容以保存输出与本次数据证据为准，不从代码存在推断执行成功。",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：Table of Contents\n项目介绍关键词数据探索分析数据特征提取支持向量机模型建立模型评价",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：## 项目介绍\n水质的好坏跟水色有一定关系，有经验的从事渔业生产的从业者可通过观察水色变化调控水质。\n本次实战的目标是通过水色图像实现水质的自动评价。\n下面水色与水质的关系表：\n![image.png](attachment:image.png)",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：### 关键词\n- 图片特征提取、支持向量机、混淆矩阵"
+      ],
+      "teachingCode": "# 原代码仅供阅读，不由网页执行。\n# 本次可运行适配实现见末尾数据实验步骤。",
+      "limitations": [
+        "199张图像与203行特征不全匹配，缺4张；picData支路与moment训练支路未证实一一对应；三阶代码用绝对偏差，不能称有符号三阶中心矩；未设置切分种子；模型文件未加载执行。",
+        "原代码与保存输出保持原身份；新改编计算另列。"
+      ],
+      "codeRefs": [
+        {
+          "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/基于水色图像的水质评估.ipynb",
+          "notebookSha256": "57b74242352e27f5f5d047334e5c845781e17b898cec79b0783e352a5f38e480",
+          "cell": 9,
+          "code": "import numpy as np\nimport pandas as pd\nfrom sklearn import preprocessing\nfrom PIL import Image\nimport os\n\ndef PicManage(path,i):\n    pic = Image.open(path)\n    pic.c_x, pic.c_y = (int(i/2) for i in pic.size)\n    box = (pic.c_x-50, pic.c_y-50, pic.c_x+50, pic.c_y+50)\n    #从图片中提取中心100*100的子矩形\n    region = pic.crop(box)\n    \n    #切分RGB\n    r, g, b = np.split(np.array(region), 3, axis = 2)\n    \n    #计算一阶矩\n    r_m1 = np.mean(r)\n    g_m1 = np.mean(g)\n    b_m1 = np.mean(b)\n    \n    #二阶矩\n    r_m2 = np.std(r)\n    g_m2 = np.std(g)\n    b_m2 = np.std(b)\n    \n    #三阶矩\n    r_m3 = np.mean(abs(r - r.mean())**3)**(1/3)\n    g_m3 = np.mean(abs(g - g.mean())**3)**(1/3)\n    b_m3 = np.mean(abs(b - b.mean())**3)**(1/3)\n    \n    #将数据标准化，区间在[-1,1]\n    typ = np.array([i])\n    arr = np.array([r_m1,g_m1,b_m1,r_m2,g_m2,b_m2,r_m3,g_m3,b_m3])\n    #df = pd.DataFrame(preprocessing.minmax_scale(arr,feature_range=(-1,1))).T\n    df = pd.DataFrame(arr).T\n    dn = pd.DataFrame(typ).T\n    return df,dn\n\nresult = []\ntype_result = []\nfor i in os.listdir('./data/images'):\n    if i.endswith('.jpg'):\n        df,dn = PicManage('./data/images/'+i,int(i[0]))\n        result.append(df)\n        type_result.append(dn)\n        \ndata = pd.concat(result)\ntyp = pd.concat(type_result)\ndata = pd.DataFrame(preprocessing.normalize(data,norm='l2'))   \ndata['type'] = typ.values\ndata.to_excel('./data/picData.xlsx',index = False)",
+          "codeSha256": "1d2e94929bd87d4daf414b334afc4e8639a4d1843ea0fe7c9a12bae90bfeea71"
+        },
+        {
+          "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/基于水色图像的水质评估.ipynb",
+          "notebookSha256": "57b74242352e27f5f5d047334e5c845781e17b898cec79b0783e352a5f38e480",
+          "cell": 10,
+          "code": "data",
+          "codeSha256": "3a6eb0790f39ac87c94f3856b2dd2c5d110e6811602261a9a923d3bb23adc8b7"
+        },
+        {
+          "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/基于水色图像的水质评估.ipynb",
+          "notebookSha256": "57b74242352e27f5f5d047334e5c845781e17b898cec79b0783e352a5f38e480",
+          "cell": 12,
+          "code": "print(data.shape)",
+          "codeSha256": "7bf567bb8f4f766363d526b67240b52331536529e4cb45f5548caed3cc0093f1"
+        }
+      ],
+      "inputRefs": [
+        {
+          "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/基于水色图像的水质评估.ipynb",
+          "sha256": "57b74242352e27f5f5d047334e5c845781e17b898cec79b0783e352a5f38e480"
+        },
+        {
+          "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/moment.csv",
+          "sha256": "99c91f5cd8b38c6867e03d922dab7abedb4ddb2fb3cd68b37c5774637b2c13dc"
+        },
+        {
+          "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/1_1.jpg",
+          "sha256": "d48f6cc1eba2b2970fc66732ff6a8687decb6ee051546a3110f261cb8e2beab7"
+        },
+        {
+          "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/1_10.jpg",
+          "sha256": "b7e30758c066a8de1792f09a01b48e21cd08c66739ada83882924cdb2af85f47"
+        },
+        {
+          "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/1_11.jpg",
+          "sha256": "1716dd10a17a80c752b8eed57714fc3e1f9e40657afd883d43739b13c28ebebb"
+        },
+        {
+          "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/train.xlsx",
+          "sha256": "86cf5cc2c929b8581d1ab5178eef029fbf14d109420cdd1f4a216f3f13ef2799"
+        },
+        {
+          "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/test.xlsx",
+          "sha256": "246a6f8888d6c39461beafa86a8ebb53a44739cbd76bb3b057d7c51836973f26"
+        },
+        {
+          "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/picData.xlsx",
+          "sha256": "61a56aa27ed02bc2820133c989c70c88102424de8f9529a2e6658a3ee0f541dc"
+        }
+      ],
+      "outputRefs": [
+        "learning/resources/p07-v4-source-1.json"
+      ],
+      "exercise": {
+        "prompt": "根据本步单元9—12和保存证据，说明一次变换的输入、输出和一项无法验证的结论。",
+        "hint": "先查看代码中的列选择/过滤/拟合，再核对输出身份和本项目局限。",
+        "checklist": [
+          "准确引用原单元9—12",
+          "指出实际字段或变量与一项真实输出",
+          "把未重跑、资料缺失和统计缺陷分别说明"
+        ],
+        "provenance": "第四阶段教学补充，自评，不代表原文件试题"
+      },
+      "outputTitles": {
+        "learning/resources/p07-v4-source-1.json": "原单元9—12保存输出"
+      }
+    },
+    {
+      "id": "source-014-017",
+      "title": "支持向量机模型建立 · 单元14—17",
+      "status": "ready",
+      "kind": "modeling",
+      "knowledgeIds": [
+        "Pillow",
+        "NumPy",
+        "Pandas",
+        "Scikit-learn",
+        "颜色矩"
+      ],
+      "explanation": [
+        "本步按原Notebook顺序阅读单元14—17。原保存输出尚未重跑；安装、联网采集、写原文件和模型加载均不会在网页运行。",
+        "read_csv只读取指定CSV；编码、表头和字段需要与输入字典核对。",
+        "read_excel读取指定工作表，不把不同sheet合并成独立样本。",
+        "fit拟合对象状态；是否仅在训练数据拟合决定评估边界。",
+        "predict给出类别或预测量；概率排序需要predict_proba或decision_function。",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：## 支持向量机模型建立\n对特征提取后的样本进行抽样，抽取80%作为训练样本，剩下的20%作为测试样本，用于水质评价检验。\n\n本实验擦用支持向量机作为水质评价分类模型，模型的输入包括两部分，一部分为训练样本的输入，另一部分为建模参数的输入。\n对处理后的数据观察发现，数据之间的区分度较小。我们考虑将所有特征统一乘以一个适当的常数k，从而提高区分度和准确度。k值过大容易导致训练样本的过拟合，过小导致区分度低，模型准确率差。本次建模中k的最优值为30。\n\n建立模型后，利用训练样本进行回判，得到混淆矩阵，见train.xlsx,分类准确率较高，分类效果很好。可应用模型进行水质评价。"
+      ],
+      "teachingCode": "# 原代码仅供阅读，不由网页执行。\n# 本次可运行适配实现见末尾数据实验步骤。",
+      "limitations": [
+        "199张图像与203行特征不全匹配，缺4张；picData支路与moment训练支路未证实一一对应；三阶代码用绝对偏差，不能称有符号三阶中心矩；未设置切分种子；模型文件未加载执行。",
+        "原代码与保存输出保持原身份；新改编计算另列。"
+      ],
+      "codeRefs": [
+        {
+          "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/基于水色图像的水质评估.ipynb",
+          "notebookSha256": "57b74242352e27f5f5d047334e5c845781e17b898cec79b0783e352a5f38e480",
+          "cell": 14,
+          "code": "import pandas as pd\n\n# datapath = './data/picData.xlsx'\n# data = pd.read_excel(datapath)\n# print(data.columns)\n# data1 = data[[0, 1, 2, 3, 4, 5, 6, 7, 8]]\n# data1 = data1.values\n# data2 = data[['type']]\n# data2 = data2.values\n\n\ndatapath = './data/moment.csv'\ndata = pd.read_csv(datapath,encoding='gbk')\nprint(data.columns)\ndata1 = data[['R通道一阶矩', 'G通道一阶矩', 'B通道一阶矩', 'R通道二阶矩', 'G通道二阶矩', 'B通道二阶矩',\n       'R通道三阶矩', 'G通道三阶矩', 'B通道三阶矩']]\ndata1 = data1.values\ndata2 = data[['类别']]\ndata2 = data2.values",
+          "codeSha256": "56732c91fc366f00a151f9f9fde3bf7b4f60a798c05295edb4fdf26cd96a45f7"
+        },
+        {
+          "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/基于水色图像的水质评估.ipynb",
+          "notebookSha256": "57b74242352e27f5f5d047334e5c845781e17b898cec79b0783e352a5f38e480",
+          "cell": 15,
+          "code": "#划分训练集和测试集\n#cross_validation 在sklearn0.20中改为model_selection\nfrom sklearn.model_selection  import train_test_split\ntrain, test, train_target, test_target = train_test_split(data1,data2,test_size=0.2)\ntrain_target = train_target.astype(int)\ntest_target = test_target.astype(int)\n\n#构建SVM模型\nfrom sklearn import svm\nmodel = svm.SVC()\nmodel.fit(train*30,train_target)",
+          "codeSha256": "6f754512147970436785bc6ba986c214e935d66142d3ee79b1e3d2cefaae46e1"
+        },
+        {
+          "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/基于水色图像的水质评估.ipynb",
+          "notebookSha256": "57b74242352e27f5f5d047334e5c845781e17b898cec79b0783e352a5f38e480",
+          "cell": 16,
+          "code": "#混淆矩阵\nfrom sklearn import metrics\n\ncm_train = metrics.confusion_matrix(train_target, model.predict(train*30))\n# 分类准确率\ntrain_accuracy = metrics.accuracy_score(train_target,model.predict(train*30))\nprint(\"train accuracy: %f\"% train_accuracy) # 0.777778\n\ntr = pd.DataFrame(cm_train,index = range(1,6),columns = range(1,6)).to_excel('./data/train.xlsx')",
+          "codeSha256": "f6599c033a6cbe4db02788be9f68c7925188235b67eed6232d23025f03e1a1b1"
+        },
+        {
+          "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/基于水色图像的水质评估.ipynb",
+          "notebookSha256": "57b74242352e27f5f5d047334e5c845781e17b898cec79b0783e352a5f38e480",
+          "cell": 17,
+          "code": "#保存模型\n# from sklearn.externals import joblib 旧版 scikit-learn==0.20.3\nimport joblib\njoblib.dump(model,'svcmodel.pkl')",
+          "codeSha256": "4cd03dc86b163d6d6d5c885e113fc57ea8e7a6a9e898ce93e298d08e8830a01a"
+        }
+      ],
+      "inputRefs": [
+        {
+          "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/基于水色图像的水质评估.ipynb",
+          "sha256": "57b74242352e27f5f5d047334e5c845781e17b898cec79b0783e352a5f38e480"
+        },
+        {
+          "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/moment.csv",
+          "sha256": "99c91f5cd8b38c6867e03d922dab7abedb4ddb2fb3cd68b37c5774637b2c13dc"
+        },
+        {
+          "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/1_1.jpg",
+          "sha256": "d48f6cc1eba2b2970fc66732ff6a8687decb6ee051546a3110f261cb8e2beab7"
+        },
+        {
+          "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/1_10.jpg",
+          "sha256": "b7e30758c066a8de1792f09a01b48e21cd08c66739ada83882924cdb2af85f47"
+        },
+        {
+          "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/1_11.jpg",
+          "sha256": "1716dd10a17a80c752b8eed57714fc3e1f9e40657afd883d43739b13c28ebebb"
+        },
+        {
+          "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/train.xlsx",
+          "sha256": "86cf5cc2c929b8581d1ab5178eef029fbf14d109420cdd1f4a216f3f13ef2799"
+        },
+        {
+          "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/test.xlsx",
+          "sha256": "246a6f8888d6c39461beafa86a8ebb53a44739cbd76bb3b057d7c51836973f26"
+        },
+        {
+          "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/picData.xlsx",
+          "sha256": "61a56aa27ed02bc2820133c989c70c88102424de8f9529a2e6658a3ee0f541dc"
+        }
+      ],
+      "outputRefs": [
+        "learning/resources/p07-v4-source-2.json"
+      ],
+      "exercise": {
+        "prompt": "根据本步单元14—17和保存证据，说明一次变换的输入、输出和一项无法验证的结论。",
+        "hint": "先查看代码中的列选择/过滤/拟合，再核对输出身份和本项目局限。",
+        "checklist": [
+          "准确引用原单元14—17",
+          "指出实际字段或变量与一项真实输出",
+          "把未重跑、资料缺失和统计缺陷分别说明"
+        ],
+        "provenance": "第四阶段教学补充，自评，不代表原文件试题"
+      },
+      "outputTitles": {
+        "learning/resources/p07-v4-source-2.json": "原单元14—17保存输出"
+      }
+    },
+    {
+      "id": "source-019-019",
+      "title": "模型评价 · 单元19—19",
+      "status": "ready",
+      "kind": "analysis",
+      "knowledgeIds": [
+        "Pillow",
+        "NumPy",
+        "Pandas",
+        "Scikit-learn",
+        "颜色矩"
+      ],
+      "explanation": [
+        "本步按原Notebook顺序阅读单元19—19。原保存输出尚未重跑；安装、联网采集、写原文件和模型加载均不会在网页运行。",
+        "predict给出类别或预测量；概率排序需要predict_proba或decision_function。",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：## 模型评价\n在上节代码中，我们将所有的测试样本作为输入样本，代入已经构建好的支持向量机模型，得出输出结果，即预测的水质类型。水质评价的混淆矩阵见test.xls。分类准确率较高，说明水质评价模型对于新增的水色图像的分类效果较好，实现水质评价。"
+      ],
+      "teachingCode": "# 原代码仅供阅读，不由网页执行。\n# 本次可运行适配实现见末尾数据实验步骤。",
+      "limitations": [
+        "199张图像与203行特征不全匹配，缺4张；picData支路与moment训练支路未证实一一对应；三阶代码用绝对偏差，不能称有符号三阶中心矩；未设置切分种子；模型文件未加载执行。",
+        "原代码与保存输出保持原身份；新改编计算另列。"
+      ],
+      "codeRefs": [
+        {
+          "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/基于水色图像的水质评估.ipynb",
+          "notebookSha256": "57b74242352e27f5f5d047334e5c845781e17b898cec79b0783e352a5f38e480",
+          "cell": 19,
+          "code": "#加载模型\nmodel = joblib.load('svcmodel.pkl')\n#混淆矩阵\ncm_test = metrics.confusion_matrix(test_target, model.predict(test*30))\n# 分类准确率\ntest_accuracy = metrics.accuracy_score(test_target,model.predict(test*30))\nprint(\"test accuracy: %f\"% test_accuracy) #0.756098\n\nte = pd.DataFrame(cm_test,index = range(1,6),columns = range(1,6)).to_excel('./data/test.xlsx')",
+          "codeSha256": "c58fd5aa5a9e9cf1ee73e2b0af18e98006490d7b8cc878573e3d43d598f02138"
+        }
+      ],
+      "inputRefs": [
+        {
+          "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/基于水色图像的水质评估.ipynb",
+          "sha256": "57b74242352e27f5f5d047334e5c845781e17b898cec79b0783e352a5f38e480"
+        },
+        {
+          "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/moment.csv",
+          "sha256": "99c91f5cd8b38c6867e03d922dab7abedb4ddb2fb3cd68b37c5774637b2c13dc"
+        },
+        {
+          "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/1_1.jpg",
+          "sha256": "d48f6cc1eba2b2970fc66732ff6a8687decb6ee051546a3110f261cb8e2beab7"
+        },
+        {
+          "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/1_10.jpg",
+          "sha256": "b7e30758c066a8de1792f09a01b48e21cd08c66739ada83882924cdb2af85f47"
+        },
+        {
+          "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/1_11.jpg",
+          "sha256": "1716dd10a17a80c752b8eed57714fc3e1f9e40657afd883d43739b13c28ebebb"
+        },
+        {
+          "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/train.xlsx",
+          "sha256": "86cf5cc2c929b8581d1ab5178eef029fbf14d109420cdd1f4a216f3f13ef2799"
+        },
+        {
+          "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/test.xlsx",
+          "sha256": "246a6f8888d6c39461beafa86a8ebb53a44739cbd76bb3b057d7c51836973f26"
+        },
+        {
+          "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/picData.xlsx",
+          "sha256": "61a56aa27ed02bc2820133c989c70c88102424de8f9529a2e6658a3ee0f541dc"
+        }
+      ],
+      "outputRefs": [
+        "learning/resources/p07-v4-source-3.json"
+      ],
+      "exercise": {
+        "prompt": "根据本步单元19—19和保存证据，说明一次变换的输入、输出和一项无法验证的结论。",
+        "hint": "先查看代码中的列选择/过滤/拟合，再核对输出身份和本项目局限。",
+        "checklist": [
+          "准确引用原单元19—19",
+          "指出实际字段或变量与一项真实输出",
+          "把未重跑、资料缺失和统计缺陷分别说明"
+        ],
+        "provenance": "第四阶段教学补充，自评，不代表原文件试题"
+      },
+      "outputTitles": {
+        "learning/resources/p07-v4-source-3.json": "原单元19—19保存输出"
+      }
+    },
+    {
+      "id": "phase4-data",
+      "title": "真实数据实验 · 基于水色图像的水质评估",
+      "status": "ready",
+      "kind": "analysis",
+      "knowledgeIds": [
+        "Pillow",
+        "NumPy",
+        "Pandas",
+        "Scikit-learn",
+        "颜色矩"
+      ],
+      "explanation": [
+        "从水色图像颜色矩构造特征并用SVM区分水质类别。",
+        "本步运行工程适配器，展示真实输入的质量、专属聚合与图表。清洗、分组和模型边界见代码与每份结果说明。教学代码为本项目经过审查的实现；不会执行原Notebook。",
+        "已实际准备6份结果；请切换结果逐项核对问题、单位、范围、分母、过滤条件和来源身份。",
+        "受阻步骤：全量图像到moment特征端到端；原因：203行特征仅附199图；缺失1_42.jpg,2_38.jpg,3_10.jpg,3_11.jpg；两特征支路未证实一一对应"
+      ],
+      "teachingCode": "def p07(p):\n from PIL import Image\n d=p.load('moment.csv');p.counts(d,'类别');features=list(d.columns[2:]);p.frame('moments','实际训练支路的九颜色特征前20行',d.head(20),'固定原顺序前20；moment与picData支路不能未经核对合并。',sample='前20/203行')\n imagefiles=[r for r in p.detail['sourceRefs'] if r['path'].lower().endswith('.jpg')]\n missing=[]\n for _,row in d.iterrows():\n  name=f'{int(row.iloc[0])}_{int(row.iloc[1])}.jpg'\n  if not any(Path(r['path']).name==name for r in imagefiles):missing.append(name)\n assert len(imagefiles)==199 and len(missing)==4\n p.blocks.append({'step':'全量图像到moment特征端到端','reason':'203行特征仅附199图；缺失'+','.join(missing)+'；两特征支路未证实一一对应'})\n imgs=[]\n for ref in imagefiles[:3]:\n  p.verify(ref);im=Image.open(SOURCE/ref['path']);out=f'learning/assets/p07-source-{len(imgs)}.png';im.save(ROOT/'content-source'/out);imgs.append(out);p.outputs.append(out)\n p.add('photos','附带水色照片的只读格式转换',[],[],'按原资产顺序前3张，原JPEG解码为本地PNG用于预览；不补缺失图，不声称生成训练预测。',images=imgs,identity='teaching-adaptation',sample='原资产顺序前3张 / 附带199张照片')\n for name in ['train.xlsx','test.xlsx']:\n  cm=p.load(name);vals=cm.iloc[:,1:].apply(pd.to_numeric);assert vals.shape==(5,5)\n  p.chart(name.split('.')[0]+'-matrix','原附'+name+'矩阵',pd.DataFrame([[str(cm.columns[j+1]),str(cm.iloc[i,0]),int(vals.iloc[i,j])] for i in range(5) for j in range(5)],columns=['预测类别列','实际类别行','计数']),kind='heatmap',ys=[1,2],unit='样本',note='原附结果表，只读重绘；SVM未重跑。原表行列顺序按物理表保留')\n  r=read(ROOT/'content-source'/p.resources[-1]);r['context']['identity']='original-saved';save(p.resources[-1],r)\n p.checks.update(features=len(d),photos=len(imagefiles),missing=missing)\n",
+      "limitations": [
+        "199张图像与203行特征不全匹配，缺4张；picData支路与moment训练支路未证实一一对应；三阶代码用绝对偏差，不能称有符号三阶中心矩；未设置切分种子；模型文件未加载执行。",
+        "新版本不覆盖原保存成绩；所有新训练均在构建清单中单列。"
+      ],
+      "codeRefs": [
+        {
+          "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/基于水色图像的水质评估.ipynb",
+          "notebookSha256": "57b74242352e27f5f5d047334e5c845781e17b898cec79b0783e352a5f38e480",
+          "cell": 14,
+          "code": "import pandas as pd\n\n# datapath = './data/picData.xlsx'\n# data = pd.read_excel(datapath)\n# print(data.columns)\n# data1 = data[[0, 1, 2, 3, 4, 5, 6, 7, 8]]\n# data1 = data1.values\n# data2 = data[['type']]\n# data2 = data2.values\n\n\ndatapath = './data/moment.csv'\ndata = pd.read_csv(datapath,encoding='gbk')\nprint(data.columns)\ndata1 = data[['R通道一阶矩', 'G通道一阶矩', 'B通道一阶矩', 'R通道二阶矩', 'G通道二阶矩', 'B通道二阶矩',\n       'R通道三阶矩', 'G通道三阶矩', 'B通道三阶矩']]\ndata1 = data1.values\ndata2 = data[['类别']]\ndata2 = data2.values",
+          "codeSha256": "56732c91fc366f00a151f9f9fde3bf7b4f60a798c05295edb4fdf26cd96a45f7"
+        }
+      ],
+      "inputRefs": [
+        {
+          "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/基于水色图像的水质评估.ipynb",
+          "sha256": "57b74242352e27f5f5d047334e5c845781e17b898cec79b0783e352a5f38e480"
+        },
+        {
+          "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/moment.csv",
+          "sha256": "99c91f5cd8b38c6867e03d922dab7abedb4ddb2fb3cd68b37c5774637b2c13dc"
+        },
+        {
+          "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/1_1.jpg",
+          "sha256": "d48f6cc1eba2b2970fc66732ff6a8687decb6ee051546a3110f261cb8e2beab7"
+        },
+        {
+          "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/1_10.jpg",
+          "sha256": "b7e30758c066a8de1792f09a01b48e21cd08c66739ada83882924cdb2af85f47"
+        },
+        {
+          "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/1_11.jpg",
+          "sha256": "1716dd10a17a80c752b8eed57714fc3e1f9e40657afd883d43739b13c28ebebb"
+        },
+        {
+          "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/train.xlsx",
+          "sha256": "86cf5cc2c929b8581d1ab5178eef029fbf14d109420cdd1f4a216f3f13ef2799"
+        },
+        {
+          "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/test.xlsx",
+          "sha256": "246a6f8888d6c39461beafa86a8ebb53a44739cbd76bb3b057d7c51836973f26"
+        },
+        {
+          "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/picData.xlsx",
+          "sha256": "61a56aa27ed02bc2820133c989c70c88102424de8f9529a2e6658a3ee0f541dc"
+        }
+      ],
+      "outputRefs": [
+        "learning/resources/p07-v4-__-0d12cbd6.json",
+        "learning/resources/p07-v4-moments.json",
+        "learning/resources/p07-v4-photos.json",
+        "learning/resources/p07-v4-train-matrix.json",
+        "learning/resources/p07-v4-test-matrix.json",
+        "learning/resources/p07-v4-input-quality.json"
+      ],
+      "exercise": {
+        "prompt": "对照特征表找缺图；解释绝对三阶偏差与偏度不同。",
+        "hint": "从同源表取数，写出算式；先核对全量/抽样和原保存/新计算身份。",
+        "checklist": [
+          "列出真实字段、筛选规则和当前样本范围",
+          "用表格复核至少一个频数、比率或模型指标",
+          "指出一个不能由本图推出的结论"
+        ],
+        "provenance": "已批准路线练习与第四阶段核对清单，采用自评"
+      },
+      "outputTitles": {
+        "learning/resources/p07-v4-__-0d12cbd6.json": "类别：记录数与全量比例",
+        "learning/resources/p07-v4-moments.json": "实际训练支路的九颜色特征前20行",
+        "learning/resources/p07-v4-photos.json": "附带水色照片的只读格式转换",
+        "learning/resources/p07-v4-train-matrix.json": "原附train.xlsx矩阵",
+        "learning/resources/p07-v4-test-matrix.json": "原附test.xlsx矩阵",
+        "learning/resources/p07-v4-input-quality.json": "本项目各输入表的读取与质量核对"
+      }
+    }
+  ]
+}

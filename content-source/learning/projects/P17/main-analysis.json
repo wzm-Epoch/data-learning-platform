@@ -1,0 +1,516 @@
+{
+  "schemaVersion": "1.0",
+  "contentVersion": "0.6.0",
+  "projectId": "P17",
+  "id": "main-analysis",
+  "title": "聚类分析广告效果",
+  "status": "ready",
+  "steps": [
+    {
+      "id": "channel-input",
+      "title": "认识渠道指标",
+      "kind": "orientation",
+      "knowledgeIds": [
+        "EDA"
+      ],
+      "explanation": [
+        "ad_performance包含889个渠道样本、13列。渠道代号是标识，不应当作连续数值或参与距离计算。",
+        "先区分流量、比率与素材类别。合作方式中的roi只是类别取值，不是经核实的投入产出比指标；没有完整成本收益字段。"
+      ],
+      "teachingCode": "raw_data = pd.read_csv(source_path)\nfeatures = raw_data.drop(columns=['渠道代号'])  # 标识不作为距离",
+      "limitations": [
+        "各业务指标单位和取值定义仍需原业务字典支持。"
+      ],
+      "exercise": {
+        "prompt": "合作方式为roi是否足以断言投放回报高？",
+        "hint": "检查原表是否真的有成本和收益金额。",
+        "checklist": [
+          "区分标识与特征",
+          "不把类别roi解释成实际ROI"
+        ],
+        "provenance": "本阶段教学补充练习；自评，不自动判卷"
+      },
+      "status": "ready",
+      "codeRefs": [
+        {
+          "path": "电商-广告投放效果分析-约250行（KMeans聚类、数据分析）/聚类分析广告效果.ipynb",
+          "notebookSha256": "ad88e032b91ce55504f1a19bc8e1ddb2a8829edc69cab6b2569cdbde39edd6b7",
+          "cell": 8,
+          "code": "raw_data = pd.read_csv(r'./ad_performance.csv')\nraw_data.head()",
+          "codeSha256": "e3c62ad0d1b460330a61d5e1c39aa9375aa2d883daeca3e4d9907b35ff45aa8b"
+        },
+        {
+          "path": "电商-广告投放效果分析-约250行（KMeans聚类、数据分析）/聚类分析广告效果.ipynb",
+          "notebookSha256": "ad88e032b91ce55504f1a19bc8e1ddb2a8829edc69cab6b2569cdbde39edd6b7",
+          "cell": 12,
+          "code": "raw_data.info()# 打印数据类型分布",
+          "codeSha256": "53d56a7c489a0887d90fb3fb2c17814c0f8ec20b58e8288c583a55a4312702c4"
+        },
+        {
+          "path": "电商-广告投放效果分析-约250行（KMeans聚类、数据分析）/聚类分析广告效果.ipynb",
+          "notebookSha256": "ad88e032b91ce55504f1a19bc8e1ddb2a8829edc69cab6b2569cdbde39edd6b7",
+          "cell": 13,
+          "code": "raw_data.describe().round(2).T # 打印原始数据基本描述性信息",
+          "codeSha256": "0c304cbe831cca6705f5920b37f8ab9037f15e824128443ce103bafab4ee237a"
+        }
+      ],
+      "inputRefs": [
+        {
+          "path": "电商-广告投放效果分析-约250行（KMeans聚类、数据分析）/ad_performance.csv",
+          "sha256": "4f767d4f273ae2745ac84a9791d2e3d81bdee37a26d1ca82fa4d8a9a5f3003fb"
+        }
+      ],
+      "outputRefs": [
+        "learning/resources/p17-preview.json"
+      ],
+      "outputTitles": {
+        "learning/resources/p17-preview.json": "渠道原始记录前10行"
+      }
+    },
+    {
+      "id": "missing-policy",
+      "title": "追踪缺失字段处置",
+      "kind": "cleaning",
+      "knowledgeIds": [
+        "Pandas",
+        "EDA"
+      ],
+      "explanation": [
+        "本次全量核对平均停留时间缺失2条。原代码单元24选择删除整列，而不是删除两行或填补数值。",
+        "原文依据与访问深度相关较高讨论删除，但相关高不等于完全相同信息。教学需要同时记录保留889行、列从13变12的变化。"
+      ],
+      "teachingCode": "missing = raw_data.isna().sum()\nraw_data2 = raw_data.drop(columns=['平均停留时间'])",
+      "limitations": [
+        "删除一列会丢失信息，不能宣称必然提升模型效果。"
+      ],
+      "exercise": {
+        "prompt": "原处理删除的是行还是列？还剩多少渠道？",
+        "hint": "看drop的columns/axis参数，不把2处缺失解释为删除2样本。",
+        "checklist": [
+          "指出删除平均停留时间整列",
+          "保留889行",
+          "解释处置的局限"
+        ],
+        "provenance": "本阶段教学补充练习；自评，不自动判卷"
+      },
+      "status": "ready",
+      "codeRefs": [
+        {
+          "path": "电商-广告投放效果分析-约250行（KMeans聚类、数据分析）/聚类分析广告效果.ipynb",
+          "notebookSha256": "ad88e032b91ce55504f1a19bc8e1ddb2a8829edc69cab6b2569cdbde39edd6b7",
+          "cell": 16,
+          "code": "# 缺失值审查\nna_cols = raw_data.isnull().any(axis=0)  # 查看每一列是否具有缺失值\nna_cols",
+          "codeSha256": "fddc6c6bb01d38d247da5619eee5e7cc24918e7b5ded5eb9e18ea358161327f0"
+        },
+        {
+          "path": "电商-广告投放效果分析-约250行（KMeans聚类、数据分析）/聚类分析广告效果.ipynb",
+          "notebookSha256": "ad88e032b91ce55504f1a19bc8e1ddb2a8829edc69cab6b2569cdbde39edd6b7",
+          "cell": 17,
+          "code": "raw_data.isnull().sum().sort_values(ascending=False)# 查看具有缺失值的行总记录数",
+          "codeSha256": "0e9c19b0a4c7e75136e25f9f3fd4e1f54f7984742dc029960af2058ab35fd497"
+        },
+        {
+          "path": "电商-广告投放效果分析-约250行（KMeans聚类、数据分析）/聚类分析广告效果.ipynb",
+          "notebookSha256": "ad88e032b91ce55504f1a19bc8e1ddb2a8829edc69cab6b2569cdbde39edd6b7",
+          "cell": 19,
+          "code": "# 相关性分析\nraw_data.corr(numeric_only=True).round(2).T # 打印原始数据相关性信息",
+          "codeSha256": "c4658be8687f3130028915dd46912c54d6d12b2562fe49dc9e595502935427b3"
+        },
+        {
+          "path": "电商-广告投放效果分析-约250行（KMeans聚类、数据分析）/聚类分析广告效果.ipynb",
+          "notebookSha256": "ad88e032b91ce55504f1a19bc8e1ddb2a8829edc69cab6b2569cdbde39edd6b7",
+          "cell": 24,
+          "code": "# 1 删除平均平均停留时间列\nraw_data2 = raw_data.drop(['平均停留时间'],axis=1)",
+          "codeSha256": "d04e619be1623a71d9f522d37228d83ce6b5d498cb662034fd4a234394f0cccc"
+        }
+      ],
+      "inputRefs": [
+        {
+          "path": "电商-广告投放效果分析-约250行（KMeans聚类、数据分析）/ad_performance.csv",
+          "sha256": "4f767d4f273ae2745ac84a9791d2e3d81bdee37a26d1ca82fa4d8a9a5f3003fb"
+        }
+      ],
+      "outputRefs": [
+        "learning/resources/p17-missing.json"
+      ],
+      "outputTitles": {
+        "learning/resources/p17-missing.json": "字段缺失核对"
+      }
+    },
+    {
+      "id": "one-hot",
+      "title": "比较类别编码前后",
+      "kind": "analysis",
+      "knowledgeIds": [
+        "OneHotEncoder"
+      ],
+      "explanation": [
+        "五个类别字段经独热编码形成27列。本次教学适配使用pandas.get_dummies，与原单元28路径相对应；不执行旧sparse=False接口。",
+        "每列表示一个类别是否出现。类别列顺序需由编码器或get_dummies实际输出确定；不能将五字段任意编码成1、2、3再假定数值距离。"
+      ],
+      "teachingCode": "cols = ['素材类型','广告类型','合作方式','广告尺寸','广告卖点']\nonehot = pd.get_dummies(raw_data2[cols], dtype=int)",
+      "limitations": [
+        "独热会改变各字段对距离的权重；不同类别数也需审辨。"
+      ],
+      "exercise": {
+        "prompt": "为什么不直接把广告卖点编码为1、2、3？",
+        "hint": "编号差距不代表类别间有业务距离或顺序。",
+        "checklist": [
+          "理解27列0/1含义",
+          "区分原OneHotEncoder与教学get_dummies",
+          "不把类别编号看成连续量"
+        ],
+        "provenance": "本阶段教学补充练习；自评，不自动判卷"
+      },
+      "status": "ready",
+      "codeRefs": [
+        {
+          "path": "电商-广告投放效果分析-约250行（KMeans聚类、数据分析）/聚类分析广告效果.ipynb",
+          "notebookSha256": "ad88e032b91ce55504f1a19bc8e1ddb2a8829edc69cab6b2569cdbde39edd6b7",
+          "cell": 26,
+          "code": "# 类别变量取值\ncols=[\"素材类型\",\"广告类型\",\"合作方式\",\"广告尺寸\",\"广告卖点\"]\nfor x in cols:\n    data=raw_data2[x].unique()\n    print(\"变量【{0}】的取值有：\\n{1}\".format(x,data))\n    print(\"-·\"*20)",
+          "codeSha256": "1178530491950d2c8bd7e24b7cb37b423eec35e2182df066a00055003b0ae7aa"
+        },
+        {
+          "path": "电商-广告投放效果分析-约250行（KMeans聚类、数据分析）/聚类分析广告效果.ipynb",
+          "notebookSha256": "ad88e032b91ce55504f1a19bc8e1ddb2a8829edc69cab6b2569cdbde39edd6b7",
+          "cell": 27,
+          "code": "# 字符串分类独热编码处理\ncols = ['素材类型','广告类型','合作方式','广告尺寸','广告卖点'] \nmodel_ohe = OneHotEncoder(sparse=False)  # 建立OneHotEncode对象\nohe_matrix = model_ohe.fit_transform(raw_data2[cols])  # 直接转换\nprint(ohe_matrix[:2])",
+          "codeSha256": "b71c8f5b16ddbd76b39ce472771c3faa9c1a68bb028c1efc3cba175aa1286334"
+        },
+        {
+          "path": "电商-广告投放效果分析-约250行（KMeans聚类、数据分析）/聚类分析广告效果.ipynb",
+          "notebookSha256": "ad88e032b91ce55504f1a19bc8e1ddb2a8829edc69cab6b2569cdbde39edd6b7",
+          "cell": 28,
+          "code": "# 用pandas的方法\nohe_matrix1=pd.get_dummies(raw_data2[cols])\nohe_matrix1.head(5)",
+          "codeSha256": "773bb0af12ef16c08081c3c5e7d66863e3d2a9c0955c69735976a36d29a5c64a"
+        }
+      ],
+      "inputRefs": [
+        {
+          "path": "电商-广告投放效果分析-约250行（KMeans聚类、数据分析）/ad_performance.csv",
+          "sha256": "4f767d4f273ae2745ac84a9791d2e3d81bdee37a26d1ca82fa4d8a9a5f3003fb"
+        }
+      ],
+      "outputRefs": [
+        "learning/resources/p17-encoding.json"
+      ],
+      "outputTitles": {
+        "learning/resources/p17-encoding.json": "实际独热编码的前5行"
+      }
+    },
+    {
+      "id": "minmax",
+      "title": "观察缩放如何改变距离",
+      "kind": "analysis",
+      "knowledgeIds": [
+        "MinMaxScaler"
+      ],
+      "explanation": [
+        "原代码选择删除停留时间后的六个数值特征做MinMax，再与27列独热编码拼成33维。右侧原值、全量最小/最大和缩放后值都从当前文件确定性生成。",
+        "变换公式为(x−min)/(max−min)。常量列需要独立规则以避免除0，本次适配常量列映射0；这不表示已训练聚类。"
+      ],
+      "teachingCode": "numeric = raw_data2.iloc[:,1:7]\nscaled = (numeric - numeric.min()) / (numeric.max() - numeric.min())\nscaled = scaled.fillna(0)\n# 六数值特征 + 27独热列 = 33维",
+      "limitations": [
+        "缩放不能自动解决异常值、权重选择或类别特征距离定义。"
+      ],
+      "exercise": {
+        "prompt": "对照一个字段手算缩放值，并说明为何要缩放。",
+        "hint": "从表中取同一行原值、最小和最大。",
+        "checklist": [
+          "写出MinMax公式",
+          "核对6+27=33维",
+          "不把预处理称为已重训"
+        ],
+        "provenance": "本阶段教学补充练习；自评，不自动判卷"
+      },
+      "status": "ready",
+      "codeRefs": [
+        {
+          "path": "电商-广告投放效果分析-约250行（KMeans聚类、数据分析）/聚类分析广告效果.ipynb",
+          "notebookSha256": "ad88e032b91ce55504f1a19bc8e1ddb2a8829edc69cab6b2569cdbde39edd6b7",
+          "cell": 30,
+          "code": "# 数据标准化\nsacle_matrix = raw_data2.iloc[:, 1:7]  # 获得要转换的矩阵\nmodel_scaler = MinMaxScaler()  # 建立MinMaxScaler模型对象\ndata_scaled = model_scaler.fit_transform(sacle_matrix)  # MinMaxScaler标准化处理\nprint(data_scaled.round(2))",
+          "codeSha256": "5f59b3fd73b25371e2a987829d2a327e847c728da002ec78c8c5a726052f1032"
+        },
+        {
+          "path": "电商-广告投放效果分析-约250行（KMeans聚类、数据分析）/聚类分析广告效果.ipynb",
+          "notebookSha256": "ad88e032b91ce55504f1a19bc8e1ddb2a8829edc69cab6b2569cdbde39edd6b7",
+          "cell": 32,
+          "code": "# # 合并所有维度\nX = np.hstack((data_scaled, ohe_matrix))",
+          "codeSha256": "68f52215182cee01af0e3e46402491e71192efbad614a061fca3279ffe5b90ba"
+        }
+      ],
+      "inputRefs": [
+        {
+          "path": "电商-广告投放效果分析-约250行（KMeans聚类、数据分析）/ad_performance.csv",
+          "sha256": "4f767d4f273ae2745ac84a9791d2e3d81bdee37a26d1ca82fa4d8a9a5f3003fb"
+        }
+      ],
+      "outputRefs": [
+        "learning/resources/p17-scale.json"
+      ],
+      "outputTitles": {
+        "learning/resources/p17-scale.json": "六数值特征的MinMax对照"
+      }
+    },
+    {
+      "id": "k-search",
+      "title": "读取k与轮廓系数",
+      "kind": "modeling",
+      "knowledgeIds": [
+        "KMeans",
+        "轮廓系数"
+      ],
+      "explanation": [
+        "原代码实际搜索k=2到7，注释“到5”并不准确。右侧是原单元35保存的候选评分，在这次保存运行中k=4最高。",
+        "本阶段没有执行fit_predict或重新训练；原代码未固定random_state，新运行未必复现相同编号与评分。页面不提供伪装成重训练的k滑块。"
+      ],
+      "teachingCode": "# 本阶段只读取原Notebook单元35保存输出\n# 若将来重训：固定random_state与n_init，另建结果版本并记录环境。",
+      "limitations": [
+        "轮廓系数最高不等于业务最优，更不说明ROI最高。"
+      ],
+      "exercise": {
+        "prompt": "保存结果中k=4最高是否证明所有未来样本也应取4？",
+        "hint": "区分一次候选搜索与普遍业务规律。",
+        "checklist": [
+          "明确搜索范围2—7",
+          "注明原保存未重跑",
+          "指出随机初始化边界"
+        ],
+        "provenance": "本阶段教学补充练习；自评，不自动判卷"
+      },
+      "status": "ready",
+      "codeRefs": [
+        {
+          "path": "电商-广告投放效果分析-约250行（KMeans聚类、数据分析）/聚类分析广告效果.ipynb",
+          "notebookSha256": "ad88e032b91ce55504f1a19bc8e1ddb2a8829edc69cab6b2569cdbde39edd6b7",
+          "cell": 35,
+          "code": "# 通过平均轮廓系数检验得到最佳KMeans聚类模型\nscore_list = list()  # 用来存储每个K下模型的平局轮廓系数\nsilhouette_int = -1  # 初始化的平均轮廓系数阀值\nfor n_clusters in range(2, 8):  # 遍历从2到5几个有限组\n    model_kmeans = KMeans(n_clusters=n_clusters)  # 建立聚类模型对象\n    labels_tmp = model_kmeans.fit_predict(X)  # 训练聚类模型\n    silhouette_tmp = silhouette_score(X, labels_tmp)  # 得到每个K下的平均轮廓系数\n    if silhouette_tmp > silhouette_int:  # 如果平均轮廓系数更高\n        best_k = n_clusters  # 保存K将最好的K存储下来\n        silhouette_int = silhouette_tmp  # 保存平均轮廓得分\n        best_kmeans = model_kmeans  # 保存模型实例对象\n        cluster_labels_k = labels_tmp  # 保存聚类标签\n    score_list.append([n_clusters, silhouette_tmp])  # 将每次K及其得分追加到列表\nprint('{:*^60}'.format('K值对应的轮廓系数:'))\nprint(np.array(score_list))  # 打印输出所有K下的详细得分\nprint('最优的K值是:{0} \\n对应的轮廓系数是:{1}'.format(best_k, silhouette_int))",
+          "codeSha256": "4240d0f3c72547407ae3d74bdbff7b0748343048dc9e2a97f25a749ef7b1112c"
+        }
+      ],
+      "inputRefs": [
+        {
+          "path": "电商-广告投放效果分析-约250行（KMeans聚类、数据分析）/ad_performance.csv",
+          "sha256": "4f767d4f273ae2745ac84a9791d2e3d81bdee37a26d1ca82fa4d8a9a5f3003fb"
+        }
+      ],
+      "outputRefs": [
+        "learning/resources/p17-scores.json",
+        "learning/resources/p17-scores-saved.json"
+      ],
+      "outputTitles": {
+        "learning/resources/p17-scores.json": "原保存轮廓系数（非本次训练）",
+        "learning/resources/p17-scores-saved.json": "原保存k搜索结果"
+      }
+    },
+    {
+      "id": "cluster-counts",
+      "title": "按原簇ID核对群体数量",
+      "kind": "interpretation",
+      "knowledgeIds": [
+        "KMeans"
+      ],
+      "explanation": [
+        "保存数量严格按原簇ID对齐：0为73，1为154，2为313，3为349，总和889。右侧比例用这组保存数量除889确定性计算。",
+        "原单元48文字将数量换序，不能把“第一类”自动映射到簇0。簇ID无序，跨运行也没有固定业务含义；完整逐行标签未独立导出。"
+      ],
+      "teachingCode": "# 读取保存的ID→数量映射，不重新生成标签\n# 只有取得与该次模型一致的完整标签，才可计算逐簇新统计。",
+      "limitations": [
+        "不从前5行的保存标签补造其余884行标签。"
+      ],
+      "exercise": {
+        "prompt": "为什么必须保留簇ID与数量的对应关系？",
+        "hint": "对比原文字数量顺序和原单元41表头。",
+        "checklist": [
+          "核对73+154+313+349=889",
+          "区分标签编号与排序",
+          "不伪造逐行聚类结果"
+        ],
+        "provenance": "本阶段教学补充练习；自评，不自动判卷"
+      },
+      "status": "ready",
+      "codeRefs": [
+        {
+          "path": "电商-广告投放效果分析-约250行（KMeans聚类、数据分析）/聚类分析广告效果.ipynb",
+          "notebookSha256": "ad88e032b91ce55504f1a19bc8e1ddb2a8829edc69cab6b2569cdbde39edd6b7",
+          "cell": 39,
+          "code": "# 将原始数据与聚类标签整合\ncluster_labels = pd.DataFrame(cluster_labels_k, columns=['clusters'])  # 获得训练集下的标签信息\nmerge_data = pd.concat((raw_data2, cluster_labels), axis=1)  # 将原始处理过的数据跟聚类标签整合\nmerge_data.head()",
+          "codeSha256": "39df65229f4609e3035fe9af3e64def9ef30a80c2414e35195c0a5394715ae3e"
+        },
+        {
+          "path": "电商-广告投放效果分析-约250行（KMeans聚类、数据分析）/聚类分析广告效果.ipynb",
+          "notebookSha256": "ad88e032b91ce55504f1a19bc8e1ddb2a8829edc69cab6b2569cdbde39edd6b7",
+          "cell": 41,
+          "code": "# 计算每个聚类类别下的样本量和样本占比\nclustering_count = pd.DataFrame(merge_data['渠道代号'].groupby(merge_data['clusters']).count()).T.rename({'渠道代号': 'counts'})  # 计算每个聚类类别的样本量\nclustering_ratio = (clustering_count / len(merge_data)).round(2).rename({'counts': 'percentage'})  # 计算每个聚类类别的样本量占比\nprint(clustering_count)\nprint(\"#\"*30)\nprint(clustering_ratio)",
+          "codeSha256": "39543e8e20e69d787e371d07012342a08eca38e8b9f7d24cff9f144db4c8b47c"
+        }
+      ],
+      "inputRefs": [
+        {
+          "path": "电商-广告投放效果分析-约250行（KMeans聚类、数据分析）/ad_performance.csv",
+          "sha256": "4f767d4f273ae2745ac84a9791d2e3d81bdee37a26d1ca82fa4d8a9a5f3003fb"
+        }
+      ],
+      "outputRefs": [
+        "learning/resources/p17-counts.json",
+        "learning/resources/p17-counts-saved.json"
+      ],
+      "outputTitles": {
+        "learning/resources/p17-counts.json": "按原簇ID对齐的保存数量",
+        "learning/resources/p17-counts-saved.json": "原保存簇数量与比例"
+      }
+    },
+    {
+      "id": "profile-audit",
+      "title": "逐群审辨画像并总结",
+      "kind": "practice",
+      "knowledgeIds": [
+        "KMeans",
+        "轮廓系数"
+      ],
+      "explanation": [
+        "原单元43的数值部分用describe().iloc[2]，实际取标准差std，不是注释所说的均值；后续雷达图又对这些标准差缩放，不能称为聚类均值中心。",
+        "原单元50的编号和文字画像还与保存数量/统计量错位。当前资料缺完整逐行标签，不能据现有截图补算真实逐簇均值。本课保留保存证据并指出缺口，不将错误画像包装成可信结论。"
+      ],
+      "teachingCode": "# 原代码问题：part1_desc.iloc[2, :] 是std\n# 教学修正意图：part1_desc.loc['mean']\n# 但当前缺完整标签，不能在本页凭空生成修正后的逐簇均值。",
+      "limitations": [
+        "原数值不是群体均值；完整标签/中心缺失，修正画像需后续独立复现版本。"
+      ],
+      "exercise": {
+        "prompt": "指出原画像至少两处问题，并列出要重建可信画像所缺材料。",
+        "hint": "分别检查describe行索引、簇ID映射和完整标签。",
+        "checklist": [
+          "指出iloc[2]是std",
+          "指出数量/编号错位",
+          "不把旧雷达称均值中心",
+          "不伪造缺失标签或ROI结论"
+        ],
+        "provenance": "本阶段教学补充练习；自评，不自动判卷"
+      },
+      "status": "ready",
+      "codeRefs": [
+        {
+          "path": "电商-广告投放效果分析-约250行（KMeans聚类、数据分析）/聚类分析广告效果.ipynb",
+          "notebookSha256": "ad88e032b91ce55504f1a19bc8e1ddb2a8829edc69cab6b2569cdbde39edd6b7",
+          "cell": 43,
+          "code": "# 计算各个聚类类别内部最显著特征值\ncluster_features = []  # 空列表，用于存储最终合并后的所有特征信息\nfor line in range(best_k):  # 读取每个类索引\n    label_data = merge_data[merge_data['clusters'] == line]  # 获得特定类的数据\n\n    part1_data = label_data.iloc[:, 1:7]  # 获得数值型数据特征\n    part1_desc = part1_data.describe().round(3)  # 得到数值型特征的描述性统计信息\n    merge_data1 = part1_desc.iloc[2, :]  # 得到数值型特征的均值\n\n    part2_data = label_data.iloc[:, 7:-1]  # 获得字符串型数据特征\n    part2_desc = part2_data.describe(include='all')  # 获得字符串型数据特征的描述性统计信息\n    merge_data2 = part2_desc.iloc[2, :]  # 获得字符串型数据特征的最频繁值\n\n    merge_line = pd.concat((merge_data1, merge_data2), axis=0)  # 将数值型和字符串型典型特征沿行合并\n    cluster_features.append(merge_line)  # 将每个类别下的数据特征追加到列表\n\n#  输出完整的类别特征信息\ncluster_pd = pd.DataFrame(cluster_features).T  # 将列表转化为矩阵\nprint('{:*^60}'.format('每个类别主要的特征:'))\nall_cluster_set = pd.concat((clustering_count, clustering_ratio, cluster_pd),axis=0)  # 将每个聚类类别的所有信息合并\nall_cluster_set",
+          "codeSha256": "7e7c94ae31f05fe9ea135102d2e0269363ce5d804bba48be12c30cfb1c1d3181"
+        },
+        {
+          "path": "电商-广告投放效果分析-约250行（KMeans聚类、数据分析）/聚类分析广告效果.ipynb",
+          "notebookSha256": "ad88e032b91ce55504f1a19bc8e1ddb2a8829edc69cab6b2569cdbde39edd6b7",
+          "cell": 45,
+          "code": "#各类别数据预处理\nnum_sets = cluster_pd.iloc[:6, :].T.astype(np.float64)  # 获取要展示的数据\nnum_sets_max_min = model_scaler.fit_transform(num_sets)  # 获得标准化后的数据\nprint(num_sets)\nprint('-'*20)\nprint(num_sets_max_min)",
+          "codeSha256": "bba3ec779d7c210d0e62a7438a1e6b456fcf5f1799d9fdac566bcb202fab244c"
+        }
+      ],
+      "inputRefs": [
+        {
+          "path": "电商-广告投放效果分析-约250行（KMeans聚类、数据分析）/ad_performance.csv",
+          "sha256": "4f767d4f273ae2745ac84a9791d2e3d81bdee37a26d1ca82fa4d8a9a5f3003fb"
+        }
+      ],
+      "outputRefs": [
+        "learning/resources/p17-profile-saved.json",
+        "learning/resources/p17-profile-audit.json"
+      ],
+      "outputTitles": {
+        "learning/resources/p17-profile-saved.json": "原保存画像数值（实际为标准差）",
+        "learning/resources/p17-profile-audit.json": "画像审辨的可验证边界"
+      }
+    },
+    {
+      "id": "phase4-data",
+      "title": "真实数据实验 · 聚类分析广告效果",
+      "status": "ready",
+      "kind": "analysis",
+      "knowledgeIds": [
+        "Pandas",
+        "NumPy",
+        "Matplotlib",
+        "Seaborn",
+        "OneHotEncoder"
+      ],
+      "explanation": [
+        "根据渠道流量、转化和素材属性进行广告渠道分群。",
+        "本步运行工程适配器，展示真实输入的质量、专属聚合与图表。清洗、分组和模型边界见代码与每份结果说明。教学代码为本项目经过审查的实现；不会执行原Notebook。",
+        "已实际准备5份结果；请切换结果逐项核对问题、单位、范围、分母、过滤条件和来源身份。"
+      ],
+      "teachingCode": "import numpy as np\nimport pandas as pd\nfrom decimal import Decimal\nimport csv\nfrom sklearn.cluster import KMeans\nfrom sklearn.preprocessing import MinMaxScaler\nfrom sklearn.metrics import silhouette_score,roc_curve,roc_auc_score,confusion_matrix,precision_score,recall_score,accuracy_score\nfrom sklearn.model_selection import train_test_split\nfrom sklearn.pipeline import make_pipeline\nfrom sklearn.preprocessing import StandardScaler\nfrom sklearn.linear_model import LogisticRegression\nfrom phase4_common import SOURCE,ROOT,read\ndef run(p):\n if p.id=='P21':\n  a=p.load('order-14.3.csv',dtype={'订单ID':str,'商品ID':str,'类别ID':str})\n  # Decimal values are calculated from the original strings, never from rounded floats.\n  ref=next(r for r in p.refs if r.endswith('/order-14.3.csv'))\n  with (SOURCE/ref).open(encoding='gb18030',newline='') as f: raw=list(csv.DictReader(f))\n  amounts={}\n  for r in raw:amounts[r['门店编号']]=amounts.get(r['门店编号'],Decimal(0))+Decimal(r['单价'])*Decimal(r['销量'])\n  total=sum(amounts.values());assert total==Decimal('28950.06645')\n  p.chart('stores','三门店金额与全量占比',pd.DataFrame([[k,float(v),str(v),float(v/total)] for k,v in sorted(amounts.items())],columns=['门店','绘图金额','原精度金额','全量金额比例']),note='order-14.3.csv；金额=逐行单价×销量；只读精度对账',unit='金额单位待核实',denominator='全部3478行精确金额28950.06645',filtercol=0)\n  a['小时']=pd.to_datetime(a['成交时间']).dt.hour\n  hour=a.groupby('小时')['订单ID'].nunique().reset_index(name='小时内不同订单数')\n  p.chart('hour','小时内独立订单数',hour,kind='line',unit='订单',note='按小时和订单ID去重；不同小时可能包含同一订单，不称顾客人数')\n  for col in ['类别ID','商品ID']:\n   v=a.groupby(col)['销量'].sum().sort_values(ascending=False).head(10).reset_index()\n   p.chart('top-'+str(len(p.resources)),col+'销量Top10',v,note='全量分组后取10；编码按类别，未知销量单位',unit='销量单位待核实')\n  p.checks.update({'exactAmount':str(total),'orders':int(a['订单ID'].nunique()),'aRows':len(a)})\n elif p.id=='P11':\n  h=p.load('shenzhen.csv');clean=h[h.hourseSize<=10000].copy();assert len(h)-len(clean)==1\n  p.scatter(clean,'hourseSize','total_price','scatter');v=clean.groupby('area').agg(挂牌行数=('area','size'),平均单价=('unit_price','mean')).reset_index()\n  p.chart('area','清洗后各区域挂牌行数',v,note='按原面积≤10000规则剔除1条；不把挂牌价称成交价',unit='挂牌记录',filtercol=0)\n  p.hist(clean,'hourseSize');p.checks.update({'before':len(h),'after':len(clean),'anomaly':float(h.loc[h.hourseSize>10000,'hourseSize'].iloc[0])})\n elif p.id=='P17':\n  d=p.load('ad_performance.csv');d2=d.drop(columns=['平均停留时间']);nums=d2.iloc[:,1:7]\n  cats=['素材类型','广告类型','合作方式','广告尺寸','广告卖点'];X=np.column_stack([MinMaxScaler().fit_transform(nums),pd.get_dummies(d2[cats],dtype=int).values])\n  assert X.shape==(889,33);scores=[];counts=[];centers=[];samples=[]\n  for k in range(2,8):\n   m=KMeans(n_clusters=k,n_init=10,random_state=100);labels=m.fit_predict(X);scores.append([k,silhouette_score(X,labels),float(m.inertia_)])\n   for cl in range(k):\n    counts.append([str(k),str(cl),int((labels==cl).sum())]);means=nums.loc[labels==cl].mean()\n    centers.append([str(k),str(cl)]+means.tolist())\n   for i in range(len(d)):samples.append([str(k),str(i),str(labels[i]),float(nums.iloc[i,0]),float(nums.iloc[i,1])])\n  model='P17-seed100-ninit10-v1';p.models.append({'version':model,'method':'KMeans','seed':100,'n_init':10,'k':list(range(2,8)),'preprocess':'6数值MinMax+27独热；删除平均停留时间；不含渠道ID','fitRows':889,'features':33})\n  p.chart('silhouette','新版本已计算k=2—7轮廓系数',pd.DataFrame(scores,columns=['k','轮廓系数','inertia']),kind='line',unit='无量纲',model=model,note='独立教学版本；不是原保存k搜索的重现')\n  p.chart('counts','新版本各k的簇数量',pd.DataFrame(counts,columns=['k方案','簇ID','渠道数']),x=1,ys=[2],filtercol=0,unit='渠道',model=model,note='选择k只切换这6个已算方案；簇ID无序且不能与原簇直接对应')\n  p.frame('means','新版本逐簇六数值特征真实均值',pd.DataFrame(centers,columns=['k方案','簇ID']+list(nums.columns)),'本次根据完整新标签计算mean；与原错误使用describe.iloc[2]的std分开保存。',identity='teaching-adaptation',model=model)\n  p.frame('labels','新版本完整逐行簇标签及两个原数值字段',pd.DataFrame(samples,columns=['k方案','原行索引','新簇ID',str(nums.columns[0]),str(nums.columns[1])]),'6方案×889行；表格分页，无任意在线重训。',identity='teaching-adaptation',model=model)\n  p.checks.update({'rows':889,'features':33,'kValues':list(range(2,8)),'countSums':{str(k):sum(r[2] for r in counts if r[0]==str(k)) for k in range(2,8)}})\n elif p.id=='P23':\n  d=p.load('tianmao.csv');p.counts(d,'coupon_ind','label-share');p.hist(d,'age')\n  cols=['coupon_used_in_last_month','returned','loan','coupon_used_in_last6_month','default','age']\n  X=d[cols].copy()\n  for c in ['returned','loan','default']:\n   assert set(X[c].unique())<={'yes','no'};X[c]=X[c].map({'yes':1,'no':0})\n  y=d.coupon_ind;tr,te=train_test_split(np.arange(len(d)),test_size=.3,stratify=y,random_state=100)\n  assert len(set(tr)&set(te))==0\n  model=make_pipeline(StandardScaler(),LogisticRegression(max_iter=3000,random_state=100))\n  model.fit(X.iloc[tr],y.iloc[tr]);probs=model.predict_proba(X.iloc[te])[:,1];pred=(probs>=.5).astype(int)\n  fpr,tpr,threshold=roc_curve(y.iloc[te],probs);auc=roc_auc_score(y.iloc[te],probs);cm=confusion_matrix(y.iloc[te],pred)\n  version='P23-stratified-probability-v1';p.models.append({'version':version,'method':'StandardScaler(train only) + LogisticRegression','features':cols,'seed':100,'test_size':.3,'stratify':'coupon_ind','trainRows':len(tr),'testRows':len(te),'trainIndexSha256':__import__('hashlib').sha256(tr.tobytes()).hexdigest(),'testIndexSha256':__import__('hashlib').sha256(te.tobytes()).hexdigest(),'trainTestIntersection':0,'max_iter':3000,'C':1,'class_weight':None,'solver':'lbfgs'})\n  p.chart('roc','独立测试集概率ROC',pd.DataFrame({'FPR':fpr,'TPR':tpr}),kind='roc',unit='比例0—1',model=version,note=f'本次教学修正；AUC={auc:.8f}。未在测试集调参，原硬标签AUC另列。')\n  p.frame('probabilities','独立测试集真实概率：浏览器阈值探索',pd.DataFrame({'实际标签':y.iloc[te].values,'正类概率':probs}),'仅从该新版本独立测试集计算；改变阈值不会重训，也不把测试阈值探索作为泛化保证。',identity='teaching-adaptation',model=version,probabilities=True)\n  p.chart('matrix','新版本阈值0.5混淆矩阵',pd.DataFrame([[str(j),str(i),int(cm[i,j])] for i in range(2) for j in range(2)],columns=['预测标签','实际标签','人数']),kind='heatmap',ys=[1,2],unit='样本行',model=version,note='独立测试集，行是真实标签、列是预测标签')\n  p.frame('metrics','新版本独立测试指标',pd.DataFrame([['概率AUC',auc],['Accuracy',accuracy_score(y.iloc[te],pred)],['Precision',precision_score(y.iloc[te],pred,zero_division=0)],['Recall',recall_score(y.iloc[te],pred,zero_division=0)],['全预测0准确率',float((y.iloc[te]==0).mean())]],columns=['指标','值']),'训练集17721行；测试集7596行；阈值0.5。独立版本不与原不同划分直接比优劣。',identity='teaching-adaptation',model=version)\n  p.checks.update({'trainRows':len(tr),'testRows':len(te),'overlap':0,'probabilityAUC':auc,'matrix':cm.tolist(),'probabilityCount':len(probs),'positiveTotal':int(y.sum())})\n",
+      "limitations": [
+        "原文群体编号、数量与业务描述有错位，平台须绑定实际中心而非照抄；无成本收益字段支撑ROI结论；未固定随机种子。",
+        "新版本不覆盖原保存成绩；所有新训练均在构建清单中单列。"
+      ],
+      "codeRefs": [
+        {
+          "path": "电商-广告投放效果分析-约250行（KMeans聚类、数据分析）/聚类分析广告效果.ipynb",
+          "notebookSha256": "ad88e032b91ce55504f1a19bc8e1ddb2a8829edc69cab6b2569cdbde39edd6b7",
+          "cell": 6,
+          "code": "import pandas as pd \nimport numpy as np \nimport matplotlib as mpl \nimport matplotlib.pyplot as plt \nfrom sklearn.preprocessing import MinMaxScaler,OneHotEncoder \nfrom sklearn.metrics import silhouette_score # 导入轮廓系数指标\nfrom sklearn.cluster import KMeans # KMeans模块\n%matplotlib inline\n## 设置属性防止中文乱码\nmpl.rcParams['font.sans-serif'] = [u'SimHei']\nmpl.rcParams['axes.unicode_minus'] = False",
+          "codeSha256": "cebf31eb577cf70b9fa6f6870a7f709ceef4d11e1da93850b36c02a13d1d4d55"
+        },
+        {
+          "path": "电商-广告投放效果分析-约250行（KMeans聚类、数据分析）/聚类分析广告效果.ipynb",
+          "notebookSha256": "ad88e032b91ce55504f1a19bc8e1ddb2a8829edc69cab6b2569cdbde39edd6b7",
+          "cell": 8,
+          "code": "raw_data = pd.read_csv(r'./ad_performance.csv')\nraw_data.head()",
+          "codeSha256": "e3c62ad0d1b460330a61d5e1c39aa9375aa2d883daeca3e4d9907b35ff45aa8b"
+        },
+        {
+          "path": "电商-广告投放效果分析-约250行（KMeans聚类、数据分析）/聚类分析广告效果.ipynb",
+          "notebookSha256": "ad88e032b91ce55504f1a19bc8e1ddb2a8829edc69cab6b2569cdbde39edd6b7",
+          "cell": 35,
+          "code": "# 通过平均轮廓系数检验得到最佳KMeans聚类模型\nscore_list = list()  # 用来存储每个K下模型的平局轮廓系数\nsilhouette_int = -1  # 初始化的平均轮廓系数阀值\nfor n_clusters in range(2, 8):  # 遍历从2到5几个有限组\n    model_kmeans = KMeans(n_clusters=n_clusters)  # 建立聚类模型对象\n    labels_tmp = model_kmeans.fit_predict(X)  # 训练聚类模型\n    silhouette_tmp = silhouette_score(X, labels_tmp)  # 得到每个K下的平均轮廓系数\n    if silhouette_tmp > silhouette_int:  # 如果平均轮廓系数更高\n        best_k = n_clusters  # 保存K将最好的K存储下来\n        silhouette_int = silhouette_tmp  # 保存平均轮廓得分\n        best_kmeans = model_kmeans  # 保存模型实例对象\n        cluster_labels_k = labels_tmp  # 保存聚类标签\n    score_list.append([n_clusters, silhouette_tmp])  # 将每次K及其得分追加到列表\nprint('{:*^60}'.format('K值对应的轮廓系数:'))\nprint(np.array(score_list))  # 打印输出所有K下的详细得分\nprint('最优的K值是:{0} \\n对应的轮廓系数是:{1}'.format(best_k, silhouette_int))",
+          "codeSha256": "4240d0f3c72547407ae3d74bdbff7b0748343048dc9e2a97f25a749ef7b1112c"
+        },
+        {
+          "path": "电商-广告投放效果分析-约250行（KMeans聚类、数据分析）/聚类分析广告效果.ipynb",
+          "notebookSha256": "ad88e032b91ce55504f1a19bc8e1ddb2a8829edc69cab6b2569cdbde39edd6b7",
+          "cell": 41,
+          "code": "# 计算每个聚类类别下的样本量和样本占比\nclustering_count = pd.DataFrame(merge_data['渠道代号'].groupby(merge_data['clusters']).count()).T.rename({'渠道代号': 'counts'})  # 计算每个聚类类别的样本量\nclustering_ratio = (clustering_count / len(merge_data)).round(2).rename({'counts': 'percentage'})  # 计算每个聚类类别的样本量占比\nprint(clustering_count)\nprint(\"#\"*30)\nprint(clustering_ratio)",
+          "codeSha256": "39543e8e20e69d787e371d07012342a08eca38e8b9f7d24cff9f144db4c8b47c"
+        }
+      ],
+      "inputRefs": [
+        {
+          "path": "电商-广告投放效果分析-约250行（KMeans聚类、数据分析）/聚类分析广告效果.ipynb",
+          "sha256": "ad88e032b91ce55504f1a19bc8e1ddb2a8829edc69cab6b2569cdbde39edd6b7"
+        },
+        {
+          "path": "电商-广告投放效果分析-约250行（KMeans聚类、数据分析）/聚类分析广告效果.py",
+          "sha256": "d9d3c4c55eea4c26a15c1cc652b2e7793f294ad7f7697f7ce793985a402860b1"
+        },
+        {
+          "path": "电商-广告投放效果分析-约250行（KMeans聚类、数据分析）/ad_performance.csv",
+          "sha256": "4f767d4f273ae2745ac84a9791d2e3d81bdee37a26d1ca82fa4d8a9a5f3003fb"
+        }
+      ],
+      "outputRefs": [
+        "learning/resources/p17-v4-silhouette.json",
+        "learning/resources/p17-v4-counts.json",
+        "learning/resources/p17-v4-means.json",
+        "learning/resources/p17-v4-labels.json",
+        "learning/resources/p17-v4-input-quality.json"
+      ],
+      "exercise": {
+        "prompt": "解释为何独热而非任意数字编码；核对原结论的簇编号错位。",
+        "hint": "从同源表取数，写出算式；先核对全量/抽样和原保存/新计算身份。",
+        "checklist": [
+          "列出真实字段、筛选规则和当前样本范围",
+          "用表格复核至少一个频数、比率或模型指标",
+          "指出一个不能由本图推出的结论"
+        ],
+        "provenance": "已批准路线练习与第四阶段核对清单，采用自评"
+      },
+      "outputTitles": {
+        "learning/resources/p17-v4-silhouette.json": "新版本已计算k=2—7轮廓系数",
+        "learning/resources/p17-v4-counts.json": "新版本各k的簇数量",
+        "learning/resources/p17-v4-means.json": "新版本逐簇六数值特征真实均值",
+        "learning/resources/p17-v4-labels.json": "新版本完整逐行簇标签及两个原数值字段",
+        "learning/resources/p17-v4-input-quality.json": "本项目各输入表的读取与质量核对"
+      }
+    }
+  ]
+}

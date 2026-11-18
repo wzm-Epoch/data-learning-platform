@@ -1,0 +1,28 @@
+{
+  "schemaVersion": "1.0",
+  "id": "p04-v4-source-16",
+  "title": "原单元62—65保存输出",
+  "kind": "text",
+  "columns": [],
+  "rows": [],
+  "text": "原单元62\n['lead_time',\n 'arrival_date_year',\n 'arrival_date_week_number',\n 'arrival_date_day_of_month',\n 'stays_in_weekend_nights',\n 'stays_in_week_nights',\n 'adults',\n 'children',\n 'babies',\n 'previous_cancellations',\n 'previous_bookings_not_canceled',\n 'booking_changes',\n 'days_in_waiting_list',\n 'adr',\n 'required_car_parking_spaces',\n 'total_of_special_requests']\n\n原单元63\nlead_time                         0\narrival_date_year                 0\narrival_date_week_number          0\narrival_date_day_of_month         0\nstays_in_weekend_nights           0\nstays_in_week_nights              0\nadults                            0\nchildren                          4\nbabies                            0\nprevious_cancellations            0\nprevious_bookings_not_canceled    0\nbooking_changes                   0\ndays_in_waiting_list              0\nadr                               0\nrequired_car_parking_spaces       0\ntotal_of_special_requests         0\ndtype: int64",
+  "context": {
+    "identity": "original-saved",
+    "buildId": "phase4-v1",
+    "createdAt": "2026-11-16T12:58:37.389041+00:00",
+    "inputs": [
+      {
+        "path": "交通旅行-全球酒店预订分析与预测-约550行（数据探索分析、随机森林、XGBoost、逻辑回归）/全球酒店预订分析与预测.ipynb",
+        "sha256": "f1166bb78198277c9bd5a0bbf360ce9b452a23b39733dfde5b7e6acb55fdee42"
+      },
+      {
+        "path": "交通旅行-全球酒店预订分析与预测-约550行（数据探索分析、随机森林、XGBoost、逻辑回归）/2022_hotel_bookings.csv",
+        "sha256": "ab2a3bfa58522e3a6310ae941303e1beeecb1c86960d538140525cee01578683"
+      }
+    ],
+    "note": "逐单元只读提取原文本；原运行时间未知，本次时间仅为提取时间。",
+    "unit": "原字段单位；未核实单位不补填",
+    "sample": null,
+    "modelRerun": false
+  }
+}

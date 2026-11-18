@@ -1,0 +1,28 @@
+{
+  "schemaVersion": "1.0",
+  "id": "p05-v4-source-7",
+  "title": "原单元19—19保存输出",
+  "kind": "text",
+  "columns": [],
+  "rows": [],
+  "text": "原单元19\n城市          0\n名称          0\n星级       1407\n评分          0\n价格          0\n销量          0\n省/市/区       0\n坐标          0\n简介         37\n是否免费        0\n具体地址        2\ndtype: int64",
+  "context": {
+    "identity": "original-saved",
+    "buildId": "phase4-v1",
+    "createdAt": "2026-11-16T12:58:37.389041+00:00",
+    "inputs": [
+      {
+        "path": "交通旅行-热门旅游景点数据分析与可视化-约300行（pandas数据处理、pyecharts可视化、jieba分词）/旅游景点.ipynb",
+        "sha256": "4ab8708fdc7c3f7f984c34f9b01447432de17eb6ac04cc753ca8cec760db7c2d"
+      },
+      {
+        "path": "交通旅行-热门旅游景点数据分析与可视化-约300行（pandas数据处理、pyecharts可视化、jieba分词）/旅游景点.xlsx",
+        "sha256": "cbecb48e3276d3a64fd37ceae4a2fe4352b14ebed6db3af49f6b713d4e9e2fdd"
+      }
+    ],
+    "note": "逐单元只读提取原文本；原运行时间未知，本次时间仅为提取时间。",
+    "unit": "原字段单位；未核实单位不补填",
+    "sample": null,
+    "modelRerun": false
+  }
+}

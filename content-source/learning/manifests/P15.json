@@ -1,0 +1,339 @@
+{
+  "projectId": "P15",
+  "batch": "B",
+  "status": "partial-source-gaps",
+  "lessonCount": 1,
+  "readySteps": 14,
+  "inputRefs": [
+    {
+      "path": "文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-排片地域分布（场次）-top10影片.xlsx",
+      "sha256": "a4835d2355a994a5cf7f40e22053d2793d5c14761cb8474a603fe4a7e9c57389"
+    },
+    {
+      "path": "文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-排片场次分布（场次）-top10影片.xlsx",
+      "sha256": "5ad74390a3465cb233c56dde7f957b5addfcc7f292aff9a6c684d3a709e5a0e2"
+    },
+    {
+      "path": "文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-排片统计（场次）-top10影片.xlsx",
+      "sha256": "3f80027f7f6593e7af02dbd064bcef4cafc50d12532148afddc5667866594904"
+    },
+    {
+      "path": "文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-排片院线分布（场次）-top10影片.xlsx",
+      "sha256": "541b0d5675f7320f725d2314d3324e5d968cfc1eba3bd6c078daaaa835489a6e"
+    },
+    {
+      "path": "文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-电影票房三十日时段详情.xls",
+      "sha256": "eb438315805b41886b99d019c4bc29514306995cdf3faed2cbb431e2574e1554"
+    },
+    {
+      "path": "文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-电影票房三十日时段趋势数据.xlsx",
+      "sha256": "b3423598041e90de61fff3d154ba2e09aeea6a291999549ccf6ec600a6fc6a79"
+    },
+    {
+      "path": "文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-电影票房表现概览.xlsx",
+      "sha256": "cde413d249940fa7751aea7a934b75ddb3af35cee5afd396ecee32614bda45b4"
+    },
+    {
+      "path": "文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-票房详情.xlsx",
+      "sha256": "ca6a7a8a97c92aca9b4d1095a48355a5a17771d100fe99ce177faba39e0d76ac"
+    },
+    {
+      "path": "文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档票房分析.ipynb",
+      "sha256": "0e34c777bbbb63ca6d0a849712d9b1f7967f78f4ef809e84e99a8506efd75d10"
+    }
+  ],
+  "resources": [
+    "learning/resources/p15-v4-city-level.json",
+    "learning/resources/p15-v4-daily.json",
+    "learning/resources/p15-v4-evidence-1.json",
+    "learning/resources/p15-v4-evidence-11.json",
+    "learning/resources/p15-v4-evidence-12.json",
+    "learning/resources/p15-v4-evidence-5.json",
+    "learning/resources/p15-v4-evidence-8.json",
+    "learning/resources/p15-v4-input-quality.json",
+    "learning/resources/p15-v4-source-10.json",
+    "learning/resources/p15-v4-source-13.json",
+    "learning/resources/p15-v4-source-2.json",
+    "learning/resources/p15-v4-source-3.json",
+    "learning/resources/p15-v4-source-4.json",
+    "learning/resources/p15-v4-source-6.json",
+    "learning/resources/p15-v4-source-7.json",
+    "learning/resources/p15-v4-source-9.json",
+    "learning/resources/p15-v4-totals.json"
+  ],
+  "transforms": [
+    {
+      "input": "文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-电影票房表现概览.xlsx",
+      "sheet": "Sheet1",
+      "readRows": 10,
+      "columns": [
+        "EntMovieID",
+        "DBOMovieID",
+        "EFMTMovieID",
+        "电影",
+        "英文电影名",
+        "导演",
+        "主演",
+        "GenreMainID",
+        "主要类型",
+        "作品类型",
+        "地区",
+        "电影时长",
+        "电影版本",
+        "点映日期",
+        "最晚结束日期",
+        "最新上映天数",
+        "正式上映日期",
+        "数据截止日期",
+        "点映天数",
+        "点映票房",
+        "累计票房",
+        "累计场次",
+        "累计人次",
+        "第一天观看人次",
+        "首映票房",
+        "首周票房",
+        "首周末票房",
+        "猫眼想看人数",
+        "淘票票想看人数",
+        "猫眼评分",
+        "豆瓣评分"
+      ],
+      "missing": {
+        "EntMovieID": 0,
+        "DBOMovieID": 0,
+        "EFMTMovieID": 0,
+        "电影": 0,
+        "英文电影名": 0,
+        "导演": 0,
+        "主演": 0,
+        "GenreMainID": 0,
+        "主要类型": 0,
+        "作品类型": 0,
+        "地区": 0,
+        "电影时长": 3,
+        "电影版本": 0,
+        "点映日期": 0,
+        "最晚结束日期": 0,
+        "最新上映天数": 0,
+        "正式上映日期": 0,
+        "数据截止日期": 0,
+        "点映天数": 0,
+        "点映票房": 0,
+        "累计票房": 0,
+        "累计场次": 0,
+        "累计人次": 0,
+        "第一天观看人次": 0,
+        "首映票房": 0,
+        "首周票房": 0,
+        "首周末票房": 0,
+        "猫眼想看人数": 0,
+        "淘票票想看人数": 0,
+        "猫眼评分": 0,
+        "豆瓣评分": 1
+      },
+      "readerOptions": {}
+    },
+    {
+      "input": "文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-票房详情.xlsx",
+      "sheet": "Sheet1",
+      "readRows": 38,
+      "columns": [
+        "日期",
+        "票房",
+        "票房环比",
+        "场次",
+        "场次环比",
+        "人次",
+        "人次环比",
+        "场均人次",
+        "平均票价",
+        "当日票房冠军",
+        "服务费"
+      ],
+      "missing": {
+        "日期": 0,
+        "票房": 0,
+        "票房环比": 0,
+        "场次": 0,
+        "场次环比": 0,
+        "人次": 0,
+        "人次环比": 0,
+        "场均人次": 0,
+        "平均票价": 0,
+        "当日票房冠军": 0,
+        "服务费": 0
+      },
+      "readerOptions": {}
+    },
+    {
+      "input": "文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-排片地域分布（场次）-top10影片.xlsx",
+      "sheet": "Sheet1",
+      "readRows": 420,
+      "columns": [
+        "日期",
+        "城市",
+        "电影",
+        "场次"
+      ],
+      "missing": {
+        "日期": 0,
+        "城市": 0,
+        "电影": 0,
+        "场次": 4
+      },
+      "readerOptions": {}
+    },
+    {
+      "input": "文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-排片场次分布（场次）-top10影片.xlsx",
+      "sheet": "Sheet1",
+      "readRows": 70,
+      "columns": [
+        "日期",
+        "电影",
+        "上午场",
+        "下午场",
+        "加映场",
+        "黄金场"
+      ],
+      "missing": {
+        "日期": 0,
+        "电影": 0,
+        "上午场": 0,
+        "下午场": 0,
+        "加映场": 0,
+        "黄金场": 0
+      },
+      "readerOptions": {}
+    },
+    {
+      "input": "文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-排片统计（场次）-top10影片.xlsx",
+      "sheet": "Sheet1",
+      "readRows": 70,
+      "columns": [
+        "日期",
+        "电影",
+        "场次",
+        "占比"
+      ],
+      "missing": {
+        "日期": 0,
+        "电影": 0,
+        "场次": 0,
+        "占比": 0
+      },
+      "readerOptions": {}
+    },
+    {
+      "input": "文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-排片院线分布（场次）-top10影片.xlsx",
+      "sheet": "Sheet1",
+      "readRows": 455,
+      "columns": [
+        "日期",
+        "院线",
+        "电影",
+        "场次"
+      ],
+      "missing": {
+        "日期": 0,
+        "院线": 0,
+        "电影": 0,
+        "场次": 6
+      },
+      "readerOptions": {}
+    },
+    {
+      "input": "文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-电影票房三十日时段趋势数据.xlsx",
+      "sheet": "Sheet1",
+      "readRows": 241,
+      "columns": [
+        "电影",
+        "EnMovieID",
+        "DBOMovieID",
+        "日期",
+        "其他票房",
+        "其他场次",
+        "其他人次",
+        "票房",
+        "场次",
+        "人次",
+        "票房占比",
+        "场次占比",
+        "人次占比",
+        "平均票价",
+        "场均人次",
+        "场均收入"
+      ],
+      "missing": {
+        "电影": 0,
+        "EnMovieID": 0,
+        "DBOMovieID": 0,
+        "日期": 0,
+        "其他票房": 0,
+        "其他场次": 0,
+        "其他人次": 0,
+        "票房": 0,
+        "场次": 0,
+        "人次": 0,
+        "票房占比": 0,
+        "场次占比": 0,
+        "人次占比": 0,
+        "平均票价": 0,
+        "场均人次": 0,
+        "场均收入": 0
+      },
+      "readerOptions": {}
+    },
+    {
+      "input": "文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-电影票房三十日时段详情.xls",
+      "sheet": "Sheet1",
+      "readRows": 241,
+      "columns": [
+        "电影",
+        "EnMovieID",
+        "DBOMovieID",
+        "日期",
+        "星期",
+        "当前票房/万",
+        "当前场次",
+        "当前人次/万",
+        "票房占比",
+        "黄金场票房/万",
+        "黄金场场次",
+        "黄金场人次",
+        "黄金场票房占比",
+        "黄金场场次占比",
+        "黄金场人次占比"
+      ],
+      "missing": {
+        "电影": 0,
+        "EnMovieID": 0,
+        "DBOMovieID": 0,
+        "日期": 0,
+        "星期": 0,
+        "当前票房/万": 0,
+        "当前场次": 0,
+        "当前人次/万": 0,
+        "票房占比": 0,
+        "黄金场票房/万": 0,
+        "黄金场场次": 0,
+        "黄金场人次": 0,
+        "黄金场票房占比": 0,
+        "黄金场场次占比": 0,
+        "黄金场人次占比": 0
+      },
+      "readerOptions": {}
+    }
+  ],
+  "checks": {},
+  "models": [],
+  "blocked": [
+    {
+      "step": "旧xls票房单位解释",
+      "reason": "表头“/万”与原除数/改名存在矛盾；已开放原物理值与代码，不能给出未经核实单位的换算结论"
+    }
+  ],
+  "originalModelRerun": false,
+  "savedOutputIdentity": "original-saved; extraction time only; original execution time unknown",
+  "validation": "adapter assertions passed; schema/production/browser tracked separately"
+}

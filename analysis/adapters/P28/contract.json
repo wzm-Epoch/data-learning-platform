@@ -1,0 +1,89 @@
+{
+  "projectId": "P28",
+  "batch": "B",
+  "status": "available-content-open",
+  "lessonCount": 1,
+  "readySteps": 18,
+  "inputRefs": [
+    {
+      "path": "职场-分析员工过早离职原因-约300行（相关性分析、变量分析、plotly可视化）/HR_comma_sep.csv",
+      "sha256": "2510e274a90547f34c7b0db5a4ab70282c2710eb54252f14921bf980b81a928c"
+    },
+    {
+      "path": "职场-分析员工过早离职原因-约300行（相关性分析、变量分析、plotly可视化）/分析员工过早离职原因.ipynb",
+      "sha256": "9bf9cfcf11d11ed4dae94f8309a2d06aed0000ed3002fff5333d64d2de0e0184"
+    },
+    {
+      "path": "职场-分析员工过早离职原因-约300行（相关性分析、变量分析、plotly可视化）/分析员工过早离职原因.py",
+      "sha256": "3de51cc2b00d540e2634ea337ea0cb6c53f9973a549afcc820a0724de78e431d"
+    }
+  ],
+  "resources": [
+    "learning/assets/p28-cell36-0.png",
+    "learning/resources/p28-v4-department.json",
+    "learning/resources/p28-v4-evidence-11.json",
+    "learning/resources/p28-v4-evidence-12.json",
+    "learning/resources/p28-v4-evidence-13.json",
+    "learning/resources/p28-v4-evidence-14.json",
+    "learning/resources/p28-v4-evidence-15.json",
+    "learning/resources/p28-v4-evidence-16.json",
+    "learning/resources/p28-v4-evidence-17.json",
+    "learning/resources/p28-v4-evidence-5.json",
+    "learning/resources/p28-v4-input-quality.json",
+    "learning/resources/p28-v4-left.json",
+    "learning/resources/p28-v4-promotion.json",
+    "learning/resources/p28-v4-salary.json",
+    "learning/resources/p28-v4-satisfaction.json",
+    "learning/resources/p28-v4-source-1.json",
+    "learning/resources/p28-v4-source-10-images.json",
+    "learning/resources/p28-v4-source-2.json",
+    "learning/resources/p28-v4-source-3.json",
+    "learning/resources/p28-v4-source-4.json",
+    "learning/resources/p28-v4-source-6.json",
+    "learning/resources/p28-v4-source-7.json",
+    "learning/resources/p28-v4-source-8.json",
+    "learning/resources/p28-v4-source-9.json"
+  ],
+  "transforms": [
+    {
+      "input": "职场-分析员工过早离职原因-约300行（相关性分析、变量分析、plotly可视化）/HR_comma_sep.csv",
+      "sheet": null,
+      "readRows": 14999,
+      "columns": [
+        "satisfaction_level",
+        "last_evaluation",
+        "number_project",
+        "average_montly_hours",
+        "time_spend_company",
+        "Work_accident",
+        "left",
+        "promotion_last_5years",
+        "sales",
+        "salary"
+      ],
+      "missing": {
+        "satisfaction_level": 0,
+        "last_evaluation": 0,
+        "number_project": 0,
+        "average_montly_hours": 0,
+        "time_spend_company": 0,
+        "Work_accident": 0,
+        "left": 0,
+        "promotion_last_5years": 0,
+        "sales": 0,
+        "salary": 0
+      },
+      "readerOptions": {}
+    }
+  ],
+  "checks": {
+    "rows": 14999,
+    "lowSalaryLeftRate": 0.2968835429196282,
+    "left": 3571
+  },
+  "models": [],
+  "blocked": [],
+  "originalModelRerun": false,
+  "savedOutputIdentity": "original-saved; extraction time only; original execution time unknown",
+  "validation": "adapter assertions passed; schema/production/browser tracked separately"
+}

@@ -1,0 +1,174 @@
+{
+  "schemaVersion": "1.0",
+  "id": "p02-v4-correlation",
+  "title": "指定数值字段的Pearson相关",
+  "kind": "table",
+  "columns": [
+    "字段X",
+    "字段Y",
+    "r"
+  ],
+  "rows": [
+    [
+      "temp",
+      "temp",
+      1.0
+    ],
+    [
+      "temp",
+      "atemp",
+      0.984948110481708
+    ],
+    [
+      "temp",
+      "humidity",
+      -0.06494877090121
+    ],
+    [
+      "temp",
+      "windspeed",
+      -0.017852009861347
+    ],
+    [
+      "temp",
+      "count",
+      0.394453644967252
+    ],
+    [
+      "atemp",
+      "temp",
+      0.984948110481708
+    ],
+    [
+      "atemp",
+      "atemp",
+      1.0
+    ],
+    [
+      "atemp",
+      "humidity",
+      -0.043535709082556
+    ],
+    [
+      "atemp",
+      "windspeed",
+      -0.057473002328198
+    ],
+    [
+      "atemp",
+      "count",
+      0.389784436626976
+    ],
+    [
+      "humidity",
+      "temp",
+      -0.06494877090121
+    ],
+    [
+      "humidity",
+      "atemp",
+      -0.043535709082556
+    ],
+    [
+      "humidity",
+      "humidity",
+      1.0
+    ],
+    [
+      "humidity",
+      "windspeed",
+      -0.318606991571283
+    ],
+    [
+      "humidity",
+      "count",
+      -0.317371478876596
+    ],
+    [
+      "windspeed",
+      "temp",
+      -0.017852009861347
+    ],
+    [
+      "windspeed",
+      "atemp",
+      -0.057473002328198
+    ],
+    [
+      "windspeed",
+      "humidity",
+      -0.318606991571283
+    ],
+    [
+      "windspeed",
+      "windspeed",
+      1.0
+    ],
+    [
+      "windspeed",
+      "count",
+      0.101369470210332
+    ],
+    [
+      "count",
+      "temp",
+      0.394453644967252
+    ],
+    [
+      "count",
+      "atemp",
+      0.389784436626976
+    ],
+    [
+      "count",
+      "humidity",
+      -0.317371478876596
+    ],
+    [
+      "count",
+      "windspeed",
+      0.101369470210332
+    ],
+    [
+      "count",
+      "count",
+      1.0
+    ]
+  ],
+  "text": null,
+  "context": {
+    "identity": "new-precomputed",
+    "buildId": "phase4-v1",
+    "createdAt": "2026-11-16T12:58:37.389041+00:00",
+    "inputs": [
+      {
+        "path": "交通出行-共享单车预测租赁数量-约300行（随机森林、支持向量机模型）/自行车租赁数量预测.ipynb",
+        "sha256": "5d7bfa900fd3c472a9a4dd3e2fd241a940046dfdae12874866e1bc2633501530"
+      },
+      {
+        "path": "交通出行-共享单车预测租赁数量-约300行（随机森林、支持向量机模型）/train.csv",
+        "sha256": "11671d46ae41bf0df77d3d25268f4cb87683f3a33e4a54adf1bb3b24ee538cad"
+      }
+    ],
+    "note": "逐对有效观测；不把ID或名义类别编码纳入相关。",
+    "unit": "无量纲",
+    "sample": null,
+    "modelRerun": false
+  },
+  "chart": {
+    "type": "heatmap",
+    "x": 0,
+    "ys": [
+      1,
+      2
+    ],
+    "question": "指定数值字段的Pearson相关",
+    "xLabel": "字段X",
+    "yLabel": "无量纲",
+    "denominator": "不涉及比率；展示原量或统计量",
+    "range": "当前输入已说明范围的全量聚合",
+    "filters": "逐对有效观测；不把ID或名义类别编码纳入相关。",
+    "nullPolicy": "缺失为null，保留0；不连接缺失点",
+    "interpretation": "对照同源表读取差异；关联不能推出因果或样本外结论。"
+  }
+}

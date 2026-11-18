@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1.0",
+  "id": "p29-v4-source-6",
+  "title": "原单元20—20保存输出",
+  "kind": "text",
+  "columns": [],
+  "rows": [],
+  "text": "原单元20\n([<matplotlib.patches.Wedge at 0x216eb4bc848>,\n  <matplotlib.patches.Wedge at 0x216eb4c2a48>,\n  <matplotlib.patches.Wedge at 0x216eb4c9e08>,\n  <matplotlib.patches.Wedge at 0x216eb4d7388>],\n [Text(-1.379238185118261, -0.3377899180136765, '本科及以上'),\n  Text(1.39940283915846, -0.240980691664792, '学历不限'),\n  Text(1.2464528281742129, 0.680261234480186, '硕士及以上'),\n  Text(0.8711903060686427, 1.1213507259604485, '大专及以上')],\n [Text(-0.7964614871809674, -0.19506178364170051, '74.3%'),\n  Text(0.8081058648661529, -0.13915786420079537, '12.6%'),\n  Text(0.7197826190865172, 0.3928269100519384, '8.7%'),\n  Text(0.5030817260396386, 0.6475405600616674, '4.4%')])",
+  "context": {
+    "identity": "original-saved",
+    "buildId": "phase4-v1",
+    "createdAt": "2026-11-16T12:58:37.389041+00:00",
+    "inputs": [
+      {
+        "path": "职场-数据分析师职位分析-约300行（数据探索分析、matplotlib可视化）/数据分析师岗位分析.ipynb",
+        "sha256": "612486c97729fe72863ed3f52b813320854acf96710711d4c7d1f67f9cd42e1c"
+      },
+      {
+        "path": "职场-数据分析师职位分析-约300行（数据探索分析、matplotlib可视化）/数据分析师岗位分析.py",
+        "sha256": "9dcdd68cdfd7ed8a3edd4d8b8e9af03b23f49f7edf8b9746af20bd1cd0afea01"
+      },
+      {
+        "path": "职场-数据分析师职位分析-约300行（数据探索分析、matplotlib可视化）/lagou.csv",
+        "sha256": "6b1daf9e5c5f2af353fa517917889ec4dd482e1c9623e4c141843ffdfd742fda"
+      }
+    ],
+    "note": "逐单元只读提取原文本；原运行时间未知，本次时间仅为提取时间。",
+    "unit": "原字段单位；未核实单位不补填",
+    "sample": null,
+    "modelRerun": false
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "schemaVersion": "1.0",
+  "id": "p11-change",
+  "title": "剔除前后对照",
+  "kind": "table",
+  "columns": [
+    "阶段",
+    "行数",
+    "面积均值（原字段单位）"
+  ],
+  "rows": [
+    [
+      "原输入",
+      18907,
+      100.6222150526
+    ],
+    [
+      "按原规则面积≤10000",
+      18906,
+      100.0525346451
+    ]
+  ],
+  "text": null,
+  "context": {
+    "identity": "teaching-adaptation",
+    "buildId": "phase3-v1",
+    "createdAt": "2026-11-16T11:41:51.304867+00:00",
+    "inputs": [
+      {
+        "path": "房地产-二手房数据分析-约400行（数据探索分析、matplotlib可视化）/shenzhen.csv",
+        "sha256": "607ca9622c8f38317738c7c401e81b88533137862db0cb50455b0a818da85a22"
+      }
+    ],
+    "note": "在新适配层按原单元10规则计算；原异常保留在独立快照。",
+    "unit": "未知 / 原数据单位待核实",
+    "sample": null,
+    "modelRerun": false
+  }
+}

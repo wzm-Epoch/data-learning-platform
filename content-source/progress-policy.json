@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "note": "已发布且适用的ready步骤及其自评为必修；不可学习步骤不纳入。文字编辑保留revision；方法解释实质修订须增加semanticRevision。删除必须登记旧复合ID到新ID或null，旧ID永不复用。",
+  "steps": {},
+  "deleted": {},
+  "supportedContentVersions": [
+    "0.3.0",
+    "0.4.0"
+  ]
+}

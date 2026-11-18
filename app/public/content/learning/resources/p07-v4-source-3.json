@@ -1,0 +1,52 @@
+{
+  "schemaVersion": "1.0",
+  "id": "p07-v4-source-3",
+  "title": "原单元19—19保存输出",
+  "kind": "text",
+  "columns": [],
+  "rows": [],
+  "text": "原单元19\ntest accuracy: 0.756098\n",
+  "context": {
+    "identity": "original-saved",
+    "buildId": "phase4-v1",
+    "createdAt": "2026-11-16T13:05:46.028718+00:00",
+    "inputs": [
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/基于水色图像的水质评估.ipynb",
+        "sha256": "57b74242352e27f5f5d047334e5c845781e17b898cec79b0783e352a5f38e480"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/moment.csv",
+        "sha256": "99c91f5cd8b38c6867e03d922dab7abedb4ddb2fb3cd68b37c5774637b2c13dc"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/1_1.jpg",
+        "sha256": "d48f6cc1eba2b2970fc66732ff6a8687decb6ee051546a3110f261cb8e2beab7"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/1_10.jpg",
+        "sha256": "b7e30758c066a8de1792f09a01b48e21cd08c66739ada83882924cdb2af85f47"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/images/1_11.jpg",
+        "sha256": "1716dd10a17a80c752b8eed57714fc3e1f9e40657afd883d43739b13c28ebebb"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/train.xlsx",
+        "sha256": "86cf5cc2c929b8581d1ab5178eef029fbf14d109420cdd1f4a216f3f13ef2799"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/test.xlsx",
+        "sha256": "246a6f8888d6c39461beafa86a8ebb53a44739cbd76bb3b057d7c51836973f26"
+      },
+      {
+        "path": "其他-基于水色图像的水质评估-约200行（支持向量机）/data/picData.xlsx",
+        "sha256": "61a56aa27ed02bc2820133c989c70c88102424de8f9529a2e6658a3ee0f541dc"
+      }
+    ],
+    "note": "逐单元只读提取原文本；原运行时间未知，本次时间仅为提取时间。",
+    "unit": "原字段单位；未核实单位不补填",
+    "sample": null,
+    "modelRerun": false
+  }
+}

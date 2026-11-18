@@ -1,0 +1,104 @@
+{
+  "projectId": "P18",
+  "batch": "D",
+  "status": "available-content-open",
+  "lessonCount": 1,
+  "readySteps": 10,
+  "inputRefs": [
+    {
+      "path": "电商-数据情感分析-约150行（分词、关键词提取、情感分析）/京东评论数据.csv",
+      "sha256": "142cbb8443ed879582fdc56d3c728e19b376dce2e8779e65b57718a4d14a1691"
+    },
+    {
+      "path": "电商-数据情感分析-约150行（分词、关键词提取、情感分析）/京东评论数据情感分析.ipynb",
+      "sha256": "6414527f85039d478eee720bd4a03e00565ded4963f373673f2af574e6a817fd"
+    },
+    {
+      "path": "电商-数据情感分析-约150行（分词、关键词提取、情感分析）/京东评论数据情感分析.py",
+      "sha256": "aca2005a974501a6c679afb1374691b7db139c1b8d77bbc2f547c52138d03088"
+    }
+  ],
+  "resources": [
+    "learning/assets/p18-cell16-0.png",
+    "learning/assets/p18-cell19-1.png",
+    "learning/assets/p18-cell26-0.png",
+    "learning/assets/p18-cell29-0.png",
+    "learning/resources/p18-v4-_____-ba931ba8.json",
+    "learning/resources/p18-v4-input-quality.json",
+    "learning/resources/p18-v4-score.json",
+    "learning/resources/p18-v4-sentiment.json",
+    "learning/resources/p18-v4-source-1.json",
+    "learning/resources/p18-v4-source-2.json",
+    "learning/resources/p18-v4-source-3.json",
+    "learning/resources/p18-v4-source-4.json",
+    "learning/resources/p18-v4-source-5-images.json",
+    "learning/resources/p18-v4-source-6-images.json",
+    "learning/resources/p18-v4-source-7.json",
+    "learning/resources/p18-v4-source-8-images.json",
+    "learning/resources/p18-v4-source-8.json",
+    "learning/resources/p18-v4-source-9-images.json",
+    "learning/resources/p18-v4-source-9.json"
+  ],
+  "transforms": [
+    {
+      "input": "电商-数据情感分析-约150行（分词、关键词提取、情感分析）/京东评论数据.csv",
+      "sheet": null,
+      "readRows": 3637,
+      "columns": [
+        "sku_id",
+        "_id",
+        "item_name",
+        "comment_id",
+        "content",
+        "creation_time",
+        "reply_count",
+        "score",
+        "useful_vote_count",
+        "useless_vote_count",
+        "user_level_id",
+        "user_province",
+        "nickname",
+        "user_level_name",
+        "user_client",
+        "user_client_show",
+        "is_mobile",
+        "days",
+        "reference_time",
+        "after_days",
+        "after_user_comment"
+      ],
+      "missing": {
+        "sku_id": 0,
+        "_id": 0,
+        "item_name": 0,
+        "comment_id": 0,
+        "content": 0,
+        "creation_time": 0,
+        "reply_count": 0,
+        "score": 0,
+        "useful_vote_count": 0,
+        "useless_vote_count": 0,
+        "user_level_id": 0,
+        "user_province": 3637,
+        "nickname": 0,
+        "user_level_name": 0,
+        "user_client": 0,
+        "user_client_show": 175,
+        "is_mobile": 1,
+        "days": 1,
+        "reference_time": 1,
+        "after_days": 1,
+        "after_user_comment": 1
+      },
+      "readerOptions": {}
+    }
+  ],
+  "checks": {
+    "savedCountSum": 3637
+  },
+  "models": [],
+  "blocked": [],
+  "originalModelRerun": false,
+  "savedOutputIdentity": "original-saved; extraction time only; original execution time unknown",
+  "validation": "adapter assertions passed; schema/production/browser tracked separately"
+}

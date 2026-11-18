@@ -1,0 +1,82 @@
+{
+  "projectId": "P09",
+  "batch": "B",
+  "status": "partial-source-gaps",
+  "lessonCount": 1,
+  "readySteps": 9,
+  "inputRefs": [
+    {
+      "path": "房地产-二手房+可视化-约300行（爬虫+pyecharts可视化）/shenzhen.csv",
+      "sha256": "fcf600064559278beeedb0b5e70d1de42d60ad64347ad2f485da5b167308bcc7"
+    },
+    {
+      "path": "房地产-二手房+可视化-约300行（爬虫+pyecharts可视化）/链家房源信息抓取+可视化.ipynb",
+      "sha256": "d3e01d5238a9e6cce1ea838100c7e068bf50acf793ff19463efef283a71bfd29"
+    },
+    {
+      "path": "房地产-二手房+可视化-约300行（爬虫+pyecharts可视化）/链家房源信息抓取+可视化.py",
+      "sha256": "dfcbce69d878829b69b369564f8ada8f8027da3cf4d7d3a3d6c93c77ab0693a2"
+    }
+  ],
+  "resources": [
+    "learning/resources/p09-v4-area.json",
+    "learning/resources/p09-v4-evidence-3.json",
+    "learning/resources/p09-v4-evidence-4.json",
+    "learning/resources/p09-v4-evidence-5.json",
+    "learning/resources/p09-v4-evidence-6.json",
+    "learning/resources/p09-v4-evidence-7.json",
+    "learning/resources/p09-v4-evidence-8.json",
+    "learning/resources/p09-v4-input-quality.json",
+    "learning/resources/p09-v4-price-area.json",
+    "learning/resources/p09-v4-region-price.json",
+    "learning/resources/p09-v4-source-1.json",
+    "learning/resources/p09-v4-source-2.json"
+  ],
+  "transforms": [
+    {
+      "input": "房地产-二手房+可视化-约300行（爬虫+pyecharts可视化）/shenzhen.csv",
+      "sheet": null,
+      "readRows": 18907,
+      "columns": [
+        "Unnamed: 0",
+        "area",
+        "title",
+        "community",
+        "position",
+        "tax",
+        "total_price",
+        "unit_price",
+        "hourseType",
+        "hourseSize",
+        "direction",
+        "fitment"
+      ],
+      "missing": {
+        "Unnamed: 0": 0,
+        "area": 0,
+        "title": 8,
+        "community": 0,
+        "position": 0,
+        "tax": 8196,
+        "total_price": 0,
+        "unit_price": 0,
+        "hourseType": 0,
+        "hourseSize": 0,
+        "direction": 0,
+        "fitment": 0
+      },
+      "readerOptions": {}
+    }
+  ],
+  "checks": {},
+  "models": [],
+  "blocked": [
+    {
+      "step": "重新联网采集",
+      "reason": "离线主线使用本地shenzhen.csv，当前采集网站与可用性未验证；联网步骤仅供阅读"
+    }
+  ],
+  "originalModelRerun": false,
+  "savedOutputIdentity": "original-saved; extraction time only; original execution time unknown",
+  "validation": "adapter assertions passed; schema/production/browser tracked separately"
+}

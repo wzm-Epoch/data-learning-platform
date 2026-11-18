@@ -1,0 +1,633 @@
+{
+  "schemaVersion": "1.0",
+  "contentVersion": "0.6.0",
+  "projectId": "P03",
+  "id": "main-analysis",
+  "title": "航空公司客户价值分析",
+  "status": "ready",
+  "steps": [
+    {
+      "id": "source-005-006",
+      "title": "1.对数据进行基本的探索 · 单元5—6",
+      "status": "ready",
+      "kind": "analysis",
+      "knowledgeIds": [
+        "Pandas",
+        "NumPy",
+        "Matplotlib",
+        "数据清洗",
+        "LRFMC"
+      ],
+      "explanation": [
+        "本步按原Notebook顺序阅读单元5—6。原保存输出尚未重跑；安装、联网采集、写原文件和模型加载均不会在网页运行。",
+        "read_csv只读取指定CSV；编码、表头和字段需要与输入字典核对。",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：Table of Contents\n项目介绍关键词1.对数据进行基本的探索数据抽取数据分析2.数据清洗属性规约3.数据变换4、聚类分析模型构建客户聚类5、客户价值分析",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：## 项目介绍\n\n信息时代的到来使得企业的营销焦点从产品中心转为了客户中心，为实现企业利润最大化目标。准确的对客户进行分类，根据分类结果制定个性化服务方\n案，优化企业营销资源分配方案。在航空营销行业中，各个航空公司通过推出更优惠的营销方式来吸引更多的客户，而通过建立合理的客户价值评估模型，对客户进行分群，分析比较不同群体的客户价值，并制定相应的营销策略，对不同的客户群提供个性化的客户服务是必须和有效的。 \n本实验基于此来对收集到的某航空公司2012年至2014年的会员档案信息和其乘坐航班记录进行分析，我们将根据这些数据实现以下目标： \n\n1.借助航空公司客户数据，对客户进行分类。 \n\n2.对不同的客户类别进行特征分析，比较不同类客户的客户价值。 \n\n3.对不同价值的客户类别提供个性化服务，制定相应的营销策略。\n\n本实验的目标是客户价值识别，即对客户进行分类。识别客户价值最广泛的模型是通过RFM指标来对客户进行细分，识别出高价值的客户： \nRecency 最近消费时间间隔 \nFrequency 消费频率 \nMonetary 消费金额 \n在RFM模型中，消费金额表示在一段时间内，客户购买该企业产品金额的总和。但在本实验中，基于航空机票价格的多变性，同样消费金额的不同旅客对航空公司的价值是不同的。例如，一位购买长航线、低等级舱位票的旅客与一位购买短航线、高等级舱位票的旅客相比，自然是后者对于航空公司而言价值更高。 \n因此，在本实验中，我们将消费金额指标使用“客户在一定时间内累积的飞行里程M”和“客户在一定时间内乘坐舱位所对应的折扣系数的平均值C”来代替。由于航空公司会员入会时间的长短在一定程度上能够影响客户价值，我们在模型中增加客户关系长度L这一个指标。 \n本实验将客户关系长度L、消费时间间隔R、消费频率F、飞行里程M和折扣系数的平均值C五个指标作为航空公司识别客户价值指标，记为LRFMC模型。 \n针对LRFMC模型，如果采用传统的属性分箱方法，即依据各个属性的平均值进行划分，对其分类，得到的分类客户群过多，提高了针对性营销的成本。并未达到利益最大化目标。因此，选取聚类算法来识别客户价值。通过对航空公司客户价值的LRFMC模型的五个指标进行K-Means聚类，识别出最有价值客户。\n\n本案例数据分析总体流程：\n\n1）从数据中选择性抽取与新增数据抽取分别形成历史数据和增量数据。\n\n2）对1）中抽取的数据进行数据探索分析与预处理。包括数据清洗、属性规约和变换等。\n\n3）利用2）中形成的处理后的建模数据，基于LRFMC模型进行客户分群，对每个客户群进行特征分析，识别出有价值的客户。\n\n4）针对模型结果得到不同价值的客户，采用不同的营销手段，提供定制化服务。",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：### 关键词\n\n- pandas数据处理、K-means聚类、LRFCM模型"
+      ],
+      "teachingCode": "# 原代码仅供阅读，不由网页执行。\n# 本次可运行适配实现见末尾数据实验步骤。",
+      "limitations": [
+        "目录LRFCM与文中LRFMC拼写不一致；R直接取LAST_TO_END，不能照抄说明中的月单位；聚类序号会改变，文中客户编号与中心对应关系须复核；k=5不能仅以指标数证明。",
+        "原代码与保存输出保持原身份；新改编计算另列。"
+      ],
+      "codeRefs": [
+        {
+          "path": "交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/航空公司客户价值分析.ipynb",
+          "notebookSha256": "bd72cf9fd918950642968c14f6021b77caeef58df86b4df65564c546279bbbb8",
+          "cell": 5,
+          "code": "import pandas as pd\n\ndatafile= './data/air_data.csv' #航空原始数据,第一行为属性标签\nresultfile = './tmp/explore.xlsx' #数据探索结果表\n\ndata = pd.read_csv(datafile, encoding = 'utf-8') #读取原始数据，指定UTF-8编码（需要用文本编辑器将数据装换为UTF-8编码）\n\nexplore = data.describe(percentiles = [], include = 'all').T #包括对数据的基本描述，percentiles参数是指定计算多少的分位数表（如1/4分位数、中位数等）；T是转置，转置后更方便查阅\nexplore['null'] = len(data)-explore['count'] #describe()函数自动计算非空值数，需要手动计算空值数\nexplore = explore[['null', 'max', 'min']]\nexplore.columns = [u'空值数', u'最大值', u'最小值'] #表头重命名\n\n'''这里只选取部分探索结果。\ndescribe()函数自动计算的字段有count（非空值数）、unique（唯一值数）、top（频数最高者）、freq（最高频数）、mean（平均值）、std（方差）、min（最小值）、50%（中位数）、max（最大值）'''\nexplore.to_excel(resultfile) #导出结果",
+          "codeSha256": "cf1c0a7f6228ecb7e252350491e083d67b2f5772421b61789a7c264816e293b9"
+        },
+        {
+          "path": "交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/航空公司客户价值分析.ipynb",
+          "notebookSha256": "bd72cf9fd918950642968c14f6021b77caeef58df86b4df65564c546279bbbb8",
+          "cell": 6,
+          "code": "explore",
+          "codeSha256": "6f281157ab246f0e1f35db82165d3448ee1e39077ab0d720fca7dddf014249d6"
+        }
+      ],
+      "inputRefs": [
+        {
+          "path": "交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/航空公司客户价值分析.ipynb",
+          "sha256": "bd72cf9fd918950642968c14f6021b77caeef58df86b4df65564c546279bbbb8"
+        },
+        {
+          "path": "交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/data/air_data.csv",
+          "sha256": "afcba77fc852376966a1026c4d991323b0e7cd7f26bdc975582080a93b6161eb"
+        },
+        {
+          "path": "交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/tmp/data_cleaned.csv",
+          "sha256": "e3455c8ebab78f5bf4e3972761783fd0e6fe33a47d9344d94a62f017deda8fe3"
+        },
+        {
+          "path": "交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/tmp/data_stand.csv",
+          "sha256": "6cf52be39fe13b24ffe49abbfe090f5240e98023adb5947c0f7d5c20364736f8"
+        },
+        {
+          "path": "交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/tmp/data_stipu.csv",
+          "sha256": "e7089dd0578664aca02f40184d60800992be2bcab0c7d2e38856f3221cb26c4b"
+        },
+        {
+          "path": "交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/tmp/explore.xlsx",
+          "sha256": "9876e3b4f6b70179ef76b7b402179263defc91e32b1f96e80a700cdb2a4d3dd2"
+        },
+        {
+          "path": "交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/客户信息属性说明.xls",
+          "sha256": "dd4a690ed7d91b0f1a92903c936df53a86534038b02245b55f84a8dd4e2cee8c"
+        }
+      ],
+      "outputRefs": [
+        "learning/resources/p03-v4-source-1.json"
+      ],
+      "exercise": {
+        "prompt": "根据本步单元5—6和保存证据，说明一次变换的输入、输出和一项无法验证的结论。",
+        "hint": "先查看代码中的列选择/过滤/拟合，再核对输出身份和本项目局限。",
+        "checklist": [
+          "准确引用原单元5—6",
+          "指出实际字段或变量与一项真实输出",
+          "把未重跑、资料缺失和统计缺陷分别说明"
+        ],
+        "provenance": "第四阶段教学补充，自评，不代表原文件试题"
+      },
+      "outputTitles": {
+        "learning/resources/p03-v4-source-1.json": "原单元5—6保存输出"
+      }
+    },
+    {
+      "id": "source-008-009",
+      "title": "2.数据清洗 · 单元8—9",
+      "status": "ready",
+      "kind": "analysis",
+      "knowledgeIds": [
+        "Pandas",
+        "NumPy",
+        "Matplotlib",
+        "数据清洗",
+        "LRFMC"
+      ],
+      "explanation": [
+        "本步按原Notebook顺序阅读单元8—9。原保存输出尚未重跑；安装、联网采集、写原文件和模型加载均不会在网页运行。",
+        "read_csv只读取指定CSV；编码、表头和字段需要与输入字典核对。",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：### 2.数据清洗\n\n本案例主要采用数据清洗、属性规约与数据变换的预处理方法。 \n由于基于LRMFC模型来对客户进行分群，我们需要将这44个属性进行筛选变换规则，来组成我们需要的指标列表。 \n而对于数据中的空值，我们则需要对其进行数据清洗。\n\n通过上一小节中的数据探索分析，发现数据中确实存在缺失值，且票价最小值为0、折扣率最小值为0、总飞行公里数却大于0的记录。但通过观察发现，这部分数据所占比例较小，对于问题影响不大，因此对其进行丢弃处理。具体的处理方法如下： \n1.丢弃票价为空的记录 \n2.丢弃票价最小值为0、折扣率最小值为0、总飞行公里数却大于0的记录 \n使用pandas对满足清洗条件的数据进行丢弃，即该行数据全部丢弃。"
+      ],
+      "teachingCode": "# 原代码仅供阅读，不由网页执行。\n# 本次可运行适配实现见末尾数据实验步骤。",
+      "limitations": [
+        "目录LRFCM与文中LRFMC拼写不一致；R直接取LAST_TO_END，不能照抄说明中的月单位；聚类序号会改变，文中客户编号与中心对应关系须复核；k=5不能仅以指标数证明。",
+        "原代码与保存输出保持原身份；新改编计算另列。"
+      ],
+      "codeRefs": [
+        {
+          "path": "交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/航空公司客户价值分析.ipynb",
+          "notebookSha256": "bd72cf9fd918950642968c14f6021b77caeef58df86b4df65564c546279bbbb8",
+          "cell": 8,
+          "code": "#数据清洗，过滤掉不符合规则的数据\n\nimport pandas as pd\n\ndatafile= './data/air_data.csv' #航空原始数据,第一行为属性标签\ncleanedfile = './tmp/data_cleaned.csv' #数据清洗后保存的文件\n\ndata = pd.read_csv(datafile,encoding='utf-8') #读取原始数据，指定UTF-8编码（需要用文本编辑器将数据装换为UTF-8编码）\n\n#票价非空值才保留\ndata = data[data['SUM_YR_1'].notnull()&data['SUM_YR_2'].notnull()]\n\n#只保留票价非零的，或者平均折扣率与总飞行公里数同时为0的记录。\nindex1 = data['SUM_YR_1'] != 0\nindex2 = data['SUM_YR_2'] != 0\nindex3 = (data['SEG_KM_SUM'] == 0) & (data['avg_discount'] == 0) #该规则是“与”\ndata = data[index1 | index2 | index3] #该规则是“或”\ndata.head()",
+          "codeSha256": "d15f0e318c81b1ba41975786e40daf107fca4fcad6e8449a4517fb58e5744e27"
+        },
+        {
+          "path": "交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/航空公司客户价值分析.ipynb",
+          "notebookSha256": "bd72cf9fd918950642968c14f6021b77caeef58df86b4df65564c546279bbbb8",
+          "cell": 9,
+          "code": "data.to_csv(cleanedfile) #导出结果,由于excel读取csv文件使用ansi编码",
+          "codeSha256": "231a449b8ca5490c6f7cdd989af98c228f4c745e32580f8aab6f6e5b42e55be4"
+        }
+      ],
+      "inputRefs": [
+        {
+          "path": "交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/航空公司客户价值分析.ipynb",
+          "sha256": "bd72cf9fd918950642968c14f6021b77caeef58df86b4df65564c546279bbbb8"
+        },
+        {
+          "path": "交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/data/air_data.csv",
+          "sha256": "afcba77fc852376966a1026c4d991323b0e7cd7f26bdc975582080a93b6161eb"
+        },
+        {
+          "path": "交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/tmp/data_cleaned.csv",
+          "sha256": "e3455c8ebab78f5bf4e3972761783fd0e6fe33a47d9344d94a62f017deda8fe3"
+        },
+        {
+          "path": "交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/tmp/data_stand.csv",
+          "sha256": "6cf52be39fe13b24ffe49abbfe090f5240e98023adb5947c0f7d5c20364736f8"
+        },
+        {
+          "path": "交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/tmp/data_stipu.csv",
+          "sha256": "e7089dd0578664aca02f40184d60800992be2bcab0c7d2e38856f3221cb26c4b"
+        },
+        {
+          "path": "交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/tmp/explore.xlsx",
+          "sha256": "9876e3b4f6b70179ef76b7b402179263defc91e32b1f96e80a700cdb2a4d3dd2"
+        },
+        {
+          "path": "交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/客户信息属性说明.xls",
+          "sha256": "dd4a690ed7d91b0f1a92903c936df53a86534038b02245b55f84a8dd4e2cee8c"
+        }
+      ],
+      "outputRefs": [
+        "learning/resources/p03-v4-source-2.json"
+      ],
+      "exercise": {
+        "prompt": "根据本步单元8—9和保存证据，说明一次变换的输入、输出和一项无法验证的结论。",
+        "hint": "先查看代码中的列选择/过滤/拟合，再核对输出身份和本项目局限。",
+        "checklist": [
+          "准确引用原单元8—9",
+          "指出实际字段或变量与一项真实输出",
+          "把未重跑、资料缺失和统计缺陷分别说明"
+        ],
+        "provenance": "第四阶段教学补充，自评，不代表原文件试题"
+      },
+      "outputTitles": {
+        "learning/resources/p03-v4-source-2.json": "原单元8—9保存输出"
+      }
+    },
+    {
+      "id": "source-011-012",
+      "title": "属性规约 · 单元11—12",
+      "status": "ready",
+      "kind": "analysis",
+      "knowledgeIds": [
+        "Pandas",
+        "NumPy",
+        "Matplotlib",
+        "数据清洗",
+        "LRFMC"
+      ],
+      "explanation": [
+        "本步按原Notebook顺序阅读单元11—12。原保存输出尚未重跑；安装、联网采集、写原文件和模型加载均不会在网页运行。",
+        "本步展示原变量赋值、查看或配置；变量实际内容以保存输出与本次数据证据为准，不从代码存在推断执行成功。",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：#### 属性规约\n原始数据中属性太多，根据航空公司客户价值LRFMC模型，只需选择与LRMFC指标相关的6个属性：FFP_DATE、LOAD_TIME、FLIGHT_COUNT、AVG_DISCOUNT、SEG_KM_SUM、LAST_TO_END。即入会时间、观测窗口结束时间、观测窗口的飞行次数、平均折扣率、观测窗口的总飞行公里数、最后一次乘机时间至观测窗口末端时长。删除与其不相干、弱相关或冗余的属性。经过属性选择后的数据集。"
+      ],
+      "teachingCode": "# 原代码仅供阅读，不由网页执行。\n# 本次可运行适配实现见末尾数据实验步骤。",
+      "limitations": [
+        "目录LRFCM与文中LRFMC拼写不一致；R直接取LAST_TO_END，不能照抄说明中的月单位；聚类序号会改变，文中客户编号与中心对应关系须复核；k=5不能仅以指标数证明。",
+        "原代码与保存输出保持原身份；新改编计算另列。"
+      ],
+      "codeRefs": [
+        {
+          "path": "交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/航空公司客户价值分析.ipynb",
+          "notebookSha256": "bd72cf9fd918950642968c14f6021b77caeef58df86b4df65564c546279bbbb8",
+          "cell": 11,
+          "code": "outfile = './tmp/data_stipu.csv'\ndf = data[['FFP_DATE','LOAD_TIME','avg_discount','FLIGHT_COUNT','SEG_KM_SUM','LAST_TO_END']]\ndf.head()",
+          "codeSha256": "9ac623c5af01ae2fb984c350a65cbd51e545c66e648b19e738afa8294e449c01"
+        },
+        {
+          "path": "交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/航空公司客户价值分析.ipynb",
+          "notebookSha256": "bd72cf9fd918950642968c14f6021b77caeef58df86b4df65564c546279bbbb8",
+          "cell": 12,
+          "code": "df.to_csv(outfile)",
+          "codeSha256": "4c6920e9ba132616a80acb9371cd8882df40bc9d4581dbe1483ecfbeb79d88ab"
+        }
+      ],
+      "inputRefs": [
+        {
+          "path": "交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/航空公司客户价值分析.ipynb",
+          "sha256": "bd72cf9fd918950642968c14f6021b77caeef58df86b4df65564c546279bbbb8"
+        },
+        {
+          "path": "交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/data/air_data.csv",
+          "sha256": "afcba77fc852376966a1026c4d991323b0e7cd7f26bdc975582080a93b6161eb"
+        },
+        {
+          "path": "交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/tmp/data_cleaned.csv",
+          "sha256": "e3455c8ebab78f5bf4e3972761783fd0e6fe33a47d9344d94a62f017deda8fe3"
+        },
+        {
+          "path": "交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/tmp/data_stand.csv",
+          "sha256": "6cf52be39fe13b24ffe49abbfe090f5240e98023adb5947c0f7d5c20364736f8"
+        },
+        {
+          "path": "交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/tmp/data_stipu.csv",
+          "sha256": "e7089dd0578664aca02f40184d60800992be2bcab0c7d2e38856f3221cb26c4b"
+        },
+        {
+          "path": "交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/tmp/explore.xlsx",
+          "sha256": "9876e3b4f6b70179ef76b7b402179263defc91e32b1f96e80a700cdb2a4d3dd2"
+        },
+        {
+          "path": "交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/客户信息属性说明.xls",
+          "sha256": "dd4a690ed7d91b0f1a92903c936df53a86534038b02245b55f84a8dd4e2cee8c"
+        }
+      ],
+      "outputRefs": [
+        "learning/resources/p03-v4-source-3.json"
+      ],
+      "exercise": {
+        "prompt": "根据本步单元11—12和保存证据，说明一次变换的输入、输出和一项无法验证的结论。",
+        "hint": "先查看代码中的列选择/过滤/拟合，再核对输出身份和本项目局限。",
+        "checklist": [
+          "准确引用原单元11—12",
+          "指出实际字段或变量与一项真实输出",
+          "把未重跑、资料缺失和统计缺陷分别说明"
+        ],
+        "provenance": "第四阶段教学补充，自评，不代表原文件试题"
+      },
+      "outputTitles": {
+        "learning/resources/p03-v4-source-3.json": "原单元11—12保存输出"
+      }
+    },
+    {
+      "id": "source-014-015",
+      "title": "3.数据变换 · 单元14—15",
+      "status": "ready",
+      "kind": "analysis",
+      "knowledgeIds": [
+        "Pandas",
+        "NumPy",
+        "Matplotlib",
+        "数据清洗",
+        "LRFMC"
+      ],
+      "explanation": [
+        "本步按原Notebook顺序阅读单元14—15。原保存输出尚未重跑；安装、联网采集、写原文件和模型加载均不会在网页运行。",
+        "read_csv只读取指定CSV；编码、表头和字段需要与输入字典核对。",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：### 3.数据变换\n\n数据变换是将数据转换成适当的格式。本实验数据依据LRFMC五个指标，对原始数据进行提取。 \n具体计算方式如下： \n\n（1） L = LOAD_TIME - FFP_DATE \n会员入会时间距观测窗口结束的月数 = 观测窗口的结束时间 - 入会时间 [单位：月] \n\n（2） R = LAST_TO_END \n客户最近一次乘坐公司飞机距观测窗口结束的月数 = 最后一次乘机时间至观测窗口末端时长 [单位：月] \n\n（3） F = FLIGHT_COUNT \n客户在观测窗口内乘坐公司飞机的次数 = 观测窗口的飞行次数 [单位：次] \n\n（4） M = SEG_KM_SUM \n客户在观测时间内在公司累计的飞行里程 = 观测窗口的总飞行公里数 [单位：公里] \n\n（5） C = AVG_DISCOUNT \n客户在观测时间内乘坐舱位所对应的折扣系数的平均值 = 平均折扣率 [单位：无] \n\n将5个指标数据提取之后，对每个指标数据分布情况进行分析，可以观察到，5个指标的取值范围数据差异较大，为了消除数量级数据带来的影响，需要对数据进行标准化处理。 \n\n本实验我们采用标准差来对数据进行标准化处理,标准差标准化处理后，形成ZL,ZR,ZF,ZM,ZC5个属性的数据。"
+      ],
+      "teachingCode": "# 原代码仅供阅读，不由网页执行。\n# 本次可运行适配实现见末尾数据实验步骤。",
+      "limitations": [
+        "目录LRFCM与文中LRFMC拼写不一致；R直接取LAST_TO_END，不能照抄说明中的月单位；聚类序号会改变，文中客户编号与中心对应关系须复核；k=5不能仅以指标数证明。",
+        "原代码与保存输出保持原身份；新改编计算另列。"
+      ],
+      "codeRefs": [
+        {
+          "path": "交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/航空公司客户价值分析.ipynb",
+          "notebookSha256": "bd72cf9fd918950642968c14f6021b77caeef58df86b4df65564c546279bbbb8",
+          "cell": 14,
+          "code": "datafile = './tmp/data_stipu.csv'\nstandrandfile = './tmp/data_stand.csv'\n\ndata = pd.read_csv(datafile)\n\n#数据变换\ndf = data[['LAST_TO_END','FLIGHT_COUNT','SEG_KM_SUM','avg_discount']].copy()#数据副本的复制\ndf['L'] = (pd.to_datetime(data['LOAD_TIME']) - pd.to_datetime(data['FFP_DATE'])).dt.days/30#计算日期差,单位为月\ndf.rename(columns={'LAST_TO_END':'R','FLIGHT_COUNT':'F','SEG_KM_SUM':'M','avg_discount':'C'},inplace = True)#列名重命名\n\n#数据标准化\ndf = (df - df.mean(axis=0))/(df.std(axis=0))#均值标准化\ndf.columns = ['z'+i for i in df.columns]#对数据列名重命名\n\ndf.to_csv(standrandfile)",
+          "codeSha256": "f456decab39db58cfe1e60089ea197bcc713f520ca41c30001d592184bbd7604"
+        },
+        {
+          "path": "交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/航空公司客户价值分析.ipynb",
+          "notebookSha256": "bd72cf9fd918950642968c14f6021b77caeef58df86b4df65564c546279bbbb8",
+          "cell": 15,
+          "code": "df",
+          "codeSha256": "32c220482c68413fbf8290e3b1e49b0a85901cfcd62ab0738760568a2a6e8a57"
+        }
+      ],
+      "inputRefs": [
+        {
+          "path": "交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/航空公司客户价值分析.ipynb",
+          "sha256": "bd72cf9fd918950642968c14f6021b77caeef58df86b4df65564c546279bbbb8"
+        },
+        {
+          "path": "交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/data/air_data.csv",
+          "sha256": "afcba77fc852376966a1026c4d991323b0e7cd7f26bdc975582080a93b6161eb"
+        },
+        {
+          "path": "交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/tmp/data_cleaned.csv",
+          "sha256": "e3455c8ebab78f5bf4e3972761783fd0e6fe33a47d9344d94a62f017deda8fe3"
+        },
+        {
+          "path": "交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/tmp/data_stand.csv",
+          "sha256": "6cf52be39fe13b24ffe49abbfe090f5240e98023adb5947c0f7d5c20364736f8"
+        },
+        {
+          "path": "交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/tmp/data_stipu.csv",
+          "sha256": "e7089dd0578664aca02f40184d60800992be2bcab0c7d2e38856f3221cb26c4b"
+        },
+        {
+          "path": "交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/tmp/explore.xlsx",
+          "sha256": "9876e3b4f6b70179ef76b7b402179263defc91e32b1f96e80a700cdb2a4d3dd2"
+        },
+        {
+          "path": "交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/客户信息属性说明.xls",
+          "sha256": "dd4a690ed7d91b0f1a92903c936df53a86534038b02245b55f84a8dd4e2cee8c"
+        }
+      ],
+      "outputRefs": [
+        "learning/resources/p03-v4-source-4.json"
+      ],
+      "exercise": {
+        "prompt": "根据本步单元14—15和保存证据，说明一次变换的输入、输出和一项无法验证的结论。",
+        "hint": "先查看代码中的列选择/过滤/拟合，再核对输出身份和本项目局限。",
+        "checklist": [
+          "准确引用原单元14—15",
+          "指出实际字段或变量与一项真实输出",
+          "把未重跑、资料缺失和统计缺陷分别说明"
+        ],
+        "provenance": "第四阶段教学补充，自评，不代表原文件试题"
+      },
+      "outputTitles": {
+        "learning/resources/p03-v4-source-4.json": "原单元14—15保存输出"
+      }
+    },
+    {
+      "id": "source-017-018",
+      "title": "4、聚类分析 · 单元17—18",
+      "status": "ready",
+      "kind": "modeling",
+      "knowledgeIds": [
+        "Pandas",
+        "NumPy",
+        "Matplotlib",
+        "数据清洗",
+        "LRFMC"
+      ],
+      "explanation": [
+        "本步按原Notebook顺序阅读单元17—18。原保存输出尚未重跑；安装、联网采集、写原文件和模型加载均不会在网页运行。",
+        "read_csv只读取指定CSV；编码、表头和字段需要与输入字典核对。",
+        "fit拟合对象状态；是否仅在训练数据拟合决定评估边界。",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：### 4、聚类分析\n\n#### 模型构建\n对于客户价值分析模型构建主要分为两个部分： \n\n1.根据LRFMC模型的5个指标的数据，对客户进行聚类分群。\n\n2.结合业务对每个客户群进行特征分析，分析其客户价值，并对客户群进行价值排名。\n\n#### 客户聚类\n本实验采用K-means聚类算法对客户数据进行客户分群，聚类的个数需要结合具体业务来确定。在本实验中由于指标个数，将客户聚成5类。 \n\nK-Means算法使用sklearn库来实现。",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：我们可以看到通过使用聚类算法对客户进行聚类分群的结果。但由于K-Means聚类算法是随机选择类标号，故重复实验时得到的结果可能与上述结果有些出入。另外，由于算法的精度问题，重复实验得到的聚类中心也略有不同。"
+      ],
+      "teachingCode": "# 原代码仅供阅读，不由网页执行。\n# 本次可运行适配实现见末尾数据实验步骤。",
+      "limitations": [
+        "目录LRFCM与文中LRFMC拼写不一致；R直接取LAST_TO_END，不能照抄说明中的月单位；聚类序号会改变，文中客户编号与中心对应关系须复核；k=5不能仅以指标数证明。",
+        "原代码与保存输出保持原身份；新改编计算另列。"
+      ],
+      "codeRefs": [
+        {
+          "path": "交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/航空公司客户价值分析.ipynb",
+          "notebookSha256": "bd72cf9fd918950642968c14f6021b77caeef58df86b4df65564c546279bbbb8",
+          "cell": 17,
+          "code": "import pandas as pd\nfrom sklearn.cluster import KMeans #导入K均值聚类算法\nimport numpy as np\n\nnp.set_printoptions(threshold=np.inf)\n\ninputfile = './tmp/data_stand.csv' #待聚类的数据文件\nk = 5                    #需要进行的聚类类别数\n\n#读取数据，选取5个特征进行聚类分析\ndata = pd.read_csv(inputfile).drop(['Unnamed: 0'],axis=1) #读取数据\ndata.head()",
+          "codeSha256": "f9ff40fdf6dbf5bcd5217ec1ae15bcb7014d240c22c0fdb0af41a4212312e66c"
+        },
+        {
+          "path": "交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/航空公司客户价值分析.ipynb",
+          "notebookSha256": "bd72cf9fd918950642968c14f6021b77caeef58df86b4df65564c546279bbbb8",
+          "cell": 18,
+          "code": "#调用k-means算法，进行聚类分析\nkmodel = KMeans(n_clusters = k) \nkmodel.fit(data) #训练模型\n\nprint(kmodel.cluster_centers_) #查看聚类中心",
+          "codeSha256": "a9db5ea85b12b318d24d73f89cda394feee590d80b3b68cfd86686bf1bbc40be"
+        }
+      ],
+      "inputRefs": [
+        {
+          "path": "交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/航空公司客户价值分析.ipynb",
+          "sha256": "bd72cf9fd918950642968c14f6021b77caeef58df86b4df65564c546279bbbb8"
+        },
+        {
+          "path": "交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/data/air_data.csv",
+          "sha256": "afcba77fc852376966a1026c4d991323b0e7cd7f26bdc975582080a93b6161eb"
+        },
+        {
+          "path": "交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/tmp/data_cleaned.csv",
+          "sha256": "e3455c8ebab78f5bf4e3972761783fd0e6fe33a47d9344d94a62f017deda8fe3"
+        },
+        {
+          "path": "交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/tmp/data_stand.csv",
+          "sha256": "6cf52be39fe13b24ffe49abbfe090f5240e98023adb5947c0f7d5c20364736f8"
+        },
+        {
+          "path": "交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/tmp/data_stipu.csv",
+          "sha256": "e7089dd0578664aca02f40184d60800992be2bcab0c7d2e38856f3221cb26c4b"
+        },
+        {
+          "path": "交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/tmp/explore.xlsx",
+          "sha256": "9876e3b4f6b70179ef76b7b402179263defc91e32b1f96e80a700cdb2a4d3dd2"
+        },
+        {
+          "path": "交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/客户信息属性说明.xls",
+          "sha256": "dd4a690ed7d91b0f1a92903c936df53a86534038b02245b55f84a8dd4e2cee8c"
+        }
+      ],
+      "outputRefs": [
+        "learning/resources/p03-v4-source-5.json"
+      ],
+      "exercise": {
+        "prompt": "根据本步单元17—18和保存证据，说明一次变换的输入、输出和一项无法验证的结论。",
+        "hint": "先查看代码中的列选择/过滤/拟合，再核对输出身份和本项目局限。",
+        "checklist": [
+          "准确引用原单元17—18",
+          "指出实际字段或变量与一项真实输出",
+          "把未重跑、资料缺失和统计缺陷分别说明"
+        ],
+        "provenance": "第四阶段教学补充，自评，不代表原文件试题"
+      },
+      "outputTitles": {
+        "learning/resources/p03-v4-source-5.json": "原单元17—18保存输出"
+      }
+    },
+    {
+      "id": "source-021-022",
+      "title": "5、客户价值分析 · 单元21—22",
+      "status": "ready",
+      "kind": "analysis",
+      "knowledgeIds": [
+        "Pandas",
+        "NumPy",
+        "Matplotlib",
+        "数据清洗",
+        "LRFMC"
+      ],
+      "explanation": [
+        "本步按原Notebook顺序阅读单元21—22。原保存输出尚未重跑；安装、联网采集、写原文件和模型加载均不会在网页运行。",
+        "绘图参数只控制展示；结论仍须受输入范围与统计口径约束。",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：### 5、客户价值分析\n针对聚类结果，我们使用雷达图使得聚类结果可视化，更加直观的分析各个用户群的特征。",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：接下来，我们针对可视化结果对数据特征进行分析。\n\n其中，客户群1在R上属性最大，在F、M上属性最小；客户群2在C上属性最大；\n客户群3在F、M属性上最大，在R属性上最小；\n客户群4在L、R属性上最小；\n客户群5在L属性上最大。\n\n结合业务分析，通过比较各个指标在群间的大小对某一个群的特征进行评价分析。 \n\n对于LRMFC模型，其L\\M\\F\\C指标越大越好，R指标越小越好，我们根据聚类中心结果来对各个客户群进行特征划分。\n\n依此找出每个特征对应的最大值、最小值、次大值、次小值。",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：|客户群编号\t|优势特征\t|劣势特征|\n |  ----  | ----  | --- |\n |客户群1\t|\t|RFM |\n |客户群2\t|C\t|RFM |\n |客户群3\t|FMR |\t|\n |客户群4\t|\t|LC |\n |客户群5\t|LFM |\t|"
+      ],
+      "teachingCode": "# 原代码仅供阅读，不由网页执行。\n# 本次可运行适配实现见末尾数据实验步骤。",
+      "limitations": [
+        "目录LRFCM与文中LRFMC拼写不一致；R直接取LAST_TO_END，不能照抄说明中的月单位；聚类序号会改变，文中客户编号与中心对应关系须复核；k=5不能仅以指标数证明。",
+        "原代码与保存输出保持原身份；新改编计算另列。"
+      ],
+      "codeRefs": [
+        {
+          "path": "交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/航空公司客户价值分析.ipynb",
+          "notebookSha256": "bd72cf9fd918950642968c14f6021b77caeef58df86b4df65564c546279bbbb8",
+          "cell": 21,
+          "code": "import numpy as np\nimport matplotlib.pyplot as plt\n\nlabels = data.columns.tolist() #标签\nk = 5 #数据个数\n\nplot_data = kmodel.cluster_centers_\ncolor = ['b', 'g', 'r', 'c', 'y'] #指定颜色\n\nangles = np.linspace(0, 2*np.pi, k, endpoint=False)\nplot_data = np.concatenate((plot_data, plot_data[:,[0]]), axis=1) # 闭合\nangles = np.concatenate((angles, [angles[0]])) # 闭合\nlabels.append('zR')\n\nprint(plot_data)\nprint(labels)",
+          "codeSha256": "43cfc168c1786d0240f642056140b41606ffd91a10d2426aad3cf57837d7350d"
+        },
+        {
+          "path": "交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/航空公司客户价值分析.ipynb",
+          "notebookSha256": "bd72cf9fd918950642968c14f6021b77caeef58df86b4df65564c546279bbbb8",
+          "cell": 22,
+          "code": "# 对5个聚类中心点进行可视化\nfig = plt.figure()\nax = fig.add_subplot(111, polar=True) #polar参数！！\n\nfor i in range(len(plot_data)):\n    ax.plot(angles, plot_data[i], 'o-', color = color[i], label = u'customer'+str(i+1), linewidth=2)# 画线\nax.set_rgrids(np.arange(0.01, 3.5, 0.5), np.arange(-1, 2.5, 0.5), fontproperties=\"SimHei\")\nax.set_thetagrids(angles * 180/np.pi, labels, fontproperties=\"SimHei\")\n\nplt.legend(loc = 4)\nplt.show()",
+          "codeSha256": "742545bf18c202578db6996c6c846526ba785b007d24b73d5bde965405d4d768"
+        }
+      ],
+      "inputRefs": [
+        {
+          "path": "交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/航空公司客户价值分析.ipynb",
+          "sha256": "bd72cf9fd918950642968c14f6021b77caeef58df86b4df65564c546279bbbb8"
+        },
+        {
+          "path": "交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/data/air_data.csv",
+          "sha256": "afcba77fc852376966a1026c4d991323b0e7cd7f26bdc975582080a93b6161eb"
+        },
+        {
+          "path": "交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/tmp/data_cleaned.csv",
+          "sha256": "e3455c8ebab78f5bf4e3972761783fd0e6fe33a47d9344d94a62f017deda8fe3"
+        },
+        {
+          "path": "交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/tmp/data_stand.csv",
+          "sha256": "6cf52be39fe13b24ffe49abbfe090f5240e98023adb5947c0f7d5c20364736f8"
+        },
+        {
+          "path": "交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/tmp/data_stipu.csv",
+          "sha256": "e7089dd0578664aca02f40184d60800992be2bcab0c7d2e38856f3221cb26c4b"
+        },
+        {
+          "path": "交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/tmp/explore.xlsx",
+          "sha256": "9876e3b4f6b70179ef76b7b402179263defc91e32b1f96e80a700cdb2a4d3dd2"
+        },
+        {
+          "path": "交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/客户信息属性说明.xls",
+          "sha256": "dd4a690ed7d91b0f1a92903c936df53a86534038b02245b55f84a8dd4e2cee8c"
+        }
+      ],
+      "outputRefs": [
+        "learning/resources/p03-v4-source-6.json",
+        "learning/resources/p03-v4-source-6-images.json"
+      ],
+      "exercise": {
+        "prompt": "根据本步单元21—22和保存证据，说明一次变换的输入、输出和一项无法验证的结论。",
+        "hint": "先查看代码中的列选择/过滤/拟合，再核对输出身份和本项目局限。",
+        "checklist": [
+          "准确引用原单元21—22",
+          "指出实际字段或变量与一项真实输出",
+          "把未重跑、资料缺失和统计缺陷分别说明"
+        ],
+        "provenance": "第四阶段教学补充，自评，不代表原文件试题"
+      },
+      "outputTitles": {
+        "learning/resources/p03-v4-source-6.json": "原单元21—22保存输出",
+        "learning/resources/p03-v4-source-6-images.json": "原单元21—22保存输出 · 原保存图"
+      }
+    },
+    {
+      "id": "phase4-data",
+      "title": "真实数据实验 · 航空公司客户价值分析",
+      "status": "ready",
+      "kind": "analysis",
+      "knowledgeIds": [
+        "Pandas",
+        "NumPy",
+        "Matplotlib",
+        "数据清洗",
+        "LRFMC"
+      ],
+      "explanation": [
+        "用会员关系和乘机行为构建客户价值分群。",
+        "本步运行工程适配器，展示真实输入的质量、专属聚合与图表。清洗、分组和模型边界见代码与每份结果说明。教学代码为本项目经过审查的实现；不会执行原Notebook。",
+        "已实际准备4份结果；请切换结果逐项核对问题、单位、范围、分母、过滤条件和来源身份。"
+      ],
+      "teachingCode": "def p03(p):\n from sklearn.cluster import KMeans\n d=p.load('air_data.csv');c=p.load('data_cleaned.csv');z=p.load('data_stand.csv');X=z[['zR','zF','zM','zC','zL']]\n m=KMeans(n_clusters=5,n_init=10,random_state=100).fit(X);version='P03-attached-standardized-k5-v1'\n p.models.append({'version':version,'input':'原附data_stand.csv五标准化字段，不声称本次重建全部LRFMC','seed':100,'k':5,'n_init':10,'fitRows':len(X)})\n p.chart('cluster-sizes','原附标准化表的新版本五群规模',pd.Series(m.labels_).value_counts().sort_index().rename_axis('新簇ID').reset_index(name='会员行数'),model=version,unit='会员记录',note='新簇编号不与原图客户名称直接绑定')\n center=pd.DataFrame(m.cluster_centers_.T,columns=[f'新簇{i}' for i in range(5)]);center.insert(0,'标准化指标',X.columns)\n p.chart('centers','五群标准化中心对照',center,kind='radar',ys=[1,2,3,4,5],unit='Z-score，无量纲',model=version,note='基于原附衍生标准化表重新聚类；负值表示低于原标准化均值')\n p.add('cleaning','原表与原附清洗表的行数差',['表','行数'],[['原表',len(d)],['原附清洗表',len(c)],['差额',len(d)-len(c)]],'只读比较原附表，完整清洗规则见原单元8；不声称仅靠行数证明逐行一致。',identity='teaching-adaptation',unit='行')\n p.checks.update(raw=len(d),attachedClean=len(c),standardized=len(X),newClusterSum=int(len(m.labels_)))\n",
+      "limitations": [
+        "目录LRFCM与文中LRFMC拼写不一致；R直接取LAST_TO_END，不能照抄说明中的月单位；聚类序号会改变，文中客户编号与中心对应关系须复核；k=5不能仅以指标数证明。",
+        "新版本不覆盖原保存成绩；所有新训练均在构建清单中单列。"
+      ],
+      "codeRefs": [
+        {
+          "path": "交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/航空公司客户价值分析.ipynb",
+          "notebookSha256": "bd72cf9fd918950642968c14f6021b77caeef58df86b4df65564c546279bbbb8",
+          "cell": 5,
+          "code": "import pandas as pd\n\ndatafile= './data/air_data.csv' #航空原始数据,第一行为属性标签\nresultfile = './tmp/explore.xlsx' #数据探索结果表\n\ndata = pd.read_csv(datafile, encoding = 'utf-8') #读取原始数据，指定UTF-8编码（需要用文本编辑器将数据装换为UTF-8编码）\n\nexplore = data.describe(percentiles = [], include = 'all').T #包括对数据的基本描述，percentiles参数是指定计算多少的分位数表（如1/4分位数、中位数等）；T是转置，转置后更方便查阅\nexplore['null'] = len(data)-explore['count'] #describe()函数自动计算非空值数，需要手动计算空值数\nexplore = explore[['null', 'max', 'min']]\nexplore.columns = [u'空值数', u'最大值', u'最小值'] #表头重命名\n\n'''这里只选取部分探索结果。\ndescribe()函数自动计算的字段有count（非空值数）、unique（唯一值数）、top（频数最高者）、freq（最高频数）、mean（平均值）、std（方差）、min（最小值）、50%（中位数）、max（最大值）'''\nexplore.to_excel(resultfile) #导出结果",
+          "codeSha256": "cf1c0a7f6228ecb7e252350491e083d67b2f5772421b61789a7c264816e293b9"
+        },
+        {
+          "path": "交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/航空公司客户价值分析.ipynb",
+          "notebookSha256": "bd72cf9fd918950642968c14f6021b77caeef58df86b4df65564c546279bbbb8",
+          "cell": 8,
+          "code": "#数据清洗，过滤掉不符合规则的数据\n\nimport pandas as pd\n\ndatafile= './data/air_data.csv' #航空原始数据,第一行为属性标签\ncleanedfile = './tmp/data_cleaned.csv' #数据清洗后保存的文件\n\ndata = pd.read_csv(datafile,encoding='utf-8') #读取原始数据，指定UTF-8编码（需要用文本编辑器将数据装换为UTF-8编码）\n\n#票价非空值才保留\ndata = data[data['SUM_YR_1'].notnull()&data['SUM_YR_2'].notnull()]\n\n#只保留票价非零的，或者平均折扣率与总飞行公里数同时为0的记录。\nindex1 = data['SUM_YR_1'] != 0\nindex2 = data['SUM_YR_2'] != 0\nindex3 = (data['SEG_KM_SUM'] == 0) & (data['avg_discount'] == 0) #该规则是“与”\ndata = data[index1 | index2 | index3] #该规则是“或”\ndata.head()",
+          "codeSha256": "d15f0e318c81b1ba41975786e40daf107fca4fcad6e8449a4517fb58e5744e27"
+        },
+        {
+          "path": "交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/航空公司客户价值分析.ipynb",
+          "notebookSha256": "bd72cf9fd918950642968c14f6021b77caeef58df86b4df65564c546279bbbb8",
+          "cell": 14,
+          "code": "datafile = './tmp/data_stipu.csv'\nstandrandfile = './tmp/data_stand.csv'\n\ndata = pd.read_csv(datafile)\n\n#数据变换\ndf = data[['LAST_TO_END','FLIGHT_COUNT','SEG_KM_SUM','avg_discount']].copy()#数据副本的复制\ndf['L'] = (pd.to_datetime(data['LOAD_TIME']) - pd.to_datetime(data['FFP_DATE'])).dt.days/30#计算日期差,单位为月\ndf.rename(columns={'LAST_TO_END':'R','FLIGHT_COUNT':'F','SEG_KM_SUM':'M','avg_discount':'C'},inplace = True)#列名重命名\n\n#数据标准化\ndf = (df - df.mean(axis=0))/(df.std(axis=0))#均值标准化\ndf.columns = ['z'+i for i in df.columns]#对数据列名重命名\n\ndf.to_csv(standrandfile)",
+          "codeSha256": "f456decab39db58cfe1e60089ea197bcc713f520ca41c30001d592184bbd7604"
+        },
+        {
+          "path": "交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/航空公司客户价值分析.ipynb",
+          "notebookSha256": "bd72cf9fd918950642968c14f6021b77caeef58df86b4df65564c546279bbbb8",
+          "cell": 17,
+          "code": "import pandas as pd\nfrom sklearn.cluster import KMeans #导入K均值聚类算法\nimport numpy as np\n\nnp.set_printoptions(threshold=np.inf)\n\ninputfile = './tmp/data_stand.csv' #待聚类的数据文件\nk = 5                    #需要进行的聚类类别数\n\n#读取数据，选取5个特征进行聚类分析\ndata = pd.read_csv(inputfile).drop(['Unnamed: 0'],axis=1) #读取数据\ndata.head()",
+          "codeSha256": "f9ff40fdf6dbf5bcd5217ec1ae15bcb7014d240c22c0fdb0af41a4212312e66c"
+        }
+      ],
+      "inputRefs": [
+        {
+          "path": "交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/航空公司客户价值分析.ipynb",
+          "sha256": "bd72cf9fd918950642968c14f6021b77caeef58df86b4df65564c546279bbbb8"
+        },
+        {
+          "path": "交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/data/air_data.csv",
+          "sha256": "afcba77fc852376966a1026c4d991323b0e7cd7f26bdc975582080a93b6161eb"
+        },
+        {
+          "path": "交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/tmp/data_cleaned.csv",
+          "sha256": "e3455c8ebab78f5bf4e3972761783fd0e6fe33a47d9344d94a62f017deda8fe3"
+        },
+        {
+          "path": "交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/tmp/data_stand.csv",
+          "sha256": "6cf52be39fe13b24ffe49abbfe090f5240e98023adb5947c0f7d5c20364736f8"
+        },
+        {
+          "path": "交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/tmp/data_stipu.csv",
+          "sha256": "e7089dd0578664aca02f40184d60800992be2bcab0c7d2e38856f3221cb26c4b"
+        },
+        {
+          "path": "交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/tmp/explore.xlsx",
+          "sha256": "9876e3b4f6b70179ef76b7b402179263defc91e32b1f96e80a700cdb2a4d3dd2"
+        },
+        {
+          "path": "交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/客户信息属性说明.xls",
+          "sha256": "dd4a690ed7d91b0f1a92903c936df53a86534038b02245b55f84a8dd4e2cee8c"
+        }
+      ],
+      "outputRefs": [
+        "learning/resources/p03-v4-cluster-sizes.json",
+        "learning/resources/p03-v4-centers.json",
+        "learning/resources/p03-v4-cleaning.json",
+        "learning/resources/p03-v4-input-quality.json"
+      ],
+      "exercise": {
+        "prompt": "手算一位会员的L；用中心值给群体命名，不按编号套用名称。",
+        "hint": "从同源表取数，写出算式；先核对全量/抽样和原保存/新计算身份。",
+        "checklist": [
+          "列出真实字段、筛选规则和当前样本范围",
+          "用表格复核至少一个频数、比率或模型指标",
+          "指出一个不能由本图推出的结论"
+        ],
+        "provenance": "已批准路线练习与第四阶段核对清单，采用自评"
+      },
+      "outputTitles": {
+        "learning/resources/p03-v4-cluster-sizes.json": "原附标准化表的新版本五群规模",
+        "learning/resources/p03-v4-centers.json": "五群标准化中心对照",
+        "learning/resources/p03-v4-cleaning.json": "原表与原附清洗表的行数差",
+        "learning/resources/p03-v4-input-quality.json": "本项目各输入表的读取与质量核对"
+      }
+    }
+  ]
+}

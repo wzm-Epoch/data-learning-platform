@@ -1,0 +1,52 @@
+{
+  "schemaVersion": "1.0",
+  "id": "p17-scores",
+  "title": "原保存轮廓系数（非本次训练）",
+  "kind": "table",
+  "columns": [
+    "k",
+    "原保存系数（显示精度）"
+  ],
+  "rows": [
+    [
+      2,
+      0.38655493
+    ],
+    [
+      3,
+      0.45757883
+    ],
+    [
+      4,
+      0.50209812
+    ],
+    [
+      5,
+      0.4800359
+    ],
+    [
+      6,
+      0.47761127
+    ],
+    [
+      7,
+      0.48317001
+    ]
+  ],
+  "text": null,
+  "context": {
+    "identity": "original-saved",
+    "buildId": "phase3-v1",
+    "createdAt": "2026-11-16T11:41:51.304867+00:00",
+    "inputs": [
+      {
+        "path": "电商-广告投放效果分析-约250行（KMeans聚类、数据分析）/聚类分析广告效果.ipynb",
+        "sha256": "ad88e032b91ce55504f1a19bc8e1ddb2a8829edc69cab6b2569cdbde39edd6b7"
+      }
+    ],
+    "note": "仅解析原单元35输出，未重训；原未固定随机种子。",
+    "unit": "k / 无量纲",
+    "sample": null,
+    "modelRerun": false
+  }
+}

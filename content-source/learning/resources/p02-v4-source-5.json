@@ -1,0 +1,28 @@
+{
+  "schemaVersion": "1.0",
+  "id": "p02-v4-source-5",
+  "title": "原单元27—27保存输出",
+  "kind": "text",
+  "columns": [],
+  "rows": [],
+  "text": "原单元27\nseason        0\nholiday       0\nworkingday    0\nweather       0\ntemp          0\natemp         0\nhumidity      0\nwindspeed     0\ncasual        0\nregistered    0\ncount         0\nmonth         0\nday           0\nhour          0\ndtype: int64",
+  "context": {
+    "identity": "original-saved",
+    "buildId": "phase4-v1",
+    "createdAt": "2026-11-16T12:58:37.389041+00:00",
+    "inputs": [
+      {
+        "path": "交通出行-共享单车预测租赁数量-约300行（随机森林、支持向量机模型）/自行车租赁数量预测.ipynb",
+        "sha256": "5d7bfa900fd3c472a9a4dd3e2fd241a940046dfdae12874866e1bc2633501530"
+      },
+      {
+        "path": "交通出行-共享单车预测租赁数量-约300行（随机森林、支持向量机模型）/train.csv",
+        "sha256": "11671d46ae41bf0df77d3d25268f4cb87683f3a33e4a54adf1bb3b24ee538cad"
+      }
+    ],
+    "note": "逐单元只读提取原文本；原运行时间未知，本次时间仅为提取时间。",
+    "unit": "原字段单位；未核实单位不补填",
+    "sample": null,
+    "modelRerun": false
+  }
+}

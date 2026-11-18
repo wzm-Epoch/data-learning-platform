@@ -1,0 +1,393 @@
+{
+  "homeBefore": {
+    "at": "2026-11-17T05:10:16.196Z",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+    "viewport": {
+      "width": 1280,
+      "height": 720,
+      "dpr": 1.5
+    },
+    "navigation": {
+      "duration": 63.200000047683716,
+      "domContentLoaded": 58.10000014305115,
+      "load": 63.200000047683716
+    },
+    "resources": [
+      {
+        "name": "http://127.0.0.1:4173/phase6-metrics.js",
+        "bytes": 1024,
+        "transfer": 0,
+        "duration": 12.100000143051147
+      },
+      {
+        "name": "http://127.0.0.1:4173/assets/index-CveCWy9M.js",
+        "bytes": 438282,
+        "transfer": 0,
+        "duration": 11
+      },
+      {
+        "name": "http://127.0.0.1:4173/assets/index-C3UoZxuq.css",
+        "bytes": 33044,
+        "transfer": 0,
+        "duration": 8.600000143051147
+      },
+      {
+        "name": "http://127.0.0.1:4173/content/progress-manifest.json",
+        "bytes": 114754,
+        "transfer": 0,
+        "duration": 5.299999952316284
+      },
+      {
+        "name": "http://127.0.0.1:4173/assets/catalog-DRdj_GUc.js",
+        "bytes": 3930,
+        "transfer": 0,
+        "duration": 4.799999952316284
+      },
+      {
+        "name": "http://127.0.0.1:4173/content/catalog.json",
+        "bytes": 38216,
+        "transfer": 0,
+        "duration": 5.1000001430511475
+      },
+      {
+        "name": "http://127.0.0.1:4173/assets/learning-DNbf2bLQ.js",
+        "bytes": 3193,
+        "transfer": 0,
+        "duration": 6
+      },
+      {
+        "name": "http://127.0.0.1:4173/assets/charts-DxuYPEcT.js",
+        "bytes": 1619,
+        "transfer": 0,
+        "duration": 5.800000190734863
+      },
+      {
+        "name": "http://127.0.0.1:4173/content/learning/index.json",
+        "bytes": 41379,
+        "transfer": 0,
+        "duration": 5.099999904632568
+      },
+      {
+        "name": "http://127.0.0.1:4173/content/learning/index.json",
+        "bytes": 41379,
+        "transfer": 0,
+        "duration": 5.5
+      }
+    ],
+    "heap": {
+      "used": 10864058,
+      "total": 19597382,
+      "limit": 4395630592
+    }
+  },
+  "homeAfter": {
+    "at": "2026-11-17T05:14:09.962Z",
+    "serviceWorker": "http://127.0.0.1:4173/phase6-network-guard.js",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+    "viewport": {
+      "width": 1280,
+      "height": 720,
+      "dpr": 1.5
+    },
+    "navigation": {
+      "duration": 87.80000019073486,
+      "domContentLoaded": 75.20000004768372,
+      "load": 87.80000019073486
+    },
+    "resources": [
+      {
+        "name": "http://127.0.0.1:4173/phase6-metrics.js",
+        "bytes": 1090,
+        "transfer": 0,
+        "duration": 9.200000047683716
+      },
+      {
+        "name": "http://127.0.0.1:4173/assets/index-C3UoZxuq.css",
+        "bytes": 33044,
+        "transfer": 0,
+        "duration": 9.299999952316284
+      },
+      {
+        "name": "http://127.0.0.1:4173/assets/index-CRdZc2cE.js",
+        "bytes": 440569,
+        "transfer": 0,
+        "duration": 8.900000095367432
+      },
+      {
+        "name": "http://127.0.0.1:4173/content/progress-manifest.json",
+        "bytes": 114754,
+        "transfer": 0,
+        "duration": 5
+      },
+      {
+        "name": "http://127.0.0.1:4173/assets/catalog-DJDf14wg.js",
+        "bytes": 3930,
+        "transfer": 0,
+        "duration": 4.300000190734863
+      },
+      {
+        "name": "http://127.0.0.1:4173/content/catalog.json",
+        "bytes": 37946,
+        "transfer": 0,
+        "duration": 6.299999952316284
+      },
+      {
+        "name": "http://127.0.0.1:4173/assets/learning-DbnYsbLr.js",
+        "bytes": 3193,
+        "transfer": 0,
+        "duration": 5.599999904632568
+      },
+      {
+        "name": "http://127.0.0.1:4173/assets/charts-RgYfI4Bz.js",
+        "bytes": 1619,
+        "transfer": 0,
+        "duration": 5.3999998569488525
+      },
+      {
+        "name": "http://127.0.0.1:4173/content/learning/index.json",
+        "bytes": 41379,
+        "transfer": 0,
+        "duration": 4.700000047683716
+      }
+    ],
+    "heap": {
+      "used": 20218219,
+      "total": 24310139,
+      "limit": 4395630592
+    }
+  },
+  "chart": {
+    "at": "2026-11-17T05:38:26.210Z",
+    "serviceWorker": "http://127.0.0.1:4173/phase6-network-guard.js",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+    "appReadyMs": 82.60000014305115,
+    "interactionFrames": [
+      {
+        "control": "图表类别筛选",
+        "ms": 0.5
+      }
+    ],
+    "viewport": {
+      "width": 1280,
+      "height": 720,
+      "dpr": 1.5
+    },
+    "navigation": {
+      "duration": 37.60000014305115,
+      "domContentLoaded": 35.30000019073486,
+      "load": 37.60000014305115
+    },
+    "resources": [
+      {
+        "name": "http://127.0.0.1:4173/phase6-metrics.js",
+        "bytes": 1563,
+        "transfer": 0,
+        "duration": 6.400000095367432
+      },
+      {
+        "name": "http://127.0.0.1:4173/assets/index-C3UoZxuq.css",
+        "bytes": 33044,
+        "transfer": 0,
+        "duration": 6.400000095367432
+      },
+      {
+        "name": "http://127.0.0.1:4173/assets/index-CRdZc2cE.js",
+        "bytes": 440569,
+        "transfer": 0,
+        "duration": 6.300000190734863
+      },
+      {
+        "name": "http://127.0.0.1:4173/content/progress-manifest.json",
+        "bytes": 114754,
+        "transfer": 0,
+        "duration": 7.200000047683716
+      },
+      {
+        "name": "http://127.0.0.1:4173/assets/catalog-DJDf14wg.js",
+        "bytes": 3930,
+        "transfer": 0,
+        "duration": 6.700000047683716
+      },
+      {
+        "name": "http://127.0.0.1:4173/content/catalog.json",
+        "bytes": 37946,
+        "transfer": 0,
+        "duration": 2.5
+      },
+      {
+        "name": "http://127.0.0.1:4173/assets/learning-DbnYsbLr.js",
+        "bytes": 3193,
+        "transfer": 0,
+        "duration": 3
+      },
+      {
+        "name": "http://127.0.0.1:4173/assets/charts-RgYfI4Bz.js",
+        "bytes": 1619,
+        "transfer": 0,
+        "duration": 3
+      },
+      {
+        "name": "http://127.0.0.1:4173/content/learning/index.json",
+        "bytes": 41379,
+        "transfer": 0,
+        "duration": 3
+      },
+      {
+        "name": "http://127.0.0.1:4173/content/learning/projects/P21/sales-explore.json",
+        "bytes": 26846,
+        "transfer": 0,
+        "duration": 2.8000001907348633
+      },
+      {
+        "name": "http://127.0.0.1:4173/content/learning/resources/p21-v4-stores.json",
+        "bytes": 2173,
+        "transfer": 0,
+        "duration": 2.799999952316284
+      },
+      {
+        "name": "http://127.0.0.1:4173/assets/ChartView-D_Ezw9Ea.js",
+        "bytes": 674529,
+        "transfer": 0,
+        "duration": 3.5
+      },
+      {
+        "name": "http://127.0.0.1:4173/assets/ChartView-BbmoSI6u.css",
+        "bytes": 1309,
+        "transfer": 0,
+        "duration": 2.9000000953674316
+      }
+    ],
+    "heap": {
+      "used": 14003985,
+      "total": 23785601,
+      "limit": 4395630592
+    }
+  },
+  "edge": {
+    "at": "2026-11-17T05:44:53.149Z",
+    "serviceWorker": null,
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36 Edg/157.0.0.0",
+    "appReadyMs": 1568.7999999523163,
+    "interactionFrames": [],
+    "viewport": {
+      "width": 1276,
+      "height": 654,
+      "dpr": 3
+    },
+    "navigation": {
+      "duration": 1471.7000000476837,
+      "domContentLoaded": 288.7999999523163,
+      "load": 1471.7000000476837
+    },
+    "resources": [
+      {
+        "name": "http://127.0.0.1:4173/phase6-metrics.js",
+        "bytes": 1563,
+        "transfer": 1863,
+        "duration": 23.800000190734863
+      },
+      {
+        "name": "http://127.0.0.1:4173/assets/index-wLcXFSlm.js",
+        "bytes": 442479,
+        "transfer": 442779,
+        "duration": 22.40000009536743
+      },
+      {
+        "name": "http://127.0.0.1:4173/assets/index-DbKb78IM.css",
+        "bytes": 33048,
+        "transfer": 33348,
+        "duration": 23.299999952316284
+      },
+      {
+        "name": "http://127.0.0.1:4173/content/progress-manifest.json",
+        "bytes": 114754,
+        "transfer": 115054,
+        "duration": 11.700000047683716
+      },
+      {
+        "name": "http://127.0.0.1:4173/assets/catalog-DIhoQWSn.js",
+        "bytes": 3930,
+        "transfer": 4230,
+        "duration": 11.400000095367432
+      },
+      {
+        "name": "http://127.0.0.1:4173/content/catalog.json",
+        "bytes": 37946,
+        "transfer": 38246,
+        "duration": 4.400000095367432
+      },
+      {
+        "name": "http://127.0.0.1:4173/assets/learning-DZp7Y1b_.js",
+        "bytes": 3193,
+        "transfer": 3493,
+        "duration": 4.700000047683716
+      },
+      {
+        "name": "http://127.0.0.1:4173/assets/charts-kkEcqOko.js",
+        "bytes": 1619,
+        "transfer": 1919,
+        "duration": 4
+      },
+      {
+        "name": "http://127.0.0.1:4173/content/learning/index.json",
+        "bytes": 41379,
+        "transfer": 41679,
+        "duration": 3.799999952316284
+      }
+    ],
+    "heap": {
+      "used": 94131233,
+      "total": 114621293,
+      "limit": 4395630592
+    }
+  },
+  "tablet": {
+    "clientHeight": 1024,
+    "clientWidth": 753,
+    "scrollWidth": 753
+  },
+  "mobile": {
+    "canvasCount": 1,
+    "clientHeight": 844,
+    "clientWidth": 375,
+    "scrollWidth": 375
+  },
+  "lesson": [
+    {
+      "url": "http://127.0.0.1:4173/#/projects/P21/lessons/sales-explore/steps/a-grain",
+      "state": "completed"
+    },
+    {
+      "url": "http://127.0.0.1:4173/#/projects/P21/lessons/sales-explore/steps/a-load",
+      "state": "completed"
+    },
+    {
+      "url": "http://127.0.0.1:4173/#/projects/P21/lessons/sales-explore/steps/a-pivot",
+      "state": "completed"
+    },
+    {
+      "url": "http://127.0.0.1:4173/#/projects/P21/lessons/sales-explore/steps/a-stores",
+      "state": "completed"
+    },
+    {
+      "url": "http://127.0.0.1:4173/#/projects/P21/lessons/sales-explore/steps/a-hour",
+      "state": "completed"
+    },
+    {
+      "url": "http://127.0.0.1:4173/#/projects/P21/lessons/sales-explore/steps/a-reflect",
+      "state": "completed"
+    },
+    {
+      "url": "http://127.0.0.1:4173/#/projects/P21/lessons/sales-explore/steps/phase4-data",
+      "state": "completed"
+    }
+  ],
+  "thresholds": {
+    "zero": "TN 0 · FP 6708 · FN 0 · TP 888 · Precision 0.1169 · Recall 1.0000",
+    "one": "TN 6708 · FP 0 · FN 888 · TP 0 · Precision 不可计算 · Recall 0.0000"
+  },
+  "networkGuardUnregistered": true,
+  "backupMerge": "import-complete",
+  "originalRestore": "blocked: user reauthorized, but saved permission or managed origin policy still denies",
+  "finalInlineConfirmationBrowserRetest": "not-executed: origin policy"
+}

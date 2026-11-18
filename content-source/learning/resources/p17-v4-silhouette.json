@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "1.0",
+  "id": "p17-v4-silhouette",
+  "title": "新版本已计算k=2—7轮廓系数",
+  "kind": "table",
+  "columns": [
+    "k",
+    "轮廓系数",
+    "inertia"
+  ],
+  "rows": [
+    [
+      2.0,
+      0.386554929376971,
+      1713.2464454315746
+    ],
+    [
+      3.0,
+      0.458644506186568,
+      1222.4018284181695
+    ],
+    [
+      4.0,
+      0.502098119478805,
+      948.8669764615549
+    ],
+    [
+      5.0,
+      0.480035896645768,
+      819.8742254532651
+    ],
+    [
+      6.0,
+      0.477611268229074,
+      708.6511201854415
+    ],
+    [
+      7.0,
+      0.50189828626109,
+      634.4538152673902
+    ]
+  ],
+  "text": null,
+  "context": {
+    "identity": "teaching-adaptation",
+    "buildId": "phase4-v1",
+    "createdAt": "2026-11-16T12:58:37.389041+00:00",
+    "inputs": [
+      {
+        "path": "电商-广告投放效果分析-约250行（KMeans聚类、数据分析）/聚类分析广告效果.ipynb",
+        "sha256": "ad88e032b91ce55504f1a19bc8e1ddb2a8829edc69cab6b2569cdbde39edd6b7"
+      },
+      {
+        "path": "电商-广告投放效果分析-约250行（KMeans聚类、数据分析）/聚类分析广告效果.py",
+        "sha256": "d9d3c4c55eea4c26a15c1cc652b2e7793f294ad7f7697f7ce793985a402860b1"
+      },
+      {
+        "path": "电商-广告投放效果分析-约250行（KMeans聚类、数据分析）/ad_performance.csv",
+        "sha256": "4f767d4f273ae2745ac84a9791d2e3d81bdee37a26d1ca82fa4d8a9a5f3003fb"
+      }
+    ],
+    "note": "独立教学版本；不是原保存k搜索的重现",
+    "unit": "无量纲",
+    "sample": null,
+    "modelRerun": true,
+    "modelVersion": "P17-seed100-ninit10-v1"
+  },
+  "chart": {
+    "type": "line",
+    "x": 0,
+    "ys": [
+      1
+    ],
+    "question": "新版本已计算k=2—7轮廓系数",
+    "xLabel": "k",
+    "yLabel": "无量纲",
+    "denominator": "不涉及比率；展示原量或统计量",
+    "range": "当前输入已说明范围的全量聚合",
+    "filters": "独立教学版本；不是原保存k搜索的重现",
+    "nullPolicy": "缺失为null，保留0；不连接缺失点",
+    "interpretation": "对照同源表读取差异；关联不能推出因果或样本外结论。"
+  }
+}

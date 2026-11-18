@@ -1,0 +1,92 @@
+{
+  "projectId": "P02",
+  "batch": "C",
+  "status": "available-content-open",
+  "lessonCount": 1,
+  "readySteps": 11,
+  "inputRefs": [
+    {
+      "path": "交通出行-共享单车预测租赁数量-约300行（随机森林、支持向量机模型）/train.csv",
+      "sha256": "11671d46ae41bf0df77d3d25268f4cb87683f3a33e4a54adf1bb3b24ee538cad"
+    },
+    {
+      "path": "交通出行-共享单车预测租赁数量-约300行（随机森林、支持向量机模型）/自行车租赁数量预测.ipynb",
+      "sha256": "5d7bfa900fd3c472a9a4dd3e2fd241a940046dfdae12874866e1bc2633501530"
+    }
+  ],
+  "resources": [
+    "learning/assets/p02-cell13-1.png",
+    "learning/assets/p02-cell15-2.png",
+    "learning/assets/p02-cell30-1.png",
+    "learning/assets/p02-cell33-1.png",
+    "learning/assets/p02-cell36-1.png",
+    "learning/assets/p02-cell38-1.png",
+    "learning/assets/p02-cell50-0.png",
+    "learning/assets/p02-cell51-0.png",
+    "learning/assets/p02-cell56-0.png",
+    "learning/resources/p02-v4-correlation.json",
+    "learning/resources/p02-v4-hour.json",
+    "learning/resources/p02-v4-input-quality.json",
+    "learning/resources/p02-v4-source-1.json",
+    "learning/resources/p02-v4-source-10-images.json",
+    "learning/resources/p02-v4-source-10.json",
+    "learning/resources/p02-v4-source-2-images.json",
+    "learning/resources/p02-v4-source-2.json",
+    "learning/resources/p02-v4-source-3.json",
+    "learning/resources/p02-v4-source-4.json",
+    "learning/resources/p02-v4-source-5.json",
+    "learning/resources/p02-v4-source-6-images.json",
+    "learning/resources/p02-v4-source-6.json",
+    "learning/resources/p02-v4-source-7-images.json",
+    "learning/resources/p02-v4-source-7.json",
+    "learning/resources/p02-v4-source-8.json",
+    "learning/resources/p02-v4-source-9-images.json",
+    "learning/resources/p02-v4-source-9.json",
+    "learning/resources/p02-v4-wind-change.json",
+    "learning/resources/p02-v4-windspeed.json"
+  ],
+  "transforms": [
+    {
+      "input": "交通出行-共享单车预测租赁数量-约300行（随机森林、支持向量机模型）/train.csv",
+      "sheet": null,
+      "readRows": 10886,
+      "columns": [
+        "datetime",
+        "season",
+        "holiday",
+        "workingday",
+        "weather",
+        "temp",
+        "atemp",
+        "humidity",
+        "windspeed",
+        "casual",
+        "registered",
+        "count"
+      ],
+      "missing": {
+        "datetime": 0,
+        "season": 0,
+        "holiday": 0,
+        "workingday": 0,
+        "weather": 0,
+        "temp": 0,
+        "atemp": 0,
+        "humidity": 0,
+        "windspeed": 0,
+        "casual": 0,
+        "registered": 0,
+        "count": 0
+      },
+      "readerOptions": {}
+    }
+  ],
+  "checks": {
+    "compositionRows": 10886
+  },
+  "models": [],
+  "blocked": [],
+  "originalModelRerun": false,
+  "savedOutputIdentity": "original-saved; extraction time only; original execution time unknown",
+  "validation": "adapter assertions passed; schema/production/browser tracked separately"
+}

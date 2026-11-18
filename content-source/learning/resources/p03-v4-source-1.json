@@ -1,0 +1,48 @@
+{
+  "schemaVersion": "1.0",
+  "id": "p03-v4-source-1",
+  "title": "原单元5—6保存输出",
+  "kind": "text",
+  "columns": [],
+  "rows": [],
+  "text": "原单元6\n                           空值数        最大值    最小值\nMEMBER_NO                  0.0    62988.0    1.0\nFFP_DATE                     0        NaN    NaN\nFIRST_FLIGHT_DATE            0        NaN    NaN\nGENDER                       3        NaN    NaN\nFFP_TIER                   0.0        6.0    4.0\nWORK_CITY                 2269        NaN    NaN\nWORK_PROVINCE             3248        NaN    NaN\nWORK_COUNTRY                26        NaN    NaN\nAGE                      420.0      110.0    6.0\nLOAD_TIME                    0        NaN    NaN\nFLIGHT_COUNT               0.0      213.0    2.0\nBP_SUM                     0.0   505308.0    0.0\nEP_SUM_YR_1                0.0        0.0    0.0\nEP_SUM_YR_2                0.0    74460.0    0.0\nSUM_YR_1                 551.0   239560.0    0.0\nSUM_YR_2                 138.0   234188.0    0.0\nSEG_KM_SUM                 0.0   580717.0  368.0\nWEIGHTED_SEG_KM            0.0  558440.14    0.0\nLAST_FLIGHT_DATE             0        NaN    NaN\nAVG_FLIGHT_COUNT           0.0     26.625   0.25\nAVG_BP_SUM                 0.0    63163.5    0.0\nBEGIN_TO_FIRST             0.0      729.0    0.0\nLAST_TO_END                0.0      731.0    1.0\nAVG_INTERVAL               0.0      728.0    0.0\nMAX_INTERVAL               0.0      728.0    0.0\nADD_POINTS_SUM_YR_1        0.0   600000.0    0.0\nADD_POINTS_SUM_YR_2        0.0   728282.0    0.0\nEXCHANGE_COUNT             0.0       46.0    0.0\navg_discount               0.0        1.5    0.0\nP1Y_Flight_Count           0.0      118.0    0.0\nL1Y_Flight_Count           0.0      111.0    0.0\nP1Y_BP_SUM                 0.0   246197.0    0.0\nL1Y_BP_SUM                 0.0   259111.0    0.0\nEP_SUM                     0.0    74460.0    0.0\nADD_Point_SUM              0.0   984938.0    0.0\nEli_Add_Point_Sum          0.0   984938.0    0.0\nL1Y_ELi_Add_Points         0.0   728282.0    0.0\nPoints_Sum                 0.0   985572.0    0.0\nL1Y_Points_Sum             0.0   728282.0    0.0\nRation_L1Y_Flight_Count    0.0        1.0    0.0\nRation_P1Y_Flight_Count    0.0        1.0    0.0\nRation_P1Y_BPS             0.0   0.999989    0.0\nRation_L1Y_BPS             0.0   0.999993    0.0\nPoint_NotFlight            0.0      140.0    0.0",
+  "context": {
+    "identity": "original-saved",
+    "buildId": "phase4-v1",
+    "createdAt": "2026-11-16T12:58:37.389041+00:00",
+    "inputs": [
+      {
+        "path": "交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/航空公司客户价值分析.ipynb",
+        "sha256": "bd72cf9fd918950642968c14f6021b77caeef58df86b4df65564c546279bbbb8"
+      },
+      {
+        "path": "交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/data/air_data.csv",
+        "sha256": "afcba77fc852376966a1026c4d991323b0e7cd7f26bdc975582080a93b6161eb"
+      },
+      {
+        "path": "交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/tmp/data_cleaned.csv",
+        "sha256": "e3455c8ebab78f5bf4e3972761783fd0e6fe33a47d9344d94a62f017deda8fe3"
+      },
+      {
+        "path": "交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/tmp/data_stand.csv",
+        "sha256": "6cf52be39fe13b24ffe49abbfe090f5240e98023adb5947c0f7d5c20364736f8"
+      },
+      {
+        "path": "交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/tmp/data_stipu.csv",
+        "sha256": "e7089dd0578664aca02f40184d60800992be2bcab0c7d2e38856f3221cb26c4b"
+      },
+      {
+        "path": "交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/tmp/explore.xlsx",
+        "sha256": "9876e3b4f6b70179ef76b7b402179263defc91e32b1f96e80a700cdb2a4d3dd2"
+      },
+      {
+        "path": "交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/客户信息属性说明.xls",
+        "sha256": "dd4a690ed7d91b0f1a92903c936df53a86534038b02245b55f84a8dd4e2cee8c"
+      }
+    ],
+    "note": "逐单元只读提取原文本；原运行时间未知，本次时间仅为提取时间。",
+    "unit": "原字段单位；未核实单位不补填",
+    "sample": null,
+    "modelRerun": false
+  }
+}

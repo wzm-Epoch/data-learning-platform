@@ -1,0 +1,18 @@
+{
+  "date": "2026-11-17",
+  "origin": "http://127.0.0.1:4173",
+  "checks": {
+    "requiredExerciseGate": "passed: no self review => completion rejected",
+    "completeAndReload": "passed: P21 1/12 and global 0.3%, self review restored",
+    "secondTab": "passed: explicit conflict banner; load latest => review_needed and 0%",
+    "invalidImport": "passed: schemaVersion 99 rejected without write",
+    "importPreviewAndReplace": "passed: preview changed steps 1 then restore original effective state",
+    "quotaFailure": "passed: temporary same-origin fault page throws QuotaExceededError; visible warning and downloaded memory JSON contains unsaved in_progress state",
+    "cleanup": "passed: original zero step states and zero events restored; prior P07 location preserved"
+  },
+  "limitations": [
+    "No physical network disconnection cold start test",
+    "No browser process restart or private mode persistence promise",
+    "Representative browser flow verification, not exhaustive across browsers"
+  ]
+}

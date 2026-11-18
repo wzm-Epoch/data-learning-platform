@@ -1,0 +1,831 @@
+{
+  "id": "P08",
+  "title": "拍拍贷平台业务数据分析",
+  "originalNames": [
+    "平台业务数据分析-约800行（数据探索分析、matplotlib可视化）",
+    "拍拍贷平台业务数据分析.ipynb"
+  ],
+  "categoryId": "platform",
+  "summary": "围绕借款人画像、还款、催收及投资记录进行多表业务分析。",
+  "difficulty": "高级",
+  "skillTags": [
+    "Pandas",
+    "NumPy",
+    "Matplotlib",
+    "EDA",
+    "多表合并",
+    "数据透视",
+    "日期处理",
+    "累计指标"
+  ],
+  "methods": "无机器学习训练；有基于均值和标准差的业务估算",
+  "sourceRefs": [
+    {
+      "path": "平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/.ipynb_checkpoints/拍拍贷平台业务数据分析-checkpoint.ipynb",
+      "sha256": "f421af2e53cab7866906b27945ba8388efe6650cee8ca5a366afdc88a5658a0c",
+      "role": "code"
+    },
+    {
+      "path": "平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LC.csv",
+      "sha256": "8c51d53301c2f4d11daea2f9c9dc68f2f805b8837b833db9bc097f995911617c",
+      "role": "data"
+    },
+    {
+      "path": "平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCIS.csv",
+      "sha256": "a135299d5205043e02e51463cd8214b2bfe693c9ba2acea6e184405d199c84e7",
+      "role": "data"
+    },
+    {
+      "path": "平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCIS数据字典.xlsx",
+      "sha256": "827ce47e5272489a4f87bf80c4592dfd47015744adafcab93fbee195f9a4405d",
+      "role": "data"
+    },
+    {
+      "path": "平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCLP数据字典.xlsx",
+      "sha256": "d11e035d7044ef2ad846613625de0457a218580538e5ceca7b753d6aab1110ac",
+      "role": "data"
+    },
+    {
+      "path": "平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LP.csv",
+      "sha256": "ae448c257c3acadd512839a2e7e8a6456baa2adb07481eedfea07ccbe20cc4ad",
+      "role": "data"
+    },
+    {
+      "path": "平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/readme.txt",
+      "sha256": "e65d57028ad675218742f23898238904fd506b6466c6f8817903cb0311fbfa6f",
+      "role": "data"
+    },
+    {
+      "path": "平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/数据说明.docx",
+      "sha256": "224f73b93f52ed1bd8393c88558a722a2d6b542584b17e14c2ee2bbdd02e8450",
+      "role": "other"
+    },
+    {
+      "path": "平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/拍拍贷平台业务数据分析.html",
+      "sha256": "62e8d4c40e1daa95f364c1a81e4ec1a27dd9e4435e9d924dd191e8e19095bb70",
+      "role": "output"
+    },
+    {
+      "path": "平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/拍拍贷平台业务数据分析.ipynb",
+      "sha256": "3ea7579b35438896bb838f4ecc960bafc50d7a5ca422023098086a66aa5b5a7b",
+      "role": "code"
+    },
+    {
+      "path": "平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/拍拍贷平台业务数据分析.py",
+      "sha256": "444eae1e8c7e3f2884613cad0c07e2aafae1b33bbf056abd77fc5022f856ecd2",
+      "role": "code"
+    }
+  ],
+  "limitations": [
+    "LP有3203276行，整表入浏览器不可取；LCIS为多期快照，不能按独立借款重复求和；全表dropna可能删除未还款记录；说明明确仅为业务样本、不代表平台整体；3σ概率保证缺分布前提。"
+  ],
+  "lessons": [
+    {
+      "id": "main-analysis",
+      "title": "拍拍贷平台业务数据分析",
+      "source": "平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/拍拍贷平台业务数据分析.ipynb"
+    }
+  ],
+  "readiness": {
+    "source": "audited",
+    "course": "not-adapted",
+    "rerun": "not-run",
+    "offline": "not-packaged"
+  },
+  "detailRef": "projects/P08/project.json",
+  "searchKeywords": [
+    "读数据用途和三表粒度",
+    "检查缺失对未还款样本影响",
+    "构建借款画像",
+    "审查资金储备假设",
+    "逐期关联还款",
+    "核对催收率分母",
+    "重建快照收益",
+    "写样本局限"
+  ],
+  "prerequisites": "多表关系、时间快照、比例分母、Pandas大表处理、业务指标。",
+  "recommendedProjectIds": [
+    "P19",
+    "P12"
+  ],
+  "recommendationNote": "P19、P12。",
+  "schemaVersion": "1.0",
+  "contentVersion": "0.2.0",
+  "learningObjectives": [
+    "围绕借款人画像、还款、催收及投资记录进行多表业务分析。 重点掌握Pandas、NumPy、Matplotlib、EDA、多表合并、数据透视、日期处理、累计指标。",
+    "读数据用途和三表粒度",
+    "检查缺失对未还款样本影响",
+    "构建借款画像",
+    "审查资金储备假设",
+    "逐期关联还款",
+    "核对催收率分母",
+    "重建快照收益",
+    "写样本局限"
+  ],
+  "exercise": {
+    "text": "说明ListingId在LP中为何不唯一；审查dropna对逾期比例的影响。",
+    "provenance": "已批准路线中新设计的巩固练习；非原文件已有试题",
+    "answerStatus": "参考答案尚未制作"
+  },
+  "datasets": [
+    {
+      "id": "D01-1",
+      "path": "平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LC.csv",
+      "sha256": "8c51d53301c2f4d11daea2f9c9dc68f2f805b8837b833db9bc097f995911617c",
+      "sheet": null,
+      "rows": 328553,
+      "columns": 21,
+      "encoding": "utf-8-sig",
+      "grain": "待核实；读取行数不等于独立业务实体数",
+      "origin": null,
+      "license": null,
+      "fields": [
+        {
+          "name": "ListingId",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": "列表序号，为列表的唯一键。",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P08 / 平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LC.csv；语义来源：平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCLP数据字典.xlsx（原字典声明）"
+        },
+        {
+          "name": "借款金额",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": "列表成交总金额。",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P08 / 平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LC.csv；语义来源：平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCLP数据字典.xlsx（原字典声明）"
+        },
+        {
+          "name": "借款期限",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": "总的期数（按月计）。",
+          "unit": "月",
+          "evidence": "文件与字段审计.json / P08 / 平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LC.csv；语义来源：平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCLP数据字典.xlsx（原字典声明）"
+        },
+        {
+          "name": "借款利率",
+          "dtype": "float64",
+          "missing": 0,
+          "meaning": "年化利率（百分数）。",
+          "unit": "%",
+          "evidence": "文件与字段审计.json / P08 / 平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LC.csv；语义来源：平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCLP数据字典.xlsx（原字典声明）"
+        },
+        {
+          "name": "借款成功日期",
+          "dtype": "str",
+          "missing": 0,
+          "meaning": "列表成交的日期。都在2015年1月1日以后。",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P08 / 平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LC.csv；语义来源：平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCLP数据字典.xlsx（原字典声明）"
+        },
+        {
+          "name": "初始评级",
+          "dtype": "str",
+          "missing": 0,
+          "meaning": "列表成交时的信用评级。AAA为安全标，AA为赔标，A-F为信用等级。",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P08 / 平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LC.csv；语义来源：平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCLP数据字典.xlsx（原字典声明）"
+        },
+        {
+          "name": "借款类型",
+          "dtype": "str",
+          "missing": 0,
+          "meaning": "分为'应收安全标'，‘电商’，‘APP闪电’，‘普通’和‘其他’。",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P08 / 平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LC.csv；语义来源：平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCLP数据字典.xlsx（原字典声明）"
+        },
+        {
+          "name": "是否首标",
+          "dtype": "str",
+          "missing": 0,
+          "meaning": "该标是否为借款人首标。",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P08 / 平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LC.csv；语义来源：平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCLP数据字典.xlsx（原字典声明）"
+        },
+        {
+          "name": "年龄",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": "借款人在该列表借款成功时的年龄。",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P08 / 平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LC.csv；语义来源：平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCLP数据字典.xlsx（原字典声明）"
+        },
+        {
+          "name": "性别",
+          "dtype": "str",
+          "missing": 0,
+          "meaning": "该列表借款人性别。",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P08 / 平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LC.csv；语义来源：平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCLP数据字典.xlsx（原字典声明）"
+        },
+        {
+          "name": "手机认证",
+          "dtype": "str",
+          "missing": 0,
+          "meaning": "该列表借款人手机实名认证是否成功。",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P08 / 平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LC.csv；语义来源：平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCLP数据字典.xlsx（原字典声明）"
+        },
+        {
+          "name": "户口认证",
+          "dtype": "str",
+          "missing": 0,
+          "meaning": "该列表借款人户口认证是否成功。",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P08 / 平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LC.csv；语义来源：平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCLP数据字典.xlsx（原字典声明）"
+        },
+        {
+          "name": "视频认证",
+          "dtype": "str",
+          "missing": 0,
+          "meaning": "该列表借款人视频认证是否成功。",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P08 / 平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LC.csv；语义来源：平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCLP数据字典.xlsx（原字典声明）"
+        },
+        {
+          "name": "学历认证",
+          "dtype": "str",
+          "missing": 0,
+          "meaning": "该列表借款人学历认证是否成功。成功则表示有大专及以上学历。",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P08 / 平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LC.csv；语义来源：平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCLP数据字典.xlsx（原字典声明）"
+        },
+        {
+          "name": "征信认证",
+          "dtype": "str",
+          "missing": 0,
+          "meaning": "该列表借款人征信认证是否成功。成功则表示有人行征信报告。",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P08 / 平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LC.csv；语义来源：平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCLP数据字典.xlsx（原字典声明）"
+        },
+        {
+          "name": "淘宝认证",
+          "dtype": "str",
+          "missing": 0,
+          "meaning": "该列表借款人淘宝认证是否成功。成功则表示为淘宝店主。",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P08 / 平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LC.csv；语义来源：平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCLP数据字典.xlsx（原字典声明）"
+        },
+        {
+          "name": "历史成功借款次数",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": "借款人在该列表成交之前的借款成功次数。",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P08 / 平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LC.csv；语义来源：平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCLP数据字典.xlsx（原字典声明）"
+        },
+        {
+          "name": "历史成功借款金额",
+          "dtype": "float64",
+          "missing": 0,
+          "meaning": "借款人在该列表成交之前的借款成功金额。",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P08 / 平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LC.csv；语义来源：平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCLP数据字典.xlsx（原字典声明）"
+        },
+        {
+          "name": "总待还本金",
+          "dtype": "float64",
+          "missing": 0,
+          "meaning": "借款人在该列表成交之前待还本金金额。",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P08 / 平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LC.csv；语义来源：平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCLP数据字典.xlsx（原字典声明）"
+        },
+        {
+          "name": "历史正常还款期数",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": "借款人在该列表成交之前的按期还款期数。",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P08 / 平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LC.csv；语义来源：平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCLP数据字典.xlsx（原字典声明）"
+        },
+        {
+          "name": "历史逾期还款期数",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": "借款人在该列表成交之前的逾期还款期数。",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P08 / 平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LC.csv；语义来源：平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCLP数据字典.xlsx（原字典声明）"
+        }
+      ],
+      "teachingMappings": []
+    },
+    {
+      "id": "D02-1",
+      "path": "平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCIS.csv",
+      "sha256": "a135299d5205043e02e51463cd8214b2bfe693c9ba2acea6e184405d199c84e7",
+      "sheet": null,
+      "rows": 292539,
+      "columns": 37,
+      "encoding": "utf-8-sig",
+      "grain": "待核实；读取行数不等于独立业务实体数",
+      "origin": null,
+      "license": null,
+      "fields": [
+        {
+          "name": "ListingId",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": "列表序号，为列表的唯一键。",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P08 / 平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCIS.csv；语义来源：平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCLP数据字典.xlsx（原字典声明）"
+        },
+        {
+          "name": "借款金额",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": "列表成交总金额。",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P08 / 平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCIS.csv；语义来源：平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCLP数据字典.xlsx（原字典声明）"
+        },
+        {
+          "name": "借款期限",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": "总的期数（按月计）。",
+          "unit": "月",
+          "evidence": "文件与字段审计.json / P08 / 平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCIS.csv；语义来源：平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCLP数据字典.xlsx（原字典声明）"
+        },
+        {
+          "name": "借款利率",
+          "dtype": "float64",
+          "missing": 0,
+          "meaning": "年化利率（百分数）。",
+          "unit": "%",
+          "evidence": "文件与字段审计.json / P08 / 平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCIS.csv；语义来源：平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCLP数据字典.xlsx（原字典声明）"
+        },
+        {
+          "name": "借款成功日期",
+          "dtype": "str",
+          "missing": 0,
+          "meaning": "列表成交的日期。都在2015年1月1日以后。",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P08 / 平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCIS.csv；语义来源：平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCLP数据字典.xlsx（原字典声明）"
+        },
+        {
+          "name": "初始评级",
+          "dtype": "str",
+          "missing": 0,
+          "meaning": "列表成交时的信用评级。AAA为安全标，AA为赔标，A-F为信用等级。",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P08 / 平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCIS.csv；语义来源：平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCLP数据字典.xlsx（原字典声明）"
+        },
+        {
+          "name": "借款类型",
+          "dtype": "str",
+          "missing": 0,
+          "meaning": "分为'应收安全标'，‘电商’，‘APP闪电’，‘普通’和‘其他’。",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P08 / 平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCIS.csv；语义来源：平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCLP数据字典.xlsx（原字典声明）"
+        },
+        {
+          "name": "是否首标",
+          "dtype": "str",
+          "missing": 0,
+          "meaning": "该标是否为借款人首标。",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P08 / 平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCIS.csv；语义来源：平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCLP数据字典.xlsx（原字典声明）"
+        },
+        {
+          "name": "年龄",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": "借款人在该列表借款成功时的年龄。",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P08 / 平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCIS.csv；语义来源：平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCLP数据字典.xlsx（原字典声明）"
+        },
+        {
+          "name": "性别",
+          "dtype": "str",
+          "missing": 0,
+          "meaning": "该列表借款人性别。",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P08 / 平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCIS.csv；语义来源：平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCLP数据字典.xlsx（原字典声明）"
+        },
+        {
+          "name": "手机认证",
+          "dtype": "str",
+          "missing": 0,
+          "meaning": "该列表借款人手机实名认证是否成功。",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P08 / 平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCIS.csv；语义来源：平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCLP数据字典.xlsx（原字典声明）"
+        },
+        {
+          "name": "户口认证",
+          "dtype": "str",
+          "missing": 0,
+          "meaning": "该列表借款人户口认证是否成功。",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P08 / 平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCIS.csv；语义来源：平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCLP数据字典.xlsx（原字典声明）"
+        },
+        {
+          "name": "视频认证",
+          "dtype": "str",
+          "missing": 0,
+          "meaning": "该列表借款人视频认证是否成功。",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P08 / 平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCIS.csv；语义来源：平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCLP数据字典.xlsx（原字典声明）"
+        },
+        {
+          "name": "学历认证",
+          "dtype": "str",
+          "missing": 0,
+          "meaning": "该列表借款人学历认证是否成功。成功则表示有大专及以上学历。",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P08 / 平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCIS.csv；语义来源：平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCLP数据字典.xlsx（原字典声明）"
+        },
+        {
+          "name": "征信认证",
+          "dtype": "str",
+          "missing": 0,
+          "meaning": "该列表借款人征信认证是否成功。成功则表示有人行征信报告。",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P08 / 平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCIS.csv；语义来源：平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCLP数据字典.xlsx（原字典声明）"
+        },
+        {
+          "name": "淘宝认证",
+          "dtype": "str",
+          "missing": 0,
+          "meaning": "该列表借款人淘宝认证是否成功。成功则表示为淘宝店主。",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P08 / 平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCIS.csv；语义来源：平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCLP数据字典.xlsx（原字典声明）"
+        },
+        {
+          "name": "历史成功借款次数",
+          "dtype": "float64",
+          "missing": 1203,
+          "meaning": "借款人在该列表成交之前的借款成功次数。",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P08 / 平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCIS.csv；语义来源：平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCLP数据字典.xlsx（原字典声明）"
+        },
+        {
+          "name": "历史成功借款金额",
+          "dtype": "float64",
+          "missing": 1203,
+          "meaning": "借款人在该列表成交之前的借款成功金额。",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P08 / 平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCIS.csv；语义来源：平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCLP数据字典.xlsx（原字典声明）"
+        },
+        {
+          "name": "总待还本金",
+          "dtype": "float64",
+          "missing": 0,
+          "meaning": "借款人在该列表成交之前待还本金金额。",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P08 / 平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCIS.csv；语义来源：平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCLP数据字典.xlsx（原字典声明）"
+        },
+        {
+          "name": "历史正常还款期数",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": "借款人在该列表成交之前的按期还款期数。",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P08 / 平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCIS.csv；语义来源：平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCLP数据字典.xlsx（原字典声明）"
+        },
+        {
+          "name": "历史逾期还款期数",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": "借款人在该列表成交之前的逾期还款期数。",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P08 / 平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCIS.csv；语义来源：平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCLP数据字典.xlsx（原字典声明）"
+        },
+        {
+          "name": "我的投资金额",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": "该投资人对该列表的投资金额。",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P08 / 平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCIS.csv；语义来源：平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCIS数据字典.xlsx（原字典声明）"
+        },
+        {
+          "name": "当前到期期数",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": "该列表当前应还的期数。",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P08 / 平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCIS.csv；语义来源：平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCIS数据字典.xlsx（原字典声明）"
+        },
+        {
+          "name": "当前还款期数",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": "该列表已经成功还款的期数。",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P08 / 平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCIS.csv；语义来源：平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCIS数据字典.xlsx（原字典声明）"
+        },
+        {
+          "name": "已还本金",
+          "dtype": "float64",
+          "missing": 0,
+          "meaning": "已经向该投资人成功还款的本金总额。",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P08 / 平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCIS.csv；语义来源：平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCIS数据字典.xlsx（原字典声明）"
+        },
+        {
+          "name": "已还利息",
+          "dtype": "float64",
+          "missing": 0,
+          "meaning": "已经向该投资人成功还款的利息总额。",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P08 / 平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCIS.csv；语义来源：平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCIS数据字典.xlsx（原字典声明）"
+        },
+        {
+          "name": "待还本金",
+          "dtype": "float64",
+          "missing": 0,
+          "meaning": "还需向该投资人还款的本金总额。",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P08 / 平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCIS.csv；语义来源：平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCIS数据字典.xlsx（原字典声明）"
+        },
+        {
+          "name": "待还利息",
+          "dtype": "float64",
+          "missing": 0,
+          "meaning": "还需向该投资人还款的利息总额。",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P08 / 平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCIS.csv；语义来源：平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCIS数据字典.xlsx（原字典声明）"
+        },
+        {
+          "name": "标当前逾期天数",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": "当期逾期天数。未逾期则为0。",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P08 / 平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCIS.csv；语义来源：平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCIS数据字典.xlsx（原字典声明）"
+        },
+        {
+          "name": "标当前状态",
+          "dtype": "str",
+          "missing": 0,
+          "meaning": "当期状态。分为‘正常还款中’，‘逾期中’，‘已还清’，‘已债转’。",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P08 / 平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCIS.csv；语义来源：平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCIS数据字典.xlsx（原字典声明）"
+        },
+        {
+          "name": "上次还款日期",
+          "dtype": "str",
+          "missing": 21049,
+          "meaning": "上一次实际还款日期。",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P08 / 平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCIS.csv；语义来源：平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCIS数据字典.xlsx（原字典声明）"
+        },
+        {
+          "name": "上次还款本金",
+          "dtype": "float64",
+          "missing": 22249,
+          "meaning": "上一次实际向该投资人还款本金。",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P08 / 平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCIS.csv；语义来源：平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCIS数据字典.xlsx（原字典声明）"
+        },
+        {
+          "name": "上次还款利息",
+          "dtype": "float64",
+          "missing": 22249,
+          "meaning": "上一次实际向该投资人还款利息。",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P08 / 平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCIS.csv；语义来源：平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCIS数据字典.xlsx（原字典声明）"
+        },
+        {
+          "name": "下次计划还款日期",
+          "dtype": "str",
+          "missing": 109976,
+          "meaning": "下一次计划还款日期。",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P08 / 平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCIS.csv；语义来源：平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCIS数据字典.xlsx（原字典声明）"
+        },
+        {
+          "name": "下次计划还款本金",
+          "dtype": "float64",
+          "missing": 109976,
+          "meaning": "下一次计划向该投资人还款本金。",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P08 / 平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCIS.csv；语义来源：平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCIS数据字典.xlsx（原字典声明）"
+        },
+        {
+          "name": "下次计划还款利息",
+          "dtype": "float64",
+          "missing": 111045,
+          "meaning": "下一次计划向该投资人还款利息。",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P08 / 平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCIS.csv；语义来源：平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCIS数据字典.xlsx（原字典声明）"
+        },
+        {
+          "name": "recorddate",
+          "dtype": "str",
+          "missing": 409,
+          "meaning": "记录日",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P08 / 平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCIS.csv；语义来源：平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCLP数据字典.xlsx（原字典声明）"
+        }
+      ],
+      "teachingMappings": []
+    },
+    {
+      "id": "D03-1",
+      "path": "平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCIS数据字典.xlsx",
+      "sha256": "827ce47e5272489a4f87bf80c4592dfd47015744adafcab93fbee195f9a4405d",
+      "sheet": "Sheet1",
+      "rows": 37,
+      "columns": 5,
+      "encoding": null,
+      "grain": "待核实；读取行数不等于独立业务实体数",
+      "origin": null,
+      "license": null,
+      "fields": [
+        {
+          "name": "表名格式",
+          "dtype": "str",
+          "missing": 36,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P08 / 平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCIS数据字典.xlsx / Sheet1"
+        },
+        {
+          "name": "字段序号",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P08 / 平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCIS数据字典.xlsx / Sheet1"
+        },
+        {
+          "name": "字段名",
+          "dtype": "str",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P08 / 平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCIS数据字典.xlsx / Sheet1"
+        },
+        {
+          "name": "字段类型",
+          "dtype": "str",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P08 / 平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCIS数据字典.xlsx / Sheet1"
+        },
+        {
+          "name": "字段注释",
+          "dtype": "str",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P08 / 平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCIS数据字典.xlsx / Sheet1"
+        }
+      ],
+      "teachingMappings": []
+    },
+    {
+      "id": "D04-1",
+      "path": "平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCLP数据字典.xlsx",
+      "sha256": "d11e035d7044ef2ad846613625de0457a218580538e5ceca7b753d6aab1110ac",
+      "sheet": "Sheet1",
+      "rows": 35,
+      "columns": 4,
+      "encoding": null,
+      "grain": "待核实；读取行数不等于独立业务实体数",
+      "origin": null,
+      "license": null,
+      "fields": [
+        {
+          "name": "Unnamed: 0",
+          "dtype": "str",
+          "missing": 33,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P08 / 平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCLP数据字典.xlsx / Sheet1"
+        },
+        {
+          "name": "LC",
+          "dtype": "object",
+          "missing": 1,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P08 / 平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCLP数据字典.xlsx / Sheet1"
+        },
+        {
+          "name": "每支标一条记录",
+          "dtype": "str",
+          "missing": 1,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P08 / 平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCLP数据字典.xlsx / Sheet1"
+        },
+        {
+          "name": "Unnamed: 3",
+          "dtype": "str",
+          "missing": 2,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P08 / 平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCLP数据字典.xlsx / Sheet1"
+        }
+      ],
+      "teachingMappings": []
+    },
+    {
+      "id": "D05-1",
+      "path": "平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LP.csv",
+      "sha256": "ae448c257c3acadd512839a2e7e8a6456baa2adb07481eedfea07ccbe20cc4ad",
+      "sheet": null,
+      "rows": 3203276,
+      "columns": 10,
+      "encoding": "utf-8-sig",
+      "grain": "借款标的按期还款记录；须进一步核对时间快照",
+      "origin": null,
+      "license": null,
+      "fields": [
+        {
+          "name": "ListingId",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": "列表序号，为列表的唯一键。",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P08 / 平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LP.csv；语义来源：平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCLP数据字典.xlsx（原字典声明）"
+        },
+        {
+          "name": "期数",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": "期数Id，主键",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P08 / 平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LP.csv；语义来源：平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCLP数据字典.xlsx（原字典声明）"
+        },
+        {
+          "name": "还款状态",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": "到记录日的当期状态，分为0-‘未还款’，1-‘已正常还款’，2-‘已逾期还款’，3-‘已提前还清该标全部欠款’，4-‘已部分还款’",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P08 / 平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LP.csv；语义来源：平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCLP数据字典.xlsx（原字典声明）"
+        },
+        {
+          "name": "应还本金",
+          "dtype": "float64",
+          "missing": 0,
+          "meaning": "当期计划还款本金部分",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P08 / 平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LP.csv；语义来源：平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCLP数据字典.xlsx（原字典声明）"
+        },
+        {
+          "name": "应还利息",
+          "dtype": "float64",
+          "missing": 0,
+          "meaning": "当期计划还款利息部分",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P08 / 平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LP.csv；语义来源：平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCLP数据字典.xlsx（原字典声明）"
+        },
+        {
+          "name": "剩余本金",
+          "dtype": "float64",
+          "missing": 0,
+          "meaning": "到记录日，仍未还清的当期本金",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P08 / 平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LP.csv；语义来源：平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCLP数据字典.xlsx（原字典声明）"
+        },
+        {
+          "name": "剩余利息",
+          "dtype": "float64",
+          "missing": 0,
+          "meaning": "到记录日，仍未还清的当期利息",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P08 / 平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LP.csv；语义来源：平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCLP数据字典.xlsx（原字典声明）"
+        },
+        {
+          "name": "到期日期",
+          "dtype": "str",
+          "missing": 0,
+          "meaning": "当期应还款日",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P08 / 平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LP.csv；语义来源：平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCLP数据字典.xlsx（原字典声明）"
+        },
+        {
+          "name": "还款日期",
+          "dtype": "str",
+          "missing": 0,
+          "meaning": "当期最近一次实际还款日期 ",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P08 / 平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LP.csv；语义来源：平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCLP数据字典.xlsx（原字典声明）"
+        },
+        {
+          "name": "recorddate",
+          "dtype": "str",
+          "missing": 0,
+          "meaning": "记录日",
+          "unit": null,
+          "evidence": "文件与字段审计.json / P08 / 平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LP.csv；语义来源：平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCLP数据字典.xlsx（原字典声明）"
+        }
+      ],
+      "teachingMappings": []
+    }
+  ],
+  "scopeNotes": [],
+  "originalWorkflow": "借款人画像→资金规模→历史逾期/利率→按期还款行为→逾期天数回款→6期投资收益。",
+  "savedResult": "保存多组画像与还款图；资金储备正文出现11814846与7283728两种值，不能选一个当确认结论。",
+  "sourceEvidence": [
+    "01_项目资产盘点.md#P08",
+    "03_完整学习路线.md#P08",
+    "附录B_全数据字段与缺失字典.md#P08"
+  ]
+}

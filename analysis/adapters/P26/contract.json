@@ -1,0 +1,402 @@
+{
+  "projectId": "P26",
+  "batch": "D",
+  "status": "available-content-open",
+  "lessonCount": 1,
+  "readySteps": 14,
+  "inputRefs": [
+    {
+      "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/2000年中国各地区城乡人口分布.csv",
+      "sha256": "010b8352eaad3195fa9cc3c1bb00dd7eb138ec9b97b86e42d6ff1b4d0cfb5c49"
+    },
+    {
+      "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/2001-2020中国各地区常住人口数量.csv",
+      "sha256": "2177221892c12f7e7d5488db7495efe0228a6c5cb1b34b87370790f6b97803d5"
+    },
+    {
+      "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/2005-2019年中国各地区城镇人口数量.csv",
+      "sha256": "42396462dd8849b48ff4c236f0d47555151085772564da0dbcd69210b3f567ee"
+    },
+    {
+      "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/全国人口年龄构成.csv",
+      "sha256": "55abc6661dbfcc66fe0d69563ecb794b6e34447c36d272f680073391e68e6a15"
+    },
+    {
+      "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/分省年度GDP数据.csv",
+      "sha256": "40a058b7d851eb3aa3aeb25ed7e92f0410eb94eff01503b2e72c17180c51a3d7"
+    },
+    {
+      "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/各地区15岁及以上人口平均受教育年限.csv",
+      "sha256": "d438f7270713be4b25b5bb0ffbf11086c1e6e93fb15f0df73f267a22acf063f1"
+    },
+    {
+      "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/各地区人口.csv",
+      "sha256": "e54df53ebcf223d5932943a9ad53b66df3d6d6798d2ee47333b0777236510bd2"
+    },
+    {
+      "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/各地区人口年龄构成.csv",
+      "sha256": "ab4bdab96f351ac920e48f2467cfad4f0d7aa97c10c23fabce16003ca173734e"
+    },
+    {
+      "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/各地区性别构成.csv",
+      "sha256": "2d70917d4b26bb515186d140625a24c68c3a4cd35e01000c3c56c456ab98e750"
+    },
+    {
+      "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/各地区每10万人口中拥有的各类受教育程度人数.csv",
+      "sha256": "5f06777bf301ef73779f5173ad08f5900bef85ad6e01613a7e05132a316a9c91"
+    },
+    {
+      "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/关于第七次全国人口普查数据的探索.ipynb",
+      "sha256": "128dafa808c53033d8c300b682ae8cf67a8c77279b6c34db6385dfd70f0800a0"
+    },
+    {
+      "path": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/关于第七次全国人口普查数据的探索.py",
+      "sha256": "f0b7b07826be934cb9990546e3d13461b3434415fbe864b63389492587edbe35"
+    }
+  ],
+  "resources": [
+    "learning/assets/p26-cell33-0.png",
+    "learning/resources/p26-v4-ages.json",
+    "learning/resources/p26-v4-aligned.json",
+    "learning/resources/p26-v4-correlation.json",
+    "learning/resources/p26-v4-evidence-11.json",
+    "learning/resources/p26-v4-input-quality.json",
+    "learning/resources/p26-v4-linkage.json",
+    "learning/resources/p26-v4-population.json",
+    "learning/resources/p26-v4-source-1.json",
+    "learning/resources/p26-v4-source-10.json",
+    "learning/resources/p26-v4-source-12.json",
+    "learning/resources/p26-v4-source-13.json",
+    "learning/resources/p26-v4-source-2.json",
+    "learning/resources/p26-v4-source-3.json",
+    "learning/resources/p26-v4-source-4.json",
+    "learning/resources/p26-v4-source-5.json",
+    "learning/resources/p26-v4-source-6.json",
+    "learning/resources/p26-v4-source-7.json",
+    "learning/resources/p26-v4-source-8.json",
+    "learning/resources/p26-v4-source-9-images.json",
+    "learning/resources/p26-v4-source-9.json",
+    "learning/resources/p26-v4-tree.json",
+    "learning/resources/p26-v4-urban-floating.json"
+  ],
+  "transforms": [
+    {
+      "input": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/各地区人口年龄构成.csv",
+      "sheet": null,
+      "readRows": 34,
+      "columns": [
+        "各地区人口年龄构成",
+        "Unnamed: 1",
+        "Unnamed: 2",
+        "Unnamed: 3",
+        "Unnamed: 4"
+      ],
+      "missing": {
+        "各地区人口年龄构成": 1,
+        "Unnamed: 1": 0,
+        "Unnamed: 2": 1,
+        "Unnamed: 3": 1,
+        "Unnamed: 4": 1
+      },
+      "readerOptions": {}
+    },
+    {
+      "input": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/各地区人口.csv",
+      "sheet": null,
+      "readRows": 35,
+      "columns": [
+        "各地区人口",
+        "Unnamed: 1",
+        "Unnamed: 2",
+        "Unnamed: 3"
+      ],
+      "missing": {
+        "各地区人口": 1,
+        "Unnamed: 1": 1,
+        "Unnamed: 2": 1,
+        "Unnamed: 3": 2
+      },
+      "readerOptions": {}
+    },
+    {
+      "input": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/分省年度GDP数据.csv",
+      "sheet": null,
+      "readRows": 31,
+      "columns": [
+        "地区",
+        "2020年",
+        "2019年",
+        "2018年",
+        "2017年",
+        "2016年",
+        "2015年",
+        "2014年",
+        "2013年",
+        "2012年",
+        "2011年",
+        "2010年",
+        "2009年",
+        "2008年",
+        "2007年",
+        "2006年",
+        "2005年",
+        "2004年",
+        "2003年",
+        "2002年",
+        "2001年",
+        "2000年",
+        "1999年",
+        "1998年",
+        "1997年",
+        "1996年",
+        "1995年",
+        "1994年",
+        "1993年",
+        "1992年"
+      ],
+      "missing": {
+        "地区": 0,
+        "2020年": 0,
+        "2019年": 0,
+        "2018年": 0,
+        "2017年": 0,
+        "2016年": 0,
+        "2015年": 0,
+        "2014年": 0,
+        "2013年": 0,
+        "2012年": 0,
+        "2011年": 0,
+        "2010年": 0,
+        "2009年": 0,
+        "2008年": 0,
+        "2007年": 0,
+        "2006年": 0,
+        "2005年": 0,
+        "2004年": 0,
+        "2003年": 0,
+        "2002年": 0,
+        "2001年": 0,
+        "2000年": 0,
+        "1999年": 0,
+        "1998年": 0,
+        "1997年": 0,
+        "1996年": 0,
+        "1995年": 0,
+        "1994年": 0,
+        "1993年": 0,
+        "1992年": 0
+      },
+      "readerOptions": {}
+    },
+    {
+      "input": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/2005-2019年中国各地区城镇人口数量.csv",
+      "sheet": null,
+      "readRows": 31,
+      "columns": [
+        "地区",
+        "2019年",
+        "2018年",
+        "2017年",
+        "2016年",
+        "2015年",
+        "2014年",
+        "2013年",
+        "2012年",
+        "2011年",
+        "2010年",
+        "2009年",
+        "2008年",
+        "2007年",
+        "2006年",
+        "2005年"
+      ],
+      "missing": {
+        "地区": 0,
+        "2019年": 0,
+        "2018年": 0,
+        "2017年": 0,
+        "2016年": 0,
+        "2015年": 0,
+        "2014年": 0,
+        "2013年": 0,
+        "2012年": 0,
+        "2011年": 0,
+        "2010年": 0,
+        "2009年": 0,
+        "2008年": 0,
+        "2007年": 0,
+        "2006年": 0,
+        "2005年": 0
+      },
+      "readerOptions": {}
+    },
+    {
+      "input": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/2001-2020中国各地区常住人口数量.csv",
+      "sheet": null,
+      "readRows": 31,
+      "columns": [
+        "地区",
+        "2020年",
+        "2019年",
+        "2018年",
+        "2017年",
+        "2016年",
+        "2015年",
+        "2014年",
+        "2013年",
+        "2012年",
+        "2011年",
+        "2010年",
+        "2009年",
+        "2008年",
+        "2007年",
+        "2006年",
+        "2005年",
+        "2004年",
+        "2003年",
+        "2002年",
+        "2001年"
+      ],
+      "missing": {
+        "地区": 0,
+        "2020年": 0,
+        "2019年": 0,
+        "2018年": 0,
+        "2017年": 0,
+        "2016年": 0,
+        "2015年": 0,
+        "2014年": 0,
+        "2013年": 0,
+        "2012年": 0,
+        "2011年": 0,
+        "2010年": 0,
+        "2009年": 0,
+        "2008年": 0,
+        "2007年": 0,
+        "2006年": 0,
+        "2005年": 0,
+        "2004年": 0,
+        "2003年": 0,
+        "2002年": 0,
+        "2001年": 0
+      },
+      "readerOptions": {}
+    },
+    {
+      "input": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/2000年中国各地区城乡人口分布.csv",
+      "sheet": null,
+      "readRows": 31,
+      "columns": [
+        "地区",
+        "总人口",
+        "城镇人口",
+        "乡村人口",
+        "城镇人口比例",
+        "乡村人口比例"
+      ],
+      "missing": {
+        "地区": 0,
+        "总人口": 0,
+        "城镇人口": 0,
+        "乡村人口": 0,
+        "城镇人口比例": 0,
+        "乡村人口比例": 0
+      },
+      "readerOptions": {}
+    },
+    {
+      "input": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/全国人口年龄构成.csv",
+      "sheet": null,
+      "readRows": 6,
+      "columns": [
+        "全国人口年龄构成",
+        "Unnamed: 1",
+        "Unnamed: 2"
+      ],
+      "missing": {
+        "全国人口年龄构成": 0,
+        "Unnamed: 1": 0,
+        "Unnamed: 2": 0
+      },
+      "readerOptions": {}
+    },
+    {
+      "input": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/各地区15岁及以上人口平均受教育年限.csv",
+      "sheet": null,
+      "readRows": 33,
+      "columns": [
+        "各地区 15 岁及以上人口平均受教育年限",
+        "Unnamed: 1",
+        "Unnamed: 2"
+      ],
+      "missing": {
+        "各地区 15 岁及以上人口平均受教育年限": 0,
+        "Unnamed: 1": 0,
+        "Unnamed: 2": 0
+      },
+      "readerOptions": {}
+    },
+    {
+      "input": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/各地区性别构成.csv",
+      "sheet": null,
+      "readRows": 34,
+      "columns": [
+        "各地区人口性别构成",
+        "Unnamed: 1",
+        "Unnamed: 2",
+        "Unnamed: 3"
+      ],
+      "missing": {
+        "各地区人口性别构成": 1,
+        "Unnamed: 1": 0,
+        "Unnamed: 2": 1,
+        "Unnamed: 3": 1
+      },
+      "readerOptions": {}
+    },
+    {
+      "input": "社会科学-人口普查数据-人口年龄结构分析-约550行（pyecharts可视化、数据分析）/data/各地区每10万人口中拥有的各类受教育程度人数.csv",
+      "sheet": null,
+      "readRows": 33,
+      "columns": [
+        "各地区每 10 万人口中拥有的各类受教育程度人数",
+        "Unnamed: 1",
+        "Unnamed: 2",
+        "Unnamed: 3",
+        "Unnamed: 4"
+      ],
+      "missing": {
+        "各地区每 10 万人口中拥有的各类受教育程度人数": 0,
+        "Unnamed: 1": 0,
+        "Unnamed: 2": 0,
+        "Unnamed: 3": 0,
+        "Unnamed: 4": 0
+      },
+      "readerOptions": {}
+    }
+  ],
+  "checks": {
+    "provinces": 31,
+    "ageExclusive": true,
+    "age65Subset": true,
+    "alignedRows": 31
+  },
+  "models": [
+    {
+      "version": "P26-age-ward-v1",
+      "method": "Ward Euclidean on 3 mutually exclusive age proportions",
+      "rows": 31,
+      "features": [
+        "0—14岁",
+        "15—59岁",
+        "60岁及以上"
+      ],
+      "clusters": 3,
+      "seed": null
+    }
+  ],
+  "blocked": [],
+  "originalModelRerun": false,
+  "savedOutputIdentity": "original-saved; extraction time only; original execution time unknown",
+  "validation": "adapter assertions passed; schema/production/browser tracked separately"
+}

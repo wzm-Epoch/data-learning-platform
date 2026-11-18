@@ -1,0 +1,282 @@
+{
+  "projectId": "P08",
+  "batch": "E",
+  "status": "partial-source-gaps",
+  "lessonCount": 1,
+  "readySteps": 17,
+  "inputRefs": [
+    {
+      "path": "平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LC.csv",
+      "sha256": "8c51d53301c2f4d11daea2f9c9dc68f2f805b8837b833db9bc097f995911617c"
+    },
+    {
+      "path": "平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCIS.csv",
+      "sha256": "a135299d5205043e02e51463cd8214b2bfe693c9ba2acea6e184405d199c84e7"
+    },
+    {
+      "path": "平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCIS数据字典.xlsx",
+      "sha256": "827ce47e5272489a4f87bf80c4592dfd47015744adafcab93fbee195f9a4405d"
+    },
+    {
+      "path": "平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCLP数据字典.xlsx",
+      "sha256": "d11e035d7044ef2ad846613625de0457a218580538e5ceca7b753d6aab1110ac"
+    },
+    {
+      "path": "平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LP.csv",
+      "sha256": "ae448c257c3acadd512839a2e7e8a6456baa2adb07481eedfea07ccbe20cc4ad"
+    },
+    {
+      "path": "平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/拍拍贷平台业务数据分析.ipynb",
+      "sha256": "3ea7579b35438896bb838f4ecc960bafc50d7a5ca422023098086a66aa5b5a7b"
+    },
+    {
+      "path": "平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/拍拍贷平台业务数据分析.py",
+      "sha256": "444eae1e8c7e3f2884613cad0c07e2aafae1b33bbf056abd77fc5022f856ecd2"
+    }
+  ],
+  "resources": [
+    "learning/assets/p08-cell14-0.png",
+    "learning/assets/p08-cell14-1.png",
+    "learning/assets/p08-cell17-0.png",
+    "learning/assets/p08-cell21-1.png",
+    "learning/assets/p08-cell24-1.png",
+    "learning/assets/p08-cell32-1.png",
+    "learning/assets/p08-cell35-1.png",
+    "learning/assets/p08-cell38-1.png",
+    "learning/assets/p08-cell41-1.png",
+    "learning/assets/p08-cell44-1.png",
+    "learning/assets/p08-cell46-2.png",
+    "learning/assets/p08-cell51-0.png",
+    "learning/assets/p08-cell55-0.png",
+    "learning/assets/p08-cell62-0.png",
+    "learning/resources/p08-v4-____-94846b25.json",
+    "learning/resources/p08-v4-____-c21f6317.json",
+    "learning/resources/p08-v4-evidence-15.json",
+    "learning/resources/p08-v4-evidence-2.json",
+    "learning/resources/p08-v4-evidence-7.json",
+    "learning/resources/p08-v4-input-quality.json",
+    "learning/resources/p08-v4-lp-preview.json",
+    "learning/resources/p08-v4-monthly.json",
+    "learning/resources/p08-v4-repayment.json",
+    "learning/resources/p08-v4-source-1.json",
+    "learning/resources/p08-v4-source-10-images.json",
+    "learning/resources/p08-v4-source-10.json",
+    "learning/resources/p08-v4-source-11-images.json",
+    "learning/resources/p08-v4-source-11.json",
+    "learning/resources/p08-v4-source-12-images.json",
+    "learning/resources/p08-v4-source-12.json",
+    "learning/resources/p08-v4-source-13-images.json",
+    "learning/resources/p08-v4-source-14-images.json",
+    "learning/resources/p08-v4-source-14.json",
+    "learning/resources/p08-v4-source-16-images.json",
+    "learning/resources/p08-v4-source-3-images.json",
+    "learning/resources/p08-v4-source-4-images.json",
+    "learning/resources/p08-v4-source-4.json",
+    "learning/resources/p08-v4-source-5-images.json",
+    "learning/resources/p08-v4-source-6-images.json",
+    "learning/resources/p08-v4-source-8-images.json",
+    "learning/resources/p08-v4-source-8.json",
+    "learning/resources/p08-v4-source-9-images.json",
+    "learning/resources/p08-v4-source-9.json"
+  ],
+  "transforms": [
+    {
+      "input": "平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LC.csv",
+      "sheet": null,
+      "readRows": 328553,
+      "columns": [
+        "ListingId",
+        "借款金额",
+        "借款期限",
+        "借款利率",
+        "借款成功日期",
+        "初始评级",
+        "借款类型",
+        "是否首标",
+        "年龄",
+        "性别",
+        "手机认证",
+        "户口认证",
+        "视频认证",
+        "学历认证",
+        "征信认证",
+        "淘宝认证",
+        "历史成功借款次数",
+        "历史成功借款金额",
+        "总待还本金",
+        "历史正常还款期数",
+        "历史逾期还款期数"
+      ],
+      "missing": {
+        "ListingId": 0,
+        "借款金额": 0,
+        "借款期限": 0,
+        "借款利率": 0,
+        "借款成功日期": 0,
+        "初始评级": 0,
+        "借款类型": 0,
+        "是否首标": 0,
+        "年龄": 0,
+        "性别": 0,
+        "手机认证": 0,
+        "户口认证": 0,
+        "视频认证": 0,
+        "学历认证": 0,
+        "征信认证": 0,
+        "淘宝认证": 0,
+        "历史成功借款次数": 0,
+        "历史成功借款金额": 0,
+        "总待还本金": 0,
+        "历史正常还款期数": 0,
+        "历史逾期还款期数": 0
+      },
+      "readerOptions": {}
+    },
+    {
+      "input": "平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LP.csv",
+      "readRows": 3203276,
+      "chunkSize": 100000,
+      "missingCells": 0,
+      "aggregation": "value_counts(还款状态,dropna=False)",
+      "preview": "first100",
+      "noLCISAmountSum": true
+    },
+    {
+      "input": "平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCIS.csv",
+      "sheet": null,
+      "readRows": 292539,
+      "columns": [
+        "ListingId",
+        "借款金额",
+        "借款期限",
+        "借款利率",
+        "借款成功日期",
+        "初始评级",
+        "借款类型",
+        "是否首标",
+        "年龄",
+        "性别",
+        "手机认证",
+        "户口认证",
+        "视频认证",
+        "学历认证",
+        "征信认证",
+        "淘宝认证",
+        "历史成功借款次数",
+        "历史成功借款金额",
+        "总待还本金",
+        "历史正常还款期数",
+        "历史逾期还款期数",
+        "我的投资金额",
+        "当前到期期数",
+        "当前还款期数",
+        "已还本金",
+        "已还利息",
+        "待还本金",
+        "待还利息",
+        "标当前逾期天数",
+        "标当前状态",
+        "上次还款日期",
+        "上次还款本金",
+        "上次还款利息",
+        "下次计划还款日期",
+        "下次计划还款本金",
+        "下次计划还款利息",
+        "recorddate"
+      ],
+      "missing": {
+        "ListingId": 0,
+        "借款金额": 0,
+        "借款期限": 0,
+        "借款利率": 0,
+        "借款成功日期": 0,
+        "初始评级": 0,
+        "借款类型": 0,
+        "是否首标": 0,
+        "年龄": 0,
+        "性别": 0,
+        "手机认证": 0,
+        "户口认证": 0,
+        "视频认证": 0,
+        "学历认证": 0,
+        "征信认证": 0,
+        "淘宝认证": 0,
+        "历史成功借款次数": 1203,
+        "历史成功借款金额": 1203,
+        "总待还本金": 0,
+        "历史正常还款期数": 0,
+        "历史逾期还款期数": 0,
+        "我的投资金额": 0,
+        "当前到期期数": 0,
+        "当前还款期数": 0,
+        "已还本金": 0,
+        "已还利息": 0,
+        "待还本金": 0,
+        "待还利息": 0,
+        "标当前逾期天数": 0,
+        "标当前状态": 0,
+        "上次还款日期": 21049,
+        "上次还款本金": 22249,
+        "上次还款利息": 22249,
+        "下次计划还款日期": 109976,
+        "下次计划还款本金": 109976,
+        "下次计划还款利息": 111045,
+        "recorddate": 409
+      },
+      "readerOptions": {}
+    },
+    {
+      "input": "平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCIS数据字典.xlsx",
+      "sheet": "Sheet1",
+      "readRows": 37,
+      "columns": [
+        "表名格式",
+        "字段序号",
+        "字段名",
+        "字段类型",
+        "字段注释"
+      ],
+      "missing": {
+        "表名格式": 36,
+        "字段序号": 0,
+        "字段名": 0,
+        "字段类型": 0,
+        "字段注释": 0
+      },
+      "readerOptions": {}
+    },
+    {
+      "input": "平台业务数据分析-约800行（数据探索分析、matplotlib可视化）/data/LCLP数据字典.xlsx",
+      "sheet": "Sheet1",
+      "readRows": 35,
+      "columns": [
+        "Unnamed: 0",
+        "LC",
+        "每支标一条记录",
+        "Unnamed: 3"
+      ],
+      "missing": {
+        "Unnamed: 0": 33,
+        "LC": 1,
+        "每支标一条记录": 1,
+        "Unnamed: 3": 2
+      },
+      "readerOptions": {}
+    }
+  ],
+  "checks": {
+    "lpRows": 3203276,
+    "lpCountSum": 3203276,
+    "previewRows": 100
+  },
+  "models": [],
+  "blocked": [
+    {
+      "step": "原复杂还款收益流程独立复现",
+      "reason": "已开放原保存代码/图及全量安全聚合；原多表回款收益计算未完整重跑，不将快照金额直接求和"
+    }
+  ],
+  "originalModelRerun": false,
+  "savedOutputIdentity": "original-saved; extraction time only; original execution time unknown",
+  "validation": "adapter assertions passed; schema/production/browser tracked separately"
+}

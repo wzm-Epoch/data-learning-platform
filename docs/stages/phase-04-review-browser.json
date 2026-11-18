@@ -1,0 +1,660 @@
+[
+  {
+    "project": "P01",
+    "ref": "learning/resources/p01-v4-Class.json",
+    "type": "bar",
+    "canvas": true,
+    "errors": []
+  },
+  {
+    "project": "P01",
+    "ref": "learning/resources/p01-v4-Amount.json",
+    "type": "histogram",
+    "canvas": true,
+    "errors": []
+  },
+  {
+    "project": "P01",
+    "ref": "learning/resources/p01-v4-Time.json",
+    "type": "histogram",
+    "canvas": true,
+    "errors": []
+  },
+  {
+    "project": "P01",
+    "ref": "learning/resources/p01-v4-class-amount.json",
+    "type": "boxplot",
+    "canvas": true,
+    "errors": []
+  },
+  {
+    "project": "P02",
+    "ref": "learning/resources/p02-v4-hour.json",
+    "type": "line",
+    "canvas": true,
+    "errors": []
+  },
+  {
+    "project": "P02",
+    "ref": "learning/resources/p02-v4-windspeed.json",
+    "type": "histogram",
+    "canvas": true,
+    "errors": []
+  },
+  {
+    "project": "P02",
+    "ref": "learning/resources/p02-v4-correlation.json",
+    "type": "heatmap",
+    "canvas": true,
+    "errors": []
+  },
+  {
+    "project": "P03",
+    "ref": "learning/resources/p03-v4-cluster-sizes.json",
+    "type": "bar",
+    "canvas": true,
+    "errors": []
+  },
+  {
+    "project": "P03",
+    "ref": "learning/resources/p03-v4-centers.json",
+    "type": "radar",
+    "canvas": true,
+    "errors": []
+  },
+  {
+    "project": "P04",
+    "ref": "learning/resources/p04-v4-hotel.json",
+    "type": "bar",
+    "canvas": true,
+    "errors": []
+  },
+  {
+    "project": "P04",
+    "ref": "learning/resources/p04-v4-market_segment.json",
+    "type": "bar",
+    "canvas": true,
+    "errors": []
+  },
+  {
+    "project": "P04",
+    "ref": "learning/resources/p04-v4-is_repeated_guest.json",
+    "type": "bar",
+    "canvas": true,
+    "errors": []
+  },
+  {
+    "project": "P04",
+    "ref": "learning/resources/p04-v4-deposit_type.json",
+    "type": "bar",
+    "canvas": true,
+    "errors": []
+  },
+  {
+    "project": "P04",
+    "ref": "learning/resources/p04-v4-arrival_date_year.json",
+    "type": "bar",
+    "canvas": true,
+    "errors": []
+  },
+  {
+    "project": "P04",
+    "ref": "learning/resources/p04-v4-lead_time.json",
+    "type": "histogram",
+    "canvas": true,
+    "errors": []
+  },
+  {
+    "project": "P05",
+    "ref": "learning/resources/p05-v4-top.json",
+    "type": "bar",
+    "canvas": true,
+    "errors": []
+  },
+  {
+    "project": "P05",
+    "ref": "learning/resources/p05-v4-__-9c55a439.json",
+    "type": "bar",
+    "canvas": true,
+    "errors": []
+  },
+  {
+    "project": "P05",
+    "ref": "learning/resources/p05-v4-__-0f4371a7.json",
+    "type": "histogram",
+    "canvas": true,
+    "errors": []
+  },
+  {
+    "project": "P05",
+    "ref": "learning/resources/p05-v4-region.json",
+    "type": "map",
+    "canvas": true,
+    "errors": []
+  },
+  {
+    "project": "P06",
+    "ref": "learning/resources/p06-v4-medals.json",
+    "type": "bar",
+    "canvas": true,
+    "errors": []
+  },
+  {
+    "project": "P06",
+    "ref": "learning/resources/p06-v4-athletes.json",
+    "type": "line",
+    "canvas": true,
+    "errors": []
+  },
+  {
+    "project": "P06",
+    "ref": "learning/resources/p06-v4-female.json",
+    "type": "line",
+    "canvas": true,
+    "errors": []
+  },
+  {
+    "project": "P07",
+    "ref": "learning/resources/p07-v4-__-0d12cbd6.json",
+    "type": "bar",
+    "canvas": true,
+    "errors": []
+  },
+  {
+    "project": "P07",
+    "ref": "learning/resources/p07-v4-train-matrix.json",
+    "type": "heatmap",
+    "canvas": true,
+    "errors": []
+  },
+  {
+    "project": "P07",
+    "ref": "learning/resources/p07-v4-test-matrix.json",
+    "type": "heatmap",
+    "canvas": true,
+    "errors": []
+  },
+  {
+    "project": "P08",
+    "ref": "learning/resources/p08-v4-____-94846b25.json",
+    "type": "bar",
+    "canvas": true,
+    "errors": []
+  },
+  {
+    "project": "P08",
+    "ref": "learning/resources/p08-v4-____-c21f6317.json",
+    "type": "histogram",
+    "canvas": true,
+    "errors": []
+  },
+  {
+    "project": "P08",
+    "ref": "learning/resources/p08-v4-monthly.json",
+    "type": "line",
+    "canvas": true,
+    "errors": []
+  },
+  {
+    "project": "P08",
+    "ref": "learning/resources/p08-v4-repayment.json",
+    "type": "bar",
+    "canvas": true,
+    "errors": []
+  },
+  {
+    "project": "P09",
+    "ref": "learning/resources/p09-v4-price-area.json",
+    "type": "scatter",
+    "canvas": true,
+    "errors": []
+  },
+  {
+    "project": "P09",
+    "ref": "learning/resources/p09-v4-area.json",
+    "type": "bar",
+    "canvas": true,
+    "errors": []
+  },
+  {
+    "project": "P09",
+    "ref": "learning/resources/p09-v4-region-price.json",
+    "type": "map",
+    "canvas": true,
+    "errors": []
+  },
+  {
+    "project": "P10",
+    "ref": "learning/resources/p10-v4-area-price.json",
+    "type": "scatter",
+    "canvas": true,
+    "errors": []
+  },
+  {
+    "project": "P10",
+    "ref": "learning/resources/p10-v4-__-4889eebc.json",
+    "type": "bar",
+    "canvas": true,
+    "errors": []
+  },
+  {
+    "project": "P11",
+    "ref": "learning/resources/p11-v4-scatter.json",
+    "type": "scatter",
+    "canvas": true,
+    "errors": []
+  },
+  {
+    "project": "P11",
+    "ref": "learning/resources/p11-v4-area.json",
+    "type": "bar",
+    "canvas": true,
+    "errors": []
+  },
+  {
+    "project": "P11",
+    "ref": "learning/resources/p11-v4-hourseSize.json",
+    "type": "histogram",
+    "canvas": true,
+    "errors": []
+  },
+  {
+    "project": "P12",
+    "ref": "learning/resources/p12-v4-__-bff0b9e4.json",
+    "type": "bar",
+    "canvas": true,
+    "errors": []
+  },
+  {
+    "project": "P12",
+    "ref": "learning/resources/p12-v4-____-0bb76771.json",
+    "type": "histogram",
+    "canvas": true,
+    "errors": []
+  },
+  {
+    "project": "P12",
+    "ref": "learning/resources/p12-v4-major.json",
+    "type": "bar",
+    "canvas": true,
+    "errors": []
+  },
+  {
+    "project": "P13",
+    "ref": "learning/resources/p13-v4-____-119f5eef.json",
+    "type": "bar",
+    "canvas": true,
+    "errors": []
+  },
+  {
+    "project": "P13",
+    "ref": "learning/resources/p13-v4-ranking.json",
+    "type": "bar",
+    "canvas": true,
+    "errors": []
+  },
+  {
+    "project": "P13",
+    "ref": "learning/resources/p13-v4-daily.json",
+    "type": "line",
+    "canvas": true,
+    "errors": []
+  },
+  {
+    "project": "P14",
+    "ref": "learning/resources/p14-v4-type.json",
+    "type": "bar",
+    "canvas": true,
+    "errors": []
+  },
+  {
+    "project": "P14",
+    "ref": "learning/resources/p14-v4-___-0754f9f7.json",
+    "type": "histogram",
+    "canvas": true,
+    "errors": []
+  },
+  {
+    "project": "P14",
+    "ref": "learning/resources/p14-v4-tokens.json",
+    "type": "bar",
+    "canvas": true,
+    "errors": []
+  },
+  {
+    "project": "P15",
+    "ref": "learning/resources/p15-v4-totals.json",
+    "type": "bar",
+    "canvas": true,
+    "errors": []
+  },
+  {
+    "project": "P15",
+    "ref": "learning/resources/p15-v4-daily.json",
+    "type": "line",
+    "canvas": true,
+    "errors": []
+  },
+  {
+    "project": "P15",
+    "ref": "learning/resources/p15-v4-city-level.json",
+    "type": "bar",
+    "canvas": true,
+    "errors": []
+  },
+  {
+    "project": "P16",
+    "ref": "learning/resources/p16-v4-time.json",
+    "type": "line",
+    "canvas": true,
+    "errors": []
+  },
+  {
+    "project": "P17",
+    "ref": "learning/resources/p17-v4-silhouette.json",
+    "type": "line",
+    "canvas": true,
+    "errors": []
+  },
+  {
+    "project": "P17",
+    "ref": "learning/resources/p17-v4-counts.json",
+    "type": "bar",
+    "canvas": true,
+    "errors": []
+  },
+  {
+    "project": "P18",
+    "ref": "learning/resources/p18-v4-score.json",
+    "type": "bar",
+    "canvas": true,
+    "errors": []
+  },
+  {
+    "project": "P18",
+    "ref": "learning/resources/p18-v4-_____-ba931ba8.json",
+    "type": "histogram",
+    "canvas": true,
+    "errors": []
+  },
+  {
+    "project": "P19",
+    "ref": "learning/resources/p19-v4-monthly.json",
+    "type": "line",
+    "canvas": true,
+    "errors": []
+  },
+  {
+    "project": "P19",
+    "ref": "learning/resources/p19-v4-category.json",
+    "type": "bar",
+    "canvas": true,
+    "errors": []
+  },
+  {
+    "project": "P19",
+    "ref": "learning/resources/p19-v4-repurchase.json",
+    "type": "line",
+    "canvas": true,
+    "errors": []
+  },
+  {
+    "project": "P20",
+    "ref": "learning/resources/p20-v4-main_type.json",
+    "type": "bar",
+    "canvas": true,
+    "errors": []
+  },
+  {
+    "project": "P20",
+    "ref": "learning/resources/p20-v4-price-box.json",
+    "type": "boxplot",
+    "canvas": true,
+    "errors": []
+  },
+  {
+    "project": "P20",
+    "ref": "learning/resources/p20-v4-price-sale.json",
+    "type": "scatter",
+    "canvas": true,
+    "errors": []
+  },
+  {
+    "project": "P20",
+    "ref": "learning/resources/p20-v4-sku.json",
+    "type": "bar",
+    "canvas": true,
+    "errors": []
+  },
+  {
+    "project": "P21",
+    "ref": "learning/resources/p21-v4-stores.json",
+    "type": "bar",
+    "canvas": true,
+    "errors": []
+  },
+  {
+    "project": "P21",
+    "ref": "learning/resources/p21-v4-hour.json",
+    "type": "line",
+    "canvas": true,
+    "errors": []
+  },
+  {
+    "project": "P21",
+    "ref": "learning/resources/p21-v4-top-2.json",
+    "type": "bar",
+    "canvas": true,
+    "errors": []
+  },
+  {
+    "project": "P21",
+    "ref": "learning/resources/p21-v4-top-3.json",
+    "type": "bar",
+    "canvas": true,
+    "errors": []
+  },
+  {
+    "project": "P22",
+    "ref": "learning/resources/p22-v4-coordinates.json",
+    "type": "scatter",
+    "canvas": true,
+    "errors": []
+  },
+  {
+    "project": "P22",
+    "ref": "learning/resources/p22-v4-counts.json",
+    "type": "bar",
+    "canvas": true,
+    "errors": []
+  },
+  {
+    "project": "P23",
+    "ref": "learning/resources/p23-v4-label-share.json",
+    "type": "bar",
+    "canvas": true,
+    "errors": []
+  },
+  {
+    "project": "P23",
+    "ref": "learning/resources/p23-v4-age.json",
+    "type": "histogram",
+    "canvas": true,
+    "errors": []
+  },
+  {
+    "project": "P23",
+    "ref": "learning/resources/p23-v4-roc.json",
+    "type": "roc",
+    "canvas": true,
+    "errors": []
+  },
+  {
+    "project": "P23",
+    "ref": "learning/resources/p23-v4-matrix.json",
+    "type": "heatmap",
+    "canvas": true,
+    "errors": []
+  },
+  {
+    "project": "P24",
+    "ref": "learning/resources/p24-v4-age.json",
+    "type": "histogram",
+    "canvas": true,
+    "errors": []
+  },
+  {
+    "project": "P24",
+    "ref": "learning/resources/p24-v4-revenue.json",
+    "type": "histogram",
+    "canvas": true,
+    "errors": []
+  },
+  {
+    "project": "P24",
+    "ref": "learning/resources/p24-v4-amount-revenue.json",
+    "type": "scatter",
+    "canvas": true,
+    "errors": []
+  },
+  {
+    "project": "P24",
+    "ref": "learning/resources/p24-v4-holdout-scatter.json",
+    "type": "scatter",
+    "canvas": true,
+    "errors": []
+  },
+  {
+    "project": "P25",
+    "ref": "learning/resources/p25-v4-ages.json",
+    "type": "bar",
+    "canvas": true,
+    "errors": []
+  },
+  {
+    "project": "P25",
+    "ref": "learning/resources/p25-v4-population.json",
+    "type": "map",
+    "canvas": true,
+    "errors": []
+  },
+  {
+    "project": "P26",
+    "ref": "learning/resources/p26-v4-ages.json",
+    "type": "bar",
+    "canvas": true,
+    "errors": []
+  },
+  {
+    "project": "P26",
+    "ref": "learning/resources/p26-v4-population.json",
+    "type": "map",
+    "canvas": true,
+    "errors": []
+  },
+  {
+    "project": "P26",
+    "ref": "learning/resources/p26-v4-tree.json",
+    "type": "tree",
+    "canvas": true,
+    "errors": []
+  },
+  {
+    "project": "P26",
+    "ref": "learning/resources/p26-v4-urban-floating.json",
+    "type": "scatter",
+    "canvas": true,
+    "errors": []
+  },
+  {
+    "project": "P26",
+    "ref": "learning/resources/p26-v4-correlation.json",
+    "type": "heatmap",
+    "canvas": true,
+    "errors": []
+  },
+  {
+    "project": "P27",
+    "ref": "learning/resources/p27-v4-marriage.json",
+    "type": "line",
+    "canvas": true,
+    "errors": []
+  },
+  {
+    "project": "P28",
+    "ref": "learning/resources/p28-v4-left.json",
+    "type": "bar",
+    "canvas": true,
+    "errors": []
+  },
+  {
+    "project": "P28",
+    "ref": "learning/resources/p28-v4-department.json",
+    "type": "bar",
+    "canvas": true,
+    "errors": []
+  },
+  {
+    "project": "P28",
+    "ref": "learning/resources/p28-v4-salary.json",
+    "type": "bar",
+    "canvas": true,
+    "errors": []
+  },
+  {
+    "project": "P28",
+    "ref": "learning/resources/p28-v4-promotion.json",
+    "type": "bar",
+    "canvas": true,
+    "errors": []
+  },
+  {
+    "project": "P28",
+    "ref": "learning/resources/p28-v4-satisfaction.json",
+    "type": "scatter",
+    "canvas": true,
+    "errors": []
+  },
+  {
+    "project": "P29",
+    "ref": "learning/resources/p29-v4-address.json",
+    "type": "bar",
+    "canvas": true,
+    "errors": []
+  },
+  {
+    "project": "P29",
+    "ref": "learning/resources/p29-v4-experience.json",
+    "type": "bar",
+    "canvas": true,
+    "errors": []
+  },
+  {
+    "project": "P29",
+    "ref": "learning/resources/p29-v4-education.json",
+    "type": "bar",
+    "canvas": true,
+    "errors": []
+  },
+  {
+    "project": "P29",
+    "ref": "learning/resources/p29-v4-experience-box.json",
+    "type": "boxplot",
+    "canvas": true,
+    "errors": []
+  },
+  {
+    "project": "P29",
+    "ref": "learning/resources/p29-v4-____-7a5cb7d9.json",
+    "type": "histogram",
+    "canvas": true,
+    "errors": []
+  },
+  {
+    "project": "P29",
+    "ref": "learning/resources/p29-v4-skills-text.json",
+    "type": "bar",
+    "canvas": true,
+    "errors": []
+  }
+]

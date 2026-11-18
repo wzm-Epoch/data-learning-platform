@@ -1,0 +1,2269 @@
+{
+  "schemaVersion": "1.0",
+  "contentVersion": "0.6.0",
+  "projectId": "P12",
+  "id": "main-analysis",
+  "title": "历年考研分数线数据可视化",
+  "status": "ready",
+  "steps": [
+    {
+      "id": "source-004-004",
+      "title": "导入库 · 单元4—4",
+      "status": "ready",
+      "kind": "analysis",
+      "knowledgeIds": [
+        "Pandas",
+        "NumPy",
+        "Pyecharts",
+        "Jieba",
+        "StyleCloud"
+      ],
+      "explanation": [
+        "本步按原Notebook顺序阅读单元4—4。原保存输出尚未重跑；安装、联网采集、写原文件和模型加载均不会在网页运行。",
+        "JsCode是原Pyecharts脚本；平台只展示代码，不求值或执行。",
+        "联网采集代码仅作来源阅读；离线课程使用附带数据，不发请求。",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：Table of Contents\n1&nbsp;&nbsp;项目介绍2&nbsp;&nbsp;导入库3&nbsp;&nbsp;读取文件考研历年国家分数线4&nbsp;&nbsp;处理重复值和空值5&nbsp;&nbsp;删除不需要的列6&nbsp;&nbsp;替换删除特殊字符7&nbsp;&nbsp;单独筛选出2020年考研信息8&nbsp;&nbsp;统计专业9&nbsp;&nbsp;分组归纳学校对应的专业数（专业可能是重复值）10&nbsp;&nbsp;转化考研专业总分特殊值11&nbsp;&nbsp;分组归纳各专业的最高分，最低分，平均分12&nbsp;&nbsp;绘制各专业分数的柱状图13&nbsp;&nbsp;绘制2020年考研专业Top5014&nbsp;&nbsp;绘制关键词云图15&nbsp;&nbsp;读取2021年考研调剂信息16&nbsp;&nbsp;转换学校属性类别17&nbsp;&nbsp;删除重复值18&nbsp;&nbsp;拼接调剂信息19&nbsp;&nbsp;查看缺失数据20&nbsp;&nbsp;发布时间对应的发布频次21&nbsp;&nbsp;调剂信息发布时间走势图21.1&nbsp;&nbsp;由于考研成绩是在2月底发布的，所以调剂发布学校也随着增多22&nbsp;&nbsp;绘制学校类别饼图23&nbsp;&nbsp;调剂信息发布数省份分布",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：### 项目介绍\n* 数据来源 IT：2021年考研调剂信息 通过考研网站 + 百度百科 整理获取\n* 可视化主要使用 pyecharts",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：### 导入库"
+      ],
+      "teachingCode": "# 原代码仅供阅读，不由网页执行。\n# 本次可运行适配实现见末尾数据实验步骤。",
+      "limitations": [
+        "文件名“国家分数线”不能证明每行是全国统一线，字段是院校专业层级；747→774显示连接扩行风险；总分“-”等转值规则要单独解释；历史信息非现行报考依据。",
+        "原代码与保存输出保持原身份；新改编计算另列。"
+      ],
+      "codeRefs": [
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/历年考研分数线数据可视化.ipynb",
+          "notebookSha256": "c9831348a3ef1a14841eb4795a3c3fbee5ec366b73fda5fbdaaa6dc58d1e552e",
+          "cell": 4,
+          "code": "import json\nimport requests\nimport pandas as pd \nimport pyecharts.options as opts\nfrom pyecharts.charts import *\nfrom pyecharts.globals import ThemeType#设定主题\nfrom pyecharts.commons.utils import JsCode\nimport chardet \nimport jieba\nimport numpy as np\n",
+          "codeSha256": "c84f9f7b82487432e17ed2a4512719d118fbdfd712788ffa76cbec2f2a091032"
+        }
+      ],
+      "inputRefs": [
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/历年考研分数线数据可视化.ipynb",
+          "sha256": "c9831348a3ef1a14841eb4795a3c3fbee5ec366b73fda5fbdaaa6dc58d1e552e"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/历年考研分数线数据可视化.py",
+          "sha256": "bebb16f3fdf7b72aa7c3558d1481ce1dae8911bc60178b26589e7ad113dd1417"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(1).csv",
+          "sha256": "50c7796c19a865a3678ae923daf5eed10aaa6b321ce7b494278ad241b7b917d6"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(2).csv",
+          "sha256": "6bcddbf2cc251ea04020314c77f80866d6973eed098f2fb1da8bc01b8b2b6557"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(3).csv",
+          "sha256": "7543dd1beb75aea06f6ef7a3a1cedcce2cb624282d25b0a637c183ccd70b3b8d"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(4).csv",
+          "sha256": "30139bc9966041cfb5aa43f1fe1361a290c9c913d8823699bacca82228997e89"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(5).csv",
+          "sha256": "22bcf3325c35670271d2007faab97296abd98a216fbb77542d5c9ac326a683bb"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(6).csv",
+          "sha256": "87c5d0c9fa2cd3303086d8d1e0f83941e21d7525ae33a30d336f1ec67727d4e9"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/大学信息2021new.xlsx",
+          "sha256": "d818cb1ad3889fce546b37eea1ef9c9e2cc08b5b19317f0d42da29713d57629c"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研调剂数据-3.08.xlsx",
+          "sha256": "0318a005e1c31c90febfd4b86bda4908b512b35275154d44176cba8aed7e7d9a"
+        }
+      ],
+      "outputRefs": [
+        "learning/resources/p12-v4-evidence-1.json"
+      ],
+      "exercise": {
+        "prompt": "根据本步单元4—4和保存证据，说明一次变换的输入、输出和一项无法验证的结论。",
+        "hint": "先查看代码中的列选择/过滤/拟合，再核对输出身份和本项目局限。",
+        "checklist": [
+          "准确引用原单元4—4",
+          "指出实际字段或变量与一项真实输出",
+          "把未重跑、资料缺失和统计缺陷分别说明"
+        ],
+        "provenance": "第四阶段教学补充，自评，不代表原文件试题"
+      },
+      "outputTitles": {
+        "learning/resources/p12-v4-evidence-1.json": "原单元4—4的执行证据边界"
+      }
+    },
+    {
+      "id": "source-006-007",
+      "title": "读取文件考研历年国家分数线 · 单元6—7",
+      "status": "ready",
+      "kind": "analysis",
+      "knowledgeIds": [
+        "Pandas",
+        "NumPy",
+        "Pyecharts",
+        "Jieba",
+        "StyleCloud"
+      ],
+      "explanation": [
+        "本步按原Notebook顺序阅读单元6—7。原保存输出尚未重跑；安装、联网采集、写原文件和模型加载均不会在网页运行。",
+        "read_csv只读取指定CSV；编码、表头和字段需要与输入字典核对。",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：### 读取文件考研历年国家分数线"
+      ],
+      "teachingCode": "# 原代码仅供阅读，不由网页执行。\n# 本次可运行适配实现见末尾数据实验步骤。",
+      "limitations": [
+        "文件名“国家分数线”不能证明每行是全国统一线，字段是院校专业层级；747→774显示连接扩行风险；总分“-”等转值规则要单独解释；历史信息非现行报考依据。",
+        "原代码与保存输出保持原身份；新改编计算另列。"
+      ],
+      "codeRefs": [
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/历年考研分数线数据可视化.ipynb",
+          "notebookSha256": "c9831348a3ef1a14841eb4795a3c3fbee5ec366b73fda5fbdaaa6dc58d1e552e",
+          "cell": 6,
+          "code": "df1 = pd.read_csv(r'./考研历年国家分数线(1).csv')\ndf2 = pd.read_csv(r'./考研历年国家分数线(2).csv')\ndf3 = pd.read_csv(r'./考研历年国家分数线(3).csv')\ndf4 = pd.read_csv(r'./考研历年国家分数线(4).csv')\ndf5 = pd.read_csv(r'./考研历年国家分数线(5).csv')\ndf6 = pd.read_csv(r'./考研历年国家分数线(6).csv')\ndf_all= pd.concat([df1,df2,df3,df4,df5,df6])\ndf_all.info()",
+          "codeSha256": "195272ab0c02ba57c495e042a00f0bf56a935b8ab5bd955e4552e11bff9f5945"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/历年考研分数线数据可视化.ipynb",
+          "notebookSha256": "c9831348a3ef1a14841eb4795a3c3fbee5ec366b73fda5fbdaaa6dc58d1e552e",
+          "cell": 7,
+          "code": "print(df_all.shape)",
+          "codeSha256": "92c2a4c3069a43477590036b72693a5542afda0981723f3a048b38ec792baf83"
+        }
+      ],
+      "inputRefs": [
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/历年考研分数线数据可视化.ipynb",
+          "sha256": "c9831348a3ef1a14841eb4795a3c3fbee5ec366b73fda5fbdaaa6dc58d1e552e"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/历年考研分数线数据可视化.py",
+          "sha256": "bebb16f3fdf7b72aa7c3558d1481ce1dae8911bc60178b26589e7ad113dd1417"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(1).csv",
+          "sha256": "50c7796c19a865a3678ae923daf5eed10aaa6b321ce7b494278ad241b7b917d6"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(2).csv",
+          "sha256": "6bcddbf2cc251ea04020314c77f80866d6973eed098f2fb1da8bc01b8b2b6557"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(3).csv",
+          "sha256": "7543dd1beb75aea06f6ef7a3a1cedcce2cb624282d25b0a637c183ccd70b3b8d"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(4).csv",
+          "sha256": "30139bc9966041cfb5aa43f1fe1361a290c9c913d8823699bacca82228997e89"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(5).csv",
+          "sha256": "22bcf3325c35670271d2007faab97296abd98a216fbb77542d5c9ac326a683bb"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(6).csv",
+          "sha256": "87c5d0c9fa2cd3303086d8d1e0f83941e21d7525ae33a30d336f1ec67727d4e9"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/大学信息2021new.xlsx",
+          "sha256": "d818cb1ad3889fce546b37eea1ef9c9e2cc08b5b19317f0d42da29713d57629c"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研调剂数据-3.08.xlsx",
+          "sha256": "0318a005e1c31c90febfd4b86bda4908b512b35275154d44176cba8aed7e7d9a"
+        }
+      ],
+      "outputRefs": [
+        "learning/resources/p12-v4-source-2.json"
+      ],
+      "exercise": {
+        "prompt": "根据本步单元6—7和保存证据，说明一次变换的输入、输出和一项无法验证的结论。",
+        "hint": "先查看代码中的列选择/过滤/拟合，再核对输出身份和本项目局限。",
+        "checklist": [
+          "准确引用原单元6—7",
+          "指出实际字段或变量与一项真实输出",
+          "把未重跑、资料缺失和统计缺陷分别说明"
+        ],
+        "provenance": "第四阶段教学补充，自评，不代表原文件试题"
+      },
+      "outputTitles": {
+        "learning/resources/p12-v4-source-2.json": "原单元6—7保存输出"
+      }
+    },
+    {
+      "id": "source-009-012",
+      "title": "处理重复值和空值 · 单元9—12",
+      "status": "ready",
+      "kind": "analysis",
+      "knowledgeIds": [
+        "Pandas",
+        "NumPy",
+        "Pyecharts",
+        "Jieba",
+        "StyleCloud"
+      ],
+      "explanation": [
+        "本步按原Notebook顺序阅读单元9—12。原保存输出尚未重跑；安装、联网采集、写原文件和模型加载均不会在网页运行。",
+        "dropna会删除缺失行/列；删除前后的行数和选择偏差需要检查。",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：### 处理重复值和空值"
+      ],
+      "teachingCode": "# 原代码仅供阅读，不由网页执行。\n# 本次可运行适配实现见末尾数据实验步骤。",
+      "limitations": [
+        "文件名“国家分数线”不能证明每行是全国统一线，字段是院校专业层级；747→774显示连接扩行风险；总分“-”等转值规则要单独解释；历史信息非现行报考依据。",
+        "原代码与保存输出保持原身份；新改编计算另列。"
+      ],
+      "codeRefs": [
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/历年考研分数线数据可视化.ipynb",
+          "notebookSha256": "c9831348a3ef1a14841eb4795a3c3fbee5ec366b73fda5fbdaaa6dc58d1e552e",
+          "cell": 9,
+          "code": "print('重复值：' ,df_all.duplicated().sum())\nprint('空值: \\n',df_all.isnull().sum())",
+          "codeSha256": "ee0e07a90ae33e4bac40e297432047307c54f74683fd0516203b770184d2390a"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/历年考研分数线数据可视化.ipynb",
+          "notebookSha256": "c9831348a3ef1a14841eb4795a3c3fbee5ec366b73fda5fbdaaa6dc58d1e552e",
+          "cell": 10,
+          "code": "df_all = df_all.drop_duplicates()\ndf_all = df_all.dropna(axis=0,how='any')",
+          "codeSha256": "0cdcf14e350179ea567acda394634a0babde619697cc24c60f9780040ebec3ab"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/历年考研分数线数据可视化.ipynb",
+          "notebookSha256": "c9831348a3ef1a14841eb4795a3c3fbee5ec366b73fda5fbdaaa6dc58d1e552e",
+          "cell": 11,
+          "code": "df_all.info()\nprint(df_all.shape)",
+          "codeSha256": "82e7368c19bb8b5d5cb1f49b3404b59b940513eb2aaa3213b38ed89aefed7cfe"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/历年考研分数线数据可视化.ipynb",
+          "notebookSha256": "c9831348a3ef1a14841eb4795a3c3fbee5ec366b73fda5fbdaaa6dc58d1e552e",
+          "cell": 12,
+          "code": "print('重复值：' ,df_all.duplicated().sum())\nprint('空值: \\n',df_all.isnull().sum())",
+          "codeSha256": "ee0e07a90ae33e4bac40e297432047307c54f74683fd0516203b770184d2390a"
+        }
+      ],
+      "inputRefs": [
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/历年考研分数线数据可视化.ipynb",
+          "sha256": "c9831348a3ef1a14841eb4795a3c3fbee5ec366b73fda5fbdaaa6dc58d1e552e"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/历年考研分数线数据可视化.py",
+          "sha256": "bebb16f3fdf7b72aa7c3558d1481ce1dae8911bc60178b26589e7ad113dd1417"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(1).csv",
+          "sha256": "50c7796c19a865a3678ae923daf5eed10aaa6b321ce7b494278ad241b7b917d6"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(2).csv",
+          "sha256": "6bcddbf2cc251ea04020314c77f80866d6973eed098f2fb1da8bc01b8b2b6557"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(3).csv",
+          "sha256": "7543dd1beb75aea06f6ef7a3a1cedcce2cb624282d25b0a637c183ccd70b3b8d"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(4).csv",
+          "sha256": "30139bc9966041cfb5aa43f1fe1361a290c9c913d8823699bacca82228997e89"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(5).csv",
+          "sha256": "22bcf3325c35670271d2007faab97296abd98a216fbb77542d5c9ac326a683bb"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(6).csv",
+          "sha256": "87c5d0c9fa2cd3303086d8d1e0f83941e21d7525ae33a30d336f1ec67727d4e9"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/大学信息2021new.xlsx",
+          "sha256": "d818cb1ad3889fce546b37eea1ef9c9e2cc08b5b19317f0d42da29713d57629c"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研调剂数据-3.08.xlsx",
+          "sha256": "0318a005e1c31c90febfd4b86bda4908b512b35275154d44176cba8aed7e7d9a"
+        }
+      ],
+      "outputRefs": [
+        "learning/resources/p12-v4-source-3.json"
+      ],
+      "exercise": {
+        "prompt": "根据本步单元9—12和保存证据，说明一次变换的输入、输出和一项无法验证的结论。",
+        "hint": "先查看代码中的列选择/过滤/拟合，再核对输出身份和本项目局限。",
+        "checklist": [
+          "准确引用原单元9—12",
+          "指出实际字段或变量与一项真实输出",
+          "把未重跑、资料缺失和统计缺陷分别说明"
+        ],
+        "provenance": "第四阶段教学补充，自评，不代表原文件试题"
+      },
+      "outputTitles": {
+        "learning/resources/p12-v4-source-3.json": "原单元9—12保存输出"
+      }
+    },
+    {
+      "id": "source-014-014",
+      "title": "删除不需要的列 · 单元14—14",
+      "status": "ready",
+      "kind": "analysis",
+      "knowledgeIds": [
+        "Pandas",
+        "NumPy",
+        "Pyecharts",
+        "Jieba",
+        "StyleCloud"
+      ],
+      "explanation": [
+        "本步按原Notebook顺序阅读单元14—14。原保存输出尚未重跑；安装、联网采集、写原文件和模型加载均不会在网页运行。",
+        "本步展示原变量赋值、查看或配置；变量实际内容以保存输出与本次数据证据为准，不从代码存在推断执行成功。",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：### 删除不需要的列"
+      ],
+      "teachingCode": "# 原代码仅供阅读，不由网页执行。\n# 本次可运行适配实现见末尾数据实验步骤。",
+      "limitations": [
+        "文件名“国家分数线”不能证明每行是全国统一线，字段是院校专业层级；747→774显示连接扩行风险；总分“-”等转值规则要单独解释；历史信息非现行报考依据。",
+        "原代码与保存输出保持原身份；新改编计算另列。"
+      ],
+      "codeRefs": [
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/历年考研分数线数据可视化.ipynb",
+          "notebookSha256": "c9831348a3ef1a14841eb4795a3c3fbee5ec366b73fda5fbdaaa6dc58d1e552e",
+          "cell": 14,
+          "code": "df_all = df_all.drop(labels=['学校名称_链接','院系名称_链接','专业名称_链接'],axis=1)\ndf_all.head(2)",
+          "codeSha256": "420c9046804a20993ef5f5a1ea0b79ef339788d6790ce9bf4c22b2d959dfa448"
+        }
+      ],
+      "inputRefs": [
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/历年考研分数线数据可视化.ipynb",
+          "sha256": "c9831348a3ef1a14841eb4795a3c3fbee5ec366b73fda5fbdaaa6dc58d1e552e"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/历年考研分数线数据可视化.py",
+          "sha256": "bebb16f3fdf7b72aa7c3558d1481ce1dae8911bc60178b26589e7ad113dd1417"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(1).csv",
+          "sha256": "50c7796c19a865a3678ae923daf5eed10aaa6b321ce7b494278ad241b7b917d6"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(2).csv",
+          "sha256": "6bcddbf2cc251ea04020314c77f80866d6973eed098f2fb1da8bc01b8b2b6557"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(3).csv",
+          "sha256": "7543dd1beb75aea06f6ef7a3a1cedcce2cb624282d25b0a637c183ccd70b3b8d"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(4).csv",
+          "sha256": "30139bc9966041cfb5aa43f1fe1361a290c9c913d8823699bacca82228997e89"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(5).csv",
+          "sha256": "22bcf3325c35670271d2007faab97296abd98a216fbb77542d5c9ac326a683bb"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(6).csv",
+          "sha256": "87c5d0c9fa2cd3303086d8d1e0f83941e21d7525ae33a30d336f1ec67727d4e9"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/大学信息2021new.xlsx",
+          "sha256": "d818cb1ad3889fce546b37eea1ef9c9e2cc08b5b19317f0d42da29713d57629c"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研调剂数据-3.08.xlsx",
+          "sha256": "0318a005e1c31c90febfd4b86bda4908b512b35275154d44176cba8aed7e7d9a"
+        }
+      ],
+      "outputRefs": [
+        "learning/resources/p12-v4-source-4.json"
+      ],
+      "exercise": {
+        "prompt": "根据本步单元14—14和保存证据，说明一次变换的输入、输出和一项无法验证的结论。",
+        "hint": "先查看代码中的列选择/过滤/拟合，再核对输出身份和本项目局限。",
+        "checklist": [
+          "准确引用原单元14—14",
+          "指出实际字段或变量与一项真实输出",
+          "把未重跑、资料缺失和统计缺陷分别说明"
+        ],
+        "provenance": "第四阶段教学补充，自评，不代表原文件试题"
+      },
+      "outputTitles": {
+        "learning/resources/p12-v4-source-4.json": "原单元14—14保存输出"
+      }
+    },
+    {
+      "id": "source-016-016",
+      "title": "替换删除特殊字符 · 单元16—16",
+      "status": "ready",
+      "kind": "analysis",
+      "knowledgeIds": [
+        "Pandas",
+        "NumPy",
+        "Pyecharts",
+        "Jieba",
+        "StyleCloud"
+      ],
+      "explanation": [
+        "本步按原Notebook顺序阅读单元16—16。原保存输出尚未重跑；安装、联网采集、写原文件和模型加载均不会在网页运行。",
+        "本步展示原变量赋值、查看或配置；变量实际内容以保存输出与本次数据证据为准，不从代码存在推断执行成功。",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：### 替换删除特殊字符"
+      ],
+      "teachingCode": "# 原代码仅供阅读，不由网页执行。\n# 本次可运行适配实现见末尾数据实验步骤。",
+      "limitations": [
+        "文件名“国家分数线”不能证明每行是全国统一线，字段是院校专业层级；747→774显示连接扩行风险；总分“-”等转值规则要单独解释；历史信息非现行报考依据。",
+        "原代码与保存输出保持原身份；新改编计算另列。"
+      ],
+      "codeRefs": [
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/历年考研分数线数据可视化.ipynb",
+          "notebookSha256": "c9831348a3ef1a14841eb4795a3c3fbee5ec366b73fda5fbdaaa6dc58d1e552e",
+          "cell": 16,
+          "code": "df_all['专业名称'] = df_all['专业名称'].str.replace('\\(专业学位\\)','')\ndf_all['专业名称'] = df_all['专业名称'].str.replace('★','')\ndf_all.head(2)",
+          "codeSha256": "a2ad4acb8c1c984924704adb691cbbc3020feb70023ed0eb2772cbe70440a7d6"
+        }
+      ],
+      "inputRefs": [
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/历年考研分数线数据可视化.ipynb",
+          "sha256": "c9831348a3ef1a14841eb4795a3c3fbee5ec366b73fda5fbdaaa6dc58d1e552e"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/历年考研分数线数据可视化.py",
+          "sha256": "bebb16f3fdf7b72aa7c3558d1481ce1dae8911bc60178b26589e7ad113dd1417"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(1).csv",
+          "sha256": "50c7796c19a865a3678ae923daf5eed10aaa6b321ce7b494278ad241b7b917d6"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(2).csv",
+          "sha256": "6bcddbf2cc251ea04020314c77f80866d6973eed098f2fb1da8bc01b8b2b6557"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(3).csv",
+          "sha256": "7543dd1beb75aea06f6ef7a3a1cedcce2cb624282d25b0a637c183ccd70b3b8d"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(4).csv",
+          "sha256": "30139bc9966041cfb5aa43f1fe1361a290c9c913d8823699bacca82228997e89"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(5).csv",
+          "sha256": "22bcf3325c35670271d2007faab97296abd98a216fbb77542d5c9ac326a683bb"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(6).csv",
+          "sha256": "87c5d0c9fa2cd3303086d8d1e0f83941e21d7525ae33a30d336f1ec67727d4e9"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/大学信息2021new.xlsx",
+          "sha256": "d818cb1ad3889fce546b37eea1ef9c9e2cc08b5b19317f0d42da29713d57629c"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研调剂数据-3.08.xlsx",
+          "sha256": "0318a005e1c31c90febfd4b86bda4908b512b35275154d44176cba8aed7e7d9a"
+        }
+      ],
+      "outputRefs": [
+        "learning/resources/p12-v4-source-5.json"
+      ],
+      "exercise": {
+        "prompt": "根据本步单元16—16和保存证据，说明一次变换的输入、输出和一项无法验证的结论。",
+        "hint": "先查看代码中的列选择/过滤/拟合，再核对输出身份和本项目局限。",
+        "checklist": [
+          "准确引用原单元16—16",
+          "指出实际字段或变量与一项真实输出",
+          "把未重跑、资料缺失和统计缺陷分别说明"
+        ],
+        "provenance": "第四阶段教学补充，自评，不代表原文件试题"
+      },
+      "outputTitles": {
+        "learning/resources/p12-v4-source-5.json": "原单元16—16保存输出"
+      }
+    },
+    {
+      "id": "source-018-018",
+      "title": "单独筛选出2020年考研信息 · 单元18—18",
+      "status": "ready",
+      "kind": "analysis",
+      "knowledgeIds": [
+        "Pandas",
+        "NumPy",
+        "Pyecharts",
+        "Jieba",
+        "StyleCloud"
+      ],
+      "explanation": [
+        "本步按原Notebook顺序阅读单元18—18。原保存输出尚未重跑；安装、联网采集、写原文件和模型加载均不会在网页运行。",
+        "本步展示原变量赋值、查看或配置；变量实际内容以保存输出与本次数据证据为准，不从代码存在推断执行成功。",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：### 单独筛选出2020年考研信息"
+      ],
+      "teachingCode": "# 原代码仅供阅读，不由网页执行。\n# 本次可运行适配实现见末尾数据实验步骤。",
+      "limitations": [
+        "文件名“国家分数线”不能证明每行是全国统一线，字段是院校专业层级；747→774显示连接扩行风险；总分“-”等转值规则要单独解释；历史信息非现行报考依据。",
+        "原代码与保存输出保持原身份；新改编计算另列。"
+      ],
+      "codeRefs": [
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/历年考研分数线数据可视化.ipynb",
+          "notebookSha256": "c9831348a3ef1a14841eb4795a3c3fbee5ec366b73fda5fbdaaa6dc58d1e552e",
+          "cell": 18,
+          "code": "data_2020 = df_all[df_all['年份'] == 2020]\ndata_2020.info()",
+          "codeSha256": "516455371708e85d92699809311f1183c3b914b7265476ac6378fdb32d84c18e"
+        }
+      ],
+      "inputRefs": [
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/历年考研分数线数据可视化.ipynb",
+          "sha256": "c9831348a3ef1a14841eb4795a3c3fbee5ec366b73fda5fbdaaa6dc58d1e552e"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/历年考研分数线数据可视化.py",
+          "sha256": "bebb16f3fdf7b72aa7c3558d1481ce1dae8911bc60178b26589e7ad113dd1417"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(1).csv",
+          "sha256": "50c7796c19a865a3678ae923daf5eed10aaa6b321ce7b494278ad241b7b917d6"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(2).csv",
+          "sha256": "6bcddbf2cc251ea04020314c77f80866d6973eed098f2fb1da8bc01b8b2b6557"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(3).csv",
+          "sha256": "7543dd1beb75aea06f6ef7a3a1cedcce2cb624282d25b0a637c183ccd70b3b8d"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(4).csv",
+          "sha256": "30139bc9966041cfb5aa43f1fe1361a290c9c913d8823699bacca82228997e89"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(5).csv",
+          "sha256": "22bcf3325c35670271d2007faab97296abd98a216fbb77542d5c9ac326a683bb"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(6).csv",
+          "sha256": "87c5d0c9fa2cd3303086d8d1e0f83941e21d7525ae33a30d336f1ec67727d4e9"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/大学信息2021new.xlsx",
+          "sha256": "d818cb1ad3889fce546b37eea1ef9c9e2cc08b5b19317f0d42da29713d57629c"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研调剂数据-3.08.xlsx",
+          "sha256": "0318a005e1c31c90febfd4b86bda4908b512b35275154d44176cba8aed7e7d9a"
+        }
+      ],
+      "outputRefs": [
+        "learning/resources/p12-v4-evidence-6.json"
+      ],
+      "exercise": {
+        "prompt": "根据本步单元18—18和保存证据，说明一次变换的输入、输出和一项无法验证的结论。",
+        "hint": "先查看代码中的列选择/过滤/拟合，再核对输出身份和本项目局限。",
+        "checklist": [
+          "准确引用原单元18—18",
+          "指出实际字段或变量与一项真实输出",
+          "把未重跑、资料缺失和统计缺陷分别说明"
+        ],
+        "provenance": "第四阶段教学补充，自评，不代表原文件试题"
+      },
+      "outputTitles": {
+        "learning/resources/p12-v4-evidence-6.json": "原单元18—18的执行证据边界"
+      }
+    },
+    {
+      "id": "source-020-020",
+      "title": "统计专业 · 单元20—20",
+      "status": "ready",
+      "kind": "analysis",
+      "knowledgeIds": [
+        "Pandas",
+        "NumPy",
+        "Pyecharts",
+        "Jieba",
+        "StyleCloud"
+      ],
+      "explanation": [
+        "本步按原Notebook顺序阅读单元20—20。原保存输出尚未重跑；安装、联网采集、写原文件和模型加载均不会在网页运行。",
+        "本步展示原变量赋值、查看或配置；变量实际内容以保存输出与本次数据证据为准，不从代码存在推断执行成功。",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：### 统计专业"
+      ],
+      "teachingCode": "# 原代码仅供阅读，不由网页执行。\n# 本次可运行适配实现见末尾数据实验步骤。",
+      "limitations": [
+        "文件名“国家分数线”不能证明每行是全国统一线，字段是院校专业层级；747→774显示连接扩行风险；总分“-”等转值规则要单独解释；历史信息非现行报考依据。",
+        "原代码与保存输出保持原身份；新改编计算另列。"
+      ],
+      "codeRefs": [
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/历年考研分数线数据可视化.ipynb",
+          "notebookSha256": "c9831348a3ef1a14841eb4795a3c3fbee5ec366b73fda5fbdaaa6dc58d1e552e",
+          "cell": 20,
+          "code": "data_2020['专业名称'].value_counts()[:100]",
+          "codeSha256": "6e48930ae38e15a5ca3b6781a6ab93a9a64a09db77e9646968a0c4b18dd827ca"
+        }
+      ],
+      "inputRefs": [
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/历年考研分数线数据可视化.ipynb",
+          "sha256": "c9831348a3ef1a14841eb4795a3c3fbee5ec366b73fda5fbdaaa6dc58d1e552e"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/历年考研分数线数据可视化.py",
+          "sha256": "bebb16f3fdf7b72aa7c3558d1481ce1dae8911bc60178b26589e7ad113dd1417"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(1).csv",
+          "sha256": "50c7796c19a865a3678ae923daf5eed10aaa6b321ce7b494278ad241b7b917d6"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(2).csv",
+          "sha256": "6bcddbf2cc251ea04020314c77f80866d6973eed098f2fb1da8bc01b8b2b6557"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(3).csv",
+          "sha256": "7543dd1beb75aea06f6ef7a3a1cedcce2cb624282d25b0a637c183ccd70b3b8d"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(4).csv",
+          "sha256": "30139bc9966041cfb5aa43f1fe1361a290c9c913d8823699bacca82228997e89"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(5).csv",
+          "sha256": "22bcf3325c35670271d2007faab97296abd98a216fbb77542d5c9ac326a683bb"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(6).csv",
+          "sha256": "87c5d0c9fa2cd3303086d8d1e0f83941e21d7525ae33a30d336f1ec67727d4e9"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/大学信息2021new.xlsx",
+          "sha256": "d818cb1ad3889fce546b37eea1ef9c9e2cc08b5b19317f0d42da29713d57629c"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研调剂数据-3.08.xlsx",
+          "sha256": "0318a005e1c31c90febfd4b86bda4908b512b35275154d44176cba8aed7e7d9a"
+        }
+      ],
+      "outputRefs": [
+        "learning/resources/p12-v4-source-7.json"
+      ],
+      "exercise": {
+        "prompt": "根据本步单元20—20和保存证据，说明一次变换的输入、输出和一项无法验证的结论。",
+        "hint": "先查看代码中的列选择/过滤/拟合，再核对输出身份和本项目局限。",
+        "checklist": [
+          "准确引用原单元20—20",
+          "指出实际字段或变量与一项真实输出",
+          "把未重跑、资料缺失和统计缺陷分别说明"
+        ],
+        "provenance": "第四阶段教学补充，自评，不代表原文件试题"
+      },
+      "outputTitles": {
+        "learning/resources/p12-v4-source-7.json": "原单元20—20保存输出"
+      }
+    },
+    {
+      "id": "source-022-022",
+      "title": "分组归纳学校对应的专业数（专业可能是重复值） · 单元22—22",
+      "status": "ready",
+      "kind": "analysis",
+      "knowledgeIds": [
+        "Pandas",
+        "NumPy",
+        "Pyecharts",
+        "Jieba",
+        "StyleCloud"
+      ],
+      "explanation": [
+        "本步按原Notebook顺序阅读单元22—22。原保存输出尚未重跑；安装、联网采集、写原文件和模型加载均不会在网页运行。",
+        "groupby先定义分组键，再计算聚合；count、size与nunique的计数粒度不同。",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：### 分组归纳学校对应的专业数（专业可能是重复值）"
+      ],
+      "teachingCode": "# 原代码仅供阅读，不由网页执行。\n# 本次可运行适配实现见末尾数据实验步骤。",
+      "limitations": [
+        "文件名“国家分数线”不能证明每行是全国统一线，字段是院校专业层级；747→774显示连接扩行风险；总分“-”等转值规则要单独解释；历史信息非现行报考依据。",
+        "原代码与保存输出保持原身份；新改编计算另列。"
+      ],
+      "codeRefs": [
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/历年考研分数线数据可视化.ipynb",
+          "notebookSha256": "c9831348a3ef1a14841eb4795a3c3fbee5ec366b73fda5fbdaaa6dc58d1e552e",
+          "cell": 22,
+          "code": "data_2020.groupby('学校名称')['专业名称'].count().sort_values(ascending = False)[:100]",
+          "codeSha256": "99ad341d2ea656094151ec2d70e1967be3e4c4a3d3889d13fe33333744cda722"
+        }
+      ],
+      "inputRefs": [
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/历年考研分数线数据可视化.ipynb",
+          "sha256": "c9831348a3ef1a14841eb4795a3c3fbee5ec366b73fda5fbdaaa6dc58d1e552e"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/历年考研分数线数据可视化.py",
+          "sha256": "bebb16f3fdf7b72aa7c3558d1481ce1dae8911bc60178b26589e7ad113dd1417"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(1).csv",
+          "sha256": "50c7796c19a865a3678ae923daf5eed10aaa6b321ce7b494278ad241b7b917d6"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(2).csv",
+          "sha256": "6bcddbf2cc251ea04020314c77f80866d6973eed098f2fb1da8bc01b8b2b6557"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(3).csv",
+          "sha256": "7543dd1beb75aea06f6ef7a3a1cedcce2cb624282d25b0a637c183ccd70b3b8d"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(4).csv",
+          "sha256": "30139bc9966041cfb5aa43f1fe1361a290c9c913d8823699bacca82228997e89"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(5).csv",
+          "sha256": "22bcf3325c35670271d2007faab97296abd98a216fbb77542d5c9ac326a683bb"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(6).csv",
+          "sha256": "87c5d0c9fa2cd3303086d8d1e0f83941e21d7525ae33a30d336f1ec67727d4e9"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/大学信息2021new.xlsx",
+          "sha256": "d818cb1ad3889fce546b37eea1ef9c9e2cc08b5b19317f0d42da29713d57629c"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研调剂数据-3.08.xlsx",
+          "sha256": "0318a005e1c31c90febfd4b86bda4908b512b35275154d44176cba8aed7e7d9a"
+        }
+      ],
+      "outputRefs": [
+        "learning/resources/p12-v4-source-8.json"
+      ],
+      "exercise": {
+        "prompt": "根据本步单元22—22和保存证据，说明一次变换的输入、输出和一项无法验证的结论。",
+        "hint": "先查看代码中的列选择/过滤/拟合，再核对输出身份和本项目局限。",
+        "checklist": [
+          "准确引用原单元22—22",
+          "指出实际字段或变量与一项真实输出",
+          "把未重跑、资料缺失和统计缺陷分别说明"
+        ],
+        "provenance": "第四阶段教学补充，自评，不代表原文件试题"
+      },
+      "outputTitles": {
+        "learning/resources/p12-v4-source-8.json": "原单元22—22保存输出"
+      }
+    },
+    {
+      "id": "source-024-024",
+      "title": "转化考研专业总分特殊值 · 单元24—24",
+      "status": "ready",
+      "kind": "analysis",
+      "knowledgeIds": [
+        "Pandas",
+        "NumPy",
+        "Pyecharts",
+        "Jieba",
+        "StyleCloud"
+      ],
+      "explanation": [
+        "本步按原Notebook顺序阅读单元24—24。原保存输出尚未重跑；安装、联网采集、写原文件和模型加载均不会在网页运行。",
+        "本步展示原变量赋值、查看或配置；变量实际内容以保存输出与本次数据证据为准，不从代码存在推断执行成功。",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：### 转化考研专业总分特殊值"
+      ],
+      "teachingCode": "# 原代码仅供阅读，不由网页执行。\n# 本次可运行适配实现见末尾数据实验步骤。",
+      "limitations": [
+        "文件名“国家分数线”不能证明每行是全国统一线，字段是院校专业层级；747→774显示连接扩行风险；总分“-”等转值规则要单独解释；历史信息非现行报考依据。",
+        "原代码与保存输出保持原身份；新改编计算另列。"
+      ],
+      "codeRefs": [
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/历年考研分数线数据可视化.ipynb",
+          "notebookSha256": "c9831348a3ef1a14841eb4795a3c3fbee5ec366b73fda5fbdaaa6dc58d1e552e",
+          "cell": 24,
+          "code": "def tranform_num(x):\n    if '-' in x:\n        return 0\n    else:\n        return x\n    \ndata_2020['总分'] = data_2020['总分'].apply(lambda x:tranform_num(x) )\ndata_2020['总分'] = data_2020['总分'].astype('int')",
+          "codeSha256": "914bf893033690640bcbe6a1cd64ea6d82b6b5af1659cf110d590b89d430e794"
+        }
+      ],
+      "inputRefs": [
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/历年考研分数线数据可视化.ipynb",
+          "sha256": "c9831348a3ef1a14841eb4795a3c3fbee5ec366b73fda5fbdaaa6dc58d1e552e"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/历年考研分数线数据可视化.py",
+          "sha256": "bebb16f3fdf7b72aa7c3558d1481ce1dae8911bc60178b26589e7ad113dd1417"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(1).csv",
+          "sha256": "50c7796c19a865a3678ae923daf5eed10aaa6b321ce7b494278ad241b7b917d6"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(2).csv",
+          "sha256": "6bcddbf2cc251ea04020314c77f80866d6973eed098f2fb1da8bc01b8b2b6557"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(3).csv",
+          "sha256": "7543dd1beb75aea06f6ef7a3a1cedcce2cb624282d25b0a637c183ccd70b3b8d"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(4).csv",
+          "sha256": "30139bc9966041cfb5aa43f1fe1361a290c9c913d8823699bacca82228997e89"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(5).csv",
+          "sha256": "22bcf3325c35670271d2007faab97296abd98a216fbb77542d5c9ac326a683bb"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(6).csv",
+          "sha256": "87c5d0c9fa2cd3303086d8d1e0f83941e21d7525ae33a30d336f1ec67727d4e9"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/大学信息2021new.xlsx",
+          "sha256": "d818cb1ad3889fce546b37eea1ef9c9e2cc08b5b19317f0d42da29713d57629c"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研调剂数据-3.08.xlsx",
+          "sha256": "0318a005e1c31c90febfd4b86bda4908b512b35275154d44176cba8aed7e7d9a"
+        }
+      ],
+      "outputRefs": [
+        "learning/resources/p12-v4-evidence-9.json"
+      ],
+      "exercise": {
+        "prompt": "根据本步单元24—24和保存证据，说明一次变换的输入、输出和一项无法验证的结论。",
+        "hint": "先查看代码中的列选择/过滤/拟合，再核对输出身份和本项目局限。",
+        "checklist": [
+          "准确引用原单元24—24",
+          "指出实际字段或变量与一项真实输出",
+          "把未重跑、资料缺失和统计缺陷分别说明"
+        ],
+        "provenance": "第四阶段教学补充，自评，不代表原文件试题"
+      },
+      "outputTitles": {
+        "learning/resources/p12-v4-evidence-9.json": "原单元24—24的执行证据边界"
+      }
+    },
+    {
+      "id": "source-026-026",
+      "title": "分组归纳各专业的最高分，最低分，平均分 · 单元26—26",
+      "status": "ready",
+      "kind": "analysis",
+      "knowledgeIds": [
+        "Pandas",
+        "NumPy",
+        "Pyecharts",
+        "Jieba",
+        "StyleCloud"
+      ],
+      "explanation": [
+        "本步按原Notebook顺序阅读单元26—26。原保存输出尚未重跑；安装、联网采集、写原文件和模型加载均不会在网页运行。",
+        "groupby先定义分组键，再计算聚合；count、size与nunique的计数粒度不同。",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：### 分组归纳各专业的最高分，最低分，平均分"
+      ],
+      "teachingCode": "# 原代码仅供阅读，不由网页执行。\n# 本次可运行适配实现见末尾数据实验步骤。",
+      "limitations": [
+        "文件名“国家分数线”不能证明每行是全国统一线，字段是院校专业层级；747→774显示连接扩行风险；总分“-”等转值规则要单独解释；历史信息非现行报考依据。",
+        "原代码与保存输出保持原身份；新改编计算另列。"
+      ],
+      "codeRefs": [
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/历年考研分数线数据可视化.ipynb",
+          "notebookSha256": "c9831348a3ef1a14841eb4795a3c3fbee5ec366b73fda5fbdaaa6dc58d1e552e",
+          "cell": 26,
+          "code": "data_1 = data_2020.groupby('专业名称')['总分'].agg([np.mean, np.max,np.min])\ndata_1['mean'] = data_1['mean'].astype('int')\ndata_1 = data_1.sort_values(by=['mean'],ascending=False)[:50]\ndata_1",
+          "codeSha256": "530ff86bfe1f504de649450ec6b95b068955001f7db20f943694306a62ffe454"
+        }
+      ],
+      "inputRefs": [
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/历年考研分数线数据可视化.ipynb",
+          "sha256": "c9831348a3ef1a14841eb4795a3c3fbee5ec366b73fda5fbdaaa6dc58d1e552e"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/历年考研分数线数据可视化.py",
+          "sha256": "bebb16f3fdf7b72aa7c3558d1481ce1dae8911bc60178b26589e7ad113dd1417"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(1).csv",
+          "sha256": "50c7796c19a865a3678ae923daf5eed10aaa6b321ce7b494278ad241b7b917d6"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(2).csv",
+          "sha256": "6bcddbf2cc251ea04020314c77f80866d6973eed098f2fb1da8bc01b8b2b6557"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(3).csv",
+          "sha256": "7543dd1beb75aea06f6ef7a3a1cedcce2cb624282d25b0a637c183ccd70b3b8d"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(4).csv",
+          "sha256": "30139bc9966041cfb5aa43f1fe1361a290c9c913d8823699bacca82228997e89"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(5).csv",
+          "sha256": "22bcf3325c35670271d2007faab97296abd98a216fbb77542d5c9ac326a683bb"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(6).csv",
+          "sha256": "87c5d0c9fa2cd3303086d8d1e0f83941e21d7525ae33a30d336f1ec67727d4e9"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/大学信息2021new.xlsx",
+          "sha256": "d818cb1ad3889fce546b37eea1ef9c9e2cc08b5b19317f0d42da29713d57629c"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研调剂数据-3.08.xlsx",
+          "sha256": "0318a005e1c31c90febfd4b86bda4908b512b35275154d44176cba8aed7e7d9a"
+        }
+      ],
+      "outputRefs": [
+        "learning/resources/p12-v4-source-10.json"
+      ],
+      "exercise": {
+        "prompt": "根据本步单元26—26和保存证据，说明一次变换的输入、输出和一项无法验证的结论。",
+        "hint": "先查看代码中的列选择/过滤/拟合，再核对输出身份和本项目局限。",
+        "checklist": [
+          "准确引用原单元26—26",
+          "指出实际字段或变量与一项真实输出",
+          "把未重跑、资料缺失和统计缺陷分别说明"
+        ],
+        "provenance": "第四阶段教学补充，自评，不代表原文件试题"
+      },
+      "outputTitles": {
+        "learning/resources/p12-v4-source-10.json": "原单元26—26保存输出"
+      }
+    },
+    {
+      "id": "source-028-029",
+      "title": "绘制各专业分数的柱状图 · 单元28—29",
+      "status": "ready",
+      "kind": "analysis",
+      "knowledgeIds": [
+        "Pandas",
+        "NumPy",
+        "Pyecharts",
+        "Jieba",
+        "StyleCloud"
+      ],
+      "explanation": [
+        "本步按原Notebook顺序阅读单元28—29。原保存输出尚未重跑；安装、联网采集、写原文件和模型加载均不会在网页运行。",
+        "本步展示原变量赋值、查看或配置；变量实际内容以保存输出与本次数据证据为准，不从代码存在推断执行成功。",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：### 绘制各专业分数的柱状图"
+      ],
+      "teachingCode": "# 原代码仅供阅读，不由网页执行。\n# 本次可运行适配实现见末尾数据实验步骤。",
+      "limitations": [
+        "文件名“国家分数线”不能证明每行是全国统一线，字段是院校专业层级；747→774显示连接扩行风险；总分“-”等转值规则要单独解释；历史信息非现行报考依据。",
+        "原代码与保存输出保持原身份；新改编计算另列。"
+      ],
+      "codeRefs": [
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/历年考研分数线数据可视化.ipynb",
+          "notebookSha256": "c9831348a3ef1a14841eb4795a3c3fbee5ec366b73fda5fbdaaa6dc58d1e552e",
+          "cell": 28,
+          "code": "bar = Bar(init_opts=opts.InitOpts(theme='light',\n                                    width='1000px',\n                                    height='1200px')\n                                    )\n\nbar.add_xaxis(data_1.index.tolist())\nbar.add_yaxis('最高分', \n               data_1['amax'].tolist(),\n               z_level=1,\n               stack='1',\n               category_gap='50%',\n               tooltip_opts=opts.TooltipOpts(is_show=False),\n               label_opts=opts.LabelOpts(position='insideRight', formatter='{c} 分'),\n               itemstyle_opts={\"normal\": {\n                        'shadowBlur': 10,\n                        'shadowColor': 'rgba(0, 0, 0, 0.1)',\n                        'shadowOffsetX': 10,\n                        'shadowOffsetY': 10,\n                        'color':'#ec9bad',\n                        'borderColor': 'rgb(220,220,220)',\n                        'borderWidth':2}\n                },\n               )\nbar.add_yaxis('最低分', \n               data_1['amin'].tolist(),\n               z_level=1,\n               stack='1',\n               category_gap='50%',\n               tooltip_opts=opts.TooltipOpts(is_show=False),\n               label_opts=opts.LabelOpts(position='insideLeft', formatter='{c} 分'),\n               itemstyle_opts={\"normal\": {\n                        'shadowBlur': 10,\n                        'shadowColor': 'rgba(0, 0, 0, 0.1)',\n                        'shadowOffsetX': 10,\n                        'shadowOffsetY': 10,\n                        'color':'#87CEFA',\n                        'borderColor': 'rgb(220,220,220)',\n                        'borderWidth':2}\n                },\n               )\n\n\nbar.set_global_opts(title_opts=opts.TitleOpts(title=\"各专业的最高分和最低分\",\n                                              pos_left=\"center\",\n                                              pos_top='0%',\n                                              title_textstyle_opts=opts.TextStyleOpts(font_size=20,\n                                                                                      color='#00BFFF')),\n                        legend_opts=opts.LegendOpts(is_show=True, pos_top='3%'),\n                        datazoom_opts=opts.DataZoomOpts(type_='inside',\n                                                    range_start=50,   # 设置起止位置，50%-100%\n                                                    range_end=100,\n                                                    orient='vertical'),\n                        xaxis_opts=opts.AxisOpts(is_show=False, max_=818),\n                        yaxis_opts=opts.AxisOpts(axisline_opts=opts.AxisLineOpts(is_show=False),\n                                             axistick_opts=opts.AxisTickOpts(is_show=False),\n                                             axislabel_opts=opts.LabelOpts(color='#528B8B', font_size=10, font_weight='bold')),\n                    )\nbar.reversal_axis()\nbar.render_notebook()",
+          "codeSha256": "ca8a88c3f156a5e9ee9489fcd6cbae1f013a16cc13f70d93a182891cb4bdbf88"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/历年考研分数线数据可视化.ipynb",
+          "notebookSha256": "c9831348a3ef1a14841eb4795a3c3fbee5ec366b73fda5fbdaaa6dc58d1e552e",
+          "cell": 29,
+          "code": "data_2 = data_2020['专业名称'].value_counts()[:50]",
+          "codeSha256": "2c43e65c525de20afc138edce9f68c93903616c9a778f436c81dc27b4fbee6ef"
+        }
+      ],
+      "inputRefs": [
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/历年考研分数线数据可视化.ipynb",
+          "sha256": "c9831348a3ef1a14841eb4795a3c3fbee5ec366b73fda5fbdaaa6dc58d1e552e"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/历年考研分数线数据可视化.py",
+          "sha256": "bebb16f3fdf7b72aa7c3558d1481ce1dae8911bc60178b26589e7ad113dd1417"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(1).csv",
+          "sha256": "50c7796c19a865a3678ae923daf5eed10aaa6b321ce7b494278ad241b7b917d6"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(2).csv",
+          "sha256": "6bcddbf2cc251ea04020314c77f80866d6973eed098f2fb1da8bc01b8b2b6557"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(3).csv",
+          "sha256": "7543dd1beb75aea06f6ef7a3a1cedcce2cb624282d25b0a637c183ccd70b3b8d"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(4).csv",
+          "sha256": "30139bc9966041cfb5aa43f1fe1361a290c9c913d8823699bacca82228997e89"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(5).csv",
+          "sha256": "22bcf3325c35670271d2007faab97296abd98a216fbb77542d5c9ac326a683bb"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(6).csv",
+          "sha256": "87c5d0c9fa2cd3303086d8d1e0f83941e21d7525ae33a30d336f1ec67727d4e9"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/大学信息2021new.xlsx",
+          "sha256": "d818cb1ad3889fce546b37eea1ef9c9e2cc08b5b19317f0d42da29713d57629c"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研调剂数据-3.08.xlsx",
+          "sha256": "0318a005e1c31c90febfd4b86bda4908b512b35275154d44176cba8aed7e7d9a"
+        }
+      ],
+      "outputRefs": [
+        "learning/resources/p12-v4-evidence-11.json"
+      ],
+      "exercise": {
+        "prompt": "根据本步单元28—29和保存证据，说明一次变换的输入、输出和一项无法验证的结论。",
+        "hint": "先查看代码中的列选择/过滤/拟合，再核对输出身份和本项目局限。",
+        "checklist": [
+          "准确引用原单元28—29",
+          "指出实际字段或变量与一项真实输出",
+          "把未重跑、资料缺失和统计缺陷分别说明"
+        ],
+        "provenance": "第四阶段教学补充，自评，不代表原文件试题"
+      },
+      "outputTitles": {
+        "learning/resources/p12-v4-evidence-11.json": "原单元28—29的执行证据边界"
+      }
+    },
+    {
+      "id": "source-031-031",
+      "title": "绘制2020年考研专业Top50 · 单元31—31",
+      "status": "ready",
+      "kind": "analysis",
+      "knowledgeIds": [
+        "Pandas",
+        "NumPy",
+        "Pyecharts",
+        "Jieba",
+        "StyleCloud"
+      ],
+      "explanation": [
+        "本步按原Notebook顺序阅读单元31—31。原保存输出尚未重跑；安装、联网采集、写原文件和模型加载均不会在网页运行。",
+        "本步展示原变量赋值、查看或配置；变量实际内容以保存输出与本次数据证据为准，不从代码存在推断执行成功。",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：### 绘制2020年考研专业Top50"
+      ],
+      "teachingCode": "# 原代码仅供阅读，不由网页执行。\n# 本次可运行适配实现见末尾数据实验步骤。",
+      "limitations": [
+        "文件名“国家分数线”不能证明每行是全国统一线，字段是院校专业层级；747→774显示连接扩行风险；总分“-”等转值规则要单独解释；历史信息非现行报考依据。",
+        "原代码与保存输出保持原身份；新改编计算另列。"
+      ],
+      "codeRefs": [
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/历年考研分数线数据可视化.ipynb",
+          "notebookSha256": "c9831348a3ef1a14841eb4795a3c3fbee5ec366b73fda5fbdaaa6dc58d1e552e",
+          "cell": 31,
+          "code": "\ndata_x =data_2.index.tolist()\ndata_y = data_2.values.tolist()\n\nbar = Bar(init_opts=opts.InitOpts(theme='light',\n                                  width='1000px',\n                                  height='900px'))\nbar.add_xaxis(data_x)\nbar.add_yaxis('考研专业', [int(i) for i in data_y])\nbar.set_series_opts(label_opts=opts.LabelOpts(position=\"insideLeft\",\n                                              font_size=12,\n                                              font_weight='bold',\n                                              formatter='{b}:{c} 个'))\nbar.set_global_opts(title_opts=opts.TitleOpts(title=\"2020年考研专业Top50\", pos_top='2%', pos_left='center', \n                                              title_textstyle_opts=opts.TextStyleOpts(font_size=20,\n                                                                                      color='#00BFFF')),\n                    legend_opts=opts.LegendOpts(is_show=False),\n                    xaxis_opts=opts.AxisOpts(is_show=False, is_scale=True),\n                    yaxis_opts=opts.AxisOpts(is_show=False),\n                    datazoom_opts=opts.DataZoomOpts(type_='inside',\n                                                    range_start=50,   # 设置起止位置，50%-100%\n                                                    range_end=100,\n                                                    orient='vertical'),\n                    \n                    visualmap_opts=opts.VisualMapOpts(is_show=False, \n                                          max_=1058,\n                                          min_=1,\n                                          is_piecewise=False,\n                                          dimension=0,\n                                          range_color=['rgba(236,155,173,1)', 'rgba(237,157,178,0.4)'])\n                                      )\nbar.reversal_axis()\nbar.render_notebook()",
+          "codeSha256": "509e2524bd4d9f1100d157fc295c256499a73b2078f7b87d0f6c6ba3fe6f8f47"
+        }
+      ],
+      "inputRefs": [
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/历年考研分数线数据可视化.ipynb",
+          "sha256": "c9831348a3ef1a14841eb4795a3c3fbee5ec366b73fda5fbdaaa6dc58d1e552e"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/历年考研分数线数据可视化.py",
+          "sha256": "bebb16f3fdf7b72aa7c3558d1481ce1dae8911bc60178b26589e7ad113dd1417"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(1).csv",
+          "sha256": "50c7796c19a865a3678ae923daf5eed10aaa6b321ce7b494278ad241b7b917d6"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(2).csv",
+          "sha256": "6bcddbf2cc251ea04020314c77f80866d6973eed098f2fb1da8bc01b8b2b6557"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(3).csv",
+          "sha256": "7543dd1beb75aea06f6ef7a3a1cedcce2cb624282d25b0a637c183ccd70b3b8d"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(4).csv",
+          "sha256": "30139bc9966041cfb5aa43f1fe1361a290c9c913d8823699bacca82228997e89"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(5).csv",
+          "sha256": "22bcf3325c35670271d2007faab97296abd98a216fbb77542d5c9ac326a683bb"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(6).csv",
+          "sha256": "87c5d0c9fa2cd3303086d8d1e0f83941e21d7525ae33a30d336f1ec67727d4e9"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/大学信息2021new.xlsx",
+          "sha256": "d818cb1ad3889fce546b37eea1ef9c9e2cc08b5b19317f0d42da29713d57629c"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研调剂数据-3.08.xlsx",
+          "sha256": "0318a005e1c31c90febfd4b86bda4908b512b35275154d44176cba8aed7e7d9a"
+        }
+      ],
+      "outputRefs": [
+        "learning/resources/p12-v4-evidence-12.json"
+      ],
+      "exercise": {
+        "prompt": "根据本步单元31—31和保存证据，说明一次变换的输入、输出和一项无法验证的结论。",
+        "hint": "先查看代码中的列选择/过滤/拟合，再核对输出身份和本项目局限。",
+        "checklist": [
+          "准确引用原单元31—31",
+          "指出实际字段或变量与一项真实输出",
+          "把未重跑、资料缺失和统计缺陷分别说明"
+        ],
+        "provenance": "第四阶段教学补充，自评，不代表原文件试题"
+      },
+      "outputTitles": {
+        "learning/resources/p12-v4-evidence-12.json": "原单元31—31的执行证据边界"
+      }
+    },
+    {
+      "id": "source-033-038",
+      "title": "绘制关键词云图 · 单元33—38",
+      "status": "ready",
+      "kind": "analysis",
+      "knowledgeIds": [
+        "Pandas",
+        "NumPy",
+        "Pyecharts",
+        "Jieba",
+        "StyleCloud"
+      ],
+      "explanation": [
+        "本步按原Notebook顺序阅读单元33—38。原保存输出尚未重跑；安装、联网采集、写原文件和模型加载均不会在网页运行。",
+        "本步展示原变量赋值、查看或配置；变量实际内容以保存输出与本次数据证据为准，不从代码存在推断执行成功。",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：### 绘制关键词云图"
+      ],
+      "teachingCode": "# 原代码仅供阅读，不由网页执行。\n# 本次可运行适配实现见末尾数据实验步骤。",
+      "limitations": [
+        "文件名“国家分数线”不能证明每行是全国统一线，字段是院校专业层级；747→774显示连接扩行风险；总分“-”等转值规则要单独解释；历史信息非现行报考依据。",
+        "原代码与保存输出保持原身份；新改编计算另列。"
+      ],
+      "codeRefs": [
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/历年考研分数线数据可视化.ipynb",
+          "notebookSha256": "c9831348a3ef1a14841eb4795a3c3fbee5ec366b73fda5fbdaaa6dc58d1e552e",
+          "cell": 33,
+          "code": "def get_cut_words(content_series):\n    # 读入停用词表\n    stop_words = [' ','是','的'] \n\n#     with open(r\"\\中文停用词库.txt\", 'r') as f:\n#         lines = f.readlines()\n#         for line in lines:\n#             stop_words.append(line.strip())\n\n    # 添加关键词\n    my_words = ['']      \n    for i in my_words:\n        jieba.add_word(i) \n\n    # 自定义停用词\n    my_stop_words = ['查看','详细','详见','详情','与化','03','02','01','正文','多个','相关']    \n    stop_words.extend(my_stop_words)               \n\n    # 分词\n    word_num = jieba.lcut(content_series.str.cat(sep='。'), cut_all=False)\n\n    # 条件筛选\n    word_num_selected = [i for i in word_num if i not in stop_words and len(i)>=2]\n    \n    return word_num_selected",
+          "codeSha256": "249922aa6168ccb8aa29a1331be34a718b0f96d1e62b785940bf0f6de73a44aa"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/历年考研分数线数据可视化.ipynb",
+          "notebookSha256": "c9831348a3ef1a14841eb4795a3c3fbee5ec366b73fda5fbdaaa6dc58d1e552e",
+          "cell": 34,
+          "code": "text1 = get_cut_words(content_series=df_all.专业名称)\n",
+          "codeSha256": "d1f7a3d0808d7af341cff3fee7d502ea9eee4522f0dfa42670ae2e69f2d088da"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/历年考研分数线数据可视化.ipynb",
+          "notebookSha256": "c9831348a3ef1a14841eb4795a3c3fbee5ec366b73fda5fbdaaa6dc58d1e552e",
+          "cell": 36,
+          "code": "import numpy as np\nimport stylecloud\nfrom IPython.display import Image \n\nstylecloud.gen_stylecloud(\n    text=' '.join(text1),\n    collocations=False,\n    font_path=r'./SimHei.ttf',\n    icon_name='fas fa-book',\n    size=768,\n    output_name='./词云图1.png'\n)\n\nImage(filename='./词云图1.png')",
+          "codeSha256": "d1e7eeaca4f43a46d5ceedc198babf921990e15e940e87d7c9a360cb2eb85712"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/历年考研分数线数据可视化.ipynb",
+          "notebookSha256": "c9831348a3ef1a14841eb4795a3c3fbee5ec366b73fda5fbdaaa6dc58d1e552e",
+          "cell": 37,
+          "code": "text2 = get_cut_words(content_series=df_all.学校名称)\ntext2[:4]",
+          "codeSha256": "ad699be02a32a2ace699a9e35d5913f473e653f2e0742ee0dcb176fb621f3766"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/历年考研分数线数据可视化.ipynb",
+          "notebookSha256": "c9831348a3ef1a14841eb4795a3c3fbee5ec366b73fda5fbdaaa6dc58d1e552e",
+          "cell": 38,
+          "code": "stylecloud.gen_stylecloud(\n    text=' '.join(text2),\n    collocations=False,\n    font_path=r'./SimHei.ttf',\n    icon_name='fas fa-graduation-cap',\n    size=768,\n    output_name='词云图2.png'\n)\n\nImage(filename='词云图2.png')",
+          "codeSha256": "356ae92cb94d5e25530e4e711d24c17ebaf9618794fb02f0ebaa4b7194fc8285"
+        }
+      ],
+      "inputRefs": [
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/历年考研分数线数据可视化.ipynb",
+          "sha256": "c9831348a3ef1a14841eb4795a3c3fbee5ec366b73fda5fbdaaa6dc58d1e552e"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/历年考研分数线数据可视化.py",
+          "sha256": "bebb16f3fdf7b72aa7c3558d1481ce1dae8911bc60178b26589e7ad113dd1417"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(1).csv",
+          "sha256": "50c7796c19a865a3678ae923daf5eed10aaa6b321ce7b494278ad241b7b917d6"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(2).csv",
+          "sha256": "6bcddbf2cc251ea04020314c77f80866d6973eed098f2fb1da8bc01b8b2b6557"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(3).csv",
+          "sha256": "7543dd1beb75aea06f6ef7a3a1cedcce2cb624282d25b0a637c183ccd70b3b8d"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(4).csv",
+          "sha256": "30139bc9966041cfb5aa43f1fe1361a290c9c913d8823699bacca82228997e89"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(5).csv",
+          "sha256": "22bcf3325c35670271d2007faab97296abd98a216fbb77542d5c9ac326a683bb"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(6).csv",
+          "sha256": "87c5d0c9fa2cd3303086d8d1e0f83941e21d7525ae33a30d336f1ec67727d4e9"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/大学信息2021new.xlsx",
+          "sha256": "d818cb1ad3889fce546b37eea1ef9c9e2cc08b5b19317f0d42da29713d57629c"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研调剂数据-3.08.xlsx",
+          "sha256": "0318a005e1c31c90febfd4b86bda4908b512b35275154d44176cba8aed7e7d9a"
+        }
+      ],
+      "outputRefs": [
+        "learning/resources/p12-v4-source-13.json",
+        "learning/resources/p12-v4-source-13-images.json"
+      ],
+      "exercise": {
+        "prompt": "根据本步单元33—38和保存证据，说明一次变换的输入、输出和一项无法验证的结论。",
+        "hint": "先查看代码中的列选择/过滤/拟合，再核对输出身份和本项目局限。",
+        "checklist": [
+          "准确引用原单元33—38",
+          "指出实际字段或变量与一项真实输出",
+          "把未重跑、资料缺失和统计缺陷分别说明"
+        ],
+        "provenance": "第四阶段教学补充，自评，不代表原文件试题"
+      },
+      "outputTitles": {
+        "learning/resources/p12-v4-source-13.json": "原单元33—38保存输出",
+        "learning/resources/p12-v4-source-13-images.json": "原单元33—38保存输出 · 原保存图"
+      }
+    },
+    {
+      "id": "source-040-043",
+      "title": "读取2021年考研调剂信息 · 单元40—43",
+      "status": "ready",
+      "kind": "analysis",
+      "knowledgeIds": [
+        "Pandas",
+        "NumPy",
+        "Pyecharts",
+        "Jieba",
+        "StyleCloud"
+      ],
+      "explanation": [
+        "本步按原Notebook顺序阅读单元40—43。原保存输出尚未重跑；安装、联网采集、写原文件和模型加载均不会在网页运行。",
+        "read_excel读取指定工作表，不把不同sheet合并成独立样本。",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：### 读取2021年考研调剂信息"
+      ],
+      "teachingCode": "# 原代码仅供阅读，不由网页执行。\n# 本次可运行适配实现见末尾数据实验步骤。",
+      "limitations": [
+        "文件名“国家分数线”不能证明每行是全国统一线，字段是院校专业层级；747→774显示连接扩行风险；总分“-”等转值规则要单独解释；历史信息非现行报考依据。",
+        "原代码与保存输出保持原身份；新改编计算另列。"
+      ],
+      "codeRefs": [
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/历年考研分数线数据可视化.ipynb",
+          "notebookSha256": "c9831348a3ef1a14841eb4795a3c3fbee5ec366b73fda5fbdaaa6dc58d1e552e",
+          "cell": 40,
+          "code": "import pandas as pd",
+          "codeSha256": "8c0859a9b1186849097c8caac42ee23a30f03c1f6ec858d897ac838e28b45b52"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/历年考研分数线数据可视化.ipynb",
+          "notebookSha256": "c9831348a3ef1a14841eb4795a3c3fbee5ec366b73fda5fbdaaa6dc58d1e552e",
+          "cell": 41,
+          "code": "df_info = pd.read_excel(r'./大学信息2021new.xlsx')\ndf_info.head()",
+          "codeSha256": "e28a9aa2e03425df13e8b7ef52824455b507d3d0d317de1eae1d354f62d31f70"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/历年考研分数线数据可视化.ipynb",
+          "notebookSha256": "c9831348a3ef1a14841eb4795a3c3fbee5ec366b73fda5fbdaaa6dc58d1e552e",
+          "cell": 43,
+          "code": "df_info.info()",
+          "codeSha256": "8f41ec7858c77e883a9b61074ebdfa02f268b27fca221a37ef9e829af65ab237"
+        }
+      ],
+      "inputRefs": [
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/历年考研分数线数据可视化.ipynb",
+          "sha256": "c9831348a3ef1a14841eb4795a3c3fbee5ec366b73fda5fbdaaa6dc58d1e552e"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/历年考研分数线数据可视化.py",
+          "sha256": "bebb16f3fdf7b72aa7c3558d1481ce1dae8911bc60178b26589e7ad113dd1417"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(1).csv",
+          "sha256": "50c7796c19a865a3678ae923daf5eed10aaa6b321ce7b494278ad241b7b917d6"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(2).csv",
+          "sha256": "6bcddbf2cc251ea04020314c77f80866d6973eed098f2fb1da8bc01b8b2b6557"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(3).csv",
+          "sha256": "7543dd1beb75aea06f6ef7a3a1cedcce2cb624282d25b0a637c183ccd70b3b8d"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(4).csv",
+          "sha256": "30139bc9966041cfb5aa43f1fe1361a290c9c913d8823699bacca82228997e89"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(5).csv",
+          "sha256": "22bcf3325c35670271d2007faab97296abd98a216fbb77542d5c9ac326a683bb"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(6).csv",
+          "sha256": "87c5d0c9fa2cd3303086d8d1e0f83941e21d7525ae33a30d336f1ec67727d4e9"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/大学信息2021new.xlsx",
+          "sha256": "d818cb1ad3889fce546b37eea1ef9c9e2cc08b5b19317f0d42da29713d57629c"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研调剂数据-3.08.xlsx",
+          "sha256": "0318a005e1c31c90febfd4b86bda4908b512b35275154d44176cba8aed7e7d9a"
+        }
+      ],
+      "outputRefs": [
+        "learning/resources/p12-v4-source-14.json"
+      ],
+      "exercise": {
+        "prompt": "根据本步单元40—43和保存证据，说明一次变换的输入、输出和一项无法验证的结论。",
+        "hint": "先查看代码中的列选择/过滤/拟合，再核对输出身份和本项目局限。",
+        "checklist": [
+          "准确引用原单元40—43",
+          "指出实际字段或变量与一项真实输出",
+          "把未重跑、资料缺失和统计缺陷分别说明"
+        ],
+        "provenance": "第四阶段教学补充，自评，不代表原文件试题"
+      },
+      "outputTitles": {
+        "learning/resources/p12-v4-source-14.json": "原单元40—43保存输出"
+      }
+    },
+    {
+      "id": "source-045-046",
+      "title": "转换学校属性类别 · 单元45—46",
+      "status": "ready",
+      "kind": "analysis",
+      "knowledgeIds": [
+        "Pandas",
+        "NumPy",
+        "Pyecharts",
+        "Jieba",
+        "StyleCloud"
+      ],
+      "explanation": [
+        "本步按原Notebook顺序阅读单元45—46。原保存输出尚未重跑；安装、联网采集、写原文件和模型加载均不会在网页运行。",
+        "本步展示原变量赋值、查看或配置；变量实际内容以保存输出与本次数据证据为准，不从代码存在推断执行成功。",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：### 转换学校属性类别"
+      ],
+      "teachingCode": "# 原代码仅供阅读，不由网页执行。\n# 本次可运行适配实现见末尾数据实验步骤。",
+      "limitations": [
+        "文件名“国家分数线”不能证明每行是全国统一线，字段是院校专业层级；747→774显示连接扩行风险；总分“-”等转值规则要单独解释；历史信息非现行报考依据。",
+        "原代码与保存输出保持原身份；新改编计算另列。"
+      ],
+      "codeRefs": [
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/历年考研分数线数据可视化.ipynb",
+          "notebookSha256": "c9831348a3ef1a14841eb4795a3c3fbee5ec366b73fda5fbdaaa6dc58d1e552e",
+          "cell": 45,
+          "code": "def transform_attr(x):\n    #转换学校属性\n    if '211' in x and '985' not in x:\n        return 211 \n    elif '985' in x:\n        return '985'\n    else:\n        return '双非'\n    \ndef transform_type(x):\n    #转换学校类型\n    if '理工类' in x or '理工类院校' in x or '理工科' in x or '理工、教学研究型大学' in x or '理工类\\n[4]' in x or '理工\\n[6]' in x:\n        return '理工'\n    elif '综合类' in x or '综合性大学\\n[3]' in x or '综合类（应用型大学）' in x or '综合、研究教学型大学' in x or '综合类大学' in x or '综合师范类' in x:\n        return '综合'\n    elif '师范类院校' in x or '师范类' in x or '师范类（综合类）' in x or '师范（综合）' in x or '地方师范院校' in x:\n        return '师范'\n    elif '农林类' in x or '农业类' in x: \n        return '农林'\n    elif '医药类' in x:\n        return '医药'\n    elif '民族类' in x:\n        return '民族'\n    elif '未知' in x or '国有企业' in x or '科技型企业' in x or '公立大学' in x:\n        return '其他'\n    elif '重点' in x or '省' in x or '2' in x or '' in x:\n        return '其他'\n    else:\n        return x \n    \n# 转换数据\ndf_info['school_level'] = df_info.school_attr.astype(str).apply(lambda x:transform_attr(x))\ndf_info['school_types'] = df_info.school_type.astype(str).apply(lambda x: transform_type(x))\n# 筛选字段\ndf_info= df_info[['school','province','school_level','school_types']]\n\n# 处理省份数据\ndf_info.loc[(df_info.school=='北京工商大学')&(df_info.province=='未知'), 'province']= '北京' \ndf_info.loc[(df_info.school=='哈尔滨工程大学')&(df_info.province=='未知'), 'province']= '哈尔滨' \ndf_info.loc[(df_info.school=='江苏大学')&(df_info.province=='未知'), 'province']= '江苏' \ndf_info.loc[(df_info.school=='青岛大学')&(df_info.province=='未知'), 'province']= '山东' \ndf_info.loc[(df_info.school=='北京石油化工学院')&(df_info.province=='未知'), 'province']= '北京' \ndf_info.loc[(df_info.school=='齐鲁工业大学')&(df_info.province=='未知'), 'province']= '山东'\ndf_info.loc[(df_info.school=='江苏科技大学')&(df_info.province=='未知'), 'province']= '江苏'\ndf_info.loc[(df_info.school=='浙江农林大学')&(df_info.province=='未知'), 'province']= '浙江'\ndf_info.loc[(df_info.school=='燕山大学')&(df_info.province=='未知'), 'province']= '河北'\ndf_info.loc[(df_info.school=='福州大学')&(df_info.province=='未知'), 'province']= '福建'\ndf_info.loc[(df_info.school=='内蒙古科技大学')&(df_info.province=='未知'), 'province']= '内蒙古'",
+          "codeSha256": "b4923df3de09a7d5312e8907be92d5f40b9471cafce121727263dad5d5cf4211"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/历年考研分数线数据可视化.ipynb",
+          "notebookSha256": "c9831348a3ef1a14841eb4795a3c3fbee5ec366b73fda5fbdaaa6dc58d1e552e",
+          "cell": 46,
+          "code": "df_info.head()",
+          "codeSha256": "4affec4a3d7c18df548dc9890b75f0f0bf714553db6f156224cd30db8cd37fb1"
+        }
+      ],
+      "inputRefs": [
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/历年考研分数线数据可视化.ipynb",
+          "sha256": "c9831348a3ef1a14841eb4795a3c3fbee5ec366b73fda5fbdaaa6dc58d1e552e"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/历年考研分数线数据可视化.py",
+          "sha256": "bebb16f3fdf7b72aa7c3558d1481ce1dae8911bc60178b26589e7ad113dd1417"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(1).csv",
+          "sha256": "50c7796c19a865a3678ae923daf5eed10aaa6b321ce7b494278ad241b7b917d6"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(2).csv",
+          "sha256": "6bcddbf2cc251ea04020314c77f80866d6973eed098f2fb1da8bc01b8b2b6557"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(3).csv",
+          "sha256": "7543dd1beb75aea06f6ef7a3a1cedcce2cb624282d25b0a637c183ccd70b3b8d"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(4).csv",
+          "sha256": "30139bc9966041cfb5aa43f1fe1361a290c9c913d8823699bacca82228997e89"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(5).csv",
+          "sha256": "22bcf3325c35670271d2007faab97296abd98a216fbb77542d5c9ac326a683bb"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(6).csv",
+          "sha256": "87c5d0c9fa2cd3303086d8d1e0f83941e21d7525ae33a30d336f1ec67727d4e9"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/大学信息2021new.xlsx",
+          "sha256": "d818cb1ad3889fce546b37eea1ef9c9e2cc08b5b19317f0d42da29713d57629c"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研调剂数据-3.08.xlsx",
+          "sha256": "0318a005e1c31c90febfd4b86bda4908b512b35275154d44176cba8aed7e7d9a"
+        }
+      ],
+      "outputRefs": [
+        "learning/resources/p12-v4-source-15.json"
+      ],
+      "exercise": {
+        "prompt": "根据本步单元45—46和保存证据，说明一次变换的输入、输出和一项无法验证的结论。",
+        "hint": "先查看代码中的列选择/过滤/拟合，再核对输出身份和本项目局限。",
+        "checklist": [
+          "准确引用原单元45—46",
+          "指出实际字段或变量与一项真实输出",
+          "把未重跑、资料缺失和统计缺陷分别说明"
+        ],
+        "provenance": "第四阶段教学补充，自评，不代表原文件试题"
+      },
+      "outputTitles": {
+        "learning/resources/p12-v4-source-15.json": "原单元45—46保存输出"
+      }
+    },
+    {
+      "id": "source-048-052",
+      "title": "删除重复值 · 单元48—52",
+      "status": "ready",
+      "kind": "analysis",
+      "knowledgeIds": [
+        "Pandas",
+        "NumPy",
+        "Pyecharts",
+        "Jieba",
+        "StyleCloud"
+      ],
+      "explanation": [
+        "本步按原Notebook顺序阅读单元48—52。原保存输出尚未重跑；安装、联网采集、写原文件和模型加载均不会在网页运行。",
+        "read_excel读取指定工作表，不把不同sheet合并成独立样本。",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：### 删除重复值"
+      ],
+      "teachingCode": "# 原代码仅供阅读，不由网页执行。\n# 本次可运行适配实现见末尾数据实验步骤。",
+      "limitations": [
+        "文件名“国家分数线”不能证明每行是全国统一线，字段是院校专业层级；747→774显示连接扩行风险；总分“-”等转值规则要单独解释；历史信息非现行报考依据。",
+        "原代码与保存输出保持原身份；新改编计算另列。"
+      ],
+      "codeRefs": [
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/历年考研分数线数据可视化.ipynb",
+          "notebookSha256": "c9831348a3ef1a14841eb4795a3c3fbee5ec366b73fda5fbdaaa6dc58d1e552e",
+          "cell": 48,
+          "code": "df_info = df_info.drop_duplicates()#删除重\ndf_info.info()",
+          "codeSha256": "b417c7853d6fbddd5c742081c848b1aad2656a4c78ca280567eeca3d54b02d45"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/历年考研分数线数据可视化.ipynb",
+          "notebookSha256": "c9831348a3ef1a14841eb4795a3c3fbee5ec366b73fda5fbdaaa6dc58d1e552e",
+          "cell": 49,
+          "code": "df_info.shape",
+          "codeSha256": "2d9aa97f843737b61a03d68c3579f47bb4e64d25a50d2b898ba3294165ff12a0"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/历年考研分数线数据可视化.ipynb",
+          "notebookSha256": "c9831348a3ef1a14841eb4795a3c3fbee5ec366b73fda5fbdaaa6dc58d1e552e",
+          "cell": 50,
+          "code": "df = pd.read_excel(r'./考研调剂数据-3.08.xlsx')\ndf.shape",
+          "codeSha256": "0e078489eb393cbe932789700033503c0eb422b4eb7e1c3734f6df0ea5d0f125"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/历年考研分数线数据可视化.ipynb",
+          "notebookSha256": "c9831348a3ef1a14841eb4795a3c3fbee5ec366b73fda5fbdaaa6dc58d1e552e",
+          "cell": 51,
+          "code": "df_2021 = df[df['time'].str.contains('2021')].copy()\ndf_2021.shape",
+          "codeSha256": "36e1442ef358fa99562260dd751b4ba5280add20cb4282b613ffee227405dbaf"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/历年考研分数线数据可视化.ipynb",
+          "notebookSha256": "c9831348a3ef1a14841eb4795a3c3fbee5ec366b73fda5fbdaaa6dc58d1e552e",
+          "cell": 52,
+          "code": "pd.merge(df_2021,df_info,how = 'left',on = 'school').shape",
+          "codeSha256": "13f82c1469f6a6a282cfa8af56e97fb1e4e3fb64daedfa57f68b514771fef77d"
+        }
+      ],
+      "inputRefs": [
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/历年考研分数线数据可视化.ipynb",
+          "sha256": "c9831348a3ef1a14841eb4795a3c3fbee5ec366b73fda5fbdaaa6dc58d1e552e"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/历年考研分数线数据可视化.py",
+          "sha256": "bebb16f3fdf7b72aa7c3558d1481ce1dae8911bc60178b26589e7ad113dd1417"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(1).csv",
+          "sha256": "50c7796c19a865a3678ae923daf5eed10aaa6b321ce7b494278ad241b7b917d6"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(2).csv",
+          "sha256": "6bcddbf2cc251ea04020314c77f80866d6973eed098f2fb1da8bc01b8b2b6557"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(3).csv",
+          "sha256": "7543dd1beb75aea06f6ef7a3a1cedcce2cb624282d25b0a637c183ccd70b3b8d"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(4).csv",
+          "sha256": "30139bc9966041cfb5aa43f1fe1361a290c9c913d8823699bacca82228997e89"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(5).csv",
+          "sha256": "22bcf3325c35670271d2007faab97296abd98a216fbb77542d5c9ac326a683bb"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(6).csv",
+          "sha256": "87c5d0c9fa2cd3303086d8d1e0f83941e21d7525ae33a30d336f1ec67727d4e9"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/大学信息2021new.xlsx",
+          "sha256": "d818cb1ad3889fce546b37eea1ef9c9e2cc08b5b19317f0d42da29713d57629c"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研调剂数据-3.08.xlsx",
+          "sha256": "0318a005e1c31c90febfd4b86bda4908b512b35275154d44176cba8aed7e7d9a"
+        }
+      ],
+      "outputRefs": [
+        "learning/resources/p12-v4-source-16.json"
+      ],
+      "exercise": {
+        "prompt": "根据本步单元48—52和保存证据，说明一次变换的输入、输出和一项无法验证的结论。",
+        "hint": "先查看代码中的列选择/过滤/拟合，再核对输出身份和本项目局限。",
+        "checklist": [
+          "准确引用原单元48—52",
+          "指出实际字段或变量与一项真实输出",
+          "把未重跑、资料缺失和统计缺陷分别说明"
+        ],
+        "provenance": "第四阶段教学补充，自评，不代表原文件试题"
+      },
+      "outputTitles": {
+        "learning/resources/p12-v4-source-16.json": "原单元48—52保存输出"
+      }
+    },
+    {
+      "id": "source-054-055",
+      "title": "拼接调剂信息 · 单元54—55",
+      "status": "ready",
+      "kind": "analysis",
+      "knowledgeIds": [
+        "Pandas",
+        "NumPy",
+        "Pyecharts",
+        "Jieba",
+        "StyleCloud"
+      ],
+      "explanation": [
+        "本步按原Notebook顺序阅读单元54—55。原保存输出尚未重跑；安装、联网采集、写原文件和模型加载均不会在网页运行。",
+        "本步展示原变量赋值、查看或配置；变量实际内容以保存输出与本次数据证据为准，不从代码存在推断执行成功。",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：### 拼接调剂信息"
+      ],
+      "teachingCode": "# 原代码仅供阅读，不由网页执行。\n# 本次可运行适配实现见末尾数据实验步骤。",
+      "limitations": [
+        "文件名“国家分数线”不能证明每行是全国统一线，字段是院校专业层级；747→774显示连接扩行风险；总分“-”等转值规则要单独解释；历史信息非现行报考依据。",
+        "原代码与保存输出保持原身份；新改编计算另列。"
+      ],
+      "codeRefs": [
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/历年考研分数线数据可视化.ipynb",
+          "notebookSha256": "c9831348a3ef1a14841eb4795a3c3fbee5ec366b73fda5fbdaaa6dc58d1e552e",
+          "cell": 54,
+          "code": "df_all = pd.merge(df_2021,df_info,how = 'left',on = 'school')\ndf_all.head(5)",
+          "codeSha256": "710afdaa2938359a291d90a79200a47d00308dd4daa9efece40d9c8402abe136"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/历年考研分数线数据可视化.ipynb",
+          "notebookSha256": "c9831348a3ef1a14841eb4795a3c3fbee5ec366b73fda5fbdaaa6dc58d1e552e",
+          "cell": 55,
+          "code": "df_all = df_all[['school','name','time','province','school_level','school_types']]\ndf_all.head()",
+          "codeSha256": "29545200ad88ff96ee247ddd64cd8f1b5f30729a79ea8d31e3bfd9c96481d218"
+        }
+      ],
+      "inputRefs": [
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/历年考研分数线数据可视化.ipynb",
+          "sha256": "c9831348a3ef1a14841eb4795a3c3fbee5ec366b73fda5fbdaaa6dc58d1e552e"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/历年考研分数线数据可视化.py",
+          "sha256": "bebb16f3fdf7b72aa7c3558d1481ce1dae8911bc60178b26589e7ad113dd1417"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(1).csv",
+          "sha256": "50c7796c19a865a3678ae923daf5eed10aaa6b321ce7b494278ad241b7b917d6"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(2).csv",
+          "sha256": "6bcddbf2cc251ea04020314c77f80866d6973eed098f2fb1da8bc01b8b2b6557"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(3).csv",
+          "sha256": "7543dd1beb75aea06f6ef7a3a1cedcce2cb624282d25b0a637c183ccd70b3b8d"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(4).csv",
+          "sha256": "30139bc9966041cfb5aa43f1fe1361a290c9c913d8823699bacca82228997e89"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(5).csv",
+          "sha256": "22bcf3325c35670271d2007faab97296abd98a216fbb77542d5c9ac326a683bb"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(6).csv",
+          "sha256": "87c5d0c9fa2cd3303086d8d1e0f83941e21d7525ae33a30d336f1ec67727d4e9"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/大学信息2021new.xlsx",
+          "sha256": "d818cb1ad3889fce546b37eea1ef9c9e2cc08b5b19317f0d42da29713d57629c"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研调剂数据-3.08.xlsx",
+          "sha256": "0318a005e1c31c90febfd4b86bda4908b512b35275154d44176cba8aed7e7d9a"
+        }
+      ],
+      "outputRefs": [
+        "learning/resources/p12-v4-source-17.json"
+      ],
+      "exercise": {
+        "prompt": "根据本步单元54—55和保存证据，说明一次变换的输入、输出和一项无法验证的结论。",
+        "hint": "先查看代码中的列选择/过滤/拟合，再核对输出身份和本项目局限。",
+        "checklist": [
+          "准确引用原单元54—55",
+          "指出实际字段或变量与一项真实输出",
+          "把未重跑、资料缺失和统计缺陷分别说明"
+        ],
+        "provenance": "第四阶段教学补充，自评，不代表原文件试题"
+      },
+      "outputTitles": {
+        "learning/resources/p12-v4-source-17.json": "原单元54—55保存输出"
+      }
+    },
+    {
+      "id": "source-057-057",
+      "title": "查看缺失数据 · 单元57—57",
+      "status": "ready",
+      "kind": "analysis",
+      "knowledgeIds": [
+        "Pandas",
+        "NumPy",
+        "Pyecharts",
+        "Jieba",
+        "StyleCloud"
+      ],
+      "explanation": [
+        "本步按原Notebook顺序阅读单元57—57。原保存输出尚未重跑；安装、联网采集、写原文件和模型加载均不会在网页运行。",
+        "本步展示原变量赋值、查看或配置；变量实际内容以保存输出与本次数据证据为准，不从代码存在推断执行成功。",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：### 查看缺失数据"
+      ],
+      "teachingCode": "# 原代码仅供阅读，不由网页执行。\n# 本次可运行适配实现见末尾数据实验步骤。",
+      "limitations": [
+        "文件名“国家分数线”不能证明每行是全国统一线，字段是院校专业层级；747→774显示连接扩行风险；总分“-”等转值规则要单独解释；历史信息非现行报考依据。",
+        "原代码与保存输出保持原身份；新改编计算另列。"
+      ],
+      "codeRefs": [
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/历年考研分数线数据可视化.ipynb",
+          "notebookSha256": "c9831348a3ef1a14841eb4795a3c3fbee5ec366b73fda5fbdaaa6dc58d1e552e",
+          "cell": 57,
+          "code": "df_all.isnull().sum()",
+          "codeSha256": "609cb157f6a531c70b3abb46a8ebb81142c9e3ca5f8a8f682c3f0f377f4923fd"
+        }
+      ],
+      "inputRefs": [
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/历年考研分数线数据可视化.ipynb",
+          "sha256": "c9831348a3ef1a14841eb4795a3c3fbee5ec366b73fda5fbdaaa6dc58d1e552e"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/历年考研分数线数据可视化.py",
+          "sha256": "bebb16f3fdf7b72aa7c3558d1481ce1dae8911bc60178b26589e7ad113dd1417"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(1).csv",
+          "sha256": "50c7796c19a865a3678ae923daf5eed10aaa6b321ce7b494278ad241b7b917d6"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(2).csv",
+          "sha256": "6bcddbf2cc251ea04020314c77f80866d6973eed098f2fb1da8bc01b8b2b6557"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(3).csv",
+          "sha256": "7543dd1beb75aea06f6ef7a3a1cedcce2cb624282d25b0a637c183ccd70b3b8d"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(4).csv",
+          "sha256": "30139bc9966041cfb5aa43f1fe1361a290c9c913d8823699bacca82228997e89"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(5).csv",
+          "sha256": "22bcf3325c35670271d2007faab97296abd98a216fbb77542d5c9ac326a683bb"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(6).csv",
+          "sha256": "87c5d0c9fa2cd3303086d8d1e0f83941e21d7525ae33a30d336f1ec67727d4e9"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/大学信息2021new.xlsx",
+          "sha256": "d818cb1ad3889fce546b37eea1ef9c9e2cc08b5b19317f0d42da29713d57629c"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研调剂数据-3.08.xlsx",
+          "sha256": "0318a005e1c31c90febfd4b86bda4908b512b35275154d44176cba8aed7e7d9a"
+        }
+      ],
+      "outputRefs": [
+        "learning/resources/p12-v4-source-18.json"
+      ],
+      "exercise": {
+        "prompt": "根据本步单元57—57和保存证据，说明一次变换的输入、输出和一项无法验证的结论。",
+        "hint": "先查看代码中的列选择/过滤/拟合，再核对输出身份和本项目局限。",
+        "checklist": [
+          "准确引用原单元57—57",
+          "指出实际字段或变量与一项真实输出",
+          "把未重跑、资料缺失和统计缺陷分别说明"
+        ],
+        "provenance": "第四阶段教学补充，自评，不代表原文件试题"
+      },
+      "outputTitles": {
+        "learning/resources/p12-v4-source-18.json": "原单元57—57保存输出"
+      }
+    },
+    {
+      "id": "source-059-059",
+      "title": "发布时间对应的发布频次 · 单元59—59",
+      "status": "ready",
+      "kind": "analysis",
+      "knowledgeIds": [
+        "Pandas",
+        "NumPy",
+        "Pyecharts",
+        "Jieba",
+        "StyleCloud"
+      ],
+      "explanation": [
+        "本步按原Notebook顺序阅读单元59—59。原保存输出尚未重跑；安装、联网采集、写原文件和模型加载均不会在网页运行。",
+        "本步展示原变量赋值、查看或配置；变量实际内容以保存输出与本次数据证据为准，不从代码存在推断执行成功。",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：### 发布时间对应的发布频次"
+      ],
+      "teachingCode": "# 原代码仅供阅读，不由网页执行。\n# 本次可运行适配实现见末尾数据实验步骤。",
+      "limitations": [
+        "文件名“国家分数线”不能证明每行是全国统一线，字段是院校专业层级；747→774显示连接扩行风险；总分“-”等转值规则要单独解释；历史信息非现行报考依据。",
+        "原代码与保存输出保持原身份；新改编计算另列。"
+      ],
+      "codeRefs": [
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/历年考研分数线数据可视化.ipynb",
+          "notebookSha256": "c9831348a3ef1a14841eb4795a3c3fbee5ec366b73fda5fbdaaa6dc58d1e552e",
+          "cell": 59,
+          "code": "pub_time = df_all.time.value_counts().sort_index()\npub_time",
+          "codeSha256": "6de6a2e5aa56658d188c8d826d191f46eb6c9e8a6a623b236344f29b06a473ab"
+        }
+      ],
+      "inputRefs": [
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/历年考研分数线数据可视化.ipynb",
+          "sha256": "c9831348a3ef1a14841eb4795a3c3fbee5ec366b73fda5fbdaaa6dc58d1e552e"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/历年考研分数线数据可视化.py",
+          "sha256": "bebb16f3fdf7b72aa7c3558d1481ce1dae8911bc60178b26589e7ad113dd1417"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(1).csv",
+          "sha256": "50c7796c19a865a3678ae923daf5eed10aaa6b321ce7b494278ad241b7b917d6"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(2).csv",
+          "sha256": "6bcddbf2cc251ea04020314c77f80866d6973eed098f2fb1da8bc01b8b2b6557"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(3).csv",
+          "sha256": "7543dd1beb75aea06f6ef7a3a1cedcce2cb624282d25b0a637c183ccd70b3b8d"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(4).csv",
+          "sha256": "30139bc9966041cfb5aa43f1fe1361a290c9c913d8823699bacca82228997e89"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(5).csv",
+          "sha256": "22bcf3325c35670271d2007faab97296abd98a216fbb77542d5c9ac326a683bb"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(6).csv",
+          "sha256": "87c5d0c9fa2cd3303086d8d1e0f83941e21d7525ae33a30d336f1ec67727d4e9"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/大学信息2021new.xlsx",
+          "sha256": "d818cb1ad3889fce546b37eea1ef9c9e2cc08b5b19317f0d42da29713d57629c"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研调剂数据-3.08.xlsx",
+          "sha256": "0318a005e1c31c90febfd4b86bda4908b512b35275154d44176cba8aed7e7d9a"
+        }
+      ],
+      "outputRefs": [
+        "learning/resources/p12-v4-source-19.json"
+      ],
+      "exercise": {
+        "prompt": "根据本步单元59—59和保存证据，说明一次变换的输入、输出和一项无法验证的结论。",
+        "hint": "先查看代码中的列选择/过滤/拟合，再核对输出身份和本项目局限。",
+        "checklist": [
+          "准确引用原单元59—59",
+          "指出实际字段或变量与一项真实输出",
+          "把未重跑、资料缺失和统计缺陷分别说明"
+        ],
+        "provenance": "第四阶段教学补充，自评，不代表原文件试题"
+      },
+      "outputTitles": {
+        "learning/resources/p12-v4-source-19.json": "原单元59—59保存输出"
+      }
+    },
+    {
+      "id": "source-061-061",
+      "title": "调剂信息发布时间走势图 · 单元61—61",
+      "status": "ready",
+      "kind": "analysis",
+      "knowledgeIds": [
+        "Pandas",
+        "NumPy",
+        "Pyecharts",
+        "Jieba",
+        "StyleCloud"
+      ],
+      "explanation": [
+        "本步按原Notebook顺序阅读单元61—61。原保存输出尚未重跑；安装、联网采集、写原文件和模型加载均不会在网页运行。",
+        "本步展示原变量赋值、查看或配置；变量实际内容以保存输出与本次数据证据为准，不从代码存在推断执行成功。",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：### 调剂信息发布时间走势图"
+      ],
+      "teachingCode": "# 原代码仅供阅读，不由网页执行。\n# 本次可运行适配实现见末尾数据实验步骤。",
+      "limitations": [
+        "文件名“国家分数线”不能证明每行是全国统一线，字段是院校专业层级；747→774显示连接扩行风险；总分“-”等转值规则要单独解释；历史信息非现行报考依据。",
+        "原代码与保存输出保持原身份；新改编计算另列。"
+      ],
+      "codeRefs": [
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/历年考研分数线数据可视化.ipynb",
+          "notebookSha256": "c9831348a3ef1a14841eb4795a3c3fbee5ec366b73fda5fbdaaa6dc58d1e552e",
+          "cell": 61,
+          "code": "line1 = Line(init_opts=opts.InitOpts(width='1000px',height='600px'))\nline1.add_xaxis(pub_time.index.tolist())\nline1.add_yaxis('发布热度',pub_time.values.tolist(),\n               areastyle_opts=opts.AreaStyleOpts(opacity=0.5),\n               label_opts=opts.LabelOpts(is_show=True))\nline1.set_global_opts(title_opts=opts.TitleOpts(title='调剂信息发布时间走势图'),\n                     toolbox_opts=opts.ToolboxOpts(),\n                      xaxis_opts=opts.AxisOpts(name='时间',\n                                               type_='category',                                           \n                                               axislabel_opts=opts.LabelOpts(rotate=45),\n                                               ),\n                     visualmap_opts=opts.VisualMapOpts())\nline1.render_notebook()",
+          "codeSha256": "cf09d4a68f8882ce9ceb19731ca8282a66af0914326d57dc37a0864b755d0048"
+        }
+      ],
+      "inputRefs": [
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/历年考研分数线数据可视化.ipynb",
+          "sha256": "c9831348a3ef1a14841eb4795a3c3fbee5ec366b73fda5fbdaaa6dc58d1e552e"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/历年考研分数线数据可视化.py",
+          "sha256": "bebb16f3fdf7b72aa7c3558d1481ce1dae8911bc60178b26589e7ad113dd1417"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(1).csv",
+          "sha256": "50c7796c19a865a3678ae923daf5eed10aaa6b321ce7b494278ad241b7b917d6"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(2).csv",
+          "sha256": "6bcddbf2cc251ea04020314c77f80866d6973eed098f2fb1da8bc01b8b2b6557"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(3).csv",
+          "sha256": "7543dd1beb75aea06f6ef7a3a1cedcce2cb624282d25b0a637c183ccd70b3b8d"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(4).csv",
+          "sha256": "30139bc9966041cfb5aa43f1fe1361a290c9c913d8823699bacca82228997e89"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(5).csv",
+          "sha256": "22bcf3325c35670271d2007faab97296abd98a216fbb77542d5c9ac326a683bb"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(6).csv",
+          "sha256": "87c5d0c9fa2cd3303086d8d1e0f83941e21d7525ae33a30d336f1ec67727d4e9"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/大学信息2021new.xlsx",
+          "sha256": "d818cb1ad3889fce546b37eea1ef9c9e2cc08b5b19317f0d42da29713d57629c"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研调剂数据-3.08.xlsx",
+          "sha256": "0318a005e1c31c90febfd4b86bda4908b512b35275154d44176cba8aed7e7d9a"
+        }
+      ],
+      "outputRefs": [
+        "learning/resources/p12-v4-evidence-20.json"
+      ],
+      "exercise": {
+        "prompt": "根据本步单元61—61和保存证据，说明一次变换的输入、输出和一项无法验证的结论。",
+        "hint": "先查看代码中的列选择/过滤/拟合，再核对输出身份和本项目局限。",
+        "checklist": [
+          "准确引用原单元61—61",
+          "指出实际字段或变量与一项真实输出",
+          "把未重跑、资料缺失和统计缺陷分别说明"
+        ],
+        "provenance": "第四阶段教学补充，自评，不代表原文件试题"
+      },
+      "outputTitles": {
+        "learning/resources/p12-v4-evidence-20.json": "原单元61—61的执行证据边界"
+      }
+    },
+    {
+      "id": "source-064-065",
+      "title": "绘制学校类别饼图 · 单元64—65",
+      "status": "ready",
+      "kind": "analysis",
+      "knowledgeIds": [
+        "Pandas",
+        "NumPy",
+        "Pyecharts",
+        "Jieba",
+        "StyleCloud"
+      ],
+      "explanation": [
+        "本步按原Notebook顺序阅读单元64—65。原保存输出尚未重跑；安装、联网采集、写原文件和模型加载均不会在网页运行。",
+        "本步展示原变量赋值、查看或配置；变量实际内容以保存输出与本次数据证据为准，不从代码存在推断执行成功。",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：#### 由于考研成绩是在2月底发布的，所以调剂发布学校也随着增多",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：### 绘制学校类别饼图"
+      ],
+      "teachingCode": "# 原代码仅供阅读，不由网页执行。\n# 本次可运行适配实现见末尾数据实验步骤。",
+      "limitations": [
+        "文件名“国家分数线”不能证明每行是全国统一线，字段是院校专业层级；747→774显示连接扩行风险；总分“-”等转值规则要单独解释；历史信息非现行报考依据。",
+        "原代码与保存输出保持原身份；新改编计算另列。"
+      ],
+      "codeRefs": [
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/历年考研分数线数据可视化.ipynb",
+          "notebookSha256": "c9831348a3ef1a14841eb4795a3c3fbee5ec366b73fda5fbdaaa6dc58d1e552e",
+          "cell": 64,
+          "code": "level_perc = df_all.school_level.value_counts() / df_all.school_level.value_counts().sum()\ndisplay(level_perc)\nlevel_perc = np.round(level_perc * 100 ,2)\nlevel_perc",
+          "codeSha256": "22cc45b67c74dee96b7a259371b494fc8dcad0343f983f1717736d82cffd532b"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/历年考研分数线数据可视化.ipynb",
+          "notebookSha256": "c9831348a3ef1a14841eb4795a3c3fbee5ec366b73fda5fbdaaa6dc58d1e552e",
+          "cell": 65,
+          "code": "pie1 = Pie(init_opts=opts.InitOpts(theme='light',width='800px',height='600px'))\npie1.add(\"\", \n         [*zip(level_perc.index, level_perc.values)], \n         radius=[\"40%\",\"75%\"]) \npie1.set_global_opts(title_opts=opts.TitleOpts(title='学校层次分布',pos_left='center', pos_top='center',title_textstyle_opts=opts.TextStyleOpts(\n                                                   color='#00BFFF', font_size=30, font_weight='bold'),\n                                               ), \n                     legend_opts=opts.LegendOpts(orient=\"vertical\", pos_top=\"15%\", pos_left=\"2%\"),\n#                      toolbox_opts=opts.ToolboxOpts()\n                    )   \npie1.set_series_opts(label_opts=opts.LabelOpts(formatter=\"{c}%\")) \npie1.render_notebook()",
+          "codeSha256": "de00ec5b6d6bc4df2e1455eb662fb10d9e79d43f7a7f0c1130fa73a2bddd0bc7"
+        }
+      ],
+      "inputRefs": [
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/历年考研分数线数据可视化.ipynb",
+          "sha256": "c9831348a3ef1a14841eb4795a3c3fbee5ec366b73fda5fbdaaa6dc58d1e552e"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/历年考研分数线数据可视化.py",
+          "sha256": "bebb16f3fdf7b72aa7c3558d1481ce1dae8911bc60178b26589e7ad113dd1417"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(1).csv",
+          "sha256": "50c7796c19a865a3678ae923daf5eed10aaa6b321ce7b494278ad241b7b917d6"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(2).csv",
+          "sha256": "6bcddbf2cc251ea04020314c77f80866d6973eed098f2fb1da8bc01b8b2b6557"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(3).csv",
+          "sha256": "7543dd1beb75aea06f6ef7a3a1cedcce2cb624282d25b0a637c183ccd70b3b8d"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(4).csv",
+          "sha256": "30139bc9966041cfb5aa43f1fe1361a290c9c913d8823699bacca82228997e89"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(5).csv",
+          "sha256": "22bcf3325c35670271d2007faab97296abd98a216fbb77542d5c9ac326a683bb"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(6).csv",
+          "sha256": "87c5d0c9fa2cd3303086d8d1e0f83941e21d7525ae33a30d336f1ec67727d4e9"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/大学信息2021new.xlsx",
+          "sha256": "d818cb1ad3889fce546b37eea1ef9c9e2cc08b5b19317f0d42da29713d57629c"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研调剂数据-3.08.xlsx",
+          "sha256": "0318a005e1c31c90febfd4b86bda4908b512b35275154d44176cba8aed7e7d9a"
+        }
+      ],
+      "outputRefs": [
+        "learning/resources/p12-v4-source-21.json"
+      ],
+      "exercise": {
+        "prompt": "根据本步单元64—65和保存证据，说明一次变换的输入、输出和一项无法验证的结论。",
+        "hint": "先查看代码中的列选择/过滤/拟合，再核对输出身份和本项目局限。",
+        "checklist": [
+          "准确引用原单元64—65",
+          "指出实际字段或变量与一项真实输出",
+          "把未重跑、资料缺失和统计缺陷分别说明"
+        ],
+        "provenance": "第四阶段教学补充，自评，不代表原文件试题"
+      },
+      "outputTitles": {
+        "learning/resources/p12-v4-source-21.json": "原单元64—65保存输出"
+      }
+    },
+    {
+      "id": "source-067-071",
+      "title": "调剂信息发布数省份分布 · 单元67—71",
+      "status": "ready",
+      "kind": "analysis",
+      "knowledgeIds": [
+        "Pandas",
+        "NumPy",
+        "Pyecharts",
+        "Jieba",
+        "StyleCloud"
+      ],
+      "explanation": [
+        "本步按原Notebook顺序阅读单元67—71。原保存输出尚未重跑；安装、联网采集、写原文件和模型加载均不会在网页运行。",
+        "本步展示原变量赋值、查看或配置；变量实际内容以保存输出与本次数据证据为准，不从代码存在推断执行成功。",
+        "原讲解摘录（保留原作者表达，事实或推断需结合局限审辨）：### 调剂信息发布数省份分布"
+      ],
+      "teachingCode": "# 原代码仅供阅读，不由网页执行。\n# 本次可运行适配实现见末尾数据实验步骤。",
+      "limitations": [
+        "文件名“国家分数线”不能证明每行是全国统一线，字段是院校专业层级；747→774显示连接扩行风险；总分“-”等转值规则要单独解释；历史信息非现行报考依据。",
+        "原代码与保存输出保持原身份；新改编计算另列。"
+      ],
+      "codeRefs": [
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/历年考研分数线数据可视化.ipynb",
+          "notebookSha256": "c9831348a3ef1a14841eb4795a3c3fbee5ec366b73fda5fbdaaa6dc58d1e552e",
+          "cell": 67,
+          "code": "province_num = df_all.province.value_counts().sort_values()\nprovince_num",
+          "codeSha256": "a98bc616cf830443ee346efef9991db5677d0d360e4ddb65eea19f2d155f11b9"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/历年考研分数线数据可视化.ipynb",
+          "notebookSha256": "c9831348a3ef1a14841eb4795a3c3fbee5ec366b73fda5fbdaaa6dc58d1e552e",
+          "cell": 68,
+          "code": "# 条形图\nbar1 = Bar(init_opts=opts.InitOpts(theme='light',width='1000px', height='1000px')) \nbar1.add_xaxis(province_num.index.tolist())\nbar1.add_yaxis(\"省份\", province_num.values.tolist()) \nbar1.set_global_opts(title_opts=opts.TitleOpts(title=\"调剂信息发布数省份分布\"), \n#                      toolbox_opts=opts.ToolboxOpts(),\n                     visualmap_opts=opts.VisualMapOpts(max_=79)) \nbar1.set_series_opts(label_opts=opts.LabelOpts(position='right'))  # 标签\nbar1.reversal_axis() \nbar1.render_notebook()",
+          "codeSha256": "ee4f8f63d97b9fc1e817004c87287f47ce7a9db76619cfebc7df488d78bf6d03"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/历年考研分数线数据可视化.ipynb",
+          "notebookSha256": "c9831348a3ef1a14841eb4795a3c3fbee5ec366b73fda5fbdaaa6dc58d1e552e",
+          "cell": 69,
+          "code": "c = Map(init_opts=opts.InitOpts(width='800px', height='750px'))\nc.add('',[list(z) for z in zip(province_num.index.tolist(), province_num.values.tolist())], 'china')\nc.set_global_opts(title_opts=opts.TitleOpts('调剂信息省份分布地图'), \n#                   toolbox_opts=opts.ToolboxOpts(is_show=True), \n                  visualmap_opts=opts.VisualMapOpts(max_=79)) \nc.render_notebook()",
+          "codeSha256": "1bf961e61e89c55dc6181f0ac42aae365d5a4caa31aa01477e59548432343f95"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/历年考研分数线数据可视化.ipynb",
+          "notebookSha256": "c9831348a3ef1a14841eb4795a3c3fbee5ec366b73fda5fbdaaa6dc58d1e552e",
+          "cell": 70,
+          "code": "print([list(z) for z in zip(province_num.index.tolist(), province_num.values.tolist())])",
+          "codeSha256": "e0b9a81d583db728e0228718d2155e156e2ec115857cae27e0edea8f5ce4dd17"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/历年考研分数线数据可视化.ipynb",
+          "notebookSha256": "c9831348a3ef1a14841eb4795a3c3fbee5ec366b73fda5fbdaaa6dc58d1e552e",
+          "cell": 71,
+          "code": "# 改为省份全称才能正常显示\nc = Map(init_opts=opts.InitOpts(width='800px', height='750px'))\nc.add('',[['贵州省', 2],\n ['宁夏回族自治区', 2],\n ['甘肃省', 4],\n ['海南省', 4],\n ['内蒙古自治区', 4],\n ['新疆维吾尔自治区', 5],\n ['云南省', 6],\n ['天津市', 11],\n ['广西壮族自治区', 14],\n ['安徽省', 18],\n ['河南省', 20],\n ['福建省', 20],\n ['四川省', 21],\n ['重庆市', 22],\n ['湖南省', 23],\n ['山西省', 24],\n ['江西省', 28],\n ['河北省', 30],\n ['吉林省', 32],\n ['浙江省', 33],\n ['辽宁省', 39],\n ['陕西省', 40],\n ['上海市', 41],\n ['江苏省', 45],\n ['黑龙江省', 46],\n ['湖北省', 48],\n ['广东省', 49],\n ['山东省', 64],\n ['北京市', 79]], 'china')\nc.set_global_opts(title_opts=opts.TitleOpts('调剂信息省份分布地图'), \n#                   toolbox_opts=opts.ToolboxOpts(is_show=True), \n                  visualmap_opts=opts.VisualMapOpts(max_=79)) \nc.render_notebook()",
+          "codeSha256": "474fcaf92858c7594c4b731a69c495dea75eb72723394f7502cf7d8a508f82e8"
+        }
+      ],
+      "inputRefs": [
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/历年考研分数线数据可视化.ipynb",
+          "sha256": "c9831348a3ef1a14841eb4795a3c3fbee5ec366b73fda5fbdaaa6dc58d1e552e"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/历年考研分数线数据可视化.py",
+          "sha256": "bebb16f3fdf7b72aa7c3558d1481ce1dae8911bc60178b26589e7ad113dd1417"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(1).csv",
+          "sha256": "50c7796c19a865a3678ae923daf5eed10aaa6b321ce7b494278ad241b7b917d6"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(2).csv",
+          "sha256": "6bcddbf2cc251ea04020314c77f80866d6973eed098f2fb1da8bc01b8b2b6557"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(3).csv",
+          "sha256": "7543dd1beb75aea06f6ef7a3a1cedcce2cb624282d25b0a637c183ccd70b3b8d"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(4).csv",
+          "sha256": "30139bc9966041cfb5aa43f1fe1361a290c9c913d8823699bacca82228997e89"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(5).csv",
+          "sha256": "22bcf3325c35670271d2007faab97296abd98a216fbb77542d5c9ac326a683bb"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(6).csv",
+          "sha256": "87c5d0c9fa2cd3303086d8d1e0f83941e21d7525ae33a30d336f1ec67727d4e9"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/大学信息2021new.xlsx",
+          "sha256": "d818cb1ad3889fce546b37eea1ef9c9e2cc08b5b19317f0d42da29713d57629c"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研调剂数据-3.08.xlsx",
+          "sha256": "0318a005e1c31c90febfd4b86bda4908b512b35275154d44176cba8aed7e7d9a"
+        }
+      ],
+      "outputRefs": [
+        "learning/resources/p12-v4-source-22.json"
+      ],
+      "exercise": {
+        "prompt": "根据本步单元67—71和保存证据，说明一次变换的输入、输出和一项无法验证的结论。",
+        "hint": "先查看代码中的列选择/过滤/拟合，再核对输出身份和本项目局限。",
+        "checklist": [
+          "准确引用原单元67—71",
+          "指出实际字段或变量与一项真实输出",
+          "把未重跑、资料缺失和统计缺陷分别说明"
+        ],
+        "provenance": "第四阶段教学补充，自评，不代表原文件试题"
+      },
+      "outputTitles": {
+        "learning/resources/p12-v4-source-22.json": "原单元67—71保存输出"
+      }
+    },
+    {
+      "id": "phase4-data",
+      "title": "真实数据实验 · 历年考研分数线数据可视化",
+      "status": "ready",
+      "kind": "analysis",
+      "knowledgeIds": [
+        "Pandas",
+        "NumPy",
+        "Pyecharts",
+        "Jieba",
+        "StyleCloud"
+      ],
+      "explanation": [
+        "整理历年院校专业分数线及2021年调剂信息并展示。",
+        "本步运行工程适配器，展示真实输入的质量、专属聚合与图表。清洗、分组和模型边界见代码与每份结果说明。教学代码为本项目经过审查的实现；不会执行原Notebook。",
+        "已实际准备5份结果；请切换结果逐项核对问题、单位、范围、分母、过滤条件和来源身份。"
+      ],
+      "teachingCode": "def p12(p):\n d=pd.concat([p.load(f'考研历年国家分数线({i}).csv') for i in range(1,7)],ignore_index=True);c=d.drop_duplicates().dropna(how='any');assert len(d)==100864 and len(c)==100563\n p.counts(c,'年份');v=c[c['年份']==2020].copy();v['总分数值']=pd.to_numeric(v['总分'],errors='coerce');p.hist(v,'总分数值');g=v.groupby('专业名称').agg(记录数=('总分数值','size'),有效总分数=('总分数值','count'),有效总分均值=('总分数值','mean')).sort_values('记录数',ascending=False).head(20).reset_index()\n p.chart('major','2020专业样本记录数',g,note='院校专业层级；总分“-”保留缺失，不按原代码补成0；不能称全国统一分数线',unit='记录')\n info=p.load('大学信息2021new.xlsx');adj=p.load('考研调剂数据-3.08.xlsx');p.add('join-audit','学校关联前的重复键检查',['表','行数','school非唯一行数'],[['学校信息',len(info),int(info.school.duplicated(keep=False).sum())],['调剂信息',len(adj),int(adj.school.duplicated(keep=False).sum())]],'关联键非唯一可能扩行；不把多对多合并后行数当新增学校。',unit='行');p.checks.update(raw=len(d),clean=len(c))\n",
+      "limitations": [
+        "文件名“国家分数线”不能证明每行是全国统一线，字段是院校专业层级；747→774显示连接扩行风险；总分“-”等转值规则要单独解释；历史信息非现行报考依据。",
+        "新版本不覆盖原保存成绩；所有新训练均在构建清单中单列。"
+      ],
+      "codeRefs": [
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/历年考研分数线数据可视化.ipynb",
+          "notebookSha256": "c9831348a3ef1a14841eb4795a3c3fbee5ec366b73fda5fbdaaa6dc58d1e552e",
+          "cell": 6,
+          "code": "df1 = pd.read_csv(r'./考研历年国家分数线(1).csv')\ndf2 = pd.read_csv(r'./考研历年国家分数线(2).csv')\ndf3 = pd.read_csv(r'./考研历年国家分数线(3).csv')\ndf4 = pd.read_csv(r'./考研历年国家分数线(4).csv')\ndf5 = pd.read_csv(r'./考研历年国家分数线(5).csv')\ndf6 = pd.read_csv(r'./考研历年国家分数线(6).csv')\ndf_all= pd.concat([df1,df2,df3,df4,df5,df6])\ndf_all.info()",
+          "codeSha256": "195272ab0c02ba57c495e042a00f0bf56a935b8ab5bd955e4552e11bff9f5945"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/历年考研分数线数据可视化.ipynb",
+          "notebookSha256": "c9831348a3ef1a14841eb4795a3c3fbee5ec366b73fda5fbdaaa6dc58d1e552e",
+          "cell": 22,
+          "code": "data_2020.groupby('学校名称')['专业名称'].count().sort_values(ascending = False)[:100]",
+          "codeSha256": "99ad341d2ea656094151ec2d70e1967be3e4c4a3d3889d13fe33333744cda722"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/历年考研分数线数据可视化.ipynb",
+          "notebookSha256": "c9831348a3ef1a14841eb4795a3c3fbee5ec366b73fda5fbdaaa6dc58d1e552e",
+          "cell": 26,
+          "code": "data_1 = data_2020.groupby('专业名称')['总分'].agg([np.mean, np.max,np.min])\ndata_1['mean'] = data_1['mean'].astype('int')\ndata_1 = data_1.sort_values(by=['mean'],ascending=False)[:50]\ndata_1",
+          "codeSha256": "530ff86bfe1f504de649450ec6b95b068955001f7db20f943694306a62ffe454"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/历年考研分数线数据可视化.ipynb",
+          "notebookSha256": "c9831348a3ef1a14841eb4795a3c3fbee5ec366b73fda5fbdaaa6dc58d1e552e",
+          "cell": 41,
+          "code": "df_info = pd.read_excel(r'./大学信息2021new.xlsx')\ndf_info.head()",
+          "codeSha256": "e28a9aa2e03425df13e8b7ef52824455b507d3d0d317de1eae1d354f62d31f70"
+        }
+      ],
+      "inputRefs": [
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/历年考研分数线数据可视化.ipynb",
+          "sha256": "c9831348a3ef1a14841eb4795a3c3fbee5ec366b73fda5fbdaaa6dc58d1e552e"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/历年考研分数线数据可视化.py",
+          "sha256": "bebb16f3fdf7b72aa7c3558d1481ce1dae8911bc60178b26589e7ad113dd1417"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(1).csv",
+          "sha256": "50c7796c19a865a3678ae923daf5eed10aaa6b321ce7b494278ad241b7b917d6"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(2).csv",
+          "sha256": "6bcddbf2cc251ea04020314c77f80866d6973eed098f2fb1da8bc01b8b2b6557"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(3).csv",
+          "sha256": "7543dd1beb75aea06f6ef7a3a1cedcce2cb624282d25b0a637c183ccd70b3b8d"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(4).csv",
+          "sha256": "30139bc9966041cfb5aa43f1fe1361a290c9c913d8823699bacca82228997e89"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(5).csv",
+          "sha256": "22bcf3325c35670271d2007faab97296abd98a216fbb77542d5c9ac326a683bb"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研历年国家分数线(6).csv",
+          "sha256": "87c5d0c9fa2cd3303086d8d1e0f83941e21d7525ae33a30d336f1ec67727d4e9"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/大学信息2021new.xlsx",
+          "sha256": "d818cb1ad3889fce546b37eea1ef9c9e2cc08b5b19317f0d42da29713d57629c"
+        },
+        {
+          "path": "教育-考研分数线数据可视化-约500行（pyecharts可视化、词云图）/考研调剂数据-3.08.xlsx",
+          "sha256": "0318a005e1c31c90febfd4b86bda4908b512b35275154d44176cba8aed7e7d9a"
+        }
+      ],
+      "outputRefs": [
+        "learning/resources/p12-v4-__-bff0b9e4.json",
+        "learning/resources/p12-v4-____-0bb76771.json",
+        "learning/resources/p12-v4-major.json",
+        "learning/resources/p12-v4-join-audit.json",
+        "learning/resources/p12-v4-input-quality.json"
+      ],
+      "exercise": {
+        "prompt": "检查school连接键是否唯一；比较专业记录数和去重专业数。",
+        "hint": "从同源表取数，写出算式；先核对全量/抽样和原保存/新计算身份。",
+        "checklist": [
+          "列出真实字段、筛选规则和当前样本范围",
+          "用表格复核至少一个频数、比率或模型指标",
+          "指出一个不能由本图推出的结论"
+        ],
+        "provenance": "已批准路线练习与第四阶段核对清单，采用自评"
+      },
+      "outputTitles": {
+        "learning/resources/p12-v4-__-bff0b9e4.json": "年份：记录数与全量比例",
+        "learning/resources/p12-v4-____-0bb76771.json": "总分数值的全量等宽分布",
+        "learning/resources/p12-v4-major.json": "2020专业样本记录数",
+        "learning/resources/p12-v4-join-audit.json": "学校关联前的重复键检查",
+        "learning/resources/p12-v4-input-quality.json": "本项目各输入表的读取与质量核对"
+      }
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "schemaVersion": "1.0",
+  "id": "p17-counts",
+  "title": "按原簇ID对齐的保存数量",
+  "kind": "table",
+  "columns": [
+    "原簇ID",
+    "数量",
+    "按保存数量确定性计算比例"
+  ],
+  "rows": [
+    [
+      0,
+      73,
+      0.0821147357
+    ],
+    [
+      1,
+      154,
+      0.1732283465
+    ],
+    [
+      2,
+      313,
+      0.3520809899
+    ],
+    [
+      3,
+      349,
+      0.392575928
+    ]
+  ],
+  "text": null,
+  "context": {
+    "identity": "original-saved",
+    "buildId": "phase3-v1",
+    "createdAt": "2026-11-16T11:41:51.304867+00:00",
+    "inputs": [
+      {
+        "path": "电商-广告投放效果分析-约250行（KMeans聚类、数据分析）/聚类分析广告效果.ipynb",
+        "sha256": "ad88e032b91ce55504f1a19bc8e1ddb2a8829edc69cab6b2569cdbde39edd6b7"
+      }
+    ],
+    "note": "0→73，1→154，2→313，3→349。比例由原保存数量除889，不是本次聚类。",
+    "unit": "渠道 / 比例",
+    "sample": null,
+    "modelRerun": false
+  }
+}

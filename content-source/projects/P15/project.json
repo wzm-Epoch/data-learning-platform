@@ -1,0 +1,1001 @@
+{
+  "id": "P15",
+  "title": "春节档票房分析",
+  "originalNames": [
+    "文化娱乐-春节档票房分析（Pyecharts大屏可视化）",
+    "春节档票房分析.ipynb"
+  ],
+  "categoryId": "culture",
+  "summary": "整理春节档影片、票房大盘和城市等级排片情况。",
+  "difficulty": "初级",
+  "skillTags": [
+    "Pandas",
+    "NumPy",
+    "Pyecharts",
+    "Timeline",
+    "单位转换",
+    "分组聚合",
+    "多表合并"
+  ],
+  "methods": "无预测模型",
+  "sourceRefs": [
+    {
+      "path": "文化娱乐-春节档票房分析（Pyecharts大屏可视化）/.ipynb_checkpoints/春节档票房分析-checkpoint.ipynb",
+      "sha256": "0e34c777bbbb63ca6d0a849712d9b1f7967f78f4ef809e84e99a8506efd75d10",
+      "role": "code"
+    },
+    {
+      "path": "文化娱乐-春节档票房分析（Pyecharts大屏可视化）/chart_config.json",
+      "sha256": "2a6b6e8acbad2144b8473aed636578545985a0d9c7021189f7982a9ded139471",
+      "role": "other"
+    },
+    {
+      "path": "文化娱乐-春节档票房分析（Pyecharts大屏可视化）/test.html",
+      "sha256": "91a1299a2983a000ce9c236f7d867accaa8a64f6f0d915c22f5356da1b97c0a0",
+      "role": "output"
+    },
+    {
+      "path": "文化娱乐-春节档票房分析（Pyecharts大屏可视化）/大屏展示1.html",
+      "sha256": "12aafe10b99c8289689225c36d7173168fde1e39d7e2e764d0ed1fcc0b63a1f5",
+      "role": "output"
+    },
+    {
+      "path": "文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-排片地域分布（场次）-top10影片.xlsx",
+      "sha256": "a4835d2355a994a5cf7f40e22053d2793d5c14761cb8474a603fe4a7e9c57389",
+      "role": "data"
+    },
+    {
+      "path": "文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-排片场次分布（场次）-top10影片.xlsx",
+      "sha256": "5ad74390a3465cb233c56dde7f957b5addfcc7f292aff9a6c684d3a709e5a0e2",
+      "role": "data"
+    },
+    {
+      "path": "文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-排片统计（场次）-top10影片.xlsx",
+      "sha256": "3f80027f7f6593e7af02dbd064bcef4cafc50d12532148afddc5667866594904",
+      "role": "data"
+    },
+    {
+      "path": "文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-排片院线分布（场次）-top10影片.xlsx",
+      "sha256": "541b0d5675f7320f725d2314d3324e5d968cfc1eba3bd6c078daaaa835489a6e",
+      "role": "data"
+    },
+    {
+      "path": "文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-电影票房三十日时段详情.xls",
+      "sha256": "eb438315805b41886b99d019c4bc29514306995cdf3faed2cbb431e2574e1554",
+      "role": "data"
+    },
+    {
+      "path": "文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-电影票房三十日时段趋势数据.xlsx",
+      "sha256": "b3423598041e90de61fff3d154ba2e09aeea6a291999549ccf6ec600a6fc6a79",
+      "role": "data"
+    },
+    {
+      "path": "文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-电影票房表现概览.xlsx",
+      "sha256": "cde413d249940fa7751aea7a934b75ddb3af35cee5afd396ecee32614bda45b4",
+      "role": "data"
+    },
+    {
+      "path": "文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-票房详情.xlsx",
+      "sha256": "ca6a7a8a97c92aca9b4d1095a48355a5a17771d100fe99ce177faba39e0d76ac",
+      "role": "data"
+    },
+    {
+      "path": "文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档票房分析.html",
+      "sha256": "f38c99c2f42bf0a457fefb26daaae47cbe7d55cf024debf984e8045b6eab55d2",
+      "role": "output"
+    },
+    {
+      "path": "文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档票房分析.ipynb",
+      "sha256": "0e34c777bbbb63ca6d0a849712d9b1f7967f78f4ef809e84e99a8506efd75d10",
+      "role": "code"
+    }
+  ],
+  "limitations": [
+    "旧xls表头含“/万”但原值量级与转换标签不一致，必须核验；标题称七日但底表部分影片有30天；院线/时段等附表未全部用于主流程；城市字段是城市等级而非具体城市。"
+  ],
+  "lessons": [
+    {
+      "id": "main-analysis",
+      "title": "春节档票房分析",
+      "source": "文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档票房分析.ipynb"
+    }
+  ],
+  "readiness": {
+    "source": "audited",
+    "course": "not-adapted",
+    "rerun": "not-run",
+    "offline": "not-packaged"
+  },
+  "detailRef": "projects/P15/project.json",
+  "searchKeywords": [
+    "界定春节档范围",
+    "核对八个工作簿",
+    "审查金额字段单位",
+    "清理混入的元数据行",
+    "比较影片和日趋势",
+    "按城市等级关联排片",
+    "控制轮播",
+    "写可核实结论"
+  ],
+  "prerequisites": "分组、时间范围、单位与多表连接。",
+  "recommendedProjectIds": [
+    "P13"
+  ],
+  "recommendationNote": "P13。",
+  "schemaVersion": "1.0",
+  "contentVersion": "0.2.0",
+  "learningObjectives": [
+    "整理春节档影片、票房大盘和城市等级排片情况。 重点掌握Pandas、NumPy、Pyecharts、Timeline、单位转换、分组聚合、多表合并。",
+    "界定春节档范围",
+    "核对八个工作簿",
+    "审查金额字段单位",
+    "清理混入的元数据行",
+    "比较影片和日趋势",
+    "按城市等级关联排片",
+    "控制轮播",
+    "写可核实结论"
+  ],
+  "exercise": {
+    "text": "列出被剔除伪行；核对同片7日与30日指标区别。",
+    "provenance": "已批准路线中新设计的巩固练习；非原文件已有试题",
+    "answerStatus": "参考答案尚未制作"
+  },
+  "datasets": [
+    {
+      "id": "D01-1",
+      "path": "文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-排片地域分布（场次）-top10影片.xlsx",
+      "sha256": "a4835d2355a994a5cf7f40e22053d2793d5c14761cb8474a603fe4a7e9c57389",
+      "sheet": "Sheet1",
+      "rows": 420,
+      "columns": 4,
+      "encoding": null,
+      "grain": "待核实；读取行数不等于独立业务实体数",
+      "origin": null,
+      "license": null,
+      "fields": [
+        {
+          "name": "日期",
+          "dtype": "str",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P15 / 文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-排片地域分布（场次）-top10影片.xlsx / Sheet1"
+        },
+        {
+          "name": "城市",
+          "dtype": "str",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P15 / 文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-排片地域分布（场次）-top10影片.xlsx / Sheet1"
+        },
+        {
+          "name": "电影",
+          "dtype": "str",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P15 / 文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-排片地域分布（场次）-top10影片.xlsx / Sheet1"
+        },
+        {
+          "name": "场次",
+          "dtype": "str",
+          "missing": 4,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P15 / 文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-排片地域分布（场次）-top10影片.xlsx / Sheet1"
+        }
+      ],
+      "teachingMappings": []
+    },
+    {
+      "id": "D02-1",
+      "path": "文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-排片场次分布（场次）-top10影片.xlsx",
+      "sha256": "5ad74390a3465cb233c56dde7f957b5addfcc7f292aff9a6c684d3a709e5a0e2",
+      "sheet": "Sheet1",
+      "rows": 70,
+      "columns": 6,
+      "encoding": null,
+      "grain": "待核实；读取行数不等于独立业务实体数",
+      "origin": null,
+      "license": null,
+      "fields": [
+        {
+          "name": "日期",
+          "dtype": "str",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P15 / 文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-排片场次分布（场次）-top10影片.xlsx / Sheet1"
+        },
+        {
+          "name": "电影",
+          "dtype": "str",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P15 / 文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-排片场次分布（场次）-top10影片.xlsx / Sheet1"
+        },
+        {
+          "name": "上午场",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P15 / 文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-排片场次分布（场次）-top10影片.xlsx / Sheet1"
+        },
+        {
+          "name": "下午场",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P15 / 文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-排片场次分布（场次）-top10影片.xlsx / Sheet1"
+        },
+        {
+          "name": "加映场",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P15 / 文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-排片场次分布（场次）-top10影片.xlsx / Sheet1"
+        },
+        {
+          "name": "黄金场",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P15 / 文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-排片场次分布（场次）-top10影片.xlsx / Sheet1"
+        }
+      ],
+      "teachingMappings": []
+    },
+    {
+      "id": "D03-1",
+      "path": "文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-排片统计（场次）-top10影片.xlsx",
+      "sha256": "3f80027f7f6593e7af02dbd064bcef4cafc50d12532148afddc5667866594904",
+      "sheet": "Sheet1",
+      "rows": 70,
+      "columns": 4,
+      "encoding": null,
+      "grain": "待核实；读取行数不等于独立业务实体数",
+      "origin": null,
+      "license": null,
+      "fields": [
+        {
+          "name": "日期",
+          "dtype": "str",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P15 / 文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-排片统计（场次）-top10影片.xlsx / Sheet1"
+        },
+        {
+          "name": "电影",
+          "dtype": "str",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P15 / 文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-排片统计（场次）-top10影片.xlsx / Sheet1"
+        },
+        {
+          "name": "场次",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P15 / 文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-排片统计（场次）-top10影片.xlsx / Sheet1"
+        },
+        {
+          "name": "占比",
+          "dtype": "float64",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P15 / 文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-排片统计（场次）-top10影片.xlsx / Sheet1"
+        }
+      ],
+      "teachingMappings": []
+    },
+    {
+      "id": "D04-1",
+      "path": "文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-排片院线分布（场次）-top10影片.xlsx",
+      "sha256": "541b0d5675f7320f725d2314d3324e5d968cfc1eba3bd6c078daaaa835489a6e",
+      "sheet": "Sheet1",
+      "rows": 455,
+      "columns": 4,
+      "encoding": null,
+      "grain": "待核实；读取行数不等于独立业务实体数",
+      "origin": null,
+      "license": null,
+      "fields": [
+        {
+          "name": "日期",
+          "dtype": "str",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P15 / 文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-排片院线分布（场次）-top10影片.xlsx / Sheet1"
+        },
+        {
+          "name": "院线",
+          "dtype": "str",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P15 / 文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-排片院线分布（场次）-top10影片.xlsx / Sheet1"
+        },
+        {
+          "name": "电影",
+          "dtype": "str",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P15 / 文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-排片院线分布（场次）-top10影片.xlsx / Sheet1"
+        },
+        {
+          "name": "场次",
+          "dtype": "str",
+          "missing": 6,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P15 / 文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-排片院线分布（场次）-top10影片.xlsx / Sheet1"
+        }
+      ],
+      "teachingMappings": []
+    },
+    {
+      "id": "D05-1",
+      "path": "文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-电影票房三十日时段趋势数据.xlsx",
+      "sha256": "b3423598041e90de61fff3d154ba2e09aeea6a291999549ccf6ec600a6fc6a79",
+      "sheet": "Sheet1",
+      "rows": 241,
+      "columns": 16,
+      "encoding": null,
+      "grain": "待核实；读取行数不等于独立业务实体数",
+      "origin": null,
+      "license": null,
+      "fields": [
+        {
+          "name": "电影",
+          "dtype": "str",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P15 / 文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-电影票房三十日时段趋势数据.xlsx / Sheet1"
+        },
+        {
+          "name": "EnMovieID",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P15 / 文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-电影票房三十日时段趋势数据.xlsx / Sheet1"
+        },
+        {
+          "name": "DBOMovieID",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P15 / 文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-电影票房三十日时段趋势数据.xlsx / Sheet1"
+        },
+        {
+          "name": "日期",
+          "dtype": "str",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P15 / 文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-电影票房三十日时段趋势数据.xlsx / Sheet1"
+        },
+        {
+          "name": "其他票房",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P15 / 文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-电影票房三十日时段趋势数据.xlsx / Sheet1"
+        },
+        {
+          "name": "其他场次",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P15 / 文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-电影票房三十日时段趋势数据.xlsx / Sheet1"
+        },
+        {
+          "name": "其他人次",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P15 / 文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-电影票房三十日时段趋势数据.xlsx / Sheet1"
+        },
+        {
+          "name": "票房",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P15 / 文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-电影票房三十日时段趋势数据.xlsx / Sheet1"
+        },
+        {
+          "name": "场次",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P15 / 文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-电影票房三十日时段趋势数据.xlsx / Sheet1"
+        },
+        {
+          "name": "人次",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P15 / 文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-电影票房三十日时段趋势数据.xlsx / Sheet1"
+        },
+        {
+          "name": "票房占比",
+          "dtype": "float64",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P15 / 文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-电影票房三十日时段趋势数据.xlsx / Sheet1"
+        },
+        {
+          "name": "场次占比",
+          "dtype": "float64",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P15 / 文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-电影票房三十日时段趋势数据.xlsx / Sheet1"
+        },
+        {
+          "name": "人次占比",
+          "dtype": "float64",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P15 / 文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-电影票房三十日时段趋势数据.xlsx / Sheet1"
+        },
+        {
+          "name": "平均票价",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P15 / 文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-电影票房三十日时段趋势数据.xlsx / Sheet1"
+        },
+        {
+          "name": "场均人次",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P15 / 文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-电影票房三十日时段趋势数据.xlsx / Sheet1"
+        },
+        {
+          "name": "场均收入",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P15 / 文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-电影票房三十日时段趋势数据.xlsx / Sheet1"
+        }
+      ],
+      "teachingMappings": []
+    },
+    {
+      "id": "D06-1",
+      "path": "文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-电影票房表现概览.xlsx",
+      "sha256": "cde413d249940fa7751aea7a934b75ddb3af35cee5afd396ecee32614bda45b4",
+      "sheet": "Sheet1",
+      "rows": 10,
+      "columns": 31,
+      "encoding": null,
+      "grain": "待核实；读取行数不等于独立业务实体数",
+      "origin": null,
+      "license": null,
+      "fields": [
+        {
+          "name": "EntMovieID",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P15 / 文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-电影票房表现概览.xlsx / Sheet1"
+        },
+        {
+          "name": "DBOMovieID",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P15 / 文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-电影票房表现概览.xlsx / Sheet1"
+        },
+        {
+          "name": "EFMTMovieID",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P15 / 文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-电影票房表现概览.xlsx / Sheet1"
+        },
+        {
+          "name": "电影",
+          "dtype": "str",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P15 / 文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-电影票房表现概览.xlsx / Sheet1"
+        },
+        {
+          "name": "英文电影名",
+          "dtype": "str",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P15 / 文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-电影票房表现概览.xlsx / Sheet1"
+        },
+        {
+          "name": "导演",
+          "dtype": "str",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P15 / 文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-电影票房表现概览.xlsx / Sheet1"
+        },
+        {
+          "name": "主演",
+          "dtype": "str",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P15 / 文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-电影票房表现概览.xlsx / Sheet1"
+        },
+        {
+          "name": "GenreMainID",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P15 / 文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-电影票房表现概览.xlsx / Sheet1"
+        },
+        {
+          "name": "主要类型",
+          "dtype": "str",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P15 / 文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-电影票房表现概览.xlsx / Sheet1"
+        },
+        {
+          "name": "作品类型",
+          "dtype": "str",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P15 / 文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-电影票房表现概览.xlsx / Sheet1"
+        },
+        {
+          "name": "地区",
+          "dtype": "str",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P15 / 文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-电影票房表现概览.xlsx / Sheet1"
+        },
+        {
+          "name": "电影时长",
+          "dtype": "str",
+          "missing": 3,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P15 / 文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-电影票房表现概览.xlsx / Sheet1"
+        },
+        {
+          "name": "电影版本",
+          "dtype": "str",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P15 / 文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-电影票房表现概览.xlsx / Sheet1"
+        },
+        {
+          "name": "点映日期",
+          "dtype": "str",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P15 / 文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-电影票房表现概览.xlsx / Sheet1"
+        },
+        {
+          "name": "最晚结束日期",
+          "dtype": "str",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P15 / 文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-电影票房表现概览.xlsx / Sheet1"
+        },
+        {
+          "name": "最新上映天数",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P15 / 文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-电影票房表现概览.xlsx / Sheet1"
+        },
+        {
+          "name": "正式上映日期",
+          "dtype": "str",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P15 / 文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-电影票房表现概览.xlsx / Sheet1"
+        },
+        {
+          "name": "数据截止日期",
+          "dtype": "str",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P15 / 文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-电影票房表现概览.xlsx / Sheet1"
+        },
+        {
+          "name": "点映天数",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P15 / 文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-电影票房表现概览.xlsx / Sheet1"
+        },
+        {
+          "name": "点映票房",
+          "dtype": "float64",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P15 / 文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-电影票房表现概览.xlsx / Sheet1"
+        },
+        {
+          "name": "累计票房",
+          "dtype": "float64",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P15 / 文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-电影票房表现概览.xlsx / Sheet1"
+        },
+        {
+          "name": "累计场次",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P15 / 文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-电影票房表现概览.xlsx / Sheet1"
+        },
+        {
+          "name": "累计人次",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P15 / 文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-电影票房表现概览.xlsx / Sheet1"
+        },
+        {
+          "name": "第一天观看人次",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P15 / 文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-电影票房表现概览.xlsx / Sheet1"
+        },
+        {
+          "name": "首映票房",
+          "dtype": "float64",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P15 / 文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-电影票房表现概览.xlsx / Sheet1"
+        },
+        {
+          "name": "首周票房",
+          "dtype": "float64",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P15 / 文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-电影票房表现概览.xlsx / Sheet1"
+        },
+        {
+          "name": "首周末票房",
+          "dtype": "float64",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P15 / 文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-电影票房表现概览.xlsx / Sheet1"
+        },
+        {
+          "name": "猫眼想看人数",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P15 / 文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-电影票房表现概览.xlsx / Sheet1"
+        },
+        {
+          "name": "淘票票想看人数",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P15 / 文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-电影票房表现概览.xlsx / Sheet1"
+        },
+        {
+          "name": "猫眼评分",
+          "dtype": "float64",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P15 / 文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-电影票房表现概览.xlsx / Sheet1"
+        },
+        {
+          "name": "豆瓣评分",
+          "dtype": "float64",
+          "missing": 1,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P15 / 文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-电影票房表现概览.xlsx / Sheet1"
+        }
+      ],
+      "teachingMappings": []
+    },
+    {
+      "id": "D07-1",
+      "path": "文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-票房详情.xlsx",
+      "sha256": "ca6a7a8a97c92aca9b4d1095a48355a5a17771d100fe99ce177faba39e0d76ac",
+      "sheet": "Sheet1",
+      "rows": 38,
+      "columns": 11,
+      "encoding": null,
+      "grain": "待核实；读取行数不等于独立业务实体数",
+      "origin": null,
+      "license": null,
+      "fields": [
+        {
+          "name": "日期",
+          "dtype": "str",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P15 / 文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-票房详情.xlsx / Sheet1"
+        },
+        {
+          "name": "票房",
+          "dtype": "float64",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P15 / 文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-票房详情.xlsx / Sheet1"
+        },
+        {
+          "name": "票房环比",
+          "dtype": "float64",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P15 / 文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-票房详情.xlsx / Sheet1"
+        },
+        {
+          "name": "场次",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P15 / 文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-票房详情.xlsx / Sheet1"
+        },
+        {
+          "name": "场次环比",
+          "dtype": "float64",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P15 / 文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-票房详情.xlsx / Sheet1"
+        },
+        {
+          "name": "人次",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P15 / 文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-票房详情.xlsx / Sheet1"
+        },
+        {
+          "name": "人次环比",
+          "dtype": "float64",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P15 / 文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-票房详情.xlsx / Sheet1"
+        },
+        {
+          "name": "场均人次",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P15 / 文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-票房详情.xlsx / Sheet1"
+        },
+        {
+          "name": "平均票价",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P15 / 文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-票房详情.xlsx / Sheet1"
+        },
+        {
+          "name": "当日票房冠军",
+          "dtype": "str",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P15 / 文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-票房详情.xlsx / Sheet1"
+        },
+        {
+          "name": "服务费",
+          "dtype": "float64",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P15 / 文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-票房详情.xlsx / Sheet1"
+        }
+      ],
+      "teachingMappings": []
+    },
+    {
+      "id": "D08-1",
+      "path": "文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-电影票房三十日时段详情.xls",
+      "sha256": "eb438315805b41886b99d019c4bc29514306995cdf3faed2cbb431e2574e1554",
+      "sheet": "Sheet1",
+      "rows": 241,
+      "columns": 15,
+      "encoding": null,
+      "grain": "待核实；读取行数不等于独立业务实体数",
+      "origin": null,
+      "license": null,
+      "fields": [
+        {
+          "name": "电影",
+          "dtype": "str",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P15 / 文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-电影票房三十日时段详情.xls / Sheet1"
+        },
+        {
+          "name": "EnMovieID",
+          "dtype": "str",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P15 / 文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-电影票房三十日时段详情.xls / Sheet1"
+        },
+        {
+          "name": "DBOMovieID",
+          "dtype": "str",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P15 / 文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-电影票房三十日时段详情.xls / Sheet1"
+        },
+        {
+          "name": "日期",
+          "dtype": "str",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P15 / 文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-电影票房三十日时段详情.xls / Sheet1"
+        },
+        {
+          "name": "星期",
+          "dtype": "str",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P15 / 文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-电影票房三十日时段详情.xls / Sheet1"
+        },
+        {
+          "name": "当前票房/万",
+          "dtype": "str",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P15 / 文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-电影票房三十日时段详情.xls / Sheet1"
+        },
+        {
+          "name": "当前场次",
+          "dtype": "str",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P15 / 文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-电影票房三十日时段详情.xls / Sheet1"
+        },
+        {
+          "name": "当前人次/万",
+          "dtype": "str",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P15 / 文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-电影票房三十日时段详情.xls / Sheet1"
+        },
+        {
+          "name": "票房占比",
+          "dtype": "str",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P15 / 文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-电影票房三十日时段详情.xls / Sheet1"
+        },
+        {
+          "name": "黄金场票房/万",
+          "dtype": "str",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P15 / 文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-电影票房三十日时段详情.xls / Sheet1"
+        },
+        {
+          "name": "黄金场场次",
+          "dtype": "str",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P15 / 文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-电影票房三十日时段详情.xls / Sheet1"
+        },
+        {
+          "name": "黄金场人次",
+          "dtype": "str",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P15 / 文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-电影票房三十日时段详情.xls / Sheet1"
+        },
+        {
+          "name": "黄金场票房占比",
+          "dtype": "str",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P15 / 文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-电影票房三十日时段详情.xls / Sheet1"
+        },
+        {
+          "name": "黄金场场次占比",
+          "dtype": "str",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P15 / 文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-电影票房三十日时段详情.xls / Sheet1"
+        },
+        {
+          "name": "黄金场人次占比",
+          "dtype": "str",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P15 / 文化娱乐-春节档票房分析（Pyecharts大屏可视化）/春节档-电影票房三十日时段详情.xls / Sheet1"
+        }
+      ],
+      "teachingMappings": []
+    }
+  ],
+  "scopeNotes": [],
+  "originalWorkflow": "影片概览→时段详情→大盘票房→电影表现→城市等级排片→时间轮播→大屏。",
+  "savedResult": "保存2022春节档大盘和影片趋势、分线城市排片图；没有完整文字分析结论。",
+  "sourceEvidence": [
+    "01_项目资产盘点.md#P15",
+    "03_完整学习路线.md#P15",
+    "附录B_全数据字段与缺失字典.md#P15"
+  ]
+}

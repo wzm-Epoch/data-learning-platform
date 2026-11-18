@@ -1,0 +1,88 @@
+{
+  "schemaVersion": "1.0",
+  "id": "p29-v4-experience",
+  "title": "experience：记录数与全量比例",
+  "kind": "table",
+  "columns": [
+    "experience",
+    "记录数",
+    "全量比例"
+  ],
+  "rows": [
+    [
+      "经验3-5年 ",
+      189,
+      0.43348623853211
+    ],
+    [
+      "经验1-3年 ",
+      117,
+      0.268348623853211
+    ],
+    [
+      "经验不限 ",
+      50,
+      0.114678899082569
+    ],
+    [
+      "经验5-10年 ",
+      50,
+      0.114678899082569
+    ],
+    [
+      "经验应届毕业生 ",
+      17,
+      0.038990825688073
+    ],
+    [
+      "经验1年以下 ",
+      9,
+      0.020642201834862
+    ],
+    [
+      "经验10年以上 ",
+      4,
+      0.009174311926606
+    ]
+  ],
+  "text": null,
+  "context": {
+    "identity": "new-precomputed",
+    "buildId": "phase4-v1",
+    "createdAt": "2026-11-16T12:58:37.389041+00:00",
+    "inputs": [
+      {
+        "path": "职场-数据分析师职位分析-约300行（数据探索分析、matplotlib可视化）/数据分析师岗位分析.ipynb",
+        "sha256": "612486c97729fe72863ed3f52b813320854acf96710711d4c7d1f67f9cd42e1c"
+      },
+      {
+        "path": "职场-数据分析师职位分析-约300行（数据探索分析、matplotlib可视化）/数据分析师岗位分析.py",
+        "sha256": "9dcdd68cdfd7ed8a3edd4d8b8e9af03b23f49f7edf8b9746af20bd1cd0afea01"
+      },
+      {
+        "path": "职场-数据分析师职位分析-约300行（数据探索分析、matplotlib可视化）/lagou.csv",
+        "sha256": "6b1daf9e5c5f2af353fa517917889ec4dd482e1c9623e4c141843ffdfd742fda"
+      }
+    ],
+    "note": "全量436行，最多展示前50类别；缺失单列，0是有效取值",
+    "unit": "记录数",
+    "sample": null,
+    "modelRerun": false
+  },
+  "chart": {
+    "type": "bar",
+    "x": 0,
+    "ys": [
+      1
+    ],
+    "question": "experience：记录数与全量比例",
+    "xLabel": "experience",
+    "yLabel": "记录数",
+    "denominator": "当前输入全部436行；隐藏类别不改变比例分母",
+    "range": "当前输入已说明范围的全量聚合",
+    "filters": "全量436行，最多展示前50类别；缺失单列，0是有效取值",
+    "nullPolicy": "缺失为null，保留0；不连接缺失点",
+    "interpretation": "对照同源表读取差异；关联不能推出因果或样本外结论。",
+    "filterColumn": 0
+  }
+}

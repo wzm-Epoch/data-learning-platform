@@ -1,0 +1,21 @@
+node_modules/
+dist/
+local-config/
+*.log
+.playwright/
+
+# Local environments, credentials and release archives
+.env
+.env.*
+!.env.example
+__pycache__/
+*.py[cod]
+.venv/
+analysis/vendor*/
+delivery/
+
+# Personal browser state and learning-progress backups
+/docs/acceptance/browser-before.json
+/docs/acceptance/offline-lesson-backup.json
+/docs/acceptance/closeout-*/iab-current-*.json
+/docs/acceptance/closeout-*/user-current-*.json

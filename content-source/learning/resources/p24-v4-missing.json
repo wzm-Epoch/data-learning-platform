@@ -1,0 +1,86 @@
+{
+  "schemaVersion": "1.0",
+  "id": "p24-v4-missing",
+  "title": "真实缺失率（分母为总行数）",
+  "kind": "table",
+  "columns": [
+    "字段",
+    "缺失数",
+    "总行数",
+    "缺失比例"
+  ],
+  "rows": [
+    [
+      "revenue",
+      0,
+      29452,
+      0.0
+    ],
+    [
+      "gender",
+      11729,
+      29452,
+      0.398241206030151
+    ],
+    [
+      "age",
+      12736,
+      29452,
+      0.432432432432432
+    ],
+    [
+      "engaged_last_30",
+      11729,
+      29452,
+      0.398241206030151
+    ],
+    [
+      "lifecycle",
+      0,
+      29452,
+      0.0
+    ],
+    [
+      "days_since_last_order",
+      0,
+      29452,
+      0.0
+    ],
+    [
+      "previous_order_amount",
+      0,
+      29452,
+      0.0
+    ],
+    [
+      "3rd_party_stores",
+      0,
+      29452,
+      0.0
+    ]
+  ],
+  "text": null,
+  "context": {
+    "identity": "new-precomputed",
+    "buildId": "phase4-v1",
+    "createdAt": "2026-11-16T12:58:37.389041+00:00",
+    "inputs": [
+      {
+        "path": "电商-预测用户消费金额-约500行（线性回归模型、模型评估优化）/小红书.ipynb",
+        "sha256": "40650aad9a7d0c531e29b850ac54b77f0e60ad578779d9023c0838ec9163c3ec"
+      },
+      {
+        "path": "电商-预测用户消费金额-约500行（线性回归模型、模型评估优化）/小红书.py",
+        "sha256": "4dc9d8c79cb86e56964ec4588092499050c552333390a33e6dd1f2d50dc18cbb"
+      },
+      {
+        "path": "电商-预测用户消费金额-约500行（线性回归模型、模型评估优化）/redNew.csv",
+        "sha256": "e1a086141c06fc04ec3a4584b962a486ea270986255a9afeab463beda6727ece"
+      }
+    ],
+    "note": "原isnull().sum()/count()分母为非空数，与缺失率不同；保留原字段与去空格映射。",
+    "unit": "行 / 比例",
+    "sample": null,
+    "modelRerun": false
+  }
+}

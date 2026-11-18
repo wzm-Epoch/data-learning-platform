@@ -1,0 +1,86 @@
+{
+  "projectId": "P21",
+  "batch": "A",
+  "status": "available-content-open",
+  "lessonCount": 2,
+  "readySteps": 12,
+  "inputRefs": [
+    {
+      "path": "电商-超市销售数据分析与报表-约200行（数据透视分析）/1、超市销售数据分析.ipynb",
+      "sha256": "9daf640dafc9cd923fd98713a73ee06e932b2db8efa13ba0781394908d23e2f4"
+    },
+    {
+      "path": "电商-超市销售数据分析与报表-约200行（数据透视分析）/2、超市销售数据自动化报表.ipynb",
+      "sha256": "67f79a5d288e92ef0f7ba8aee2405b81b930891c7654673c875cf661116694ff"
+    },
+    {
+      "path": "电商-超市销售数据分析与报表-约200行（数据透视分析）/order-14.1.csv",
+      "sha256": "ad338a62062f41470ae982c94e1bf5c8ab1c4c23aba88537f78563d0af8fe3b8"
+    },
+    {
+      "path": "电商-超市销售数据分析与报表-约200行（数据透视分析）/order-14.3.csv",
+      "sha256": "8b681f21749942dda8dac1cf7b8b8fa468942207872c8eae225de47936587a58"
+    },
+    {
+      "path": "电商-超市销售数据分析与报表-约200行（数据透视分析）/order.csv",
+      "sha256": "7125126eeef71db20ada51c7d5ab3efa5a4222a121b8aac77a79e4f0608a3399"
+    }
+  ],
+  "resources": [
+    "learning/resources/p21-a-category.json",
+    "learning/resources/p21-a-grain.json",
+    "learning/resources/p21-a-hour.json",
+    "learning/resources/p21-a-order.json",
+    "learning/resources/p21-a-product.json",
+    "learning/resources/p21-a-stores.json",
+    "learning/resources/p21-a-types.json",
+    "learning/resources/p21-b-attached.json",
+    "learning/resources/p21-b-periods.json",
+    "learning/resources/p21-b-quality.json",
+    "learning/resources/p21-b-report.json",
+    "learning/resources/p21-b-zero.json",
+    "learning/resources/p21-v4-hour.json",
+    "learning/resources/p21-v4-input-quality.json",
+    "learning/resources/p21-v4-stores.json",
+    "learning/resources/p21-v4-top-2.json",
+    "learning/resources/p21-v4-top-3.json"
+  ],
+  "transforms": [
+    {
+      "input": "电商-超市销售数据分析与报表-约200行（数据透视分析）/order-14.3.csv",
+      "sheet": null,
+      "readRows": 3478,
+      "columns": [
+        "商品ID",
+        "类别ID",
+        "门店编号",
+        "单价",
+        "销量",
+        "成交时间",
+        "订单ID"
+      ],
+      "missing": {
+        "商品ID": 0,
+        "类别ID": 0,
+        "门店编号": 0,
+        "单价": 0,
+        "销量": 0,
+        "成交时间": 0,
+        "订单ID": 0
+      },
+      "readerOptions": {
+        "dtype": "{'订单ID': <class 'str'>, '商品ID': <class 'str'>, '类别ID': <class 'str'>}"
+      }
+    }
+  ],
+  "checks": {
+    "exactAmount": "28950.06645",
+    "orders": 918,
+    "aRows": 3478
+  },
+  "models": [],
+  "blocked": [],
+  "originalModelRerun": false,
+  "savedOutputIdentity": "original-saved; extraction time only; original execution time unknown",
+  "validation": "adapter assertions passed; schema/production/browser tracked separately"
+}

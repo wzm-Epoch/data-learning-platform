@@ -1,0 +1,214 @@
+{
+  "schemaVersion": "1.0",
+  "buildId": "phase3-v1",
+  "createdAt": "2026-11-16T11:41:51.304867+00:00",
+  "adapterSha256": "be9f777d2a04c1c1773e5f6ddeeb0d8b2c98f95796743b7eac9703b98a08cb19",
+  "editorialSha256": "823edd4bd73a2cf71cd4b60797ec76a005c5d1a59cf180df9c265d2cdd23660d",
+  "environment": {
+    "python": "3.13.9",
+    "pandas": "2.3.3",
+    "numpy": "2.3.5"
+  },
+  "inputs": [
+    {
+      "path": "电商-超市销售数据分析与报表-约200行（数据透视分析）/1、超市销售数据分析.ipynb",
+      "sha256": "9daf640dafc9cd923fd98713a73ee06e932b2db8efa13ba0781394908d23e2f4"
+    },
+    {
+      "path": "电商-超市销售数据分析与报表-约200行（数据透视分析）/2、超市销售数据自动化报表.ipynb",
+      "sha256": "67f79a5d288e92ef0f7ba8aee2405b81b930891c7654673c875cf661116694ff"
+    },
+    {
+      "path": "电商-超市销售数据分析与报表-约200行（数据透视分析）/order-14.1.csv",
+      "sha256": "ad338a62062f41470ae982c94e1bf5c8ab1c4c23aba88537f78563d0af8fe3b8"
+    },
+    {
+      "path": "电商-超市销售数据分析与报表-约200行（数据透视分析）/order-14.3.csv",
+      "sha256": "8b681f21749942dda8dac1cf7b8b8fa468942207872c8eae225de47936587a58"
+    },
+    {
+      "path": "电商-超市销售数据分析与报表-约200行（数据透视分析）/order.csv",
+      "sha256": "7125126eeef71db20ada51c7d5ab3efa5a4222a121b8aac77a79e4f0608a3399"
+    },
+    {
+      "path": "房地产-二手房数据分析-约400行（数据探索分析、matplotlib可视化）/shenzhen.csv",
+      "sha256": "607ca9622c8f38317738c7c401e81b88533137862db0cb50455b0a818da85a22"
+    },
+    {
+      "path": "房地产-二手房数据分析-约400行（数据探索分析、matplotlib可视化）/链家二手房数据分析.ipynb",
+      "sha256": "acad26c9cb4fa911fd8a0eaaf3ff393fbfa191134bb6f75745a0ff455d59a384"
+    },
+    {
+      "path": "电商-广告投放效果分析-约250行（KMeans聚类、数据分析）/ad_performance.csv",
+      "sha256": "4f767d4f273ae2745ac84a9791d2e3d81bdee37a26d1ca82fa4d8a9a5f3003fb"
+    },
+    {
+      "path": "电商-广告投放效果分析-约250行（KMeans聚类、数据分析）/聚类分析广告效果.ipynb",
+      "sha256": "ad88e032b91ce55504f1a19bc8e1ddb2a8829edc69cab6b2569cdbde39edd6b7"
+    }
+  ],
+  "outputs": [
+    {
+      "ref": "learning/resources/p21-a-grain.json",
+      "sha256": "bcadd69370c15d49bb6b54afe905c400f9e116c52f817ef0d5eadd1a74ae3cb7"
+    },
+    {
+      "ref": "learning/resources/p21-a-order.json",
+      "sha256": "bddbdf6b1b727cca97dedffa452d65801c116dc112450d21a737065deab95264"
+    },
+    {
+      "ref": "learning/resources/p21-a-types.json",
+      "sha256": "7729f45203379d1968c78c47083fb9f546d958f2c295fbfcbe0df89bdbdf9cfe"
+    },
+    {
+      "ref": "learning/resources/p21-a-category.json",
+      "sha256": "f03a466483b48c76b22c5a2549a5a4e1ed1b77240a456346801e3f9767c3dec2"
+    },
+    {
+      "ref": "learning/resources/p21-a-product.json",
+      "sha256": "4d3f3dd6e39e807a63d6147396c89e41ccb6151f7cdd908b4baf19b04d2ac782"
+    },
+    {
+      "ref": "learning/resources/p21-a-stores.json",
+      "sha256": "435bb5421e30f97f862a3b20800c8195f63eca3bcbcb656b2df2520d9c70955a"
+    },
+    {
+      "ref": "learning/resources/p21-a-hour.json",
+      "sha256": "adecdb28ceb9fa3ff578683a617d4039a50997fdac28101133b60b6f2fb45b38"
+    },
+    {
+      "ref": "learning/resources/p21-b-quality.json",
+      "sha256": "6de41220aa1780f819b60474cf974c7362b7d2be545d960982233c706fc5203a"
+    },
+    {
+      "ref": "learning/resources/p21-b-periods.json",
+      "sha256": "eb60a7f6fba3857c4ca9dd832192657d73d3f44351d36a19556600896cbb0d70"
+    },
+    {
+      "ref": "learning/resources/p21-b-report.json",
+      "sha256": "4588a5b1b5ed22a02e860b7b27c88e001d660aea1d2ba3ea3f388dea5c8ca24a"
+    },
+    {
+      "ref": "learning/resources/p21-b-zero.json",
+      "sha256": "e1d910355c3fb6db505d17f00ba9023aeaaec69e9be16fe6d7ed16e39e7b214f"
+    },
+    {
+      "ref": "learning/resources/p21-b-attached.json",
+      "sha256": "ceea5a2f446a911f3ac70f9af67b1c468596efadbc3bfe89a65dd6102da53e0d"
+    },
+    {
+      "ref": "learning/resources/p11-preview.json",
+      "sha256": "224d1ffd8ee71fcdb281c6a43914d4e993040a7b96c4644678a711a0f846f66d"
+    },
+    {
+      "ref": "learning/resources/p11-fields.json",
+      "sha256": "3575afe70ee171ae4666073804afa3d0b2467f1a0c9795800cda299a88881588"
+    },
+    {
+      "ref": "learning/resources/p11-anomaly.json",
+      "sha256": "3d3a15bb10e043cded42d44acea0d8bdee40a906915be28650dd917175fd6905"
+    },
+    {
+      "ref": "learning/resources/p11-change.json",
+      "sha256": "a8dd98d90dff84a7a3760139fe29efdfbccac7f364d696f222aa17a12518146a"
+    },
+    {
+      "ref": "learning/resources/p11-area.json",
+      "sha256": "7e7bc3ff8fff0b30cfe3f8125f4e1a950eb2f0efaa87a3b74f649a64341ba084"
+    },
+    {
+      "ref": "learning/resources/p11-structure.json",
+      "sha256": "06c6bbcf97a8139416a70ad3421990f54d5a3f6231982a39dc10bd8793a0ee8a"
+    },
+    {
+      "ref": "learning/resources/p11-relation.json",
+      "sha256": "7dba164959a5744783cb66f628fbf4594421d5bcd9502044996e791da727be5d"
+    },
+    {
+      "ref": "learning/resources/p11-correlation.json",
+      "sha256": "204da3471f7bb4d02a479817bf74df9d79b085445f8fdddf7c784fbc7e5a51ae"
+    },
+    {
+      "ref": "learning/resources/p17-preview.json",
+      "sha256": "7d4c70f3b455a6b5c49d3942d459645f1d6a7c0fc3fd4d5e233f36685fab251c"
+    },
+    {
+      "ref": "learning/resources/p17-missing.json",
+      "sha256": "fc9204067ed414bbe40a2cf007edc3409abf0f4188aa17711def8f40b77944d9"
+    },
+    {
+      "ref": "learning/resources/p17-encoding.json",
+      "sha256": "5a3bb4c7581159e3386dabadbafac5cc3b19a3b00d9aa22e2894b08ef3cb6509"
+    },
+    {
+      "ref": "learning/resources/p17-scale.json",
+      "sha256": "dbde255eb9a92a01267ffde8ae593c294dd1f13eaeb405fa2e015e983c81d614"
+    },
+    {
+      "ref": "learning/resources/p17-scores-saved.json",
+      "sha256": "50718996a3cd7decc4c7145870e158569081826d2ddad3edb7b542fe70bbe9aa"
+    },
+    {
+      "ref": "learning/resources/p17-scores.json",
+      "sha256": "40bbe085ca50a65c31c13f1e5cf05bd59ed2264ef68b786b05089433bdae6e62"
+    },
+    {
+      "ref": "learning/resources/p17-counts-saved.json",
+      "sha256": "73046d14e68dccc69d0be6f354ad7fe082135854eb80fbdbb2da61e496743697"
+    },
+    {
+      "ref": "learning/resources/p17-counts.json",
+      "sha256": "aea1b5b3db5805d2d07a8c095d8acbacf9acf72e25554c8a7f0c550d25240ccd"
+    },
+    {
+      "ref": "learning/resources/p17-profile-saved.json",
+      "sha256": "a7ce0f78c573923bd717e87750df467b7e6cb8932f396d94f49ef43ae455af52"
+    },
+    {
+      "ref": "learning/resources/p17-profile-audit.json",
+      "sha256": "11fbe4def7dc1834188dea63e1d8320aea2db1159ae1c5cb2efbccd57827eedc"
+    }
+  ],
+  "status": "success",
+  "modelTrainingExecuted": false,
+  "notebookExecution": false,
+  "sourceWrites": false,
+  "checks": {
+    "aRows": 3478,
+    "aOrders": 918,
+    "aExactAmount": "28950.06645",
+    "bRows": 3744,
+    "bAllEmpty": 266,
+    "bCleanRows": 3478,
+    "bPeriods": [
+      [
+        "10412.78007",
+        343,
+        "30.35795938775510204081632653"
+      ],
+      [
+        "9940.97291",
+        315,
+        "31.55864415873015873015873016"
+      ],
+      [
+        "8596.31347",
+        262,
+        "32.81035675572519083969465649"
+      ]
+    ],
+    "bAttachedResultMatches": true,
+    "p11Rows": 18907,
+    "p11CleanRows": 18906,
+    "p17Rows": 889,
+    "p17OneHotColumns": 27,
+    "p17FeatureColumns": 33,
+    "p17SavedCounts": [
+      73,
+      154,
+      313,
+      349
+    ],
+    "p17SavedProfileStatistic": "std, not mean"
+  }
+}

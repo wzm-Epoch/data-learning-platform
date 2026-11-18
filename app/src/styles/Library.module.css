@@ -1,0 +1,501 @@
+.filterPanel,
+.infoBox {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+  margin: 24px 0;
+}
+.infoBox h2 {
+  font-size: 1.25rem;
+  margin-bottom: 16px;
+}
+.infoBox h3 {
+  margin: 16px 0 12px;
+}
+.infoBox p {
+  margin: 10px 0;
+}
+.infoBox li {
+  margin: 8px 0;
+}
+.infoBox ul {
+  padding-left: 24px;
+  color: var(--muted);
+}
+.filters {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 20px;
+}
+.filters label,
+.datasetSelect {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 0;
+  align-items: stretch;
+  font-size: 0.875rem;
+  color: var(--muted);
+  min-width: 0;
+}
+select {
+  font: inherit;
+  color: var(--text);
+  background: var(--surface);
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  width: 100%;
+  min-width: 0;
+  cursor: pointer;
+}
+select:focus-visible,
+summary:focus-visible {
+  outline: 3px solid var(--primary-text);
+  outline-offset: 3px;
+}
+.results {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: center;
+  margin: 24px 0 16px;
+  font-size: 0.875rem;
+}
+.results h2 {
+  font-size: 1.25rem;
+}
+.results button,
+.results a,
+.inlineButton {
+  color: var(--primary-text);
+  font-size: 0.875rem;
+}
+.chips,
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 16px 0;
+}
+.chips button,
+.tags a {
+  font-size: 0.875rem;
+  padding: 4px 10px;
+  background: var(--tint);
+  color: var(--primary-text);
+  border-radius: 6px;
+  overflow-wrap: anywhere;
+}
+.chips {
+  margin-top: 0;
+}
+.tags a:hover {
+  text-decoration: underline;
+}
+.projectList {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+.projectCard {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+.cardTop {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  font-size: 0.875rem;
+  color: var(--muted);
+  margin-bottom: 16px;
+}
+.id {
+  background: var(--tint);
+  color: var(--primary-text);
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-weight: 600;
+}
+.projectLink {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  color: var(--text);
+  margin-bottom: 12px;
+  align-items: start;
+}
+.projectLink:hover {
+  color: var(--primary-text);
+}
+.projectLink h2 {
+  font-size: 1.15rem;
+}
+.projectCard > p {
+  font-size: 0.875rem;
+}
+.smallDetails {
+  font-size: 0.875rem;
+  color: var(--muted);
+  margin: 0 0 16px;
+}
+.smallDetails summary {
+  cursor: pointer;
+}
+.smallDetails .tags {
+  margin-bottom: 0;
+}
+.cardStatus {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  border-top: 1px solid var(--border);
+  padding-top: 16px;
+  margin-top: auto;
+  font-size: 0.875rem;
+  color: var(--muted);
+}
+.warning {
+  color: var(--warning);
+}
+.note {
+  font-size: 0.875rem !important;
+  color: var(--muted);
+  line-height: 1.7;
+  margin-top: 12px !important;
+}
+.twoColumns {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  margin: 24px 0;
+}
+.twoColumns > .infoBox {
+  margin: 0;
+}
+.twoColumns > div > .infoBox:first-child {
+  margin-top: 0;
+}
+.twoColumns > div > .infoBox:last-child {
+  margin-bottom: 0;
+}
+.sequence {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 16px 0;
+}
+.sequence > span {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.sequence a {
+  color: var(--primary-text);
+}
+.projectHero {
+  display: grid;
+  grid-template-columns: 1fr 270px;
+  gap: 40px;
+  padding: 32px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  margin: 24px 0;
+}
+.projectHero h2 {
+  font-size: 1.35rem;
+  margin: 16px 0;
+}
+.projectHero > div > svg {
+  color: var(--primary-text);
+}
+.stateList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  border-left: 1px solid var(--border);
+  padding-left: 24px;
+  justify-content: center;
+  font-size: 0.875rem;
+  color: var(--muted);
+}
+.disabledButton {
+  font: inherit;
+  background: var(--subtle);
+  color: var(--muted);
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: not-allowed;
+}
+.notice {
+  display: flex;
+  gap: 16px;
+  background: var(--tint);
+  border-left: 3px solid var(--primary);
+  border-radius: 8px;
+  padding: 20px;
+  margin: 24px 0;
+}
+.notice svg {
+  color: var(--primary-text);
+  margin-top: 4px;
+}
+.notice p {
+  margin: 0 0 8px;
+}
+.notice p:last-child {
+  margin-bottom: 0;
+}
+.localNav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 16px;
+  margin: 20px 0 32px;
+  font-size: 0.875rem;
+  color: var(--primary-text);
+}
+.datasetGrid,
+.branchGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin: 20px 0;
+}
+.datasetCard {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 20px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  min-width: 0;
+}
+.datasetCard strong {
+  overflow-wrap: anywhere;
+}
+.datasetCard svg {
+  color: var(--primary-text);
+}
+.datasetCard span,
+.datasetCard p {
+  font-size: 0.875rem;
+}
+.datasetCard:hover {
+  border-color: var(--primary-text);
+}
+.lesson {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  border-bottom: 1px solid var(--border);
+  padding: 20px 0;
+}
+.lesson:last-child {
+  border: 0;
+}
+.lesson > span {
+  color: var(--primary-text);
+}
+.lesson div {
+  flex: 1;
+}
+.lesson p {
+  font-size: 0.875rem;
+  margin: 4px 0;
+}
+.lesson:hover {
+  color: var(--primary-text);
+}
+.tableScroll {
+  overflow-x: auto;
+  max-width: 100%;
+  margin-top: 16px;
+}
+.tableScroll table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+  min-width: 760px;
+}
+.tableScroll caption {
+  text-align: left;
+  color: var(--muted);
+  padding-bottom: 12px;
+}
+.tableScroll th,
+.tableScroll td {
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+  vertical-align: top;
+  padding: 12px;
+  min-width: 100px;
+  overflow-wrap: anywhere;
+  max-width: 340px;
+}
+.tableScroll th {
+  font-weight: 600;
+  background: var(--bg);
+}
+.tableScroll td:last-child {
+  font-size: 0.875rem;
+  min-width: 220px;
+}
+.tableScroll th:first-child {
+  min-width: 160px;
+}
+.path {
+  overflow-wrap: anywhere;
+  font-size: 0.875rem !important;
+  font-family: ui-monospace, Consolas, monospace;
+}
+.teaching {
+  margin-top: 24px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+}
+details {
+  margin: 12px 0;
+}
+summary {
+  cursor: pointer;
+  overflow-wrap: anywhere;
+}
+pre {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  background: #0f172a;
+  color: #e2e8f0;
+  border-radius: 8px;
+  padding: 20px;
+  font-size: 0.875rem;
+  line-height: 1.7;
+  max-height: 420px;
+  overflow: auto;
+}
+.sourceRow {
+  border-bottom: 1px solid var(--border);
+  padding: 12px 0;
+}
+.sourceRow summary {
+  font-size: 0.875rem;
+}
+.sourceRow span {
+  color: var(--muted);
+}
+.roadmapList {
+  padding-left: 24px;
+}
+.roadmapList li {
+  padding: 20px 8px;
+  border-bottom: 1px solid var(--border);
+  color: var(--muted);
+}
+.roadmapList li:last-child {
+  border: 0;
+}
+.roadmapList a {
+  color: var(--primary-text);
+}
+.roadmapList p {
+  font-size: 0.875rem;
+}
+.branchGrid .infoBox {
+  margin: 0;
+}
+.branchGrid p {
+  font-size: 0.875rem;
+}
+.datasetSelect {
+  max-width: 640px;
+  margin: 24px 0;
+}
+.infoBox a {
+  color: var(--primary-text);
+}
+@media (max-width: 900px) {
+  .filters {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .projectHero {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .stateList {
+    border-left: 0;
+    border-top: 1px solid var(--border);
+    padding: 20px 0 0;
+  }
+  .twoColumns {
+    grid-template-columns: 1fr;
+  }
+  .twoColumns > div > .infoBox:first-child {
+    margin-top: 0;
+  }
+}
+@media (max-width: 600px) {
+  .filters {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .projectList,
+  .datasetGrid,
+  .branchGrid {
+    grid-template-columns: 1fr;
+  }
+  .filterPanel,
+  .infoBox,
+  .projectCard {
+    padding: 20px;
+  }
+  .projectHero {
+    padding: 20px;
+  }
+  .filters label:last-child {
+    grid-column: 1/-1;
+  }
+  .cardTop {
+    flex-wrap: wrap;
+  }
+  .projectLink h2 {
+    font-size: 1.1rem;
+  }
+  .notice {
+    padding: 16px;
+    gap: 12px;
+  }
+  .results {
+    align-items: flex-start;
+  }
+  .localNav {
+    gap: 16px;
+  }
+  .lesson {
+    gap: 12px;
+  }
+  .infoBox h2 {
+    font-size: 1.2rem;
+  }
+  pre {
+    padding: 16px;
+  }
+  .twoColumns {
+    gap: 16px;
+  }
+}
+
+.tags > span {
+  font-size: 0.875rem;
+  padding: 4px 10px;
+  background: var(--tint);
+  border-radius: 6px;
+  overflow-wrap: anywhere;
+}

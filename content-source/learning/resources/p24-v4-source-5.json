@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1.0",
+  "id": "p24-v4-source-5",
+  "title": "原单元33—37保存输出",
+  "kind": "text",
+  "columns": [],
+  "rows": [],
+  "text": "原单元33\n       revenue   gender        age engaged_last_30 lifecycle  \\\n0        72.98      1.0  59.000000             0.0         B   \n1       200.99      1.0  51.000000             0.0         A   \n2        69.98      1.0  79.000000             0.0         C   \n3       649.99  unknown  60.397404         unknown         C   \n4        83.59  unknown  60.397404         unknown         C   \n...        ...      ...        ...             ...       ...   \n29447    43.19  unknown  60.397404         unknown         C   \n29448    62.97      1.0  53.000000             0.0         C   \n29449    87.26  unknown  60.397404         unknown         C   \n29450    19.99      1.0  69.000000             0.0         C   \n29451   741.93  unknown  60.397404         unknown         C   \n\n       days_since_last_order  previous_order_amount  3rd_party_stores  \n0                       4.26               2343.870                 0  \n1                       0.94               8539.872                 0  \n2                       4.29               1687.646                 1  \n3                      14.90               3498.846                 0  \n4                      21.13               3968.490                 4  \n...                      ...                    ...               ...  \n29447                   0.94                545.180                 1  \n29448                   3.45               3738.912                 1  \n29449                  10.42               1279.530                 0  \n29450                  16.87                669.580                 3  \n29451                   7.13               2102.950                 0  \n\n[29452 rows x 8 columns]\n\n原单元34\n             count        mean          std   min    25%      50%       75%  \\\nlifecycle                                                                     \nA           3542.0  433.823171  1902.496280  0.02  71.93  170.945  483.8025   \nB           5709.0  381.348012   605.828160  0.10  72.99  179.980  474.9600   \nC          20201.0  396.844800   778.374439  0.02  74.99  174.980  513.9600   \n\n                 max  \nlifecycle             \nA          103466.10  \nB           21068.17  \nC           62100.00  ",
+  "context": {
+    "identity": "original-saved",
+    "buildId": "phase4-v1",
+    "createdAt": "2026-11-16T12:58:37.389041+00:00",
+    "inputs": [
+      {
+        "path": "电商-预测用户消费金额-约500行（线性回归模型、模型评估优化）/小红书.ipynb",
+        "sha256": "40650aad9a7d0c531e29b850ac54b77f0e60ad578779d9023c0838ec9163c3ec"
+      },
+      {
+        "path": "电商-预测用户消费金额-约500行（线性回归模型、模型评估优化）/小红书.py",
+        "sha256": "4dc9d8c79cb86e56964ec4588092499050c552333390a33e6dd1f2d50dc18cbb"
+      },
+      {
+        "path": "电商-预测用户消费金额-约500行（线性回归模型、模型评估优化）/redNew.csv",
+        "sha256": "e1a086141c06fc04ec3a4584b962a486ea270986255a9afeab463beda6727ece"
+      }
+    ],
+    "note": "逐单元只读提取原文本；原运行时间未知，本次时间仅为提取时间。",
+    "unit": "原字段单位；未核实单位不补填",
+    "sample": null,
+    "modelRerun": false
+  }
+}

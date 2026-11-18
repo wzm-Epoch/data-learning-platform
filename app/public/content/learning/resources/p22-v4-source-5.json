@@ -1,0 +1,36 @@
+{
+  "schemaVersion": "1.0",
+  "id": "p22-v4-source-5",
+  "title": "原单元25—25保存输出",
+  "kind": "text",
+  "columns": [],
+  "rows": [],
+  "text": "原单元25\n    姓名  剩余拜访次数           地址          详细地址\n0   余杭       1     优衣库南京西路店    上海市黄浦区南京西路\n1  沈一苇       2  优衣库浦东商场成山路店    上海市浦东新区成山路\n2  杨舒琦       1    优衣库大拇指广场店    上海市浦东新区芳甸路\n3   罗丹       1   优衣库宝山万达广场店  上海市宝山区一二八纪念路\n4   刘远       2      优衣库光启城店     上海市徐汇区宜山路",
+  "context": {
+    "identity": "original-saved",
+    "buildId": "phase4-v1",
+    "createdAt": "2026-11-16T12:58:37.389041+00:00",
+    "inputs": [
+      {
+        "path": "电商-门店可视化与顾客分组-约500行（pyecharts地图可视化、KMeans聚类、大屏可视化）/优衣库门店可视化与顾客拜访数据分组.ipynb",
+        "sha256": "26f251ebfd81462ae1c97061f9dbec49b8ca6ffe35a17ff3b24afab964e78775"
+      },
+      {
+        "path": "电商-门店可视化与顾客分组-约500行（pyecharts地图可视化、KMeans聚类、大屏可视化）/uniqlo2.csv",
+        "sha256": "85134715043965c641062cf78376f6feb7686ae0003a88ac56c88b1f4c95ae41"
+      },
+      {
+        "path": "电商-门店可视化与顾客分组-约500行（pyecharts地图可视化、KMeans聚类、大屏可视化）/uniqlo.csv",
+        "sha256": "a0472c1a06c803e83d4825478febe7a57a0b4a90a950a260895ebbcdefa9336d"
+      },
+      {
+        "path": "电商-门店可视化与顾客分组-约500行（pyecharts地图可视化、KMeans聚类、大屏可视化）/uniqlo1.csv",
+        "sha256": "d8550e05409876826907185b51627b9a46aa1ef92366ea75d7e45cb865f5cd43"
+      }
+    ],
+    "note": "逐单元只读提取原文本；原运行时间未知，本次时间仅为提取时间。",
+    "unit": "原字段单位；未核实单位不补填",
+    "sample": null,
+    "modelRerun": false
+  }
+}

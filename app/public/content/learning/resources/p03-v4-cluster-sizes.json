@@ -1,0 +1,76 @@
+{
+  "schemaVersion": "1.0",
+  "id": "p03-v4-cluster-sizes",
+  "title": "原附标准化表的新版本五群规模",
+  "kind": "table",
+  "columns": [
+    "新簇ID",
+    "会员行数"
+  ],
+  "rows": [
+    [
+      0,
+      15671
+    ],
+    [
+      1,
+      12037
+    ],
+    [
+      2,
+      4547
+    ],
+    [
+      3,
+      5338
+    ],
+    [
+      4,
+      24451
+    ]
+  ],
+  "text": null,
+  "context": {
+    "identity": "teaching-adaptation",
+    "buildId": "phase4-v1",
+    "createdAt": "2026-11-16T12:58:37.389041+00:00",
+    "inputs": [
+      {
+        "path": "交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/航空公司客户价值分析.ipynb",
+        "sha256": "bd72cf9fd918950642968c14f6021b77caeef58df86b4df65564c546279bbbb8"
+      },
+      {
+        "path": "交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/data/air_data.csv",
+        "sha256": "afcba77fc852376966a1026c4d991323b0e7cd7f26bdc975582080a93b6161eb"
+      },
+      {
+        "path": "交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/tmp/data_cleaned.csv",
+        "sha256": "e3455c8ebab78f5bf4e3972761783fd0e6fe33a47d9344d94a62f017deda8fe3"
+      },
+      {
+        "path": "交通出行-航空公司客户价值分析-约300行（K-means聚类、LRFCM模型）/tmp/data_stand.csv",
+        "sha256": "6cf52be39fe13b24ffe49abbfe090f5240e98023adb5947c0f7d5c20364736f8"
+      }
+    ],
+    "note": "新簇编号不与原图客户名称直接绑定",
+    "unit": "会员记录",
+    "sample": null,
+    "modelRerun": true,
+    "modelVersion": "P03-attached-standardized-k5-v1"
+  },
+  "chart": {
+    "type": "bar",
+    "x": 0,
+    "ys": [
+      1
+    ],
+    "question": "原附标准化表的新版本五群规模",
+    "xLabel": "新簇ID",
+    "yLabel": "会员记录",
+    "denominator": "不涉及比率；展示原量或统计量",
+    "range": "当前输入已说明范围的全量聚合",
+    "filters": "新簇编号不与原图客户名称直接绑定",
+    "nullPolicy": "缺失为null，保留0；不连接缺失点",
+    "interpretation": "对照同源表读取差异；关联不能推出因果或样本外结论。"
+  }
+}

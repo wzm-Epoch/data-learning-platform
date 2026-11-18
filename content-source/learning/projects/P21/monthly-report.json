@@ -1,0 +1,297 @@
+{
+  "schemaVersion": "1.0",
+  "contentVersion": "0.6.0",
+  "projectId": "P21",
+  "id": "monthly-report",
+  "title": "2、超市销售数据自动化报表",
+  "status": "ready",
+  "steps": [
+    {
+      "id": "b-quality",
+      "title": "检查报表输入与全空行",
+      "kind": "cleaning",
+      "knowledgeIds": [
+        "Pandas"
+      ],
+      "explanation": [
+        "B课只读取order-14.1；order.csv是附带报表结果，不是输入明细。3744行中266行七列全空，剔除后3478行。",
+        "原单元3只读取和查看info，没有显式删除全空行。教学适配增加dropna(how=\"all\")检查，输出写入新工程。A/B总金额巧合一致也不能交换输入；二者成交日期不同。"
+      ],
+      "teachingCode": "raw = pd.read_csv('order-14.1.csv', encoding='gb18030', dtype={'订单ID':str})\nempty_rows = raw.isna().all(axis=1)\nclean = raw.dropna(how='all').copy()",
+      "limitations": [
+        "只去除全空行，不意味着其余所有缺失或异常均已排除。"
+      ],
+      "exercise": {
+        "prompt": "为什么B课不能直接换用A课文件？",
+        "hint": "比较两课日期范围和原Notebook的文件名，而不是只比较总额。",
+        "checklist": [
+          "写出3744−266=3478",
+          "区分原代码与教学补充",
+          "不使用order.csv作为明细"
+        ],
+        "provenance": "本阶段教学补充练习；自评，不自动判卷"
+      },
+      "status": "ready",
+      "codeRefs": [
+        {
+          "path": "电商-超市销售数据分析与报表-约200行（数据透视分析）/2、超市销售数据自动化报表.ipynb",
+          "notebookSha256": "67f79a5d288e92ef0f7ba8aee2405b81b930891c7654673c875cf661116694ff",
+          "cell": 3,
+          "code": "import pandas as pd\nfrom datetime import datetime\n\ndata=pd.read_csv(\"order-14.1.csv\",parse_dates=[\"成交时间\"],encoding='gbk')\ndata.head()\n# print(data.head(5))\n# 查看源数据类型\ndata.info()",
+          "codeSha256": "0f970a63b11a7555da5f0c4cf296c15eb2600c881c56016f73c708e387e1596e"
+        }
+      ],
+      "inputRefs": [
+        {
+          "path": "电商-超市销售数据分析与报表-约200行（数据透视分析）/order-14.1.csv",
+          "sha256": "ad338a62062f41470ae982c94e1bf5c8ab1c4c23aba88537f78563d0af8fe3b8"
+        }
+      ],
+      "outputRefs": [
+        "learning/resources/p21-b-quality.json"
+      ],
+      "outputTitles": {
+        "learning/resources/p21-b-quality.json": "原报表输入的质量变化"
+      }
+    },
+    {
+      "id": "b-periods",
+      "title": "界定比较期间与月末边界",
+      "kind": "analysis",
+      "knowledgeIds": [
+        "Datetime"
+      ],
+      "explanation": [
+        "原代码固定比较2018年2月、2018年1月和2017年2月，这里的本月不是当前日期。原上界写月末00:00，原则上可能漏掉月末白天。",
+        "教学版采用起始日≤时间<下一月首日。当前文件日期均在00:00，本次逐期间核对两种筛选新增纳入均为0；不能声称这次修正实际找回了缺失交易。"
+      ],
+      "teachingCode": "current = clean[(clean['成交时间'] >= '2018-02-01') &\n                (clean['成交时间'] < '2018-03-01')]\n# clean['成交时间']须先由pd.to_datetime解析",
+      "limitations": [
+        "月份天数不同，未调整营业日；订单ID里的数字不能替代成交时间。"
+      ],
+      "exercise": {
+        "prompt": "为什么下一月首日的半开区间更稳妥？本文件实际差几行？",
+        "hint": "看右侧“本文件新增纳入行数”，将潜在缺陷与本次实测分开。",
+        "checklist": [
+          "解释月末00:00风险",
+          "指出本次差异0行",
+          "不把原本月解读为今天"
+        ],
+        "provenance": "本阶段教学补充练习；自评，不自动判卷"
+      },
+      "status": "ready",
+      "codeRefs": [
+        {
+          "path": "电商-超市销售数据分析与报表-约200行（数据透视分析）/2、超市销售数据自动化报表.ipynb",
+          "notebookSha256": "67f79a5d288e92ef0f7ba8aee2405b81b930891c7654673c875cf661116694ff",
+          "cell": 5,
+          "code": "# 计算本月的相关的指标\nThis_month=data[(data[\"成交时间\"]>=datetime(2018,2,1))&(data[\"成交时间\"]<=datetime(2018,2,28))]\n# 销售额计算\nsales_1=(This_month[\"销量\"]*This_month['单价']).sum()\n# 客流量计算\ntraffic_1=This_month[\"订单ID\"].drop_duplicates().count()\n# 客单价计算\ns_t_1=sales_1/traffic_1\nprint(\"本月销售额为：{:.2f},客流量为：{},客单价为：{:.2f}\".format(sales_1,traffic_1,s_t_1))\n",
+          "codeSha256": "d2af3a2c05835b6fca641cb33ee6a946a17532811d86578e8e89f50d5deac66c"
+        },
+        {
+          "path": "电商-超市销售数据分析与报表-约200行（数据透视分析）/2、超市销售数据自动化报表.ipynb",
+          "notebookSha256": "67f79a5d288e92ef0f7ba8aee2405b81b930891c7654673c875cf661116694ff",
+          "cell": 7,
+          "code": "# 计算上月相关指标\nlast_month=data[(data[\"成交时间\"]>=datetime(2018,1,1))&(data[\"成交时间\"]<=datetime(2018,1,31))]\n\n# 销售额计算\nsales_2=(last_month[\"销量\"]*last_month['单价']).sum()\n# 客流量计算\ntraffic_2=last_month[\"订单ID\"].drop_duplicates().count()\n# 客单价计算\ns_t_2=sales_2/traffic_2\nprint(\"本月销售额为：{:.2f},客流量为：{},客单价为：{:.2f}\".format(sales_2,traffic_2,s_t_2))\n",
+          "codeSha256": "ba4666b8b95310455ea9f50c1effd603b58626676b2d7b431a721c358dc1a975"
+        },
+        {
+          "path": "电商-超市销售数据分析与报表-约200行（数据透视分析）/2、超市销售数据自动化报表.ipynb",
+          "notebookSha256": "67f79a5d288e92ef0f7ba8aee2405b81b930891c7654673c875cf661116694ff",
+          "cell": 9,
+          "code": "# 计算去年同期相关指标\nsame_month=data[(data[\"成交时间\"]>=datetime(2017,2,1))&(data[\"成交时间\"]<=datetime(2017,2,28))]\n\nsales_3=(same_month[\"销量\"]*same_month[\"单价\"]).sum()\n\ntraffic_3=same_month[\"订单ID\"].drop_duplicates().count()\ns_t_3=sales_3/traffic_3\nprint(\"本月销售额为：{:.2f},客流量为：{},客单价为：{:.2f}\".format(sales_3,traffic_3,s_t_3))\n",
+          "codeSha256": "0aac1620e7b1f74e86c713e09fc95c8cac2b414a97e0edbbbd504d63067c380a"
+        }
+      ],
+      "inputRefs": [
+        {
+          "path": "电商-超市销售数据分析与报表-约200行（数据透视分析）/order-14.1.csv",
+          "sha256": "ad338a62062f41470ae982c94e1bf5c8ab1c4c23aba88537f78563d0af8fe3b8"
+        }
+      ],
+      "outputRefs": [
+        "learning/resources/p21-b-periods.json"
+      ],
+      "outputTitles": {
+        "learning/resources/p21-b-periods.json": "原筛选与半开区间核对"
+      }
+    },
+    {
+      "id": "b-metrics",
+      "title": "金额、订单量与平均每单金额",
+      "kind": "analysis",
+      "knowledgeIds": [
+        "去重",
+        "Pandas"
+      ],
+      "explanation": [
+        "先把同一期间的明细金额求和，再对订单ID去重计数。原称客单价的金额/订单数，在这里准确称平均每订单金额。",
+        "若期间没有订单，分母为0，平均每订单金额不可计算，应显示空值和原因。右侧2019年1月来自对当前文件无记录期间的确定性筛选，不是模拟经营数据。"
+      ],
+      "teachingCode": "sales = (period['单价'] * period['销量']).sum()\norders = period['订单ID'].nunique()\naverage = sales / orders if orders else None",
+      "limitations": [
+        "订单ID可能跨期间复用，不能无条件把各期订单数相加当独立顾客。"
+      ],
+      "exercise": {
+        "prompt": "无订单时，平均每订单金额为什么不填0？",
+        "hint": "0意味着已观测且结果为零；不可计算意味着分母无效。",
+        "checklist": [
+          "区分明细行数与订单数",
+          "写出金额/订单公式",
+          "分母0返回None"
+        ],
+        "provenance": "本阶段教学补充练习；自评，不自动判卷"
+      },
+      "status": "ready",
+      "codeRefs": [
+        {
+          "path": "电商-超市销售数据分析与报表-约200行（数据透视分析）/2、超市销售数据自动化报表.ipynb",
+          "notebookSha256": "67f79a5d288e92ef0f7ba8aee2405b81b930891c7654673c875cf661116694ff",
+          "cell": 10,
+          "code": "# 利用函数提高编码效率\ndef get_month_data(data):\n    sale=(data[\"销量\"]*data[\"单价\"]).sum()\n    traffic=data[\"订单ID\"].drop_duplicates().count()\n    s_t=sale/traffic\n    return (sale,traffic,s_t)\n\n# 本月相关指数\nsales_1,traffic_1,s_t_1=get_month_data(This_month)\nprint(sales_1,traffic_1,s_t_1)\n\n# 上月相关指数\nsales_2,traffic_2,s_t_2=get_month_data(last_month)\nprint(sales_2,traffic_2,s_t_2)\n\n# 去年同期相关指数\nsales_3,traffic_3,s_t_3=get_month_data(same_month)\nprint(sales_3,traffic_3,s_t_3)\n",
+          "codeSha256": "be48b498619e8d14a0cdc495e989c9964797de7b29e9f2bb184b2638c1ea80d6"
+        }
+      ],
+      "inputRefs": [
+        {
+          "path": "电商-超市销售数据分析与报表-约200行（数据透视分析）/order-14.1.csv",
+          "sha256": "ad338a62062f41470ae982c94e1bf5c8ab1c4c23aba88537f78563d0af8fe3b8"
+        }
+      ],
+      "outputRefs": [
+        "learning/resources/p21-b-report.json",
+        "learning/resources/p21-b-zero.json"
+      ],
+      "outputTitles": {
+        "learning/resources/p21-b-report.json": "本次重算月度对比",
+        "learning/resources/p21-b-zero.json": "输入范围以外期间的分母检查"
+      }
+    },
+    {
+      "id": "b-report",
+      "title": "同比环比与原附结果对账",
+      "kind": "interpretation",
+      "knowledgeIds": [
+        "同比环比"
+      ],
+      "explanation": [
+        "同比与环比均使用本期/比较期−1；比较期为0或不可用时不返回Infinity，也不将其解释为0%增长。",
+        "本次从order-14.1预计算的三期指标与原附order.csv逐项按容差核对一致；两种身份并列显示。原附表保留“客流量”原标签，但教学统一解释为订单量。原单元16会写order.csv，本平台仅展示，不执行它。"
+      ],
+      "teachingCode": "def growth(current, baseline):\n    return None if baseline is None or baseline == 0 else current / baseline - 1\n# 禁止在原目录执行原report.to_csv；这里只查看预计算结果。",
+      "limitations": [
+        "原附结果不是本次运行的证据；本次预计算有独立清单和输入哈希。"
+      ],
+      "exercise": {
+        "prompt": "选择一个指标手算同比；说明比较期为0如何处理。",
+        "hint": "用未提前舍入的数据计算。百分比显示需将比例乘100。",
+        "checklist": [
+          "写出本期/比较期−1",
+          "分开原附与新算身份",
+          "不把订单量变成人数"
+        ],
+        "provenance": "本阶段教学补充练习；自评，不自动判卷"
+      },
+      "status": "ready",
+      "codeRefs": [
+        {
+          "path": "电商-超市销售数据分析与报表-约200行（数据透视分析）/2、超市销售数据自动化报表.ipynb",
+          "notebookSha256": "67f79a5d288e92ef0f7ba8aee2405b81b930891c7654673c875cf661116694ff",
+          "cell": 12,
+          "code": "# 创建DataFrame\nreport=pd.DataFrame([[sales_1,sales_2,sales_3],[traffic_1,traffic_2,traffic_3],[s_t_1,s_t_2,s_t_3]],\n                    columns=[\"本月累计\",\"上月同期\",\"去年同期\"],index=[\"销售额\",\"客流量\",\"客单价\"])\n# print(report)\n# 添加同比和环比字段\nreport[\"环比\"]=report[\"本月累计\"]/report[\"上月同期\"]-1\n\nreport[\"同比\"]=report[\"本月累计\"]/report[\"去年同期\"]-1\n",
+          "codeSha256": "7d49996a9ecd9e6c4e57a9f07572f4764145adb332adcf7253077dca6950770c"
+        },
+        {
+          "path": "电商-超市销售数据分析与报表-约200行（数据透视分析）/2、超市销售数据自动化报表.ipynb",
+          "notebookSha256": "67f79a5d288e92ef0f7ba8aee2405b81b930891c7654673c875cf661116694ff",
+          "cell": 14,
+          "code": "# 查看报表\nreport",
+          "codeSha256": "93d8dfe7addcfe38a49b3c03273bb7eff60721c613f45bdcb0ebb413ff779baf"
+        },
+        {
+          "path": "电商-超市销售数据分析与报表-约200行（数据透视分析）/2、超市销售数据自动化报表.ipynb",
+          "notebookSha256": "67f79a5d288e92ef0f7ba8aee2405b81b930891c7654673c875cf661116694ff",
+          "cell": 16,
+          "code": "# 将结果导出本地\nreport.to_csv(\"order.csv\",encoding=\"utf-8-sig\")",
+          "codeSha256": "5867f5cbb87f8c1cf0df27b295f9f5724534211e8c9515d5c36755776f3f6565"
+        }
+      ],
+      "inputRefs": [
+        {
+          "path": "电商-超市销售数据分析与报表-约200行（数据透视分析）/order-14.1.csv",
+          "sha256": "ad338a62062f41470ae982c94e1bf5c8ab1c4c23aba88537f78563d0af8fe3b8"
+        },
+        {
+          "path": "电商-超市销售数据分析与报表-约200行（数据透视分析）/order.csv",
+          "sha256": "7125126eeef71db20ada51c7d5ab3efa5a4222a121b8aac77a79e4f0608a3399"
+        }
+      ],
+      "outputRefs": [
+        "learning/resources/p21-b-report.json",
+        "learning/resources/p21-b-attached.json"
+      ],
+      "outputTitles": {
+        "learning/resources/p21-b-report.json": "本次重算月度对比",
+        "learning/resources/p21-b-attached.json": "原附order.csv（只读提取）"
+      }
+    },
+    {
+      "id": "b-practice",
+      "title": "报表解释与本机继续实验",
+      "kind": "practice",
+      "knowledgeIds": [
+        "同比环比",
+        "Datetime"
+      ],
+      "explanation": [
+        "先说明比较期间，再解释金额、订单量和平均每单金额的变化是否同向。写出可能影响比较的月份天数和数据范围限制，不自行补业务原因。",
+        "代码可复制或下载为文本，在本机Jupyter使用工程外的原文件只读路径继续实验；将输出目录设在新工程analysis下。网页不运行Python。这里的自评不会产生完整完成记录。"
+      ],
+      "teachingCode": "# 本机练习：把end设为下月首日；将结果写入新工程analysis/exports\n# 原始文件只读；先检查分母是否为0，再解释增长率。",
+      "limitations": [
+        "不提供在线Python执行，不自动判定答案正确。"
+      ],
+      "exercise": {
+        "prompt": "设计一个可处理空期间的月报函数，并说明保存输出位置。",
+        "hint": "把筛选、金额求和、订单去重、安全除法分开写。",
+        "checklist": [
+          "使用半开期间",
+          "空订单返回不可计算",
+          "输出只写新工程"
+        ],
+        "provenance": "本阶段教学补充练习；自评，不自动判卷"
+      },
+      "status": "ready",
+      "codeRefs": [
+        {
+          "path": "电商-超市销售数据分析与报表-约200行（数据透视分析）/2、超市销售数据自动化报表.ipynb",
+          "notebookSha256": "67f79a5d288e92ef0f7ba8aee2405b81b930891c7654673c875cf661116694ff",
+          "cell": 10,
+          "code": "# 利用函数提高编码效率\ndef get_month_data(data):\n    sale=(data[\"销量\"]*data[\"单价\"]).sum()\n    traffic=data[\"订单ID\"].drop_duplicates().count()\n    s_t=sale/traffic\n    return (sale,traffic,s_t)\n\n# 本月相关指数\nsales_1,traffic_1,s_t_1=get_month_data(This_month)\nprint(sales_1,traffic_1,s_t_1)\n\n# 上月相关指数\nsales_2,traffic_2,s_t_2=get_month_data(last_month)\nprint(sales_2,traffic_2,s_t_2)\n\n# 去年同期相关指数\nsales_3,traffic_3,s_t_3=get_month_data(same_month)\nprint(sales_3,traffic_3,s_t_3)\n",
+          "codeSha256": "be48b498619e8d14a0cdc495e989c9964797de7b29e9f2bb184b2638c1ea80d6"
+        },
+        {
+          "path": "电商-超市销售数据分析与报表-约200行（数据透视分析）/2、超市销售数据自动化报表.ipynb",
+          "notebookSha256": "67f79a5d288e92ef0f7ba8aee2405b81b930891c7654673c875cf661116694ff",
+          "cell": 12,
+          "code": "# 创建DataFrame\nreport=pd.DataFrame([[sales_1,sales_2,sales_3],[traffic_1,traffic_2,traffic_3],[s_t_1,s_t_2,s_t_3]],\n                    columns=[\"本月累计\",\"上月同期\",\"去年同期\"],index=[\"销售额\",\"客流量\",\"客单价\"])\n# print(report)\n# 添加同比和环比字段\nreport[\"环比\"]=report[\"本月累计\"]/report[\"上月同期\"]-1\n\nreport[\"同比\"]=report[\"本月累计\"]/report[\"去年同期\"]-1\n",
+          "codeSha256": "7d49996a9ecd9e6c4e57a9f07572f4764145adb332adcf7253077dca6950770c"
+        }
+      ],
+      "inputRefs": [
+        {
+          "path": "电商-超市销售数据分析与报表-约200行（数据透视分析）/order-14.1.csv",
+          "sha256": "ad338a62062f41470ae982c94e1bf5c8ab1c4c23aba88537f78563d0af8fe3b8"
+        }
+      ],
+      "outputRefs": [
+        "learning/resources/p21-b-periods.json",
+        "learning/resources/p21-b-zero.json"
+      ],
+      "outputTitles": {
+        "learning/resources/p21-b-periods.json": "原筛选与半开区间核对",
+        "learning/resources/p21-b-zero.json": "输入范围以外期间的分母检查"
+      }
+    }
+  ]
+}

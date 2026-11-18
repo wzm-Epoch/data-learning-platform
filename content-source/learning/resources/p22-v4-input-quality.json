@@ -1,0 +1,64 @@
+{
+  "schemaVersion": "1.0",
+  "id": "p22-v4-input-quality",
+  "title": "本项目各输入表的读取与质量核对",
+  "kind": "table",
+  "columns": [
+    "输入文件/工作表",
+    "读取行",
+    "列数",
+    "缺失单元格",
+    "完全重复行"
+  ],
+  "rows": [
+    [
+      "uniqlo2.csv#None",
+      80,
+      6,
+      0,
+      0
+    ],
+    [
+      "uniqlo.csv#None",
+      80,
+      3,
+      0,
+      0
+    ],
+    [
+      "uniqlo1.csv#None",
+      80,
+      4,
+      0,
+      0
+    ]
+  ],
+  "text": null,
+  "context": {
+    "identity": "new-precomputed",
+    "buildId": "phase4-v1",
+    "createdAt": "2026-11-16T12:58:37.389041+00:00",
+    "inputs": [
+      {
+        "path": "电商-门店可视化与顾客分组-约500行（pyecharts地图可视化、KMeans聚类、大屏可视化）/优衣库门店可视化与顾客拜访数据分组.ipynb",
+        "sha256": "26f251ebfd81462ae1c97061f9dbec49b8ca6ffe35a17ff3b24afab964e78775"
+      },
+      {
+        "path": "电商-门店可视化与顾客分组-约500行（pyecharts地图可视化、KMeans聚类、大屏可视化）/uniqlo2.csv",
+        "sha256": "85134715043965c641062cf78376f6feb7686ae0003a88ac56c88b1f4c95ae41"
+      },
+      {
+        "path": "电商-门店可视化与顾客分组-约500行（pyecharts地图可视化、KMeans聚类、大屏可视化）/uniqlo.csv",
+        "sha256": "a0472c1a06c803e83d4825478febe7a57a0b4a90a950a260895ebbcdefa9336d"
+      },
+      {
+        "path": "电商-门店可视化与顾客分组-约500行（pyecharts地图可视化、KMeans聚类、大屏可视化）/uniqlo1.csv",
+        "sha256": "d8550e05409876826907185b51627b9a46aa1ef92366ea75d7e45cb865f5cd43"
+      }
+    ],
+    "note": "每张表分别统计；衍生表不当原始独立样本。人口多层表头在专属适配中另行解析。",
+    "unit": "行 / 列 / 单元格",
+    "sample": null,
+    "modelRerun": false
+  }
+}

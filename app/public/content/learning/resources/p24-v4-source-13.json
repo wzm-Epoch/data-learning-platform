@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1.0",
+  "id": "p24-v4-source-13",
+  "title": "原单元76—78保存输出",
+  "kind": "text",
+  "columns": [],
+  "rows": [],
+  "text": "原单元76\n945.1327326407888\n352.9825670606418\n\n\n原单元78\n                            OLS Regression Results                            \n==============================================================================\nDep. Variable:                      y   R-squared:                       0.031\nModel:                            OLS   Adj. R-squared:                  0.031\nMethod:                 Least Squares   F-statistic:                     316.2\nDate:                Mon, 12 Jun 2023   Prob (F-statistic):          4.33e-202\nTime:                        01:01:16   Log-Likelihood:            -2.4358e+05\nNo. Observations:               29452   AIC:                         4.872e+05\nDf Residuals:                   29448   BIC:                         4.872e+05\nDf Model:                           3                                         \nCovariance Type:            nonrobust                                         \n==============================================================================\n                 coef    std err          t      P>|t|      [0.025      0.975]\n------------------------------------------------------------------------------\nIntercept    174.7525     10.466     16.697      0.000     154.238     195.267\nx[0]           0.0690      0.002     29.350      0.000       0.064       0.074\nx[1]          63.6393     27.174      2.342      0.019      10.376     116.902\nx[2]           7.6219      0.852      8.947      0.000       5.952       9.292\n==============================================================================\nOmnibus:                    96676.465   Durbin-Watson:                   1.966\nProb(Omnibus):                  0.000   Jarque-Bera (JB):      35170734310.851\nSkew:                          56.077   Prob(JB):                         0.00\nKurtosis:                    5355.339   Cond. No.                     1.65e+04\n==============================================================================\n\nNotes:\n[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.\n[2] The condition number is large, 1.65e+04. This might indicate that there are\nstrong multicollinearity or other numerical problems.\n",
+  "context": {
+    "identity": "original-saved",
+    "buildId": "phase4-v1",
+    "createdAt": "2026-11-16T12:58:37.389041+00:00",
+    "inputs": [
+      {
+        "path": "电商-预测用户消费金额-约500行（线性回归模型、模型评估优化）/小红书.ipynb",
+        "sha256": "40650aad9a7d0c531e29b850ac54b77f0e60ad578779d9023c0838ec9163c3ec"
+      },
+      {
+        "path": "电商-预测用户消费金额-约500行（线性回归模型、模型评估优化）/小红书.py",
+        "sha256": "4dc9d8c79cb86e56964ec4588092499050c552333390a33e6dd1f2d50dc18cbb"
+      },
+      {
+        "path": "电商-预测用户消费金额-约500行（线性回归模型、模型评估优化）/redNew.csv",
+        "sha256": "e1a086141c06fc04ec3a4584b962a486ea270986255a9afeab463beda6727ece"
+      }
+    ],
+    "note": "逐单元只读提取原文本；原运行时间未知，本次时间仅为提取时间。",
+    "unit": "原字段单位；未核实单位不补填",
+    "sample": null,
+    "modelRerun": false
+  }
+}

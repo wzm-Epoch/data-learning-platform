@@ -1,0 +1,201 @@
+{
+  "id": "P10",
+  "title": "二手房房价分析和预测房价",
+  "originalNames": [
+    "房地产-二手房房价分析和预测-约300行(多元线性回归)",
+    "二手房房价分析和预测房价.ipynb"
+  ],
+  "categoryId": "property",
+  "summary": "将户型等特征数值化，构建二手房总价线性回归。",
+  "difficulty": "进阶",
+  "skillTags": [
+    "Pandas",
+    "NumPy",
+    "Matplotlib",
+    "Scikit-learn",
+    "Statsmodels",
+    "One-Hot",
+    "线性回归",
+    "模型评估"
+  ],
+  "methods": "LinearRegression、statsmodels.OLS；单变量及多变量回归、特征组合搜索",
+  "sourceRefs": [
+    {
+      "path": "房地产-二手房房价分析和预测-约300行(多元线性回归)/.ipynb_checkpoints/二手房房价分析和预测房价-checkpoint.ipynb",
+      "sha256": "caf6d6c3c48cce8585ee6470fe71cea841c0022abcbf6841f3678be4521323f2",
+      "role": "code"
+    },
+    {
+      "path": "房地产-二手房房价分析和预测-约300行(多元线性回归)/data.png",
+      "sha256": "8449adc765c9442325b8921c26b27edb3c855b39c4af1aca0af8f1e69c551701",
+      "role": "output"
+    },
+    {
+      "path": "房地产-二手房房价分析和预测-约300行(多元线性回归)/house_information.csv",
+      "sha256": "91ed525f82fb2f74add0bc00173c8d4599759dc448dc1c242de1c9b0de4263d5",
+      "role": "data"
+    },
+    {
+      "path": "房地产-二手房房价分析和预测-约300行(多元线性回归)/二手房房价分析和预测房价.html",
+      "sha256": "1a93fec4973e4d34dd4291b3602b158947912338056584e7635e0396f04a773d",
+      "role": "output"
+    },
+    {
+      "path": "房地产-二手房房价分析和预测-约300行(多元线性回归)/二手房房价分析和预测房价.ipynb",
+      "sha256": "caf6d6c3c48cce8585ee6470fe71cea841c0022abcbf6841f3678be4521323f2",
+      "role": "code"
+    },
+    {
+      "path": "房地产-二手房房价分析和预测-约300行(多元线性回归)/二手房房价分析和预测房价.py",
+      "sha256": "95959ec33bde8fedf9c1ba1e8b7582592038548e8c9986e73d7297213dc7e7c6",
+      "role": "code"
+    }
+  ],
+  "limitations": [
+    "OLS解释有错误：[0.025,0.975]是95%区间；Std.Err是标准误；特征组合及测试集复用需审查；样本城市及采集期没有可靠独立来源说明。"
+  ],
+  "lessons": [
+    {
+      "id": "main-analysis",
+      "title": "二手房房价分析和预测房价",
+      "source": "房地产-二手房房价分析和预测-约300行(多元线性回归)/二手房房价分析和预测房价.ipynb"
+    }
+  ],
+  "readiness": {
+    "source": "audited",
+    "course": "not-adapted",
+    "rerun": "not-run",
+    "offline": "not-packaged"
+  },
+  "detailRef": "projects/P10/project.json",
+  "searchKeywords": [
+    "认识房价目标与单位",
+    "拆分户型",
+    "学习基准类别编码",
+    "面积单变量基线",
+    "多变量评估",
+    "审查OLS文字",
+    "比较特征选择与过拟合",
+    "解释示例价格"
+  ],
+  "prerequisites": "回归、类别编码、训练测试集、基础统计推断。",
+  "recommendedProjectIds": [
+    "P11"
+  ],
+  "recommendationNote": "P11。",
+  "schemaVersion": "1.0",
+  "contentVersion": "0.2.0",
+  "learningObjectives": [
+    "将户型等特征数值化，构建二手房总价线性回归。 重点掌握Pandas、NumPy、Matplotlib、Scikit-learn、Statsmodels、One-Hot、线性回归、模型评估。",
+    "认识房价目标与单位",
+    "拆分户型",
+    "学习基准类别编码",
+    "面积单变量基线",
+    "多变量评估",
+    "审查OLS文字",
+    "比较特征选择与过拟合",
+    "解释示例价格"
+  ],
+  "exercise": {
+    "text": "解释R²不等于正确率；指出回归系数与因果效应的区别。",
+    "provenance": "已批准路线中新设计的巩固练习；非原文件已有试题",
+    "answerStatus": "参考答案尚未制作"
+  },
+  "datasets": [
+    {
+      "id": "D01-1",
+      "path": "房地产-二手房房价分析和预测-约300行(多元线性回归)/house_information.csv",
+      "sha256": "91ed525f82fb2f74add0bc00173c8d4599759dc448dc1c242de1c9b0de4263d5",
+      "sheet": null,
+      "rows": 5830,
+      "columns": 9,
+      "encoding": "utf-8-sig",
+      "grain": "待核实；读取行数不等于独立业务实体数",
+      "origin": null,
+      "license": null,
+      "fields": [
+        {
+          "name": "index",
+          "dtype": "int64",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P10 / 房地产-二手房房价分析和预测-约300行(多元线性回归)/house_information.csv"
+        },
+        {
+          "name": "单价",
+          "dtype": "str",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P10 / 房地产-二手房房价分析和预测-约300行(多元线性回归)/house_information.csv"
+        },
+        {
+          "name": "小区名称",
+          "dtype": "str",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P10 / 房地产-二手房房价分析和预测-约300行(多元线性回归)/house_information.csv"
+        },
+        {
+          "name": "建筑面积",
+          "dtype": "str",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P10 / 房地产-二手房房价分析和预测-约300行(多元线性回归)/house_information.csv"
+        },
+        {
+          "name": "户型",
+          "dtype": "str",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P10 / 房地产-二手房房价分析和预测-约300行(多元线性回归)/house_information.csv"
+        },
+        {
+          "name": "房屋总价",
+          "dtype": "str",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P10 / 房地产-二手房房价分析和预测-约300行(多元线性回归)/house_information.csv"
+        },
+        {
+          "name": "朝向",
+          "dtype": "str",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P10 / 房地产-二手房房价分析和预测-约300行(多元线性回归)/house_information.csv"
+        },
+        {
+          "name": "楼层",
+          "dtype": "str",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P10 / 房地产-二手房房价分析和预测-约300行(多元线性回归)/house_information.csv"
+        },
+        {
+          "name": "装修",
+          "dtype": "str",
+          "missing": 0,
+          "meaning": null,
+          "unit": null,
+          "evidence": "文件与字段审计.json / P10 / 房地产-二手房房价分析和预测-约300行(多元线性回归)/house_information.csv"
+        }
+      ],
+      "teachingMappings": []
+    }
+  ],
+  "scopeNotes": [],
+  "originalWorkflow": "字段变换→面积总价散点→单变量拟合→多变量切分拟合→OLS→组合搜索→示例预测。",
+  "savedResult": "原保存多元回归测试R²0.763914，后续约0.764511；示例房源输出约811.493，单位沿原总价万元。",
+  "sourceEvidence": [
+    "01_项目资产盘点.md#P10",
+    "03_完整学习路线.md#P10",
+    "附录B_全数据字段与缺失字典.md#P10"
+  ]
+}
